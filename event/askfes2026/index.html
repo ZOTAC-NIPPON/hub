@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZOTAC NIPPON at ASK FES 2026 | カタログ・資料ダウンロード</title>
+
+<!-- OGP — deployed 2026-03-17 -->
+<link rel="canonical" href="https://hub.zotac.co.jp/event/askfes2026/">
+
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="ZOTAC NIPPON">
+<meta property="og:title"       content="ZOTAC NIPPON at ASK FES 2026 | カタログ・資料ダウンロード">
+<meta property="og:description" content="ASK FES 2026 ブース#6。ZOTACのGPU・ZBOX資料、製品情報をまとめてチェックできます。">
+<meta property="og:url"         content="https://hub.zotac.co.jp/event/askfes2026/">
+<meta property="og:image"       content="https://hub.zotac.co.jp/event/askfes2026/ogp.jpg">
+<meta property="og:locale"      content="ja_JP">
+
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="ZOTAC NIPPON at ASK FES 2026 | カタログ・資料ダウンロード">
+<meta name="twitter:description" content="ASK FES 2026 ブース#6。ZOTACのGPU・ZBOX資料、製品情報をまとめてチェックできます。">
+<meta name="twitter:image"       content="https://hub.zotac.co.jp/event/askfes2026/ogp.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --zotac-yellow: #FFD400;
+    --zotac-soft-black: #414042;
+    --zotac-dark-gray: #58595B;
+    --zotac-mid-gray: #6D6E71;
+    --zotac-light-gray: #B1B3B6;
+    --zg-dark: #2A2F32;
+    --zg-gray: #58636D;
+    --zg-sand: #D7D3CD;
+    --zg-yellow: #FFF200;
+    --white: #FFFFFF;
+    --bg: #1a1a1b;
+    --surface: #252527;
+    --surface2: #2e2e30;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(255,212,0,0.08) 0%, transparent 60%),
+      linear-gradient(160deg, #1a1a1b 0%, #2A2F32 50%, #1a1a1b 100%);
+    z-index: 0;
+  }
+
+  .hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,212,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,212,0,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--zotac-yellow);
+    z-index: 2;
+  }
+
+  /* 2カラムラッパー */
+  .hero-inner {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    min-height: 100vh;
+    padding: 120px 80px 80px 80px;
+    gap: 60px;
+  }
+
+  /* 左カラム */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--zotac-yellow);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 10vw, 130px);
+    line-height: 0.85;
+    letter-spacing: 0.01em;
+    color: var(--white);
+    margin-bottom: 0;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.25s forwards;
+  }
+
+  .title-line {
+    display: block;
+    transform-origin: left center;
+  }
+
+  .hero-title .accent {
+    color: var(--zotac-yellow);
+  }
+
+  /* PLATINUM SPONSOR → 小バッジに降格 */
+  .hero-sponsor-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.38s forwards;
+  }
+
+  .hero-sponsor-badge::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--zotac-yellow);
+  }
+
+  .hero-sponsor-badge span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--zotac-yellow);
+  }
+
+  .hero-subtitle {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--zotac-light-gray);
+    margin-bottom: 40px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.5s forwards;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.62s forwards;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero-meta-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--zotac-mid-gray);
+  }
+
+  .hero-meta-value {
+    font-family: 'Bebas Neue', 'Noto Sans JP', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    color: var(--white);
+  }
+
+  .hero-meta-value.highlight {
+    color: var(--zotac-yellow);
+  }
+
+  /* 右カラム：静かなショートナビ */
+  .hero-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.9s forwards;
+    padding-top: 40px;
+  }
+
+  .hero-nav-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--zotac-dark-gray);
+    margin-bottom: 20px;
+    padding-left: 16px;
+  }
+
+  .hero-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 16px;
+    border-left: 1px solid rgba(255,255,255,0.05);
+    text-decoration: none;
+    color: var(--zotac-dark-gray);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+  .hero-nav-item::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 1px;
+    height: 0;
+    background: var(--zotac-yellow);
+    transition: height 0.25s ease;
+  }
+
+  .hero-nav-item:hover {
+    color: var(--zotac-light-gray);
+    padding-left: 22px;
+  }
+
+  .hero-nav-item:hover::before {
+    height: 100%;
+  }
+
+  .hero-nav-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: rgba(109,110,113,0.4);
+    width: 18px;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+  }
+
+  .hero-nav-item:hover .hero-nav-num {
+    color: var(--zotac-yellow);
+  }
+
+  .hero-nav-text {
+    flex: 1;
+  }
+
+  .hero-nav-text .nav-en {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.04em;
+    transition: color 0.2s ease;
+  }
+
+  .hero-nav-item:hover .nav-en {
+    color: var(--white);
+  }
+
+  .hero-nav-text .nav-jp {
+    display: block;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    color: rgba(109,110,113,0.5);
+    margin-top: 1px;
+    transition: color 0.2s ease;
+  }
+
+  .hero-nav-item:hover .nav-jp {
+    color: var(--zotac-mid-gray);
+  }
+
+  .hero-nav-arrow {
+    font-size: 11px;
+    color: rgba(109,110,113,0.3);
+    transition: all 0.2s ease;
+  }
+
+  .hero-nav-item:hover .hero-nav-arrow {
+    color: var(--zotac-yellow);
+    transform: translateX(3px);
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--zotac-mid-gray);
+    opacity: 0;
+    animation: fadeIn 1s ease 1.2s forwards;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--zotac-mid-gray);
+  }
+
+  /* ─── SECTION COMMON ─── */
+  section {
+    padding: 100px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: 56px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--zotac-yellow);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4vw, 56px);
+    letter-spacing: 0.03em;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .section-title .jp {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.55em;
+    font-weight: 900;
+    display: block;
+    margin-top: 8px;
+    color: var(--zotac-light-gray);
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── DIVIDER ─── */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 0 60px;
+    max-width: calc(1200px - 120px);
+    margin-inline: auto;
+  }
+
+  /* ─── CATALOG CARDS ─── */
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .catalog-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .catalog-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,212,0,0.3);
+  }
+
+  .catalog-card.zg {
+    border-top: 3px solid var(--zg-yellow);
+  }
+
+  .catalog-card.zbox {
+    border-top: 3px solid var(--zotac-yellow);
+  }
+
+  .catalog-card.disabled {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .card-image {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    filter: brightness(0.85) contrast(1.05);
+    transition: filter 0.3s ease;
+  }
+
+  .catalog-card:hover .card-image img {
+    filter: brightness(1) contrast(1);
+  }
+
+  .card-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--zotac-mid-gray);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .card-image-placeholder .placeholder-icon {
+    font-size: 32px;
+    opacity: 0.4;
+  }
+
+  .card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .card-actions {
+    margin-top: auto;
+    display: flex;
+  }
+
+  .card-category {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--zotac-mid-gray);
+  }
+
+  .card-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    width: 100%;
+  }
+
+  .btn-primary {
+    background: var(--zotac-yellow);
+    color: #111;
+  }
+
+  .btn-primary:hover {
+    background: #ffe033;
+    transform: translateX(2px);
+  }
+
+  .btn-primary.zg {
+    background: var(--zg-yellow);
+    color: #111;
+  }
+
+  .btn-primary.zg:hover {
+    background: #ffef33;
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--zotac-light-gray);
+    border: 1px solid var(--border);
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(255,255,255,0.3);
+    color: var(--white);
+  }
+
+  .btn-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .card-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 2px;
+    background: rgba(255,212,0,0.15);
+    color: var(--zotac-yellow);
+    border: 1px solid rgba(255,212,0,0.3);
+  }
+
+  .coming-soon-label {
+    font-size: 11px;
+    color: var(--zotac-mid-gray);
+    font-style: italic;
+  }
+
+  /* ─── PRODUCT LINKS ─── */
+  .product-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .product-link-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--white);
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-link-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,212,0,0.04));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .product-link-card:hover {
+    border-color: rgba(255,212,0,0.25);
+    transform: translateX(4px);
+  }
+
+  .product-link-card:hover::after {
+    opacity: 1;
+  }
+
+  .product-link-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--surface2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--zotac-yellow);
+  }
+
+  .product-link-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .product-link-text .link-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+
+  .product-link-text .link-desc {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--zotac-mid-gray);
+  }
+
+  .product-link-arrow {
+    margin-left: auto;
+    color: var(--zotac-mid-gray);
+    font-size: 18px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .product-link-card:hover .product-link-arrow {
+    transform: translateX(4px);
+    color: var(--zotac-yellow);
+  }
+
+  /* ─── TRIAL PROGRAM ─── */
+  .lending-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--zotac-yellow);
+    border-radius: 0 4px 4px 0;
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .lending-text {
+    flex: 1;
+  }
+
+  .lending-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .lending-desc {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--zotac-light-gray);
+    line-height: 1.8;
+  }
+
+  .lending-cta {
+    flex-shrink: 0;
+  }
+
+  .btn-lending {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--zotac-yellow);
+    color: #111;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn-lending:hover {
+    background: #ffe033;
+    transform: translateX(2px);
+  }
+
+  /* ─── VIDEO SECTION ─── */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+
+  .video-embed-wrapper {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: var(--surface);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .video-embed-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--surface);
+    color: var(--zotac-mid-gray);
+  }
+
+  .video-placeholder-icon {
+    font-size: 40px;
+    opacity: 0.4;
+  }
+
+  .video-placeholder-text {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .video-title {
+    margin-top: 14px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--zotac-light-gray);
+  }
+
+  /* ─── ABOUT / BOOTH INFO ─── */
+  .booth-info-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--zotac-yellow);
+    border-radius: 0 4px 4px 0;
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .booth-info-item {
+    padding: 0 40px;
+    border-right: 1px solid var(--border);
+  }
+
+  .booth-info-item:first-child {
+    padding-left: 48px;
+  }
+
+  .booth-info-item:last-child {
+    border-right: none;
+    padding-right: 48px;
+  }
+
+  .booth-info-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--zotac-yellow);
+    margin-bottom: 8px;
+  }
+
+  .booth-info-value {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
+
+  .booth-info-sub {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--zotac-mid-gray);
+    margin-top: 4px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 48px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-logo-area {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .footer-logo {
+    height: 28px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+    object-position: left;
+  }
+
+  .footer-logo-placeholder {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    color: var(--zotac-yellow);
+  }
+
+  .footer-tagline {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--zotac-mid-gray);
+  }
+
+  .footer-contact {
+    margin-top: 0;
+  }
+
+  .footer-contact a {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--zotac-mid-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-contact a:hover {
+    color: var(--zotac-yellow);
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-event-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .footer-legal {
+    font-size: 11px;
+    color: var(--zotac-mid-gray);
+    line-height: 1.8;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; padding: 80px 24px 60px 36px; gap: 48px; min-height: auto; }
+    .hero-nav { display: none; }
+    section { padding: 72px 24px; }
+    .section-divider { margin-inline: 24px; }
+    .catalog-grid { grid-template-columns: 1fr; }
+    .booth-info-block { grid-template-columns: 1fr; padding: 28px 24px; }
+    .booth-info-item { padding: 0 0 20px 0; margin: 0; border-right: none; border-bottom: 1px solid var(--border); }
+    .booth-info-item:first-child { padding-left: 0; }
+    .booth-info-item:last-child { border-bottom: none; padding-bottom: 0; padding-right: 0; }
+    footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    .footer-right { text-align: left; }
+    .hero-meta { gap: 24px; }
+    .hero-scroll-hint { display: none; }
+    .lending-block { flex-direction: column; padding: 28px 24px; gap: 24px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-accent-line"></div>
+
+  <div class="hero-inner">
+
+    <!-- 左カラム：タイトル・情報 -->
+    <div class="hero-content">
+      <p class="hero-eyebrow">ZOTAC at ASK FES 2026</p>
+      <h1 class="hero-title">ZOTAC</h1>
+      <div class="hero-sponsor-badge">
+        <span>Platinum Sponsor — Booth #6</span>
+      </div>
+      <p class="hero-subtitle">
+        会場でスキャン、あとでじっくり。<br>
+        カタログ・製品資料をまとめてチェックできます。
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Date</span>
+          <span class="hero-meta-value">APR 3–5, 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Venue</span>
+          <span class="hero-meta-value">秋葉原 UDX</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Booth</span>
+          <span class="hero-meta-value highlight">#6</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右カラム：静かなショートナビ -->
+    <div class="hero-nav">
+      <p class="hero-nav-label">Contents</p>
+
+      <a href="#catalogs" class="hero-nav-item">
+        <span class="hero-nav-num">01</span>
+        <span class="hero-nav-text">
+          <span class="nav-en">Catalogs</span>
+          <span class="nav-jp">カタログ・資料ダウンロード</span>
+        </span>
+        <span class="hero-nav-arrow">→</span>
+      </a>
+
+      <a href="#products" class="hero-nav-item">
+        <span class="hero-nav-num">02</span>
+        <span class="hero-nav-text">
+          <span class="nav-en">Product Pages</span>
+          <span class="nav-jp">製品ページ</span>
+        </span>
+        <span class="hero-nav-arrow">→</span>
+      </a>
+
+      <a href="#trial" class="hero-nav-item">
+        <span class="hero-nav-num">03</span>
+        <span class="hero-nav-text">
+          <span class="nav-en">Trial Program</span>
+          <span class="nav-jp">機材貸出プログラム</span>
+        </span>
+        <span class="hero-nav-arrow">→</span>
+      </a>
+
+      <a href="#shop" class="hero-nav-item">
+        <span class="hero-nav-num">04</span>
+        <span class="hero-nav-text">
+          <span class="nav-en">Direct Shop</span>
+          <span class="nav-jp">ZOTAC Direct</span>
+        </span>
+        <span class="hero-nav-arrow">→</span>
+      </a>
+
+      <a href="#videos" class="hero-nav-item">
+        <span class="hero-nav-num">05</span>
+        <span class="hero-nav-text">
+          <span class="nav-en">Videos</span>
+          <span class="nav-jp">製品PV映像</span>
+        </span>
+        <span class="hero-nav-arrow">→</span>
+      </a>
+
+      <a href="#booth" class="hero-nav-item">
+        <span class="hero-nav-num">06</span>
+        <span class="hero-nav-text">
+          <span class="nav-en">Event Info</span>
+          <span class="nav-jp">イベント概要</span>
+        </span>
+        <span class="hero-nav-arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span class="scroll-line"></span>
+    Scroll to explore
+  </div>
+</div>
+
+<!-- ═══════════════════ CATALOGS ═══════════════════ -->
+<section id="catalogs">
+  <div class="section-header">
+    <p class="section-eyebrow">Documents</p>
+    <h2 class="section-title">
+      CATALOGS &amp; BROCHURES
+      <span class="jp">カタログ・資料ダウンロード</span>
+    </h2>
+  </div>
+
+  <div class="catalog-grid">
+
+    <!-- 1: RTX 50シリーズ 総合カタログ -->
+    <div class="catalog-card zg">
+      <div class="card-image">
+        <img src="./images/rtx50_catalog_cover.jpg" alt="RTX 50シリーズ 総合カタログ" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🎮</span><span>RTX 50 SERIES</span></div>'">
+        <span class="card-tag">英語版</span>
+      </div>
+      <div class="card-body">
+        <p class="card-category">グラフィックスカード</p>
+        <h3 class="card-title">RTX 50シリーズ 総合カタログ</h3>
+        <div class="card-actions">
+          <a href="./pdfs/GeForce%20RTX%2050%20Series%20-%20VGA%20Catalog_OCT.pdf" class="btn btn-primary zg" target="_blank" rel="noopener">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+            PDF ダウンロード
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2: ZBOX 総合カタログ -->
+    <div class="catalog-card zbox">
+      <div class="card-image">
+        <img src="./images/zbox_catalog_cover.jpg" alt="ZBOX 総合カタログ" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🖥️</span><span>ZBOX CATALOG</span></div>'">
+        <span class="card-tag">英語版</span>
+      </div>
+      <div class="card-body">
+        <p class="card-category">小型デスクトップPC</p>
+        <h3 class="card-title">ZBOX 総合カタログ</h3>
+        <div class="card-actions">
+          <a href="./pdfs/ZBOX%20catalog_Jan2026.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+            PDF ダウンロード
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3: ZBOX 注目モデル -->
+    <div class="catalog-card zbox">
+      <div class="card-image">
+        <img src="./images/zbox_feature_cover.jpg" alt="ZBOX 注目モデル" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>⭐</span><span>ZBOX FEATURE</span></div>'">
+      </div>
+      <div class="card-body">
+        <p class="card-category">小型デスクトップPC — 注目モデル</p>
+        <h3 class="card-title">ZBOX 注目モデル</h3>
+        <div class="card-actions">
+          <a href="./pdfs/ZBOX%20catalog_feature_2603.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+            PDF ダウンロード
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4: ZBOX MAGNUS ONE 単体チラシ -->
+    <div class="catalog-card zbox">
+      <div class="card-image">
+        <img src="./images/magnus_one_flyer_cover.jpg" alt="ZBOX MAGNUS ONE チラシ" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🖥️</span><span>MAGNUS ONE</span></div>'">
+      </div>
+      <div class="card-body">
+        <p class="card-category">世界最小クラス — RTX 5070 Ti / 5070 ミニPC</p>
+        <h3 class="card-title">ZBOX MAGNUS ONE</h3>
+        <div class="card-actions">
+          <a href="./pdfs/magnus_one_flyer.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+            PDF ダウンロード
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5: ZBOX MAGNUS EN 単体チラシ -->
+    <div class="catalog-card zbox">
+      <div class="card-image">
+        <img src="./images/magnus_en_flyer_cover.jpg" alt="ZBOX MAGNUS EN チラシ" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>💼</span><span>MAGNUS EN</span></div>'">
+      </div>
+      <div class="card-body">
+        <p class="card-category">世界最小クラス — RTX 5060 Ti ミニPC</p>
+        <h3 class="card-title">ZBOX MAGNUS EN</h3>
+        <div class="card-actions">
+          <a href="./pdfs/magnus_en_flyer.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+            PDF ダウンロード
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ PRODUCT LINKS ═══════════════════ -->
+<section id="products">
+  <div class="section-header">
+    <p class="section-eyebrow">Official Pages</p>
+    <h2 class="section-title">
+      PRODUCT PAGES
+      <span class="jp">製品ページ</span>
+    </h2>
+  </div>
+
+  <div class="product-links-grid">
+    <a href="https://www.zotac.com/jp/page/zotac-gaming-geforce-rtx-50-series" class="product-link-card" target="_blank" rel="noopener">
+      <div class="product-link-icon"><i data-lucide="monitor" stroke-width="1.5"></i></div>
+      <div class="product-link-text">
+        <div class="link-title">ZOTAC GAMING — GPU</div>
+        <div class="link-desc">RTX 50シリーズ 製品ページ</div>
+      </div>
+      <span class="product-link-arrow">→</span>
+    </a>
+
+    <a href="https://www.zotac.com/jp/product/mini_pcs/magnus-one-eu27507tc-barebone" class="product-link-card" target="_blank" rel="noopener">
+      <div class="product-link-icon"><i data-lucide="pc-case" stroke-width="1.5"></i></div>
+      <div class="product-link-text">
+        <div class="link-title">ZBOX MAGNUS ONE</div>
+        <div class="link-desc">製品詳細・スペック</div>
+      </div>
+      <span class="product-link-arrow">→</span>
+    </a>
+
+    <a href="https://www.zotac.com/jp/product/mini_pcs/magnus-en275060tc-barebone" class="product-link-card" target="_blank" rel="noopener">
+      <div class="product-link-icon"><i data-lucide="pc-case" stroke-width="1.5"></i></div>
+      <div class="product-link-text">
+        <div class="link-title">ZBOX MAGNUS EN</div>
+        <div class="link-desc">製品詳細・スペック</div>
+      </div>
+      <span class="product-link-arrow">→</span>
+    </a>
+
+    <a href="https://www.zotac.com/jp" class="product-link-card" target="_blank" rel="noopener">
+      <div class="product-link-icon"><i data-lucide="globe" stroke-width="1.5"></i></div>
+      <div class="product-link-text">
+        <div class="link-title">ZOTAC公式サイト</div>
+        <div class="link-desc">全製品ラインナップ</div>
+      </div>
+      <span class="product-link-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ TRIAL PROGRAM ═══════════════════ -->
+<section id="trial">
+  <div class="section-header">
+    <p class="section-eyebrow">For Business &amp; Education</p>
+    <h2 class="section-title">
+      TRIAL PROGRAM
+      <span class="jp">機材貸出プログラム</span>
+    </h2>
+  </div>
+
+  <div class="lending-block">
+    <div class="lending-text">
+      <p class="lending-title">法人・教育機関向け 無償貸出</p>
+      <p class="lending-desc">ZOTAC製品の評価・検証・教育利用を目的とした機材貸出プログラムです。<br>GPU、ミニPC等の貸出についてはお気軽にご相談ください。</p>
+    </div>
+    <div class="lending-cta">
+      <a href="https://www.zotac.com/jp/page/trial-program" class="btn-lending" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+        詳細・お申込み
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ DIRECT SHOP ═══════════════════ -->
+<section id="shop">
+  <div class="section-header">
+    <p class="section-eyebrow">Online Store</p>
+    <h2 class="section-title">
+      DIRECT SHOP
+      <span class="jp">ZBOXのお買い求め・ご相談</span>
+    </h2>
+  </div>
+
+  <div class="lending-block">
+    <div class="lending-text">
+      <p class="lending-title">ZOTAC Direct</p>
+      <p class="lending-desc">ZBOX製品のご購入・ご相談は ZOTAC 公式オンラインストアへ。<br>構成のご相談もお気軽にどうぞ。</p>
+    </div>
+    <div class="lending-cta">
+      <a href="https://zotac.co.jp/" class="btn-lending" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        ZOTAC Direct へ
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ VIDEOS ═══════════════════ -->
+<section id="videos">
+  <div class="section-header">
+    <p class="section-eyebrow">Product PV</p>
+    <h2 class="section-title">
+      VIDEOS
+      <span class="jp">製品PV映像</span>
+    </h2>
+  </div>
+
+  <div class="video-grid">
+
+    <!-- PV 1: RTX 50 Series -->
+    <div>
+      <div class="video-embed-wrapper">
+        <iframe src="https://www.youtube.com/embed/BM-mE1zx8uY" title="ZOTAC GAMING RTX 50 Series" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="video-title">ZOTAC GAMING GeForce RTX 50 Series — Official PV</p>
+    </div>
+
+    <!-- PV 2: ZBOX E Series (MAGNUS ONE / EN) -->
+    <div>
+      <div class="video-embed-wrapper">
+        <iframe src="https://www.youtube.com/embed/fRqgAXG32VA" title="ZBOX E Series — MAGNUS ONE / EN" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="video-title">ZBOX E Series — MAGNUS ONE / MAGNUS EN Product Video</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ BOOTH INFO ═══════════════════ -->
+<section id="booth">
+  <div class="section-header">
+    <p class="section-eyebrow">Event Info</p>
+    <h2 class="section-title">
+      ASK FES 2026
+      <span class="jp">イベント概要</span>
+    </h2>
+  </div>
+
+  <div class="booth-info-block">
+    <div class="booth-info-item">
+      <p class="booth-info-label">Event</p>
+      <p class="booth-info-value">ASK FES 2026</p>
+      <p class="booth-info-sub">株式会社アスク 主催</p>
+    </div>
+    <div class="booth-info-item">
+      <p class="booth-info-label">Venue</p>
+      <p class="booth-info-value">秋葉原 UDX</p>
+      <p class="booth-info-sub">東京都千代田区外神田4-14-1</p>
+    </div>
+    <div class="booth-info-item">
+      <p class="booth-info-label">ZOTAC Booth</p>
+      <p class="booth-info-value">BOOTH #6</p>
+      <p class="booth-info-sub">プラチナスポンサー<br>ステージ登壇: 4月5日 14:20〜</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ CONNECT ═══════════════════ -->
+<section id="connect">
+  <div class="section-header">
+    <p class="section-eyebrow">Stay Connected</p>
+    <h2 class="section-title">
+      CONNECT
+      <span class="jp">アンケート・フォロー</span>
+    </h2>
+  </div>
+
+  <div class="product-links-grid">
+    <a href="https://forms.office.com/r/4ELMR8HJCC" class="product-link-card" target="_blank" rel="noopener">
+      <div class="product-link-icon"><i data-lucide="clipboard-list" stroke-width="1.5"></i></div>
+      <div class="product-link-text">
+        <div class="link-title">ブースアンケート</div>
+        <div class="link-desc">ご来場の感想をお聞かせください</div>
+      </div>
+      <span class="product-link-arrow">→</span>
+    </a>
+
+    <a href="https://x.com/ZOTAC_JAPAN" class="product-link-card" target="_blank" rel="noopener">
+      <div class="product-link-icon"><i data-lucide="twitter" stroke-width="1.5"></i></div>
+      <div class="product-link-text">
+        <div class="link-title">@ZOTAC_JAPAN</div>
+        <div class="link-desc">最新情報はXでチェック</div>
+      </div>
+      <span class="product-link-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-logo-area">
+    <img src="./images/ZOTAC_white.png" alt="ZOTAC" class="footer-logo" onerror="this.outerHTML='<span class=\'footer-logo-placeholder\'>ZOTAC NIPPON</span>'">
+    <p class="footer-tagline">株式会社ゾタック日本</p>
+    <p class="footer-contact"><a href="https://www.zotac.com/jp/support#contact" target="_blank" rel="noopener">お問い合わせ</a></p>
+  </div>
+  <div class="footer-right">
+    <p class="footer-event-name">ASK FES 2026 — Booth #6</p>
+    <p class="footer-legal">
+      © 2026 ZOTAC Nippon Co., Ltd. All rights reserved.<br>
+      本ページに掲載の製品名・社名は各社の商標または登録商標です。
+    </p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@0.577.0"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>
