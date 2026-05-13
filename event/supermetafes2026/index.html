@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZOTAC NIPPON at 超メタフェス2026 | VRChat GPU検証・カタログ</title>
+
+<!-- OGP -->
+<link rel="canonical" href="https://hub.zotac.co.jp/event/supermetafes2026/">
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="ZOTAC NIPPON">
+<meta property="og:title"       content="ZOTAC NIPPON at 超メタフェス2026 | VRChat GPU検証・カタログ">
+<meta property="og:description" content="超メタフェス2026 ZOTACブース。MeganeX 8K × RTX 50シリーズ GPU比較検証、カタログ・製品情報をまとめてチェック。">
+<meta property="og:url"         content="https://hub.zotac.co.jp/event/supermetafes2026/">
+<meta property="og:image"       content="https://hub.zotac.co.jp/event/supermetafes2026/ogp.jpg">
+<meta property="og:locale"      content="ja_JP">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="ZOTAC NIPPON at 超メタフェス2026 | VRChat GPU検証・カタログ">
+<meta name="twitter:description" content="超メタフェス2026 ZOTACブース。MeganeX 8K × RTX 50シリーズ GPU比較検証、カタログ・製品情報をまとめてチェック。">
+<meta name="twitter:image"       content="https://hub.zotac.co.jp/event/supermetafes2026/ogp.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --zotac-yellow: #FFD400;
+    --zotac-yellow-light: #FFF3B8;
+    --zotac-yellow-bg: #FFFBEB;
+    --zotac-dark: #2A2F32;
+    --zotac-mid-gray: #6D6E71;
+    --zotac-light-gray: #B1B3B6;
+    --bg: #FAF8F4;
+    --bg-warm: #F5F0E8;
+    --white: #FFFFFF;
+    --surface: #FFFFFF;
+    --surface2: #F5F3EF;
+    --text-primary: #2A2F32;
+    --text-secondary: #58595B;
+    --text-muted: #8E8E93;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.14);
+    --accent-orange: #FF8C42;
+    --accent-green: #6BBF59;
+    --accent-pink: #E8729A;
+    --accent-blue: #5BA4CF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ══════════════════════════════════════════
+     1. HERO — VR抽象空間
+     ══════════════════════════════════════════ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 30%, rgba(255,212,0,0.10) 0%, transparent 60%),
+      linear-gradient(170deg, #FFFDF5 0%, #FFF8DC 35%, var(--bg) 75%);
+    z-index: 0;
+  }
+
+  /* 遠近パースグリッド */
+  .hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,212,0,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,212,0,0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 60% at 65% 45%, black 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 65% 45%, black 0%, transparent 70%);
+  }
+
+  /* HUD風ワイヤーフレームリング */
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    top: 8%;
+    right: -5%;
+    border-radius: 50%;
+    border: 1px solid rgba(255,212,0,0.12);
+    z-index: 1;
+    pointer-events: none;
+    box-shadow:
+      inset 0 0 0 40px transparent,
+      inset 0 0 0 41px rgba(255,212,0,0.06);
+    animation: heroRingSpin 60s linear infinite;
+  }
+
+  @keyframes heroRingSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* HUD十字マーカー */
+  .hero-hud-markers {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .hero-hud-markers::before,
+  .hero-hud-markers::after {
+    content: '+';
+    position: absolute;
+    font-family: 'DM Sans', monospace;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,212,0,0.20);
+    letter-spacing: 0;
+  }
+
+  .hero-hud-markers::before { top: 18%; left: 12%; }
+  .hero-hud-markers::after { top: 65%; right: 18%; font-size: 18px; color: rgba(177,179,182,0.20); }
+
+  /* HUD細線 */
+  .hero-hud-line {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-hud-line--top {
+    top: 15%;
+    left: 5%;
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,212,0,0.15), transparent);
+  }
+
+  .hero-hud-line--right {
+    top: 30%;
+    right: 8%;
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(180deg, transparent, rgba(177,179,182,0.15), transparent);
+  }
+
+  /* 追加HUD要素 — 下半分の密度補填 */
+  .hero-hud-line--bottom-left {
+    bottom: 18%;
+    left: 8%;
+    width: 160px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,212,0,0.12), transparent);
+  }
+
+  .hero-hud-line--bottom-left::after {
+    content: 'PCVR BENCHMARK';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    font-family: 'DM Sans', monospace;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    color: rgba(177,179,182,0.22);
+    white-space: nowrap;
+  }
+
+  .hero-hud-line--bottom-right {
+    bottom: 25%;
+    right: 6%;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(180deg, rgba(255,212,0,0.10), transparent);
+  }
+
+  .hero-hud-line--bottom-right::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 9px;
+    height: 9px;
+    border: 1px solid rgba(255,212,0,0.18);
+    border-radius: 50%;
+  }
+
+  /* コーナーブラケット — 展示パネルのフレーム感 */
+  .hero-corner {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero-corner--bl {
+    bottom: 8%;
+    left: 4%;
+    border-left: 1.5px solid rgba(255,212,0,0.15);
+    border-bottom: 1.5px solid rgba(255,212,0,0.15);
+  }
+
+  .hero-corner--br {
+    bottom: 8%;
+    right: 4%;
+    border-right: 1.5px solid rgba(177,179,182,0.12);
+    border-bottom: 1.5px solid rgba(177,179,182,0.12);
+  }
+
+  /* 微細パーティクル（CSS dots） */
+  .hero-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(1.5px 1.5px at 15% 25%, rgba(255,212,0,0.25) 50%, transparent 50%),
+      radial-gradient(1px 1px at 75% 15%, rgba(177,179,182,0.20) 50%, transparent 50%),
+      radial-gradient(1.5px 1.5px at 85% 60%, rgba(255,212,0,0.18) 50%, transparent 50%),
+      radial-gradient(1px 1px at 25% 70%, rgba(177,179,182,0.15) 50%, transparent 50%),
+      radial-gradient(2px 2px at 60% 80%, rgba(255,212,0,0.12) 50%, transparent 50%),
+      radial-gradient(1px 1px at 45% 35%, rgba(109,110,113,0.12) 50%, transparent 50%);
+  }
+
+  .hero-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--zotac-yellow) 0%, var(--accent-orange) 50%, var(--zotac-yellow) 100%);
+    z-index: 2;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    min-height: 100vh;
+    padding: 120px 80px 60px 80px;
+    gap: 60px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+    /* ステッカー風 */
+    display: inline-block;
+    background: rgba(255,140,66,0.10);
+    padding: 4px 14px;
+    border-radius: 3px;
+    border: 1px solid rgba(255,140,66,0.18);
+    align-self: flex-start;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 10vw, 130px);
+    line-height: 0.85;
+    letter-spacing: 0.01em;
+    color: var(--zotac-dark);
+    margin-bottom: 0;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.25s forwards;
+  }
+
+  .hero-sponsor-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.38s forwards;
+  }
+
+  .hero-sponsor-badge::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--zotac-yellow);
+    border-radius: 2px;
+  }
+
+  .hero-sponsor-badge span {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--text-secondary);
+  }
+
+  .hero-subtitle {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    line-height: 1.9;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.5s forwards;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.62s forwards;
+  }
+
+  .hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+
+  .hero-meta-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .hero-meta-value {
+    font-family: 'Bebas Neue', 'Noto Sans JP', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    color: var(--zotac-dark);
+  }
+
+  .hero-meta-value.highlight { color: var(--accent-orange); }
+
+  /* ─── HERO NAV ─── */
+  .hero-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.9s forwards;
+    padding-top: 40px;
+  }
+
+  .hero-nav-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    padding-left: 16px;
+  }
+
+  .hero-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 18px;
+    border-left: 2px solid rgba(0,0,0,0.06);
+    text-decoration: none;
+    color: var(--text-muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+  .hero-nav-item::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 0;
+    width: 2px;
+    height: 0;
+    background: var(--zotac-yellow);
+    transition: height 0.25s ease;
+  }
+
+  .hero-nav-item:hover {
+    color: var(--text-primary);
+    padding-left: 24px;
+    background: rgba(255,212,0,0.05);
+  }
+
+  .hero-nav-item:hover::before { height: 100%; }
+
+  .hero-nav-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--zotac-light-gray);
+    width: 20px;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+  }
+
+  .hero-nav-item:hover .hero-nav-num { color: var(--accent-orange); }
+  .hero-nav-text { flex: 1; }
+
+  .hero-nav-text .nav-en {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+  }
+
+  .hero-nav-item:hover .nav-en { color: var(--text-primary); }
+
+  .hero-nav-text .nav-jp {
+    display: block;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-top: 2px;
+    transition: color 0.2s ease;
+  }
+
+  .hero-nav-item:hover .nav-jp { color: var(--text-secondary); }
+
+  .hero-nav-arrow {
+    font-size: 14px;
+    color: var(--zotac-light-gray);
+    transition: all 0.2s ease;
+  }
+
+  .hero-nav-item:hover .hero-nav-arrow { color: var(--zotac-yellow); transform: translateX(3px); }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 20px;
+    right: 60px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0;
+    animation: fadeIn 1s ease 1.2s forwards;
+  }
+
+  .scroll-line { width: 40px; height: 1px; background: var(--zotac-light-gray); }
+
+  /* ══════════════════════════════════════════
+     SECTION COMMON
+     ══════════════════════════════════════════ */
+  section {
+    padding: 100px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header { margin-bottom: 56px; }
+
+  /* 5. 見出しステッカー化 */
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    margin-bottom: 14px;
+    display: inline-block;
+    background: var(--white);
+    padding: 5px 14px;
+    border-radius: 3px;
+    border: 1.5px solid var(--border-strong);
+    position: relative;
+    box-shadow: 1px 2px 0 rgba(0,0,0,0.04);
+  }
+
+  /* テープ留め風 */
+  .section-eyebrow::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 16px;
+    width: 28px;
+    height: 8px;
+    background: rgba(255,212,0,0.45);
+    border-radius: 1px;
+    transform: rotate(-2deg);
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4vw, 56px);
+    letter-spacing: 0.03em;
+    color: var(--zotac-dark);
+    line-height: 1;
+  }
+
+  .section-title .jp {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.5em;
+    font-weight: 900;
+    display: block;
+    margin-top: 8px;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+  }
+
+  /* 6. セクション区切り装飾 */
+  .section-divider {
+    width: 100%;
+    max-width: calc(1200px - 120px);
+    margin-inline: auto;
+    height: 28px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-strong) 15%, var(--border-strong) 85%, transparent);
+  }
+
+  /* 星 + ドット装飾 */
+  .section-divider::after {
+    content: '· ✦ ·';
+    position: relative;
+    z-index: 1;
+    background: var(--bg);
+    padding: 0 18px;
+    font-size: 11px;
+    color: var(--accent-orange);
+    letter-spacing: 5px;
+    opacity: 0.6;
+  }
+
+  /* 4. セクション枠 — 帯バンド */
+  .band-yellow {
+    background: linear-gradient(135deg, rgba(255,212,0,0.07) 0%, rgba(255,243,184,0.2) 100%);
+    border-top: 4px solid var(--zotac-yellow);
+    border-bottom: 1px solid rgba(255,212,0,0.15);
+    position: relative;
+  }
+
+  .band-yellow::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255,212,0,0.25);
+  }
+
+  .band-orange {
+    background: linear-gradient(135deg, rgba(255,140,66,0.05) 0%, rgba(255,200,150,0.12) 100%);
+    border-top: 4px solid var(--accent-orange);
+    border-bottom: 1px solid rgba(255,140,66,0.12);
+    position: relative;
+  }
+
+  /* ══════════════════════════════════════════
+     2. SURVEY — イベント参加カード
+     ══════════════════════════════════════════ */
+  .survey-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: var(--white);
+    border: 2px dashed rgba(255,212,0,0.45);
+    border-radius: 12px;
+    padding: 44px 48px;
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 2px 16px rgba(255,212,0,0.06);
+  }
+
+  /* パンチ穴（左） */
+  .survey-block::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--bg);
+    border-radius: 50%;
+    border: 2px dashed rgba(255,212,0,0.45);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  /* パンチ穴（右） */
+  .survey-block::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: var(--bg);
+    border-radius: 50%;
+    border: 2px dashed rgba(255,212,0,0.45);
+    border-right-color: transparent;
+    border-top-color: transparent;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  /* ENTRY PASSラベル */
+  .survey-pass-label {
+    position: absolute;
+    top: -10px;
+    right: 32px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--zotac-dark);
+    background: var(--zotac-yellow);
+    padding: 3px 12px;
+    border-radius: 2px;
+    box-shadow: 0 2px 6px rgba(255,212,0,0.3);
+  }
+
+  /* 整理番号風 */
+  .survey-serial {
+    position: absolute;
+    bottom: 12px;
+    right: 24px;
+    font-family: 'DM Sans', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--zotac-light-gray);
+  }
+
+  .survey-text { flex: 1; }
+
+  .survey-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    background: var(--zotac-yellow);
+    color: var(--zotac-dark);
+    border-radius: 3px;
+    margin-bottom: 14px;
+  }
+
+  .survey-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+
+  .survey-desc {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .survey-cta { flex-shrink: 0; }
+
+  .btn-survey {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: var(--zotac-yellow);
+    color: var(--zotac-dark);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(255,212,0,0.3);
+  }
+
+  .btn-survey:hover {
+    background: #ffe033;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(255,212,0,0.4);
+  }
+
+  /* ══════════════════════════════════════════
+     FEATURED VIDEO
+     ══════════════════════════════════════════ */
+  .featured-video-wrapper {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: var(--surface2);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    width: 100%;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  .featured-video-wrapper iframe { width: 100%; height: 100%; border: none; }
+
+  .featured-video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: linear-gradient(135deg, #2A2F32 0%, #3a3f42 100%);
+    color: var(--zotac-light-gray);
+  }
+
+  .featured-video-placeholder .placeholder-icon { font-size: 48px; opacity: 0.5; }
+  .featured-video-placeholder .placeholder-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.1em;
+    color: var(--zotac-yellow);
+  }
+  .featured-video-placeholder .placeholder-sub {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--zotac-light-gray);
+    max-width: 540px;
+    text-align: center;
+    line-height: 1.7;
+    padding: 0 20px;
+  }
+  .featured-video-placeholder .placeholder-meta {
+    margin-top: 8px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  .featured-video-placeholder .placeholder-meta span::before {
+    content: '·';
+    margin-right: 16px;
+    color: var(--zotac-mid-gray);
+  }
+  .featured-video-placeholder .placeholder-meta span:first-child::before { content: none; }
+
+  .featured-video-caption {
+    margin-top: 32px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .featured-video-specs {
+    margin-top: 24px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .spec-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+  }
+
+  .spec-chip .chip-label { color: var(--text-muted); font-weight: 400; }
+  .spec-chip .chip-value { color: var(--text-primary); font-weight: 600; }
+  .spec-chip.highlight { border-color: rgba(255,212,0,0.5); background: var(--zotac-yellow-bg); }
+  .spec-chip.highlight .chip-value { color: var(--accent-orange); }
+
+  /* ══════════════════════════════════════════
+     2b. PAST EDITION — 過去動画（控えめ・主従明示）
+     ══════════════════════════════════════════ */
+  .past-edition-separator {
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 1px dashed var(--border-strong);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .past-edition-eyebrow {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+  }
+
+  .past-edition-eyebrow .jp {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin-left: 10px;
+    color: var(--text-muted);
+  }
+
+  .past-edition {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+    align-items: start;
+    background: rgba(245, 243, 239, 0.55);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .past-edition-video {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .past-edition-video iframe { width: 100%; height: 100%; border: none; }
+
+  .past-edition-info { padding: 4px 0; }
+
+  .past-edition-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .past-edition-context {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ══════════════════════════════════════════
+     3. CATALOG CARDS — GPUパッケージ + 配布ラック
+     ══════════════════════════════════════════ */
+
+  /* 背景にごく薄い基板風ライン */
+  #catalogs {
+    position: relative;
+  }
+
+  #catalogs::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.035;
+    background-image:
+      linear-gradient(0deg, var(--zotac-dark) 1px, transparent 1px),
+      linear-gradient(90deg, var(--zotac-dark) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent);
+  }
+
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .catalog-card {
+    position: relative;
+    background: var(--white);
+    border: 2px solid var(--border-strong);
+    border-radius: 4px;
+    overflow: visible;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 二重台紙シャドウ — パッケージ箱の重なり感強化 */
+  .catalog-card::before {
+    content: '';
+    position: absolute;
+    inset: 5px -4px -5px 4px;
+    background: var(--bg-warm);
+    border: 1.5px solid rgba(0,0,0,0.08);
+    border-radius: 4px;
+    z-index: -1;
+    transform: rotate(1deg);
+  }
+
+  .catalog-card::after {
+    content: '';
+    position: absolute;
+    inset: 9px -6px -9px 6px;
+    background: var(--surface2);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 4px;
+    z-index: -2;
+    transform: rotate(1.8deg);
+  }
+
+  .catalog-card:hover {
+    transform: translateY(-6px) rotate(-0.3deg);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  }
+
+  /* カードごとのアクセント色 — コレクション感 */
+  .catalog-card.zg { border-top: 4px solid var(--zotac-dark); }
+  .catalog-card.zbox { border-top: 4px solid var(--zotac-yellow); }
+  .catalog-card:nth-child(3) { border-top-color: var(--accent-orange); }
+
+  .card-image {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.3s ease;
+  }
+
+  .catalog-card:hover .card-image img { transform: scale(1.03); }
+
+  .card-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .card-image-placeholder .placeholder-icon { font-size: 32px; opacity: 0.4; }
+
+  /* ステッカータグ — GPUパッケージ風 */
+  .card-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+    background: var(--zotac-yellow);
+    color: var(--zotac-dark);
+    box-shadow: 1px 2px 0 rgba(0,0,0,0.10);
+    transform: rotate(2deg);
+  }
+
+  /* 小ラベル — BOOTH PICKUP / PDF */
+  .card-label-extra {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    background: rgba(42,47,50,0.90);
+    color: var(--zotac-yellow);
+    border-radius: 2px;
+    box-shadow: 1px 1px 0 rgba(0,0,0,0.10);
+  }
+
+  /* 展示物フレーム — card-imageの内側 */
+  .card-image::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 2px;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  .card-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .card-actions { margin-top: auto; display: flex; }
+
+  .card-category {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .card-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    width: 100%;
+  }
+
+  .btn-primary { background: var(--zotac-dark); color: var(--white); }
+  .btn-primary:hover { background: #3a4045; transform: translateY(-1px); }
+  .btn-primary.zg { background: var(--zotac-dark); }
+  .btn-icon { width: 16px; height: 16px; flex-shrink: 0; }
+
+  /* ══════════════════════════════════════════
+     PRODUCT LINKS
+     ══════════════════════════════════════════ */
+
+  /* 紙・プレート感の追加 */
+  #products {
+    position: relative;
+    background: linear-gradient(180deg, transparent 0%, rgba(255,212,0,0.02) 50%, transparent 100%);
+  }
+
+  #products::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.022;
+    background-image:
+      radial-gradient(circle at 20% 30%, var(--zotac-dark) 1px, transparent 1px),
+      radial-gradient(circle at 80% 70%, var(--zotac-dark) 1px, transparent 1px);
+    background-size: 32px 32px, 28px 28px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent);
+  }
+
+  .product-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .product-link-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .product-link-card:hover {
+    border-color: rgba(255,212,0,0.4);
+    border-left-color: var(--zotac-yellow);
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  .product-link-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--zotac-yellow-bg);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent-orange);
+  }
+
+  .product-link-icon svg { width: 20px; height: 20px; }
+
+  .product-link-text .link-title { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+  .product-link-text .link-desc { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: 400; color: var(--text-muted); }
+
+  .product-link-arrow { margin-left: auto; color: var(--zotac-light-gray); font-size: 18px; transition: all 0.2s ease; flex-shrink: 0; }
+  .product-link-card:hover .product-link-arrow { transform: translateX(4px); color: var(--accent-orange); }
+
+  /* ══════════════════════════════════════════
+     LENDING BLOCKS
+     ══════════════════════════════════════════ */
+  .lending-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--accent-green);
+    border-radius: 0 8px 8px 0;
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .lending-block + .lending-block { margin-top: 24px; border-left-color: var(--accent-blue); }
+
+  .lending-text { flex: 1; }
+
+  .lending-title { font-family: 'Noto Sans JP', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; }
+  .lending-desc { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: 400; color: var(--text-secondary); line-height: 1.8; }
+  .lending-note { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: 400; color: var(--text-muted); margin-top: 8px; }
+
+  .lending-cta { flex-shrink: 0; }
+
+  .btn-lending {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--zotac-dark);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn-lending:hover { background: #3a4045; transform: translateY(-1px); }
+
+  /* ══════════════════════════════════════════
+     BOOTH INFO — 会場案内札
+     ══════════════════════════════════════════ */
+  .booth-info-block {
+    background: var(--white);
+    border: 2px solid var(--border-strong);
+    border-left: 6px solid var(--accent-orange);
+    border-radius: 0 8px 8px 0;
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  /* 案内札ピン */
+  .booth-info-block::before {
+    content: '📍';
+    position: absolute;
+    top: -14px;
+    left: 24px;
+    font-size: 18px;
+    background: var(--bg);
+    padding: 0 6px;
+  }
+
+  .booth-info-item { padding: 0 40px; border-right: 1px solid var(--border); }
+  .booth-info-item:first-child { padding-left: 48px; }
+  .booth-info-item:last-child { border-right: none; padding-right: 48px; }
+
+  .booth-info-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    margin-bottom: 8px;
+  }
+
+  .booth-info-value { font-family: 'Noto Sans JP', sans-serif; font-size: 18px; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
+  .booth-info-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 212, 0, 0.6);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .booth-info-link:hover {
+    color: var(--accent-orange);
+    border-bottom-color: var(--accent-orange);
+  }
+  .booth-info-sub { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: 400; color: var(--text-muted); margin-top: 4px; }
+
+  /* ══════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════ */
+  footer {
+    background: var(--zotac-dark);
+    color: var(--white);
+    padding: 48px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-logo-area { display: flex; flex-direction: column; gap: 6px; }
+
+  .footer-logo { height: 28px; width: auto; max-width: 160px; object-fit: contain; object-position: left; }
+  .footer-logo-placeholder { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 0.1em; color: var(--zotac-yellow); }
+  .footer-tagline { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: 300; color: var(--zotac-light-gray); }
+  .footer-contact a { font-family: 'Noto Sans JP', sans-serif; font-size: 11px; font-weight: 300; color: var(--zotac-light-gray); text-decoration: none; transition: color 0.2s ease; }
+  .footer-contact a:hover { color: var(--zotac-yellow); }
+  .footer-right { text-align: right; }
+  .footer-event-name { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.1em; color: var(--white); margin-bottom: 4px; }
+  .footer-legal { font-size: 11px; color: var(--zotac-light-gray); line-height: 1.8; }
+
+  /* ══════════════════════════════════════════
+     ANIMATIONS
+     ══════════════════════════════════════════ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE
+     ══════════════════════════════════════════ */
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; padding: 80px 24px 60px 36px; gap: 48px; min-height: auto; }
+    .hero-nav { display: none; }
+    .hero::after { width: 200px; height: 200px; top: 5%; right: -10%; }
+    section { padding: 72px 24px; }
+    .section-divider { margin-inline: 24px; }
+    .catalog-grid { grid-template-columns: 1fr; }
+    .catalog-card::before, .catalog-card::after { display: none; }
+    .booth-info-block { grid-template-columns: 1fr; padding: 28px 24px; }
+    .booth-info-item { padding: 0 0 20px 0; border-right: none; border-bottom: 1px solid var(--border); }
+    .booth-info-item:first-child { padding-left: 0; }
+    .booth-info-item:last-child { border-bottom: none; padding-bottom: 0; padding-right: 0; }
+    footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    .footer-right { text-align: left; }
+    .hero-meta { gap: 24px; }
+    .hero-scroll-hint { display: none; }
+    .survey-block { flex-direction: column; padding: 28px 24px; gap: 24px; text-align: center; }
+    .survey-block::before, .survey-block::after { display: none; }
+    .lending-block { flex-direction: column; padding: 28px 24px; gap: 24px; text-align: center; }
+    .featured-video-specs { justify-content: center; }
+    .featured-video-placeholder .placeholder-text { font-size: 22px; }
+    .featured-video-placeholder .placeholder-sub { font-size: 12px; }
+    .featured-video-placeholder .placeholder-meta { font-size: 10px; gap: 10px; }
+    .past-edition { grid-template-columns: 1fr; padding: 16px; gap: 16px; }
+    .past-edition-separator { margin-top: 36px; padding-top: 24px; }
+    .hero-hud-markers, .hero-particles { opacity: 0.5; }
+    .hero-corner, .hero-hud-line--bottom-left, .hero-hud-line--bottom-right { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-hud-markers"></div>
+  <div class="hero-hud-line hero-hud-line--top"></div>
+  <div class="hero-hud-line hero-hud-line--right"></div>
+  <div class="hero-hud-line hero-hud-line--bottom-left"></div>
+  <div class="hero-hud-line hero-hud-line--bottom-right"></div>
+  <div class="hero-corner hero-corner--bl"></div>
+  <div class="hero-corner hero-corner--br"></div>
+  <div class="hero-particles"></div>
+  <div class="hero-accent-line"></div>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <p class="hero-eyebrow">ZOTAC at 超メタフェス 2026</p>
+      <h1 class="hero-title">ZOTAC</h1>
+      <div class="hero-sponsor-badge">
+        <span>超メタフェス 2026 出展</span>
+      </div>
+      <p class="hero-subtitle">
+        MeganeX 8K × RTX 50シリーズ で<br>
+        VRChat の PCVR 性能を徹底比較。<br>
+        GPU検証動画・カタログ・製品情報をまとめてチェック。
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Date</span>
+          <span class="hero-meta-value">MAY 23, 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Venue</span>
+          <span class="hero-meta-value">秋葉原 UDX</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Booth</span>
+          <span class="hero-meta-value highlight">B-11</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-nav">
+      <p class="hero-nav-label">Contents</p>
+      <a href="#survey" class="hero-nav-item">
+        <span class="hero-nav-num">01</span>
+        <span class="hero-nav-text"><span class="nav-en">Survey</span><span class="nav-jp">ブースアンケート</span></span>
+        <span class="hero-nav-arrow">→</span>
+      </a>
+      <a href="#featured" class="hero-nav-item">
+        <span class="hero-nav-num">02</span>
+        <span class="hero-nav-text"><span class="nav-en">GPU Benchmark</span><span class="nav-jp">VRChat GPU比較検証</span></span>
+        <span class="hero-nav-arrow">→</span>
+      </a>
+      <a href="#catalogs" class="hero-nav-item">
+        <span class="hero-nav-num">03</span>
+        <span class="hero-nav-text"><span class="nav-en">Catalogs</span><span class="nav-jp">カタログ・資料</span></span>
+        <span class="hero-nav-arrow">→</span>
+      </a>
+      <a href="#products" class="hero-nav-item">
+        <span class="hero-nav-num">04</span>
+        <span class="hero-nav-text"><span class="nav-en">Product Pages</span><span class="nav-jp">製品ページ</span></span>
+        <span class="hero-nav-arrow">→</span>
+      </a>
+      <a href="#business" class="hero-nav-item">
+        <span class="hero-nav-num">05</span>
+        <span class="hero-nav-text"><span class="nav-en">Trial &amp; Shop</span><span class="nav-jp">貸出・ストア</span></span>
+        <span class="hero-nav-arrow">→</span>
+      </a>
+      <a href="#booth" class="hero-nav-item">
+        <span class="hero-nav-num">06</span>
+        <span class="hero-nav-text"><span class="nav-en">Event Info</span><span class="nav-jp">イベント概要</span></span>
+        <span class="hero-nav-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span class="scroll-line"></span>
+    Scroll to explore
+  </div>
+</div>
+
+<!-- ═══════════════════ 01: SURVEY ═══════════════════ -->
+<div class="band-yellow">
+  <section id="survey">
+    <div class="section-header">
+      <p class="section-eyebrow">Your Feedback</p>
+      <h2 class="section-title">
+        SURVEY
+        <span class="jp">ブースアンケート</span>
+      </h2>
+    </div>
+
+    <div class="survey-block">
+      <span class="survey-pass-label">ENTRY PASS</span>
+      <span class="survey-serial">No. SMF-2026-ZOTAC</span>
+      <div class="survey-text">
+        <span class="survey-badge">所要時間 約2分</span>
+        <p class="survey-title">ご来場ありがとうございます</p>
+        <p class="survey-desc">
+          ZOTACブースにお越しいただいた感想や、<br>
+          GPU・PCに関するご意見をお聞かせください。
+        </p>
+      </div>
+      <div class="survey-cta">
+        <a href="https://forms.office.com/r/MRVj8Bn2kq" class="btn-survey" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          アンケートに回答する
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ 02: FEATURED VIDEO ═══════════════════ -->
+<section id="featured">
+  <div class="section-header">
+    <p class="section-eyebrow">Booth Feature</p>
+    <h2 class="section-title">
+      GPU BENCHMARK
+      <span class="jp">VRChat GPU比較検証</span>
+    </h2>
+  </div>
+
+  <div class="featured-video-wrapper">
+    <div class="featured-video-placeholder">
+      <span class="placeholder-icon">🎬</span>
+      <span class="placeholder-text">GPU BENCHMARK MOVIE</span>
+      <span class="placeholder-sub">RTX 50シリーズを中心に、RTX 4090 / RTX 3080 も加えて VRChat 描画性能を比較する本編動画。会期前に公開予定。</span>
+      <div class="placeholder-meta">
+        <span>MeganeX superlight 8K Mark II</span>
+        <span>fpsVR 計測</span>
+        <span>6モデル比較</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="featured-video-caption">
+    MeganeX superlight 8K Mark II で VRChat の PCVR 描画性能を GPU 別に比較。<br>
+    RTX 5090 / RTX 5080 / RTX 5070 Ti / RTX 5070 を中心に、RTX 4090 と RTX 3080 も加えて描画性能を検証。
+  </p>
+
+  <div class="featured-video-specs">
+    <div class="spec-chip">
+      <span class="chip-label">HMD</span>
+      <span class="chip-value">MeganeX superlight 8K Mark II</span>
+    </div>
+    <div class="spec-chip">
+      <span class="chip-label">CPU</span>
+      <span class="chip-value">Ryzen 7 9800X3D</span>
+    </div>
+    <div class="spec-chip highlight">
+      <span class="chip-label">GPU</span>
+      <span class="chip-value">RTX 5090 / RTX 5080 / RTX 5070 Ti / RTX 5070 / RTX 4090 / RTX 3080</span>
+    </div>
+  </div>
+
+  <!-- ─── Past Edition / 2025 ─── -->
+  <div class="past-edition-separator">
+    <p class="past-edition-eyebrow">PAST EDITION / 2025<span class="jp">過去の検証</span></p>
+  </div>
+
+  <div class="past-edition">
+    <div class="past-edition-video">
+      <iframe
+        src="https://www.youtube.com/embed/ITXuQvlA4RU"
+        title="RTX 50シリーズでVRChatはどう変わる？初心者向けパフォーマンス比較"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+    <div class="past-edition-info">
+      <h3 class="past-edition-title">RTX 50シリーズでVRChatはどう変わる？</h3>
+      <p class="past-edition-context">
+        2025年6月公開、「VRChat大交流会」向けに制作したエントリー検証。普及価格帯HMD（Quest 3）を想定し、RTX 5090 / 5080 / 5070 Ti / 5070 / 4070 / 3070 を、既存PCへのGPU換装パターンと PC 一新パターンの 2 軸で比較しています。
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ 03: CATALOGS ═══════════════════ -->
+<section id="catalogs">
+  <div class="section-header">
+    <p class="section-eyebrow">Documents</p>
+    <h2 class="section-title">
+      CATALOGS &amp; BROCHURES
+      <span class="jp">カタログ・資料ダウンロード</span>
+    </h2>
+  </div>
+
+  <div class="catalog-grid">
+    <div class="catalog-card zg">
+      <div class="card-image">
+        <img src="./images/rtx50_catalog_cover.jpg" alt="RTX 50シリーズ 総合カタログ" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🎮</span><span>RTX 50 SERIES</span></div>'">
+        <span class="card-tag">英語版</span>
+        <span class="card-label-extra">VR Ready</span>
+      </div>
+      <div class="card-body">
+        <p class="card-category">グラフィックスカード</p>
+        <h3 class="card-title">RTX 50シリーズ 総合カタログ</h3>
+        <div class="card-actions">
+          <a href="./pdfs/GeForce_RTX_50_Series_Catalog.pdf" class="btn btn-primary zg" target="_blank" rel="noopener">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+            PDF ダウンロード
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalog-card zbox">
+      <div class="card-image">
+        <img src="./images/zbox_catalog_cover.jpg" alt="ZBOX 総合カタログ" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🖥️</span><span>ZBOX CATALOG</span></div>'">
+        <span class="card-tag">英語版</span>
+        <span class="card-label-extra">Guide</span>
+      </div>
+      <div class="card-body">
+        <p class="card-category">小型デスクトップPC</p>
+        <h3 class="card-title">ZBOX 総合カタログ</h3>
+        <div class="card-actions">
+          <a href="./pdfs/ZBOX_catalog.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+            PDF ダウンロード
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="catalog-card zbox">
+      <div class="card-image">
+        <img src="./images/magnus_one_flyer_cover.jpg" alt="ZBOX MAGNUS ONE チラシ" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🖥️</span><span>MAGNUS ONE</span></div>'">
+        <span class="card-label-extra">Booth Pickup</span>
+      </div>
+      <div class="card-body">
+        <p class="card-category">世界最小クラス — RTX 5070 Ti / 5070 ミニPC</p>
+        <h3 class="card-title">ZBOX MAGNUS ONE</h3>
+        <div class="card-actions">
+          <a href="./pdfs/magnus_one_flyer.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+            PDF ダウンロード
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ 04: PRODUCT LINKS ═══════════════════ -->
+<section id="products">
+  <div class="section-header">
+    <p class="section-eyebrow">Official Pages</p>
+    <h2 class="section-title">
+      PRODUCT PAGES
+      <span class="jp">製品ページ</span>
+    </h2>
+  </div>
+
+  <div class="product-links-grid">
+    <a href="https://www.zotac.com/jp/page/zotac-gaming-geforce-rtx-50-series" class="product-link-card" target="_blank" rel="noopener">
+      <div class="product-link-icon"><i data-lucide="monitor" stroke-width="1.5"></i></div>
+      <div class="product-link-text"><div class="link-title">ZOTAC GAMING — GPU</div><div class="link-desc">RTX 50シリーズ 製品ページ</div></div>
+      <span class="product-link-arrow">→</span>
+    </a>
+    <a href="https://www.zotac.com/jp/product/mini_pcs/magnus-one-eu27507tc-barebone" class="product-link-card" target="_blank" rel="noopener">
+      <div class="product-link-icon"><i data-lucide="pc-case" stroke-width="1.5"></i></div>
+      <div class="product-link-text"><div class="link-title">ZBOX MAGNUS ONE</div><div class="link-desc">製品詳細・スペック</div></div>
+      <span class="product-link-arrow">→</span>
+    </a>
+    <a href="https://www.zotac.com/jp" class="product-link-card" target="_blank" rel="noopener">
+      <div class="product-link-icon"><i data-lucide="globe" stroke-width="1.5"></i></div>
+      <div class="product-link-text"><div class="link-title">ZOTAC公式サイト</div><div class="link-desc">全製品ラインナップ</div></div>
+      <span class="product-link-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ 05: TRIAL + SHOP ═══════════════════ -->
+<section id="business">
+  <div class="section-header">
+    <p class="section-eyebrow">For Business &amp; Creators</p>
+    <h2 class="section-title">
+      TRIAL &amp; SHOP
+      <span class="jp">機材貸出・ストア</span>
+    </h2>
+  </div>
+
+  <div class="lending-block">
+    <div class="lending-text">
+      <p class="lending-title">機材貸出プログラム</p>
+      <p class="lending-desc">法人・教育機関・クリエイター向け無償貸出。GPU・ミニPC等の動作検証・評価・展示会デモ用途にご利用いただけます。</p>
+      <p class="lending-note">※ 入力時間の目安：約3分</p>
+    </div>
+    <div class="lending-cta">
+      <a href="https://forms.office.com/r/qRUvxGpZnk" class="btn-lending" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+        貸出を申し込む
+      </a>
+    </div>
+  </div>
+
+  <div class="lending-block">
+    <div class="lending-text">
+      <p class="lending-title">ZOTAC Direct</p>
+      <p class="lending-desc">ZBOX製品のご購入・ご相談は ZOTAC 公式オンラインストアへ。構成のご相談もお気軽にどうぞ。</p>
+    </div>
+    <div class="lending-cta">
+      <a href="https://zotac.co.jp/" class="btn-lending" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        ZOTAC Direct へ
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ 06: EVENT INFO ═══════════════════ -->
+<div class="band-orange">
+  <section id="booth">
+    <div class="section-header">
+      <p class="section-eyebrow">Event Info</p>
+      <h2 class="section-title">
+        超メタフェス 2026
+        <span class="jp">イベント概要</span>
+      </h2>
+    </div>
+
+    <div class="booth-info-block">
+      <div class="booth-info-item">
+        <p class="booth-info-label">Event</p>
+        <p class="booth-info-value"><a href="https://vrcmtg.jp/" target="_blank" rel="noopener" class="booth-info-link">超メタフェス 2026</a></p>
+        <p class="booth-info-sub">～VRC大交流会～</p>
+      </div>
+      <div class="booth-info-item">
+        <p class="booth-info-label">Venue</p>
+        <p class="booth-info-value">秋葉原 UDX</p>
+        <p class="booth-info-sub">東京都千代田区外神田4-14-1<br>2F アキバ・スクエア / 4F</p>
+      </div>
+      <div class="booth-info-item">
+        <p class="booth-info-label">Schedule</p>
+        <p class="booth-info-value">2026年5月23日（土）</p>
+        <p class="booth-info-sub">展示: 11:00〜16:00<br>懇親会: 17:30〜20:30</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════ CONNECT ═══════════════════ -->
+<section id="connect">
+  <div class="section-header">
+    <p class="section-eyebrow">Stay Connected</p>
+    <h2 class="section-title">
+      CONNECT
+      <span class="jp">フォロー</span>
+    </h2>
+  </div>
+
+  <div class="product-links-grid">
+    <a href="https://x.com/ZOTAC_JAPAN" class="product-link-card" target="_blank" rel="noopener">
+      <div class="product-link-icon"><i data-lucide="twitter" stroke-width="1.5"></i></div>
+      <div class="product-link-text"><div class="link-title">@ZOTAC_JAPAN</div><div class="link-desc">最新情報はXでチェック</div></div>
+      <span class="product-link-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-logo-area">
+    <img src="./images/ZOTAC_white.png" alt="ZOTAC" class="footer-logo" onerror="this.outerHTML='<span class=\'footer-logo-placeholder\'>ZOTAC NIPPON</span>'">
+    <p class="footer-tagline">株式会社ゾタック日本</p>
+    <p class="footer-contact"><a href="https://www.zotac.com/jp/support#contact" target="_blank" rel="noopener">お問い合わせ</a></p>
+  </div>
+  <div class="footer-right">
+    <p class="footer-event-name">超メタフェス 2026</p>
+    <p class="footer-legal">
+      © 2026 ZOTAC Nippon Co., Ltd. All rights reserved.<br>
+      本ページに掲載の製品名・社名は各社の商標または登録商標です。
+    </p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@0.577.0"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>
