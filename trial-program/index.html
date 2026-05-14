@@ -251,6 +251,16 @@
         .btn-large { padding: 1.1rem 2.8rem; font-size: 1.05rem; }
         .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
+        /* ===== SITE HEADER ===== */
+        .site-header { background: var(--bg-white); border-bottom: 1px solid var(--border); }
+        .site-header .container { display: flex; align-items: center; height: 60px; }
+        .site-logo { display: inline-flex; align-items: center; text-decoration: none; }
+        .site-logo img { height: 26px; width: auto; display: block; }
+        .site-logo .logo-wordmark {
+            font-family: 'Barlow', sans-serif; font-weight: 900;
+            font-size: 1.4rem; letter-spacing: 0.02em; color: var(--text-main);
+        }
+
         /* ===== HERO ===== */
         .hero {
             background: var(--bg-light); padding: 4rem 0 5rem; position: relative; overflow: hidden;
@@ -484,15 +494,14 @@
         }
 
         /* ===== FOOTER ===== */
-        footer { background: var(--bg-white); padding: 2rem 0; text-align: center; border-top: 1px solid var(--border); }
+        footer { background: var(--bg-white); padding: 2.5rem 0; text-align: center; border-top: 1px solid var(--border); }
+        .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 1.2rem; }
+        .footer-links a { font-size: 0.82rem; color: var(--text-body); text-decoration: none; font-weight: 500; }
+        .footer-links a:hover { color: var(--text-main); text-decoration: underline; }
         .footer-text { font-size: 0.78rem; color: var(--text-dim); }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 960px) {
-            .header-nav { display: none; }
-            .hamburger { display: block; }
-            .mobile-nav { display: block; pointer-events: none; }
-            .mobile-nav.open { pointer-events: auto; }
             .sticky-cta { display: flex; }
             body { padding-bottom: 68px; }
 
@@ -548,6 +557,15 @@
     </script>
 </head>
 <body>
+
+    <!-- ===== SITE HEADER ===== -->
+    <header class="site-header">
+        <div class="container">
+            <a href="https://zotac.co.jp/" class="site-logo" aria-label="ZOTAC">
+                <img src="/assets/zotac_logo.svg" alt="ZOTAC" onerror="this.outerHTML='<span class=\'logo-wordmark\'>ZOTAC</span>'">
+            </a>
+        </div>
+    </header>
 
     <!-- ===== HERO ===== -->
     <section class="hero">
@@ -1053,6 +1071,12 @@
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
+            <nav class="footer-links" aria-label="関連リンク">
+                <a href="https://www.zotac.com/jp/" target="_blank" rel="noopener">ZOTAC公式サイト</a>
+                <a href="https://zotac.co.jp/" target="_blank" rel="noopener">ZOTAC STORE</a>
+                <a href="https://zotac.co.jp/biz-inquiry" target="_blank" rel="noopener">法人様向け相談窓口</a>
+                <a href="https://zotac.co.jp/customer-support/" target="_blank" rel="noopener">サポート</a>
+            </nav>
             <p class="footer-text">© 2026 ZOTAC Technology Limited. All rights reserved.</p>
         </div>
     </footer>
