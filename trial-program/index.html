@@ -1,0 +1,1085 @@
+<!--
+  v15.1 (2026-04-27): v15 + アクセス解析タグ追加
+    - Google Analytics 4 トラッキングコード追加
+    - Microsoft Clarity トラッキングコード追加
+    - 設置前にプレースホルダーID（G-N5X4CC48YH / wk7j63hn3o）を実IDに差し替え
+
+  v15 (2026-04-27): v14 + AEO/AIO SEO最適化
+    - <title>を確定版に更新
+    - meta description / canonical / OG / Twitter Card 一式追加
+    - JSON-LD (@graph): Organization + WebSite + WebPage + Service + FAQPage
+    - hero-lead 先頭にプログラム定義文を追加（AIスニペット起点）
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOTAC 機材トライアルプログラム | 法人向けミニPC・GPUの無料貸出</title>
+    <meta name="description" content="ZOTAC 機材トライアルプログラムは、法人・教育機関のお客様向けに、ZBOX ミニPCおよびGeForce RTXグラフィックスカードを最大2週間無料で貸出する評価支援プログラムです。世界最小クラスのデスクトップ版RTX 50搭載ミニPCを実機検証いただけます。">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://hub.zotac.co.jp/trial-program/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="ZOTAC JAPAN">
+    <meta property="og:title" content="ZOTAC 機材トライアルプログラム | ミニPC・グラフィックスカードの無料貸出">
+    <meta property="og:description" content="法人・教育機関向け。世界最小クラスのデスクトップ版RTX 50搭載ミニPCを最大2週間無料で実機検証。">
+    <meta property="og:url" content="https://hub.zotac.co.jp/trial-program/">
+    <meta property="og:image" content="https://hub.zotac.co.jp/trial-program/assets/magnus_en_hero.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ZOTAC 機材トライアルプログラム | ミニPC・グラフィックスカードの無料貸出">
+    <meta name="twitter:description" content="法人・教育機関向け。世界最小クラスのデスクトップ版RTX 50搭載ミニPCを最大2週間無料で実機検証。">
+    <meta name="twitter:image" content="https://hub.zotac.co.jp/trial-program/assets/magnus_en_hero.png">
+
+    <!-- JSON-LD: Organization + WebSite + WebPage + Service + FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://zotac.co.jp/#organization",
+          "name": "ZOTAC JAPAN",
+          "alternateName": "ZOTAC Technology Limited",
+          "url": "https://zotac.co.jp/",
+          "logo": "https://zotac.co.jp/favicon.ico",
+          "sameAs": [
+            "https://x.com/ZotacJapan",
+            "https://www.youtube.com/@ZOTACJP"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://hub.zotac.co.jp/#website",
+          "url": "https://hub.zotac.co.jp/",
+          "name": "ZOTAC HUB",
+          "publisher": { "@id": "https://zotac.co.jp/#organization" },
+          "inLanguage": "ja"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://hub.zotac.co.jp/trial-program/#webpage",
+          "url": "https://hub.zotac.co.jp/trial-program/",
+          "name": "ZOTAC 機材トライアルプログラム | ミニPC・グラフィックスカードの無料貸出",
+          "description": "ZOTAC 機材トライアルプログラムは、法人・教育機関のお客様向けに、ZBOX ミニPCおよびGeForce RTXグラフィックスカードを最大2週間無料で貸出する評価支援プログラムです。",
+          "isPartOf": { "@id": "https://hub.zotac.co.jp/#website" },
+          "about": { "@id": "https://hub.zotac.co.jp/trial-program/#service" },
+          "inLanguage": "ja",
+          "primaryImageOfPage": "https://hub.zotac.co.jp/trial-program/assets/magnus_en_hero.png"
+        },
+        {
+          "@type": "Service",
+          "@id": "https://hub.zotac.co.jp/trial-program/#service",
+          "name": "ZOTAC 機材トライアルプログラム",
+          "serviceType": "機材貸出・評価支援サービス",
+          "description": "法人・教育機関向けに、ZOTAC ZBOX ミニPC（MAGNUS ONE / MAGNUS EN）およびGeForce RTX 50シリーズグラフィックスカードを最大2週間無料で貸出する評価支援プログラム。動作検証・展示会利用・教育機関での実機評価などに活用可能。",
+          "provider": { "@id": "https://zotac.co.jp/#organization" },
+          "areaServed": { "@type": "Country", "name": "Japan" },
+          "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "法人・教育機関"
+          },
+          "termsOfService": "https://hub.zotac.co.jp/trial-program/#requirements",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "JPY",
+            "availability": "https://schema.org/InStock",
+            "description": "貸出料金は無料（返却時送料のみお客様負担）"
+          },
+          "url": "https://hub.zotac.co.jp/trial-program/"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://hub.zotac.co.jp/trial-program/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "費用はかかりますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "貸出料金は無料です。発送時の送料はZOTACが負担、返却時の送料はお客様負担となります。破損・欠品時のご負担など、詳細は申込み条件をご確認ください。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "貸出期間はどれくらいですか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "標準2週間です。延長や日程指定が必要な場合は、用途と希望時期を添えてご相談ください。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "事前確認はありますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "はい。運用上の都合により事前確認制です。Webサイト等で法人・教育機関としての活動実績を確認させていただきます。通常3営業日を目安にご連絡します。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "会場（展示会）への直送は可能ですか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "原則として、お届け先は法人所在地（会社住所）とさせていただいております。展示会場への直送をご希望の場合は、フォームにてご相談ください。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "複数台の貸出はできますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "在庫状況と用途により可能です。想定台数と用途（ブース数、同時稼働要件など）をお知らせください。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "破損・欠品があった場合はどうなりますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "製品受取時に破損・欠品を発見された場合は、速やかにご連絡ください。貸出期間中の不適切な管理による欠品・傷・故障が確認された場合、修理費等の実費をご負担いただくことがあります。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "個人での申込みはできますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "本プログラムは法人・教育機関のお客様を対象としています。個人のお客様はご利用いただけません。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "貸出後に事例として紹介されますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ご利用内容や掲載可否を確認のうえ、導入事例・活用レポートとしてのご紹介をご相談させていただく場合があります。掲載は事前にご確認いただいたうえで進行します。"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Barlow:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --zotac-yellow: #F5C518;
+            --zotac-yellow-hover: #E6B800;
+            --nvidia-green: #76b900;
+            --nvidia-green-dim: rgba(118, 185, 0, 0.08);
+
+            --bg-white: #ffffff;
+            --bg-light: #f7f8f9;
+            --bg-soft: #f0f1f3;
+            --bg-dark: #141414;
+
+            --text-main: #111111;
+            --text-body: #444444;
+            --text-sub: #707070;
+            --text-dim: #aaaaaa;
+            --text-light: #ffffff;
+
+            --border: #e1e4e8;
+            --border-medium: #ccc;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg-white);
+            color: var(--text-body);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== UTILITY ===== */
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+        .section-padding { padding: 5rem 0; }
+        .highlight { background: linear-gradient(transparent 60%, rgba(245, 197, 24, 0.35) 60%); display: inline; }
+
+        .badge {
+            display: inline-block; padding: 0.25rem 0.7rem; border-radius: 4px;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+        }
+        .badge-dark { background: var(--text-main); color: #fff; }
+        .badge-yellow { background: var(--zotac-yellow); color: var(--text-main); }
+        .badge-outline { border: 1px solid var(--border); color: var(--text-sub); background: var(--bg-white); }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            padding: 0.9rem 2.2rem; border-radius: 6px; text-decoration: none;
+            font-weight: 700; font-size: 0.95rem; transition: all 0.25s ease;
+            cursor: pointer; border: none; letter-spacing: 0.02em;
+        }
+        .btn-primary {
+            background: var(--zotac-yellow); color: var(--text-main);
+            box-shadow: 0 4px 14px rgba(245, 197, 24, 0.25);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245, 197, 24, 0.4);
+            background: var(--zotac-yellow-hover);
+        }
+        .btn-dark {
+            background: var(--text-main); color: #fff;
+        }
+        .btn-dark:hover { background: #000; box-shadow: 0 4px 14px rgba(0,0,0,0.2); transform: translateY(-2px); }
+        .btn-secondary {
+            background: transparent; color: var(--text-body);
+            border: 1px solid var(--border-medium);
+        }
+        .btn-secondary:hover { border-color: var(--text-main); color: var(--text-main); }
+        .btn-large { padding: 1.1rem 2.8rem; font-size: 1.05rem; }
+        .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: var(--bg-light); padding: 4rem 0 5rem; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -30%; right: -10%; width: 60%; height: 160%;
+            background: radial-gradient(ellipse at center, rgba(245, 197, 24, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; align-items: center; position: relative; }
+        .hero-label {
+            display: inline-block; border: 1px solid var(--border-medium); color: var(--text-sub);
+            padding: 0.2rem 0.7rem; border-radius: 3px; font-size: 0.72rem; font-weight: 600;
+            margin-bottom: 1.2rem; letter-spacing: 0.04em;
+        }
+        .hero h1 { font-size: 2.5rem; font-weight: 900; line-height: 1.3; margin-bottom: 1.2rem; letter-spacing: -0.02em; color: var(--text-main); }
+        .hero h1 .sub { display: block; font-size: 1.5rem; font-weight: 700; color: var(--text-sub); margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+        .hero-lead { font-size: 1rem; color: var(--text-body); margin-bottom: 2rem; }
+        .hero-lead p { line-height: 1.85; margin-bottom: 0.75rem; word-break: keep-all; overflow-wrap: anywhere; }
+        .hero-lead p:last-child { margin-bottom: 0; }
+        .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; }
+        .hero-note { font-size: 0.78rem; color: var(--text-dim); margin-top: 0.6rem; }
+        .hero-trust { display: flex; gap: 1.5rem; align-items: center; margin-top: 1.8rem; padding-top: 1.5rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+        .hero-trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 600; color: var(--text-sub); }
+        .hero-trust-item svg { color: var(--zotac-yellow); flex-shrink: 0; }
+
+        .hero-visual { display: flex; justify-content: center; align-items: center; }
+        .hero-visual img { max-width: 100%; height: auto; max-height: 340px; object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15)); mix-blend-mode: multiply; }
+        .hero-image-fallback {
+            width: 100%; max-width: 400px; aspect-ratio: 4/3; background: var(--bg-soft);
+            border: 1px solid var(--border); border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 0.85rem;
+        }
+
+        /* ===== TRUST BANNER ===== */
+        .trust-banner { background: var(--bg-white); border-bottom: 1px solid var(--border); padding: 1.8rem 0; }
+        .trust-inner { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; }
+        .trust-stat { text-align: center; }
+        .trust-number { font-family: 'Barlow', sans-serif; font-size: 2rem; font-weight: 800; color: var(--text-main); line-height: 1; }
+        .trust-number.green { color: var(--nvidia-green); }
+        .trust-number small { font-size: 0.9rem; font-weight: 600; }
+        .trust-label { display: block; font-size: 0.78rem; color: var(--text-sub); margin-top: 0.2rem; }
+        .trust-divider { width: 1px; height: 36px; background: var(--border); }
+
+        /* ===== SECTION HEADER ===== */
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
+        .section-header .kicker { font-family: 'Barlow', sans-serif; font-weight: 700; color: var(--zotac-yellow); font-size: 0.82rem; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem; }
+        .section-header h2 { font-size: 2rem; font-weight: 800; margin-bottom: 0.8rem; color: var(--text-main); line-height: 1.35; }
+        .section-header p { font-size: 1rem; color: var(--text-body); max-width: 680px; margin: 0 auto; }
+        /* Left-aligned variant */
+        .section-title-line {
+            font-size: 1.3rem; font-weight: 700; color: var(--text-main); margin-bottom: 2rem;
+            display: flex; align-items: center; gap: 1rem;
+        }
+        .section-title-line::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+        /* ===== WHY ZBOX ===== */
+        .why { background: var(--bg-white); }
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .why-card { background: var(--bg-light); padding: 2rem 1.5rem; border-radius: 12px; border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
+        .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .why-icon { width: 44px; height: 44px; background: var(--text-main); color: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+        .why-icon svg { width: 22px; height: 22px; }
+        .why-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.8rem; color: var(--text-main); }
+        .why-card p { font-size: 0.88rem; color: var(--text-body); line-height: 1.7; flex: 1; }
+        .why-vs { margin-top: auto; padding-top: 1.2rem; border-top: 1px dashed var(--border); font-size: 0.82rem; }
+        .why-vs .old { color: var(--text-sub); display: block; margin-bottom: 0.2rem; text-decoration: line-through; }
+        .why-vs .new { color: var(--text-main); font-weight: 700; }
+
+        /* ===== PRODUCTS ===== */
+        .products { background: var(--bg-light); }
+        .product-showcase { display: flex; flex-direction: column; gap: 2.5rem; }
+        .product-card {
+            background: var(--bg-white); border-radius: 16px; box-shadow: var(--shadow-sm);
+            display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border: 1px solid var(--border);
+        }
+        .product-image {
+            background: var(--bg-soft); display: flex; align-items: center; justify-content: center;
+            padding: 2.5rem; position: relative; min-height: 360px;
+        }
+        .product-image img { max-width: 100%; max-height: 320px; object-fit: contain; }
+        .product-image.tall img { max-height: 380px; } /* MAGNUS ONE: vertical form factor */
+        .product-image.wide img { max-height: 280px; } /* MAGNUS EN: horizontal form factor */
+        .product-image .badge { position: absolute; top: 1.2rem; left: 1.2rem; }
+        .product-content { padding: 3rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+        .p-series { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 1.1rem; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.8rem; }
+        .p-title { font-size: 1.7rem; font-weight: 800; margin-bottom: 0.8rem; line-height: 1.3; color: var(--text-main); }
+        .p-desc { font-size: 0.92rem; color: var(--text-body); margin-bottom: 1.5rem; line-height: 1.7; }
+        .p-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1.5rem; }
+        .spec-item { background: var(--bg-light); padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border); }
+        .spec-label { display: block; font-size: 0.7rem; color: var(--text-sub); font-weight: 700; margin-bottom: 0.15rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .spec-value { display: block; font-size: 0.88rem; font-weight: 800; color: var(--text-main); }
+        .spec-value small { font-size: 0.72rem; font-weight: 400; }
+        .p-features { list-style: none; margin-bottom: 1.5rem; }
+        .p-features li { position: relative; padding-left: 1.3rem; margin-bottom: 0.4rem; font-size: 0.85rem; font-weight: 600; color: var(--text-body); }
+        .p-features li::before { content: '✓'; position: absolute; left: 0; color: var(--zotac-yellow); font-weight: 900; }
+
+        /* GPU addon */
+        .gpu-addon { margin-top: 2rem; padding: 1.5rem; background: var(--bg-light); border: 1px solid var(--border); border-radius: 10px; }
+        .gpu-addon-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
+        .gpu-addon-icon { width: 22px; height: 22px; background: var(--text-main); color: #fff; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800; }
+        .gpu-addon-label { font-size: 0.9rem; font-weight: 700; color: var(--text-main); }
+        .gpu-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+        .gpu-tag { background: var(--bg-white); border: 1px solid var(--border); padding: 0.3rem 0.7rem; border-radius: 4px; font-size: 0.78rem; font-weight: 500; color: var(--text-body); }
+        .gpu-tag-link { text-decoration: none; border-color: var(--text-main); color: var(--text-main); transition: all 0.2s; }
+        .gpu-tag-link:hover { background: var(--text-main); color: #fff; }
+
+        /* OS Banner */
+        .os-banner { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 3rem; }
+        .os-info h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; color: var(--text-main); }
+        .os-info p { font-size: 0.85rem; color: var(--text-body); }
+        .os-info strong { font-weight: 700; }
+        .os-logo { font-family: 'Barlow', sans-serif; font-size: 1.3rem; font-weight: 800; color: #0078D4; white-space: nowrap; }
+
+        /* ===== SIER VALUE ===== */
+        .sier-value { background: var(--bg-dark); color: var(--text-light); padding: 5rem 0; }
+        .sier-value .section-header h2 { color: #fff; }
+        .sier-value .section-header p { color: #999; }
+        .sier-value .section-header .kicker { color: #777; }
+        .value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .v-card { background: rgba(255,255,255,0.04); padding: 2rem 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); transition: border-color 0.3s; }
+        .v-card:hover { border-color: rgba(245,197,24,0.3); }
+        .v-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--zotac-yellow); }
+        .v-card p { font-size: 0.88rem; color: #ccc; line-height: 1.7; }
+
+        /* ===== PROCESS ===== */
+        .process { background: var(--bg-white); }
+        .process-steps { display: flex; justify-content: space-between; align-items: flex-start; position: relative; }
+        .process-step { flex: 1; text-align: center; position: relative; padding: 0 0.5rem; }
+        .process-step:not(:last-child)::after {
+            content: ''; position: absolute; top: 22px; right: -8%; width: 16%; height: 0;
+            border-top: 2px solid var(--border);
+        }
+        .step-number {
+            width: 44px; height: 44px; background: var(--text-main); color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Barlow', sans-serif; font-size: 1.1rem; font-weight: 700;
+            margin: 0 auto 0.6rem;
+        }
+        .step-title { font-size: 0.92rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem; }
+        .step-desc { font-size: 0.78rem; color: var(--text-sub); }
+
+        /* ===== CASES ===== */
+        .cases { background: var(--bg-light); }
+        .cases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+        .case-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-white); display: flex; flex-direction: column; transition: box-shadow 0.3s; }
+        .case-card:hover { box-shadow: var(--shadow-md); }
+        .case-header { background: var(--bg-light); padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.8rem; }
+        .case-icon { width: 36px; height: 36px; background: var(--text-main); color: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.75rem; flex-shrink: 0; }
+        .case-icon svg { width: 18px; height: 18px; }
+        .case-header h3 { font-size: 1rem; font-weight: 800; margin: 0; color: var(--text-main); }
+        .case-body { padding: 1.2rem 1.5rem; flex: 1; }
+        .case-list { list-style: none; padding: 0; margin: 0; }
+        .case-list li { font-size: 0.88rem; color: var(--text-body); margin-bottom: 0.4rem; padding-left: 1rem; position: relative; }
+        .case-list li::before { content: '・'; position: absolute; left: 0; color: var(--text-sub); }
+
+        /* Article carousel */
+        .article-section-title { font-size: 1.4rem; font-weight: 800; text-align: center; margin-bottom: 1.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); color: var(--text-main); }
+        .carousel-wrapper { position: relative; display: flex; align-items: center; gap: 0.8rem; }
+        .carousel-btn { width: 40px; height: 40px; border-radius: 50%; background: #fff; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0; box-shadow: var(--shadow-sm); }
+        .carousel-btn:hover { border-color: var(--text-main); background: var(--text-main); color: #fff; }
+        .carousel-btn svg { width: 18px; height: 18px; color: inherit; }
+        .carousel-viewport { flex: 1; overflow: hidden; }
+        .carousel-track { display: flex; gap: 1.2rem; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; padding: 0.5rem 0.25rem; }
+        .carousel-track::-webkit-scrollbar { display: none; }
+
+        .article-card { flex: 0 0 calc(33.333% - 0.8rem); min-width: 260px; background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s, box-shadow 0.3s; }
+        .article-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .article-img { aspect-ratio: 16/9; background: var(--bg-soft); display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 0.75rem; font-weight: 700; border-bottom: 1px solid var(--border); overflow: hidden; }
+        .article-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .article-body { padding: 1.2rem; display: flex; flex-direction: column; flex: 1; }
+        .article-company { font-size: 1rem; font-weight: 800; margin-bottom: 0.4rem; line-height: 1.4; color: var(--text-main); min-height: 2.8rem; }
+        .article-desc { font-size: 0.82rem; color: var(--text-body); margin-bottom: 0.8rem; min-height: 5rem; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+        .article-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.8rem; min-height: 1.8rem; align-content: flex-start; }
+        .article-tag { background: var(--bg-soft); border: 1px solid var(--border); padding: 0.15rem 0.45rem; border-radius: 3px; font-size: 0.65rem; font-weight: 600; color: var(--text-sub); }
+        .article-link { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.82rem; font-weight: 700; color: var(--text-main); text-decoration: none; transition: color 0.2s; }
+        .article-link:hover { color: var(--zotac-yellow-hover); }
+        .article-pending { font-size: 0.78rem; font-weight: 600; color: var(--text-dim); }
+
+        /* ===== FAQ ===== */
+        .faq { background: var(--bg-white); }
+        .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.6rem; }
+        .faq-item { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+        .faq-item summary {
+            padding: 1rem 1.25rem; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            font-weight: 600; color: var(--text-main); background: var(--bg-white);
+            transition: background 0.2s; list-style: none;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary:hover { background: var(--bg-light); }
+        .faq-item[open] summary { border-bottom: 1px solid var(--border); }
+        .faq-q { flex: 1; font-size: 0.92rem; }
+        .faq-icon { font-size: 1.1rem; color: var(--text-sub); transition: transform 0.2s; }
+        .faq-item[open] .faq-icon { transform: rotate(45deg); }
+        .faq-a { padding: 1rem 1.25rem; font-size: 0.88rem; color: var(--text-body); line-height: 1.8; background: var(--bg-light); }
+        .faq-cta { display: flex; gap: 0.8rem; justify-content: center; margin-top: 2rem; }
+
+        /* ===== REQUIREMENTS ===== */
+        .requirements { background: var(--bg-light); }
+        .req-box { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; max-width: 960px; margin: 0 auto; }
+        .req-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+        .req-header-icon { width: 36px; height: 36px; background: var(--text-main); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 1.1rem; }
+        .req-header-text { font-size: 1.05rem; font-weight: 700; color: var(--text-main); }
+        .req-header-text em { font-style: normal; border-bottom: 2px solid var(--text-main); }
+        .req-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+        .req-category { background: var(--bg-light); border-radius: 8px; padding: 1.2rem; }
+        .req-category h4 { font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--text-main); display: inline-block; }
+        .req-list { list-style: none; }
+        .req-list li { position: relative; padding-left: 1.2rem; margin-bottom: 0.4rem; font-size: 0.85rem; color: var(--text-body); }
+        .req-list li::before { content: ''; position: absolute; left: 0; top: 0.6rem; width: 5px; height: 5px; background: var(--text-main); border-radius: 50%; }
+
+        /* ===== CTA FINAL ===== */
+        .cta-final { background: var(--bg-soft); text-align: center; border-top: 1px solid var(--border); }
+        .cta-box { max-width: 720px; margin: 0 auto; background: var(--bg-white); padding: 3.5rem 3rem; border-radius: 16px; box-shadow: var(--shadow-lg); }
+        .cta-box h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.8rem; color: var(--text-main); }
+        .cta-box > p { font-size: 1rem; color: var(--text-body); margin-bottom: 1.8rem; }
+        .cta-actions { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+        .cta-note { font-size: 0.78rem; color: var(--text-dim); }
+
+        /* ===== STICKY CTA (Mobile) ===== */
+        .sticky-cta {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
+            gap: 8px; padding: 10px 12px; background: rgba(255,255,255,0.96);
+            border-top: 1px solid var(--border); backdrop-filter: blur(12px);
+        }
+        .sticky-cta a {
+            flex: 1; display: flex; justify-content: center; align-items: center;
+            gap: 6px; padding: 11px 10px; border-radius: 8px;
+            font-weight: 700; font-size: 0.85rem; text-decoration: none;
+        }
+
+        /* ===== FOOTER ===== */
+        footer { background: var(--bg-white); padding: 2rem 0; text-align: center; border-top: 1px solid var(--border); }
+        .footer-text { font-size: 0.78rem; color: var(--text-dim); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 960px) {
+            .header-nav { display: none; }
+            .hamburger { display: block; }
+            .mobile-nav { display: block; pointer-events: none; }
+            .mobile-nav.open { pointer-events: auto; }
+            .sticky-cta { display: flex; }
+            body { padding-bottom: 68px; }
+
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-visual { order: -1; }
+            .hero-visual img { max-height: 220px; mix-blend-mode: multiply; }
+            .hero-actions { justify-content: center; }
+            .hero-trust { justify-content: center; }
+            .hero h1 { font-size: 2rem; }
+            .hero h1 .sub { font-size: 1.2rem; }
+
+            .why-grid, .value-grid, .cases-grid, .req-grid { grid-template-columns: 1fr; }
+            .product-card { grid-template-columns: 1fr; }
+            .product-image { min-height: 240px; padding: 2rem; order: -1; }
+            .product-content { padding: 2rem 1.5rem; }
+            .p-title { font-size: 1.4rem; }
+
+            .process-steps { flex-direction: column; gap: 1.2rem; align-items: center; }
+            .process-step { width: 100%; max-width: 200px; }
+            .process-step:not(:last-child)::after { display: none; }
+
+            .os-banner { flex-direction: column; text-align: center; }
+            .article-card { flex: 0 0 calc(50% - 0.6rem); min-width: 220px; }
+            .cta-box { padding: 2.5rem 1.5rem; }
+            .cta-actions { flex-direction: column; }
+        }
+        @media (max-width: 600px) {
+            .article-card { flex: 0 0 85%; }
+            .carousel-btn { display: none; }
+            .trust-divider { display: none; }
+            .trust-inner { gap: 1.5rem; }
+            .section-padding { padding: 3.5rem 0; }
+        }
+    </style>
+
+    <!-- ===== Analytics ===== -->
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5X4CC48YH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N5X4CC48YH');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wk7j63hn3o");
+    </script>
+</head>
+<body>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-label">法人・教育機関の機材選定ご担当者様へ</span>
+                <h1>
+                    <span class="sub">設置の制約を、ゼロへ。</span>
+                    現場の「動かない」を解決する<br>世界最小クラスの<br>RTX 50搭載高性能ミニPC。
+                </h1>
+                <div class="hero-lead">
+                    <p><strong>ZOTAC 機材トライアルプログラムは、法人・教育機関のお客様向けに、ZBOXミニPCおよびGeForce RTXグラフィックスカードを最大2週間無料で貸出する評価支援プログラムです。</strong></p>
+                    <p>ノートPCでは拡張性と排熱に不安が残る。タワーPCでは現場に置くスペースがない。<br>ZOTAC ZBOXは、その両方の課題を解決する「第三の選択肢」です。</p>
+                    <p>デスクトップ版RTX 50シリーズ※の性能を、標準2週間の実機でご検証ください。</p>
+                </div>
+                <div class="hero-actions">
+                    <a href="https://forms.office.com/r/qRUvxGpZnk" target="_blank" class="btn btn-primary">
+                        無料で貸出を相談する
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </a>
+                    <a href="#requirements" class="btn btn-secondary">貸出条件を見る</a>
+                </div>
+                <p class="hero-note">※デスクトップ版NVIDIA GeForce RTX 50シリーズGPUを搭載するミニPCとして世界最小クラス（自社調べ、2025年6月時点）<br>※貸出料は無料です。返却時の送料のみお客様負担。</p>
+                <div class="hero-trust">
+                    <div class="hero-trust-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11"/></svg>
+                        条件確認後、最短5営業日で出荷
+                    </div>
+                    <div class="hero-trust-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11"/></svg>
+                        1台から検証可能
+                    </div>
+                    <div class="hero-trust-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11"/></svg>
+                        NVIDIA正規パートナー
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="./assets/magnus_en_hero.png" alt="ZOTAC MAGNUS EN — 世界最小クラスのデスクトップ版RTX 50シリーズ搭載ミニPC" onerror="this.outerHTML='<div class=\'hero-image-fallback\'>ZBOX 製品画像</div>'">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRUST BANNER ===== -->
+    <section class="trust-banner">
+        <div class="container trust-inner">
+            <div class="trust-stat">
+                <span class="trust-number">150<small>件+</small></span>
+                <span class="trust-label">貸出実績</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-stat">
+                <span class="trust-number green">NVIDIA</span>
+                <span class="trust-label">正規パートナー</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-stat">
+                <span class="trust-number">5<small>営業日〜</small></span>
+                <span class="trust-label">条件確認後に出荷</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-stat">
+                <span class="trust-number">2<small>週間</small></span>
+                <span class="trust-label">標準貸出期間</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY ZBOX ===== -->
+    <section id="why" class="why section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker">WHY ZOTAC ZBOX?</span>
+                <h2>ノートPCの限界。タワーPCの制約。<br><span class="highlight">ZBOXがすべて解決します。</span></h2>
+                <p>多くの現場で、ゲーミングノートPCが「据え置き」として使われています。しかし、ポート不足や排熱に不満を持つユーザーは約7割※。ZBOXは現場の妥協をなくします。</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20"/><path d="M17 2v20"/><path d="M2 7h20"/><path d="M2 17h20"/></svg>
+                    </div>
+                    <h3>圧倒的な省スペースと設置性</h3>
+                    <p>体積わずか2.65L〜8.48L。一般的なミドルタワーの1/10のサイズ。壁掛けやラック固定に対応するモデルもあり、店舗裏やサイネージ筐体内に「隠して設置」が可能です。</p>
+                    <div class="why-vs">
+                        <span class="old">× タワーPC：大きすぎて現場に置けない</span>
+                        <span class="new">◎ ZBOX：隙間や壁面にスマートに設置</span>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h3>デスクトップ向けGPUの実効性能</h3>
+                    <p>ノートPC向けGPUは電力制限（最大100W等）により性能が頭打ちに。ZBOXはデスクトップ版設計（最大180W）により、同じRTX 5060 Tiでもより高い実効性能と安定した排熱を実現します。</p>
+                    <div class="why-vs">
+                        <span class="old">× ノートPC：高負荷時に熱で性能低下</span>
+                        <span class="new">◎ ZBOX：専用クーラーで長時間安定稼働</span>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <h3>物流コスト削減と高い保守性</h3>
+                    <p>軽量・小型なため積載効率はタワーPCの約2倍。輸送・設営コストを大幅に削減します。汎用SODIMMメモリ等を採用し、現地での保守・増設も容易です。</p>
+                    <div class="why-vs">
+                        <span class="old">× タワーPC：輸送費が高く、設営が重労働</span>
+                        <span class="new">◎ ZBOX：1箱で大量輸送、現地作業も身軽に</span>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align:center;margin-top:0.8rem;font-size:0.78rem;color:var(--text-dim);">※自社調べ（ゲーミングノートPCアンケート結果より）</p>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTS ===== -->
+    <section id="products" class="products section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker">EVALUATION MACHINES</span>
+                <h2>検証用貸出機材ラインナップ</h2>
+                <p>用途と設置環境に合わせて、2つの強力なフラッグシップをご用意しています。</p>
+            </div>
+
+            <div class="product-showcase">
+                <!-- MAGNUS ONE: Text LEFT → Image RIGHT (product faces left toward text) -->
+                <div class="product-card">
+                    <div class="product-content">
+                        <div class="p-series">MAGNUS ONE <span class="badge badge-outline">約8.48L</span></div>
+                        <h3 class="p-title">妥協なき性能を、<br>この小ささに。</h3>
+                        <p class="p-desc">タワーPC並みの冷却・電源（最大650W 80+ Platinum）を備えながら、体積わずか8.48L。最大6画面出力に対応し、ハイエンドなAI開発やリッチな3Dサイネージを余裕でこなします。</p>
+                        <div class="p-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">GPU</span>
+                                <span class="spec-value">GeForce RTX 5070 Ti<br><small>※5070モデルもあり</small></span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">CPU</span>
+                                <span class="spec-value">Intel Core Ultra 7 265<br><small>(20コア / 20スレッド)</small></span>
+                            </div>
+                        </div>
+                        <ul class="p-features">
+                            <li>最大6画面出力対応（DP x3, HDMI x2 等）</li>
+                            <li>5GbE + 1GbE デュアルLAN搭載</li>
+                            <li>汎用DDR5 SODIMM & M.2 NVMeで高い拡張性</li>
+                        </ul>
+                        <a href="https://forms.office.com/r/qRUvxGpZnk" target="_blank" class="btn btn-dark" style="align-self:flex-start;">この機種の貸出を相談する</a>
+                    </div>
+                    <div class="product-image tall">
+                        <span class="badge badge-dark">FLAGSHIP TOWER REPLACEMENT</span>
+                        <img src="./assets/magnus_one.png" alt="MAGNUS ONE" onerror="this.style.display='none'">
+                    </div>
+                </div>
+
+                <!-- MAGNUS EN: Image LEFT → Text RIGHT (product faces right toward text) -->
+                <div class="product-card">
+                    <div class="product-image wide">
+                        <span class="badge badge-yellow">WALL MOUNT READY</span>
+                        <img src="./assets/magnus_en.png" alt="MAGNUS EN" onerror="this.style.display='none'">
+                    </div>
+                    <div class="product-content">
+                        <div class="p-series">MAGNUS EN <span class="badge badge-outline">約2.65L</span></div>
+                        <h3 class="p-title">見せない設置。<br>壁掛け対応の超小型。</h3>
+                        <p class="p-desc">付属の金具で壁面や筐体裏へ固定設置が可能。世界最小クラス（2.65L）のRTX 5060 Ti搭載PC。店舗や教室など、機器を置くスペースがない現場に「隠して設置」できます。</p>
+                        <div class="p-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">GPU</span>
+                                <span class="spec-value">GeForce RTX 5060 Ti<br><small>(デスクトップ版 16/8GB)</small></span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">CPU</span>
+                                <span class="spec-value">Intel Core Ultra 7 255HX<br><small>(20コア / 最大5.2GHz)</small></span>
+                            </div>
+                        </div>
+                        <ul class="p-features">
+                            <li>壁掛け固定金具付属で柔軟な設置が可能</li>
+                            <li>Thunderbolt 4 x2 搭載</li>
+                            <li>最大4画面出力（DP 2.1b x3, HDMI 2.1b x1）</li>
+                        </ul>
+                        <a href="https://forms.office.com/r/qRUvxGpZnk" target="_blank" class="btn btn-dark" style="align-self:flex-start;">この機種の貸出を相談する</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GPU Addon -->
+            <div class="gpu-addon" style="max-width:800px;margin:2.5rem auto 0;">
+                <div class="gpu-addon-header">
+                    <div class="gpu-addon-icon">+</div>
+                    <span class="gpu-addon-label">グラフィックスカード単体も貸出可能</span>
+                </div>
+                <div class="gpu-list">
+                    <span class="gpu-tag">RTX 5090</span>
+                    <span class="gpu-tag">RTX 5080</span>
+                    <span class="gpu-tag">RTX 5070 Ti</span>
+                    <span class="gpu-tag">RTX 5070</span>
+                    <a href="https://www.zotac.com/jp/product/graphics_card/all?features=3776" target="_blank" class="gpu-tag gpu-tag-link">全モデルを見る →</a>
+                </div>
+                <p style="font-size:0.78rem;color:var(--text-dim);margin-top:0.6rem;">※在庫状況により、対応可能なモデルが異なる場合があります。</p>
+            </div>
+
+            <!-- OS LTSC Banner -->
+            <div class="os-banner">
+                <div class="os-info">
+                    <h4>産業グレードの運用を実現するOSを選択</h4>
+                    <p><strong>Windows 11 IoT Enterprise LTSC</strong>の選択が可能。大型アップデートによる強制再起動を防ぎ、サイネージや無人店舗での「止まらない運用」を実現します。</p>
+                </div>
+                <div class="os-logo">Windows 11<br>IoT LTSC</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BUSINESS VALUE ===== -->
+    <section id="sier-value" class="sier-value">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker">FOR BUSINESS & EDUCATION</span>
+                <h2>導入検討で得られる3つの価値</h2>
+                <p>SIer・法人IT部門・教育機関のご担当者様がZOTACを選ぶ理由をご紹介します。</p>
+            </div>
+            <div class="value-grid">
+                <div class="v-card">
+                    <h4>01. 設置不可だった現場への導入</h4>
+                    <p>「スペースがないから」と諦めていた案件（狭小店舗、美観重視施設、教室、多拠点展開など）に対して、フルスペックのPCシステムを導入できるようになります。</p>
+                </div>
+                <div class="v-card">
+                    <h4>02. 明確な差別化と選定理由</h4>
+                    <p>「世界最小クラス×デスクトップGPU×壁掛け対応」は、他社製品では実現しにくいZOTACならではの強み。提案書・稟議書に明確な選定理由を記載できます。</p>
+                </div>
+                <div class="v-card">
+                    <h4>03. システム統合・運用の容易さ</h4>
+                    <p>標準規格パーツ（SODIMM, NVMe）の採用、豊富なI/Oポート、LTSC OS対応により、AIカメラやセンサー、既存システムとの統合が容易で、導入後の運用負荷も低減します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="process section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker">HOW IT WORKS</span>
+                <h2>貸出の流れ</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step"><div class="step-number">1</div><div class="step-title">申込み</div><div class="step-desc">用途と希望時期を送信</div></div>
+                <div class="process-step"><div class="step-number">2</div><div class="step-title">確認</div><div class="step-desc">在庫・条件を確認<br>(3営業日)</div></div>
+                <div class="process-step"><div class="step-number">3</div><div class="step-title">発送</div><div class="step-desc">最短5営業日でお届け</div></div>
+                <div class="process-step"><div class="step-number">4</div><div class="step-title">評価</div><div class="step-desc">標準2週間の実機検証</div></div>
+                <div class="process-step"><div class="step-number">5</div><div class="step-title">返却</div><div class="step-desc">期日までに返送</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CASES ===== -->
+    <section id="cases" class="cases section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker">PROVEN TRACK RECORD</span>
+                <h2>活用実績・主な利用シーン</h2>
+                <p>GPU搭載×小型筐体という特長が評価され、大型PCでは設置できなかった現場への導入が進んでいます。</p>
+            </div>
+
+            <!-- Use Cases -->
+            <div class="cases-grid">
+                <div class="case-card">
+                    <div class="case-header">
+                        <div class="case-icon">AI</div>
+                        <h3>ローカルAI推論</h3>
+                    </div>
+                    <div class="case-body">
+                        <ul class="case-list">
+                            <li>画像認識・映像解析カメラとの連動</li>
+                            <li>工場・施設への侵入検知システム</li>
+                            <li>店舗での顧客行動分析（ローカル処理でプライバシー保護）</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-header">
+                        <div class="case-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                        <h3>多画面・高精細サイネージ</h3>
+                    </div>
+                    <div class="case-body">
+                        <ul class="case-list">
+                            <li>3〜4画面の同時出力によるパノラマ表示</li>
+                            <li>3Dコンテンツや高フレームレートのリッチコンテンツ再生</li>
+                            <li>IoT LTSC OSを活用した強制再起動のない無人運用</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-header">
+                        <div class="case-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+                        <h3>3D・映像クリエイティブ</h3>
+                    </div>
+                    <div class="case-body">
+                        <ul class="case-list">
+                            <li>大規模プロジェクションマッピングの送出機</li>
+                            <li>3Dスキャナーの現地処理用端末</li>
+                            <li>設置スペースの限られるスタジオでのレンダリングPC</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-header">
+                        <div class="case-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+                        <h3>産業機器・組込み用途</h3>
+                    </div>
+                    <div class="case-body">
+                        <ul class="case-list">
+                            <li>自動運転・ロボティクスの開発・制御用システム</li>
+                            <li>検査ラインにおけるエッジAI処理端末</li>
+                            <li>ライブストリーミング配信のエンコード専用機</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article Carousel -->
+            <h3 class="article-section-title">導入企業インタビュー・事例レポート</h3>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn carousel-prev" aria-label="前へ">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+                        <div class="article-card">
+                            <div class="article-img"><img src="./assets/08_niconico_badminton.jpg" alt="マイクラバドミントン ニコニコ超会議2026 ZOTAC機材協力" loading="lazy"></div>
+                            <div class="article-body">
+                                <h4 class="article-company">マイクラバドミントン<br><span style="font-weight:700;">（ニコニコ超会議2026）</span></h4>
+                                <div class="article-tags"><span class="article-tag">MAGNUS ONE</span><span class="article-tag">MAGNUS EN</span></div>
+                                <p class="article-desc">機材スポンサーとして協賛。ZBOXミニPC導入でプレイ感覚が改善し、来場者・トッププレイヤーから好評。</p>
+                                <span class="article-pending">事例レポート準備中</span>
+                            </div>
+                        </div>
+                        <div class="article-card">
+                            <div class="article-img"><img src="./assets/01_tgs2025.png" alt="東京ゲームショウ2025 ZOTAC機材協力" loading="lazy"></div>
+                            <div class="article-body">
+                                <h4 class="article-company">東京ゲームショウ2025</h4>
+                                <div class="article-tags"><span class="article-tag">MAGNUS ONE</span><span class="article-tag">MAGNUS EN</span></div>
+                                <p class="article-desc">公式機材スポンサーとして協賛。高い信頼性と省スペース性が評価され採用。</p>
+                                <a href="https://zotac.co.jp/blog/tgs2025-zotac-minipc-kyoryoku-case-study/" class="article-link" target="_blank">記事を読む →</a>
+                            </div>
+                        </div>
+                        <div class="article-card">
+                            <div class="article-img"><img src="./assets/02_wacom.png" alt="ワコム クリエイター向けイベント ZOTAC機材協力" loading="lazy"></div>
+                            <div class="article-body">
+                                <h4 class="article-company">株式会社ワコム</h4>
+                                <div class="article-tags"><span class="article-tag">MAGNUS EN</span><span class="article-tag">edge</span></div>
+                                <p class="article-desc">クリエイター志望者向けイベント・ワークショップに機材協力。</p>
+                                <a href="https://zotac.co.jp/blog/wacom-creator-event-2025-zotac-minipc-case-study/" class="article-link" target="_blank">記事を読む →</a>
+                            </div>
+                        </div>
+                        <div class="article-card">
+                            <div class="article-img"><img src="./assets/03_iodata.png" alt="アイ・オー・データ機器 展示機材としてZOTAC活用" loading="lazy"></div>
+                            <div class="article-body">
+                                <h4 class="article-company">株式会社アイ・オー・データ機器</h4>
+                                <div class="article-tags"><span class="article-tag">MAGNUS ONE</span><span class="article-tag">MAGNUS EN</span></div>
+                                <p class="article-desc">展示会への持ち運びや設置のしやすさからTGS等で展示機材としてご活用。</p>
+                                <span class="article-pending">事例レポート準備中</span>
+                            </div>
+                        </div>
+                        <div class="article-card">
+                            <div class="article-img"><img src="./assets/04_bitsummit.png" alt="BitSummit the 13th ZOTAC貸出協賛" loading="lazy"></div>
+                            <div class="article-body">
+                                <h4 class="article-company">BitSummit the 13th (2025)</h4>
+                                <div class="article-tags"><span class="article-tag">MAGNUS ONE</span><span class="article-tag">MAGNUS EN</span></div>
+                                <p class="article-desc">日本最大級のインディーゲームの祭典にて貸出機材として協賛。</p>
+                                <a href="https://zotac.co.jp/blog/bitsummit-13th-zotac-minipc-kyoryoku-case-study/" class="article-link" target="_blank">記事を読む →</a>
+                            </div>
+                        </div>
+                        <div class="article-card">
+                            <div class="article-img"><img src="./assets/07_creator_kurashima.png" alt="CG映像クリエイター 倉島伶氏 ZOTAC RTX 5090採用" loading="lazy"></div>
+                            <div class="article-body">
+                                <h4 class="article-company">CG映像クリエイター 倉島伶氏</h4>
+                                <div class="article-tags"><span class="article-tag">RTX 5090</span></div>
+                                <p class="article-desc">フリーランス独立後の制作環境の中核に採用。高速レンダリング環境を構築。</p>
+                                <a href="https://zotac.co.jp/blog/rtx5090-video-creator-case-study/" class="article-link" target="_blank">記事を読む →</a>
+                            </div>
+                        </div>
+                        <div class="article-card">
+                            <div class="article-img"><img src="./assets/05_digital_hollywood.png" alt="デジタルハリウッド大学 学生ゲーム制作にZOTAC貸出" loading="lazy"></div>
+                            <div class="article-body">
+                                <h4 class="article-company">デジタルハリウッド大学</h4>
+                                <div class="article-tags"><span class="article-tag">RTX 5090</span></div>
+                                <p class="article-desc">東京ゲームショーにて学生制作ゲームのプレイ用デバイスとして貸出。</p>
+                                <span class="article-pending">事例レポート準備中</span>
+                            </div>
+                        </div>
+                        <div class="article-card">
+                            <div class="article-img"><img src="./assets/06_iwasaki.png" alt="岩﨑学園情報科学専門学校 MAGNUS ONE授業用PC採用" loading="lazy"></div>
+                            <div class="article-body">
+                                <h4 class="article-company">岩﨑学園情報科学専門学校</h4>
+                                <div class="article-tags"><span class="article-tag">MAGNUS ONE</span><span class="article-tag">RTX 5080</span></div>
+                                <p class="article-desc">授業用PCとしてMAGNUS ONEやフラグシップPCを採用。</p>
+                                <span class="article-pending">事例レポート準備中</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-next" aria-label="次へ">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="faq section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker">FAQ</span>
+                <h2>よくある質問</h2>
+                <p>不安になりやすいポイントを先に整理しました。</p>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item"><summary><span class="faq-q">費用はかかりますか？</span><span class="faq-icon">＋</span></summary><div class="faq-a">貸出料金は無料です。発送時の送料はZOTACが負担、返却時の送料はお客様負担となります。破損・欠品時のご負担など、詳細は「申込み条件について」をご確認ください。</div></details>
+                <details class="faq-item"><summary><span class="faq-q">貸出期間はどれくらいですか？</span><span class="faq-icon">＋</span></summary><div class="faq-a">標準2週間です。延長や日程指定が必要な場合は、用途と希望時期を添えてご相談ください。</div></details>
+                <details class="faq-item"><summary><span class="faq-q">事前確認はありますか？</span><span class="faq-icon">＋</span></summary><div class="faq-a">はい。運用上の都合により事前確認制です。Webサイト等で法人・教育機関としての活動実績を確認させていただきます。通常3営業日を目安にご連絡します。</div></details>
+                <details class="faq-item"><summary><span class="faq-q">会場（展示会）への直送は可能ですか？</span><span class="faq-icon">＋</span></summary><div class="faq-a">原則として、お届け先は法人所在地（会社住所）とさせていただいております。展示会場への直送をご希望の場合は、フォームにてご相談ください。</div></details>
+                <details class="faq-item"><summary><span class="faq-q">複数台の貸出はできますか？</span><span class="faq-icon">＋</span></summary><div class="faq-a">在庫状況と用途により可能です。想定台数と用途（ブース数、同時稼働要件など）をお知らせください。</div></details>
+                <details class="faq-item"><summary><span class="faq-q">個人での申込みはできますか？</span><span class="faq-icon">＋</span></summary><div class="faq-a">本プログラムは法人・教育機関のお客様を対象としています。個人のお客様はご利用いただけません。</div></details>
+                <details class="faq-item"><summary><span class="faq-q">貸出後に事例として紹介されますか？</span><span class="faq-icon">＋</span></summary><div class="faq-a">ご利用内容や掲載可否を確認のうえ、導入事例・活用レポートとしてのご紹介をご相談させていただく場合があります。掲載は事前にご確認いただいたうえで進行します。</div></details>
+                <details class="faq-item"><summary><span class="faq-q">破損・欠品があった場合はどうなりますか？</span><span class="faq-icon">＋</span></summary><div class="faq-a">製品受取時に破損・欠品を発見された場合は、速やかにご連絡ください。貸出期間中の不適切な管理による欠品・傷・故障が確認された場合、修理費等の実費をご負担いただくことがあります。</div></details>
+            </div>
+            <div class="faq-cta">
+                <a href="https://forms.office.com/r/qRUvxGpZnk" target="_blank" class="btn btn-primary">不明点を相談する</a>
+                <a href="#requirements" class="btn btn-secondary">貸出条件を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== REQUIREMENTS ===== -->
+    <section id="requirements" class="requirements section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="kicker">REQUIREMENTS</span>
+                <h2>申込み条件について</h2>
+            </div>
+            <div class="req-box">
+                <div class="req-header">
+                    <div class="req-header-icon">!</div>
+                    <div class="req-header-text">本サービスは<em>事前確認制</em>です。</div>
+                </div>
+                <div class="req-grid">
+                    <div class="req-category">
+                        <h4>対象と用途</h4>
+                        <ul class="req-list">
+                            <li>法人・教育機関のお客様が対象です（Webサイト等で活動実績を確認）</li>
+                            <li>動作検証・評価目的でご利用いただけます</li>
+                            <li>展示会でのご利用も可能です（フォームに展示会名をご記入ください）</li>
+                        </ul>
+                    </div>
+                    <div class="req-category">
+                        <h4>貸出条件</h4>
+                        <ul class="req-list">
+                            <li>貸出期間：標準2週間</li>
+                            <li>条件確認後、最短5営業日で出荷</li>
+                            <li>発送時送料：ZOTAC負担 ／ 返却時送料：お客様負担</li>
+                        </ul>
+                    </div>
+                    <div class="req-category">
+                        <h4>主な注意事項</h4>
+                        <ul class="req-list">
+                            <li>精密機器のため取扱いにご注意ください</li>
+                            <li>破損・欠品・返却遅延等の場合、実費をご負担いただく場合があります</li>
+                            <li>詳細な条件は申込フォームでご確認ください</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA FINAL ===== -->
+    <section class="cta-final section-padding">
+        <div class="container">
+            <div class="cta-box">
+                <h2>実機でしか分からない、<br>「驚き」があります。</h2>
+                <p>「この小ささで本当に動くのか？」──その疑問は、2週間の実機検証で確信に変わります。<br>用途をお聞かせいただければ、最適な機材と在庫状況をすぐにご案内いたします。</p>
+                <div class="cta-actions">
+                    <a href="https://forms.office.com/r/qRUvxGpZnk" target="_blank" class="btn btn-primary btn-large">
+                        無料で検証貸出を相談する
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </a>
+                </div>
+                <p class="cta-note">
+                    ※入力は約3分で完了します。1台からのご相談も歓迎です。<br>
+                    ※土日祝日・休業期間中のお申し込みは、営業再開後のご連絡となります。<br>
+                    ※在庫状況やご利用目的により、日程調整またはお貸出しが難しい場合がございます。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STICKY CTA (Mobile) ===== -->
+    <div class="sticky-cta" aria-label="主要アクション">
+        <a href="https://forms.office.com/r/qRUvxGpZnk" target="_blank" class="btn btn-primary">相談する</a>
+        <a href="#requirements" class="btn btn-secondary">条件を見る</a>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2026 ZOTAC Technology Limited. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Carousel
+            const track = document.querySelector('.carousel-track');
+            const prev = document.querySelector('.carousel-prev');
+            const next = document.querySelector('.carousel-next');
+            if (track && prev && next) {
+                const amount = 300;
+                prev.addEventListener('click', () => track.scrollBy({ left: -amount, behavior: 'smooth' }));
+                next.addEventListener('click', () => track.scrollBy({ left: amount, behavior: 'smooth' }));
+            }
+        });
+    </script>
+</body>
+</html>
