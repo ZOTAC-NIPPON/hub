@@ -1,0 +1,2342 @@
+/* ============================================
+   MeganeX 8K Mark II Review LP - Stylesheet v1
+   Project: hub.zotac.co.jp/review/meganex8k/
+============================================ */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ---------- CSS Variables ---------- */
+:root {
+  /* Brand Colors */
+  --color-dark: #2A2F32;
+  --color-sage: #586360;
+  --color-offwhite: #E8E7E3;
+  --color-yellow: #FFD400;
+  --color-yellow-soft: rgba(255, 212, 0, 0.15);
+  
+  /* Text Colors */
+  --color-text: #2A2F32;
+  --color-text-mid: #6D6E71;
+  --color-text-light: #B1B3B6;
+  
+  /* Backgrounds */
+  --color-bg: #FFFFFF;
+  --color-bg-subtle: #FAFAFA;
+  --color-bg-soft: #F5F5F5;
+  --color-divider: #E8E7E3;
+  --color-divider-strong: #B1B3B6;
+  
+  /* Typography */
+  --font-display: 'Big Shoulders Display', 'Noto Sans JP', sans-serif;
+  --font-body: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Layout */
+  --content-max: 760px;
+  --content-pad: 24px;
+  
+  /* Easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Body ---------- */
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-text);
+  background: var(--color-bg);
+  letter-spacing: 0.02em;
+  text-rendering: optimizeLegibility;
+}
+
+/* paltは見出し・UI要素のみ（本文では字間が崩れて読みにくくなるため） */
+h1, h2, h3, h4,
+.hero-eyebrow,
+.section-number,
+.hero-meta-label,
+table.data-table thead th,
+table.data-table caption,
+.column-box-label,
+.section-break .chapter-num {
+  font-feature-settings: "palt";
+}
+
+/* ---------- Tabular Numbers ---------- */
+.tnum, table td, .stat-num {
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================
+   HERO SECTION
+============================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-dark);
+  color: #FFFFFF;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Hero atmospheric backdrop */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 40%, rgba(255, 212, 0, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(88, 99, 96, 0.4) 0%, transparent 60%),
+    linear-gradient(180deg, #2A2F32 0%, #1F2326 100%);
+  z-index: 0;
+}
+
+/* Hero subtle grid pattern */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px var(--content-pad);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Hero Visual (left) */
+.hero-visual {
+  position: relative;
+}
+
+.hero-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.6))
+          drop-shadow(0 0 60px rgba(255, 212, 0, 0.08));
+}
+
+/* Hero Text (right) */
+.hero-content {
+  position: relative;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+  margin-bottom: 32px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--color-yellow);
+}
+
+.hero-title-en {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+}
+
+.hero-title-en .accent {
+  color: var(--color-yellow);
+}
+
+.hero-title-jp {
+  font-weight: 900;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.5;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.hero-subtitle {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  margin-bottom: 48px;
+  max-width: 480px;
+}
+
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  max-width: 480px;
+}
+
+.hero-meta-item {
+  font-size: 13px;
+}
+
+.hero-meta-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin-bottom: 6px;
+}
+
+.hero-meta-value {
+  display: block;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+/* ============================================
+   SECTION BASE
+============================================ */
+section.content {
+  padding: 120px 0;
+  background: var(--color-bg);
+}
+
+.container {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--content-pad);
+}
+
+/* Safety: no image inside content containers should ever overflow */
+.container img,
+.container-wide img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container-wide {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--content-pad);
+}
+
+/* Section Eyebrow / Number */
+.section-number {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-number::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--color-yellow);
+}
+
+/* H2: Section title */
+h2.section-title {
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+  margin-bottom: 44px;
+  position: relative;
+  padding-left: 24px;
+}
+
+h2.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 4px;
+  background: var(--color-yellow);
+}
+
+/* H3: Subsection */
+h3.subsection-title {
+  font-weight: 800;
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.45;
+  color: var(--color-text);
+  margin-top: 56px;
+  margin-bottom: 20px;
+  letter-spacing: -0.005em;
+}
+
+/* Body paragraphs */
+.container p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.container p:last-child {
+  margin-bottom: 0;
+}
+
+.container strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-yellow);
+  transition: color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+
+a:hover {
+  background: var(--color-yellow-soft);
+}
+
+/* ============================================
+   DATA TABLE
+============================================ */
+.data-table-wrapper {
+  margin: 36px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: var(--color-bg);
+}
+
+table.data-table caption {
+  text-align: left;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  padding-bottom: 16px;
+}
+
+table.data-table thead th {
+  background: var(--color-dark);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: left;
+  padding: 16px 20px;
+  letter-spacing: 0.02em;
+}
+
+table.data-table thead th.num {
+  text-align: right;
+}
+
+table.data-table tbody td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-divider);
+  font-size: 14px;
+}
+
+table.data-table tbody td.num {
+  text-align: right;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+table.data-table tbody tr:nth-child(even) {
+  background: var(--color-bg-subtle);
+}
+
+table.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+table.data-table tbody tr:hover {
+  background: rgba(255, 212, 0, 0.04);
+}
+
+/* Rank cell with badge */
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  background: var(--color-yellow);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+.rank-badge.ref {
+  background: var(--color-divider-strong);
+  color: var(--color-text);
+  font-size: 11px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  min-width: auto;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+/* Reference row styling */
+table.data-table tr.ref-row {
+  background: var(--color-bg-soft) !important;
+}
+
+table.data-table tr.ref-row td {
+  color: var(--color-text-mid);
+}
+
+/* Highlight value */
+.hl {
+  color: var(--color-text);
+  font-weight: 700;
+  position: relative;
+}
+
+.hl::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: -2px;
+  height: 6px;
+  background: var(--color-yellow);
+  z-index: -1;
+  opacity: 0.4;
+}
+
+/* ============================================
+   COLUMN BOX (column / reference)
+============================================ */
+.column-box {
+  background: var(--color-offwhite);
+  border-left: 4px solid var(--color-sage);
+  padding: 32px 36px;
+  margin: 36px 0;
+  position: relative;
+}
+
+.column-box-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-sage);
+  margin-bottom: 12px;
+}
+
+.column-box-title {
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.column-box p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.column-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Reference info box variant */
+.column-box.reference {
+  background: #F5F5F5;
+  border-left-color: var(--color-divider-strong);
+}
+
+.column-box.reference .column-box-label {
+  color: var(--color-text-mid);
+}
+
+/* Anomaly / warning column variant */
+.column-box.anomaly {
+  background: #FFFEF5;
+  border-left-color: var(--color-yellow);
+}
+
+.column-box.anomaly .column-box-label {
+  color: var(--color-text);
+}
+
+/* Mini stat row inside column */
+.stat-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 14px;
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-row .label {
+  color: var(--color-text-mid);
+}
+
+.stat-row .value {
+  font-weight: 700;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  font-size: 16px;
+}
+
+.stat-row .value.alert {
+  color: var(--color-text);
+  position: relative;
+  padding: 2px 8px;
+  background: var(--color-yellow);
+}
+
+/* ============================================
+   SECTION SEPARATOR (visual break)
+============================================ */
+.section-break {
+  background: var(--color-dark);
+  color: #FFFFFF;
+  padding: 100px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-break::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.section-break-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-break .chapter-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  color: var(--color-yellow);
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.section-break .chapter-num::before,
+.section-break .chapter-num::after {
+  content: '——';
+  margin: 0 16px;
+  color: rgba(255, 212, 0, 0.4);
+}
+
+.section-break h2 {
+  font-weight: 900;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 960px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 80px var(--content-pad) 60px;
+  }
+  
+  .hero-visual {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .hero-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  section.content {
+    padding: 80px 0;
+  }
+  
+  h2.section-title {
+    margin-bottom: 48px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-inner {
+    padding: 60px 20px 40px;
+  }
+  
+  .hero-eyebrow {
+    font-size: 11px;
+  }
+  
+  .hero-title-en {
+    font-size: 44px;
+  }
+  
+  table.data-table thead th,
+  table.data-table tbody td {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  
+  .column-box {
+    padding: 24px 22px;
+  }
+  
+  section.content {
+    padding: 60px 0;
+  }
+}
+
+/* ============================================
+   PHASE 1 ADDITIONS
+   - Global Header
+   - Floating TOC (PC) / Collapsible TOC (Mobile)
+   - Video Card (YouTube embed link)
+   - Comparison Table variant
+============================================ */
+
+/* ---------- Global Header ---------- */
+.global-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(42, 47, 50, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.global-header-inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.global-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  border: none;
+}
+
+.global-header-brand img {
+  height: 18px;
+  width: auto;
+  display: block;
+}
+
+.global-header-brand-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.global-header-meta {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+}
+
+@media (max-width: 600px) {
+  .global-header-meta {
+    display: none;
+  }
+}
+
+/* Body offset for fixed header */
+body {
+  padding-top: 56px;
+}
+
+/* Compensate hero min-height for the fixed header offset
+   (was previously: margin-top: -56px; padding-top: 56px;
+    which caused the hero to overlap .toc-mobile) */
+.hero {
+  min-height: calc(100vh - 56px);
+}
+
+/* ---------- Floating TOC (PC, right sidebar) ---------- */
+.toc {
+  position: fixed;
+  top: 50%;
+  right: 32px;
+  transform: translateY(-50%);
+  z-index: 50;
+  max-width: 240px;
+  padding: 24px 24px 24px 28px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-left: 2px solid var(--color-yellow);
+  box-shadow: 0 20px 60px rgba(42, 47, 50, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s var(--ease-out), visibility 0.4s var(--ease-out);
+}
+
+.toc.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.toc-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.toc-list li {
+  margin: 0;
+}
+
+.toc-list a {
+  display: block;
+  padding: 6px 0 6px 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text-mid);
+  text-decoration: none;
+  border: none;
+  border-left: 2px solid transparent;
+  transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+
+.toc-list a:hover {
+  color: var(--color-text);
+  border-left-color: var(--color-yellow);
+  background: transparent;
+}
+
+.toc-list a.is-active {
+  color: var(--color-text);
+  font-weight: 700;
+  border-left-color: var(--color-yellow);
+}
+
+.toc-list .toc-num {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 10px;
+  color: var(--color-text-light);
+  margin-right: 6px;
+  letter-spacing: 0.06em;
+}
+
+.toc-list a.is-active .toc-num {
+  color: var(--color-yellow);
+}
+
+/* Hide floating TOC on small screens */
+@media (max-width: 1280px) {
+  .toc {
+    display: none;
+  }
+}
+
+/* ---------- Mobile TOC (collapsible at top of body) ---------- */
+.toc-mobile {
+  display: none;
+  background: var(--color-bg-soft);
+  border-top: 1px solid var(--color-divider);
+  border-bottom: 1px solid var(--color-divider);
+  padding: 0;
+}
+
+@media (max-width: 1280px) {
+  .toc-mobile {
+    display: block;
+  }
+}
+
+.toc-mobile-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: left;
+}
+
+.toc-mobile-toggle .toc-mobile-label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  font-weight: 600;
+}
+
+.toc-mobile-toggle .toc-mobile-icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid var(--color-text-mid);
+  border-bottom: 2px solid var(--color-text-mid);
+  transform: rotate(45deg);
+  transition: transform 0.3s var(--ease-out);
+  margin-bottom: 4px;
+}
+
+.toc-mobile.is-open .toc-mobile-icon {
+  transform: rotate(-135deg);
+  margin-bottom: 0;
+  margin-top: 4px;
+}
+
+.toc-mobile-list {
+  list-style: none;
+  padding: 0 24px 20px;
+  margin: 0;
+  display: none;
+}
+
+.toc-mobile.is-open .toc-mobile-list {
+  display: block;
+}
+
+.toc-mobile-list li {
+  margin: 0;
+}
+
+.toc-mobile-list a {
+  display: block;
+  padding: 10px 0;
+  font-size: 13px;
+  color: var(--color-text);
+  text-decoration: none;
+  border: none;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.toc-mobile-list li:last-child a {
+  border-bottom: none;
+}
+
+.toc-mobile-list .toc-num {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--color-text-mid);
+  margin-right: 8px;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- Video Card (YouTube link card) ---------- */
+.video-card {
+  display: block;
+  margin: 36px 0;
+  padding: 28px 32px;
+  background: var(--color-dark);
+  color: #FFFFFF;
+  border-left: 4px solid var(--color-yellow);
+  text-decoration: none;
+  border-bottom: none;
+  transition: background 0.2s var(--ease-out);
+  position: relative;
+}
+
+.video-card:hover {
+  background: #1F2326;
+}
+
+.video-card-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+  margin-bottom: 12px;
+}
+
+.video-card-label::before {
+  content: '▶';
+  font-size: 10px;
+}
+
+.video-card-title {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+  letter-spacing: -0.005em;
+}
+
+.video-card-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  margin-bottom: 0;
+}
+
+.video-card-url {
+  display: block;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-yellow);
+  word-break: break-all;
+}
+
+/* ---------- Comparison Table variant (Quest3 vs MeganeX) ---------- */
+table.data-table.compare th:nth-child(3),
+table.data-table.compare td:nth-child(3) {
+  background: rgba(255, 212, 0, 0.06);
+}
+
+table.data-table.compare thead th:nth-child(3) {
+  background: var(--color-yellow);
+  color: var(--color-text);
+}
+
+/* ---------- GPU Review Card (chapter 7-2 RTX 50 series) ---------- */
+.gpu-card {
+  margin: 40px 0;
+  padding: 36px 40px;
+  background: var(--color-bg-subtle);
+  border-left: 4px solid var(--color-yellow);
+  position: relative;
+}
+
+/* GPU card image — light bg, transparent PNG with drop shadow */
+.gpu-card-image {
+  margin: 0 0 28px;
+  padding: 32px 24px 24px;
+  background: var(--color-bg);
+  display: block;
+}
+
+.gpu-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 720px;
+  margin: 0 auto;
+  filter: drop-shadow(0 24px 32px rgba(42, 47, 50, 0.18))
+          drop-shadow(0 8px 12px rgba(42, 47, 50, 0.08));
+}
+
+.gpu-card-image figcaption {
+  display: block;
+  margin-top: 28px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-divider);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  text-align: center;
+}
+
+/* Placeholder variant inside gpu-card */
+.gpu-card > .placeholder-figure:first-child {
+  margin: -36px -40px 28px;
+  width: calc(100% + 80px);
+  border-left: none;
+  border-right: none;
+}
+
+/* ---------- Product Figure (full-width product hero, e.g. ch6-2) ---------- */
+.product-figure {
+  margin: 36px 0 32px;
+  background: #2A2F32;
+  display: block;
+}
+
+.product-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-figure figcaption {
+  display: block;
+  padding: 10px 16px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  text-align: right;
+  background: var(--color-bg);
+}
+
+/* ---------- GPU Figure (standalone product image, light bg with shadow) ---------- */
+.gpu-figure {
+  margin: 36px 0;
+  padding: 44px 32px 28px;
+  background: var(--color-bg);
+  display: block;
+  border: 1px solid var(--color-divider);
+}
+
+.gpu-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 800px;
+  margin: 0 auto;
+  filter: drop-shadow(0 28px 40px rgba(42, 47, 50, 0.2))
+          drop-shadow(0 10px 14px rgba(42, 47, 50, 0.08));
+}
+
+.gpu-figure figcaption {
+  display: block;
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-divider);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  text-align: center;
+}
+
+/* GPU figure inside a column-box (ch 7-3 RTX 4090) */
+.column-box .gpu-figure {
+  margin: 20px 0;
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- World Figure (VRChat world captures, ch 5-4) ---------- */
+.world-figure {
+  margin: 20px 0 8px;
+  display: block;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #2A2F32;
+}
+
+.world-figure img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.world-figure figcaption {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  text-align: right;
+}
+
+.gpu-card-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  margin-bottom: 8px;
+}
+
+.gpu-card-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(26px, 3.2vw, 34px);
+  line-height: 1.2;
+  color: var(--color-text);
+  margin: 0 0 20px;
+  letter-spacing: 0.01em;
+}
+
+.gpu-card h4 {
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--color-text);
+  margin: 30px 0 12px;
+  padding-left: 16px;
+  position: relative;
+  letter-spacing: -0.005em;
+  line-height: 1.5;
+}
+
+.gpu-card h4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  background: var(--color-yellow);
+}
+
+.gpu-card > p:first-of-type {
+  margin-top: 0;
+}
+
+.gpu-card p {
+  font-size: 15px;
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.gpu-card p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .gpu-card {
+    padding: 28px 24px;
+  }
+  .gpu-card > .placeholder-figure:first-child {
+    margin: -28px -24px 24px;
+    width: calc(100% + 48px);
+  }
+}
+
+/* ---------- Data table variant inside column-box ---------- */
+.column-box table.data-table {
+  margin: 16px 0;
+  font-size: 13px;
+}
+
+.column-box table.data-table thead th {
+  padding: 10px 14px;
+  font-size: 12px;
+}
+
+.column-box table.data-table tbody td {
+  padding: 10px 14px;
+  font-size: 13px;
+}
+
+/* ============================================
+   GPU BAR CHART (ch 8-1 dual-bar, ch 8-3 single-bar)
+============================================ */
+.gpu-bar-chart {
+  margin: 32px 0;
+  padding: 28px 32px 24px;
+  background: var(--color-bg-subtle);
+  border-left: 4px solid var(--color-yellow);
+}
+
+.gpu-bar-chart-caption {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  margin-bottom: 18px;
+}
+
+.gpu-bar-chart-legend {
+  display: flex;
+  gap: 22px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: var(--color-text-mid);
+  flex-wrap: wrap;
+}
+
+.gpu-bar-chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gpu-bar-chart-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.gpu-bar-chart-swatch.swatch-avg {
+  background: #6D6E71;
+}
+
+.gpu-bar-chart-swatch.swatch-low {
+  background: var(--color-yellow);
+}
+
+.gpu-bar-chart-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.gpu-bar-chart-row:last-child {
+  border-bottom: none;
+}
+
+.gpu-bar-chart-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.gpu-bar-chart-row.is-ref .gpu-bar-chart-label {
+  color: var(--color-text-mid);
+  font-weight: 600;
+}
+
+.gpu-bar-chart-row.is-leader .gpu-bar-chart-label {
+  color: var(--color-dark);
+  font-weight: 900;
+}
+
+.gpu-bar-chart-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gpu-bar-chart-bar {
+  height: 24px;
+  background: #6D6E71;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 12px;
+  min-width: 48px;
+  position: relative;
+  transition: width 0.3s var(--ease-out);
+}
+
+.gpu-bar-chart-bar.is-low {
+  background: var(--color-yellow);
+}
+
+.gpu-bar-chart-value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 12px;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.gpu-bar-chart-bar.is-low .gpu-bar-chart-value {
+  color: var(--color-dark);
+}
+
+/* Reference rows use muted gray instead of strong dark */
+.gpu-bar-chart-row.is-ref .gpu-bar-chart-bar {
+  background: #B1B3B6;
+}
+
+.gpu-bar-chart-row.is-ref .gpu-bar-chart-bar.is-low {
+  background: #E6C960;
+}
+
+/* Single-bar variant (ch 8-3 std deviation) */
+.gpu-bar-chart.is-single .gpu-bar-chart-row.is-leader .gpu-bar-chart-bar {
+  background: var(--color-dark);
+}
+
+.gpu-bar-chart.is-single .gpu-bar-chart-row.is-leader .gpu-bar-chart-value {
+  color: #FFFFFF;
+}
+
+.gpu-bar-chart.is-single .gpu-bar-chart-bar {
+  background: var(--color-yellow);
+}
+
+.gpu-bar-chart.is-single .gpu-bar-chart-value {
+  color: var(--color-dark);
+}
+
+.gpu-bar-chart.is-single .gpu-bar-chart-row.is-ref .gpu-bar-chart-bar {
+  background: #E6C960;
+}
+
+@media (max-width: 600px) {
+  .gpu-bar-chart {
+    padding: 24px 20px 20px;
+  }
+  .gpu-bar-chart-row {
+    grid-template-columns: 92px 1fr;
+    gap: 12px;
+  }
+  .gpu-bar-chart-label {
+    font-size: 11px;
+  }
+  .gpu-bar-chart-value {
+    font-size: 11px;
+  }
+}
+
+
+/* ============================================
+   SUBSECTION ICON (ch 4 MeganeX review)
+============================================ */
+.subsection-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: -4px;
+  margin-right: 12px;
+  color: var(--color-yellow);
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+
+/* ============================================
+   TIER DIAGRAM (ch 9 - 3 GPU lines summary)
+============================================ */
+.tier-diagram {
+  margin: 40px 0 48px;
+  padding: 36px 40px;
+  background: var(--color-bg-subtle);
+  border-left: 4px solid var(--color-yellow);
+}
+
+.tier-diagram-caption {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  margin-bottom: 24px;
+}
+
+.tier-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  counter-reset: tier;
+}
+
+.tier {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 28px;
+  position: relative;
+  transition: transform 0.2s var(--ease-out);
+}
+
+.tier-num {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.tier-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.tier-label {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+
+.tier-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-mid);
+}
+
+.tier-gpu {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+
+/* Tier 01 — 実用ライン (clean light with strong borders) */
+.tier.tier-basic {
+  background: var(--color-bg);
+  border: 1px solid var(--color-divider);
+  border-left: 6px solid #B1B3B6;
+}
+.tier.tier-basic .tier-num {
+  color: var(--color-dark);
+}
+.tier.tier-basic .tier-label {
+  color: var(--color-text);
+}
+.tier.tier-basic .tier-gpu {
+  background: var(--color-dark);
+  color: #FFFFFF;
+}
+
+/* Tier 02 — 快適ライン (yellow accent, clean) */
+.tier.tier-comfort {
+  background: var(--color-bg);
+  border: 1px solid var(--color-divider);
+  border-left: 6px solid var(--color-yellow);
+}
+.tier.tier-comfort .tier-num {
+  color: var(--color-dark);
+}
+.tier.tier-comfort .tier-label {
+  color: var(--color-text);
+}
+.tier.tier-comfort .tier-gpu {
+  background: var(--color-yellow);
+  color: var(--color-dark);
+}
+
+/* Tier 03 — 安定重視ライン (full dark premium) */
+.tier.tier-premium {
+  background: var(--color-dark);
+  color: #FFFFFF;
+  border: 1px solid var(--color-dark);
+  border-left: 6px solid var(--color-yellow);
+  position: relative;
+  overflow: hidden;
+}
+.tier.tier-premium::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at right, rgba(255, 212, 0, 0.1), transparent 60%);
+  pointer-events: none;
+}
+.tier.tier-premium > * {
+  position: relative;
+}
+.tier.tier-premium .tier-num {
+  color: var(--color-yellow);
+}
+.tier.tier-premium .tier-label {
+  color: #FFFFFF;
+}
+.tier.tier-premium .tier-desc {
+  color: rgba(255, 255, 255, 0.75);
+}
+.tier.tier-premium .tier-gpu {
+  background: var(--color-yellow);
+  color: var(--color-dark);
+}
+
+@media (max-width: 640px) {
+  .tier-diagram {
+    padding: 28px 20px;
+  }
+  .tier {
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+    padding: 18px 20px;
+  }
+  .tier-num {
+    font-size: 26px;
+  }
+  .tier-label {
+    font-size: 16px;
+  }
+  .tier-gpu {
+    grid-column: 1 / -1;
+    margin-top: 8px;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}
+
+
+/* ============================================
+   PHASE 4 ADDITIONS
+   - Booth Panel (ch 11 dedicated event panel)
+   - Link List (ch 13 related links)
+   - Global Footer
+============================================ */
+
+/* ---------- Booth Panel ---------- */
+.booth-panel {
+  margin: 40px 0;
+  padding: 56px 56px 48px;
+  background: var(--color-dark);
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.booth-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-yellow);
+}
+
+.booth-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at top right, rgba(255, 212, 0, 0.08), transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(255, 212, 0, 0.04), transparent 60%);
+  pointer-events: none;
+}
+
+.booth-panel > * {
+  position: relative;
+}
+
+.booth-panel-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+  margin-bottom: 18px;
+}
+
+.booth-panel-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 36px;
+  height: 1px;
+  background: var(--color-yellow);
+}
+
+.booth-panel-title {
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: #FFFFFF;
+  margin: 0 0 22px;
+}
+
+.booth-panel-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 36px;
+  max-width: 95%;
+}
+
+.booth-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 40px;
+  padding: 32px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 0 0 36px;
+}
+
+.booth-info-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.booth-info-grid dt {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+  margin: 0;
+}
+
+.booth-info-grid dd {
+  font-weight: 700;
+  font-size: 17px;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+
+.booth-panel-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: var(--color-yellow);
+  color: var(--color-dark);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  transition: background 0.2s var(--ease-out);
+}
+
+.booth-panel-cta::after {
+  content: '→';
+  font-size: 14px;
+}
+
+.booth-panel-cta:hover {
+  background: #FFE040;
+  border: none;
+}
+
+@media (max-width: 600px) {
+  .booth-panel {
+    padding: 40px 28px 36px;
+  }
+  .booth-info-grid {
+    grid-template-columns: 1fr;
+    gap: 22px 0;
+  }
+}
+
+/* ---------- Link List (ch 13) ---------- */
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 36px;
+}
+
+.link-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-divider);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.link-list li:last-child {
+  border-bottom: none;
+}
+
+.link-list .link-list-label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: var(--color-text);
+}
+
+.link-list .link-list-meta {
+  display: block;
+  font-size: 13px;
+  color: var(--color-text-mid);
+  word-break: break-all;
+}
+
+/* ---------- Global Footer ---------- */
+.global-footer {
+  background: var(--color-dark);
+  color: #FFFFFF;
+  padding: 88px var(--content-pad) 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.global-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.global-footer-inner {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  text-align: center;
+}
+
+.global-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.global-footer-brand img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.global-footer-tagline {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+}
+
+.global-footer-divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.global-footer-back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+  text-decoration: none;
+  border: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s var(--ease-out);
+}
+
+.global-footer-back-to-top::before {
+  content: '↑';
+  font-size: 13px;
+}
+
+.global-footer-back-to-top:hover {
+  border-bottom-color: var(--color-yellow);
+  background: transparent;
+}
+
+.global-footer-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+}
+
+.global-footer-meta a {
+  color: rgba(255, 255, 255, 0.75);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: border-color 0.2s var(--ease-out), color 0.2s var(--ease-out);
+}
+
+.global-footer-meta a:hover {
+  color: var(--color-yellow);
+  border-bottom-color: var(--color-yellow);
+  background: transparent;
+}
+
+.global-footer-copyright {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .global-footer {
+    padding: 64px 24px 48px;
+  }
+}
+
+/* ---------- GPU Bar Chart (ch 8 visual benchmarks) ---------- */
+.gpu-bar-chart {
+  margin: 32px 0 36px;
+  padding: 28px 28px 24px;
+  background: var(--color-bg-subtle);
+  border-left: 3px solid var(--color-yellow);
+}
+
+.gpu-bar-chart-caption {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-mid);
+  margin: 0 0 20px;
+}
+
+.gpu-bar-chart-legend {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 24px;
+  font-size: 12px;
+  color: var(--color-text);
+  flex-wrap: wrap;
+}
+
+.gpu-bar-chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gpu-bar-chart-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+}
+
+.gpu-bar-chart-swatch.swatch-avg { background: #6D6E71; }
+.gpu-bar-chart-swatch.swatch-low { background: var(--color-yellow); }
+
+.gpu-bar-chart-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.gpu-bar-chart-row:last-child {
+  margin-bottom: 0;
+}
+
+.gpu-bar-chart-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-align: right;
+  padding-top: 4px;
+  letter-spacing: -0.005em;
+  color: var(--color-text);
+}
+
+.gpu-bar-chart-row.is-ref .gpu-bar-chart-label {
+  color: var(--color-text-mid);
+  font-weight: 500;
+}
+
+.gpu-bar-chart-row.is-leader .gpu-bar-chart-label {
+  font-weight: 900;
+}
+
+.gpu-bar-chart-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gpu-bar-chart-bar {
+  height: 22px;
+  background: #6D6E71;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  position: relative;
+  min-width: 38px;
+}
+
+.gpu-bar-chart-bar.is-low {
+  background: var(--color-yellow);
+}
+
+.gpu-bar-chart-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  color: #FFFFFF;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.gpu-bar-chart-bar.is-low .gpu-bar-chart-value {
+  color: var(--color-text);
+}
+
+/* Single-metric variant (e.g. ch 8-3 std dev) */
+.gpu-bar-chart.is-single .gpu-bar-chart-bar {
+  background: var(--color-yellow);
+}
+
+.gpu-bar-chart.is-single .gpu-bar-chart-bar .gpu-bar-chart-value {
+  color: var(--color-text);
+}
+
+.gpu-bar-chart.is-single .gpu-bar-chart-row.is-leader .gpu-bar-chart-bar {
+  background: var(--color-dark);
+}
+
+.gpu-bar-chart.is-single .gpu-bar-chart-row.is-leader .gpu-bar-chart-bar .gpu-bar-chart-value {
+  color: #FFFFFF;
+}
+
+@media (max-width: 600px) {
+  .gpu-bar-chart {
+    padding: 20px 18px;
+  }
+  .gpu-bar-chart-row {
+    grid-template-columns: 80px 1fr;
+    gap: 10px;
+  }
+  .gpu-bar-chart-label {
+    font-size: 12px;
+  }
+  .gpu-bar-chart-legend {
+    gap: 16px;
+    font-size: 11px;
+  }
+}
+
+.placeholder-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 0 28px;
+  padding: 24px;
+  background: #b8b6ad;
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  text-align: center;
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  position: relative;
+}
+
+.placeholder-figure::before {
+  content: 'PLACEHOLDER';
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.placeholder-name {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0 16px;
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+.placeholder-size {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+  margin-top: 8px;
+}
+
+.placeholder-caption {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  opacity: 0.8;
+  margin-top: 10px;
+  max-width: 80%;
+  line-height: 1.5;
+}
+
+/* Aspect ratio variants */
+.placeholder-figure.ar-square { aspect-ratio: 1 / 1; }
+.placeholder-figure.ar-16-9 { aspect-ratio: 16 / 9; }
+.placeholder-figure.ar-4-3 { aspect-ratio: 4 / 3; }
+.placeholder-figure.ar-3-2 { aspect-ratio: 3 / 2; }
+
+/* Hero placeholder override (sits inside .hero-visual) */
+.hero-visual .placeholder-figure {
+  margin: 0;
+  background: #4a5054;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-visual .placeholder-figure::before {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ---------- List inside container (5 differences) ---------- */
+.container ul.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 28px;
+}
+
+.container ul.feature-list li {
+  position: relative;
+  padding: 16px 0 16px 28px;
+  border-bottom: 1px solid var(--color-divider);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.container ul.feature-list li:last-child {
+  border-bottom: none;
+}
+
+.container ul.feature-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 14px;
+  height: 2px;
+  background: var(--color-yellow);
+}
+
+.container ul.feature-list li strong {
+  display: block;
+  font-weight: 800;
+  font-size: 15px;
+  margin-bottom: 4px;
+  color: var(--color-text);
+}
+
+/* =====================================================
+   v12 additions — HERO bg blur + halo + corner frame
+   - 採用: blur 90 / overlay 0.75 / halo α 0.10 → fade 65%
+   - placeholder-figure (開発用ダミー) を hero-figure に置換
+   - 製品画像のコーナーにコマンドプロンプト風マーカーを追加
+===================================================== */
+
+/* (1) ぼかしバナーが atmospheric の役割を担うため、::before を無効化 */
+.hero::before {
+  display: none;
+}
+
+/* (2) HERO背景：ぼかしバナーレイヤー */
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-bg-layer .bg-img {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(90px);
+}
+
+.hero-bg-layer .bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 22, 24, 0.75);
+}
+
+/* (3) 製品背後のハロ */
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: -10%;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.10) 0%,
+    rgba(255, 255, 255, 0.04) 30%,
+    transparent 65%
+  );
+}
+
+/* (4) aspect-ratio クラスを placeholder-figure 限定から独立化 */
+.ar-square { aspect-ratio: 1 / 1; }
+.ar-16-9 { aspect-ratio: 16 / 9; }
+.ar-4-3 { aspect-ratio: 4 / 3; }
+.ar-3-2 { aspect-ratio: 3 / 2; }
+
+/* (5) HERO 本番用 figure（placeholder-figure を完全置換） */
+.hero-visual .hero-figure {
+  margin: 0;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.hero-visual .hero-figure img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* =====================================================
+   (6) HERO corner frame — コマンドプロンプト風アクセント
+   控えめに効かせて製品と背景の分離を補助
+===================================================== */
+.hero-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  font-family: 'Space Mono', 'Courier New', ui-monospace, monospace;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: lowercase;
+}
+
+/* L字コーナーライン */
+.hero-frame .corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: rgba(255, 255, 255, 0.40);
+  border-style: solid;
+  border-width: 0;
+}
+.hero-frame .corner-tl { top: 0; left: 0;    border-top-width: 1.5px; border-left-width: 1.5px; }
+.hero-frame .corner-tr { top: 0; right: 0;   border-top-width: 1.5px; border-right-width: 1.5px; }
+.hero-frame .corner-bl { bottom: 0; left: 0; border-bottom-width: 1.5px; border-left-width: 1.5px; }
+.hero-frame .corner-br { bottom: 0; right: 0; border-bottom-width: 1.5px; border-right-width: 1.5px; }
+
+/* テキストラベル */
+.hero-frame .label {
+  position: absolute;
+  white-space: nowrap;
+  line-height: 16px;
+}
+.hero-frame .label-tl { top: 0;    left: 24px;  }
+.hero-frame .label-tr { top: 0;    right: 24px; }
+.hero-frame .label-bl { bottom: 0; left: 24px;  }
+.hero-frame .label-br { bottom: 0; right: 24px; }
+
+/* カーソル（左下のみイエローでブリンク） */
+.hero-frame .cursor {
+  color: rgba(255, 212, 0, 0.70);
+  margin-left: 2px;
+  animation: hero-cursor-blink 1.06s step-end infinite;
+}
+
+@keyframes hero-cursor-blink {
+  0%, 50%   { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* アクセシビリティ：動きを抑える設定の場合はカーソル点滅を停止 */
+@media (prefers-reduced-motion: reduce) {
+  .hero-frame .cursor {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
+/* =====================================================
+   v14 additions — HERO左右カラムの高さ揃え
+   - L字コーナー(.hero-frame)の上下端をテキストブロック(.hero-content)
+     の上下端と揃えるため、grid を center → stretch に変更
+   - 製品画像は aspect-ratio 1:1 を維持しつつ枠内中央配置
+===================================================== */
+
+.hero .hero-inner {
+  align-items: stretch;
+}
+
+.hero .hero-visual .hero-figure {
+  height: auto;
+  max-height: 100%;
+}
+
+/* =====================================================
+   v15 additions — HERO左右の上下端を厳密に揃える
+   v14 の stretch だけでは .hero-content 内部のテキストが
+   上端詰めになり、.hero-meta が下端に来ない問題を修正
+   - .hero-content を flex column にして高さ全体を取る
+   - .hero-meta を margin-top: auto で残り空間を吸収して下端配置
+===================================================== */
+
+.hero .hero-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.hero .hero-content .hero-meta {
+  margin-top: auto;
+}
+
+/* =====================================================
+   v19 additions — 仕様表 出典/詳細リンク用キャプション
+===================================================== */
+.spec-table-source {
+  margin: -8px 0 24px;
+  font-size: 13px;
+  color: var(--color-text-mid, #B1B3B6);
+  text-align: right;
+}
+.spec-table-source a {
+  color: var(--color-text-mid, #B1B3B6);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.spec-table-source a:hover {
+  color: var(--color-yellow, #FFD400);
+}
