@@ -828,6 +828,94 @@
   .spec-chip.highlight .chip-value { color: var(--accent-orange); }
 
   /* ══════════════════════════════════════════
+     REVIEW CARD CTA
+     ══════════════════════════════════════════ */
+  .review-cta { margin-top: 32px; }
+
+  .review-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .review-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    border-color: rgba(255,212,0,0.5);
+  }
+
+  .review-card__thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--surface2);
+    overflow: hidden;
+  }
+
+  .review-card__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .review-card__body { padding: 24px 28px 28px; }
+
+  .review-card__label {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent-orange);
+    background: var(--zotac-yellow-bg);
+    border: 1px solid rgba(255,212,0,0.5);
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin-bottom: 12px;
+  }
+
+  .review-card__body h3 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 12px;
+    line-height: 1.4;
+  }
+
+  .review-card__body p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin: 0 0 16px;
+    line-height: 1.7;
+  }
+
+  .review-card__arrow {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--zotac-dark);
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .review-card:hover .review-card__arrow {
+    color: var(--accent-orange);
+    transform: translateX(4px);
+  }
+
+  /* ══════════════════════════════════════════
      2b. PAST EDITION — 過去動画（控えめ・主従明示）
      ══════════════════════════════════════════ */
   .past-edition-separator {
@@ -1342,6 +1430,9 @@
     .featured-video-placeholder .placeholder-text { font-size: 22px; }
     .featured-video-placeholder .placeholder-sub { font-size: 12px; }
     .featured-video-placeholder .placeholder-meta { font-size: 10px; gap: 10px; }
+    .review-card__body { padding: 20px 20px 24px; }
+    .review-card__body h3 { font-size: 18px; }
+    .review-card__body p { font-size: 13px; }
     .past-edition { grid-template-columns: 1fr; padding: 16px; gap: 16px; }
     .past-edition-separator { margin-top: 36px; padding-top: 24px; }
     .hero-hud-markers, .hero-particles { opacity: 0.5; }
