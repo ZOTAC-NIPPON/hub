@@ -1735,6 +1735,23 @@ table.data-table.compare thead th:nth-child(3) {
   border: none;
 }
 
+.booth-panel-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.booth-panel-cta--secondary {
+  background: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.booth-panel-cta--secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
 @media (max-width: 600px) {
   .booth-panel {
     padding: 40px 28px 36px;
@@ -1742,6 +1759,13 @@ table.data-table.compare thead th:nth-child(3) {
   .booth-info-grid {
     grid-template-columns: 1fr;
     gap: 22px 0;
+  }
+  .booth-panel-cta-group {
+    flex-direction: column;
+  }
+  .booth-panel-cta-group .booth-panel-cta {
+    width: 100%;
+    justify-content: center;
   }
 }
 
