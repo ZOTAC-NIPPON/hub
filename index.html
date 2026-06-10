@@ -441,6 +441,16 @@ h2 {
 
 /* Editorial カード固有装飾 — B2B との視覚差別化 */
 .qp-grid-editorial .qp-item::before { background: var(--brand-yellow); }
+/* カードを縦 flex 化し、矢印(READ REVIEWS / DOWNLOAD CATALOGS)を
+   カード下端に固定 — 2カードの中身の量が違っても矢印の高さが揃う */
+.qp-grid-editorial .qp-item {
+  display: flex;
+  flex-direction: column;
+}
+.qp-grid-editorial .qp-item .qp-arrow {
+  margin-top: auto;
+  padding-top: 16px;
+}
 .qp-grid-editorial .qp-item .qp-meta {
   display: flex; align-items: center; gap: 8px;
   font-family: var(--font-mono);
@@ -1066,7 +1076,7 @@ h2 {
           </div>
           <div class="qp-en">REVIEWS</div>
           <div class="qp-jp">プロダクトレビュー</div>
-          <p class="qp-desc">製品の特徴・性能・実測値を中立的な記述で整理。実測ベンチマーク、現場検証、専門家見解を含む長尺の技術エディトリアル。法人導入の技術判断にも、購入検討の参考にもご活用いただけます。</p>
+          <p class="qp-desc">製品の特徴・性能を、実測データと現場での検証にもとづいてレポートする技術レビューです。スペック表だけでは見えない実際の使い勝手を、中立的な視点で紹介しています。法人導入の技術判断にも、購入検討の参考にもご活用ください。</p>
           <div class="qp-featured-item">
             <!-- LATEST は _data/reviews.json から自動生成 -->
             <span class="featured-label">LATEST</span>MeganeX 8K Mark II × GeForce RTX 50シリーズ VRChat 検証(3世代6モデル、fpsVR 実測)
@@ -1088,7 +1098,7 @@ h2 {
             <!-- PICKUP は /catalogs/ の PICKUP フィーチャーと同期 -->
             <span class="featured-label">PICKUP</span>ZBOX MAGNUS ONE — GeForce RTX 5070 Ti / 5070 搭載 世界最小クラス ミニPC
           </div>
-          <span class="qp-arrow" style="margin-top: 16px; display: inline-block;">→ DOWNLOAD CATALOGS</span>
+          <span class="qp-arrow">→ DOWNLOAD CATALOGS</span>
         </a>
 
       </div>
