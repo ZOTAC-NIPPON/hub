@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews / プロダクトレビュー | ZOTAC NIPPON</title>
+<meta name="description" content="ZOTAC NIPPON のプロダクトレビュー集約ハブ。GeForce RTX シリーズ、ZBOX MAGNUS、各種HMD等の中立的な技術レビューを公開。">
+<link rel="canonical" href="https://hub.zotac.co.jp/reviews/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ZOTAC NIPPON Hub">
+<meta property="og:title" content="Reviews / プロダクトレビュー | ZOTAC NIPPON">
+<meta property="og:description" content="中立的な記述と実測値ベースの検証を基本とした、ZOTAC NIPPON の技術レビュー一覧。">
+<meta property="og:url" content="https://hub.zotac.co.jp/reviews/">
+
+<!-- Analytics (hub.zotac.co.jp 既存 Property を流用) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5X4CC48YH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N5X4CC48YH', { 'anonymize_ip': true });
+</script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wk7j63hn3o");
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-dark: #2A2D2F;
+  --bg-light: #FFFFFF;
+  --bg-soft: #F5F5F6;
+  --text-dark: #1A1B1C;
+  --text-mid: #4A4B4C;
+  --text-muted: #6D6E71;
+  --text-faint: #B1B3B6;
+  --border: #E5E5E6;
+  --border-soft: #EEEEEE;
+  --brand-yellow: #FFD400;
+  --brand-yellow-soft: #FFF8D5;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  line-height: 1.55;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 700px) { .container { padding: 0 24px; } }
+.yellow-bar { width: 48px; height: 4px; background: var(--brand-yellow); margin-bottom: 18px; }
+.yellow-bar-lg { width: 60px; height: 5px; margin-bottom: 28px; }
+
+/* ===== Header (INDEX と共通) ===== */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg-dark);
+  border-bottom: 3px solid var(--brand-yellow);
+  padding: 16px 0;
+}
+.site-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.site-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+.site-logo img { height: 22px; width: auto; }
+.logo-divider { color: var(--text-faint); font-family: var(--font-mono); font-weight: 300; font-size: 16px; }
+.logo-url { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); letter-spacing: 0.05em; }
+.logo-url .host-hub { color: var(--brand-yellow); font-weight: 500; }
+.site-nav { display: flex; gap: 22px; align-items: center; }
+.site-nav a {
+  text-decoration: none; color: #fff;
+  font-size: 13px; font-weight: 500;
+  position: relative; padding: 4px 0;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.site-nav a.is-active { color: var(--brand-yellow); }
+.site-nav a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: var(--brand-yellow);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.2s;
+}
+.site-nav a:hover::after, .site-nav a.is-active::after { transform: scaleX(1); }
+.nav-badge {
+  font-family: var(--font-mono); font-size: 9px;
+  background: rgba(255,212,0,0.15); color: var(--brand-yellow);
+  border: 1px solid rgba(255,212,0,0.3);
+  padding: 1px 6px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.nav-cta {
+  background: var(--brand-yellow); color: var(--text-dark) !important;
+  padding: 9px 18px; font-weight: 700;
+}
+.nav-cta::after { display: none !important; }
+@media (max-width: 1100px) { .site-nav { gap: 16px; } }
+@media (max-width: 900px) { .site-nav { display: none; } }
+
+/* ===== Page Hero(INDEX より控えめ) ===== */
+.page-hero {
+  background: var(--bg-dark);
+  color: #fff;
+  padding: 64px 0 56px;
+}
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+.breadcrumb a { color: var(--text-faint); text-decoration: none; }
+.breadcrumb a:hover { color: var(--brand-yellow); }
+.breadcrumb .sep { margin: 0 8px; color: var(--text-muted); }
+.breadcrumb .current { color: var(--brand-yellow); }
+.page-hero h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+.page-hero .sub-title {
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 600;
+  color: var(--brand-yellow);
+  margin-bottom: 20px;
+}
+.page-hero .lede {
+  font-size: 15px;
+  color: #E5E5E6;
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+/* ===== Section ===== */
+section {
+  padding: 64px 0 56px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-light);
+}
+section.soft { background: var(--bg-soft); }
+h2 {
+  font-size: 30px; font-weight: 800;
+  letter-spacing: -0.01em; margin-bottom: 8px;
+}
+.section-label {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.18em; color: var(--text-muted);
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.section-label::before {
+  content: '//'; margin-right: 8px;
+  color: var(--brand-yellow);
+}
+.section-lead {
+  font-size: 15px; color: var(--text-muted);
+  margin-bottom: 32px; font-style: italic;
+  max-width: 880px; line-height: 1.6;
+}
+
+/* ===== Featured Latest Review ===== */
+.featured-review {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  overflow: hidden;
+}
+@media (max-width: 800px) { .featured-review { grid-template-columns: 1fr; } }
+.featured-review .featured-thumb {
+  background: var(--bg-dark);
+  aspect-ratio: 16 / 11;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 4px solid var(--brand-yellow);
+}
+.featured-review .featured-thumb img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.featured-review .featured-thumb-placeholder {
+  font-family: var(--font-mono);
+  color: var(--text-faint);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.featured-review .featured-body {
+  padding: 32px 36px;
+  display: flex; flex-direction: column;
+  justify-content: center;
+}
+.featured-meta {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-muted);
+}
+.featured-meta .latest-badge {
+  background: var(--brand-yellow); color: var(--text-dark);
+  padding: 3px 10px; font-weight: 700; letter-spacing: 0.15em;
+}
+.featured-review h3 {
+  font-size: 24px; font-weight: 800;
+  line-height: 1.35; letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+.featured-review .featured-tag {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-mid); margin-bottom: 14px;
+}
+.featured-review .featured-excerpt {
+  font-size: 14px; color: var(--text-mid);
+  line-height: 1.75; margin-bottom: 24px;
+}
+.featured-review .featured-stats {
+  display: flex; gap: 24px;
+  margin-bottom: 24px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.featured-review .featured-stats strong { color: var(--text-dark); }
+.featured-review .featured-cta {
+  background: var(--text-dark); color: var(--brand-yellow);
+  padding: 14px 24px;
+  text-decoration: none;
+  font-weight: 700; font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-block;
+  align-self: flex-start;
+  transition: background 0.15s;
+}
+.featured-review .featured-cta:hover { background: var(--brand-yellow); color: var(--text-dark); }
+
+/* ===== Review List ===== */
+.review-filters {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 28px 0 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-label {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.12em; color: var(--text-muted);
+  text-transform: uppercase;
+  margin-right: 12px;
+  align-self: center;
+}
+.filter-chip {
+  font-family: var(--font-mono); font-size: 11px;
+  border: 1px solid var(--border);
+  background: var(--bg-light);
+  padding: 6px 12px; letter-spacing: 0.08em;
+  text-transform: uppercase; cursor: pointer;
+  text-decoration: none; color: var(--text-mid);
+  transition: all 0.15s;
+}
+.filter-chip:hover { border-color: var(--text-dark); color: var(--text-dark); }
+.filter-chip.is-active {
+  background: var(--text-dark); color: var(--brand-yellow);
+  border-color: var(--text-dark); font-weight: 700;
+}
+
+.review-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  margin-top: 24px;
+}
+@media (max-width: 900px) { .review-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .review-grid { grid-template-columns: 1fr; } }
+.review-card {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text-dark);
+  display: flex; flex-direction: column;
+  transition: border-color 0.15s;
+}
+.review-card:hover { border-color: var(--text-dark); }
+.review-card .thumb {
+  aspect-ratio: 16 / 10;
+  background: var(--bg-soft);
+  border-bottom: 4px solid var(--brand-yellow);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--text-faint); letter-spacing: 0.15em;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.review-card .thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.review-card .body { padding: 18px 20px 20px; }
+.review-card .review-meta {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-muted);
+}
+.review-card .review-meta .cat-chip {
+  background: var(--text-dark); color: #fff;
+  padding: 2px 8px; font-weight: 700; letter-spacing: 0.12em;
+}
+.review-card h3 {
+  font-size: 16px; font-weight: 700;
+  line-height: 1.45; letter-spacing: -0.005em;
+  margin-bottom: 10px;
+}
+.review-card p {
+  font-size: 12.5px; line-height: 1.65;
+  color: var(--text-muted); margin-bottom: 14px;
+}
+.review-card .arrow {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.1em; font-weight: 700;
+}
+
+/* ===== Related CTA ===== */
+.related-ctas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+@media (max-width: 700px) { .related-ctas { grid-template-columns: 1fr; } }
+.related-cta {
+  border: 1px solid var(--border);
+  padding: 24px 28px;
+  background: var(--bg-light);
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: background 0.15s, color 0.15s;
+}
+.related-cta:hover { background: var(--bg-dark); color: #fff; }
+.related-cta .related-meta {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.12em; color: var(--text-muted);
+  margin-bottom: 8px; text-transform: uppercase;
+}
+.related-cta:hover .related-meta { color: var(--brand-yellow); }
+.related-cta h3 {
+  font-size: 18px; font-weight: 700;
+  margin-bottom: 6px;
+}
+.related-cta p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.related-cta:hover p { color: var(--text-faint); }
+
+/* ===== Footer (INDEX と共通、簡略版) ===== */
+.site-footer {
+  background: #1a1b1c;
+  color: var(--text-faint);
+  padding: 56px 0 28px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+@media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+.footer-grid h4 {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--brand-yellow); letter-spacing: 0.15em;
+  margin-bottom: 16px; font-weight: 700;
+  text-transform: uppercase;
+}
+.footer-brand img { height: 22px; margin-bottom: 12px; }
+.footer-brand p { font-size: 12px; line-height: 1.7; color: var(--text-faint); margin-bottom: 8px; }
+.footer-brand .footer-url { font-family: var(--font-mono); font-size: 11px; color: var(--brand-yellow); }
+.footer-grid ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-grid li { font-size: 13px; }
+.footer-grid a {
+  color: var(--text-faint); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.footer-grid a:hover { color: var(--brand-yellow); }
+.footer-bottom {
+  border-top: 1px solid #2a2b2c;
+  padding-top: 20px;
+  display: flex; flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+}
+.footer-bottom .copyright { font-size: 12px; color: var(--text-faint); }
+.footer-bottom .legal-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-bottom .legal-links a {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-faint); text-decoration: none;
+}
+.footer-bottom .legal-links a:hover { color: var(--brand-yellow); }
+.analytics-notice {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  margin-top: 20px;
+  text-align: center;
+  padding: 16px 0 0;
+  border-top: 1px solid #2a2b2c;
+  line-height: 1.7;
+}
+.analytics-notice a {
+  color: var(--text-faint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.analytics-notice a:hover { color: var(--brand-yellow); }
+</style>
+</head>
+<body>
+
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header">
+  <div class="container site-header-inner">
+    <a href="/" class="site-logo">
+      <img src="../assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+      <span class="logo-divider">/</span>
+      <span class="logo-url">
+        https://<span class="host-hub">hub</span>.zotac.co.jp
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a href="/trial-program/">Trial Program</a>
+      <a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a>
+      <a href="/reviews/" class="is-active">Reviews</a>
+      <a href="/catalogs/">Catalogs</a>
+      <a href="/trial-program/" class="nav-cta">Contact →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================== PAGE HERO ============================== -->
+<section class="page-hero" style="border-bottom: none;">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">HOME</a><span class="sep">/</span><span class="current">REVIEWS</span>
+    </div>
+    <div class="yellow-bar-lg"></div>
+    <h1>Reviews</h1>
+    <div class="sub-title">プロダクトレビュー</div>
+    <p class="lede">
+      ZOTAC NIPPON が制作するプロダクトレビューの一覧です。中立的な記述と実測値ベースの検証を基本とした長尺の技術エディトリアル。法人導入の技術判断にも、購入検討の参考にもご活用いただけます。
+    </p>
+  </div>
+</section>
+
+<!-- ============================== FEATURED LATEST ============================== -->
+<section>
+  <div class="container">
+    <div class="section-label">LATEST REVIEW</div>
+    <div class="yellow-bar"></div>
+    <h2>最新のレビュー</h2>
+    <p class="section-lead">最新の検証・取材レポートをピックアップ。</p>
+
+    <!-- ↓ _data/reviews.json の priority:1 (or 最新の published) から自動生成 -->
+    <a href="meganex8kmk2/" class="featured-review" style="text-decoration: none; color: inherit;">
+      <div class="featured-thumb">
+        <img src="meganex8kmk2/images/meganex8kmk2_eyecatch.png" alt="MeganeX 8K Mark II レビュー アイキャッチ" loading="lazy">
+      </div>
+      <div class="featured-body">
+        <div class="featured-meta">
+          <span class="latest-badge">LATEST</span>
+          <span>PUBLISHED 2026.05</span>
+          <span>·</span>
+          <span>TESTED 2026.04</span>
+        </div>
+        <h3>MeganeX 8K Mark II は、どのGPUで本領を発揮するのか</h3>
+        <div class="featured-tag">GeForce RTX 50 SERIES · MeganeX 8K MARK II · VRChat 検証</div>
+        <p class="featured-excerpt">3世代6モデルのGeForce RTXで挑んだ、MeganeX 8K Mark II × VRChat検証レポート。fpsVRによる計測データと、VRChatプレイヤーによる実プレイ観察の両面から、各GPUの実力を可視化します。</p>
+        <div class="featured-stats">
+          <span><strong>READ TIME</strong> 約20分</span>
+          <span><strong>TESTER</strong> 小林まるちゃん</span>
+          <span><strong>GPUs</strong> 6 MODELS</span>
+        </div>
+        <span class="featured-cta">→ READ FULL REVIEW</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============================== ALL REVIEWS ============================== -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">ALL REVIEWS</div>
+    <div class="yellow-bar"></div>
+    <h2>全レビュー一覧</h2>
+    <p class="section-lead">公開済みのレビュー記事を一覧表示します。</p>
+
+    <!-- カテゴリフィルタ — レビュー本数が増えるまで非表示(機能しない UI を公開しない)
+    <div class="review-filters">
+      <span class="filter-label">FILTER:</span>
+      <a href="#" class="filter-chip is-active">All</a>
+      <a href="#" class="filter-chip">GPU / Graphics</a>
+      <a href="#" class="filter-chip">Mini PC / ZBOX</a>
+      <a href="#" class="filter-chip">HMD / VR</a>
+      <a href="#" class="filter-chip">Peripheral</a>
+    </div>
+    -->
+
+    <!-- ↓ _data/reviews.json から自動生成 -->
+    <div class="review-grid">
+      <a href="meganex8kmk2/" class="review-card">
+        <div class="thumb"><img src="meganex8kmk2/images/meganex8kmk2_eyecatch.png" alt="MeganeX 8K Mark II レビュー アイキャッチ" loading="lazy"></div>
+        <div class="body">
+          <div class="review-meta">
+            <span class="cat-chip">HMD × GPU</span>
+            <span>2026.05</span>
+          </div>
+          <h3>MeganeX 8K Mark II は、どのGPUで本領を発揮するのか</h3>
+          <p>3世代6モデルのGeForce RTX × MeganeX 8K Mark II VRChat検証レポート。fpsVR 実測。</p>
+          <span class="arrow">→ READ</span>
+        </div>
+      </a>
+
+      <!-- 新規レビュー公開時は、上のカードをコピーして追加 -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RELATED ============================== -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">RELATED</div>
+    <div class="yellow-bar"></div>
+    <h2>関連セクション</h2>
+
+    <div class="related-ctas">
+      <a href="/trial-program/" class="related-cta">
+        <div class="related-meta">01 / EVALUATION</div>
+        <h3>機材貸出・評価</h3>
+        <p>レビューで気になった製品を、自社環境で実機検証できます。評価機材貸出プログラム。</p>
+      </a>
+      <a href="https://zotac.co.jp/blog/category/case_studies/" class="related-cta">
+        <div class="related-meta">02 / CASE STUDIES</div>
+        <h3>導入事例</h3>
+        <p>放送・教育・イベント・クリエイティブ領域など、法人での活用事例を取材記事として紹介しています。</p>
+      </a>
+      <a href="/catalogs/" class="related-cta">
+        <div class="related-meta">04 / PRODUCT CATALOGS</div>
+        <h3>製品カタログ</h3>
+        <p>グラフィックスカード・ZBOX の製品カタログ PDF を高解像度版のままダウンロードできます。</p>
+      </a>
+      <a href="https://www.zotac.com/jp/support#contact" class="related-cta" target="_blank" rel="noopener">
+        <div class="related-meta">CONTACT</div>
+        <h3>お問い合わせ</h3>
+        <p>レビュー掲載製品のご相談・お見積りはこちらから。ZOTAC お問い合わせ窓口にて承ります。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+        <p><strong style="color: #fff;">ZOTAC NIPPON</strong><br>株式会社ゾタック日本</p>
+        <p>SIer・法人・技術者向け情報ハブ</p>
+        <p class="footer-url">hub.zotac.co.jp</p>
+      </div>
+      <div>
+        <h4>B2B Services</h4>
+        <ul>
+          <li><a href="/trial-program/">Trial Program</a></li>
+          <li><a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Editorial</h4>
+        <ul>
+          <li><a href="/reviews/">Reviews / レビュー</a></li>
+          <li><a href="/catalogs/">Product Catalogs / 製品カタログ</a></li>
+          <li><a href="https://zotac.co.jp/blog/">Blog / ブログ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Related Sites &amp; Social</h4>
+        <ul>
+          <li><a href="https://zotac.co.jp/">zotac.co.jp(本体)</a></li>
+          <li><a href="https://www.zotac.com/jp/">zotac.com/jp(本社)</a></li>
+          <li><a href="https://x.com/zotacjapan">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/zotacnippon/">Facebook</a></li>
+          <li><a href="https://www.youtube.com/@ZOTACJAPAN">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="copyright">© 2026 ZOTAC NIPPON / 株式会社ゾタック日本. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="https://zotac.co.jp/privacy-policy/">Privacy Policy</a>
+        <a href="/trial-program/">Contact</a>
+      </div>
+    </div>
+
+    <p class="analytics-notice">
+      本サイトでは、サービス向上のため Google Analytics および Microsoft Clarity を使用しています。
+      詳しくは <a href="https://zotac.co.jp/privacy-policy/">プライバシーポリシー</a> をご覧ください。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

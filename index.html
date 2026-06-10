@@ -1,9 +1,1286 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://zotac.co.jp/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZOTAC NIPPON | SIer・法人・技術者向け情報ハブ</title>
+<meta name="description" content="ZOTAC NIPPON が提供する、ミニPC・グラフィックスカードの法人活用に関する導入事例・評価機材貸出・パートナー情報の拠点。">
+<link rel="canonical" href="https://hub.zotac.co.jp/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ZOTAC NIPPON Hub">
+<meta property="og:title" content="ZOTAC NIPPON | SIer・法人・技術者向け情報ハブ">
+<meta property="og:description" content="ミニPC・グラフィックスカードの法人活用に関する導入事例・評価機材貸出・製品カタログ・技術レビューを集約する情報ハブ。">
+<meta property="og:url" content="https://hub.zotac.co.jp/">
+
+<!-- ====================================================================
+     ANALYTICS / TRACKING TAGS
+     ⚠ Property ID は本番デプロイ時に置換すること
+     ==================================================================== -->
+
+<!-- Google Analytics 4 (hub.zotac.co.jp 既存 Property を流用) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5X4CC48YH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N5X4CC48YH', {
+    'anonymize_ip': true
+  });
+</script>
+
+<!-- Microsoft Clarity (hub.zotac.co.jp 既存 Project を流用) -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wk7j63hn3o");
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-dark: #2A2D2F;
+  --bg-light: #FFFFFF;
+  --bg-soft: #F5F5F6;
+  --text-dark: #1A1B1C;
+  --text-mid: #4A4B4C;
+  --text-muted: #6D6E71;
+  --text-faint: #B1B3B6;
+  --border: #E5E5E6;
+  --border-soft: #EEEEEE;
+  --brand-yellow: #FFD400;
+  --brand-yellow-soft: #FFF8D5;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background: var(--bg-light);
+  line-height: 1.55;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+@media (max-width: 700px) { .container { padding: 0 24px; } }
+
+.yellow-bar {
+  width: 48px; height: 4px;
+  background: var(--brand-yellow);
+  margin-bottom: 18px;
+}
+.yellow-bar-lg { width: 60px; height: 5px; margin-bottom: 28px; }
+
+/* ===== Header ===== */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg-dark);
+  border-bottom: 3px solid var(--brand-yellow);
+  padding: 16px 0;
+}
+.site-header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px;
+}
+.site-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+.site-logo img { height: 22px; width: auto; }
+.logo-divider { color: var(--text-faint); font-family: var(--font-mono); font-weight: 300; font-size: 16px; }
+.logo-url { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); letter-spacing: 0.05em; }
+.logo-url .host-hub { color: var(--brand-yellow); font-weight: 500; }
+.site-nav { display: flex; gap: 22px; align-items: center; }
+.site-nav a {
+  text-decoration: none; color: #fff;
+  font-size: 13px; font-weight: 500;
+  position: relative; padding: 4px 0;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+@media (max-width: 1100px) { .site-nav { gap: 16px; } }
+@media (max-width: 1000px) { .site-nav a { font-size: 12px; } }
+.site-nav a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: var(--brand-yellow);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.2s;
+}
+.site-nav a:hover::after { transform: scaleX(1); }
+.nav-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  background: rgba(255,212,0,0.15);
+  color: var(--brand-yellow);
+  border: 1px solid rgba(255,212,0,0.3);
+  padding: 1px 6px;
+  text-transform: uppercase;
+}
+.nav-cta {
+  background: var(--brand-yellow);
+  color: var(--text-dark) !important;
+  padding: 9px 18px;
+  font-weight: 700;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: #ffdf3a; }
+@media (max-width: 900px) { .site-nav { display: none; } }
+
+/* ===== Hero ===== */
+.hero {
+  background: var(--bg-dark);
+  color: #fff;
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero-meta {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 32px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+}
+.hero-meta .meta-dot { width: 8px; height: 8px; background: var(--brand-yellow); }
+.hero h1 {
+  font-size: clamp(38px, 5.5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin-bottom: 6px;
+  color: #fff;
+}
+.hero .sub-title {
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 600;
+  color: var(--brand-yellow);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+.hero .tag { font-style: italic; color: var(--text-faint); font-size: 15px; margin-bottom: 28px; }
+.hero .lede {
+  font-size: 17px;
+  color: #E5E5E6;
+  max-width: 760px;
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+.hero .lede strong { color: #fff; font-weight: 600; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 28px;
+  font-weight: 700; font-size: 14px;
+  text-decoration: none;
+  transition: all 0.15s;
+  border: 2px solid transparent;
+  font-family: var(--font-body);
+}
+.btn-primary { background: var(--brand-yellow); color: var(--text-dark); }
+.btn-primary:hover { background: #ffdf3a; }
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+.btn-secondary:hover { border-color: var(--brand-yellow); color: var(--brand-yellow); }
+
+/* ===== Section ===== */
+section {
+  padding: 72px 0 64px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-light);
+}
+section.soft { background: var(--bg-soft); }
+h2 {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-label::before {
+  content: '//'; margin-right: 8px;
+  color: var(--brand-yellow);
+  font-weight: 500;
+}
+.section-lead {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  font-style: italic;
+  max-width: none;
+  line-height: 1.6;
+}
+
+/* ===== Stats / Metrics ===== */
+.metrics-row {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  margin: 32px 0;
+}
+.metric {
+  background: var(--bg-dark);
+  color: #fff;
+  padding: 28px 24px 24px;
+  border-top: 4px solid var(--brand-yellow);
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+.metric .num {
+  font-size: 48px; font-weight: 800;
+  color: var(--brand-yellow);
+  line-height: 1; letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+.metric .num .unit { font-size: 22px; color: #fff; margin-left: 2px; }
+.metric .lbl {
+  font-size: 11px; color: #E5E5E6;
+  line-height: 1.45; text-transform: uppercase;
+  letter-spacing: 0.08em; font-weight: 500;
+  font-family: var(--font-mono);
+  margin-bottom: 6px;
+}
+.metric .sub { font-size: 13px; color: var(--text-faint); line-height: 1.5; }
+
+.body-text {
+  font-size: 15px; line-height: 1.75;
+  color: var(--text-mid); max-width: none;
+  margin-bottom: 16px;
+}
+.body-text strong { color: var(--text-dark); font-weight: 600; }
+.body-text em {
+  font-style: normal; font-weight: 600;
+  color: var(--text-dark);
+  background: linear-gradient(transparent 60%, var(--brand-yellow-soft) 60%);
+  padding: 0 2px;
+}
+
+.callout {
+  background: var(--bg-dark);
+  color: #fff;
+  padding: 24px 28px;
+  margin: 24px 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.65;
+  border-left: 6px solid var(--brand-yellow);
+}
+.callout .accent { color: var(--brand-yellow); font-weight: 700; }
+.callout-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--brand-yellow);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+.callout ul.bullets { list-style: none; }
+.callout ul.bullets li {
+  position: relative; padding: 6px 0 6px 22px;
+  font-size: 15px; color: #fff; line-height: 1.6;
+}
+.callout ul.bullets li::before {
+  content: ""; position: absolute;
+  left: 0; top: 14px;
+  width: 8px; height: 8px;
+  background: var(--brand-yellow);
+}
+.source-note {
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.05em;
+}
+
+/* ===== Quick Paths ===== */
+/* 二層構造 (案2): B2B Services + Editorial Content */
+.qp-group { margin-top: 32px; }
+.qp-group + .qp-group { margin-top: 48px; }
+.qp-group-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.qp-group-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text-dark);
+  text-transform: uppercase;
+}
+.qp-group-label::before {
+  content: '//'; margin-right: 8px;
+  color: var(--brand-yellow);
+  font-weight: 500;
+}
+.qp-group-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.qp-grid {
+  display: flex; flex-wrap: wrap; gap: 16px;
+}
+.qp-grid-b2b .qp-item { flex: 1 1 240px; min-width: 240px; }
+/* B2B カードは2枚構成(03/04 削除後)— 1枚あたり半幅(約540px)に広がるため、
+   デスクトップでは横長カードとして内部を左右2カラム化(左: 番号・タイトル・矢印 / 右: 説明文)。
+   縦積みのまま引き伸ばすと説明文の行長が長くなりすぎ、空白が目立つ */
+@media (min-width: 960px) {
+  .qp-grid-b2b .qp-item {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    grid-template-rows: auto auto auto 1fr;
+    column-gap: 40px;
+  }
+  .qp-grid-b2b .qp-num { grid-column: 1 / -1; }
+  .qp-grid-b2b .qp-en { grid-column: 1; }
+  .qp-grid-b2b .qp-jp { grid-column: 1; margin-bottom: 20px; }
+  .qp-grid-b2b .qp-desc {
+    grid-column: 2;
+    grid-row: 2 / span 3;
+    margin-bottom: 0;
+    align-self: start;
+  }
+  .qp-grid-b2b .qp-arrow { grid-column: 1; grid-row: 4; align-self: end; }
+}
+.qp-grid-editorial { gap: 16px; }
+.qp-grid-editorial .qp-item-primary { flex: 3 1 480px; min-width: 320px; }
+.qp-grid-editorial .qp-item-secondary { flex: 2 1 360px; min-width: 300px; }
+.qp-item {
+  border: 1px solid var(--border);
+  background: var(--bg-light);
+  padding: 28px 24px 24px;
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  position: relative;
+  display: block;
+}
+.qp-item::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: var(--border);
+  transition: background 0.15s;
+}
+.qp-item:hover {
+  background: var(--bg-dark);
+  color: #fff;
+  border-color: var(--bg-dark);
+}
+.qp-item:hover::before { background: var(--brand-yellow); }
+.qp-item:hover .qp-num,
+.qp-item:hover .qp-en { color: var(--brand-yellow); }
+.qp-item:hover .qp-desc { color: #E5E5E6; }
+.qp-item:hover .qp-arrow { color: var(--brand-yellow); }
+
+.qp-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.qp-en {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.qp-jp {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.qp-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.qp-arrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dark);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+/* Editorial カード固有装飾 — B2B との視覚差別化 */
+.qp-grid-editorial .qp-item::before { background: var(--brand-yellow); }
+.qp-grid-editorial .qp-item .qp-meta {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.qp-grid-editorial .qp-item .qp-meta .meta-dot {
+  width: 6px; height: 6px;
+  background: var(--brand-yellow);
+}
+.qp-grid-editorial .qp-item:hover .qp-meta { color: var(--brand-yellow); }
+.qp-grid-editorial .qp-featured-item {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.qp-grid-editorial .qp-featured-item .featured-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--text-dark);
+  background: var(--brand-yellow);
+  padding: 2px 6px;
+  margin-right: 6px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.qp-grid-editorial .qp-item:hover .qp-featured-item { color: var(--text-faint); border-color: rgba(255,255,255,0.15); }
+
+/* Secondary editorial card (Catalogs) — Reviews と並ぶ価値、サイズだけわずかに小さく */
+.qp-grid-editorial .qp-item-secondary .qp-en { font-size: 11px; }
+.qp-grid-editorial .qp-item-secondary .qp-jp { font-size: 18px; }
+
+/* サブフィーチャー(直近イベント情報など、メイン feature の下に小さく置く) */
+.qp-sub-item {
+  margin-top: 8px;
+  padding-top: 8px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text-faint);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.qp-sub-item .sub-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.qp-item:hover .qp-sub-item { color: var(--text-faint); }
+.qp-item:hover .qp-sub-item .sub-label {
+  background: transparent;
+  border-color: rgba(255,255,255,0.2);
+  color: var(--text-faint);
+}
+
+/* ===== Matrix ===== */
+.matrix-wrap { overflow-x: auto; margin-top: 24px; }
+.matrix {
+  width: 100%; min-width: 820px;
+  border-collapse: collapse;
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  font-size: 13.5px;
+}
+.matrix thead th {
+  background: var(--bg-dark);
+  color: #fff;
+  text-align: left;
+  padding: 16px 18px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.matrix tbody td {
+  padding: 18px;
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.65;
+}
+.matrix tbody tr:hover { background: var(--brand-yellow-soft); }
+.matrix .industry-cell {
+  font-weight: 700;
+  color: var(--text-dark);
+  min-width: 180px;
+  position: relative;
+  padding-left: 32px;
+}
+.matrix .industry-cell::before {
+  content: ''; position: absolute;
+  left: 18px; top: 24px;
+  width: 8px; height: 8px;
+  background: var(--brand-yellow);
+}
+.matrix tr.cat-broadcast .industry-cell::before { background: var(--brand-yellow); }
+.matrix tr.cat-gaming .industry-cell::before { background: var(--text-dark); }
+.matrix tr.cat-creative .industry-cell::before { background: var(--brand-yellow); }
+.matrix tr.cat-education .industry-cell::before { background: var(--text-dark); }
+.matrix tr.cat-event .industry-cell::before { background: var(--brand-yellow); }
+.matrix tr.cat-partner .industry-cell::before { background: var(--text-dark); }
+.matrix .industry-cell .industry-en {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--text-muted); letter-spacing: 0.15em;
+  display: block; margin-bottom: 4px; text-transform: uppercase;
+  font-weight: 500;
+}
+.matrix .usage-cell { min-width: 220px; color: var(--text-mid); }
+.matrix .case-cell { min-width: 220px; }
+.matrix .case-cell a {
+  color: var(--text-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  font-weight: 500;
+}
+.matrix .case-cell a:hover {
+  background: var(--brand-yellow);
+  text-decoration: none;
+}
+.matrix .product-cell {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  min-width: 170px;
+}
+.matrix-footnote {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+.matrix-footnote code {
+  background: var(--brand-yellow-soft);
+  padding: 1px 6px;
+  font-family: var(--font-mono);
+}
+
+/* ============================================================
+   LATEST UPDATES (WordPress API 由来)
+   ============================================================ */
+.updates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+@media (max-width: 900px) { .updates-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .updates-grid { grid-template-columns: 1fr; } }
+.update-card {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: background 0.15s, border-color 0.15s;
+  display: flex; flex-direction: column;
+}
+.update-card:hover { border-color: var(--text-dark); }
+.update-thumb {
+  aspect-ratio: 16 / 9;
+  background: var(--bg-soft);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--brand-yellow);
+}
+.update-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.update-thumb-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--bg-soft) 0%, var(--border-soft) 100%);
+}
+.update-body {
+  padding: 18px 20px 22px;
+  flex: 1;
+  display: flex; flex-direction: column;
+}
+.update-meta {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.update-cat {
+  background: var(--brand-yellow);
+  color: var(--text-dark);
+  padding: 2px 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.update-date { color: var(--text-muted); }
+.update-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  color: var(--text-dark);
+}
+.update-excerpt {
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  flex: 1;
+  margin-bottom: 12px;
+}
+.update-arrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dark);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+.update-card:hover .update-arrow { color: var(--brand-yellow-deep, #e6b800); }
+
+.updates-footer {
+  margin-top: 28px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.updates-footer .view-all {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 2px solid var(--brand-yellow);
+  padding-bottom: 2px;
+}
+.updates-footer .view-all:hover { color: var(--text-mid); }
+.updates-footer .data-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.03em;
+}
+
+/* ============================================================
+   ABOUT ZOTAC NIPPON
+   ============================================================ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+  margin-top: 32px;
+  align-items: start;
+}
+@media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+.about-body p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+}
+.about-body p strong { color: var(--text-dark); }
+.about-links {
+  border-left: 4px solid var(--brand-yellow);
+  padding: 8px 0 8px 20px;
+}
+.about-links h3 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.about-links ul {
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: 12px;
+}
+.about-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  transition: color 0.15s;
+}
+.about-links a:hover { color: var(--brand-yellow-deep, #e6b800); }
+.about-links a .url-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.about-links a .arrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--brand-yellow-deep, #e6b800);
+}
+
+/* ============================================================
+   CTA Block (大きめ、metafes callout 流の強調版)
+   ============================================================ */
+.cta-section {
+  background: var(--bg-dark);
+  color: #fff;
+  border-bottom: none;
+}
+.cta-section .yellow-bar { background: var(--brand-yellow); }
+.cta-section h2 { color: #fff; font-size: 38px; }
+.cta-section .section-label { color: var(--brand-yellow); }
+.cta-section .section-label::before { color: #fff; }
+.cta-section .section-lead { color: var(--text-faint); }
+.cta-block-inner {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 800px) { .cta-block-inner { grid-template-columns: 1fr; gap: 28px; } }
+.cta-block-text p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #E5E5E6;
+  margin-bottom: 14px;
+}
+.cta-block-text p strong { color: var(--brand-yellow); }
+.cta-block-action {
+  display: flex; flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+.cta-block-action .btn { padding: 16px 32px; font-size: 15px; }
+.cta-block-action .cta-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  background: #1a1b1c;
+  color: var(--text-faint);
+  padding: 64px 0 28px;
+  border-top: 1px solid var(--border-dark, #2a2a30);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+@media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-grid h4 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--brand-yellow);
+  letter-spacing: 0.15em;
+  margin-bottom: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.footer-brand img { height: 22px; margin-bottom: 14px; }
+.footer-brand p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-faint);
+  margin-bottom: 10px;
+}
+.footer-brand .footer-url {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--brand-yellow);
+  letter-spacing: 0.05em;
+}
+.footer-grid ul {
+  list-style: none;
+  display: flex; flex-direction: column;
+  gap: 10px;
+}
+.footer-grid li {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.footer-grid a {
+  color: var(--text-faint);
+  text-decoration: none;
+  transition: color 0.15s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.footer-grid a:hover { color: var(--brand-yellow); }
+.footer-grid .badge-soon {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  background: rgba(255,212,0,0.15);
+  color: var(--brand-yellow);
+  border: 1px solid rgba(255,212,0,0.3);
+  padding: 1px 5px;
+  letter-spacing: 0.08em;
+}
+.footer-bottom {
+  border-top: 1px solid #2a2b2c;
+  padding-top: 24px;
+  display: flex; flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.footer-bottom .copyright {
+  font-size: 12px;
+  color: var(--text-faint);
+}
+.footer-bottom .legal-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-bottom .legal-links a {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.footer-bottom .legal-links a:hover { color: var(--brand-yellow); }
+.analytics-notice {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  margin-top: 20px;
+  text-align: center;
+  padding: 16px 0 0;
+  border-top: 1px solid #2a2b2c;
+  line-height: 1.7;
+}
+.analytics-notice a {
+  color: var(--text-faint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.analytics-notice a:hover { color: var(--brand-yellow); }
+
+.placeholder-note {
+  background: var(--bg-dark);
+  color: var(--text-faint);
+  padding: 60px 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+.placeholder-note strong { color: var(--brand-yellow); display: block; margin-bottom: 8px; }
+</style>
 </head>
 <body>
+
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header">
+  <div class="container site-header-inner">
+    <a href="/" class="site-logo">
+      <img src="assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+      <span class="logo-divider">/</span>
+      <span class="logo-url">
+        https://<span class="host-hub">hub</span>.zotac.co.jp
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a href="/trial-program/">Trial Program</a>
+      <a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a>
+      <a href="/reviews/">Reviews</a>
+      <a href="/catalogs/">Catalogs</a>
+      <a href="/trial-program/" class="nav-cta">Contact →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero" style="border-bottom: none;">
+  <div class="container">
+    <div class="hero-meta">
+      <span class="meta-dot"></span>
+      <span>B2B INFORMATION HUB</span>
+      <span>/</span>
+      <span>SIer · ENTERPRISE · TECHNICAL PROFESSIONALS</span>
+    </div>
+    <div class="yellow-bar-lg"></div>
+    <h1>Technical Resources<br>for Professionals.</h1>
+    <div class="sub-title">SIer・法人・技術者向け情報ハブ</div>
+    <p class="tag">Powered by ZOTAC NIPPON — 株式会社ゾタック日本</p>
+    <p class="lede">
+      <strong>hub.zotac.co.jp</strong> は、ZOTAC NIPPON が運営する法人・技術者向けの情報ハブです。小型デスクトップPC「ZBOX」と GeForce グラフィックスカードの <strong>評価機材貸出・導入事例・製品カタログ・技術レビュー</strong> を集約し、導入検討から調達までの情報収集を一か所で完結できます。
+    </p>
+    <div class="hero-ctas">
+      <a href="/trial-program/" class="btn btn-primary">機材貸出・評価 →</a>
+      <a href="https://zotac.co.jp/blog/category/case_studies/" class="btn btn-secondary">導入事例を見る →</a>
+      <a href="/catalogs/" class="btn btn-secondary">製品カタログ →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== STATS ============================== -->
+<section>
+  <div class="container">
+    <div class="section-label">CHOOSE ZOTAC</div>
+    <div class="yellow-bar"></div>
+    <h2>Innovation, Performance, Reliability.</h2>
+    <p class="section-lead">グローバル基盤と日本独自のローカル技術サポートを兼ね備えるテクノロジーパートナー。</p>
+
+    <p class="body-text">
+      ZOTAC は、高性能グラフィックスカード・ミニPC・ゲーミングシステムを自社開発・自社製造するグローバルテクノロジーメーカーです。<strong>世界70拠点以上</strong>の展開と<strong>15年以上</strong>の製造経験、2,000名を超える自社工場スタッフ、社内エンジニアリング・R&amp;D チームを基盤に、設計と性能の限界を押し広げ続けています。
+    </p>
+    <p class="body-text">
+      日本市場においては <em>GeForce 販売数 国内トップクラス</em> の流通実績を背景に、<em>デスクトップ版 GeForce RTX 50 シリーズ搭載 世界最小クラスの高性能ミニPC</em> を国内展開。
+    </p>
+
+    <div class="metrics-row">
+      <div class="metric">
+        <div class="num">70<span class="unit">+</span></div>
+        <div class="lbl">GLOBAL LOCATIONS</div>
+        <div class="sub">世界70拠点以上のグローバル展開</div>
+      </div>
+      <div class="metric">
+        <div class="num">15<span class="unit">+yr</span></div>
+        <div class="lbl">MANUFACTURING EXPERIENCE</div>
+        <div class="sub">15年以上にわたる製造実績</div>
+      </div>
+      <div class="metric">
+        <div class="num">2,000<span class="unit">+</span></div>
+        <div class="lbl">FACTORY EMPLOYEES</div>
+        <div class="sub">2,000名以上の自社製造スタッフ</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="callout-label">// JAPAN ADVANTAGE / 日本市場における強み</span>
+      <ul class="bullets">
+        <li><span class="accent">GeForce 販売数 国内トップクラス</span> の流通実績</li>
+        <li>デスクトップ版 GeForce RTX 50 シリーズを搭載する <span class="accent">世界最小クラスの高性能ミニPC</span> を国内展開</li>
+      </ul>
+    </div>
+
+    <div class="source-note">// SOURCE: ZOTAC INTERNATIONAL / ZOTAC NIPPON</div>
+  </div>
+</section>
+
+<!-- ============================== QUICK PATHS ============================== -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">SECTIONS</div>
+    <div class="yellow-bar"></div>
+    <h2>Resource Directory</h2>
+    <p class="section-lead">目的に応じて、必要な情報へ直接アクセスいただけます。</p>
+
+    <!-- B2B SERVICES GROUP -->
+    <div class="qp-group">
+      <div class="qp-group-header">
+        <span class="qp-group-label">B2B SERVICES</span>
+        <span class="qp-group-sub">導入検討・調達プロセスを支援するサービス</span>
+      </div>
+      <div class="qp-grid qp-grid-b2b">
+        <a href="/trial-program/" class="qp-item">
+          <div class="qp-num">01 / EVALUATION</div>
+          <div class="qp-en">TRIAL PROGRAM</div>
+          <div class="qp-jp">機材貸出・評価</div>
+          <p class="qp-desc">採用前に自社環境で動作検証・性能評価を実施するための評価機材貸出プログラム。</p>
+          <span class="qp-arrow">→ ACCESS</span>
+        </a>
+        <a href="https://zotac.co.jp/blog/category/case_studies/" class="qp-item">
+          <div class="qp-num">02 / REFERENCES</div>
+          <div class="qp-en">CASE STUDIES</div>
+          <div class="qp-jp">導入事例</div>
+          <p class="qp-desc">放送・教育・イベント・ゲーム開発・クリエイティブ領域における導入実績を、取材記事として ZOTAC NIPPON ブログで公開しています。</p>
+          <span class="qp-arrow">→ BLOG ARCHIVE</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- EDITORIAL CONTENT GROUP -->
+    <div class="qp-group">
+      <div class="qp-group-header">
+        <span class="qp-group-label">EDITORIAL CONTENT</span>
+        <span class="qp-group-sub">実測・検証にもとづく技術コンテンツと製品資料</span>
+      </div>
+      <div class="qp-grid qp-grid-editorial">
+
+        <!-- Reviews: メイン編集ハブ -->
+        <a href="/reviews/" class="qp-item qp-item-primary">
+          <div class="qp-meta">
+            <span class="meta-dot"></span>
+            <span>03 / TECHNICAL REVIEW</span>
+            <span>· FLAT &amp; NEUTRAL TONE</span>
+          </div>
+          <div class="qp-en">REVIEWS</div>
+          <div class="qp-jp">プロダクトレビュー</div>
+          <p class="qp-desc">製品の特徴・性能・実測値を中立的な記述で整理。実測ベンチマーク、現場検証、専門家見解を含む長尺の技術エディトリアル。法人導入の技術判断にも、購入検討の参考にもご活用いただけます。</p>
+          <div class="qp-featured-item">
+            <!-- LATEST は _data/reviews.json から自動生成 -->
+            <span class="featured-label">LATEST</span>MeganeX 8K Mark II × GeForce RTX 50シリーズ VRChat 検証(3世代6モデル、fpsVR 実測)
+          </div>
+          <span class="qp-arrow">→ READ REVIEWS</span>
+        </a>
+
+        <!-- Catalogs: 製品カタログ配布ハブ(/catalogs/ — リード向け資料案内の一次窓口) -->
+        <a href="/catalogs/" class="qp-item qp-item-secondary">
+          <div class="qp-meta">
+            <span class="meta-dot"></span>
+            <span>04 / PRODUCT CATALOGS</span>
+            <span>· PDF DOWNLOAD</span>
+          </div>
+          <div class="qp-en">PRODUCT CATALOGS</div>
+          <div class="qp-jp">製品カタログ</div>
+          <p class="qp-desc">グラフィックスカード・ZBOX の製品カタログ・資料を高解像度 PDF のままダウンロード可能。イベント出展・機材協賛の実績もあわせて掲載。</p>
+          <div class="qp-featured-item">
+            <!-- PICKUP は /catalogs/ の PICKUP フィーチャーと同期 -->
+            <span class="featured-label">PICKUP</span>ZBOX MAGNUS ONE — GeForce RTX 5070 Ti / 5070 搭載 世界最小クラス ミニPC
+          </div>
+          <span class="qp-arrow" style="margin-top: 16px; display: inline-block;">→ DOWNLOAD CATALOGS</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== MATRIX ============================== -->
+<section>
+  <div class="container">
+    <div class="section-label">REFERENCE MATRIX</div>
+    <div class="yellow-bar"></div>
+    <h2>Industry × Use Case</h2>
+    <p class="section-lead">業界ごとの主要用途・代表事例・推奨製品ラインを技術リファレンスとして整理。</p>
+
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>INDUSTRY</th>
+            <th>PRIMARY USE CASE</th>
+            <th>REPRESENTATIVE CASE</th>
+            <th>RECOMMENDED LINE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cat-broadcast">
+            <td class="industry-cell">
+              <span class="industry-en">BROADCASTING</span>
+              放送・テレビ
+            </td>
+            <td class="usage-cell">撮影現場の編集機・リアルタイム処理</td>
+            <td class="case-cell"><a href="https://zotac.co.jp/blog/motokasouken-shufu/">『元科捜研の主婦』撮影協力</a></td>
+            <td class="product-cell">ZBOX MAGNUS ONE</td>
+          </tr>
+          <tr class="cat-gaming">
+            <td class="industry-cell">
+              <span class="industry-en">GAMING / EXHIBITION</span>
+              ゲーム開発・展示
+            </td>
+            <td class="usage-cell">展示ブース機材・大会運営機・開発機</td>
+            <td class="case-cell"><a href="https://zotac.co.jp/blog/tgs2025/">TGS、OSAKA INDIE GAMES SUMMIT</a></td>
+            <td class="product-cell">MAGNUS / GeForce RTX</td>
+          </tr>
+          <tr class="cat-creative">
+            <td class="industry-cell">
+              <span class="industry-en">CREATIVE</span>
+              クリエイティブ
+            </td>
+            <td class="usage-cell">映像・3DCG 制作、配信スタジオ</td>
+            <td class="case-cell"><a href="https://zotac.co.jp/blog/kurashima-rei/">倉島伶氏 インタビュー</a></td>
+            <td class="product-cell">ZBOX MAGNUS EN</td>
+          </tr>
+          <tr class="cat-education">
+            <td class="industry-cell">
+              <span class="industry-en">EDUCATION</span>
+              学生・教育
+            </td>
+            <td class="usage-cell">教育機関での展開、学生イベント支援</td>
+            <td class="case-cell"><a href="https://zotac.co.jp/blog/kyushu-student-game/">九州学生ゲーム大祭</a></td>
+            <td class="product-cell">ZBOX / GeForce</td>
+          </tr>
+          <tr class="cat-event">
+            <td class="industry-cell">
+              <span class="industry-en">CREATOR EVENT</span>
+              クリエイターイベント
+            </td>
+            <td class="usage-cell">体験会・常設展示・PR 連携</td>
+            <td class="case-cell"><a href="https://zotac.co.jp/blog/machi-asobi/">マチ★アソビ</a></td>
+            <td class="product-cell">MAGNUS / GeForce</td>
+          </tr>
+          <tr class="cat-partner">
+            <td class="industry-cell">
+              <span class="industry-en">B2B PARTNER</span>
+              法人パートナー
+            </td>
+            <td class="usage-cell">店頭展示・販売チャネル連携</td>
+            <td class="case-cell"><a href="https://zotac.co.jp/blog/tokyo-figure-yamasaki/">東京フィギュア(山﨑氏)</a></td>
+            <td class="product-cell">(各ライン)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="matrix-footnote">// 代表事例の詳細は各リンク先(ZOTAC NIPPON ブログ)をご覧ください</p>
+  </div>
+</section>
+
+<!-- ============================== ABOUT ZOTAC NIPPON ============================== -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">COMPANY</div>
+    <div class="yellow-bar"></div>
+    <h2>About ZOTAC NIPPON</h2>
+    <p class="section-lead">株式会社ゾタック日本は、香港発の半導体・PC ハードウェアメーカー ZOTAC International の日本法人として、国内市場における ZOTAC ブランドの製品展開・サポート・パートナー連携を担います。</p>
+
+    <div class="about-grid">
+      <div class="about-body">
+        <p>本サイト <strong>hub.zotac.co.jp</strong> は、ZOTAC NIPPON が運営する <strong>SIer・法人・技術者向けの情報ハブ</strong> です。導入事例の体系化、評価機材貸出プログラムの案内、技術リソース・レビューの編集発信、パートナー連携情報の集約を主目的としています。</p>
+        <p>本体サイト <strong>zotac.co.jp</strong> および ZOTAC NIPPON ブログとの役割分担は次の通りです:</p>
+        <ul style="list-style: none; font-size: 14px; line-height: 1.9; color: var(--text-mid); margin-top: 8px;">
+          <li><strong style="color: var(--text-dark);">zotac.co.jp(本体)</strong> — 全般向けトップページ・コンシューマー製品情報・キャンペーン</li>
+          <li><strong style="color: var(--text-dark);">zotac.co.jp/blog</strong> — ニュース・取材記事・お知らせ等の時系列発信</li>
+          <li><strong style="color: var(--text-dark);">hub.zotac.co.jp(本サイト)</strong> — B2B 法人情報 + 技術エディトリアル</li>
+          <li><strong style="color: var(--text-dark);">zotac.com/jp</strong> — グローバル本社の日本語版製品ページ</li>
+        </ul>
+      </div>
+      <div class="about-links">
+        <h3>// RELATED PROPERTIES</h3>
+        <ul>
+          <li><a href="https://zotac.co.jp/"><span>zotac.co.jp <span class="url-label">/ 本体</span></span> <span class="arrow">→</span></a></li>
+          <li><a href="https://zotac.co.jp/blog/"><span>zotac.co.jp/blog <span class="url-label">/ ブログ</span></span> <span class="arrow">→</span></a></li>
+          <li><a href="https://www.zotac.com/jp/"><span>zotac.com/jp <span class="url-label">/ 本社</span></span> <span class="arrow">→</span></a></li>
+          <li><a href="https://x.com/zotacjapan"><span>X / Twitter <span class="url-label">/ @zotacjapan</span></span> <span class="arrow">→</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA BLOCK ============================== -->
+<section class="cta-section">
+  <div class="container">
+    <div class="section-label">CONTACT</div>
+    <div class="yellow-bar"></div>
+    <h2>機材貸出・検証・購入のご相談</h2>
+    <p class="section-lead">採用前の評価機材貸出から、SIer 連携、量産配備のご相談まで、ZOTAC NIPPON 法人窓口がワンストップで対応いたします。</p>
+
+    <div class="cta-block-inner">
+      <div class="cta-block-text">
+        <p>業務環境での <strong>動作検証・性能評価が必要な場合</strong>、評価機材貸出プログラムをご利用いただけます。複数台同時、長期貸出、量産案件のご相談も承ります。</p>
+        <p>SIer・販売パートナーの皆様には、案件ベースでの <strong>技術サポート・販売支援</strong> をご提供いたします。お気軽にお問い合わせください。</p>
+      </div>
+      <div class="cta-block-action">
+        <a href="/trial-program/" class="btn btn-primary">機材貸出・検証・購入のご相談はこちら →</a>
+        <span class="cta-note">// hub.zotac.co.jp/trial-program/</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+        <p><strong style="color: #fff;">ZOTAC NIPPON</strong><br>株式会社ゾタック日本</p>
+        <p>SIer・法人・技術者向け情報ハブ</p>
+        <p class="footer-url">hub.zotac.co.jp</p>
+      </div>
+      <div>
+        <h4>B2B Services</h4>
+        <ul>
+          <li><a href="/trial-program/">Trial Program</a></li>
+          <li><a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Editorial</h4>
+        <ul>
+          <li><a href="/reviews/">Reviews / レビュー</a></li>
+          <li><a href="/catalogs/">Product Catalogs / 製品カタログ</a></li>
+          <li><a href="https://zotac.co.jp/blog/">Blog / ブログ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Related Sites &amp; Social</h4>
+        <ul>
+          <li><a href="https://zotac.co.jp/">zotac.co.jp(本体)</a></li>
+          <li><a href="https://www.zotac.com/jp/">zotac.com/jp(本社)</a></li>
+          <li><a href="https://x.com/zotacjapan">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/zotacnippon/">Facebook</a></li>
+          <li><a href="https://www.youtube.com/@ZOTACJAPAN">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="copyright">© 2026 ZOTAC NIPPON / 株式会社ゾタック日本. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="https://zotac.co.jp/privacy-policy/">Privacy Policy</a>
+        <a href="/trial-program/">Contact</a>
+      </div>
+    </div>
+
+    <p class="analytics-notice">
+      本サイトでは、サービス向上のため Google Analytics および Microsoft Clarity を使用しています。
+      詳しくは <a href="https://zotac.co.jp/privacy-policy/">プライバシーポリシー</a> をご覧ください。
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>

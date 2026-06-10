@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Catalogs / 製品カタログダウンロード | ZOTAC NIPPON</title>
+<meta name="description" content="ZOTAC 製品カタログの PDF ダウンロードページ。GeForce RTX グラフィックスカード・小型デスクトップPC「ZBOX」の最新カタログを高解像度版のまま入手可能。イベント出展・機材協賛の実績も掲載。">
+<link rel="canonical" href="https://hub.zotac.co.jp/catalogs/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ZOTAC NIPPON Hub">
+<meta property="og:title" content="Product Catalogs / 製品カタログダウンロード | ZOTAC NIPPON">
+<meta property="og:description" content="GeForce RTX グラフィックスカード・ZBOX ミニPC の製品カタログを高解像度 PDF のままダウンロードできます。">
+<meta property="og:url" content="https://hub.zotac.co.jp/catalogs/">
+
+<!-- Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5X4CC48YH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N5X4CC48YH', { 'anonymize_ip': true });
+</script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wk7j63hn3o");
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-dark: #2A2D2F;
+  --bg-light: #FFFFFF;
+  --bg-soft: #F5F5F6;
+  --bg-warm: #F5F0E8;
+  --text-dark: #1A1B1C;
+  --text-mid: #4A4B4C;
+  --text-muted: #6D6E71;
+  --text-faint: #B1B3B6;
+  --border: #E5E5E6;
+  --border-soft: #EEEEEE;
+  --border-strong: rgba(0,0,0,0.14);
+  --brand-yellow: #FFD400;
+  --brand-yellow-soft: #FFF8D5;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  line-height: 1.55;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 700px) { .container { padding: 0 24px; } }
+.yellow-bar { width: 48px; height: 4px; background: var(--brand-yellow); margin-bottom: 18px; }
+.yellow-bar-lg { width: 60px; height: 5px; margin-bottom: 28px; }
+
+/* ===== Header (共通) ===== */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg-dark);
+  border-bottom: 3px solid var(--brand-yellow);
+  padding: 16px 0;
+}
+.site-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.site-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+.site-logo img { height: 22px; width: auto; }
+.logo-divider { color: var(--text-faint); font-family: var(--font-mono); font-weight: 300; font-size: 16px; }
+.logo-url { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); letter-spacing: 0.05em; }
+.logo-url .host-hub { color: var(--brand-yellow); font-weight: 500; }
+.site-nav { display: flex; gap: 22px; align-items: center; }
+.site-nav a {
+  text-decoration: none; color: #fff;
+  font-size: 13px; font-weight: 500;
+  position: relative; padding: 4px 0;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.site-nav a.is-active { color: var(--brand-yellow); }
+.site-nav a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: var(--brand-yellow);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.2s;
+}
+.site-nav a:hover::after, .site-nav a.is-active::after { transform: scaleX(1); }
+.nav-badge {
+  font-family: var(--font-mono); font-size: 9px;
+  background: rgba(255,212,0,0.15); color: var(--brand-yellow);
+  border: 1px solid rgba(255,212,0,0.3);
+  padding: 1px 6px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.nav-cta {
+  background: var(--brand-yellow); color: var(--text-dark) !important;
+  padding: 9px 18px; font-weight: 700;
+}
+.nav-cta::after { display: none !important; }
+@media (max-width: 1100px) { .site-nav { gap: 16px; } }
+@media (max-width: 900px) { .site-nav { display: none; } }
+
+/* ===== Page Hero ===== */
+.page-hero {
+  background: var(--bg-dark);
+  color: #fff;
+  padding: 64px 0 56px;
+}
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+.breadcrumb a { color: var(--text-faint); text-decoration: none; }
+.breadcrumb a:hover { color: var(--brand-yellow); }
+.breadcrumb .sep { margin: 0 8px; color: var(--text-muted); }
+.breadcrumb .current { color: var(--brand-yellow); }
+.page-hero h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+.page-hero .sub-title {
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 600;
+  color: var(--brand-yellow);
+  margin-bottom: 20px;
+}
+.page-hero .lede {
+  font-size: 15px;
+  color: #E5E5E6;
+  line-height: 1.7;
+  max-width: 760px;
+}
+.page-hero .hero-note {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+}
+
+/* ===== Section ===== */
+section {
+  padding: 64px 0 56px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-light);
+}
+section.soft { background: var(--bg-soft); }
+h2 {
+  font-size: 30px; font-weight: 800;
+  letter-spacing: -0.01em; margin-bottom: 8px;
+}
+.section-label {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.18em; color: var(--text-muted);
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.section-label::before {
+  content: '//'; margin-right: 8px;
+  color: var(--brand-yellow);
+}
+.section-lead {
+  font-size: 15px; color: var(--text-muted);
+  margin-bottom: 32px; font-style: italic;
+  max-width: 880px; line-height: 1.6;
+}
+
+/* ============================================================
+   PICKUP FEATURE (イチオシ製品 — カタログ一覧の前の特等席)
+   リード顧客が最初に目にする推し製品バナー。
+   複数スライドのカルーセル(矢印 / ドット / 5秒自動送り、ホバーで停止)
+   ============================================================ */
+.pickup-carousel {
+  position: relative;
+  margin-top: 32px;
+  margin-bottom: 48px;
+}
+.pickup-viewport { overflow: hidden; }
+.pickup-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.pickup-track .pickup-feature {
+  flex: 0 0 100%;
+  min-width: 100%;
+  margin: 0;
+}
+/* 左右ナビ矢印 */
+.pickup-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; height: 40px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(26,27,28,0.55);
+  color: var(--brand-yellow);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.pickup-nav:hover {
+  background: var(--brand-yellow);
+  color: var(--text-dark);
+  border-color: var(--brand-yellow);
+}
+.pickup-nav.prev { left: 14px; }
+.pickup-nav.next { right: 14px; }
+@media (max-width: 600px) {
+  .pickup-nav { width: 32px; height: 32px; font-size: 15px; }
+  .pickup-nav.prev { left: 8px; }
+  .pickup-nav.next { right: 8px; }
+}
+/* ドットインジケーター(バナー下) */
+.pickup-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+.pickup-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+.pickup-dot:hover { background: var(--text-faint); }
+.pickup-dot.is-active {
+  background: var(--brand-yellow);
+  transform: scale(1.3);
+}
+
+.pickup-feature {
+  margin-top: 32px;
+  margin-bottom: 48px;
+  background: var(--bg-dark);
+  color: #fff;
+  border-left: 6px solid var(--brand-yellow);
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 40px;
+  padding: 36px 40px;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  .pickup-feature { grid-template-columns: 1fr; padding: 28px 26px; gap: 28px; }
+  /* 全幅 3:4 表紙は縦に伸びすぎるため、モバイルでは表紙のみ幅を抑える */
+  .pickup-side .pickup-cover { max-width: 200px; }
+}
+.pickup-feature .pickup-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--brand-yellow);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.pickup-feature h3 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.pickup-feature .pickup-category {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  color: var(--brand-yellow);
+  margin-bottom: 16px;
+}
+.pickup-feature .pickup-desc {
+  font-size: 14px;
+  line-height: 1.85;
+  color: #E5E5E6;
+  margin-bottom: 18px;
+  max-width: 620px;
+}
+.pickup-feature .pickup-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pickup-feature .pickup-specs .spec {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  color: var(--brand-yellow);
+  background: rgba(255,212,0,0.12);
+  border: 1px solid rgba(255,212,0,0.3);
+  padding: 3px 10px;
+}
+/* 右カラム:ミニ表紙 + ダウンロード CTA */
+.pickup-side { display: flex; flex-direction: column; gap: 14px; }
+.pickup-cover {
+  background: var(--bg-light);
+  aspect-ratio: 3 / 4;
+  position: relative;
+  border: 2px solid rgba(255,255,255,0.15);
+}
+.pickup-cover .catalog-cover-placeholder { padding: 16px 14px; }
+.pickup-cover .catalog-cover-placeholder .cover-title { font-size: 18px; margin-bottom: 10px; }
+.pickup-cover img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.pickup-side .pickup-meta {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.pickup-side .catalog-pdf-btn {
+  background: var(--brand-yellow);
+  color: var(--text-dark);
+}
+.pickup-side .catalog-pdf-btn:hover { background: #ffe040; color: var(--text-dark); }
+
+/* ============================================================
+   CATALOG LIBRARY (サムネイルグリッド — メイン)
+   /events/supermetafes2026/ のカタログカードデザインを採用
+   ============================================================ */
+.catalog-thumb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 32px;
+}
+@media (max-width: 900px) { .catalog-thumb-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .catalog-thumb-grid { grid-template-columns: 1fr; } }
+
+.catalog-thumb {
+  position: relative;
+  background: var(--bg-light);
+  border: 2px solid var(--border-strong);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+/* 重ね台紙シャドウ — カタログスタック感(控えめ版)
+   注:モバイル(1カラム)時はノイズになるため後段の媒体クエリで無効化 */
+.catalog-thumb::before {
+  content: '';
+  position: absolute;
+  inset: 5px -4px -5px 4px;
+  background: var(--bg-warm);
+  border: 1.5px solid rgba(0,0,0,0.08);
+  z-index: -1;
+  transform: rotate(0.8deg);
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.catalog-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 9px -6px -9px 6px;
+  background: var(--bg-soft);
+  border: 1px solid rgba(0,0,0,0.05);
+  z-index: -2;
+  transform: rotate(1.5deg);
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+/* タブレット(2カラム)時はスタックを少し控える — はみ出しの視覚負担を軽く */
+@media (max-width: 900px) {
+  .catalog-thumb::before {
+    inset: 3px -2px -3px 2px;
+    transform: rotate(0.4deg);
+    opacity: 0.7;
+  }
+  .catalog-thumb::after {
+    inset: 6px -3px -6px 3px;
+    transform: rotate(0.8deg);
+    opacity: 0.5;
+  }
+}
+/* モバイル(1カラム)時はスタックを完全に消す
+   - 画面端からのはみ出しが目立つ
+   - 縦並びでカードが完結するため、スタックの編集的意味も薄い */
+@media (max-width: 600px) {
+  .catalog-thumb::before,
+  .catalog-thumb::after {
+    display: none;
+  }
+}
+.catalog-thumb:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+.catalog-thumb.type-gpu { border-top: 4px solid var(--text-dark); }
+.catalog-thumb.type-minipc { border-top: 4px solid var(--brand-yellow); }
+.catalog-thumb.type-flyer { border-top: 4px solid #FF8C42; }
+
+/* Archived 状態 — event-row.is-archived と一貫した視覚弱化
+   過去配布カタログ(現在のイベントで配布されていない資料) */
+.catalog-thumb.is-archived {
+  opacity: 0.72;
+  transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.catalog-thumb.is-archived:hover {
+  opacity: 1;
+}
+/* Archived 時はトップボーダーカラーを抑えて統一トーンに */
+.catalog-thumb.is-archived.type-gpu,
+.catalog-thumb.is-archived.type-minipc,
+.catalog-thumb.is-archived.type-flyer {
+  border-top-color: var(--text-faint);
+}
+.catalog-thumb.is-archived:hover.type-gpu { border-top-color: var(--text-dark); }
+.catalog-thumb.is-archived:hover.type-minipc { border-top-color: var(--brand-yellow); }
+.catalog-thumb.is-archived:hover.type-flyer { border-top-color: #FF8C42; }
+/* Archived 時の左上ラベルを薄めに */
+.catalog-thumb.is-archived .catalog-label {
+  background: rgba(42,47,50,0.55);
+  color: var(--text-faint);
+}
+.catalog-thumb.is-archived:hover .catalog-label {
+  background: rgba(42,47,50,0.90);
+  color: var(--brand-yellow);
+}
+/* Archived 時の重ね台紙シャドウもおとなしく */
+.catalog-thumb.is-archived::before,
+.catalog-thumb.is-archived::after {
+  opacity: 0.5;
+}
+.catalog-thumb.is-archived:hover::before,
+.catalog-thumb.is-archived:hover::after {
+  opacity: 1;
+}
+
+.catalog-cover {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: var(--bg-soft);
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.catalog-cover img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.3s ease;
+}
+.catalog-thumb:hover .catalog-cover img { transform: scale(1.03); }
+/* カバー画像フォールバック — タイポグラフィ主体の編集トーン
+   Phase 1 で実画像が不在の場合に意図的に「見えるデザイン」を保つ */
+.catalog-cover-placeholder {
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 22px 20px;
+  width: 100%; height: 100%;
+  color: var(--text-mid);
+  font-family: var(--font-body);
+  text-align: left;
+  background:
+    linear-gradient(135deg, transparent 0%, rgba(255,212,0,0.04) 100%),
+    var(--bg-light);
+  gap: 0;
+}
+.catalog-cover-placeholder .cover-type-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.catalog-cover-placeholder .cover-type-tag::before {
+  content: '//';
+  color: var(--brand-yellow);
+  margin-right: 6px;
+  font-weight: 500;
+}
+.catalog-cover-placeholder .cover-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-top: auto;
+  margin-bottom: 14px;
+  /* タイトルが長い場合は 2-3 行で収まるよう調整 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.catalog-cover-placeholder .cover-brand {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--text-mid);
+  padding-top: 8px;
+  border-top: 3px solid var(--text-dark);
+  align-self: flex-start;
+  min-width: 60px;
+  text-transform: uppercase;
+}
+/* type 別の brand ボーダー色 — カードの上部 type-color と呼応 */
+.catalog-thumb.type-gpu .cover-brand { border-top-color: var(--text-dark); }
+.catalog-thumb.type-minipc .cover-brand { border-top-color: var(--brand-yellow); }
+.catalog-thumb.type-flyer .cover-brand { border-top-color: #FF8C42; }
+.catalog-cover::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(255,255,255,0.3);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* 黄色ステッカータグ(右上) */
+.catalog-tag {
+  position: absolute;
+  top: 12px; right: 12px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  background: var(--brand-yellow);
+  color: var(--text-dark);
+  box-shadow: 1px 2px 0 rgba(0,0,0,0.10);
+  transform: rotate(2deg);
+}
+/* 小ラベル(左上) */
+.catalog-label {
+  position: absolute;
+  top: 12px; left: 12px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  background: rgba(42,47,50,0.90);
+  color: var(--brand-yellow);
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.10);
+}
+
+/* 左上ラベルが乗る表紙では、placeholder のタイプタグを下げて重なりを回避 */
+.catalog-cover:has(.catalog-label) .catalog-cover-placeholder .cover-type-tag {
+  margin-top: 26px;
+}
+
+.catalog-body {
+  padding: 18px;
+  display: flex; flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+/* 更新日 + ファイル容量 — メール添付の代替であることを踏まえた実用メタ情報 */
+.catalog-body .catalog-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.catalog-body .catalog-meta .meta-size { color: var(--text-mid); font-weight: 600; }
+.catalog-body .catalog-category {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.catalog-body h3 {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+.catalog-pdf-btn {
+  background: var(--text-dark);
+  color: var(--brand-yellow);
+  padding: 10px 16px;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.catalog-pdf-btn:hover { background: var(--brand-yellow); color: var(--text-dark); }
+.catalog-pdf-btn .icon { font-size: 14px; }
+
+/* ============================================================
+   EVENT LIST (イベント一覧 — 簡潔版 / カタログは LIBRARY 側で管理)
+   ============================================================ */
+/* event-list は section.soft の灰色背景の中で「白いペーパー」として浮き上がる */
+.event-list {
+  margin-top: 28px;
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+.event-row {
+  display: grid;
+  /* date-block を固定幅にして、すべての行で h3 の「頭」を揃える */
+  grid-template-columns: 170px 1fr auto auto;
+  gap: 0 24px;
+  align-items: center;
+  padding: 24px 28px 24px 24px;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text-dark);
+  position: relative;
+  transition: background 0.15s;
+}
+.event-row:last-child { border-bottom: none; }
+/* 左端の縦アクセントバー — 各行の「ここから始まる」マーカー
+   Booth = ダーク(主役感)、Sponsor = 黄色(明示性)、Booth+Sponsor = ダーク */
+.event-row::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--brand-yellow);
+  transition: width 0.15s, background 0.15s;
+}
+.event-row:has(.is-booth)::before,
+.event-row:has(.is-booth-sponsor)::before {
+  background: var(--text-dark);
+}
+.event-row:has(.is-sponsor)::before {
+  background: var(--brand-yellow);
+}
+.event-row:hover { background: rgba(255,212,0,0.08); }
+.event-row:hover::before { width: 6px; }
+
+.event-row .event-date-block {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  /* 列幅は grid で 170px 固定。min-width は不要 */
+}
+.event-row .event-date-block .year {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: 0;
+  margin-bottom: 2px;
+}
+.event-row .event-name-block h3 {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+.event-row .event-name-block .event-venue {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+.event-row .event-status-block {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  font-weight: 700;
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.event-row .event-status-block.is-upcoming {
+  background: var(--brand-yellow);
+  color: var(--text-dark);
+  border-color: var(--brand-yellow);
+}
+/* BOOTH = ZOTAC ブース出展(LP あり) */
+.event-row .event-status-block.is-booth {
+  background: var(--text-dark);
+  color: var(--brand-yellow);
+  border-color: var(--text-dark);
+}
+/* BOOTH + SPONSOR = ブース出展 + 機材協賛が同時 */
+.event-row .event-status-block.is-booth-sponsor {
+  background: var(--text-dark);
+  color: var(--brand-yellow);
+  border-color: var(--text-dark);
+  /* バッジ文字が長くなるので letter-spacing を少し詰める */
+  letter-spacing: 0.1em;
+}
+/* SPONSOR = 機材協賛(LP なし、テキストのみ) */
+.event-row .event-status-block.is-sponsor {
+  background: var(--bg-light);
+  color: var(--text-mid);
+  border-color: var(--border);
+}
+
+/* リンクなしの行(LP 不在 = 機材協賛など) */
+.event-row.is-no-link {
+  cursor: default;
+}
+.event-row.is-no-link:hover { background: transparent; }
+.event-row.is-no-link:hover .event-arrow-block { transform: none; }
+.event-row.is-no-link .event-arrow-block { visibility: hidden; }
+
+/* 副情報ブロック(機材協賛先・提供機材)
+   event-row の grid 内、全幅展開して2行目以降に表示
+   背景に淡い soft 色を入れて主行と段差をつける
+   sub-label 幅を main の date-block と同じ 170px にして、sub-values の頭と h3 の頭を揃える */
+.event-row-sub {
+  grid-column: 1 / -1;
+  margin: 18px -28px -24px -24px;
+  padding: 16px 28px 18px 24px;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 8px 24px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--text-mid);
+}
+.event-row-sub .sub-label {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 10px;
+  align-self: start;
+  padding-top: 2px;
+}
+.event-row-sub .sub-values {
+  color: var(--text-dark);
+  letter-spacing: 0;
+  font-weight: 600;
+}
+.event-row-sub .sub-values .partner {
+  display: inline-block;
+}
+.event-row-sub .sub-values .sep {
+  color: var(--text-faint);
+  margin: 0 6px;
+}
+.event-row-sub .sub-values .equip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-mid);
+  background: var(--brand-yellow-soft);
+  padding: 1px 7px;
+  letter-spacing: 0.02em;
+  margin-right: 4px;
+  margin-bottom: 2px;
+}
+@media (max-width: 700px) {
+  .event-row-sub {
+    grid-template-columns: 1fr;
+    gap: 4px 0;
+  }
+  .event-row-sub .sub-label { padding-top: 8px; }
+}
+.event-row .event-arrow-block {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-dark);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  transition: color 0.15s, transform 0.15s;
+  min-width: 100px;
+  text-align: right;
+}
+.event-row:hover .event-arrow-block {
+  color: var(--brand-yellow-deep, #d4a800);
+  transform: translateX(4px);
+}
+.event-row.is-archived { opacity: 0.75; }
+.event-row.is-archived:hover { opacity: 1; }
+
+@media (max-width: 700px) {
+  .event-row {
+    grid-template-columns: 1fr auto;
+    gap: 8px 16px;
+  }
+  .event-row .event-date-block {
+    grid-column: 1 / -1;
+  }
+  .event-row .event-name-block {
+    grid-column: 1;
+  }
+  .event-row .event-status-block {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+  }
+  .event-row .event-arrow-block {
+    grid-column: 1 / -1;
+    text-align: right;
+  }
+}
+
+/* RECENT EVENTS フッターノート("過去の活動はブログへ") */
+.events-footer-note {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.events-footer-note .footnote-label {
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.events-footer-note a {
+  color: var(--text-dark);
+  text-decoration: none;
+  border-bottom: 2px solid var(--brand-yellow);
+  padding-bottom: 1px;
+  font-weight: 700;
+}
+.events-footer-note a:hover { color: var(--text-mid); }
+
+/* ============================================================
+   UPCOMING EVENT (小さめのコールアウト — 下に配置)
+   ============================================================ */
+.upcoming-mini {
+  background: var(--bg-dark);
+  color: #fff;
+  margin-top: 32px;
+  padding: 24px 28px;
+  border-left: 6px solid var(--brand-yellow);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+@media (max-width: 700px) {
+  .upcoming-mini { grid-template-columns: 1fr; padding: 22px 22px; }
+}
+.upcoming-mini .label {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.15em; color: var(--brand-yellow);
+  margin-bottom: 8px; text-transform: uppercase;
+  font-weight: 700;
+}
+.upcoming-mini h3 {
+  font-size: 20px; font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: -0.005em;
+}
+.upcoming-mini .event-info {
+  font-family: var(--font-mono); font-size: 12px;
+  color: #E5E5E6;
+  letter-spacing: 0.05em;
+}
+.upcoming-mini .event-info strong { color: var(--brand-yellow); }
+.upcoming-mini .event-cta {
+  background: var(--brand-yellow);
+  color: var(--text-dark);
+  padding: 11px 20px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+}
+.upcoming-mini .event-cta:hover { background: #ffe040; }
+
+/* ===== Related ===== */
+.related-ctas {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-top: 32px;
+}
+@media (max-width: 700px) { .related-ctas { grid-template-columns: 1fr; } }
+.related-cta {
+  border: 1px solid var(--border);
+  padding: 24px 28px;
+  background: var(--bg-light);
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: background 0.15s, color 0.15s;
+}
+.related-cta:hover { background: var(--bg-dark); color: #fff; }
+.related-cta .related-meta {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.12em; color: var(--text-muted);
+  margin-bottom: 8px; text-transform: uppercase;
+}
+.related-cta:hover .related-meta { color: var(--brand-yellow); }
+.related-cta h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.related-cta p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+.related-cta:hover p { color: var(--text-faint); }
+
+/* ===== Footer ===== */
+.site-footer { background: #1a1b1c; color: var(--text-faint); padding: 56px 0 28px; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+@media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+.footer-grid h4 {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--brand-yellow); letter-spacing: 0.15em;
+  margin-bottom: 16px; font-weight: 700;
+  text-transform: uppercase;
+}
+.footer-brand img { height: 22px; margin-bottom: 12px; }
+.footer-brand p { font-size: 12px; line-height: 1.7; color: var(--text-faint); margin-bottom: 8px; }
+.footer-brand .footer-url { font-family: var(--font-mono); font-size: 11px; color: var(--brand-yellow); }
+.footer-grid ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-grid li { font-size: 13px; }
+.footer-grid a {
+  color: var(--text-faint); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.footer-grid a:hover { color: var(--brand-yellow); }
+.footer-bottom {
+  border-top: 1px solid #2a2b2c;
+  padding-top: 20px;
+  display: flex; flex-wrap: wrap;
+  justify-content: space-between; gap: 16px;
+}
+.footer-bottom .copyright { font-size: 12px; color: var(--text-faint); }
+.footer-bottom .legal-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-bottom .legal-links a {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-faint); text-decoration: none;
+}
+.analytics-notice {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  margin-top: 20px;
+  text-align: center;
+  padding: 16px 0 0;
+  border-top: 1px solid #2a2b2c;
+  line-height: 1.7;
+}
+.analytics-notice a {
+  color: var(--text-faint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.analytics-notice a:hover { color: var(--brand-yellow); }
+</style>
+</head>
+<body>
+
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header">
+  <div class="container site-header-inner">
+    <a href="/" class="site-logo">
+      <img src="../assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+      <span class="logo-divider">/</span>
+      <span class="logo-url">https://<span class="host-hub">hub</span>.zotac.co.jp</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/trial-program/">Trial Program</a>
+      <a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a>
+      <a href="/reviews/">Reviews</a>
+      <a href="/catalogs/" class="is-active">Catalogs</a>
+      <a href="/trial-program/" class="nav-cta">Contact →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================== PAGE HERO ============================== -->
+<section class="page-hero" style="border-bottom: none;">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">HOME</a><span class="sep">/</span><span class="current">CATALOGS</span>
+    </div>
+    <div class="yellow-bar-lg"></div>
+    <h1>Product Catalogs</h1>
+    <div class="sub-title">製品カタログ・資料ダウンロード</div>
+    <p class="lede">
+      ZOTAC 製品カタログの PDF ダウンロードページです。グラフィックスカード(GeForce RTX シリーズ)・小型デスクトップPC「ZBOX」の最新カタログを、高解像度版のまま直接ダウンロードいただけます。お問い合わせいただいた方への資料のご案内も、本ページの URL にて行っています。
+    </p>
+    <p class="hero-note">※ 容量の大きい高解像度 PDF(最大約 10MB)を含みます。安定した回線でのダウンロードを推奨します。</p>
+  </div>
+</section>
+
+<!-- ============================== CATALOG LIBRARY (PRIMARY) ============================== -->
+<section>
+  <div class="container">
+    <div class="section-label">CATALOG LIBRARY</div>
+    <div class="yellow-bar"></div>
+    <h2>製品カタログ一覧</h2>
+    <p class="section-lead">表紙画像つきでカタログを一覧。クリックで PDF を直接ダウンロードできます。カタログは資料単位で掲載し、新版の発行にあわせて随時更新します。旧版はアーカイブとして残しています。</p>
+
+    <!-- PICKUP — イチオシ製品カルーセル(_data/catalogs.json で pickup: true のエントリを順に表示)
+         矢印 / ドットで手動切替、5秒ごとに自動スライド(ホバー中は停止) -->
+    <div class="pickup-carousel" id="pickupCarousel">
+      <div class="pickup-viewport">
+        <div class="pickup-track">
+
+          <!-- SLIDE 1: ZBOX MAGNUS ONE -->
+          <div class="pickup-feature">
+            <div>
+              <div class="pickup-label">// PICKUP — イチオシ製品</div>
+              <h3>ZBOX MAGNUS ONE</h3>
+              <div class="pickup-category">世界最小クラス — GeForce RTX 5070 Ti / 5070 搭載ミニPC</div>
+              <p class="pickup-desc">デスクトップ GPU をそのまま収めた約 8.3L の小型筐体。省スペース性とグラフィックス性能を両立し、VR 展示・サイネージ・クリエイティブ用途まで、法人導入の引き合いが最も多い一押しモデルです。</p>
+              <div class="pickup-specs">
+                <span class="spec">GeForce RTX 5070 Ti / 5070</span>
+                <span class="spec">約 8.3L 小型筐体</span>
+                <span class="spec">VR Ready</span>
+                <span class="spec">法人導入実績多数</span>
+              </div>
+            </div>
+            <div class="pickup-side">
+              <div class="pickup-cover">
+                <img src="../pdfs/covers/magnus_one_flyer_cover.jpg" alt="ZBOX MAGNUS ONE フライヤー表紙" loading="lazy">
+              </div>
+              <div class="pickup-meta">
+                <span>UPDATED 2026.05</span>
+                <span>0.8 MB</span>
+              </div>
+              <a href="../pdfs/magnus_one_flyer.pdf" class="catalog-pdf-btn" target="_blank">
+                <span class="icon">↓</span> PDF ダウンロード
+              </a>
+            </div>
+          </div>
+
+          <!-- SLIDE 2: ZBOX MAGNUS EN -->
+          <div class="pickup-feature">
+            <div>
+              <div class="pickup-label">// PICKUP — イチオシ製品</div>
+              <h3>ZBOX MAGNUS EN</h3>
+              <div class="pickup-category">コンパクト・ハイパフォーマンス ミニPC</div>
+              <p class="pickup-desc">コンパクト筐体に GeForce RTX を搭載する MAGNUS EN シリーズ。イベント機材協賛でも多数稼働しており、常設展示・配信スタジオ・ゲーム開発環境まで、省スペースで高性能な実行環境を構築できます。</p>
+              <div class="pickup-specs">
+                <span class="spec">GeForce RTX 搭載</span>
+                <span class="spec">コンパクト筐体</span>
+                <span class="spec">協賛機材 稼働実績多数</span>
+              </div>
+            </div>
+            <div class="pickup-side">
+              <div class="pickup-cover">
+                <img src="../pdfs/covers/magnus_en_flyer_cover.jpg" alt="ZBOX MAGNUS EN フライヤー表紙" loading="lazy">
+              </div>
+              <div class="pickup-meta">
+                <span>UPDATED 2026.05</span>
+                <span>1.0 MB</span>
+              </div>
+              <a href="../pdfs/magnus_en_flyer.pdf" class="catalog-pdf-btn" target="_blank">
+                <span class="icon">↓</span> PDF ダウンロード
+              </a>
+            </div>
+          </div>
+
+          <!-- SLIDE 3: ZBOX Pro(B2B カタログ) -->
+          <div class="pickup-feature">
+            <div>
+              <div class="pickup-label">// PICKUP — イチオシ製品</div>
+              <h3>ZBOX Pro シリーズ</h3>
+              <div class="pickup-category">組み込み・産業・デジタルサイネージ向けミニPC</div>
+              <p class="pickup-desc">組み込み機器・産業用途・デジタルサイネージなど、B2B 領域に向けた ZBOX Pro シリーズの注目モデルカタログ。安定稼働が求められる法人導入を想定したラインアップを、日本語版でご確認いただけます。</p>
+              <div class="pickup-specs">
+                <span class="spec">組み込み・産業向け</span>
+                <span class="spec">デジタルサイネージ</span>
+                <span class="spec">日本語版</span>
+              </div>
+            </div>
+            <div class="pickup-side">
+              <div class="pickup-cover">
+                <img src="../pdfs/covers/zbox_b2b_catalog_cover.jpg" alt="ZBOX Pro 注目モデルカタログ表紙" loading="lazy">
+              </div>
+              <div class="pickup-meta">
+                <span>UPDATED 2026.05</span>
+                <span>1.4 MB</span>
+              </div>
+              <a href="../pdfs/ZOTAC_B2B_CATALOG_MAY_2026.pdf" class="catalog-pdf-btn" target="_blank">
+                <span class="icon">↓</span> PDF ダウンロード
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button class="pickup-nav prev" type="button" aria-label="前のイチオシ製品へ">&lt;</button>
+      <button class="pickup-nav next" type="button" aria-label="次のイチオシ製品へ">&gt;</button>
+      <div class="pickup-dots" role="tablist" aria-label="イチオシ製品の切り替え"></div>
+    </div>
+
+    <!-- ↓ _data/catalogs.json から自動生成
+         カタログは「資料単位」で1つ。メタ情報は updated(更新年月)と filesize(MB)。
+         pickup: true のエントリは上の PICKUP フィーチャーに表示し、グリッドからは除外 -->
+    <div class="catalog-thumb-grid">
+
+      <!-- 1. RTX 50 シリーズ総合カタログ -->
+      <article class="catalog-thumb type-gpu">
+        <div class="catalog-cover">
+          <img src="../pdfs/covers/rtx50_catalog_cover.jpg" alt="GeForce RTX 50 シリーズ総合カタログ表紙" loading="lazy">
+          <span class="catalog-tag">英語版</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-meta"><span>Updated 2025.10</span><span class="meta-size">1.6 MB</span></div>
+          <div class="catalog-category">グラフィックスカード</div>
+          <h3>RTX 50シリーズ 総合カタログ</h3>
+          <a href="../pdfs/GeForce_RTX_50_Series_Catalog.pdf" class="catalog-pdf-btn" target="_blank">
+            <span class="icon">↓</span> PDF ダウンロード
+          </a>
+        </div>
+      </article>
+
+      <!-- 2. ZBOX 総合カタログ -->
+      <article class="catalog-thumb type-minipc">
+        <div class="catalog-cover">
+          <img src="../pdfs/covers/zbox_catalog_cover.jpg" alt="ZBOX 総合カタログ表紙" loading="lazy">
+          <span class="catalog-tag">英語版</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-meta"><span>Updated 2026.01</span><span class="meta-size">9.2 MB</span></div>
+          <div class="catalog-category">小型デスクトップPC</div>
+          <h3>ZBOX 総合カタログ</h3>
+          <a href="../pdfs/ZBOX_catalog_Jan2026.pdf" class="catalog-pdf-btn" target="_blank">
+            <span class="icon">↓</span> PDF ダウンロード
+          </a>
+        </div>
+      </article>
+
+      <!-- 3. ZBOX 注目モデルカタログ(feature 版・日本語) -->
+      <article class="catalog-thumb type-minipc">
+        <div class="catalog-cover">
+          <img src="../pdfs/covers/zbox_feature_cover.jpg" alt="ZBOX 注目モデルカタログ表紙" loading="lazy">
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-meta"><span>Updated 2026.03</span><span class="meta-size">0.8 MB</span></div>
+          <div class="catalog-category">小型デスクトップPC</div>
+          <h3>ZBOX 注目モデルカタログ</h3>
+          <a href="../pdfs/ZBOX_catalog_feature_2603.pdf" class="catalog-pdf-btn" target="_blank">
+            <span class="icon">↓</span> PDF ダウンロード
+          </a>
+        </div>
+      </article>
+
+      <!-- 4. MAGNUS ONE フライヤー(PICKUP カルーセルにも掲載 — グリッドは常に全資料の一覧) -->
+      <article class="catalog-thumb type-flyer">
+        <div class="catalog-cover">
+          <img src="../pdfs/covers/magnus_one_flyer_cover.jpg" alt="ZBOX MAGNUS ONE フライヤー表紙" loading="lazy">
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-meta"><span>Updated 2026.05</span><span class="meta-size">0.8 MB</span></div>
+          <div class="catalog-category">小型デスクトップPC — 世界最小クラス RTX 5070 Ti / 5070</div>
+          <h3>ZBOX MAGNUS ONE フライヤー</h3>
+          <a href="../pdfs/magnus_one_flyer.pdf" class="catalog-pdf-btn" target="_blank">
+            <span class="icon">↓</span> PDF ダウンロード
+          </a>
+        </div>
+      </article>
+
+      <!-- 5. MAGNUS EN フライヤー -->
+      <article class="catalog-thumb type-flyer">
+        <div class="catalog-cover">
+          <img src="../pdfs/covers/magnus_en_flyer_cover.jpg" alt="ZBOX MAGNUS EN フライヤー表紙" loading="lazy">
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-meta"><span>Updated 2026.05</span><span class="meta-size">1.0 MB</span></div>
+          <div class="catalog-category">小型デスクトップPC — コンパクト・ハイパフォーマンス</div>
+          <h3>ZBOX MAGNUS EN フライヤー</h3>
+          <a href="../pdfs/magnus_en_flyer.pdf" class="catalog-pdf-btn" target="_blank">
+            <span class="icon">↓</span> PDF ダウンロード
+          </a>
+        </div>
+      </article>
+
+      <!-- 6. ZBOX Pro 注目モデルカタログ(B2B・日本語 — PICKUP カルーセルにも掲載) -->
+      <article class="catalog-thumb type-minipc">
+        <div class="catalog-cover">
+          <img src="../pdfs/covers/zbox_b2b_catalog_cover.jpg" alt="ZBOX Pro 注目モデルカタログ表紙" loading="lazy">
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-meta"><span>Updated 2026.05</span><span class="meta-size">1.4 MB</span></div>
+          <div class="catalog-category">小型デスクトップPC — 組み込み・産業・デジタルサイネージ向け</div>
+          <h3>ZBOX Pro 注目モデルカタログ</h3>
+          <a href="../pdfs/ZOTAC_B2B_CATALOG_MAY_2026.pdf" class="catalog-pdf-btn" target="_blank">
+            <span class="icon">↓</span> PDF ダウンロード
+          </a>
+        </div>
+      </article>
+
+      <!-- 旧版カタログが発生したら is-archived クラス + .catalog-label「Archived」で
+           視覚弱化して掲載(スタイルは実装済み) -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RECENT EVENTS (SECONDARY) ============================== -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">ACTIVITIES</div>
+    <div class="yellow-bar"></div>
+    <h2>出展・協賛アクティビティ</h2>
+    <p class="section-lead">ZOTAC NIPPON がブース出展または機材協賛したイベントの実績です。製品がどのような現場・規模で実際に稼働しているかの参考としてご覧ください。直近の活動のみを掲載しています(網羅的なアーカイブではありません)。</p>
+
+    <!-- UPCOMING EVENT コールアウト
+         _data/events.json に status: "upcoming" のエントリがある場合に表示。
+         該当なしの場合はブロックごと非表示(現状=2026-05-26 時点では該当なしのためコメントアウト)。
+    <div class="upcoming-mini" style="margin-top: 0;">
+      <div>
+        <div class="label">// UPCOMING EVENT</div>
+        <h3>(イベント名)</h3>
+        <div class="event-info">
+          <strong>(日付)</strong> · (会場) · (ブース番号)
+        </div>
+      </div>
+      <a href="(LP URL)" class="event-cta">→ EVENT PAGE</a>
+    </div>
+    -->
+
+    <!-- 最近の出展・協賛(直近 4-6 件)
+         ↓ _data/events.json から開催開始日降順で直近のみ抽出。
+            同日開始は「会期進行中 > 終了済み」の順。
+            kind: "booth"          → Booth バッジ + LP リンク
+            kind: "sponsor"        → Sponsor バッジ + リンクなし(LP 不在)
+            kind: ["booth","sponsor"] → Booth + Sponsor バッジ + LP リンク
+
+         表記ルール:
+         - 日付 .year: `YYYY.MM.DD`(単日)/ `YYYY.MM.DD–DD`(同月)/ `YYYY.MM.DD – MM.DD`(月またぎ)
+         - 日付副行: 曜日(単日)/ `N DAYS`(2-7日)/ `LONG-TERM`(8日以上)
+         - h3: イベント正式名のみ(関与表現はバッジで表現、タイトルから削除)
+         - 副情報: `// 機材協賛先` と `// 提供機材` で統一 -->
+    <div class="event-list">
+
+      <!-- 1. 超メタフェス 2026 — ZOTAC ブース出展 + 複数機材協賛 -->
+      <a href="/events/supermetafes2026/" class="event-row">
+        <div class="event-date-block">
+          <span class="year">2026.05.23</span>
+          <span>SAT</span>
+        </div>
+        <div class="event-name-block">
+          <h3>超メタフェス 2026</h3>
+          <div class="event-venue">秋葉原UDX / B-11</div>
+        </div>
+        <span class="event-status-block is-booth-sponsor">Booth + Sponsor</span>
+        <span class="event-arrow-block">→ EVENT PAGE</span>
+
+        <div class="event-row-sub">
+          <span class="sub-label">// 機材協賛先</span>
+          <span class="sub-values">
+            <span class="partner">株式会社 Shiftall</span><span class="sep">·</span>
+            <span class="partner">Diver-X 株式会社</span><span class="sep">·</span>
+            <span class="partner">VRChat 公式スペース</span>
+          </span>
+          <span class="sub-label">// 提供機材</span>
+          <span class="sub-values">
+            <span class="equip">ZBOX MAGNUS ONE EU27507TC</span>
+            <span class="equip">GeForce RTX 5090</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- 2. BitSummit PUNCH — 機材協賛 -->
+      <div class="event-row is-no-link">
+        <div class="event-date-block">
+          <span class="year">2026.05.22–24</span>
+          <span>3 DAYS</span>
+        </div>
+        <div class="event-name-block">
+          <h3>BitSummit PUNCH</h3>
+          <div class="event-venue">京都 / みやこめっせ</div>
+        </div>
+        <span class="event-status-block is-sponsor">Sponsor</span>
+        <span class="event-arrow-block">—</span>
+
+        <div class="event-row-sub">
+          <span class="sub-label">// 提供機材</span>
+          <span class="sub-values">
+            <span class="equip">ZBOX MAGNUS ONE</span>
+            <span class="equip">ZBOX MAGNUS EN</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- 3. Art bit #6 — 機材協賛(長期会期:2026.05.16 – 07.12) -->
+      <div class="event-row is-no-link">
+        <div class="event-date-block">
+          <span class="year">2026.05.16 – 07.12</span>
+          <span>LONG-TERM</span>
+        </div>
+        <div class="event-name-block">
+          <h3>Art bit #6</h3>
+          <div class="event-venue">ホテル アンテルーム 京都</div>
+        </div>
+        <span class="event-status-block is-sponsor">Sponsor</span>
+        <span class="event-arrow-block">—</span>
+
+        <div class="event-row-sub">
+          <span class="sub-label">// 提供機材</span>
+          <span class="sub-values">
+            <span class="equip">ZOTAC GAMING ZONE</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- 4. マチアソビ vol.30 — 機材協賛(株式会社カバー) -->
+      <div class="event-row is-no-link">
+        <div class="event-date-block">
+          <span class="year">2026.05.16–17</span>
+          <span>2 DAYS</span>
+        </div>
+        <div class="event-name-block">
+          <h3>マチアソビ vol.30</h3>
+          <div class="event-venue">徳島 / ポッポ街商店街</div>
+        </div>
+        <span class="event-status-block is-sponsor">Sponsor</span>
+        <span class="event-arrow-block">—</span>
+
+        <div class="event-row-sub">
+          <span class="sub-label">// 機材協賛先</span>
+          <span class="sub-values">
+            <span class="partner">株式会社カバー</span>
+          </span>
+          <span class="sub-label">// 提供機材</span>
+          <span class="sub-values">
+            <span class="equip">ZOTAC MAGNUS EN シリーズ</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- 5. ASK FES 2026 — ZOTAC ブース出展 -->
+      <a href="/events/askfes2026/" class="event-row">
+        <div class="event-date-block">
+          <span class="year">2026.04.04–05</span>
+          <span>2 DAYS</span>
+        </div>
+        <div class="event-name-block">
+          <h3>ASK FES 2026</h3>
+          <div class="event-venue">秋葉原UDX</div>
+        </div>
+        <span class="event-status-block is-booth">Booth</span>
+        <span class="event-arrow-block">→ EVENT PAGE</span>
+      </a>
+
+    </div>
+
+    <!-- 過去活動・事例への動線(網羅性をブログ/事例タグ側に逃がす) -->
+    <p class="events-footer-note">
+      <span class="footnote-label">// MORE</span>
+      過去のイベント活動・取材記事は <a href="https://zotac.co.jp/blog/">ZOTAC NIPPON ブログ</a>、法人での活用事例は <a href="https://zotac.co.jp/blog/category/case_studies/">導入事例</a> をご覧ください。
+    </p>
+
+  </div>
+</section>
+
+<!-- ============================== RELATED ============================== -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">RELATED</div>
+    <div class="yellow-bar"></div>
+    <h2>関連セクション</h2>
+
+    <div class="related-ctas">
+      <a href="/trial-program/" class="related-cta">
+        <div class="related-meta">01 / EVALUATION</div>
+        <h3>機材貸出・評価</h3>
+        <p>カタログで気になった製品を、自社環境で実機検証できます。評価機材貸出プログラム。</p>
+      </a>
+      <a href="https://zotac.co.jp/blog/category/case_studies/" class="related-cta">
+        <div class="related-meta">02 / CASE STUDIES</div>
+        <h3>導入事例</h3>
+        <p>放送・教育・イベント・クリエイティブ領域など、法人での活用事例を取材記事として紹介しています。</p>
+      </a>
+      <a href="/reviews/" class="related-cta">
+        <div class="related-meta">03 / TECHNICAL REVIEW</div>
+        <h3>プロダクトレビュー</h3>
+        <p>カタログのスペックだけでは見えない実測値・現場検証を含む技術エディトリアル。</p>
+      </a>
+      <a href="https://www.zotac.com/jp/support#contact" class="related-cta" target="_blank" rel="noopener">
+        <div class="related-meta">CONTACT</div>
+        <h3>お問い合わせ</h3>
+        <p>カタログ掲載製品のご相談・お見積りはこちらから。ZOTAC お問い合わせ窓口にて承ります。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+        <p><strong style="color: #fff;">ZOTAC NIPPON</strong><br>株式会社ゾタック日本</p>
+        <p>SIer・法人・技術者向け情報ハブ</p>
+        <p class="footer-url">hub.zotac.co.jp</p>
+      </div>
+      <div>
+        <h4>B2B Services</h4>
+        <ul>
+          <li><a href="/trial-program/">Trial Program</a></li>
+          <li><a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Editorial</h4>
+        <ul>
+          <li><a href="/reviews/">Reviews / レビュー</a></li>
+          <li><a href="/catalogs/">Product Catalogs / 製品カタログ</a></li>
+          <li><a href="https://zotac.co.jp/blog/">Blog / ブログ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Related Sites &amp; Social</h4>
+        <ul>
+          <li><a href="https://zotac.co.jp/">zotac.co.jp(本体)</a></li>
+          <li><a href="https://www.zotac.com/jp/">zotac.com/jp(本社)</a></li>
+          <li><a href="https://x.com/zotacjapan">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/zotacnippon/">Facebook</a></li>
+          <li><a href="https://www.youtube.com/@ZOTACJAPAN">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="copyright">© 2026 ZOTAC NIPPON / 株式会社ゾタック日本. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="https://zotac.co.jp/privacy-policy/">Privacy Policy</a>
+        <a href="/trial-program/">Contact</a>
+      </div>
+    </div>
+
+    <p class="analytics-notice">
+      本サイトでは、サービス向上のため Google Analytics および Microsoft Clarity を使用しています。
+      詳しくは <a href="https://zotac.co.jp/privacy-policy/">プライバシーポリシー</a> をご覧ください。
+    </p>
+  </div>
+</footer>
+
+<script>
+// PICKUP カルーセル — 矢印 / ドット / 5秒自動送り(ホバー中・reduced-motion 時は停止)
+(function () {
+  var carousel = document.getElementById('pickupCarousel');
+  if (!carousel) return;
+  var track = carousel.querySelector('.pickup-track');
+  var slides = track.children.length;
+  var dotsWrap = carousel.querySelector('.pickup-dots');
+  var idx = 0;
+  var timer = null;
+  var INTERVAL = 5000;
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var dots = [];
+  for (var i = 0; i < slides; i++) {
+    var d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'pickup-dot';
+    d.setAttribute('aria-label', 'イチオシ製品 ' + (i + 1) + ' / ' + slides);
+    (function (n) {
+      d.addEventListener('click', function () { go(n); restart(); });
+    })(i);
+    dotsWrap.appendChild(d);
+    dots.push(d);
+  }
+
+  function go(n) {
+    idx = (n + slides) % slides;
+    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    dots.forEach(function (d, j) { d.classList.toggle('is-active', j === idx); });
+  }
+  function restart() {
+    if (reducedMotion) return;
+    clearInterval(timer);
+    timer = setInterval(function () { go(idx + 1); }, INTERVAL);
+  }
+
+  carousel.querySelector('.pickup-nav.prev').addEventListener('click', function () { go(idx - 1); restart(); });
+  carousel.querySelector('.pickup-nav.next').addEventListener('click', function () { go(idx + 1); restart(); });
+  carousel.addEventListener('mouseenter', function () { clearInterval(timer); });
+  carousel.addEventListener('mouseleave', restart);
+
+  go(0);
+  restart();
+})();
+</script>
+
+</body>
+</html>

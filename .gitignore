@@ -1,0 +1,14 @@
+# Claude Code ローカル設定(公開不要)
+.claude/
+
+# OS が生成するゴミファイル
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 社内向けドキュメント・モックアップの誤コミット防止
+# (企画書類は OneDrive 側で管理。公開する完成版のみ commit する)
+*_brief.md
+*_addendum.md
+*-mockup-*.html
+_internal/

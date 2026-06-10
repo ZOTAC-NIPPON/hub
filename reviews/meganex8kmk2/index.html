@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MeganeX 8K Mark II は、どのGPUで本領を発揮するのか | ZOTAC Review</title>
 <meta name="description" content="3世代6モデルのGeForce RTXで挑んだ、MeganeX 8K Mark II × VRChat検証レポート。fpsVRによる計測データと、VRChatプレイヤーによる実プレイ観察の両面から、各GPUの実力を可視化します。">
-<link rel="canonical" href="https://hub.zotac.co.jp/reviews/meganex8k/">
+<link rel="canonical" href="https://hub.zotac.co.jp/reviews/meganex8kmk2/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 
 <!-- OGP -->
 <meta property="og:title" content="MeganeX 8K Mark II は、どのGPUで本領を発揮するのか">
 <meta property="og:description" content="3世代6モデルのGeForce RTXで挑んだ、VRChat検証レポート。fpsVR計測データとVRChatプレイヤーによる実プレイ観察の両面から、各GPUの実力を可視化します。">
-<meta property="og:image" content="./images/og_meganex8k_review.jpg">
+<meta property="og:image" content="https://hub.zotac.co.jp/reviews/meganex8kmk2/ogp.jpg">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://hub.zotac.co.jp/reviews/meganex8k/">
+<meta property="og:url" content="https://hub.zotac.co.jp/reviews/meganex8kmk2/">
 <meta property="og:site_name" content="ZOTAC NIPPON">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -27,6 +27,98 @@
 
 <!-- Stylesheet -->
 <link rel="stylesheet" href="./style.css">
+
+<!-- ============================================
+     HUB 共通ヘッダー / フッター アダプタ
+     - hub.zotac.co.jp の index / catalogs / reviews と同一デザインの
+       ヘッダー・フッターを本記事ページに適用する
+     - 記事本体のデザインは style.css のまま変更しない
+============================================ -->
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 旧 fixed ヘッダー(56px)用の body オフセットを解除(共通ヘッダーは sticky で flow 内に高さを持つ) */
+body { padding-top: 0; }
+/* 目次アンカーへのジャンプ時、sticky ヘッダーに見出しが隠れないようにする */
+html { scroll-padding-top: 72px; }
+
+/* ===== Site Header(hub 共通)===== */
+.site-header {
+  position: sticky; top: 0; z-index: 200;
+  background: #2A2D2F;
+  border-bottom: 3px solid #FFD400;
+  padding: 16px 0;
+  /* 記事側の基準 line-height(1.8)を打ち消し、hub 各ページと同じ高さ(約57px)に揃える */
+  line-height: 1.55;
+}
+.site-footer { line-height: 1.55; }
+.site-header-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+}
+@media (max-width: 700px) { .site-header-inner { padding: 0 24px; } }
+.site-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; border: none; }
+.site-logo img { height: 22px; width: auto; display: block; }
+.logo-divider { color: #B1B3B6; font-family: 'JetBrains Mono', monospace; font-weight: 300; font-size: 16px; }
+.logo-url { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B1B3B6; letter-spacing: 0.05em; }
+.logo-url .host-hub { color: #FFD400; font-weight: 500; }
+.site-nav { display: flex; gap: 22px; align-items: center; }
+.site-nav a {
+  text-decoration: none; color: #fff;
+  font-size: 13px; font-weight: 500;
+  position: relative; padding: 4px 0;
+  display: inline-flex; align-items: center; gap: 6px;
+  border: none;
+}
+.site-nav a.is-active { color: #FFD400; }
+.site-nav a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: #FFD400;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.2s;
+}
+.site-nav a:hover::after, .site-nav a.is-active::after { transform: scaleX(1); }
+.nav-cta { background: #FFD400; color: #1A1B1C !important; padding: 9px 18px; font-weight: 700; }
+.nav-cta::after { display: none !important; }
+@media (max-width: 1100px) { .site-nav { gap: 16px; } }
+@media (max-width: 900px) { .site-nav { display: none; } }
+
+/* ===== Site Footer(hub 共通)===== */
+.site-footer { background: #1a1b1c; color: #B1B3B6; padding: 56px 0 28px; }
+.site-footer-container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 700px) { .site-footer-container { padding: 0 24px; } }
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 32px; margin-bottom: 40px;
+}
+@media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+.footer-grid h4 {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: #FFD400; letter-spacing: 0.15em;
+  margin-bottom: 16px; font-weight: 700; text-transform: uppercase;
+}
+.footer-brand img { height: 22px; width: auto; margin-bottom: 12px; }
+.footer-brand p { font-size: 12px; line-height: 1.7; color: #B1B3B6; margin: 0 0 8px; }
+.footer-brand .footer-url { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #FFD400; }
+.footer-grid ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.footer-grid li { font-size: 13px; }
+.footer-grid a { color: #B1B3B6; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border: none; }
+.footer-grid a:hover { color: #FFD400; }
+.footer-bottom {
+  border-top: 1px solid #2a2b2c; padding-top: 20px;
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px;
+}
+.footer-bottom .copyright { font-size: 12px; color: #B1B3B6; }
+.footer-bottom .legal-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-bottom .legal-links a { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #B1B3B6; text-decoration: none; border: none; }
+.footer-bottom .legal-links a:hover { color: #FFD400; }
+.analytics-notice {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #6D6E71;
+  letter-spacing: 0.03em; margin-top: 20px; text-align: center;
+  padding: 16px 0 0; border-top: 1px solid #2a2b2c; line-height: 1.7;
+}
+.analytics-notice a { color: #B1B3B6; text-decoration: underline; text-underline-offset: 2px; border: none; }
+.analytics-notice a:hover { color: #FFD400; }
+</style>
 
 <!-- Structured Data (JSON-LD) -->
 <script type="application/ld+json">
@@ -62,11 +154,11 @@
     },
     {
       "@type": ["Article", "TechArticle"],
-      "@id": "https://hub.zotac.co.jp/reviews/meganex8k/#article",
+      "@id": "https://hub.zotac.co.jp/reviews/meganex8kmk2/#article",
       "headline": "MeganeX 8K Mark II は、どのGPUで本領を発揮するのか",
       "alternativeHeadline": "3世代6モデルのGeForce RTXで挑んだVRChat検証レポート",
       "description": "3世代6モデルのGeForce RTXで挑んだ、MeganeX 8K Mark II × VRChat検証レポート。fpsVRによる計測データと、VRChatプレイヤーによる実プレイ観察の両面から、各GPUの実力を可視化します。",
-      "image": "https://hub.zotac.co.jp/reviews/meganex8k/images/og_meganex8k_review.jpg",
+      "image": "https://hub.zotac.co.jp/reviews/meganex8kmk2/ogp.jpg",
       "datePublished": "2026-05-01",
       "dateModified": "2026-05-01",
       "author": { "@id": "https://zotac.co.jp/#organization" },
@@ -81,7 +173,7 @@
       ],
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://hub.zotac.co.jp/reviews/meganex8k/"
+        "@id": "https://hub.zotac.co.jp/reviews/meganex8kmk2/"
       },
       "about": [
         {
@@ -194,15 +286,22 @@
 <body>
 
 <!-- ============================================
-     GLOBAL HEADER
+     SITE HEADER (hub.zotac.co.jp 共通)
 ============================================ -->
-<header class="global-header">
-  <div class="global-header-inner">
-    <a href="#chapter-1" class="global-header-brand">
-      <img src="./images/zotac_gaming_logo_white.svg" alt="ZOTAC GAMING" width="80" height="18">
-      <span class="global-header-brand-text">Review</span>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-logo">
+      <img src="../../assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+      <span class="logo-divider">/</span>
+      <span class="logo-url">https://<span class="host-hub">hub</span>.zotac.co.jp</span>
     </a>
-    <div class="global-header-meta">MeganeX 8K Mark II × GeForce RTX</div>
+    <nav class="site-nav">
+      <a href="/trial-program/">Trial Program</a>
+      <a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a>
+      <a href="/reviews/" class="is-active">Reviews</a>
+      <a href="/catalogs/">Catalogs</a>
+      <a href="/trial-program/" class="nav-cta">Contact →</a>
+    </nav>
   </div>
 </header>
 
@@ -2198,7 +2297,7 @@
       </dl>
 
       <div class="booth-panel-cta-group">
-        <a href="/event/supermetafes2026/" class="booth-panel-cta">ZOTACブース特設ページ</a>
+        <a href="/events/supermetafes2026/" class="booth-panel-cta">ZOTACブース特設ページ</a>
         <a href="https://vrcmtg.jp/" class="booth-panel-cta booth-panel-cta--secondary" target="_blank" rel="noopener">超メタフェス2026 公式サイト</a>
       </div>
     </div>
@@ -2315,32 +2414,55 @@
 
 
 <!-- ============================================
-     GLOBAL FOOTER
+     SITE FOOTER (hub.zotac.co.jp 共通)
 ============================================ -->
-<footer class="global-footer">
-  <div class="global-footer-inner">
-
-    <a href="#chapter-1" class="global-footer-back-to-top">Back to top</a>
-
-    <div class="global-footer-divider"></div>
-
-    <div class="global-footer-brand">
-      <img src="./images/zotac_gaming_logo_white.svg" alt="ZOTAC GAMING" width="160" height="32">
-      <div class="global-footer-tagline">Review</div>
-    </div>
-
-    <div class="global-footer-meta">
+<footer class="site-footer">
+  <div class="site-footer-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../../assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+        <p><strong style="color: #fff;">ZOTAC NIPPON</strong><br>株式会社ゾタック日本</p>
+        <p>SIer・法人・技術者向け情報ハブ</p>
+        <p class="footer-url">hub.zotac.co.jp</p>
+      </div>
       <div>
-        本記事のお問い合わせ：<a href="https://www.zotac.com/jp/">ZOTAC日本公式サイト</a>
+        <h4>B2B Services</h4>
+        <ul>
+          <li><a href="/trial-program/">Trial Program</a></li>
+          <li><a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a></li>
+        </ul>
       </div>
-      <div style="font-size:12px; color:#B1B3B6; margin-top:12px;">
-        本サイトでは、サービス向上のためGoogle AnalyticsおよびMicrosoft Clarityを使用しています。詳しくは<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a>をご覧ください。
+      <div>
+        <h4>Editorial</h4>
+        <ul>
+          <li><a href="/reviews/">Reviews / レビュー</a></li>
+          <li><a href="/catalogs/">Product Catalogs / 製品カタログ</a></li>
+          <li><a href="https://zotac.co.jp/blog/">Blog / ブログ</a></li>
+        </ul>
       </div>
-      <div class="global-footer-copyright">
-        © 2026 ZOTAC Nippon Co., Ltd. All rights reserved.
+      <div>
+        <h4>Related Sites &amp; Social</h4>
+        <ul>
+          <li><a href="https://zotac.co.jp/">zotac.co.jp(本体)</a></li>
+          <li><a href="https://www.zotac.com/jp/">zotac.com/jp(本社)</a></li>
+          <li><a href="https://x.com/zotacjapan">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/zotacnippon/">Facebook</a></li>
+          <li><a href="https://www.youtube.com/@ZOTACJAPAN">YouTube</a></li>
+        </ul>
       </div>
     </div>
-
+    <div class="footer-bottom">
+      <span class="copyright">© 2026 ZOTAC NIPPON / 株式会社ゾタック日本. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="https://zotac.co.jp/privacy-policy/">Privacy Policy</a>
+        <a href="/trial-program/">Contact</a>
+      </div>
+    </div>
+    <p class="analytics-notice">
+      本サイトでは、サービス向上のため Google Analytics および Microsoft Clarity を使用しています。
+      詳しくは <a href="https://zotac.co.jp/privacy-policy/">プライバシーポリシー</a> をご覧ください。
+    </p>
   </div>
 </footer>
 
