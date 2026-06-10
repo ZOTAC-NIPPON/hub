@@ -183,6 +183,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Barlow:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <!-- hub 共通ヘッダー/フッター用 mono フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --zotac-yellow: #FFD400;
@@ -258,15 +260,43 @@
         .btn-large { padding: 1.1rem 2.8rem; font-size: 1.05rem; }
         .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
-        /* ===== SITE HEADER ===== */
-        .site-header { background: var(--bg-white); border-bottom: 1px solid var(--border); }
-        .site-header .container { display: flex; align-items: center; height: 60px; }
-        .site-logo { display: inline-flex; align-items: center; text-decoration: none; }
-        .site-logo img { height: 26px; width: auto; display: block; }
-        .site-logo .logo-wordmark {
-            font-family: 'Barlow', sans-serif; font-weight: 900;
-            font-size: 1.4rem; letter-spacing: 0.02em; color: var(--text-main);
+        /* ===== SITE HEADER (hub.zotac.co.jp 共通デザイン) ===== */
+        .site-header {
+            position: sticky; top: 0; z-index: 200;
+            background: #2A2D2F;
+            border-bottom: 3px solid #FFD400;
+            padding: 16px 0;
+            line-height: 1.55;
         }
+        .site-header-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 48px;
+            display: flex; align-items: center; justify-content: space-between; gap: 32px;
+        }
+        @media (max-width: 700px) { .site-header-inner { padding: 0 24px; } }
+        .site-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+        .site-logo img { height: 22px; width: auto; display: block; }
+        .logo-divider { color: #B1B3B6; font-family: 'JetBrains Mono', monospace; font-weight: 300; font-size: 16px; }
+        .logo-url { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #B1B3B6; letter-spacing: 0.05em; }
+        .logo-url .host-hub { color: #FFD400; font-weight: 500; }
+        .site-nav { display: flex; gap: 22px; align-items: center; }
+        .site-nav a {
+            text-decoration: none; color: #fff;
+            font-size: 13px; font-weight: 500;
+            position: relative; padding: 4px 0;
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        .site-nav a.is-active { color: #FFD400; }
+        .site-nav a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+            height: 2px; background: #FFD400;
+            transform: scaleX(0); transform-origin: left;
+            transition: transform 0.2s;
+        }
+        .site-nav a:hover::after, .site-nav a.is-active::after { transform: scaleX(1); }
+        .nav-cta { background: #FFD400; color: #1A1B1C !important; padding: 9px 18px; font-weight: 700; }
+        .nav-cta::after { display: none !important; }
+        @media (max-width: 1100px) { .site-nav { gap: 16px; } }
+        @media (max-width: 900px) { .site-nav { display: none; } }
 
         /* ===== HERO ===== */
         .hero {
@@ -500,12 +530,42 @@
             font-weight: 700; font-size: 0.85rem; text-decoration: none;
         }
 
-        /* ===== FOOTER ===== */
-        footer { background: var(--bg-white); padding: 2.5rem 0; text-align: center; border-top: 1px solid var(--border); }
-        .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 1.2rem; }
-        .footer-links a { font-size: 0.82rem; color: var(--text-body); text-decoration: none; font-weight: 500; }
-        .footer-links a:hover { color: var(--text-main); text-decoration: underline; }
-        .footer-text { font-size: 0.78rem; color: var(--text-dim); }
+        /* ===== SITE FOOTER (hub.zotac.co.jp 共通デザイン) ===== */
+        .site-footer { background: #1a1b1c; color: #B1B3B6; padding: 56px 0 28px; text-align: left; line-height: 1.55; font-size: 15px; }
+        .site-footer-container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+        @media (max-width: 700px) { .site-footer-container { padding: 0 24px; } }
+        .footer-grid {
+            display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 32px; margin-bottom: 40px;
+        }
+        @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+        .footer-grid h4 {
+            font-family: 'JetBrains Mono', monospace; font-size: 11px;
+            color: #FFD400; letter-spacing: 0.15em;
+            margin-bottom: 16px; font-weight: 700; text-transform: uppercase;
+        }
+        .footer-brand img { height: 22px; width: auto; margin-bottom: 12px; display: block; }
+        .footer-brand p { font-size: 12px; line-height: 1.7; color: #B1B3B6; margin: 0 0 8px; }
+        .footer-brand .footer-url { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #FFD400; }
+        .footer-grid ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+        .footer-grid li { font-size: 13px; }
+        .footer-grid a { color: #B1B3B6; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+        .footer-grid a:hover { color: #FFD400; }
+        .footer-bottom {
+            border-top: 1px solid #2a2b2c; padding-top: 20px;
+            display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px;
+        }
+        .footer-bottom .copyright { font-size: 12px; color: #B1B3B6; }
+        .footer-bottom .legal-links { display: flex; gap: 20px; flex-wrap: wrap; }
+        .footer-bottom .legal-links a { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #B1B3B6; text-decoration: none; }
+        .footer-bottom .legal-links a:hover { color: #FFD400; }
+        .analytics-notice {
+            font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #6D6E71;
+            letter-spacing: 0.03em; margin-top: 20px; text-align: center;
+            padding: 16px 0 0; border-top: 1px solid #2a2b2c; line-height: 1.7;
+        }
+        .analytics-notice a { color: #B1B3B6; text-decoration: underline; text-underline-offset: 2px; }
+        .analytics-notice a:hover { color: #FFD400; }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 960px) {
@@ -565,12 +625,21 @@
 </head>
 <body>
 
-    <!-- ===== SITE HEADER ===== -->
+    <!-- ===== SITE HEADER (hub.zotac.co.jp 共通) ===== -->
     <header class="site-header">
-        <div class="container">
-            <a href="https://zotac.co.jp/" class="site-logo" aria-label="ZOTAC">
-                <img src="/assets/zotac_logo.svg" alt="ZOTAC" onerror="this.outerHTML='<span class=\'logo-wordmark\'>ZOTAC</span>'">
+        <div class="site-header-inner">
+            <a href="/" class="site-logo">
+                <img src="../assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+                <span class="logo-divider">/</span>
+                <span class="logo-url">https://<span class="host-hub">hub</span>.zotac.co.jp</span>
             </a>
+            <nav class="site-nav">
+                <a href="/trial-program/" class="is-active">Trial Program</a>
+                <a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a>
+                <a href="/reviews/">Reviews</a>
+                <a href="/catalogs/">Catalogs</a>
+                <a href="https://forms.office.com/r/qRUvxGpZnk" target="_blank" rel="noopener" class="nav-cta">Contact →</a>
+            </nav>
         </div>
     </header>
 
@@ -1075,16 +1144,56 @@
         <a href="#requirements" class="btn btn-secondary">条件を見る</a>
     </div>
 
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <div class="container">
-            <nav class="footer-links" aria-label="関連リンク">
-                <a href="https://www.zotac.com/jp/" target="_blank" rel="noopener">ZOTAC公式サイト</a>
-                <a href="https://zotac.co.jp/" target="_blank" rel="noopener">ZOTAC STORE</a>
-                <a href="https://zotac.co.jp/biz-inquiry" target="_blank" rel="noopener">法人様向け相談窓口</a>
-                <a href="https://zotac.co.jp/customer-support/" target="_blank" rel="noopener">サポート</a>
-            </nav>
-            <p class="footer-text">© 2026 ZOTAC Nippon Co., Ltd. All rights reserved.</p>
+    <!-- ===== SITE FOOTER (hub.zotac.co.jp 共通) ===== -->
+    <footer class="site-footer">
+        <div class="site-footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="../assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+                    <p><strong style="color: #fff;">ZOTAC NIPPON</strong><br>株式会社ゾタック日本</p>
+                    <p>SIer・法人・技術者向け情報ハブ</p>
+                    <p class="footer-url">hub.zotac.co.jp</p>
+                </div>
+                <div>
+                    <h4>B2B Services</h4>
+                    <ul>
+                        <li><a href="/trial-program/">Trial Program</a></li>
+                        <li><a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a></li>
+                        <li><a href="https://zotac.co.jp/biz-inquiry" target="_blank" rel="noopener">法人様向け相談窓口</a></li>
+                        <li><a href="https://zotac.co.jp/customer-support/" target="_blank" rel="noopener">サポート</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Editorial</h4>
+                    <ul>
+                        <li><a href="/reviews/">Reviews / レビュー</a></li>
+                        <li><a href="/catalogs/">Product Catalogs / 製品カタログ</a></li>
+                        <li><a href="https://zotac.co.jp/blog/">Blog / ブログ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Related Sites &amp; Social</h4>
+                    <ul>
+                        <li><a href="https://zotac.co.jp/">zotac.co.jp(本体)</a></li>
+                        <li><a href="https://www.zotac.com/jp/">zotac.com/jp(本社)</a></li>
+                        <li><a href="https://x.com/zotacjapan">X / Twitter</a></li>
+                        <li><a href="https://www.facebook.com/zotacnippon/">Facebook</a></li>
+                        <li><a href="https://www.youtube.com/@ZOTACJAPAN">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="copyright">© 2026 ZOTAC NIPPON / 株式会社ゾタック日本. All rights reserved.</span>
+                <div class="legal-links">
+                    <a href="/sitemap.xml">Sitemap</a>
+                    <a href="https://zotac.co.jp/privacy-policy/">Privacy Policy</a>
+                    <a href="https://forms.office.com/r/qRUvxGpZnk" target="_blank" rel="noopener">Contact</a>
+                </div>
+            </div>
+            <p class="analytics-notice">
+                本サイトでは、サービス向上のため Google Analytics および Microsoft Clarity を使用しています。
+                詳しくは <a href="https://zotac.co.jp/privacy-policy/">プライバシーポリシー</a> をご覧ください。
+            </p>
         </div>
     </footer>
 
@@ -1096,7 +1205,8 @@
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
-                        window.scrollTo({ top: target.offsetTop, behavior: 'smooth' });
+                        // sticky ヘッダー(約63px)に見出しが隠れないようオフセット
+                        window.scrollTo({ top: target.offsetTop - 72, behavior: 'smooth' });
                     }
                 });
             });
