@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press &amp; Media / メディア掲載 | ZOTAC NIPPON</title>
+<meta name="description" content="メディアやブログ、動画コンテンツなどで ZOTAC 製品が紹介・登場したコンテンツの一部をまとめています。GeForce RTX シリーズ・ZBOX MAGNUS など、第三者メディアでの掲載・実機レビュー・露出を集約。">
+<link rel="canonical" href="https://hub.zotac.co.jp/press/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ZOTAC NIPPON Hub">
+<meta property="og:title" content="Press &amp; Media / メディア掲載 | ZOTAC NIPPON">
+<meta property="og:description" content="メディア・ブログ・動画で ZOTAC 製品が紹介・登場したコンテンツの一部をお知らせします。">
+<meta property="og:url" content="https://hub.zotac.co.jp/press/">
+
+<!-- Analytics (hub.zotac.co.jp 既存 Property を流用) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5X4CC48YH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N5X4CC48YH', { 'anonymize_ip': true });
+</script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wk7j63hn3o");
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-dark: #2A2D2F;
+  --bg-light: #FFFFFF;
+  --bg-soft: #F5F5F6;
+  --text-dark: #1A1B1C;
+  --text-mid: #4A4B4C;
+  --text-muted: #6D6E71;
+  --text-faint: #B1B3B6;
+  --border: #E5E5E6;
+  --border-soft: #EEEEEE;
+  --border-strong: rgba(0,0,0,0.14);
+  --brand-yellow: #FFD400;
+  --brand-yellow-soft: #FFF8D5;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  line-height: 1.55;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 700px) { .container { padding: 0 24px; } }
+.yellow-bar { width: 48px; height: 4px; background: var(--brand-yellow); margin-bottom: 18px; }
+.yellow-bar-lg { width: 56px; height: 5px; margin-bottom: 18px; }
+
+/* ===== Header (INDEX と共通) ===== */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg-dark);
+  border-bottom: 3px solid var(--brand-yellow);
+  padding: 16px 0;
+}
+.site-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.site-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+.site-logo img { height: 22px; width: auto; }
+.logo-divider { color: var(--text-faint); font-family: var(--font-mono); font-weight: 300; font-size: 16px; }
+.logo-url { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); letter-spacing: 0.05em; }
+.logo-url .host-hub { color: var(--brand-yellow); font-weight: 500; }
+.site-nav { display: flex; gap: 22px; align-items: center; }
+.site-nav a {
+  text-decoration: none; color: #fff;
+  font-size: 13px; font-weight: 500;
+  position: relative; padding: 4px 0;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.site-nav a.is-active { color: var(--brand-yellow); }
+.site-nav a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: var(--brand-yellow);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.2s;
+}
+.site-nav a:hover::after, .site-nav a.is-active::after { transform: scaleX(1); }
+.nav-cta {
+  background: var(--brand-yellow); color: var(--text-dark) !important;
+  padding: 9px 18px; font-weight: 700;
+}
+.nav-cta::after { display: none !important; }
+@media (max-width: 1100px) { .site-nav { gap: 16px; } }
+@media (max-width: 900px) { .site-nav { display: none; } }
+
+/* ===== Page Hero(余白圧縮版) ===== */
+.page-hero {
+  background: var(--bg-dark);
+  color: #fff;
+  padding: 38px 0 34px;
+}
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.breadcrumb a { color: var(--text-faint); text-decoration: none; }
+.breadcrumb a:hover { color: var(--brand-yellow); }
+.breadcrumb .sep { margin: 0 8px; color: var(--text-muted); }
+.breadcrumb .current { color: var(--brand-yellow); }
+.page-hero h1 {
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin-bottom: 12px;
+}
+.page-hero .lede {
+  font-size: 14px;
+  color: #E5E5E6;
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+/* ===== Section ===== */
+section {
+  padding: 48px 0 44px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-light);
+}
+section.soft { background: var(--bg-soft); }
+h2 {
+  font-size: 26px; font-weight: 800;
+  letter-spacing: -0.01em; margin-bottom: 8px;
+}
+.section-label {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.18em; color: var(--text-muted);
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.section-label::before {
+  content: '//'; margin-right: 8px;
+  color: var(--brand-yellow);
+}
+.section-lead {
+  font-size: 14px; color: var(--text-muted);
+  margin-bottom: 8px; line-height: 1.6;
+}
+
+/* ===== Press List(詰めた一覧 — 行=媒体ラベル＋タイトル＋登場製品＋日付) ===== */
+.press-list { margin-top: 20px; border-top: 1px solid var(--border); }
+.press-row {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 15px 8px;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none; color: var(--text-dark);
+  transition: background 0.15s;
+}
+.press-row:hover { background: var(--bg-soft); }
+.press-row::after {
+  content: '→';
+  display: inline-block; transform: rotate(-45deg);
+  flex: 0 0 auto; align-self: flex-start;
+  margin-left: -4px; padding-top: 3px;
+  font-family: var(--font-mono); font-size: 14px;
+  color: var(--text-faint); opacity: 0.6;
+  transition: color 0.15s, opacity 0.15s;
+}
+.press-row:hover::after { color: var(--text-dark); opacity: 1; }
+@media (max-width: 600px) { .press-row::after { display: none; } }
+.press-ml {
+  flex: 0 0 124px;
+  display: flex; flex-wrap: wrap; gap: 5px;
+  align-items: flex-start; padding-top: 2px;
+}
+.press-media {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.05em;
+  background: var(--text-dark); color: #fff;
+  padding: 3px 8px; white-space: nowrap;
+  min-width: 82px; text-align: center;
+}
+.press-media.is-video {
+  background: var(--bg-light); color: var(--text-dark);
+  border: 1px solid var(--border-strong);
+}
+.press-pr {
+  font-family: var(--font-mono); font-size: 9.5px; font-weight: 700;
+  letter-spacing: 0.06em;
+  background: var(--brand-yellow); color: var(--text-dark);
+  padding: 3px 7px; white-space: nowrap;
+}
+.press-mid { flex: 1; min-width: 0; }
+.press-mid .t {
+  font-size: 15px; font-weight: 700; line-height: 1.5;
+  margin-bottom: 6px; letter-spacing: -0.005em;
+}
+.press-row:hover .t { color: #000; }
+.press-mid .p {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-muted); line-height: 1.5;
+}
+.press-mid .p .lbl { color: var(--text-faint); margin-right: 4px; }
+.press-mid .p b { color: var(--text-dark); font-weight: 700; }
+.press-date {
+  flex: 0 0 auto; min-width: 52px; text-align: right;
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-faint); padding-top: 3px;
+}
+.press-note {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-muted); letter-spacing: 0.02em;
+  margin-top: 16px; line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .press-row { flex-wrap: wrap; gap: 8px 12px; }
+  .press-ml { flex: 1 1 100%; }
+  .press-mid { flex: 1 1 100%; }
+  .press-date { position: absolute; right: 8px; }
+}
+
+/* ===== Related CTA ===== */
+.related-ctas {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-top: 28px;
+}
+@media (max-width: 700px) { .related-ctas { grid-template-columns: 1fr; } }
+.related-cta {
+  border: 1px solid var(--border);
+  padding: 24px 28px;
+  background: var(--bg-light);
+  text-decoration: none; color: var(--text-dark);
+  transition: background 0.15s, color 0.15s;
+}
+.related-cta:hover { background: var(--bg-dark); color: #fff; }
+.related-cta .related-meta {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.12em; color: var(--text-muted);
+  margin-bottom: 8px; text-transform: uppercase;
+}
+.related-cta:hover .related-meta { color: var(--brand-yellow); }
+.related-cta h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.related-cta p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+.related-cta:hover p { color: var(--text-faint); }
+
+/* ===== Footer (INDEX と共通、簡略版) ===== */
+.site-footer { background: #1a1b1c; color: var(--text-faint); padding: 56px 0 28px; }
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 32px; margin-bottom: 40px;
+}
+@media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+.footer-grid h4 {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--brand-yellow); letter-spacing: 0.15em;
+  margin-bottom: 16px; font-weight: 700; text-transform: uppercase;
+}
+.footer-brand img { height: 22px; margin-bottom: 12px; }
+.footer-brand p { font-size: 12px; line-height: 1.7; color: var(--text-faint); margin-bottom: 8px; }
+.footer-brand .footer-url { font-family: var(--font-mono); font-size: 11px; color: var(--brand-yellow); }
+.footer-grid ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-grid li { font-size: 13px; }
+.footer-grid a { color: var(--text-faint); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.footer-grid a:hover { color: var(--brand-yellow); }
+.footer-bottom {
+  border-top: 1px solid #2a2b2c; padding-top: 20px;
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px;
+}
+.footer-bottom .copyright { font-size: 12px; color: var(--text-faint); }
+.footer-bottom .legal-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-bottom .legal-links a { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); text-decoration: none; }
+.footer-bottom .legal-links a:hover { color: var(--brand-yellow); }
+.analytics-notice {
+  font-family: var(--font-mono); font-size: 10px; color: var(--text-muted);
+  letter-spacing: 0.03em; margin-top: 20px; text-align: center;
+  padding: 16px 0 0; border-top: 1px solid #2a2b2c; line-height: 1.7;
+}
+.analytics-notice a { color: var(--text-faint); text-decoration: underline; text-underline-offset: 2px; }
+.analytics-notice a:hover { color: var(--brand-yellow); }
+</style>
+</head>
+<body>
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header">
+  <div class="container site-header-inner">
+    <a href="/" class="site-logo">
+      <img src="../assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+      <span class="logo-divider">/</span>
+      <span class="logo-url">https://<span class="host-hub">hub</span>.zotac.co.jp</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/trial-program/">Trial Program</a>
+      <a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a>
+      <a href="/reviews/">Reviews</a>
+      <a href="/catalogs/">Catalogs</a>
+      <a href="/press/" class="is-active">Press</a>
+      <a href="https://zotac.co.jp/biz-inquiry" class="nav-cta">Contact →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================== PAGE HERO ============================== -->
+<section class="page-hero" style="border-bottom: none;">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">HOME</a><span class="sep">/</span><span class="current">PRESS &amp; MEDIA</span>
+    </div>
+    <div class="yellow-bar-lg"></div>
+    <h1>Press &amp; Media</h1>
+    <p class="lede">
+      メディアやブログ、動画コンテンツなどで ZOTAC 製品が紹介・登場したコンテンツの一部をお知らせします。
+    </p>
+  </div>
+</section>
+
+<!-- ============================== ARTICLES ============================== -->
+<section>
+  <div class="container">
+    <div class="section-label">MEDIA &amp; BLOG</div>
+    <div class="yellow-bar"></div>
+    <h2>記事・ブログ</h2>
+    <p class="section-lead">Web メディア・技術ブログでの掲載・実機レビュー・露出です。<span style="font-family:var(--font-mono);font-size:12px;">PR</span> は提供・タイアップ記事を示します。</p>
+
+    <div class="press-list">
+
+      <a class="press-row" href="https://akiba-pc.watch.impress.co.jp/docs/topic/special/2115408.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">AKIBA PC</span><span class="press-pr">PR</span></div>
+        <div class="press-mid"><p class="t">20周年を迎えるZOTACに“世界最高峰の小型PC”を作り続ける理由をCOMPUTEXで聞く</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS シリーズ</b></p></div>
+        <span class="press-date">2026.06</span>
+      </a>
+
+      <a class="press-row" href="https://ascii.jp/elem/000/004/408/4408319/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">ASCII</span></div>
+        <div class="press-mid"><p class="t">RTX 5080を“そのまま”搭載！ZOTACのガラパゴスなミニPC、独自進化がスゴすぎて笑う</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS ONE（GeForce RTX 5080搭載）</b></p></div>
+        <span class="press-date">2026.06</span>
+      </a>
+
+      <a class="press-row" href="https://pc.watch.impress.co.jp/docs/column/nishikawa/2090406.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">PC WATCH</span></div>
+        <div class="press-mid"><p class="t">さらばgpt-oss。VRAM 16GBあれば動作し、画像も理解してくれる「Qwen3.5」登場！</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS ONE EU27507TC</b></p></div>
+        <span class="press-date">2026.03</span>
+      </a>
+
+      <a class="press-row" href="https://pc.watch.impress.co.jp/docs/column/nishikawa/2088068.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">PC WATCH</span></div>
+        <div class="press-mid"><p class="t">VRAM 16GBで省スペース、「ZOTAC MAGNUS ONE EU27507TC」はAIとゲームを両立できるか</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS ONE EU27507TC</b></p></div>
+        <span class="press-date">2026.02</span>
+      </a>
+
+      <a class="press-row" href="https://ascii.jp/elem/000/004/366/4366639/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">週刊アスキー</span></div>
+        <div class="press-mid"><p class="t">見た目は清楚な事務系でも中身はバキバキのゴリマッチョ！RTX 5060Ti搭載のミニPCがスゴかった</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS EN275060TC</b></p></div>
+        <span class="press-date">2026.01</span>
+      </a>
+
+      <a class="press-row" href="https://ascii.jp/elem/000/004/361/4361103/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">ASCII</span></div>
+        <div class="press-mid"><p class="t">GeForce RTX 5060 Tiを搭載した小型ゲーミングPCの究極形！壁掛けも可能なベアボーンキットを試してみた</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS EN275060TC</b></p></div>
+        <span class="press-date">2025.12</span>
+      </a>
+
+      <a class="press-row" href="https://gigazine.net/news/20251209-zotac-magnus-en275060tc-benchmark-ai-game/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">GIGAZINE</span></div>
+        <div class="press-mid"><p class="t">VRAM 16GBのデスクトップ用GPU搭載ZOTAC製ミニPC「MAGNUS EN275060TC」はローカルAIやゲームで実用的なのか徹底検証してみた</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS EN275060TC</b></p></div>
+        <span class="press-date">2025.12</span>
+      </a>
+
+      <a class="press-row" href="https://note.com/samehadaonsen/n/n6988d94f9aae" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">note</span></div>
+        <div class="press-mid"><p class="t">ミニPCでAIをやる視点からの MAGNUS EN275060TC</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS EN275060TC</b></p></div>
+        <span class="press-date">2025.12</span>
+      </a>
+
+      <a class="press-row" href="https://akiba-pc.watch.impress.co.jp/docs/topic/special/2058895.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">AKIBA PC</span><span class="press-pr">PR</span></div>
+        <div class="press-mid"><p class="t">フルスペックのGeForce搭載ミニPCでゲームも仕事もバッチリ。ZOTAC「ZBOX MAGNUS EN275060TC」を試す</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS EN275060TC</b></p></div>
+        <span class="press-date">2025.12</span>
+      </a>
+
+      <a class="press-row" href="https://gigazine.net/news/20251130-zotac-magnus-en275060tc-appearance/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">GIGAZINE</span></div>
+        <div class="press-mid"><p class="t">片手で持てるサイズにデスクトップ版GeForce RTX 5060 Tiを詰め込んだZOTAC製ミニPC「MAGNUS EN275060TC」の外観を詳しくチェックしてみた</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS EN275060TC</b></p></div>
+        <span class="press-date">2025.11</span>
+      </a>
+
+      <a class="press-row" href="https://gigazine.net/news/20251018-wacom-zotac-machiasobi29/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">GIGAZINE</span></div>
+        <div class="press-mid"><p class="t">「デスクトップ用GPU搭載なのに片手で持てるZOTACのPC」がワコムの液タブと一緒に展示されていた【マチ★アソビ Vol.29】</p><p class="p"><span class="lbl">登場製品</span><b>ZBOX edge MA762 / MAGNUS EN275060TC</b></p></div>
+        <span class="press-date">2025.10</span>
+      </a>
+
+      <a class="press-row" href="https://tsg-official.com/zotac-gaming-geforce-rtx-5090-solid-oc/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">TSG</span></div>
+        <div class="press-mid"><p class="t">ZOTAC GAMING GeForce RTX 5090 SOLID OC 実機レビュー｜最強GPUの実力を徹底検証！</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5090 SOLID OC</b></p></div>
+        <span class="press-date">2025.10</span>
+      </a>
+
+      <a class="press-row" href="https://ascii.jp/elem/000/004/315/4315959/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">ASCII</span></div>
+        <div class="press-mid"><p class="t">小型こそロマン！Core Ultra 7 265＋RTX 5070搭載の究極ミニPC【MAGNUS ONE EU275070C】</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS ONE EU275070C</b></p></div>
+        <span class="press-date">2025.09</span>
+      </a>
+
+      <a class="press-row" href="https://chimolog.co/rtx-5090/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">ちもろぐ</span></div>
+        <div class="press-mid"><p class="t">RTX 5090ベンチマーク：最強性能のグラボですが注意点3つ【RTX 4090と性能比較】</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5090 SOLID OC</b></p></div>
+        <span class="press-date">2025.09</span>
+      </a>
+
+      <a class="press-row" href="https://techno-kurashi.hatenablog.com/entry/2025/08/15/060325" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">暮らしのテクノ便</span></div>
+        <div class="press-mid"><p class="t">PCゲーマーよ、これが未来だ！ZOTAC GAMING GeForce RTX 5090 SOLID OCが切り開く「超次元」体験</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5090 SOLID OC</b></p></div>
+        <span class="press-date">2025.08</span>
+      </a>
+
+      <a class="press-row" href="https://chimolog.co/rtx-5070/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">ちもろぐ</span></div>
+        <div class="press-mid"><p class="t">RTX 5070ベンチマーク：RTX 5060 Ti（16GB）どっちがいいか性能比較レビュー</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5070 SOLID OC</b></p></div>
+        <span class="press-date">2025.07</span>
+      </a>
+
+      <a class="press-row" href="https://ascii.jp/elem/000/004/274/4274543/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">ASCII</span></div>
+        <div class="press-mid"><p class="t">ミニPCで高スペックなAIPCなど、ZOTACの新製品は“コンパクトかつパワフル”</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS（EAMAX390C / EN275060TC / EU275070C）</b></p></div>
+        <span class="press-date">2025.05</span>
+      </a>
+
+      <a class="press-row" href="https://weekly.ascii.jp/elem/000/004/274/4274533/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">週刊アスキー</span></div>
+        <div class="press-mid"><p class="t">ZOTAC製GeForce RTX 5060の小ささに思わず笑いが出た</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5060 LOW PROFILE / RTX 5060 SOLO / RTX 5090 ArcticStorm AIO</b></p></div>
+        <span class="press-date">2025.05</span>
+      </a>
+
+      <a class="press-row" href="https://www.itmedia.co.jp/pcuser/articles/2505/23/news167.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">ITmedia</span></div>
+        <div class="press-mid"><p class="t">スリムデスクトップPCのパワーアップに福音？ ZOTACが「GeForce RTX 5060」のロープロファイルカードを参考展示</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5060 LOW PROFILE / RTX 5060 SOLO</b></p></div>
+        <span class="press-date">2025.05</span>
+      </a>
+
+      <a class="press-row" href="https://pc.watch.impress.co.jp/docs/column/hothot/2015233.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">PC WATCH</span></div>
+        <div class="press-mid"><p class="t">5万円台開始のGeForceに強みはある？エントリー帯に一足先に乗り込んだRTX 5060を検証する</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5060 Ti 8GB Twin Edge OC / RTX 3060 Twin Edge OC</b></p></div>
+        <span class="press-date">2025.05</span>
+      </a>
+
+      <a class="press-row" href="https://akiba-pc.watch.impress.co.jp/docs/parts_review/videocard_lab/2012384.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">AKIBA PC</span></div>
+        <div class="press-mid"><p class="t">GeForce RTX 5060 Tiの8GB版はゲーマーにとって意味のある選択なのか？</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5060 Ti 8GB Twin Edge OC</b></p></div>
+        <span class="press-date">2025.05</span>
+      </a>
+
+      <a class="press-row" href="https://pc.watch.impress.co.jp/docs/column/hothot/2007315.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">PC WATCH</span></div>
+        <div class="press-mid"><p class="t">VRAM 16GB搭載のGeForce RTX 5060 Tiをテスト。ゲームとAI入門の新定番？</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5060 Ti 16GB Twin Edge OC</b></p></div>
+        <span class="press-date">2025.04</span>
+      </a>
+
+      <a class="press-row" href="https://akiba-pc.watch.impress.co.jp/docs/topic/special/2010114.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">AKIBA PC</span><span class="press-pr">PR</span></div>
+        <div class="press-mid"><p class="t">GeForce RTX 5070とRTX 5060 Ti 16GBモデルはどっちを選べばいいの!? ZOTACの搭載カード比較で徹底チェック！</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5070 SOLID OC / RTX 5060 Ti 16GB Twin Edge OC</b></p></div>
+        <span class="press-date">2025.04</span>
+      </a>
+
+      <a class="press-row" href="https://www.boostudio.jp/entry/2025/03/24/213250" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">BooStudio</span></div>
+        <div class="press-mid"><p class="t">【待望の2スロットモデル！】ZOTAC社「ZOTAC GAMING GeForce RTX 5070 SOLID OC」をレビュー</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5070 SOLID OC</b></p></div>
+        <span class="press-date">2025.03</span>
+      </a>
+
+      <a class="press-row" href="https://review.pastime.ne.jp/personal-computer/pc-parts/post-4025/" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">pastime</span></div>
+        <div class="press-mid"><p class="t">RTX5080なら5KモニターでもMonster Hunter Wildsが余裕で遊べる！RTX3090との比較レビュー</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5080 AMP Extreme INFINITY</b></p></div>
+        <span class="press-date">2025.03</span>
+      </a>
+
+      <a class="press-row" href="https://pc.watch.impress.co.jp/docs/column/nishikawa/1665307.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">PC WATCH</span></div>
+        <div class="press-mid"><p class="t">GeForce RTX 5090降臨！現時点最強AI PCへ！？</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5090 SOLID / RTX 4090 INFINITY OC</b></p></div>
+        <span class="press-date">2025.02</span>
+      </a>
+
+      <a class="press-row" href="https://akiba-pc.watch.impress.co.jp/docs/parts_review/videocard_lab/1664652.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">AKIBA PC</span></div>
+        <div class="press-mid"><p class="t">DLSS MFGやSmooth Motionが使える「ZOTAC GAMING GeForce RTX 5080 AMP Extreme INFINITY」をじっくり検証する</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5080 AMP Extreme INFINITY</b></p></div>
+        <span class="press-date">2025.02</span>
+      </a>
+
+      <a class="press-row" href="https://pc.watch.impress.co.jp/docs/column/hothot/1664068.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">PC WATCH</span></div>
+        <div class="press-mid"><p class="t">「GeForce RTX 5070 Ti」をベンチマーク。新世代準ハイエンドの実力は？</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 4070 Ti AMP Extreme AIRO（比較用）</b></p></div>
+        <span class="press-date">2025.02</span>
+      </a>
+
+      <a class="press-row" href="https://pc.watch.impress.co.jp/docs/column/hothot/1658611.html" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media">PC WATCH</span></div>
+        <div class="press-mid"><p class="t">「GeForce RTX 5080」を即検証！4080 SUPERとの性能差はどれだけ開くのか？</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5080 SOLID OC</b></p></div>
+        <span class="press-date">2025.01</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== VIDEOS ============================== -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">MOVIE</div>
+    <div class="yellow-bar"></div>
+    <h2>動画コンテンツ</h2>
+    <p class="section-lead">YouTube などで ZOTAC 製品が紹介・使用された動画です。<span style="font-family:var(--font-mono);font-size:12px;">PR</span> は機材協力・提供・タイアップ動画などを示します。</p>
+
+    <div class="press-list">
+
+      <a class="press-row" href="https://www.youtube.com/watch?v=BjFysVDHuAQ" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media is-video">▶ 黒戸モノ</span><span class="press-pr">PR</span></div>
+        <div class="press-mid"><p class="t">「RE9」世界未発売！バイオコラボなRTX 5070で組む、アンブラ社謹製小型ゲーミングPC</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5070 SOLID BIOHAZARD Limited Edition</b></p></div>
+        <span class="press-date">2026.05</span>
+      </a>
+
+      <a class="press-row" href="https://www.youtube.com/watch?v=6_dCQFfKHBI" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media is-video">▶ 黒戸モノ</span><span class="press-pr">PR</span></div>
+        <div class="press-mid"><p class="t">「ピラーレス6,000円」CPSの新価格破壊ケース「C3Q500」で組む、R7 7800X3DとRTX 5070のオシャレなゲーミング定番構成</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5070 SOLID</b></p></div>
+        <span class="press-date">2026.05</span>
+      </a>
+
+      <a class="press-row" href="https://www.youtube.com/watch?v=Vhpu3npIEtk" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media is-video">▶ gradeon</span><span class="press-pr">PR</span></div>
+        <div class="press-mid"><p class="t">【機材協力 ZOTAC】性能も電力も化け物！GeForce RTX 5090を紹介！（RTX 4090 / 5080 / RX 9070 XTと比較）</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5090</b></p></div>
+        <span class="press-date">2026.03</span>
+      </a>
+
+      <a class="press-row" href="https://www.youtube.com/watch?v=E9PMvuu_sfk" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media is-video">▶ 黒戸モノ</span><span class="press-pr">PR</span></div>
+        <div class="press-mid"><p class="t">【予算120万】ゲーミングを超えるハイエンド構成｜「HAVN BF 360 Flow」で組む、プロクリエイター向けガチPC（R9 9950X3D + RTX 5090）</p><p class="p"><span class="lbl">登場製品</span><b>GeForce RTX 5090 SOLID</b></p></div>
+        <span class="press-date">2026.03</span>
+      </a>
+
+      <a class="press-row" href="https://www.youtube.com/watch?v=hBdlmHA9_7Q" target="_blank" rel="noopener">
+        <div class="press-ml"><span class="press-media is-video">▶ PAD</span><span class="press-pr">PR</span></div>
+        <div class="press-mid"><p class="t">ミニPCの限界を越えた！デスクトップGPU搭載でゲームもAIも！</p><p class="p"><span class="lbl">登場製品</span><b>MAGNUS EN275060TC / MAGNUS ONE EU27507TC</b></p></div>
+        <span class="press-date">2025.10</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RELATED ============================== -->
+<section class="soft">
+  <div class="container">
+    <div class="section-label">RELATED</div>
+    <div class="yellow-bar"></div>
+    <h2>関連セクション</h2>
+
+    <div class="related-ctas">
+      <a href="/reviews/" class="related-cta">
+        <div class="related-meta">REVIEWS</div>
+        <h3>プロダクトレビュー</h3>
+        <p>ZOTAC NIPPON が制作する、実測データと現場検証ベースの技術レビュー一覧です。</p>
+      </a>
+      <a href="/trial-program/" class="related-cta">
+        <div class="related-meta">EVALUATION</div>
+        <h3>機材貸出・評価</h3>
+        <p>気になった製品を自社環境で実機検証できる、評価機材貸出プログラム。</p>
+      </a>
+      <a href="/catalogs/" class="related-cta">
+        <div class="related-meta">PRODUCT CATALOGS</div>
+        <h3>製品カタログ</h3>
+        <p>グラフィックスカード・ZBOX の製品カタログ PDF を高解像度版のままダウンロード。</p>
+      </a>
+      <a href="https://zotac.co.jp/biz-inquiry" class="related-cta" target="_blank" rel="noopener">
+        <div class="related-meta">CONTACT</div>
+        <h3>お問い合わせ</h3>
+        <p>掲載製品のご相談・お見積りはこちらから。法人相談窓口にて承ります。</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+        <p><strong style="color: #fff;">ZOTAC NIPPON</strong><br>株式会社ゾタック日本</p>
+        <p>SIer・法人・技術者向け情報ハブ</p>
+        <p class="footer-url">hub.zotac.co.jp</p>
+      </div>
+      <div>
+        <h4>B2B Services</h4>
+        <ul>
+          <li><a href="/trial-program/">Trial Program</a></li>
+          <li><a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Editorial</h4>
+        <ul>
+          <li><a href="/reviews/">Reviews / レビュー</a></li>
+          <li><a href="/press/">Press &amp; Media / メディア掲載</a></li>
+          <li><a href="/catalogs/">Product Catalogs / 製品カタログ</a></li>
+          <li><a href="https://zotac.co.jp/blog/">Blog / ブログ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Related Sites &amp; Social</h4>
+        <ul>
+          <li><a href="https://zotac.co.jp/">zotac.co.jp(本体)</a></li>
+          <li><a href="https://www.zotac.com/jp/">zotac.com/jp(本社)</a></li>
+          <li><a href="https://x.com/zotacjapan">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/zotacnippon/">Facebook</a></li>
+          <li><a href="https://www.youtube.com/@ZOTACJAPAN">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="copyright">© 2026 ZOTAC NIPPON / 株式会社ゾタック日本. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="https://zotac.co.jp/privacy-policy/">Privacy Policy</a>
+        <a href="https://zotac.co.jp/biz-inquiry">Contact</a>
+      </div>
+    </div>
+
+    <p class="analytics-notice">
+      本サイトでは、サービス向上のため Google Analytics および Microsoft Clarity を使用しています。
+      詳しくは <a href="https://zotac.co.jp/privacy-policy/">プライバシーポリシー</a> をご覧ください。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
