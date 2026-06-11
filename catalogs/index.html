@@ -112,7 +112,7 @@ a { color: inherit; }
 .page-hero {
   background: var(--bg-dark);
   color: #fff;
-  padding: 64px 0 56px;
+  padding: 38px 0 34px;
 }
 .breadcrumb {
   font-family: var(--font-mono);
@@ -353,6 +353,53 @@ h2 {
 }
 @media (max-width: 900px) { .catalog-thumb-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .catalog-thumb-grid { grid-template-columns: 1fr; } }
+
+/* 総合・特集カタログ帯は 4 カラム(少数固定。3カラムだと 4枚目が孤立するため) */
+.catalog-thumb-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .catalog-thumb-grid.cols-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .catalog-thumb-grid.cols-4 { grid-template-columns: 1fr; } }
+
+/* サブセクション見出し(① 総合・特集 / ② 個別 の2ブロックを分ける罫) */
+.catalog-subhead {
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  margin-top: 8px; padding-bottom: 12px;
+  border-bottom: 2px solid var(--text-dark);
+}
+.catalog-subhead.gap-lg { margin-top: 56px; }
+.catalog-subhead h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
+.catalog-subhead .subhead-note {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.06em; color: var(--text-muted);
+}
+.catalog-subhead .subhead-note::before { content: '// '; color: var(--brand-yellow); }
+
+/* 個別製品カタログのカテゴリ・フィルターチップ */
+.catalog-filter { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.catalog-filter-chip {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 7px 14px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-light); color: var(--text-mid);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.catalog-filter-chip:hover { border-color: var(--text-dark); color: var(--text-dark); }
+.catalog-filter-chip.is-active {
+  background: var(--brand-yellow); border-color: var(--brand-yellow);
+  color: var(--text-dark);
+}
+.catalog-filter + .catalog-thumb-grid { margin-top: 20px; }
+
+/* フィルターで該当0件のカテゴリ用の空状態(例:現状の GPU 個別) */
+.catalog-empty {
+  margin-top: 24px; padding: 28px 24px;
+  background: var(--bg-soft);
+  border: 1px dashed var(--border-strong);
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--text-muted); letter-spacing: 0.03em;
+  text-align: center; line-height: 1.7;
+}
 
 .catalog-thumb {
   position: relative;
@@ -1011,6 +1058,7 @@ h2 {
       <a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a>
       <a href="/reviews/">Reviews</a>
       <a href="/catalogs/" class="is-active">Catalogs</a>
+      <a href="/press/">Press</a>
       <a href="https://zotac.co.jp/biz-inquiry" class="nav-cta">Contact →</a>
     </nav>
   </div>
@@ -1137,13 +1185,21 @@ h2 {
 
     <!-- ↓ _data/catalogs.json から自動生成
          カタログは「資料単位」で1つ。メタ情報は updated(更新年月)と filesize(MB)。
-         pickup: true のエントリは上の PICKUP フィーチャーに表示し、グリッドからは除外 -->
-    <div class="catalog-thumb-grid">
+         pickup: true のエントリは上の PICKUP フィーチャーに表示し、グリッドからは除外
+         ① 総合・特集カタログ(全体像・少数固定) / ② 個別製品カタログ(製品ごと・カテゴリフィルター) -->
 
-      <!-- 1. RTX 50 シリーズ総合カタログ -->
+    <!-- ① 総合・特集カタログ — まず全体像をつかむ少数固定の帯 -->
+    <div class="catalog-subhead">
+      <h3>総合・特集カタログ</h3>
+      <span class="subhead-note">まず全体像をつかむ</span>
+    </div>
+    <div class="catalog-thumb-grid cols-4">
+
+      <!-- 1. RTX 50 シリーズ総合カタログ(総合 / GPU) -->
       <article class="catalog-thumb type-gpu">
         <div class="catalog-cover">
           <img src="../pdfs/covers/rtx50_catalog_cover.jpg" alt="GeForce RTX 50 シリーズ総合カタログ表紙" loading="lazy">
+          <span class="catalog-label">総合</span>
           <span class="catalog-tag">英語版</span>
         </div>
         <div class="catalog-body">
@@ -1160,6 +1216,7 @@ h2 {
       <article class="catalog-thumb type-minipc">
         <div class="catalog-cover">
           <img src="../pdfs/covers/zbox_catalog_cover.jpg" alt="ZBOX 総合カタログ表紙" loading="lazy">
+          <span class="catalog-label">総合</span>
           <span class="catalog-tag">英語版</span>
         </div>
         <div class="catalog-body">
@@ -1176,6 +1233,7 @@ h2 {
       <article class="catalog-thumb type-minipc">
         <div class="catalog-cover">
           <img src="../pdfs/covers/zbox_feature_cover.jpg" alt="ZBOX 注目モデルカタログ表紙" loading="lazy">
+          <span class="catalog-label">特集</span>
         </div>
         <div class="catalog-body">
           <div class="catalog-meta"><span>Updated 2026.03</span><span class="meta-size">0.8 MB</span></div>
@@ -1187,8 +1245,48 @@ h2 {
         </div>
       </article>
 
-      <!-- 4. MAGNUS ONE フライヤー(PICKUP カルーセルにも掲載 — グリッドは常に全資料の一覧) -->
-      <article class="catalog-thumb type-flyer">
+      <!-- 4. ZBOX Pro 注目モデルカタログ(特集 / B2B・日本語 — PICKUP カルーセルにも掲載) -->
+      <article class="catalog-thumb type-minipc">
+        <div class="catalog-cover">
+          <img src="../pdfs/covers/zbox_b2b_catalog_cover.jpg" alt="ZBOX Pro 注目モデルカタログ表紙" loading="lazy">
+          <span class="catalog-label">特集</span>
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-meta"><span>Updated 2026.05</span><span class="meta-size">1.4 MB</span></div>
+          <div class="catalog-category">小型デスクトップPC — 組み込み・産業・デジタルサイネージ向け</div>
+          <h3>ZBOX Pro 注目モデルカタログ</h3>
+          <a href="../pdfs/ZOTAC_B2B_CATALOG_MAY_2026.pdf" class="catalog-pdf-btn" target="_blank">
+            <span class="icon">↓</span> PDF ダウンロード
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ② 個別製品カタログ — 製品ごと。今後ここが増える領域 -->
+    <div class="catalog-subhead gap-lg">
+      <h3>個別製品カタログ</h3>
+      <span class="subhead-note">製品ごとに探す</span>
+    </div>
+
+    <!-- カテゴリ・フィルター — 一旦オフ(2026-06)。
+         理由:個別カタログが2点(ともにミニPC)の現状では切り口が1種類しか立たず、フィルターが機能しないため。
+         data-filter は各カードの data-category と対応。個別カタログが増えたら下の <div> のコメントを外して再有効化する。
+         推奨の第一軸=「用途」(重複しない2〜3区分):
+           すべて / ゲーミング・クリエイティブ(GeForce搭載) / 法人・組み込み・サイネージ / (将来)グラフィックスカード単体
+         ※ シリーズ(MAGNUS / E / Pro)は重複が出るため第一軸にせず、カード説明文 or 大量化後の第二軸で扱う。
+         ※ 再有効化時は、各個別カードの data-category も用途値(gaming / business 等)に合わせて更新すること(現状は minipc)。
+    <div class="catalog-filter" role="group" aria-label="個別製品カタログのカテゴリで絞り込み">
+      <button type="button" class="catalog-filter-chip is-active" data-filter="all" aria-pressed="true">すべて</button>
+      <button type="button" class="catalog-filter-chip" data-filter="gaming" aria-pressed="false">ゲーミング・クリエイティブ</button>
+      <button type="button" class="catalog-filter-chip" data-filter="business" aria-pressed="false">法人・組み込み・サイネージ</button>
+    </div>
+    -->
+
+    <div class="catalog-thumb-grid" id="individualGrid">
+
+      <!-- MAGNUS ONE フライヤー(PICKUP カルーセルにも掲載 — グリッドは常に全資料の一覧) -->
+      <article class="catalog-thumb type-flyer" data-category="minipc">
         <div class="catalog-cover">
           <img src="../pdfs/covers/magnus_one_flyer_cover.jpg" alt="ZBOX MAGNUS ONE フライヤー表紙" loading="lazy">
         </div>
@@ -1202,8 +1300,8 @@ h2 {
         </div>
       </article>
 
-      <!-- 5. MAGNUS EN フライヤー -->
-      <article class="catalog-thumb type-flyer">
+      <!-- MAGNUS EN フライヤー -->
+      <article class="catalog-thumb type-flyer" data-category="minipc">
         <div class="catalog-cover">
           <img src="../pdfs/covers/magnus_en_flyer_cover.jpg" alt="ZBOX MAGNUS EN フライヤー表紙" loading="lazy">
         </div>
@@ -1217,25 +1315,15 @@ h2 {
         </div>
       </article>
 
-      <!-- 6. ZBOX Pro 注目モデルカタログ(B2B・日本語 — PICKUP カルーセルにも掲載) -->
-      <article class="catalog-thumb type-minipc">
-        <div class="catalog-cover">
-          <img src="../pdfs/covers/zbox_b2b_catalog_cover.jpg" alt="ZBOX Pro 注目モデルカタログ表紙" loading="lazy">
-        </div>
-        <div class="catalog-body">
-          <div class="catalog-meta"><span>Updated 2026.05</span><span class="meta-size">1.4 MB</span></div>
-          <div class="catalog-category">小型デスクトップPC — 組み込み・産業・デジタルサイネージ向け</div>
-          <h3>ZBOX Pro 注目モデルカタログ</h3>
-          <a href="../pdfs/ZOTAC_B2B_CATALOG_MAY_2026.pdf" class="catalog-pdf-btn" target="_blank">
-            <span class="icon">↓</span> PDF ダウンロード
-          </a>
-        </div>
-      </article>
-
       <!-- 旧版カタログが発生したら is-archived クラス + .catalog-label「Archived」で
            視覚弱化して掲載(スタイルは実装済み) -->
 
     </div>
+
+    <!-- フィルターで該当0件のカテゴリ(例:現状の GPU 個別)に表示する空状態 -->
+    <p class="catalog-empty" id="individualEmpty" style="display:none;">
+      このカテゴリの個別製品カタログは現在準備中です。上部の「総合・特集カタログ」もあわせてご覧ください。
+    </p>
   </div>
 </section>
 
@@ -1450,6 +1538,7 @@ h2 {
         <h4>Editorial</h4>
         <ul>
           <li><a href="/reviews/">Reviews / レビュー</a></li>
+          <li><a href="/press/">Press &amp; Media / メディア掲載</a></li>
           <li><a href="/catalogs/">Product Catalogs / 製品カタログ</a></li>
           <li><a href="https://zotac.co.jp/blog/">Blog / ブログ</a></li>
         </ul>
@@ -1525,6 +1614,39 @@ h2 {
 
   go(0);
   restart();
+})();
+
+// 個別製品カタログ — カテゴリ・フィルター
+// チップ(.catalog-filter-chip[data-filter])で #individualGrid 内のカードを
+// data-category で絞り込む。既定は「すべて」。該当0件なら空状態を表示。
+(function () {
+  var grid = document.getElementById('individualGrid');
+  if (!grid) return;
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.catalog-filter-chip'));
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.catalog-thumb'));
+  var empty = document.getElementById('individualEmpty');
+
+  function apply(filter) {
+    var shown = 0;
+    cards.forEach(function (card) {
+      var match = filter === 'all' || card.getAttribute('data-category') === filter;
+      card.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    if (empty) empty.style.display = shown ? 'none' : 'block';
+  }
+
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      chips.forEach(function (c) {
+        c.classList.remove('is-active');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      chip.classList.add('is-active');
+      chip.setAttribute('aria-pressed', 'true');
+      apply(chip.getAttribute('data-filter'));
+    });
+  });
 })();
 </script>
 
