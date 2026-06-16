@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAGNUS ONE ER98N5070C — 製品カタログ | ZOTAC NIPPON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-dark:#2A2D2F; --bg-soft:#F5F5F6; --bg-warm:#FFF8D5;
+  --ink:#1A1B1C; --mid:#4A4B4C; --muted:#6D6E71; --faint:#B1B3B6;
+  --line:#E5E5E6; --line-strong:rgba(0,0,0,0.14);
+  --yellow:#FFD400; --yellow-deep:#d4a800; --flyer:#FF8C42; --amberbg:#FAEEDA; --amberink:#854F0B;
+  --sans:'Noto Sans JP',-apple-system,"Segoe UI",sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 40px;}
+.site-header{background:var(--bg-dark);border-bottom:3px solid var(--yellow);padding:14px 0;}
+.site-header .wrap{display:flex;align-items:center;gap:12px;}
+.site-header .brand{color:#fff;font-weight:500;font-size:14px;letter-spacing:.04em;}
+.site-header .host{font-family:var(--mono);font-size:11px;color:var(--faint);}
+.site-header .host b{color:var(--yellow);font-weight:500;}
+.crumb{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);padding:18px 0 0;}
+.crumb .sep{color:var(--faint);margin:0 7px;}
+.crumb .cur{color:var(--yellow-deep);}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;padding:22px 0 30px;align-items:start;}
+.gal-main{background:var(--bg-soft);border:1px solid var(--line);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+.gal-main img{width:100%;height:100%;object-fit:contain;}
+.gal-cap{position:absolute;left:0;right:0;bottom:0;background:rgba(26,27,28,.72);color:#fff;font-size:11px;padding:6px 12px;font-family:var(--mono);letter-spacing:.04em;}
+.gal-cap:empty{display:none;}
+.gal-strip{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px;}
+.gal-thumb{width:58px;border:1.5px solid var(--line);background:#fff;cursor:pointer;padding:0;}
+.gal-thumb img{width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--bg-soft);}
+.gal-thumb.on{border-color:var(--yellow);}
+.cat-label{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted);}
+.cat-label::before{content:'// ';color:var(--yellow-deep);}
+.h1{font-size:26px;font-weight:700;letter-spacing:-.01em;margin:8px 0 2px;}
+.sku{font-family:var(--mono);font-size:12px;color:var(--muted);}
+.tagline{font-size:13px;color:var(--mid);line-height:1.75;margin:12px 0 0;}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;}
+.chip{font-family:var(--mono);font-size:10px;color:var(--ink);background:var(--bg-soft);border:1px solid var(--line);padding:3px 10px;}
+.spec-note{font-size:11px;line-height:1.6;color:var(--muted);margin-top:12px;}
+.dl-btn{display:inline-flex;align-items:center;gap:9px;margin-top:18px;background:var(--bg-dark);color:var(--yellow);font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.04em;padding:13px 24px;text-decoration:none;}
+.dl-btn:hover{background:#000;}
+.dl-meta{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:8px;}
+.dl-sub{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.sub-btn{font-family:var(--mono);font-size:11px;color:var(--ink);border:1px solid var(--line-strong);padding:8px 14px;text-decoration:none;}
+.sub-btn:hover{border-color:var(--ink);background:var(--bg-soft);}
+section{padding:26px 0;border-top:1px solid var(--line);}
+.sec-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:14px;}
+.sec-label::before{content:'// ';color:var(--yellow-deep);}
+.sec-label .note{color:var(--faint);}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.kpi .card{border:1px solid var(--line);padding:13px;}
+.kpi .v{font-size:14px;font-weight:700;margin-top:2px;}
+.kpi .k{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.5;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px;}
+.pills span{font-family:var(--mono);font-size:9px;color:var(--amberink);background:var(--amberbg);padding:3px 9px;}
+.tags{display:flex;flex-wrap:wrap;gap:7px;}
+.tags span{font-size:12px;border:1px solid var(--line-strong);padding:5px 12px;}
+.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;border-top:1px solid var(--line);}
+.spec-grid .r{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+.spec-grid .r .l{font-size:12px;color:var(--muted);white-space:nowrap;width:6.5em;flex:none;}
+.spec-grid .r .v{font-size:12px;font-weight:500;flex:1;line-height:1.6;}
+.cmp{display:grid;font-size:12px;border:1px solid var(--line);}
+.cmp>div{padding:9px 10px;border-left:1px solid var(--line);border-top:1px solid var(--line);}
+.cmp .hd{background:var(--bg-soft);font-weight:500;}
+.cmp .me{background:var(--bg-warm);}
+.cmp .rl{border-left:none;font-family:var(--mono);font-size:10px;color:var(--muted);}
+.cmp .cur{font-family:var(--mono);font-size:9px;color:var(--amberink);}
+.b2b{border:1px dashed #BA7517;background:var(--amberbg);padding:14px;}
+.b2b .lab{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--amberink);margin-bottom:10px;}
+.b2b .lab .tag{background:#BA7517;color:#fff;padding:1px 6px;font-size:8px;margin-left:6px;}
+.b2b .grid{display:grid;grid-template-columns:1fr 1fr;gap:9px 20px;}
+.b2b .item{font-size:12px;}
+.b2b .item b{color:var(--amberink);}
+.b2b .item .sub{display:block;font-size:11px;color:#8a6d2a;margin-top:2px;}
+.b2b .fine{font-family:var(--mono);font-size:10px;color:var(--amberink);margin-top:10px;}
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.lcard{border:1px solid var(--line);border-left:3px solid var(--yellow);padding:13px;text-decoration:none;color:var(--ink);display:block;}
+.lcard .t{font-size:13px;font-weight:700;}
+.lcard .d{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.6;}
+.lcard .go{font-family:var(--mono);font-size:11px;color:var(--yellow-deep);margin-top:9px;}
+.xcard{border:1px solid var(--line);padding:12px;text-decoration:none;color:var(--ink);display:block;}
+.xcard .badge{font-family:var(--mono);font-size:9px;padding:2px 7px;display:inline-block;}
+.xcard .badge.up{color:var(--amberink);background:var(--amberbg);}
+.xcard .badge.sib{color:var(--mid);background:var(--bg-soft);}
+.xcard .t{font-size:13px;font-weight:700;margin-top:8px;}
+.xcard .s{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:2px;}
+.xcard .go{font-family:var(--mono);font-size:11px;color:var(--yellow-deep);margin-top:9px;}
+.contact{background:var(--bg-dark);padding:18px 0;margin-top:26px;}
+.contact .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+.contact .t{color:#fff;font-size:14px;font-weight:500;}
+.contact .s{color:var(--faint);font-family:var(--mono);font-size:11px;margin-top:3px;}
+.contact .act{display:flex;align-items:center;gap:14px;}
+.contact .btn{background:var(--yellow);color:var(--ink);font-family:var(--mono);font-size:12px;font-weight:500;padding:10px 18px;text-decoration:none;}
+.contact .zoom{color:var(--yellow);font-family:var(--mono);font-size:11px;text-decoration:none;}
+.legal{font-size:10px;color:var(--faint);line-height:1.7;padding:22px 0 4px;border-top:1px solid var(--line);}
+.legal p{margin-bottom:5px;}
+.disc{font-family:var(--mono);font-size:10px;color:var(--faint);padding:10px 0 30px;}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap"><span class="brand">ZOTAC NIPPON</span><span class="host">https://<b>hub</b>.zotac.co.jp</span></div>
+</header>
+<div class="wrap">
+  <div class="crumb">HOME <span class="sep">/</span> CATALOGS <span class="sep">/</span> ZBOX <span class="sep">/</span> <span class="cur">ER98N5070C</span> <span class="sep">·</span> ゲーミング・グラフィックス・AI</div>
+  <div class="hero">
+    <div>
+      <div class="gal-main"><img id="galImg" src="img/zbox-ER98N5070C-barebone-image01.jpg" alt="製品写真"><div class="gal-cap" id="galCap"></div></div>
+      <div class="gal-strip" id="galStrip"><button class="gal-thumb on" data-src="img/zbox-ER98N5070C-barebone-image01.jpg" data-cap=""><img src="img/zbox-ER98N5070C-barebone-image01.jpg" alt="製品写真 1"></button><button class="gal-thumb" data-src="img/zbox-ER98N5070C-barebone-image02.jpg" data-cap=""><img src="img/zbox-ER98N5070C-barebone-image02.jpg" alt="製品写真 2"></button><button class="gal-thumb" data-src="img/zbox-ER98N5070C-barebone-image03.jpg" data-cap=""><img src="img/zbox-ER98N5070C-barebone-image03.jpg" alt="製品写真 3"></button><button class="gal-thumb" data-src="img/zbox-ER98N5070C-barebone-image04.jpg" data-cap=""><img src="img/zbox-ER98N5070C-barebone-image04.jpg" alt="製品写真 4"></button><button class="gal-thumb" data-src="img/zbox-ER98N5070C-barebone-image05.jpg" data-cap=""><img src="img/zbox-ER98N5070C-barebone-image05.jpg" alt="製品写真 5"></button><button class="gal-thumb" data-src="img/zbox-ER98N5070C-barebone-image06.jpg" data-cap=""><img src="img/zbox-ER98N5070C-barebone-image06.jpg" alt="製品写真 6"></button><button class="gal-thumb" data-src="img/zbox-ER98N5070C-barebone-image07.jpg" data-cap=""><img src="img/zbox-ER98N5070C-barebone-image07.jpg" alt="製品写真 7"></button><button class="gal-thumb" data-src="img/zbox-ER98N5070C-barebone-image08.jpg" data-cap=""><img src="img/zbox-ER98N5070C-barebone-image08.jpg" alt="製品写真 8"></button></div>
+    </div>
+    <div>
+      <div class="cat-label">ZBOX MAGNUS ONE</div>
+      <div class="h1">MAGNUS ONE ER98N5070C</div>
+      <div class="sku">型番 ZBOX-ER98N5070C</div>
+      <p class="tagline">わずか 8.48L の筐体に、12 コアの AMD Ryzen 9 9850HX とフル仕様のデスクトップ版 GeForce RTX 5070（12GB GDDR7）を搭載した高性能デスクトップ「MAGNUS ONE ER98N5070C」。高性能かつ電力効率に優れたコンポーネントの組み合わせにより、ゲーミングはもちろん、映像／3D 制作やデータ可視化、AI 活用まで快適に処理します。内部へ容易にアクセスでき、メモリーやストレージの構成変更・保守も短時間で完了。導入後の運用負荷を抑えます。</p>
+      <div class="chips"><span class="chip">GeForce RTX 5070</span><span class="chip">Ryzen 9 9850HX</span><span class="chip">最大96GB</span><span class="chip">8.48L</span></div>
+      <a class="dl-btn" href="/pdfs/zbox_er98n5070c_flyer.pdf" target="_blank">▼ カタログ PDF をダウンロード</a>
+      <div class="dl-meta">PDF · 更新 2026.06 · A4 1枚 · 約0.9MB</div>
+      <div class="dl-sub"><a class="sub-btn" href="https://zotac.co.jp/biz-inquiry">見積・在庫・構成を相談 →</a></div>
+    </div>
+  </div>
+  <section>
+    <div class="sec-label">要点</div>
+    <div class="kpi"><div class="card"><div class="v">RTX 5070</div><div class="k">12GB GDDR7・DLSS 4 対応</div></div><div class="card"><div class="v">Ryzen 9 9850HX</div><div class="k">12 コア / 最大 5.2GHz</div></div><div class="card"><div class="v">8.48L</div><div class="k">500W 80+ Platinum 電源内蔵</div></div><div class="card"><div class="v">ツールレスアクセス</div><div class="k">内部へ容易にアクセス可能</div></div></div>
+    <div class="pills"><span>Wi-Fi 7</span><span>5GbE LAN</span><span>DLSS 4</span><span>UHS-II Card Reader</span><span>4K Quad Display</span><span>RAID 0 / 1</span></div>
+  </section>
+  <section>
+    <div class="sec-label">想定用途</div>
+    <div class="tags"><span>ローカルAI推論・生成AI検証</span><span>3D・CAD/CG</span><span>映像制作・配信</span><span>VR・XR 展示</span><span>省スペース GPU 環境</span></div>
+  </section>
+  <section>
+    <div class="sec-label">主要スペック <span class="note">（要約 — 全仕様はPDFカタログに掲載）</span></div>
+    <div class="spec-grid"><div class="r"><span class="l">グラフィックス</span><span class="v">ZOTAC GAMING GeForce RTX 5070<br>GPU 互換条件：最大 250W / 2 スロット / 最大 245mm</span></div><div class="r"><span class="l">プロセッサー</span><span class="v">AMD Ryzen 9 9850HX（12 コア / 3.0–5.2GHz）</span></div><div class="r"><span class="l">メモリー上限</span><span class="v">2 × DDR5-5600 SO-DIMM（最大 96GB）</span></div><div class="r"><span class="l">ストレージ</span><span class="v">2 × M.2 NVMe PCIe 5.0<br>RAID 0 / 1 対応</span></div><div class="r"><span class="l">映像出力</span><span class="v">3 × DisplayPort 2.1b（UHBR20）<br>1 × HDMI<br>1 × HDMI 2.0（内蔵）/ USB-C 経由 DP<br>最大 4 画面クローン / 6 画面拡張</span></div><div class="r"><span class="l">ネットワーク</span><span class="v">1 × 5GbE Ethernet<br>Wi-Fi 7（802.11be）/ Bluetooth 5.4</span></div><div class="r"><span class="l">電源</span><span class="v">500W 80+ Platinum PSU 内蔵</span></div><div class="r"><span class="l">外形・容積</span><span class="v">270.5 × 126 × 249 mm（L × W × H ／ 8.48L）</span></div><div class="r"><span class="l">対応OS</span><span class="v">Windows 11 対応</span></div></div>
+    <div class="spec-note">※ ベースモデル：メモリ・SSD・OS は用途に合わせて構成し、希望構成でお見積りできます。</div>
+  </section>
+  <section>
+    <div class="b2b">
+      <div class="lab">法人導入について</div>
+      <div class="grid">
+        <div class="item">◆ <b>国内センドバック保証</b><span class="sub">修理・サポートは国内対応</span></div>
+        <div class="item">◆ <b>カスタマイズ対応</b><span class="sub">メモリ・SSD・OS をご要望の構成で</span></div>
+        <div class="item">◆ <b>評価機の貸出</b><span class="sub">導入前に自社環境で評価</span></div>
+        <div class="item">◆ <b>まとめ買い・見積り</b><span class="sub">法人窓口でご相談</span></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="sec-label">導入を検討する</div>
+    <div class="cards2">
+      <a class="lcard" href="/trial-program/"><div class="t">▣ 自社環境で評価する</div><div class="d">評価機貸出プログラム ① Web申込 → ② 発送 → ③ 最大2週間お試し</div><div class="go">申し込む →</div></a>
+      <a class="lcard" href="https://zotac.co.jp/blog/category/case_studies/"><div class="t">▣ 実際の活用を見る</div><div class="d">ミニPCの導入事例・レビュー（映像制作・展示・AI検証）</div><div class="go">事例を見る →</div></a>
+    </div>
+  </section>
+  <section>
+    <div class="sec-label">関連製品・カタログ</div>
+    <div class="cards3"><a class="xcard" href="/catalogs/zbox/eu27507tc/"><span class="badge up">同シリーズ</span><div class="t">MAGNUS ONE</div><div class="s">EU27507TC · Intel + RTX</div><div class="go">見る →</div></a><a class="xcard" href="/catalogs/#magnus-one"><span class="badge sib">同シリーズ</span><div class="t">MAGNUS ONE 一覧</div><div class="s">他のモデルを見る</div><div class="go">見る →</div></a><a class="xcard" href="/pdfs/ZBOX_catalog_Jan2026.pdf"><span class="badge sib">全体像</span><div class="t">ZBOX 総合カタログ</div><div class="s">ラインアップ一覧</div><div class="go">見る →</div></a></div>
+  </section>
+</div>
+<div class="contact">
+  <div class="wrap">
+    <div><div class="t">見積り・在庫・構成のご相談</div><div class="s">法人窓口にて承ります</div></div>
+    <div class="act"><a class="btn" href="https://zotac.co.jp/biz-inquiry">お問い合わせ →</a><a class="zoom" href="/catalogs/">全製品カタログを見る</a></div>
+  </div>
+</div>
+<div class="wrap"><div class="legal"><p>事前に通知することなく、仕様や条件が変更される場合がございます。</p><p>掲載されているウェブサイト上の画像はイメージであり、実際の製品とは異なる場合があります。すべての特長、機能、その他の製品仕様は、予告なく変更されることがあります。</p><p>HDMI、HDMI High-Definition Multimedia Interface、HDMIトレードドレス、HDMIロゴは、HDMI Licensing Administrator, Inc.の商標または登録商標です。</p><p>©2025 NVIDIA Corporation. NVIDIA、NVIDIA ロゴ、GeForce、GeForce RTX は、米国およびその他の国における NVIDIA Corporation の登録商標または商標です。</p><p>AMD、Ryzen、Radeon は Advanced Micro Devices, Inc. の商標です。</p><p>©2025 ZOTAC Technology Pte. Ltd. 無断転載を禁じます。</p><p>その他すべての商標および著作権は、それぞれの所有者に帰属します。</p></div></div>
+
+<script>
+(function(){
+  var img=document.getElementById('galImg'), cap=document.getElementById('galCap');
+  if(!img)return;
+  var thumbs=document.querySelectorAll('#galStrip .gal-thumb');
+  thumbs.forEach(function(t){t.addEventListener('click',function(){
+    thumbs.forEach(function(x){x.classList.remove('on');});
+    t.classList.add('on'); img.src=t.getAttribute('data-src');
+    if(cap)cap.textContent=t.getAttribute('data-cap')||'';
+  });});
+})();
+</script>
+</body>
+</html>
