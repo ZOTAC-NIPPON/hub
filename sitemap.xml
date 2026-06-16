@@ -6,7 +6,57 @@
   </url>
   <url>
     <loc>https://hub.zotac.co.jp/catalogs/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <!-- ZBOX 製品カタログページ（2026-06-16 公開・SEO/AIO の主資産＝HTML） -->
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/eu275080c/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/eu27507tc/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/eu275070c/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/eu27506tc/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/er98n5070c/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/en275060tc/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/eamax395c/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/eamax390c/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/eamax385c/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/s35n150a/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/s35n150p/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <!-- Enterprise 総合カタログ（現状PDFのみ。将来 catalogs/enterprise/ の HTML 化時に差し替え） -->
+  <url>
+    <loc>https://hub.zotac.co.jp/pdfs/ZOTAC_Enterprise_Catalog_MAY_2026.pdf</loc>
+    <lastmod>2026-06-16</lastmod>
   </url>
   <url>
     <loc>https://hub.zotac.co.jp/reviews/</loc>
