@@ -627,7 +627,11 @@
             .trust-inner { gap: 1.5rem; }
             .section-padding { padding: 3.5rem 0; }
         }
-    </style>
+    /* CTA: 基底 .site-nav a(詳細度0-1-1)を上書きするため詳細度を上げる + リテラル色で全トークン体系に対応 */
+.site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700;}
+.site-nav a.nav-cta:hover{background:#f2c800;}
+.site-nav a.nav-cta::after{display:none!important;}
+</style>
 
     <!-- ===== Analytics ===== -->
     <!-- Google Analytics 4 -->
@@ -659,12 +663,12 @@
                 <span class="logo-url">https://<span class="host-hub">hub</span>.zotac.co.jp</span>
             </a>
             <nav class="site-nav" id="site-nav">
-                <a href="/trial-program/" class="is-active">Trial Program</a>
-                <a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a>
-                <a href="/reviews/">Reviews</a>
-                <a href="/catalogs/">Catalogs</a>
-                <a href="/press/">Press</a>
-                <a href="https://zotac.co.jp/biz-inquiry" class="nav-cta">Contact →</a>
+                <a href="/trial-program/" class="is-active">評価機貸出</a>
+                <a href="https://zotac.co.jp/blog/category/case_studies/">導入事例</a>
+                <a href="/reviews/">レビュー</a>
+                <a href="/catalogs/">製品カタログ</a>
+                <a href="/press/">メディア掲載</a>
+                <a href="https://zotac.co.jp/biz-inquiry" class="nav-cta">お問い合わせ</a>
             </nav>
             <div class="nav-mobile">
                 <button type="button" class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
@@ -1190,8 +1194,8 @@
                 <div>
                     <h4>B2B Services</h4>
                     <ul>
-                        <li><a href="/trial-program/">Trial Program</a></li>
-                        <li><a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies</a></li>
+                        <li><a href="/trial-program/">Trial Program / 評価機貸出</a></li>
+                        <li><a href="https://zotac.co.jp/blog/category/case_studies/">Case Studies / 導入事例</a></li>
                         <li><a href="https://zotac.co.jp/biz-inquiry" target="_blank" rel="noopener">法人様向け相談窓口</a></li>
                         <li><a href="https://zotac.co.jp/customer-support/" target="_blank" rel="noopener">サポート</a></li>
                     </ul>
