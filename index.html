@@ -962,6 +962,66 @@ h2 {
 .site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700;}
 .site-nav a.nav-cta:hover{background:#f2c800;}
 .site-nav a.nav-cta::after{display:none!important;}
+
+/* ===== Blueprint Hero (bph-) — 既存 section{} を打ち消すため padding/border をリセット ===== */
+.bph{position:relative;overflow:hidden;padding:0;border-bottom:none;background-color:var(--bg-dark);
+  background-image:
+    repeating-linear-gradient(0deg,transparent 0 63px,rgba(255,255,255,.028) 63px 64px),
+    repeating-linear-gradient(90deg,transparent 0 63px,rgba(255,255,255,.028) 63px 64px),
+    repeating-linear-gradient(0deg,transparent 0 319px,rgba(255,255,255,.045) 319px 320px),
+    repeating-linear-gradient(90deg,transparent 0 319px,rgba(255,255,255,.045) 319px 320px);}
+.bph-grid{display:grid;grid-template-columns:1fr 1.18fr;gap:40px;align-items:center;min-height:540px;padding:58px 0 66px;}
+.bph-tick{position:absolute;width:30px;height:30px;border:0 solid var(--brand-yellow);z-index:2;}
+.bph-tick.tl{top:22px;left:22px;border-top-width:2px;border-left-width:2px;}
+.bph-tick.tr{top:22px;right:22px;border-top-width:2px;border-right-width:2px;}
+.bph-tick.bl{bottom:22px;left:22px;border-bottom-width:2px;border-left-width:2px;}
+.bph-tick.br{bottom:22px;right:22px;border-bottom-width:2px;border-right-width:2px;}
+.bph-text{position:relative;z-index:1;min-width:0;color:#fff;}
+.bph-meta{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--text-faint);margin-bottom:18px;}
+.bph-ybar{width:60px;height:5px;background:var(--brand-yellow);margin-bottom:22px;}
+.bph-h1{font-size:clamp(38px,4.8vw,68px);font-weight:800;line-height:1.05;letter-spacing:-.02em;white-space:nowrap;color:#fff;}
+.bph-h1 .st{color:var(--brand-yellow);font-size:.5em;vertical-align:super;font-weight:700;}
+.bph-sub{font-size:clamp(15px,1.5vw,20px);color:var(--brand-yellow);font-weight:600;margin-top:20px;}
+.bph-foot{font-size:13px;color:#7d8083;margin-top:10px;line-height:1.5;}
+.bph-id{font-size:15px;color:#dcdde0;margin-top:16px;line-height:1.7;}
+.bph-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;}
+.bph-art{position:relative;z-index:1;min-width:0;container-type:inline-size;display:flex;flex-direction:column;align-items:flex-end;}
+.bph-block{width:fit-content;max-width:100%;}
+/* ULTRA は EN より図面が縦に大きいため、上下マージンを詰めて総高を EN に合わせる。
+   これで両ブロックがグリッド中央に同一に収まり、ヘッダー(上)と SPEC(下)の位置が EN と一致、
+   図面はブロック中央に来る(translateY の下方ずらしは廃止)。
+   下側は .bph-dw(寸法線ボックス)の余白+ elev の padding-bottom で約10px の構造的余白が
+   "D 365.5mm" 文字の下に発生する。そのため eh の margin-bottom と spec の margin-top を
+   10/10 にすると見た目の余白は上10px・下20px と非対称になる。見た目を 15px/15px に揃えるため
+   margin を 15/5 に振り分ける(合計20px は不変 → 総高=EN を維持) */
+.bph-ultra{align-self:flex-start;}
+.bph-ultra .bph-elev{padding-left:26px;}
+.bph-ultra .bph-eh{margin-bottom:15px;}
+.bph-ultra .bph-spec{margin-top:5px;}
+.bph-eh{font-family:var(--font-mono);font-size:12px;color:var(--brand-yellow);letter-spacing:.12em;margin-bottom:14px;}
+.bph-eh .md{color:#7d8083;margin-left:10px;}
+.bph-elev{display:flex;align-items:flex-start;gap:clamp(16px,3.5cqw,44px);overflow-x:auto;padding-bottom:4px;}
+.bph-vcol{display:flex;flex-direction:column;flex:0 0 auto;}
+.bph-vl{height:20px;font-family:var(--font-mono);font-size:11px;color:#7d8083;letter-spacing:.1em;white-space:nowrap;}
+.bph-vimg{height:clamp(138px,36cqw,320px);width:auto;max-width:none;display:block;filter:drop-shadow(0 0 5px rgba(255,255,255,.10));}
+.bph-dw{position:relative;height:32px;margin-top:16px;border-top:1px solid var(--brand-yellow);}
+.bph-dw::before,.bph-dw::after{content:'';position:absolute;top:-5px;width:1px;height:10px;background:var(--brand-yellow);}
+.bph-dw::before{left:0;}.bph-dw::after{right:0;}
+.bph-dw span{position:absolute;top:8px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:11px;color:#d6d7d9;white-space:nowrap;}
+.bph-dh{display:flex;flex-direction:column;align-items:center;flex:0 0 auto;}
+.bph-dh .sp{height:20px;}
+.bph-vline{width:1px;height:clamp(138px,36cqw,320px);background:var(--brand-yellow);position:relative;}
+.bph-vline::before,.bph-vline::after{content:'';position:absolute;left:-5px;width:10px;height:1px;background:var(--brand-yellow);}
+.bph-vline::before{top:0;}.bph-vline::after{bottom:0;}
+.bph-vline .vv{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--bg-dark);padding:1px 5px;font-family:var(--font-mono);font-size:11px;color:#d6d7d9;white-space:nowrap;}
+.bph-en{display:none;}
+.bph-en-img{width:clamp(225px,60cqw,375px);height:auto;display:block;filter:drop-shadow(0 0 6px rgba(255,255,255,.08));}
+.bph-dim{font-family:var(--font-mono);font-size:12px;color:#d6d7d9;margin-top:12px;letter-spacing:.04em;}
+.bph-spec{margin-top:24px;border-top:1px solid rgba(255,255,255,.12);padding-top:14px;}
+.bph-spec .l{font-family:var(--font-mono);font-size:11px;color:var(--brand-yellow);letter-spacing:.12em;margin-bottom:8px;}
+.bph-spec .v{font-family:var(--font-mono);font-size:13px;color:#eaebed;letter-spacing:.02em;line-height:1.6;}
+@media(max-width:900px){.bph-grid{grid-template-columns:1fr;gap:34px;min-height:0;}.bph-art{order:2;align-items:flex-start;}.bph-vline .vv{left:100%;transform:translateY(-50%);margin-left:6px;}}
+@media(max-width:700px){.bph-meta,.bph-eh{font-size:10px;letter-spacing:.04em;}.bph-spec .v{font-size:11px;}}
 </style>
 </head>
 <body>
@@ -996,25 +1056,54 @@ h2 {
 </header>
 
 <!-- ============================== HERO ============================== -->
-<section class="hero" style="border-bottom: none;">
+<section class="bph">
+  <span class="bph-tick tl"></span><span class="bph-tick tr"></span><span class="bph-tick bl"></span><span class="bph-tick br"></span>
   <div class="container">
-    <div class="hero-meta">
-      <span class="meta-dot"></span>
-      <span>B2B INFORMATION HUB</span>
-      <span>/</span>
-      <span>SIer · ENTERPRISE · TECHNICAL PROFESSIONALS</span>
-    </div>
-    <div class="yellow-bar-lg"></div>
-    <h1>Technical Resources<br>for Professionals.</h1>
-    <div class="sub-title">SIer・法人・技術者向け情報ハブ</div>
-    <p class="tag">Powered by ZOTAC NIPPON — 株式会社ゾタック日本</p>
-    <p class="lede">
-      <strong>hub.zotac.co.jp</strong> は、ZOTAC NIPPON が運営する法人・技術者向けの情報ハブです。小型デスクトップPC「ZBOX」と GeForce グラフィックスカードの <strong>評価機材貸出・導入事例・製品カタログ・技術レビュー</strong> を集約し、導入検討から調達までの情報収集を一か所で完結できます。
-    </p>
-    <div class="hero-ctas">
-      <a href="/trial-program/" class="btn btn-primary">機材貸出・評価 →</a>
-      <a href="https://zotac.co.jp/blog/category/case_studies/" class="btn btn-secondary">導入事例を見る →</a>
-      <a href="/catalogs/" class="btn btn-secondary">製品カタログ →</a>
+    <div class="bph-grid">
+
+      <!-- LEFT: shared text -->
+      <div class="bph-text">
+        <div class="bph-meta">// B2B INFORMATION HUB&nbsp;&nbsp;──&nbsp;&nbsp;ZOTAC NIPPON</div>
+        <div class="bph-ybar"></div>
+        <h1 class="bph-h1">世界最小クラス<span class="st">*</span></h1>
+        <div class="bph-sub">高性能ミニPC ─ ローカルAI・クリエイティブ・ゲーム</div>
+        <div class="bph-foot" id="bph-foot">* デスクトップ版 GeForce RTX 5080 搭載モデルとして</div>
+        <div class="bph-id">SIer・法人・技術者のための ZOTAC 技術情報ハブ。<br>評価機貸出・製品カタログ・実測レビューを、一か所に。</div>
+        <div class="bph-ctas">
+          <a href="/catalogs/" class="btn btn-primary">製品カタログ →</a>
+          <a href="/trial-program/" class="btn btn-secondary">機材貸出・評価 →</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: per-product elevation (JSでランダム表示) -->
+      <div class="bph-art">
+
+        <div class="bph-block bph-ultra">
+          <div class="bph-eh">// ZBOX MAGNUS ONE ULTRA — ELEVATION<span class="md">EU275080C</span></div>
+          <div class="bph-elev">
+            <div class="bph-dh"><div class="sp"></div><div class="bph-vline"><span class="vv">H 249mm</span></div></div>
+            <div class="bph-vcol">
+              <div class="bph-vl">FRONT</div>
+              <img class="bph-vimg" src="assets/hero/eu275080c_front.png" alt="ZBOX MAGNUS ONE ULTRA 正面図" loading="lazy">
+              <div class="bph-dw"><span>W 126mm</span></div>
+            </div>
+            <div class="bph-vcol">
+              <div class="bph-vl">SIDE</div>
+              <img class="bph-vimg" src="assets/hero/eu275080c_side.png" alt="ZBOX MAGNUS ONE ULTRA 側面図" loading="lazy">
+              <div class="bph-dw"><span>D 365.5mm</span></div>
+            </div>
+          </div>
+          <div class="bph-spec"><div class="l">// SPECIFICATIONS</div><div class="v">GeForce RTX 5080 ・ Core Ultra 7 265 ・ 11.46 L ・ 850W ・ AI 1,801 TOPS</div></div>
+        </div>
+
+        <div class="bph-block bph-en">
+          <div class="bph-eh">// ZBOX MAGNUS EN<span class="md">EN275060TC</span></div>
+          <img class="bph-en-img" src="assets/hero/en275060tc_3q.png" alt="ZBOX MAGNUS EN 3/4ビュー" loading="lazy">
+          <div class="bph-dim">外形 210 × 203 × 62.2 mm ／ 2.65L</div>
+          <div class="bph-spec"><div class="l">// SPECIFICATIONS</div><div class="v">GeForce RTX 5060 Ti ・ Core Ultra 7 255HX ・ AI 792 TOPS</div></div>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
@@ -1350,6 +1439,24 @@ h2 {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && nav.classList.contains('is-open')) { closeNav(); toggle.focus(); }
   });
+})();
+</script>
+
+<!-- Hero: 製品をランダム表示（ULTRA / EN） -->
+<script>
+(function () {
+  var fn = {
+    ultra: '* デスクトップ版 GeForce RTX 5080 搭載モデルとして',
+    en:    '* デスクトップ版 GeForce RTX 5060 Ti 搭載モデルとして'
+  };
+  var u = document.querySelector('.bph-ultra');
+  var e = document.querySelector('.bph-en');
+  var f = document.getElementById('bph-foot');
+  if (!u || !e) return;
+  var pick = Math.random() < 0.5 ? 'ultra' : 'en';
+  u.style.display = (pick === 'ultra') ? 'block' : 'none';
+  e.style.display = (pick === 'en') ? 'block' : 'none';
+  if (f) f.textContent = fn[pick];
 })();
 </script>
 
