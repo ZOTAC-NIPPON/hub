@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- 一覧はハブ独自コンテンツとして index。記事本文は #/post… のハッシュルートで別URLにならず、正本=ブログ記事のみがインデックス対象（重複は出ない） -->
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://hub.zotac.co.jp/case-studies/" />
+<title>導入・活用事例 | ZOTAC NIPPON</title>
+
+<!-- Analytics (hub.zotac.co.jp 既存 Property を流用) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5X4CC48YH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N5X4CC48YH', { 'anonymize_ip': true });
+</script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wk7j63hn3o");
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-dark: #2A2D2F;
+  --bg-light: #FFFFFF;
+  --bg-soft: #F5F5F6;
+  --text-dark: #1A1B1C;
+  --text-mid: #4A4B4C;
+  --text-muted: #6D6E71;
+  --text-faint: #B1B3B6;
+  --border: #E5E5E6;
+  --border-soft: #EEEEEE;
+  --brand-yellow: #FFD400;
+  --brand-yellow-soft: #FFF8D5;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); color: var(--text-dark); line-height: 1.55; font-size: 15px; -webkit-font-smoothing: antialiased; background: var(--bg-light); }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 700px) { .container { padding: 0 24px; } }
+.yellow-bar-lg { width: 56px; height: 5px; background: var(--brand-yellow); margin-bottom: 18px; }
+
+/* ===== Header (hub 共通) ===== */
+.site-header { position: sticky; top: 0; z-index: 100; background: var(--bg-dark); border-bottom: 3px solid var(--brand-yellow); padding: 16px 0; }
+.site-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.site-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+.site-logo img { height: 22px; width: auto; }
+.logo-divider { color: var(--text-faint); font-family: var(--font-mono); font-weight: 300; font-size: 16px; }
+.logo-url { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); letter-spacing: 0.05em; }
+.logo-url .host-hub { color: var(--brand-yellow); font-weight: 500; }
+.site-nav { display: flex; gap: 22px; align-items: center; }
+.site-nav a { text-decoration: none; color: #fff; font-size: 13px; font-weight: 500; position: relative; padding: 4px 0; display: inline-flex; align-items: center; gap: 6px; }
+.site-nav a.is-active { color: var(--brand-yellow); }
+.site-nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--brand-yellow); transform: scaleX(0); transform-origin: left; transition: transform 0.2s; }
+.site-nav a:hover::after, .site-nav a.is-active::after { transform: scaleX(1); }
+.nav-cta { background: var(--brand-yellow); color: var(--text-dark) !important; padding: 9px 18px; font-weight: 700; }
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: #f2c800; }
+@media (max-width: 1100px) { .site-nav { gap: 16px; } }
+.nav-mobile { display: none; align-items: center; gap: 12px; }
+.nav-toggle { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; padding: 11px; background: transparent; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; }
+.nav-toggle:hover { border-color: var(--brand-yellow); }
+.nav-toggle-bar { display: block; width: 100%; height: 2px; background: #fff; transition: transform 0.2s, opacity 0.2s; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+@media (max-width: 900px) {
+  .nav-mobile { display: flex; }
+  .site-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--bg-dark); border-bottom: 3px solid var(--brand-yellow); box-shadow: 0 14px 28px rgba(0,0,0,0.35); padding: 6px 0; }
+  .site-nav.is-open { display: flex; }
+  .site-nav a { width: 100%; padding: 14px 24px; font-size: 15px; }
+  .site-nav a + a { border-top: 1px solid rgba(255,255,255,0.08); }
+  .site-nav a::after { display: none; }
+}
+@media (max-width: 600px) { .logo-divider, .logo-url { display: none; } }
+
+/* ===== Page Hero (list) ===== */
+.page-hero { background: var(--bg-dark); color: #fff; padding: 38px 0 34px; }
+.breadcrumb { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-faint); margin-bottom: 16px; text-transform: uppercase; }
+.breadcrumb a { color: var(--text-faint); text-decoration: none; }
+.breadcrumb a:hover { color: var(--brand-yellow); }
+.breadcrumb .sep { margin: 0 8px; color: var(--text-muted); }
+.breadcrumb .current { color: var(--brand-yellow); }
+.page-hero h1 { font-size: clamp(30px, 4vw, 44px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; margin-bottom: 12px; }
+.page-hero .sub-title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 600; color: var(--brand-yellow); margin-bottom: 16px; }
+.page-hero .lede { font-size: 14px; color: #E5E5E6; line-height: 1.7; max-width: 720px; }
+
+/* ===== Grid / cards ===== */
+.grid { max-width:1200px; margin:0 auto; padding:42px 48px 64px; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+@media(max-width:900px){ .grid{ grid-template-columns:repeat(2,1fr); padding:32px 24px 56px; } }
+@media(max-width:600px){ .grid{ grid-template-columns:1fr; } }
+.card { display:flex; flex-direction:column; border:1px solid var(--border); border-radius:12px; overflow:hidden; background:#fff; text-decoration:none; color:inherit; transition:transform .12s ease, box-shadow .12s ease; }
+.card:hover { transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.10); }
+.card .thumb { aspect-ratio:16/10; background:linear-gradient(135deg,#3a3d3f,#1f2123); background-size:cover; background-position:center; position:relative; }
+.card .body { padding:14px 16px 18px; display:flex; flex-direction:column; gap:8px; flex:1; }
+.card .date { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); }
+.card h3 { font-size:15px; line-height:1.5; margin:0; font-weight:700; }
+.card .ex { font-size:12.5px; color:var(--text-muted); margin:0; line-height:1.6; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+
+/* ===== Load More ===== */
+.lm-wrap { text-align:center; padding:0 48px 64px; }
+@media(max-width:900px){ .lm-wrap{ padding:0 24px 56px; } }
+.load-more { font-family:var(--font-mono); font-size:13px; font-weight:700; color:var(--text-dark); background:#fff; border:1.5px solid var(--text-dark); border-radius:8px; padding:13px 30px; cursor:pointer; transition:all .15s; }
+.load-more:hover { background:var(--brand-yellow); border-color:var(--brand-yellow); }
+.load-more:disabled { opacity:.5; cursor:default; }
+.lm-err { color:var(--text-muted); font-size:13px; }
+
+/* ===== states ===== */
+.state { max-width:1200px; margin:0 auto; padding:80px 48px; text-align:center; color:var(--text-muted); font-family:var(--font-mono); font-size:13px; }
+.spin { width:26px; height:26px; border:3px solid var(--border); border-top-color:var(--brand-yellow); border-radius:50%; animation:sp .8s linear infinite; margin:0 auto 14px; }
+@keyframes sp { to{ transform:rotate(360deg); } }
+
+/* ===== article (detail) ===== */
+.article-bcrumb { background:var(--bg-soft); border-bottom:1px solid var(--border); }
+.article-bcrumb .container { padding-top:14px; padding-bottom:14px; }
+.article-bcrumb .bc { font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:var(--text-muted); }
+.article-bcrumb .bc a { text-decoration:none; color:var(--text-muted); }
+.article-bcrumb .bc a:hover { color:var(--text-dark); }
+.article-bcrumb .bc .sep { margin:0 8px; color:var(--text-faint); }
+.article-wrap { max-width:1000px; margin:0 auto; padding:30px 24px 40px; }
+.article-wrap .cs-body { font-size:15px; line-height:1.85; }
+.article-wrap .cs-body img { max-width:100%; height:auto; border-radius:8px; margin:.4em 0; }
+.article-wrap .cs-body h1 { font-size:26px; margin:.2em 0 .5em; }
+.article-wrap .cs-body h2 { font-size:21px; border-left:5px solid var(--brand-yellow); padding-left:12px; margin:1.8em 0 .6em; }
+.article-wrap .cs-body table { border-collapse:collapse; width:100%; font-size:13px; margin:1em 0; display:block; overflow-x:auto; }
+.article-wrap .cs-body td, .article-wrap .cs-body th { border:1px solid var(--border); padding:8px 10px; }
+.cs-exit { max-width:1000px; margin:0 auto; padding:8px 24px 70px; }
+.cs-exit .back { display:inline-block; font-family:var(--font-mono); font-size:13px; text-decoration:none; color:var(--text-muted); margin-bottom:22px; }
+.cs-exit .back:hover { color:var(--text-dark); }
+.cs-exit .box { background:var(--bg-soft); border:1px solid var(--border); border-radius:14px; padding:28px 24px; text-align:center; }
+.cs-exit .box h2 { font-size:19px; margin:0 0 18px; font-weight:800; }
+.cs-exit .cta { display:inline-block; margin:6px; padding:13px 22px; border-radius:8px; font-weight:700; text-decoration:none; font-size:14px; }
+.cs-exit .cta.y { background:var(--brand-yellow); color:var(--text-dark); }
+.cs-exit .cta.o { background:#fff; border:1.5px solid var(--text-dark); color:var(--text-dark); }
+.cs-exit .src { margin-top:18px; font-size:12px; color:var(--text-muted); }
+.cs-exit .src a { color:var(--text-muted); }
+
+/* ===== Footer (hub 共通) ===== */
+.site-footer { background: #1a1b1c; color: var(--text-faint); padding: 56px 0 28px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+@media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+.footer-grid h4 { font-family: var(--font-mono); font-size: 11px; color: var(--brand-yellow); letter-spacing: 0.15em; margin-bottom: 16px; font-weight: 700; text-transform: uppercase; }
+.footer-brand img { height: 22px; margin-bottom: 12px; }
+.footer-brand p { font-size: 12px; line-height: 1.7; color: var(--text-faint); margin-bottom: 8px; }
+.footer-brand .footer-url { font-family: var(--font-mono); font-size: 11px; color: var(--brand-yellow); }
+.footer-grid ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-grid li { font-size: 13px; }
+.footer-grid a { color: var(--text-faint); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.footer-grid a:hover { color: var(--brand-yellow); }
+.footer-bottom { border-top: 1px solid #2a2b2c; padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+.footer-bottom .copyright { font-size: 12px; color: var(--text-faint); }
+.footer-bottom .legal-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-bottom .legal-links a { font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); text-decoration: none; }
+.footer-bottom .legal-links a:hover { color: var(--brand-yellow); }
+</style>
+</head>
+<body>
+
+<!-- ============================== HEADER (hub 共通) ============================== -->
+<header class="site-header">
+  <div class="container site-header-inner">
+    <a href="/" class="site-logo">
+      <img src="../assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+      <span class="logo-divider">/</span>
+      <span class="logo-url">https://<span class="host-hub">hub</span>.zotac.co.jp</span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="/trial-program/">評価機貸出</a>
+      <a href="/case-studies/" class="is-active">導入事例</a>
+      <a href="/reviews/">レビュー</a>
+      <a href="/catalogs/">製品カタログ</a>
+      <a href="/press/">メディア掲載</a>
+      <a href="https://zotac.co.jp/biz-inquiry" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <div class="nav-mobile">
+      <button type="button" class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="app"><div class="state"><div class="spin"></div>読み込み中…</div></main>
+
+<!-- ============================== FOOTER (hub 共通) ============================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+        <p><strong style="color: #fff;">ZOTAC NIPPON</strong><br>株式会社ゾタック日本</p>
+        <p>SIer・法人・技術者向け情報ハブ</p>
+        <p class="footer-url">hub.zotac.co.jp</p>
+      </div>
+      <div>
+        <h4>B2B Services</h4>
+        <ul>
+          <li><a href="/trial-program/">Trial Program / 評価機貸出</a></li>
+          <li><a href="/case-studies/">Case Studies / 導入事例</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Editorial</h4>
+        <ul>
+          <li><a href="/reviews/">Reviews / レビュー</a></li>
+          <li><a href="/press/">Press &amp; Media / メディア掲載</a></li>
+          <li><a href="/catalogs/">Product Catalogs / 製品カタログ</a></li>
+          <li><a href="https://zotac.co.jp/blog/">Blog / ブログ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Related Sites &amp; Social</h4>
+        <ul>
+          <li><a href="https://zotac.co.jp/">zotac.co.jp(本体)</a></li>
+          <li><a href="https://www.zotac.com/jp/">zotac.com/jp(本社)</a></li>
+          <li><a href="https://x.com/zotacjapan">X / Twitter</a></li>
+          <li><a href="https://www.facebook.com/zotacnippon/">Facebook</a></li>
+          <li><a href="https://www.youtube.com/@ZOTACJAPAN">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="copyright">© 2026 ZOTAC NIPPON / 株式会社ゾタック日本. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="https://zotac.co.jp/privacy-policy/">Privacy Policy</a>
+        <a href="https://zotac.co.jp/biz-inquiry">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile nav drawer toggle (hub 共通) -->
+<script>
+(function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!toggle || !nav) return;
+  function closeNav(){ nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded','false'); toggle.setAttribute('aria-label','メニューを開く'); }
+  toggle.addEventListener('click', function(){ var open = nav.classList.toggle('is-open'); toggle.setAttribute('aria-expanded', open?'true':'false'); toggle.setAttribute('aria-label', open?'メニューを閉じる':'メニューを開く'); });
+  nav.addEventListener('click', function(e){ if (e.target.closest('a')) closeNav(); });
+  document.addEventListener('keydown', function(e){ if (e.key==='Escape' && nav.classList.contains('is-open')){ closeNav(); toggle.focus(); } });
+})();
+</script>
+
+<!-- ============================== LIVE READ-OUT ============================== -->
+<script>
+/* ============== 設定 ============== */
+const SITE = "https://zotac.co.jp";                 // 本番サイト
+const API  = SITE + "/blog/wp-json/wp/v2";          // 本番ブログ（正本）の REST
+const API_ORIGIN = SITE;                            // 画像パス補正用（本番は絶対URLなので実質no-op）
+const CAT_IDS = "44,66";                            // 導入・活用事例(44) / 展示会(66)
+/* タグ：展示会(66)が付けば「機材協賛」、無く44のみなら「導入事例」 */
+/* ================================== */
+
+const app = document.getElementById('app');
+const fixImg = html => (html||"")
+  .replace(/(src|srcset)="\/wp-content/g, '$1="'+API_ORIGIN+'/wp-content')
+  .replace(/(src|srcset)='\/wp-content/g, "$1='"+API_ORIGIN+"/wp-content");
+
+/* ビュー保持：一覧は破棄せず表示/非表示で切替（戻る時に再フェッチせずスクロール位置・読み込み済みカードを復元） */
+let listEl=null, articleEl=null, listBuilt=false, listScroll=0;
+function ensureViews(){
+  if(listEl) return;
+  app.innerHTML='';
+  listEl=document.createElement('div'); listEl.id='listView';
+  articleEl=document.createElement('div'); articleEl.id='articleView'; articleEl.style.display='none';
+  app.appendChild(listEl); app.appendChild(articleEl);
+}
+
+function fmtDate(d){ return (d||"").slice(0,10).replace(/-/g,'.'); }
+function thumbOf(post){
+  try{ const m = post._embedded['wp:featuredmedia'][0];
+    const s = m.media_details && m.media_details.sizes;
+    return ((s && (s.medium_large||s.large||s.medium)) || {}).source_url || m.source_url;
+  }catch(e){ return null; }
+}
+
+const PER_PAGE = 9;
+let lpPage = 0, lpTotalPages = 1, lpLoading = false;
+
+function cardHTML(p){
+  const th = thumbOf(p);
+  const style = th ? `style="background-image:url('${th}')"` : "";
+  const ex = (p.excerpt&&p.excerpt.rendered||"").replace(/<[^>]+>/g,"").slice(0,90);
+  return `<a class="card" href="#/post/${p.slug}">
+    <div class="thumb" ${style}></div>
+    <div class="body">
+      <div class="date">${fmtDate(p.date)}</div>
+      <h3>${p.title.rendered}</h3>
+      <p class="ex">${ex}…</p>
+    </div></a>`;
+}
+
+async function loadPage(){
+  if(lpLoading || lpPage>=lpTotalPages) return;
+  lpLoading = true;
+  const wrap = document.getElementById('lmWrap');
+  if(wrap && lpPage>0) wrap.innerHTML = '<button class="load-more" disabled>読み込み中…</button>';
+  try{
+    const next = lpPage+1;
+    const res = await fetch(`${API}/posts?categories=${CAT_IDS}&per_page=${PER_PAGE}&page=${next}&_embed=wp:featuredmedia&_fields=id,slug,title,date,excerpt,categories,_links,_embedded`);
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    lpTotalPages = parseInt(res.headers.get('x-wp-totalpages')||'1',10);
+    const posts = await res.json();
+    const grid = document.getElementById('grid');
+    if(grid) grid.insertAdjacentHTML('beforeend', posts.map(cardHTML).join(""));
+    lpPage = next;
+    if(wrap) wrap.innerHTML = (lpPage>=lpTotalPages) ? '' : '<button id="loadMore" class="load-more" type="button">もっと見る</button>';
+  }catch(e){
+    if(wrap) wrap.innerHTML = `<p class="lm-err">読み込みに失敗しました（${e.message}）。 <button id="loadMore" class="load-more" type="button">再試行</button></p>`;
+  }finally{
+    lpLoading = false;
+  }
+}
+
+function buildList(){
+  lpPage = 0; lpTotalPages = 1; lpLoading = false;
+  listEl.innerHTML = `
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="/">HOME</a><span class="sep">/</span><span class="current">CASE STUDIES</span></div>
+        <div class="yellow-bar-lg"></div>
+        <h1>Case Studies</h1>
+        <div class="sub-title">導入・活用事例</div>
+        <p class="lede">ZOTAC 製品が実際の現場でどう活用されているか。導入いただいたお客様や、イベント・制作現場でご活用いただいたパートナーの事例をご紹介しています。</p>
+      </div>
+    </section>
+    <div class="grid" id="grid"></div>
+    <div class="lm-wrap" id="lmWrap"><div class="state"><div class="spin"></div>事例を読み込み中…</div></div>`;
+  loadPage();
+}
+
+function showList(){
+  ensureViews();
+  articleEl.style.display='none';
+  listEl.style.display='';
+  document.title = "導入・活用事例 | ZOTAC NIPPON";
+  if(!listBuilt){ listBuilt=true; buildList(); }
+  else { window.scrollTo(0, listScroll); }   // 再フェッチせず位置だけ復元
+}
+
+async function renderArticle(slug){
+  ensureViews();
+  if(listEl.style.display!=='none') listScroll = window.scrollY;   // 一覧の位置を保存
+  listEl.style.display='none';
+  articleEl.style.display='';
+  articleEl.innerHTML = '<div class="state"><div class="spin"></div>記事を読み込み中…</div>';
+  window.scrollTo(0,0);
+  try{
+    const res = await fetch(`${API}/posts?slug=${encodeURIComponent(slug)}&_fields=title,date,link,content,categories`);
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    const arr = await res.json();
+    if(!arr.length) throw new Error("記事が見つかりません");
+    const p = arr[0];
+    document.title = (p.title&&p.title.rendered||"").replace(/<[^>]+>/g,"") + " | 導入・活用事例 | ZOTAC NIPPON";
+    articleEl.innerHTML = `
+      <div class="article-bcrumb">
+        <div class="container">
+          <div class="bc"><a href="/">HOME</a><span class="sep">/</span><a href="#/">導入事例</a><span class="sep">/</span>${p.title.rendered}</div>
+        </div>
+      </div>
+      <div class="article-wrap">
+        <div class="cs-body">${fixImg(p.content.rendered)}</div>
+      </div>
+      <div class="cs-exit">
+        <a class="back" href="#/">← 導入事例一覧に戻る</a>
+        <div class="box">
+          <h2>この構成を、自社の現場で検討する</h2>
+          <a class="cta y" href="/trial-program/">見積もり・評価機貸出</a>
+          <a class="cta o" href="https://zotac.co.jp/biz-inquiry" target="_blank" rel="noopener">問い合わせ</a>
+          <p class="src">この事例の全文（公式記事・正本）は
+            <a href="${p.link}" target="_blank" rel="noopener">ZOTAC BLOG で読む →</a></p>
+        </div>
+      </div>`;
+    window.scrollTo(0,0);
+  }catch(e){
+    articleEl.innerHTML = `<div class="state">記事を読み込めませんでした（${e.message}）。<br><a href="#/">一覧に戻る</a></div>`;
+  }
+}
+
+function router(){
+  const m = (location.hash||"#/").match(/^#\/post\/(.+)$/);
+  if(m) renderArticle(m[1]); else showList();
+}
+document.addEventListener('click', e=>{ if(e.target && e.target.id==='loadMore'){ e.preventDefault(); loadPage(); } });
+window.addEventListener('hashchange', router);
+router();
+</script>
+</body>
+</html>
