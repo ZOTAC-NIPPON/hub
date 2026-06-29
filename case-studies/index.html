@@ -130,6 +130,8 @@ a { color: inherit; }
 .article-bcrumb .bc a:hover { color:var(--text-dark); }
 .article-bcrumb .bc .sep { margin:0 8px; color:var(--text-faint); }
 .article-wrap { max-width:1000px; margin:0 auto; padding:30px 24px 40px; }
+.article-wrap .cs-hero { margin:0 0 24px; }
+.article-wrap .cs-hero img { width:100%; height:auto; border-radius:10px; display:block; }
 .article-wrap .cs-body { font-size:15px; line-height:1.85; }
 .article-wrap .cs-body img { max-width:100%; height:auto; border-radius:8px; margin:.4em 0; }
 .article-wrap .cs-body h1 { font-size:26px; margin:.2em 0 .5em; }
@@ -289,6 +291,18 @@ function thumbOf(post){
     return ((s && (s.medium_large||s.large||s.medium)) || {}).source_url || m.source_url;
   }catch(e){ return null; }
 }
+function heroOf(post, contentHTML){
+  let url=null;
+  try{ url = post._embedded['wp:featuredmedia'][0].source_url; }catch(e){ url=null; }
+  if(!url) return '';
+  const norm = u => (String(u).split('/').pop()||'').replace(/-\d+x\d+(?=\.\w+$)/,'').toLowerCase();
+  const feat = norm(url);
+  // 本文の実体<img>のファイル名とだけ厳密照合（短い語が本文に紛れて誤判定するのを防ぐ）
+  const bodyFiles = (contentHTML.match(/(?:src|data-src)=["']([^"']+)["']/gi)||[])
+    .map(m => norm(m.replace(/^[^"']*["']/,'').replace(/["']$/,'')));
+  if(bodyFiles.includes(feat)) return '';   // 本文に同じ画像 → 重複回避
+  return `<figure class="cs-hero"><img src="${url}" alt="" loading="eager" decoding="async"></figure>`;
+}
 
 const PER_PAGE = 9;
 let lpPage = 0, lpTotalPages = 1, lpLoading = false;
@@ -362,7 +376,7 @@ async function renderArticle(slug){
   articleEl.innerHTML = '<div class="state"><div class="spin"></div>記事を読み込み中…</div>';
   window.scrollTo(0,0);
   try{
-    const res = await fetch(`${API}/posts?slug=${encodeURIComponent(slug)}&_fields=title,date,link,content,categories`);
+    const res = await fetch(`${API}/posts?slug=${encodeURIComponent(slug)}&_embed=wp:featuredmedia&_fields=title,date,link,content,categories,_links,_embedded`);
     if(!res.ok) throw new Error("HTTP "+res.status);
     const arr = await res.json();
     if(!arr.length) throw new Error("記事が見つかりません");
@@ -375,6 +389,7 @@ async function renderArticle(slug){
         </div>
       </div>
       <div class="article-wrap">
+        ${heroOf(p, p.content.rendered)}
         <div class="cs-body">${fixImg(p.content.rendered)}</div>
       </div>
       <div class="cs-exit">
