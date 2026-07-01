@@ -3,23 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>S35N150A — 製品カタログ | ZOTAC NIPPON</title>
-<!-- @partial:analytics START — 編集は _partials/analytics.html、反映は python _partials/inject.py -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5X4CC48YH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-N5X4CC48YH', { 'anonymize_ip': true });
-</script>
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "wk7j63hn3o");
-</script>
-<!-- @partial:analytics END -->
+<title>511A-IX1P7E — 製品カタログ | ZOTAC NIPPON</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -36,42 +20,11 @@ body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.6;-w
 img{max-width:100%;display:block;}
 a{color:inherit;}
 .wrap{max-width:1100px;margin:0 auto;padding:0 40px;}
-.site-header{position:sticky;top:0;z-index:100;background:var(--bg-dark);border-bottom:3px solid var(--yellow);padding:16px 0;}
-.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:32px;}
-.site-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
-.site-logo img{height:22px;width:auto;}
-.logo-divider{color:var(--faint);font-family:var(--mono);font-weight:300;font-size:15px;}
-.logo-url{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.05em;}
-.logo-url .host-hub{color:var(--yellow);font-weight:500;}
-.site-nav{display:flex;gap:20px;align-items:center;}
-.site-nav a{text-decoration:none;color:#fff;font-size:13px;font-weight:500;position:relative;padding:4px 0;display:inline-flex;align-items:center;gap:6px;}
-.site-nav a.is-active{color:var(--yellow);}
-.site-nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .2s;}
-.site-nav a:hover::after,.site-nav a.is-active::after{transform:scaleX(1);}
-.nav-cta{background:var(--yellow);color:var(--ink)!important;padding:9px 18px;font-weight:700;}
-.nav-cta::after{display:none!important;}
-.nav-mobile{display:none;align-items:center;gap:12px;}
-.nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer;}
-.nav-toggle:hover{border-color:var(--yellow);}
-.nav-toggle-bar{display:block;width:100%;height:2px;background:#fff;transition:transform .2s,opacity .2s;}
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0;}
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-@media (max-width:1100px){.site-nav{gap:15px;}}
-@media (max-width:900px){
-  .nav-mobile{display:flex;}
-  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--bg-dark);border-bottom:3px solid var(--yellow);box-shadow:0 14px 28px rgba(0,0,0,.35);padding:6px 0;z-index:200;}
-  .site-nav.is-open{display:flex;}
-  .site-nav a{width:100%;padding:14px 24px;font-size:15px;}
-  .site-nav a+a{border-top:1px solid rgba(255,255,255,.08);}
-  .site-nav a::after{display:none;}
-}
-@media (max-width:600px){.logo-divider,.logo-url{display:none;}}
+/* 共通ヘッダーは body 先頭のマーカーへ hub 正本 _partials/header.html（CSS/JS 同梱の自己完結型）を
+   注入するため、ここにヘッダー用CSSは持たない（二重定義=ドリフト防止）。build_enterprise.py が注入。 */
 .crumb{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);padding:18px 0 0;}
 .crumb .sep{color:var(--faint);margin:0 7px;}
 .crumb .cur{color:var(--yellow-deep);}
-.crumb a{color:var(--muted);text-decoration:none;}
-.crumb a:hover{color:var(--ink);text-decoration:underline;}
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;padding:22px 0 30px;align-items:start;}
 .gal-main{background:var(--bg-soft);border:1px solid var(--line);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
 .gal-main img{width:100%;height:100%;object-fit:contain;}
@@ -88,7 +41,6 @@ a{color:inherit;}
 .tagline{font-size:13px;color:var(--mid);line-height:1.75;margin:12px 0 0;}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;}
 .chip{font-family:var(--mono);font-size:10px;color:var(--ink);background:var(--bg-soft);border:1px solid var(--line);padding:3px 10px;}
-.spec-note{font-size:11px;line-height:1.6;color:var(--muted);margin-top:12px;}
 .dl-btn{display:inline-flex;align-items:center;gap:9px;margin-top:18px;background:var(--bg-dark);color:var(--yellow);font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.04em;padding:13px 24px;text-decoration:none;}
 .dl-btn:hover{background:#000;}
 .dl-meta{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:8px;}
@@ -111,12 +63,7 @@ section{padding:26px 0;border-top:1px solid var(--line);}
 .spec-grid .r{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
 .spec-grid .r .l{font-size:12px;color:var(--muted);white-space:nowrap;width:6.5em;flex:none;}
 .spec-grid .r .v{font-size:12px;font-weight:500;flex:1;line-height:1.6;}
-.cmp{display:grid;font-size:12px;border:1px solid var(--line);}
-.cmp>div{padding:9px 10px;border-left:1px solid var(--line);border-top:1px solid var(--line);}
-.cmp .hd{background:var(--bg-soft);font-weight:500;}
-.cmp .me{background:var(--bg-warm);}
-.cmp .rl{border-left:none;font-family:var(--mono);font-size:10px;color:var(--muted);}
-.cmp .cur{font-family:var(--mono);font-size:9px;color:var(--amberink);}
+.spec-grid .r .v .lab{display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:2px;}
 .b2b{border:1px dashed #BA7517;background:var(--amberbg);padding:14px;}
 .b2b .lab{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--amberink);margin-bottom:10px;}
 .b2b .lab .tag{background:#BA7517;color:#fff;padding:1px 6px;font-size:8px;margin-left:6px;}
@@ -148,10 +95,6 @@ section{padding:26px 0;border-top:1px solid var(--line);}
 .legal{font-size:10px;color:var(--faint);line-height:1.7;padding:22px 0 4px;border-top:1px solid var(--line);}
 .legal p{margin-bottom:5px;}
 .disc{font-family:var(--mono);font-size:10px;color:var(--faint);padding:10px 0 30px;}
-/* CTA: 基底 .site-nav a(詳細度0-1-1)を上書きするため詳細度を上げる + リテラル色で全トークン体系に対応 */
-.site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700;}
-.site-nav a.nav-cta:hover{background:#f2c800;}
-.site-nav a.nav-cta::after{display:none!important;}
 </style>
 </head>
 <body>
@@ -233,67 +176,59 @@ section{padding:26px 0;border-top:1px solid var(--line);}
 </script>
 <!-- @partial:header END -->
 <div class="wrap">
-  <div class="crumb"><a href="/">HOME</a> <span class="sep">/</span> <a href="/catalogs/">CATALOGS</a> <span class="sep">/</span> <a href="/catalogs/zbox/">ZBOX</a> <span class="sep">/</span> <span class="cur">SKU ZP-S35N150A</span> <span class="sep">·</span> 法人・組み込み・サイネージ</div>
+  <div class="crumb">HOME <span class="sep">/</span> CATALOGS <span class="sep">/</span> ENTERPRISE <span class="sep">/</span> <span class="cur">511A-IX1P7E</span> <span class="sep">·</span> GPU ワークステーション</div>
   <div class="hero">
     <div>
-      <div class="gal-main"><img id="galImg" src="img/ZP-S35N150A-image01.jpg" alt="製品写真"><div class="gal-cap" id="galCap"></div></div>
-      <div class="gal-strip" id="galStrip"><button class="gal-thumb on" data-src="img/ZP-S35N150A-image01.jpg" data-cap=""><img src="img/ZP-S35N150A-image01.jpg" alt="製品写真 1"></button><button class="gal-thumb" data-src="img/ZP-S35N150A-image02.jpg" data-cap=""><img src="img/ZP-S35N150A-image02.jpg" alt="製品写真 2"></button><button class="gal-thumb" data-src="img/ZP-S35N150A-image03.jpg" data-cap=""><img src="img/ZP-S35N150A-image03.jpg" alt="製品写真 3"></button><button class="gal-thumb" data-src="img/ZP-S35N150A-image04.jpg" data-cap=""><img src="img/ZP-S35N150A-image04.jpg" alt="製品写真 4"></button><button class="gal-thumb" data-src="img/ZP-S35N150A-image05.jpg" data-cap=""><img src="img/ZP-S35N150A-image05.jpg" alt="製品写真 5"></button><button class="gal-thumb" data-src="img/ZP-S35N150A-image06.jpg" data-cap=""><img src="img/ZP-S35N150A-image06.jpg" alt="製品写真 6"></button><button class="gal-thumb" data-src="img/ZP-S35N150A-image07.jpg" data-cap=""><img src="img/ZP-S35N150A-image07.jpg" alt="製品写真 7"></button><button class="gal-thumb" data-src="img/ZP-S35N150A-image08.jpg" data-cap=""><img src="img/ZP-S35N150A-image08.jpg" alt="製品写真 8"></button></div>
+      <div class="gal-main"><img id="galImg" src="img/511A-IX1P7E-image01.jpg" alt="製品写真"><div class="gal-cap" id="galCap"></div></div>
+      <div class="gal-strip" id="galStrip"><button class="gal-thumb on" data-src="img/511A-IX1P7E-image01.jpg" data-cap=""><img src="img/511A-IX1P7E-image01.jpg" alt="製品写真 1"></button><button class="gal-thumb" data-src="img/511A-IX1P7E-image02.jpg" data-cap=""><img src="img/511A-IX1P7E-image02.jpg" alt="製品写真 2"></button><button class="gal-thumb" data-src="img/511A-IX1P7E-image03.jpg" data-cap=""><img src="img/511A-IX1P7E-image03.jpg" alt="製品写真 3"></button><button class="gal-thumb" data-src="img/511A-IX1P7E-image04.jpg" data-cap=""><img src="img/511A-IX1P7E-image04.jpg" alt="製品写真 4"></button><button class="gal-thumb" data-src="img/511A-IX1P7E-image05.jpg" data-cap=""><img src="img/511A-IX1P7E-image05.jpg" alt="製品写真 5"></button><button class="gal-thumb" data-src="img/511A-IX1P7E-image06.jpg" data-cap=""><img src="img/511A-IX1P7E-image06.jpg" alt="製品写真 6"></button></div>
     </div>
     <div>
-      <div class="cat-label">ZBOX PRO</div>
-      <div class="h1">S35N150A</div>
-      <div class="sku">型番 SKU ZP-S35N150A</div>
-      <p class="tagline">産業用途に最適化された組み込み向けミニPC「ZBOX PRO S35N150A」。3.5インチフットプリントのコンパクト筐体に2系統のHDMI出力を備え、設置スペースが限られた遠隔地・商業空間でのデジタルサイネージ運用に対応します。豊富なレガシー／標準I/Oにより、適用範囲を選びません。</p>
-      <div class="chips"><span class="chip">Intel UHD Graphics</span><span class="chip">Processor N150</span><span class="chip">最大16GB</span></div>
-      <a class="dl-btn" href="/pdfs/zbox_pro_s35n150a_flyer.pdf" target="_blank">▼ カタログ PDF をダウンロード</a>
-      <div class="dl-meta">PDF · 更新 2026.06 · A4 1枚 · 約1.5MB</div>
-      <div class="dl-sub"><a class="sub-btn" href="https://zotac.co.jp/biz-inquiry">見積・在庫・構成を相談 →</a></div>
+      <div class="cat-label">ZOTAC ENTERPRISE · ESSENTIAL SERIES</div>
+      <div class="h1">511A-IX1P7E</div>
+      <div class="sku">型番 511A-IX1P7E</div>
+      <p class="tagline">フルタワーのGPU ワークステーション。第 3 世代 Intel® Xeon® スケーラブル に対応し、DDR4 を最大 8 枚、PCIe 4.0 ×16 ×7 を備えます。AI 推論、3D レンダリング、ファクトリーオートメーション などの用途に向けた構成です。</p>
+      <div class="chips"><span class="chip">フルタワー</span><span class="chip">Xeon</span><span class="chip">DDR4 ×8 DIMM</span><span class="chip">PCIe 4.0 ×16 ×7</span></div>
+      <a class="dl-btn" href="511A-IX1P7E-brochure.pdf" target="_blank">▼ データシート（PDF・英語）</a>
+      <div class="dl-meta">PDF · 英語 · 更新 2026.06</div>
+      <div class="dl-sub"><a class="sub-btn" href="https://zotac.co.jp/biz-inquiry?sku=511A-IX1P7E&series=ZOTAC%20ENTERPRISE&from=hub">構成・見積りのお問い合わせ →</a></div>
     </div>
   </div>
   <section>
     <div class="sec-label">要点</div>
-    <div class="kpi"><div class="card"><div class="v">全金属筐体</div><div class="k">堅牢な組み込み設計</div></div><div class="card"><div class="v">−20〜+50℃</div><div class="k">広動作温度範囲</div></div><div class="card"><div class="v">TPM 2.0</div><div class="k">Intel PTT セキュリティ</div></div><div class="card"><div class="v">Long Life</div><div class="k">長期供給ライフサイクル</div></div></div>
-    <div class="pills"><span>Wi-Fi 7</span><span>Dual Gigabit LAN</span><span>4K UHD 60Hz</span><span>USB 3.2 Gen2</span><span>RS-232 / RS-485</span><span>Watchdog Timer</span></div>
+    <div class="kpi"><div class="card"><div class="v">PCIe 4.0×16</div><div class="k">拡張スロット</div></div><div class="card"><div class="v">Single Xeon</div><div class="k">第 3 世代 Xeon® スケーラブル</div></div><div class="card"><div class="v">8 DIMM</div><div class="k">DDR4 ×8（8ch/CPU）</div></div><div class="card"><div class="v">ATX 電源ベイ</div><div class="k">ATX PSU ×2（電源は別売）</div></div></div>
+    <div class="pills"><span>AI 推論</span><span>3D レンダリング</span><span>ファクトリーオートメーション</span><span>3D モデリング・シミュレーション</span></div>
   </section>
   <section>
     <div class="sec-label">想定用途</div>
-    <div class="tags"><span>デジタルサイネージ</span><span>産業・組み込み</span><span>エッジ端末</span><span>長期運用</span><span>省スペース設置</span></div>
+    <div class="tags"><span>AI 推論</span><span>3D レンダリング</span><span>ファクトリーオートメーション</span><span>3D モデリング・シミュレーション</span><span>デジタルツイン</span></div>
   </section>
   <section>
-    <div class="sec-label">主要スペック <span class="note">（要約 — 全仕様はPDFカタログに掲載）</span></div>
-    <div class="spec-grid"><div class="r"><span class="l">グラフィックス</span><span class="v">Intel UHD Graphics<br>HDMI 2.0 — up to 4096×2160@60Hz</span></div><div class="r"><span class="l">プロセッサー</span><span class="v">Intel Processor N150<br>6MB Intel Smart Cache</span></div><div class="r"><span class="l">メモリー上限</span><span class="v">1 × DDR4-3200 SO-DIMM（最大 16GB）</span></div><div class="r"><span class="l">ストレージ</span><span class="v">1 × M.2 NVMe PCIe 3.0 ×4 / SATA（2242 / 2280）</span></div><div class="r"><span class="l">映像出力</span><span class="v">2 × HDMI（4K 60Hz HDR（HDMI 2.0））</span></div><div class="r"><span class="l">ネットワーク</span><span class="v">2 × Gigabit Ethernet<br>Wi-Fi 7 802.11be/ax/ac/a/b/g/n<br>Bluetooth 5.4</span></div><div class="r"><span class="l">電源</span><span class="v">アクティブ冷却（静音ファン）<br>DC 19V / 65W<br>本体 −20〜+50℃</span></div><div class="r"><span class="l">外形・容積</span><span class="v">110.8 × 164.0 × 44.0 mm（L × W × H）</span></div><div class="r"><span class="l">対応OS</span><span class="v">Windows 11 / 11 IoT ENT LTSC</span></div></div>
-    <div class="spec-note">※ ベースモデル：メモリ・SSD・OS は用途に合わせて構成し、希望構成でお見積りできます。</div>
+    <div class="sec-label">主要スペック <span class="note">（要約 — 全項目は英語データシート PDF）</span></div>
+    <div class="spec-grid"><div class="r"><span class="l">CPU</span><span class="v">第 3 世代 Intel® Xeon® スケーラブル ×1<span class="lab">1 x LGA 4189 (Socket P+) ／ Intel C621A ／ up to 300 W TDP</span></span></div><div class="r"><span class="l">メモリ</span><span class="v">8 x DDR4 RDIMM / LRDIMM / RDIMM-3DS slots<span class="lab">1.2V modules (3200/2933/2666 MHz) ／ RDIMM / LRDIMM modules (up to 128GB)</span></span></div><div class="r"><span class="l">拡張スロット</span><span class="v">PCIe 4.0 ×16 ×7<span class="lab">Max: 4 x PCIe Gen4 x16 slots + 3 x PCIe Gen4 x8 slots / 1 x PCIe Gen 4 x16 Slot + 6 x PCIe Gen 4 x8</span></span></div><div class="r"><span class="l">ストレージ</span><span class="v">1 x MiniSAS connectors for 4 x SATA-3 6Gb/s ports (optional MiniSAS cable)<span class="lab">2 x 7-pin SATA DOM 6Gb/s ports ／ 1 x M.2 NVMe PCIe Gen3 x4 or SATA 6Gb/s SSD slot (2242/2280/22110, M-key)</span></span></div><div class="r"><span class="l">ネットワーク</span><span class="v">2 x 10Gbps Intel LAN ports (X710-AT2)<span class="lab">2 x 1Gbps Intel LAN ports (I210) ／ 1 x Gigabit management port (BMC)</span></span></div><div class="r"><span class="l">遠隔管理</span><span class="v">ASPEED® AST2600 BMC<span class="lab">内蔵ビデオ 1920×1200 ／ 専用管理ポート</span></span></div><div class="r"><span class="l">電源</span><span class="v">2 x ATX PSU bays (PSU not included)</span></div><div class="r"><span class="l">冷却</span><span class="v">Front: up to 4 x 120/140mm fans, or 360mm Water cooling radiator<span class="lab">Top: up to 4 x 120/140mm, or 480mm Water cooling radiator ／ Right: up to 3 x 120mm, or 360mm Water cooling radiator</span></span></div><div class="r"><span class="l">セキュリティ</span><span class="v">TPM 2.0 対応（ヘッダ）<span class="lab">TPM 2.0 モジュール（オプション）</span></span></div><div class="r"><span class="l">対応OS</span><span class="v">Windows Server 2022/2019、RHEL 9、Ubuntu 22.04 LTS<span class="lab">SUSE 15, VMware ESXi, Citrix Hypervisor ほか</span></span></div><div class="r"><span class="l">外形寸法</span><span class="v">591mm x 249mm x 691mm（フルタワー）</span></div></div>
   </section>
   <section>
-    <div class="b2b">
-      <div class="lab">法人導入について</div>
-      <div class="grid">
-        <div class="item">◆ <b>国内センドバック保証</b><span class="sub">修理・サポートは国内対応</span></div>
-        <div class="item">◆ <b>カスタマイズ対応</b><span class="sub">メモリ・SSD・OS をご要望の構成で</span></div>
-        <div class="item">◆ <b>評価機の貸出</b><span class="sub">導入前に自社環境で評価</span></div>
-        <div class="item">◆ <b>まとめ買い・見積り</b><span class="sub">法人窓口でご相談</span></div>
-      </div>
-    </div>
-  </section>
-  <section>
-    <div class="sec-label">導入を検討する</div>
+    <div class="sec-label">検討を進める</div>
     <div class="cards2">
-      <a class="lcard" href="/trial-program/"><div class="t">▣ 自社環境で評価する</div><div class="d">評価機貸出プログラム ① Web申込 → ② 発送 → ③ 最大2週間お試し</div><div class="go">申し込む →</div></a>
-      <a class="lcard" href="/case-studies/"><div class="t">▣ 実際の活用を見る</div><div class="d">ミニPCの導入事例・レビュー（映像制作・展示・AI検証）</div><div class="go">事例を見る →</div></a>
+      <a class="lcard" href="https://zotac.co.jp/biz-inquiry?sku=511A-IX1P7E&from=hub&type=quote"><div class="t">▣ 構成・見積りを相談する</div><div class="d">用途・規模に合わせた構成のご提案とお見積り。価格はお問い合わせベースで承ります。</div><div class="go">相談する →</div></a>
+      <a class="lcard" href="https://zotac.co.jp/biz-inquiry?sku=511A-IX1P7E&from=hub&type=spec"><div class="t">▣ 技術仕様を確認する</div><div class="d">対応構成・互換性・導入要件など、購入前の技術的なご質問にお答えします。</div><div class="go">相談する →</div></a>
     </div>
   </section>
   <section>
     <div class="sec-label">関連製品・カタログ</div>
-    <div class="cards3"><a class="xcard" href="/catalogs/zbox/s35n150p/"><span class="badge up">関連モデル</span><div class="t">ZBOX PRO</div><div class="s">S35N150P</div><div class="go">見る →</div></a><a class="xcard" href="/catalogs/#zbox-pro"><span class="badge sib">同シリーズ</span><div class="t">PRO 一覧</div><div class="s">他のモデルを見る</div><div class="go">見る →</div></a><a class="xcard" href="/pdfs/ZBOX_catalog_Jan2026.pdf"><span class="badge sib">全体像</span><div class="t">ZBOX 総合カタログ</div><div class="s">ラインアップ一覧</div><div class="go">見る →</div></a></div>
+    <div class="cards3">
+      <a class="xcard" href="/catalogs/#enterprise"><span class="badge sib">同シリーズ</span><div class="t">GPU サーバー 一覧</div><div class="s">他のラックマウント／ワークステーションを見る</div><div class="go">見る →</div></a>
+      <a class="xcard" href="511A-IX1P7E-brochure.pdf" target="_blank"><span class="badge up">データシート</span><div class="t">英語データシート（PDF）</div><div class="s">全項目スペックをダウンロード</div><div class="go">開く →</div></a>
+      <a class="xcard" href="#"><span class="badge sib">全体像</span><div class="t">エンタープライズ総合（チラシ）</div><div class="s">ワークステーション／ラックサーバー一覧</div><div class="go">見る →</div></a>
+    </div>
   </section>
 </div>
 <div class="contact">
   <div class="wrap">
-    <div><div class="t">見積り・在庫・構成のご相談</div><div class="s">法人窓口にて承ります</div></div>
-    <div class="act"><a class="btn" href="https://zotac.co.jp/biz-inquiry">お問い合わせ</a><a class="zoom" href="/catalogs/">全製品カタログを見る</a></div>
+    <div><div class="t">構成・見積り・技術仕様のご相談</div><div class="s">法人・販売店窓口にて承ります</div></div>
+    <div class="act"><a class="btn" href="https://zotac.co.jp/biz-inquiry?sku=511A-IX1P7E&series=ZOTAC%20ENTERPRISE&from=hub">お問い合わせ →</a><a class="zoom" href="/catalogs/">全製品カタログを見る</a></div>
   </div>
 </div>
-<div class="wrap"><div class="legal"><p>事前に通知することなく、仕様や条件が変更される場合がございます。</p><p>掲載されているウェブサイト上の画像はイメージであり、実際の製品とは異なる場合があります。すべての特長、機能、その他の製品仕様は、予告なく変更されることがあります。</p><p>HDMI、HDMI High-Definition Multimedia Interface、HDMIトレードドレス、HDMIロゴは、HDMI Licensing Administrator, Inc.の商標または登録商標です。</p><p>©2025 ZOTAC Technology Pte. Ltd. 無断転載を禁じます。</p><p>その他すべての商標および著作権は、それぞれの所有者に帰属します。</p></div></div>
+<div class="wrap"><div class="legal"><p>事前に通知することなく、仕様や条件が変更される場合がございます。</p><p>掲載されている画像はイメージであり、実際の製品とは異なる場合があります。すべての特長、機能、その他の製品仕様は、予告なく変更されることがあります。本製品の CPU・GPU・メモリ・ストレージ・OS は、構成（SKU）により異なり、含まれない場合があります。</p><p>Intel、Intel ロゴ、Xeon は、米国およびその他の国における Intel Corporation の商標です。</p><p>©2026 ZOTAC Technology Pte. Ltd. 無断転載を禁じます。</p><p>その他すべての商標および著作権は、それぞれの所有者に帰属します。</p></div></div>
 
 <script>
 (function(){
@@ -305,18 +240,6 @@ section{padding:26px 0;border-top:1px solid var(--line);}
     t.classList.add('on'); img.src=t.getAttribute('data-src');
     if(cap)cap.textContent=t.getAttribute('data-cap')||'';
   });});
-})();
-</script>
-<script>
-(function(){
-  var toggle=document.querySelector('.nav-toggle');
-  var nav=document.getElementById('site-nav');
-  if(!toggle||!nav)return;
-  toggle.addEventListener('click',function(){
-    var open=nav.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded',open?'true':'false');
-    toggle.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
-  });
 })();
 </script>
 </body>
