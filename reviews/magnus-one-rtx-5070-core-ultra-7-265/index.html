@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZOTAC ZBOX MAGNUS ONE EU275070C ミニPCレビュー｜GeForce RTX 5070 / Core Ultra 7 265 実測ベンチマーク | ZOTAC NIPPON</title>
+<!-- @partial:analytics START — 編集は _partials/analytics.html、反映は python _partials/inject.py -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5X4CC48YH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N5X4CC48YH', { 'anonymize_ip': true });
+</script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wk7j63hn3o");
+</script>
+<!-- @partial:analytics END -->
+<meta name="description" content="GeForce RTX 5070 12GB とデスクトップ版 Core Ultra 7 265（20コア）を搭載するミニPC「ZBOX MAGNUS ONE EU275070C」を実測。3DMark・Cinebench・Blender・Procyon・ComfyUI のベンチマークから、同じ MAGNUS ONE の AMD版 5070／RTX 5060 Ti との差、12GB VRAM の画像生成AI（Stable Diffusion）用途、複数回計測でのばらつき（安定性）を中立に検証します。">
+<link rel="canonical" href="https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+
+<!-- OGP -->
+<meta property="og:title" content="ZOTAC ZBOX MAGNUS ONE EU275070C ベンチマークレビュー（RTX 5070 / Core Ultra 7 265）">
+<meta property="og:description" content="実測ベンチで見る、RTX 5070 12GB×デスクトップ Core Ultra 7 265 のミニPC。MAGNUS ONE の AMD版 5070／5060 Ti との差と、CPUの安定性を検証。">
+<meta property="og:image" content="https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/ogp.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/">
+<meta property="og:site_name" content="ZOTAC NIPPON">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://zotac.co.jp/#organization",
+      "name": "ZOTAC NIPPON",
+      "alternateName": ["株式会社ゾタック日本", "ZOTAC Japan"],
+      "legalName": "ZOTAC Nippon Co., Ltd.",
+      "url": "https://zotac.co.jp/",
+      "logo": { "@type": "ImageObject", "url": "https://hub.zotac.co.jp/assets/zotac_logo.svg", "width": 600, "height": 60 },
+      "sameAs": ["https://www.zotac.com/jp/", "https://x.com/ZOTAC_JAPAN", "https://www.youtube.com/@ZOTACJAPAN"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hub.zotac.co.jp/#website",
+      "url": "https://hub.zotac.co.jp/",
+      "name": "ZOTAC NIPPON HUB",
+      "publisher": { "@id": "https://zotac.co.jp/#organization" },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "Product",
+      "@id": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/#product",
+      "name": "ZOTAC ZBOX MAGNUS ONE EU275070C",
+      "alternateName": "MAGNUS ONE EU275070C",
+      "brand": { "@type": "Brand", "name": "ZOTAC" },
+      "model": "EU275070C",
+      "sku": "EU275070C",
+      "category": "ミニPC / Mini PC",
+      "url": "https://hub.zotac.co.jp/catalogs/zbox/eu275070c/",
+      "sameAs": "https://zotac.co.jp/product/magnus-one-eu275070c/",
+      "image": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/images/product-34.jpg",
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "GPU", "value": "ZOTAC GAMING GeForce RTX 5070 12GB GDDR7（192-bit / Blackwell / DLSS 4 / PCIe 5.0 x16）" },
+        { "@type": "PropertyValue", "name": "CPU", "value": "Intel Core Ultra 7 265（20コア / 2.4–5.3GHz / Arrow Lake / Socket 1851 LGA）" },
+        { "@type": "PropertyValue", "name": "メモリ", "value": "2 × DDR5-6400 CSODIMM / 5600 SO-DIMM（最大96GB）" },
+        { "@type": "PropertyValue", "name": "ストレージ", "value": "M.2 NVMe PCIe 5.0 ×1 ＋ PCIe 4.0 ×1 ＋ 2.5インチ SATA III ×1" },
+        { "@type": "PropertyValue", "name": "映像出力", "value": "DisplayPort 2.1b（UHBR20）×3 ＋ HDMI（最大4画面クローン / 6画面拡張）" },
+        { "@type": "PropertyValue", "name": "ネットワーク", "value": "5GbE ＋ Gigabit Ethernet / Wi-Fi 7（802.11be）/ Bluetooth 5.4" },
+        { "@type": "PropertyValue", "name": "インターフェース", "value": "Thunderbolt 4 ×1 / USB 3.2 Gen2 ×4 / USB 3.0 ×2 / UHS-II カードリーダー" },
+        { "@type": "PropertyValue", "name": "電源", "value": "500W 80+ Platinum PSU 内蔵" },
+        { "@type": "PropertyValue", "name": "外形・容積", "value": "270.5 × 126 × 249 mm（8.48L）" },
+        { "@type": "PropertyValue", "name": "対応OS", "value": "Windows 11" }
+      ]
+    },
+    {
+      "@type": ["Article", "TechArticle"],
+      "@id": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/#article",
+      "headline": "ZOTAC ZBOX MAGNUS ONE EU275070C ベンチマークレビュー（GeForce RTX 5070 / Core Ultra 7 265）",
+      "alternativeHeadline": "同じ MAGNUS ONE の AMD版 5070・RTX 5060 Ti との差と、Intel デスクトップ構成の安定性を実測で読み解く",
+      "description": "RTX 5070 12GB とデスクトップ版 Core Ultra 7 265 を搭載するミニPC ZBOX MAGNUS ONE EU275070C を、3DMark・Cinebench・Blender・Procyon・ComfyUI で実測したレポート。",
+      "image": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/ogp.jpg",
+      "datePublished": "2026-07-03",
+      "dateModified": "2026-07-03",
+      "author": { "@id": "https://zotac.co.jp/#organization" },
+      "publisher": { "@id": "https://zotac.co.jp/#organization" },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/" },
+      "about": { "@id": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/#product" },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://hub.zotac.co.jp/" },
+        { "@type": "ListItem", "position": 2, "name": "Reviews", "item": "https://hub.zotac.co.jp/reviews/" },
+        { "@type": "ListItem", "position": 3, "name": "ZBOX MAGNUS ONE EU275070C ベンチマークレビュー" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ZBOX MAGNUS ONE EU275070C（RTX 5070）の3D／ゲーム性能はどのくらいですか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "3DMark Time Spy Extreme 10,562 / Speed Way 5,827 / Steel Nomad 5,283（いずれも3回計測の中央値）。同じ MAGNUS ONE の RTX 5060 Ti を約38〜46%上回り、比較した MAGNUS 系のなかでは 5070 Ti に次ぐ上位（同じ RTX 5070 の AMD版とほぼ同水準）です。3D系の複数回計測でのばらつきは cv 1%未満と安定しています。" }
+        },
+        {
+          "@type": "Question",
+          "name": "Intel版（EU275070C）とAMD版（ER98N5070C）の RTX 5070 はどう違いますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "GPU性能はほぼ同等です（3DMark（グラフィックス性能）・GPUレンダリング・AIで本機がわずかに上、いずれも数%以内）。差が出るのは CPU で、Core Ultra 7 265 は Cinebench 2026 CPU 5,760 pts・複数回計測でのばらつき cv 0.17% と、AMD版の Ryzen 9 9850HX（5,286 pts・cv 8.09%）より約9%高く、かつ大幅に安定しています。一方 Procyon Photo のみ AMD版（9,882）が本機（9,195）を約7%上回りました。" }
+        },
+        {
+          "@type": "Question",
+          "name": "ローカルの画像生成AI（Stable Diffusion）に使えますか？12GB VRAM の位置づけは？",
+          "acceptedAnswer": { "@type": "Answer", "text": "画像生成AI「Stable Diffusion（SDXL）」を ComfyUI で実測すると、1024×1024 / 30ステップで 9.05 秒／枚（6.63 枚／分）、Hires.Fix（1024→1536）で 28.29 秒／枚でした。RTX 5060 Ti（12.08 秒／枚）より約25%高速です。ただし VRAM は 12GB（192-bit GDDR7）で、容量では 16GB の RTX 5060 Ti を下回ります。生成速度を重視するなら本機、大規模モデルや高解像度バッチで VRAM 容量を重視するなら 16GB の 5060 Ti が選択肢になります。" }
+        },
+        {
+          "@type": "Question",
+          "name": "CPU性能とどんな業務に向いていますか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "Core Ultra 7 265（20コア / 20スレッド / Arrow Lake / デスクトップ LGA1851）は Cinebench 2026 CPU で 5,760 pts、複数回計測でのばらつきは cv 0.17% と非常に安定しています。前世代EN機の Core i7-13700HX（3,645 pts）を約58%上回ります。デスクトップ部品構成で、最新世代GPUと20コアCPUを安定して回したい SIer・可視化・制作補完・ローカルAI用途に向きます。" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --yellow:#FFD400;
+    --yellow-soft:rgba(255,212,0,.14);
+    --dark:#2A2D2F;
+    --ink:#2A2D2F;
+    --ink-mid:#6D6E71;
+    --ink-light:#9A9C9E;
+    --bg:#FFFFFF;
+    --bg-subtle:#FAFAFA;
+    --bg-soft:#F4F4F3;
+    --line:#E6E6E4;
+    --line-strong:#C9CACB;
+    --font:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+    --max:780px;
+    --pad:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit}
+
+  /* ===== Site Header (hub.zotac.co.jp 共通ヘッダー / 正本) ===== */
+  .site-header{position:sticky;top:0;z-index:200;background:#2A2D2F;border-bottom:3px solid #FFD400;padding:16px 0;line-height:1.55}
+  .site-header-inner{max-width:1200px;margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+  @media (max-width:700px){.site-header-inner{padding:0 24px}}
+  .site-logo{display:flex;align-items:center;gap:16px;text-decoration:none;border:none}
+  .site-logo img{height:22px;width:auto;display:block}
+  .logo-divider{color:#B1B3B6;font-family:'JetBrains Mono',monospace;font-weight:300;font-size:16px}
+  .logo-url{font-family:'JetBrains Mono',monospace;font-size:12px;color:#B1B3B6;letter-spacing:.05em}
+  .logo-url .host-hub{color:#FFD400;font-weight:500}
+  .site-nav{display:flex;gap:22px;align-items:center}
+  .site-nav a{text-decoration:none;color:#fff;font-size:13px;font-weight:500;position:relative;padding:4px 0;display:inline-flex;align-items:center;gap:6px;border:none}
+  .site-nav a.is-active{color:#FFD400}
+  .site-nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#FFD400;transform:scaleX(0);transform-origin:left;transition:transform .2s}
+  .site-nav a:hover::after,.site-nav a.is-active::after{transform:scaleX(1)}
+  @media (max-width:1100px){.site-nav{gap:16px}}
+  @media (max-width:1000px){.site-nav a{font-size:12px}}
+  .nav-mobile{display:none;align-items:center;gap:12px}
+  .nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer}
+  .nav-toggle:hover{border-color:#FFD400}
+  .nav-toggle-bar{display:block;width:100%;height:2px;background:#fff;transition:transform .2s,opacity .2s}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  @media (max-width:900px){
+    .nav-mobile{display:flex}
+    .site-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#2A2D2F;border-bottom:3px solid #FFD400;box-shadow:0 14px 28px rgba(0,0,0,.35);padding:6px 0}
+    .site-nav.is-open{display:flex}
+    .site-nav a{width:100%;padding:14px 24px;font-size:15px}
+    .site-nav a + a{border-top:1px solid rgba(255,255,255,.08)}
+    .site-nav a::after{display:none}
+  }
+  @media (max-width:600px){.logo-divider,.logo-url{display:none}}
+  .site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700}
+  .site-nav a.nav-cta:hover{background:#f2c800}
+  .site-nav a.nav-cta::after{display:none!important}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+  section{padding:46px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:none}
+
+  .hero{padding:40px 0 30px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mid);display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:3px;background:var(--yellow);display:inline-block}
+  h1{font-weight:900;font-size:clamp(27px,5vw,42px);line-height:1.28;margin:16px 0 14px;letter-spacing:.01em;word-break:keep-all}
+  h1 .hl{background:linear-gradient(transparent 62%,var(--yellow) 62%)}
+  h1 .h1-sub{display:block;margin-top:12px;font-size:.56em;font-weight:700;line-height:1.55;color:#3c3f41;letter-spacing:.01em}
+  .lead{font-size:17px;color:#3c3f41;margin-bottom:22px}
+  .hero-fig{margin:24px 0 6px;background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .hero-fig img{width:100%}
+  figure{margin:22px 0}
+  figcaption{font-size:12.5px;color:var(--ink-mid);margin-top:8px;font-family:var(--mono)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+  .chip{font-family:var(--mono);font-size:12.5px;background:var(--dark);color:#fff;padding:6px 11px;border-radius:5px;letter-spacing:.02em}
+  .chip b{color:var(--yellow)}
+
+  .tldr{background:var(--bg-subtle);border:1px solid var(--line);border-left:5px solid var(--yellow);border-radius:6px;padding:22px 24px;margin:8px 0}
+  .tldr h2{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);font-family:var(--mono);margin-bottom:12px}
+  .tldr ul{list-style:none}
+  .tldr li{padding:7px 0 7px 26px;position:relative;border-top:1px dashed var(--line)}
+  .tldr li:first-child{border-top:none}
+  .tldr li::before{content:"";position:absolute;left:2px;top:15px;width:9px;height:9px;background:var(--yellow);border-radius:2px;transform:rotate(45deg)}
+  .num{font-family:var(--mono);font-weight:700}
+
+  h2.sec{font-weight:900;font-size:clamp(20px,3.4vw,27px);line-height:1.35;margin-bottom:6px;letter-spacing:.01em}
+  .sec-no{font-family:var(--mono);font-size:12px;color:var(--yellow);font-weight:700;letter-spacing:.14em;background:var(--dark);padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:14px}
+  h3{font-weight:700;font-size:18px;margin:30px 0 10px}
+  p{margin:13px 0}
+  .muted{color:var(--ink-mid)}
+  strong.key{background:var(--yellow-soft);padding:1px 4px;border-radius:3px;font-weight:700}
+
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--dark);color:#fff;font-size:12.5px;letter-spacing:.04em;border-bottom:none}
+  .spec th{width:34%;background:var(--bg-soft);font-weight:700;color:#3c3f41}
+  td.mono,th.mono{font-family:var(--mono)}
+  tbody tr:hover{background:var(--bg-subtle)}
+  .cmp td{font-size:13.5px}
+  .cmp td.mono{font-family:var(--mono);font-size:13px}
+  .cmp tr.me-row td{background:var(--yellow-soft)}
+  .cmp tr.me-row td:first-child{border-left:3px solid var(--yellow);font-weight:700}
+  .data td{font-family:var(--mono);font-size:13.5px}
+  .data td:first-child{font-family:var(--font);font-weight:500}
+  .data .me{background:var(--yellow-soft);font-weight:700}
+  .data tr.me-row td:first-child{border-left:3px solid var(--yellow)}
+  .na{color:var(--ink-light)}
+
+  /* results appendix table */
+  .tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:8px;-webkit-overflow-scrolling:touch}
+  .results{width:100%;min-width:720px;border-collapse:collapse;font-size:13px;margin:0}
+  .results th,.results td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+  .results thead th{background:var(--dark);color:#fff;vertical-align:bottom;font-size:12px;line-height:1.3;font-weight:700}
+  .results thead th .s{display:block;font-family:var(--mono);font-size:10px;font-weight:400;color:#c9cacb}
+  .results thead th.me{background:#34383a;border-bottom:3px solid var(--yellow)}
+  .results thead th.me .s{color:var(--yellow)}
+  .results th.test{text-align:left;background:var(--dark)}
+  .results tbody th{text-align:left;background:var(--bg-soft);font-weight:600;font-family:var(--font);white-space:normal}
+  .results tbody th .u{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--ink-mid)}
+  .results tbody td{font-family:var(--mono)}
+  .results tbody td.me{background:var(--yellow-soft);font-weight:700}
+  .results .bad{color:var(--ink-light);font-family:var(--font);font-size:12px}
+
+  .chart{margin:20px 0 8px}
+  .chart .ttl{font-weight:700;font-size:15px;margin-bottom:3px}
+  .chart .unit{font-family:var(--mono);font-size:11.5px;color:var(--ink-mid);margin-bottom:12px}
+  .row{display:grid;grid-template-columns:166px 1fr;align-items:center;gap:10px;margin:7px 0}
+  .row .lab{font-size:12.5px;text-align:right;color:#3c3f41;line-height:1.25}
+  .row .lab small{display:block;color:var(--ink-light);font-size:10px;font-family:var(--mono);margin-top:1px}
+  .track{background:var(--bg-soft);border-radius:4px;overflow:hidden;height:32px;position:relative}
+  .fill{height:100%;background:linear-gradient(90deg,#3a3e40,#55595b);border-radius:4px;display:flex;align-items:center;justify-content:flex-end;min-width:46px}
+  .fill .v{font-family:var(--mono);font-weight:700;font-size:12.5px;color:#fff;padding:0 9px;white-space:nowrap}
+  .row.me .fill{background:linear-gradient(90deg,#E6BE00,var(--yellow))}
+  .row.me .fill .v{color:var(--dark)}
+  .row.me .lab{font-weight:700;color:var(--ink)}
+  .fill.fail{background:repeating-linear-gradient(45deg,#eee,#eee 6px,#e3e3e3 6px,#e3e3e3 12px);min-width:0;width:100%!important}
+  .fill.fail .v{color:var(--ink-light)}
+
+  .note{background:var(--bg-subtle);border:1px solid var(--line);border-radius:6px;padding:16px 18px;margin:20px 0;font-size:14px;color:#3c3f41}
+  .note b{color:var(--ink)}
+  .note .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);display:block;margin-bottom:6px}
+
+  /* placeholder (pending official assets) */
+  .ph{border:2px dashed var(--line-strong);border-radius:8px;background:repeating-linear-gradient(45deg,#fafafa,#fafafa 10px,#f4f4f3 10px,#f4f4f3 20px);color:var(--ink-mid);display:flex;align-items:center;justify-content:center;text-align:center;padding:28px 18px;min-height:120px;font-size:13px;line-height:1.6}
+  .ph .pin{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-light);display:block;margin-bottom:6px}
+
+  /* primer / 用語解説 columns (GPU/CPU とは) */
+  .primer-lead{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin:26px 0 10px;display:flex;align-items:center;gap:9px}
+  .primer-lead::before{content:"";width:22px;height:3px;background:var(--yellow);display:inline-block}
+  .primer{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 6px}
+  .primer .card{border:1px solid var(--line);border-top:3px solid var(--yellow);border-radius:8px;background:var(--bg-subtle);padding:15px 18px}
+  .primer .card h4{font-size:15.5px;font-weight:900;margin:0 0 9px;display:flex;align-items:baseline;gap:9px;line-height:1.3}
+  .primer .card h4 .k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--dark);background:var(--yellow);padding:2px 8px;border-radius:4px;flex:none}
+  .primer .card p{font-size:13px;line-height:1.78;margin:0;color:#3c3f41}
+  .primer .card p+p{margin-top:8px}
+  .primer .card b{color:var(--ink)}
+  .primer .card .tl{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--dark);background:var(--bg-soft);border:1px solid var(--line-strong);padding:1px 6px;border-radius:3px;margin-right:7px}
+  @media(max-width:560px){.primer{grid-template-columns:1fr}}
+
+  /* lineup positioning */
+  .lineup{display:flex;flex-direction:column;gap:10px;margin:14px 0 6px}
+  .lu{border:1px solid var(--line);border-left:4px solid var(--line-strong);border-radius:6px;padding:12px 16px;font-size:14px;line-height:1.7}
+  .lu b{font-weight:700;color:var(--ink)}
+  .lu .ttl{display:block;font-weight:700;color:var(--ink);margin-bottom:2px}
+  .lu span.d{color:#3c3f41}
+  .lu.me{border-left-color:var(--yellow);background:var(--yellow-soft)}
+
+  /* CTA */
+  .cta{display:inline-block;background:var(--yellow);color:var(--dark);font-weight:700;font-size:14.5px;text-decoration:none;padding:12px 22px;border-radius:6px;letter-spacing:.02em;border:1px solid #E6BE00}
+  .cta:hover{filter:brightness(.95)}
+  /* product action row: sales button (.cta) + catalog/secondary text link (.txtlink) */
+  .buyrow{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin:18px 0 4px}
+  .buyrow.center{justify-content:center;text-align:center}
+  .txtlink{display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong)}
+  .txtlink:hover{text-decoration-color:var(--yellow)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+  .grid2 figure{margin:0}
+  .grid2 .cell{background:var(--bg-soft);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .grid2 .cell.shot{background:#fff;padding:12px;display:flex;align-items:flex-start;justify-content:center}
+  .grid2 .cell.shot img{border:1px solid var(--line);border-radius:3px;width:auto;max-width:100%}
+  @media(max-width:560px){.grid2{grid-template-columns:1fr}.row{grid-template-columns:120px 1fr}}
+
+  details{border:1px solid var(--line);border-radius:6px;margin:10px 0;overflow:hidden;background:var(--bg-subtle)}
+  summary{cursor:pointer;padding:15px 18px;font-weight:700;font-size:15px;list-style:none;position:relative;padding-right:44px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:18px;top:13px;font-family:var(--mono);font-size:20px;color:var(--yellow);font-weight:700}
+  details[open] summary::after{content:"–"}
+  details .a{padding:0 18px 16px;font-size:14.5px;color:#3c3f41}
+
+  .verdict{background:var(--dark);color:#ececed;border-radius:8px;padding:28px 26px;margin:18px 0}
+  .verdict h3{color:#fff;margin-top:0}
+  .verdict .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+  .verdict h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .verdict .fit h4{color:var(--yellow)}
+  .verdict .unfit h4{color:#c9cacb}
+  .verdict ul{list-style:none;font-size:14px}
+  .verdict li{padding:5px 0 5px 20px;position:relative;color:#d6d7d8}
+  .verdict li::before{content:"›";position:absolute;left:2px;color:var(--yellow);font-weight:700}
+  @media(max-width:560px){.verdict .cols{grid-template-columns:1fr}}
+
+  footer{background:var(--dark);color:#b9babb;font-size:12.5px;padding:34px var(--pad);margin-top:40px}
+  footer .inner{max-width:var(--max);margin:0 auto}
+  footer .meta{font-family:var(--mono);font-size:11.5px;line-height:1.9;color:#9a9c9e}
+  footer b{color:#fff}
+  footer .disc{margin-top:16px;padding-top:16px;border-top:1px solid #44484a}
+  /* image lightbox (click to enlarge in overlay) */
+  main img{cursor:zoom-in}
+  .lightbox{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(22,23,25,.93);padding:28px;cursor:zoom-out;opacity:0;transition:opacity .18s ease}
+  .lightbox.open{display:flex;opacity:1}
+  .lightbox img{max-width:92vw;max-height:84vh;width:auto;height:auto;border-radius:6px;box-shadow:0 24px 70px rgba(0,0,0,.55);background:#fff;cursor:zoom-out}
+  .lightbox figcaption{max-width:760px;color:#d6d7d8;font-size:13px;line-height:1.6;text-align:center;font-family:var(--font)}
+  .lb-close{position:fixed;top:16px;right:20px;width:42px;height:42px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:24px;line-height:1;border-radius:6px;cursor:pointer}
+  .lb-close:hover{border-color:var(--yellow);color:var(--yellow)}
+</style>
+</head>
+<body>
+<!-- @partial:header START — 編集は _partials/header.html、反映は python _partials/inject.py -->
+<style>
+/* === ZOTAC hub 共通ヘッダー（自己完結・単一ソース）=======================
+   正本はこのファイルだけ。ダーク／幅1100px。ページ側CSS(.wrap/.container)に
+   一切依存しないよう、ヘッダー専用CSSを同梱し色はリテラル固定。
+   反映: 手書きHTML = python _partials/inject.py ／ 生成HTML = build_*.py。
+   is-active は注入側がページ階層に応じて自動付与（ここでは付けない）。 */
+.site-header{position:sticky;top:0;z-index:100;background:#2A2D2F;border-bottom:3px solid #FFD400;padding:16px 0;line-height:1.5;}
+.site-header,.site-header *{box-sizing:border-box;}
+.site-header .site-header-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;}
+.site-header .site-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.site-header .site-logo img{height:22px;width:auto;}
+.site-header .logo-divider{color:#B1B3B6;font-family:'JetBrains Mono',monospace;font-weight:300;font-size:15px;}
+.site-header .logo-url{font-family:'JetBrains Mono',monospace;font-size:11px;color:#B1B3B6;letter-spacing:.05em;white-space:nowrap;}
+.site-header .logo-url .host-hub{color:#FFD400;font-weight:500;}
+.site-header .site-nav{display:flex;gap:20px;align-items:center;}
+.site-header .site-nav a{text-decoration:none;color:#fff;font-size:13px;font-weight:500;position:relative;padding:4px 0;display:inline-flex;align-items:center;gap:6px;border:none;}
+.site-header .site-nav a.is-active{color:#FFD400;}
+.site-header .site-nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#FFD400;transform:scaleX(0);transform-origin:left;transition:transform .2s;}
+.site-header .site-nav a:hover::after,.site-header .site-nav a.is-active::after{transform:scaleX(1);}
+.site-header .site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700;}
+.site-header .site-nav a.nav-cta:hover{background:#f2c800;}
+.site-header .site-nav a.nav-cta::after{display:none!important;}
+.site-header .nav-mobile{display:none;align-items:center;gap:12px;}
+.site-header .nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer;}
+.site-header .nav-toggle:hover{border-color:#FFD400;}
+.site-header .nav-toggle-bar{display:block;width:100%;height:2px;background:#fff;transition:transform .2s,opacity .2s;}
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0;}
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media (max-width:1100px){.site-header .site-nav{gap:15px;}}
+@media (max-width:900px){
+  .site-header .nav-mobile{display:flex;}
+  .site-header .site-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#2A2D2F;border-bottom:3px solid #FFD400;box-shadow:0 14px 28px rgba(0,0,0,.35);padding:6px 0;z-index:200;}
+  .site-header .site-nav.is-open{display:flex;}
+  .site-header .site-nav a{width:100%;padding:14px 24px;font-size:15px;}
+  .site-header .site-nav a+a{border-top:1px solid rgba(255,255,255,.08);}
+  .site-header .site-nav a::after{display:none;}
+}
+@media (max-width:600px){.site-header .logo-divider,.site-header .logo-url{display:none;}}
+</style>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-logo">
+      <img src="/assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+      <span class="logo-divider">/</span>
+      <span class="logo-url">https://<span class="host-hub">hub</span>.zotac.co.jp</span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="/trial-program/">評価機貸出</a>
+      <a href="/case-studies/">導入事例</a>
+      <a href="/reviews/" class="is-active">レビュー</a>
+      <a href="/catalogs/">製品カタログ</a>
+      <a href="/press/">メディア掲載</a>
+      <a href="https://zotac.co.jp/biz-inquiry" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <div class="nav-mobile">
+      <button type="button" class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+<script>
+(function(){
+  var hdr=document.querySelector('header.site-header'); if(!hdr) return;
+  var btn=hdr.querySelector('.nav-toggle'), nav=hdr.querySelector('#site-nav');
+  if(!btn||!nav||btn.dataset.bound) return; btn.dataset.bound='1';
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+})();
+</script>
+<!-- @partial:header END -->
+
+
+<main class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <span class="eyebrow">Benchmark Review — ZBOX MAGNUS ONE</span>
+    <h1>ZBOX MAGNUS ONE <span class="hl">EU275070C</span><span class="h1-sub">デスクトップ Core Ultra 7 × RTX 5070、フルデスクトップ構成</span></h1>
+    <p class="lead">GeForce RTX 5070 12GB と、デスクトップ版 Core Ultra 7 265（20コア）を小型筐体に収めたミニPC「ZBOX MAGNUS ONE EU275070C」。
+      3DMarkによるグラフィックス性能、GPUレンダリング、AI画像生成、CPU性能、写真編集まで、社内計測のベンチマークから
+      同じ MAGNUS ONE の AMD版 5070（同一GPU・CPU違い）との立ち位置、RTX 5060 Ti との性能・VRAM のトレードオフ、そして
+      複数回計測でのばらつき（安定性）を、用途選定の参考となるよう中立に読み解きます。</p>
+
+    <div class="chips">
+      <span class="chip"><b>デスクトップ</b> RTX 5070 12GB</span>
+      <span class="chip"><b>20コア</b> Core Ultra 7 265</span>
+      <span class="chip"><b>8.48L</b> 超コンパクト</span>
+      <span class="chip">500W <b>内蔵電源</b></span>
+      <span class="chip"><b>Thunderbolt 4</b> / Dual LAN</span>
+      <span class="chip"><b>5GbE</b> / Wi-Fi 7</span>
+    </div>
+
+    <figure class="hero-fig">
+      <img src="images/keyvisual-1920x580.jpg" alt="ZOTAC ZBOX MAGNUS ONE EU275070C 公式キービジュアル — POWER EVOLVED / THE WORLD'S SMALLEST SFF PC / デスクトップ GeForce RTX 5070 と Core Ultra 7 265 を収めた 8.48L ミニPC">
+    </figure>
+    <figcaption>ZOTAC ZBOX MAGNUS ONE EU275070C — デスクトップ版 GeForce RTX 5070 とデスクトップ版 Core Ultra 7 265 を収めた 8.48L のミニPC。（ZOTAC 公式キービジュアル）</figcaption>
+  </section>
+
+  <!-- ============ TL;DR ============ -->
+  <section>
+    <div class="tldr">
+      <h2>実測サマリー（3行）</h2>
+      <ul>
+        <li>3DMark（グラフィックス性能）およびGPUレンダリングで <b>RTX 5060 Ti を約38〜46%引き離し、比較した MAGNUS 系のなかで最上位クラス</b>（Speed Way <span class="num">5,827</span> / Steel Nomad <span class="num">5,283</span> / Time Spy Extreme <span class="num">10,562</span>、Blender <span class="num">6,010</span>＝比較した中でトップ）。複数回計測でのばらつきは 3DMark・GPUレンダリングとも <b>cv 1%未満</b>。</li>
+        <li><b>同じ RTX 5070 の AMD版（ER98N5070C）とGPUはほぼ互角</b>。差は CPU に出て、Core Ultra 7 265 は Cinebench CPU <span class="num">5,760</span> pts・<b>cv 0.17%</b>（AMD版 Ryzen 9 9850HX は 5,286・cv 8.09%）。<b>約+9%かつ桁違いに安定</b>。</li>
+        <li><b>AI＝ComfyUI SDXL <span class="num">9.05</span> 秒/枚</b>（5060 Ti より約25%高速）。ただし VRAM は <b>12GB</b> で、容量重視なら 16GB の 5060 Ti が候補。テスト構成: メモリ32GB・電源プラン＝高パフォーマンス。</li>
+      </ul>
+    </div>
+    <div class="buyrow">
+      <a class="cta" href="https://zotac.co.jp/product/magnus-one-eu275070c/" target="_blank" rel="noopener">ZOTAC 直販ストアで購入 →</a>
+      <a class="txtlink" href="https://hub.zotac.co.jp/catalogs/zbox/eu275070c/">製品カタログで全仕様を見る →</a>
+    </div>
+  </section>
+
+  <!-- ============ 製品概要 ============ -->
+  <section>
+    <span class="sec-no">01 / 概要</span>
+    <h2 class="sec">小型筐体に「デスクトップGPU＋デスクトップCPU」を収めた MAGNUS ONE</h2>
+    <p>ZBOX MAGNUS ONE EU275070C は、ZOTAC のミニPC「ZBOX MAGNUS ONE」シリーズのうち、GeForce
+      RTX 5070 12GB（Blackwell 世代 / DLSS 4）と Intel Core Ultra 7 265（20コア）を組み合わせたモデルです。
+      MAGNUS ONE は、デスクトップ級のGPUを小型筐体に収めたシリーズです。本機（EU275070C）は PCIe 5.0 x16 のデスクトップGPUカード（RTX 5070）に
+      ソケット式のデスクトップCPU（Core Ultra 7 265 / Socket 1851 LGA）を組み合わせた、Intel デスクトップ構成です。
+      同じ MAGNUS ONE でも、AMD版（ER98N5070C）はモバイルの Ryzen 9 9850HX を採用しており、<b>GPU はどちらも同じデスクトップ RTX 5070</b>・<b>CPU だけがデスクトップ（本機）かモバイル（AMD版）か</b>という違いになります。</p>
+    <p>本機はベアボーン構成で、メモリ・ストレージは導入側で選定できます（本レビューのテスト機は 32GB DDR5-5600 ＋ 1TB NVMe SSD）。
+      CPU・GPU ともデスクトップ部品のため、世代をまたいだ保守・更新や、用途に合わせた構成の組み替えがしやすいのが本機の構成上の利点です。
+      筐体は 8.48L（270.5 × 126 × 249 mm）で、500W 80+ Platinum 電源を内蔵（外部ACアダプター不要）。<b>デスクトップ版 GeForce RTX 5070 を搭載するミニPCとしては世界最小クラス</b>の高性能機で、一般的なミニPC（NUC型など）より一回り大きいものの、単体（デスクトップ）GPUを積めるミニPCの最上位クラスにあたります。</p>
+
+    <div class="primer-lead">搭載するGPU・CPUの基礎知識</div>
+    <div class="primer">
+      <div class="card">
+        <h4><span class="k">GPU</span>GeForce RTX 5070 とは</h4>
+        <p>NVIDIA の最新世代「Blackwell」（RTX 50 シリーズ）のデスクトップ向けGPU。本機の搭載モデルは VRAM <b>12GB（GDDR7 / 192-bit）</b>。前世代から、より高速な <b>GDDR7</b> メモリ、フレーム生成を強化した <b>DLSS 4</b>、新世代のレイトレ／AI（Tensor）ユニットへ更新された世代です。</p>
+        <p><span class="tl">ポイント</span>ゲームに加えて<b>ローカルでのAI画像生成・推論</b>の需要が広がり、描画性能だけでなく <b>VRAM容量</b>（扱えるモデル規模・解像度）が重視されるようになっています。RTX 5070 は、ゲーム・GPUレンダ・ローカルAIを1台でこなせるミドルハイ帯のGPUです。</p>
+      </div>
+      <div class="card">
+        <h4><span class="k">CPU</span>Core Ultra 7 265 とは</h4>
+        <p>Intel の最新世代「Core Ultra（シリーズ2 / Arrow Lake）」のデスクトップ向けCPU。高性能Pコア8＋高効率Eコア12 の <b>20コア / 20スレッド</b>、最大約5.3GHz、ソケット式 <b>LGA1851</b>。前世代までの Hyper-Threading を採用せず、物理コア重視へ切り替わった世代です。</p>
+        <p><span class="tl">ポイント</span>機能ブロックを分けた<b>「タイル（チップレット）」構成</b>と、AI処理用ユニット（NPU）を備える<b>「AI PC」世代</b>。電力効率を重視しつつ、デスクトップ向けはソケット式で単体換装・保守がしやすいのが特徴です。</p>
+      </div>
+    </div>
+
+    <figure style="background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;padding:14px">
+      <img src="images/product-34.jpg" alt="ZOTAC ZBOX MAGNUS ONE EU275070C ミニPC本体（前面3/4・ハニカムメッシュ天板）">
+      <figcaption style="padding-top:10px">ZBOX MAGNUS ONE EU275070C 本体 — 8.48L 筐体（ハニカムメッシュ天板・側面吸気）。（ZOTAC 製品写真）</figcaption>
+    </figure>
+
+    <h3>実機のハードウェア確認（GPU-Z / CPU-Z）</h3>
+    <p>テスト機の構成を GPU-Z・CPU-Z のメイン画面で確認します。GPU は ZOTAC GAMING GeForce RTX 5070（12GB GDDR7 / 192-bit / GB205 / Blackwell）、CPU は Core Ultra 7 265（20スレッド / Arrow Lake / Socket 1851 LGA）。
+      GPU-Z 読みで Boost 2,512MHz・PCIe 5.0 x16・Resizable BAR 有効、CPU-Z 読みで 8P＋12E（20スレッド）・最大 5.3GHz（53倍）と、いずれもカタログ仕様どおりの個体です。</p>
+    <div class="grid2">
+      <figure class="cell shot"><img src="images/gpuz-rtx5070.gif" alt="GPU-Z メイン画面: GeForce RTX 5070 / GB205 / 12288MB GDDR7 / 192bit / Boost 2512MHz / PCIe 5.0 x16"></figure>
+      <figure class="cell shot"><img src="images/cpuz-ultra7-265.png" alt="CPU-Z メイン画面: Intel Core Ultra 7 265 / Arrow Lake / Socket 1851 LGA / 8P+12E 20スレッド"></figure>
+    </div>
+    <figcaption>左: GPU-Z（GeForce RTX 5070 / 12GB GDDR7 / 192-bit）。右: CPU-Z（Core Ultra 7 265 / デスクトップ Arrow Lake / 20スレッド）。詳細は各スクリーンショットを参照。</figcaption>
+  </section>
+
+  <!-- ============ テスト環境 ============ -->
+  <section>
+    <span class="sec-no">02 / テスト環境</span>
+    <h2 class="sec">テスト環境・比較機材・計測方法</h2>
+
+    <h3>テスト構成（実機計測）</h3>
+    <table class="spec">
+      <tbody>
+        <tr><th>製品 / SKU</th><td>ZOTAC ZBOX MAGNUS ONE <b>EU275070C</b>（MAGNUS ONE / Windows）</td></tr>
+        <tr><th>GPU</th><td class="mono">ZOTAC GAMING GeForce RTX 5070 12GB（GDDR7・192bit / Blackwell / GB205）</td></tr>
+        <tr><th>GPUドライバー</th><td class="mono">NVIDIA GeForce 610.47（WHQL）<span class="muted">／ Boost 2,512MHz・PCIe x16 5.0 は GPU-Z（§01）参照</span></td></tr>
+        <tr><th>CPU</th><td class="mono">Intel Core Ultra 7 265（20C / 20T・Arrow Lake / Socket 1851 LGA）</td></tr>
+        <tr><th>メモリ（テスト構成）</th><td class="mono">32GB DDR5-5600（16GB×2）</td></tr>
+        <tr><th>ストレージ</th><td class="mono">Crucial P3 1TB NVMe（CT1000P3PSSD8）ほか</td></tr>
+        <tr><th>OS</th><td class="mono">Windows 11 Home 25H2（Build 26200）</td></tr>
+        <tr><th>電源プラン</th><td class="mono">高パフォーマンス</td></tr>
+        <tr><th>計測日</th><td class="mono">2026-06-25</td></tr>
+      </tbody>
+    </table>
+
+    <h3>製品仕様（カタログ / EU275070C）</h3>
+    <table class="spec">
+      <tbody>
+        <tr><th>グラフィックス</th><td>ZOTAC GAMING GeForce RTX 5070<br><span class="muted" style="font-size:13px">12GB GDDR7 / 192-bit / Blackwell / DLSS 4（PCIe 5.0 x16）</span></td></tr>
+        <tr><th>プロセッサー</th><td>Intel Core Ultra 7 265（デスクトップ）<br><span class="muted" style="font-size:13px">20コア / 20スレッド / 2.4–5.3GHz / Arrow Lake / Socket 1851 LGA</span></td></tr>
+        <tr><th>メモリー</th><td class="mono">2 × DDR5-6400 CSODIMM / 5600 SO-DIMM（最大96GB）</td></tr>
+        <tr><th>ストレージ</th><td class="mono">1 × M.2 NVMe PCIe 5.0 ×4 ＋ 1 × M.2 NVMe PCIe 4.0 ×4 ＋ 1 × 2.5インチ SATA III</td></tr>
+        <tr><th>映像出力</th><td class="mono">3 × DisplayPort 2.1b（UHBR20）＋ 1 × HDMI（最大4画面クローン / 6画面拡張）</td></tr>
+        <tr><th>ネットワーク</th><td class="mono">5GbE ＋ Gigabit Ethernet（Dual LAN）／ Wi-Fi 7（802.11be）/ Bluetooth 5.4</td></tr>
+        <tr><th>前面 I/O</th><td class="mono">UHS-II 3-in-1 カードリーダー ／ 2 × USB 3.0（1 × Type-C）</td></tr>
+        <tr><th>背面 I/O</th><td class="mono">1 × Thunderbolt 4 ／ 4 × USB 3.2 Gen2 ＋ 2 × USB 3.0 ／ デュアル Wi-Fi アンテナ</td></tr>
+        <tr><th>電源</th><td class="mono">500W 80+ Platinum PSU 内蔵</td></tr>
+        <tr><th>外形・容積</th><td class="mono">270.5 × 126 × 249 mm（8.48L）／ ツールレスアクセス</td></tr>
+        <tr><th>対応OS</th><td class="mono">Windows 11</td></tr>
+      </tbody>
+    </table>
+    <p class="buyrow" style="margin:16px 0 4px"><a class="txtlink" href="https://hub.zotac.co.jp/catalogs/zbox/eu275070c/">製品カタログで全仕様を見る（ZBOX MAGNUS ONE EU275070C）→</a><a class="txtlink" href="https://zotac.co.jp/product/magnus-one-eu275070c/" target="_blank" rel="noopener">ZOTAC 直販ストア →</a></p>
+
+    <h3>比較機材（すべて ZBOX MAGNUS 系）</h3>
+    <p>公平性のため、比較は同じ <b>ZBOX MAGNUS</b> 系の実機に限定しています。最上位の参考として <b>RTX 5070 Ti（EU27507TC）</b> を併載し、同じ RTX 5070 が <b>Intel版（本機）と AMD版</b>の2台、RTX 4070 も <b>Desktop（ERP74070C）と Laptop（EN374070C）</b>の2台あるため、表記は <b>GPU＋CPU</b>で区別します。各機は出荷時の代表構成で計測しました。</p>
+    <table class="cmp">
+      <thead><tr><th>本記事の表記</th><th>モデル</th><th>SKU</th><th>CPU</th></tr></thead>
+      <tbody>
+        <tr><td>RTX 5070 Ti</td><td>MAGNUS ONE</td><td class="mono">EU27507TC</td><td>Core Ultra 7 265</td></tr>
+        <tr class="me-row"><td>RTX 5070（本機 / Intel）</td><td>MAGNUS ONE</td><td class="mono">EU275070C</td><td>Core Ultra 7 265</td></tr>
+        <tr><td>RTX 5070（AMD）</td><td>MAGNUS ONE</td><td class="mono">ER98N5070C</td><td>Ryzen 9 9850HX</td></tr>
+        <tr><td>RTX 5060 Ti</td><td>MAGNUS EN</td><td class="mono">EN275060TC</td><td>Core Ultra 7 255HX</td></tr>
+        <tr><td>RTX 4070 Desktop</td><td>MAGNUS ONE（前世代）</td><td class="mono">ERP74070C</td><td>Core i7-13700</td></tr>
+        <tr><td>RTX 4070 Laptop</td><td>MAGNUS EN（前世代）</td><td class="mono">EN374070C</td><td>Core i7-13700HX</td></tr>
+      </tbody>
+    </table>
+
+    <h3>MAGNUS ラインナップでの位置づけ</h3>
+    <div class="lineup">
+      <div class="lu me"><span class="ttl">MAGNUS ONE（本機 RTX 5070）</span><span class="d">デスクトップ級のGPUを小型筐体に収めたシリーズ。<b>デスクトップ版CPU（ソケット式）＋デスクトップGPUカード</b>を採用し、サイズと拡張性・性能・保守性のバランスを採る上位構成。本機はその中で RTX 5070＋Core Ultra 7 265 の Intel 構成。</span></div>
+      <div class="lu"><span class="ttl">MAGNUS EN（RTX 5060 Ti・前世代 4070 Laptop）</span><span class="d">2.65L という非常にコンパクトな筐体に、モバイルCPU×デスクトップGPUを収めた高密度ミニPC。サイズを最優先したシリーズ。</span></div>
+    </div>
+
+    <div class="note">
+      <span class="tag">計測方法</span>
+      数値は社内のベンチマーク自動化環境による実測の<b>中央値</b>（原則複数回、一部1回）。電源プランは <b>高パフォーマンス</b> で計測しています。
+      グラフは単位と方向（高いほど良い／短いほど良い）のみ併記。ComfyUI は NVIDIA 環境のみ対象です。
+    </div>
+  </section>
+
+  <!-- ============ 合成3D ============ -->
+  <section>
+    <span class="sec-no">03 / 3DMark</span>
+    <h2 class="sec">3DMark（グラフィックス性能）— 5060 Ti を約4割上回り、RTX 5070 として上位</h2>
+    <p>DX12 Ultimate／レイトレを含む 3DMark の3テストでは、本機 RTX 5070 は同じ MAGNUS 系の RTX 5060 Ti を
+      <strong class="key">Speed Way +41%・Steel Nomad +46%・Time Spy Extreme +38%</strong> と明確に上回りました。
+      比較した MAGNUS 系のなかでは 5070 Ti に次ぐ上位に位置し、RTX 5070 として順当な実力です。
+      同じ RTX 5070 の <b>AMD版（ER98N5070C）とはほぼ同等</b>（いずれも数%以内）で、GPUが同一であることがそのまま表れています。
+      複数回計測での変動はいずれも <b>cv 1%未満</b>と安定しています。</p>
+
+    <div class="note" style="margin-top:0">
+      <span class="tag">補足</span>
+      3DMarkはDirectX 12 / レイトレーシングを含む標準的なグラフィックス性能テストで、ゲームの描画性能の目安としても広く使われる定番指標です。本レビューでは実際の市販ゲームタイトルでのフレームレート計測は行っていません（クリエイティブ・AI用途中心の検証）。ゲーム用途の性能については別途ゲームタイトルでの確認をおすすめします。
+    </div>
+
+    <div class="chart">
+      <div class="ttl">3DMark Time Spy Extreme</div>
+      <div class="unit">score ／ 高いほど良い</div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">12,501</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265（本機）">EU275070C</small></div><div class="track"><div class="fill" style="width:84.5%"><span class="v">10,562</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（AMD）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX">ER98N5070C</small></div><div class="track"><div class="fill" style="width:82.9%"><span class="v">10,365</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:62.7%"><span class="v">7,833</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:61.4%"><span class="v">7,674</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:44.2%"><span class="v">5,527</span></div></div></div>
+    </div>
+
+    <div class="chart">
+      <div class="ttl">3DMark Speed Way</div>
+      <div class="unit">score ／ 高いほど良い</div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">7,474</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265（本機）">EU275070C</small></div><div class="track"><div class="fill" style="width:78.0%"><span class="v">5,827</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（AMD）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX">ER98N5070C</small></div><div class="track"><div class="fill" style="width:77.2%"><span class="v">5,769</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:60.2%"><span class="v">4,498</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:55.1%"><span class="v">4,119</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:39.5%"><span class="v">2,951</span></div></div></div>
+    </div>
+
+    <div class="chart">
+      <div class="ttl">3DMark Steel Nomad</div>
+      <div class="unit">score ／ 高いほど良い</div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">6,634</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265（本機）">EU275070C</small></div><div class="track"><div class="fill" style="width:79.6%"><span class="v">5,283</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（AMD）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX">ER98N5070C</small></div><div class="track"><div class="fill" style="width:79.2%"><span class="v">5,251</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:60.3%"><span class="v">3,999</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:54.6%"><span class="v">3,620</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:40.1%"><span class="v">2,662</span></div></div></div>
+    </div>
+  </section>
+
+  <!-- ============ レンダリング ============ -->
+  <section>
+    <span class="sec-no">04 / GPUレンダリング</span>
+    <h2 class="sec">GPUレンダリング — Blender は RTX 5070 同士でトップ</h2>
+    <p>GPU レンダリングでも上位クラスのスコアを記録しました。<strong class="key">Cinebench 2026 GPU は 74,746 pts</strong> で RTX 5060 Ti（61,312）を約22%上回り、AMD版 5070（73,744）とはほぼ同水準。
+      <strong class="key">Blender Benchmark（OptiX）は 6,010</strong> と、同じ RTX 5070 のなかで最高値でした（AMD版 5070 の 5,899 が僅差で続き、上位には 5070 Ti の 7,666 があります）。
+      Cinebench GPU・Blender いずれも同じ RTX 5070 の AMD版と数%以内の差で、5070 Ti に次ぐ上位に位置します。</p>
+
+    <div class="chart">
+      <div class="ttl">Cinebench 2026（GPU）</div>
+      <div class="unit">pts ／ 高いほど良い</div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">94,543</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265（本機）">EU275070C</small></div><div class="track"><div class="fill" style="width:79.1%"><span class="v">74,746</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（AMD）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX">ER98N5070C</small></div><div class="track"><div class="fill" style="width:78.0%"><span class="v">73,744</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:72.6%"><span class="v">68,598</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:64.9%"><span class="v">61,312</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:48.3%"><span class="v">45,669</span></div></div></div>
+    </div>
+
+    <div class="chart">
+      <div class="ttl">Blender Benchmark（GPU / OptiX）</div>
+      <div class="unit">samples/min 合算スコア ／ 高いほど良い</div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">7,666</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265（本機）">EU275070C</small></div><div class="track"><div class="fill" style="width:78.4%"><span class="v">6,010</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（AMD）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX">ER98N5070C</small></div><div class="track"><div class="fill" style="width:76.9%"><span class="v">5,899</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:69.4%"><span class="v">5,320</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:56.4%"><span class="v">4,327</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:47.1%"><span class="v">3,608</span></div></div></div>
+    </div>
+
+    <h3>なぜ本機は「デスクトップ部品」構成なのか</h3>
+    <p>本機の要点は、ノート向けではなく デスクトップ版の RTX 5070 と Core Ultra 7 265 をそのまま使う点です。
+      GPU は PCIe 5.0 x16 のフルレーン、CPU は Socket 1851 のソケット実装で、いずれも電力上限・拡張性・保守性の面でデスクトップの利点を引き継ぎます。
+      3DMark（グラフィックス性能）・GPUレンダリングで RTX 5060 Ti（モバイルCPU構成の MAGNUS EN）を大きく上回る背景には、GPUクラスの差に加えてこのプラットフォーム差があります。</p>
+  </section>
+
+  <!-- ============ AI ============ -->
+  <section>
+    <span class="sec-no">05 / 画像生成AI</span>
+    <h2 class="sec">ローカル画像生成AI（Stable Diffusion）— 速度は上位級、VRAMは12GB</h2>
+    <p>画像生成AI「Stable Diffusion（SDXL）」を ComfyUI で実測すると、本機 RTX 5070 は <strong class="key">1024×1024 / 30ステップで 9.05 秒/枚（6.63 枚/分）</strong>、
+      Hires.Fix（1024→1536）で 28.29 秒/枚を記録。RTX 5060 Ti（12.08 / 38.52 秒/枚）より約25%高速で、AMD版 5070（9.09 / 28.76）とはほぼ同等です。</p>
+    <p>注意したいのは VRAM 容量です。本機の RTX 5070 は 12GB（192-bit GDDR7）で、生成<b>速度</b>では 5060 Ti を上回りますが、<b>容量</b>では 16GB の 5060 Ti を下回ります。
+      モデルのロードや高解像度・大バッチで VRAM 容量がボトルネックになる用途では、速度の速い本機より 16GB の 5060 Ti が有利になる場面があります。<b>速度重視なら 5070、容量重視なら 16GB の 5060 Ti</b>、という分かりやすいトレードオフです。</p>
+
+    <div class="chart">
+      <div class="ttl">ComfyUI SDXL（1024×1024 / 30steps）</div>
+      <div class="unit">秒/枚 ／ 短いほど良い</div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:46.7%"><span class="v">7.07</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265（本機）">EU275070C</small></div><div class="track"><div class="fill" style="width:59.7%"><span class="v">9.05</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（AMD）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX">ER98N5070C</small></div><div class="track"><div class="fill" style="width:60.0%"><span class="v">9.09</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:66.5%"><span class="v">10.08</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:79.7%"><span class="v">12.08</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">15.15</span></div></div></div>
+    </div>
+
+    <div class="chart">
+      <div class="ttl">ComfyUI SDXL + Hires.Fix（1024→1536）</div>
+      <div class="unit">秒/枚 ／ 短いほど良い</div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:45.9%"><span class="v">21.97</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265（本機）">EU275070C</small></div><div class="track"><div class="fill" style="width:59.1%"><span class="v">28.29</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（AMD）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX">ER98N5070C</small></div><div class="track"><div class="fill" style="width:60.1%"><span class="v">28.76</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:65.4%"><span class="v">31.32</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:80.4%"><span class="v">38.52</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">47.89</span></div></div></div>
+    </div>
+    <div class="note"><span class="tag">VRAM</span>本機の GPU-Z 読みで <b>12,288MB（12GB）GDDR7・192bit</b>。同じ RTX 5070 でも AMD版とは生成速度がほぼ同じで、生成速度はGPU性能で決まることが分かります。ComfyUI（SDXL）は CUDA（NVIDIA）環境のみが対象です。</div>
+  </section>
+
+  <!-- ============ CPU ============ -->
+  <section>
+    <span class="sec-no">06 / CPU性能</span>
+    <h2 class="sec">CPU性能と安定性 — Core Ultra 7 265 は高く、そして非常に安定</h2>
+    <p>Core Ultra 7 265（20C/20T・デスクトップ Arrow Lake）は <strong class="key">Cinebench 2026 CPU で 5,760 pts</strong>。
+      前世代EN機（EN374070C）の Core i7-13700HX（3,645）を約58%上回り、RTX 5060 Ti の Core Ultra 7 255HX（5,618）も上回りました（同じ Core Ultra 7 265 を積む 5070 Ti 版 5,825 に次ぐ2位）。</p>
+    <p>特筆すべきは安定性です。本機の複数回計測でのばらつきは <strong class="key">cv 0.17%</strong>。同じ RTX 5070 の AMD版（Ryzen 9 9850HX）は性能こそ 5,286 pts と健闘しますが、複数回計測でのばらつきは cv 8.09% と大きく振れます。
+      <b>同じデスクトップ RTX 5070・同じ筐体でも、CPUプラットフォームの違い（本機＝デスクトップ Core Ultra 7 265 ／ AMD版＝モバイル Ryzen 9 9850HX）が「速度（約+9%）」と「再現性（cv 0.17% 対 8.09%）」の両方に表れた</b>形で、B2Bで重視される計測の安定性では本機（Intel構成）が明確に優位でした。</p>
+
+    <div class="chart">
+      <div class="ttl">Cinebench 2026（CPU）</div>
+      <div class="unit">pts ／ 高いほど良い</div>
+      <div class="row"><div class="lab">Core Ultra 7 265（5070 Ti）<small title="MAGNUS ONE EU27507TC ／ RTX 5070 Ti">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">5,825</span></div></div></div>
+      <div class="row me"><div class="lab">Core Ultra 7 265（本機）<small title="MAGNUS ONE EU275070C ／ RTX 5070（本機）">EU275070C</small></div><div class="track"><div class="fill" style="width:98.9%"><span class="v">5,760</span></div></div></div>
+      <div class="row"><div class="lab">Core Ultra 7 255HX<small title="MAGNUS EN275060TC ／ RTX 5060 Ti">EN275060TC</small></div><div class="track"><div class="fill" style="width:96.4%"><span class="v">5,618</span></div></div></div>
+      <div class="row"><div class="lab">Ryzen 9 9850HX<small title="MAGNUS ONE ER98N5070C ／ RTX 5070（AMD）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:90.7%"><span class="v">5,286</span></div></div></div>
+      <div class="row"><div class="lab">Core i7-13700<small title="MAGNUS ONE ERP74070C ／ RTX 4070 Desktop">ERP74070C</small></div><div class="track"><div class="fill" style="width:69.1%"><span class="v">4,024</span></div></div></div>
+      <div class="row"><div class="lab">Core i7-13700HX<small title="MAGNUS EN374070C ／ RTX 4070 Laptop">EN374070C</small></div><div class="track"><div class="fill" style="width:62.6%"><span class="v">3,645</span></div></div></div>
+    </div>
+    <p class="muted" style="font-size:13.5px">※ Cinebench CPU の複数回計測でのばらつき（cv：変動係数 = 標準偏差÷平均×100%）: 本機 Core Ultra 7 265 = 0.17% ／ Core Ultra 7 255HX = 2.58% ／ Ryzen 9 9850HX = 8.09% ／ Core i7-13700HX = 5.48%。値はいずれも3回計測の中央値。</p>
+
+    <p>全コアを長時間使う CPU レンダリングの傾向も、Blender Benchmark を CPU モードで実測して確認しました。本機 Core Ultra 7 265 は <strong class="key">合算 381（3回計測の中央値・cv 0.3%）</strong>。同じ Core Ultra 7 265 を積む 5070 Ti 版（384）とほぼ並び、RTX 5060 Ti の Core Ultra 7 255HX（372）を上回りました。デスクトップ Core i7-13700（252）には約51%の差をつけ、Cinebench と同じ上位の序列を CPU レンダでも示しています。</p>
+
+    <div class="chart">
+      <div class="ttl">Blender Benchmark（CPU）</div>
+      <div class="unit">samples/min 合算スコア ／ 高いほど良い</div>
+      <div class="row"><div class="lab">Core Ultra 7 265（5070 Ti）<small title="MAGNUS ONE EU27507TC ／ RTX 5070 Ti">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">384</span></div></div></div>
+      <div class="row me"><div class="lab">Core Ultra 7 265（本機）<small title="MAGNUS ONE EU275070C ／ RTX 5070（本機）">EU275070C</small></div><div class="track"><div class="fill" style="width:99.0%"><span class="v">381</span></div></div></div>
+      <div class="row"><div class="lab">Core Ultra 7 255HX<small title="MAGNUS EN275060TC ／ RTX 5060 Ti">EN275060TC</small></div><div class="track"><div class="fill" style="width:96.7%"><span class="v">372</span></div></div></div>
+      <div class="row"><div class="lab">Core i7-13700<small title="MAGNUS ONE ERP74070C ／ RTX 4070 Desktop">ERP74070C</small></div><div class="track"><div class="fill" style="width:65.6%"><span class="v">252</span></div></div></div>
+    </div>
+    <p class="muted" style="font-size:13.5px">※ Blender CPU の複数回計測でのばらつき（cv）: 本機 Core Ultra 7 265 = 0.3% ／ Core Ultra 7 265（5070 Ti）= 0.6% ／ Core Ultra 7 255HX = 0.6% ／ Core i7-13700 = 4.1%。値はいずれも3回計測の中央値。AMD版 5070（Ryzen 9 9850HX）・4070 Laptop（i7-13700HX）は Blender CPU を追加計測中で、整い次第この比較に追記します。</p>
+  </section>
+
+  <!-- ============ 写真/オフィス ============ -->
+  <section>
+    <span class="sec-no">07 / クリエイティブ</span>
+    <h2 class="sec">写真編集・オフィス（Procyon）</h2>
+    <p>UL Procyon の写真編集（Photoshop＋Lightroom Classic）で 9,195、
+      オフィス（Essentials）で 4,884（5070 Ti の 4,907 に次ぐ2位）。Essentials は AMD版 5070（4,766）や 5060 Ti（4,430）を上回りました。
+      一方 Photo は AMD版 5070（9,882）が本機を約7%上回ります。Photo は GPU 単体ではなく CPU／メモリ／iGPU を含む複合ワークロードで、構成差が出やすい指標です。</p>
+
+    <div class="chart">
+      <div class="ttl">UL Procyon — Photo Editing</div>
+      <div class="unit">score ／ 高いほど良い</div>
+      <div class="row"><div class="lab">RTX 5070（AMD）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX">ER98N5070C</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">9,882</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265（本機）">EU275070C</small></div><div class="track"><div class="fill" style="width:93.0%"><span class="v">9,195</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:90.3%"><span class="v">8,922</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:88.8%"><span class="v">8,771</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:87.8%"><span class="v">8,678</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:64.8%"><span class="v">6,404</span></div></div></div>
+    </div>
+
+    <div class="chart">
+      <div class="ttl">UL Procyon — Office (Essentials)</div>
+      <div class="unit">score ／ 高いほど良い</div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">4,907</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265（本機）">EU275070C</small></div><div class="track"><div class="fill" style="width:99.5%"><span class="v">4,884</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（AMD）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX">ER98N5070C</small></div><div class="track"><div class="fill" style="width:97.1%"><span class="v">4,766</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:95.5%"><span class="v">4,685</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:90.3%"><span class="v">4,430</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:76.0%"><span class="v">3,728</span></div></div></div>
+    </div>
+  </section>
+
+  <!-- ============ 安定性まとめ表 ============ -->
+  <section>
+    <span class="sec-no">08 / 安定性</span>
+    <h2 class="sec">複数回計測でのばらつき（再現性・安定性）</h2>
+    <p>本プロジェクトが重視する <b>安定性指標</b>。複数回計測を実施したテストの変動係数（cv：標準偏差÷平均×100%）を一覧します。
+      本機は 3DMark（グラフィックス性能）・GPUレンダリング・CPU・オフィスのいずれも cv 1.3%以内に収まり、特に <strong class="key">Cinebench CPU は cv 0.17%</strong>と、比較した中でも際立って安定しています。小型筐体ながら計測の再現性が高く、B2B 運用での予測可能性に優れます。</p>
+    <table class="data">
+      <thead><tr><th>テスト</th><th>中央値</th><th>min–max</th><th>cv%</th><th>計測回</th></tr></thead>
+      <tbody>
+        <tr class="me-row"><td>Time Spy Extreme</td><td class="me">10,562</td><td>10,535–10,573</td><td class="me">0.19</td><td>3</td></tr>
+        <tr class="me-row"><td>Speed Way</td><td class="me">5,827</td><td>5,827–5,856</td><td class="me">0.29</td><td>3</td></tr>
+        <tr class="me-row"><td>Steel Nomad</td><td class="me">5,283</td><td>5,230–5,318</td><td class="me">0.84</td><td>3</td></tr>
+        <tr class="me-row"><td>Cinebench GPU</td><td class="me">74,746</td><td>74,678–74,851</td><td class="me">0.12</td><td>3</td></tr>
+        <tr class="me-row"><td>Blender (OptiX)</td><td class="me">6,010</td><td>6,005–6,035</td><td class="me">0.27</td><td>3</td></tr>
+        <tr class="me-row"><td>Cinebench CPU</td><td class="me">5,760</td><td>5,752–5,771</td><td class="me">0.17</td><td>3</td></tr>
+        <tr class="me-row"><td>Procyon Essentials</td><td class="me">4,884</td><td>4,785–4,897</td><td class="me">1.26</td><td>3</td></tr>
+      </tbody>
+    </table>
+    <p class="muted" style="font-size:13.5px">※ ComfyUI と Procyon Photo は1回計測のため cv は非算出。その他は3回計測の中央値。</p>
+
+    <h3>安定性を支える冷却構造</h3>
+    <p>小型筐体ながら複数回計測でのばらつきが小さい背景には、デスクトップ部品を収めるための十分な冷却設計があります。
+      長時間の連続負荷でもクロックを維持しやすく、実測の cv 1%前後（3DMark（グラフィックス性能）・GPUレンダリング・CPU）という再現性の高さに表れています。</p>
+    <figure style="background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;padding:18px">
+      <img src="images/exploded-view.png" alt="ZOTAC ZBOX MAGNUS ONE 分解図 — 天板ハニカムカバー / ファン / デスクトップGPUカード＋マザーボード / メッシュ側板 / 内蔵電源 / 底面トレイ">
+      <figcaption style="padding-top:10px">MAGNUS ONE の分解図 — 天板ハニカムカバー・ファン・デスクトップGPUカード＋マザーボード・メッシュ側板・内蔵電源・底面トレイ。小型筐体に広い吸気面と冷却経路を確保している。（ZOTAC 公式レンダー）</figcaption>
+    </figure>
+    <h3>負荷段階別の実測 — 待機・ゲーム相当・最大負荷</h3>
+    <p>ベンチマーク実行中の GPU を nvidia-smi で1秒間隔で連続記録し、負荷段階ごとに GPU 温度・コアクロック・消費電力・VRAM を集計しました。小型筐体でも温度とクロックが乱れないかを、実センサー値で確認します。</p>
+    <figure style="margin:18px 0 8px">
+      <svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'Noto Sans JP',sans-serif" role="img" aria-label="ComfyUI連続生成中の GPU温度・コアクロック・消費電力の時系列">
+      <rect x="62" y="50" width="640" height="128" fill="#FAFAFA" stroke="#E6E6E4"/>
+      <rect x="62" y="244" width="640" height="128" fill="#FAFAFA" stroke="#E6E6E4"/>
+      <line x1="62" y1="156.0" x2="702" y2="156.0" stroke="#EEEEEC"/><text x="57" y="159.0" text-anchor="end" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">40</text>
+      <line x1="62" y1="116.0" x2="702" y2="116.0" stroke="#EEEEEC"/><text x="57" y="119.0" text-anchor="end" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">60</text>
+      <line x1="62" y1="76.0" x2="702" y2="76.0" stroke="#EEEEEC"/><text x="57" y="79.0" text-anchor="end" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">80</text>
+      <line x1="62" y1="330.0" x2="702" y2="330.0" stroke="#EEEEEC"/><text x="57" y="333.0" text-anchor="end" font-size="10" font-family="'JetBrains Mono',monospace" fill="#2E6DB4">1000</text><text x="707" y="333.0" text-anchor="start" font-size="10" font-family="'JetBrains Mono',monospace" fill="#C99A00">100</text>
+      <line x1="62" y1="290.0" x2="702" y2="290.0" stroke="#EEEEEC"/><text x="57" y="293.0" text-anchor="end" font-size="10" font-family="'JetBrains Mono',monospace" fill="#2E6DB4">2000</text><text x="707" y="293.0" text-anchor="start" font-size="10" font-family="'JetBrains Mono',monospace" fill="#C99A00">200</text>
+      <line x1="62" y1="74.0" x2="702" y2="74.0" stroke="#DC4B33" stroke-width="0.8" stroke-dasharray="4 3" opacity="0.55"/><text x="696" y="69" text-anchor="end" font-size="9.5" font-family="'JetBrains Mono',monospace" fill="#DC4B33">~81&#176;C 持続</text>
+      <polyline points="64.4,364.5 66.0,365.7 67.6,364.5 69.2,365.9 70.8,365.8 72.4,365.9 73.9,365.1 75.5,366.1 77.1,365.9 78.7,365.9 80.3,366.0 81.9,362.7 83.5,358.3 85.1,358.4 86.7,362.8 88.2,365.5 89.8,365.8 91.4,363.2 93.0,359.2 94.6,356.1 96.2,269.9 97.8,270.0 99.4,289.5 100.9,269.8 102.5,270.7 104.1,297.3 105.7,269.1 107.3,269.2 108.9,315.7 110.5,270.0 112.2,269.9 113.8,304.2 115.4,270.6 117.0,269.7 118.6,268.1 120.2,269.3 121.8,270.0 123.4,269.9 125.1,270.6 126.7,270.0 128.3,270.1 129.9,270.0 131.5,274.3 133.1,270.0 134.7,270.0 136.3,302.9 137.9,270.3 139.5,270.6 141.2,313.9 142.7,270.7 144.4,269.6 146.0,289.5 147.6,270.0 149.2,270.0 150.8,269.0 152.4,270.0 154.0,270.6 155.6,270.0 157.2,269.9 158.8,269.3 160.4,269.8 162.0,270.0 163.6,280.6 165.3,270.2 166.9,270.0 168.5,318.7 170.1,270.2 171.7,270.0 173.3,311.4 174.9,269.9 176.5,270.2 178.1,285.6 179.7,270.5 181.3,270.0 182.9,269.7 184.6,269.4 186.2,270.0 187.8,270.0 189.4,270.1 191.0,272.1 192.6,270.0 194.2,270.5 195.8,289.8 197.4,270.0 199.0,269.8 200.6,317.3 202.2,270.2 203.9,270.1 205.5,308.1 207.1,270.0 208.7,270.0 210.3,269.9 211.9,269.9 213.5,270.2 215.1,270.3 216.7,270.1 218.4,270.1 220.0,270.0 221.6,270.0 223.2,273.6 224.8,269.9 226.4,270.0 228.0,300.7 229.6,270.0 231.2,270.0 232.8,312.0 234.4,270.0 236.0,270.1 237.6,291.6 239.2,270.0 240.8,270.0 242.5,268.9 244.1,270.5 245.7,270.0 247.3,269.9 248.9,269.7 250.5,269.5 252.1,270.0 253.7,270.0 255.3,276.9 256.9,270.0 258.5,270.6 260.2,309.7 261.7,270.0 263.4,270.0 265.0,309.2 266.6,270.0 268.2,270.2 269.8,288.1 271.4,270.4 273.0,270.0 274.6,269.2 276.2,270.0 277.8,270.0 279.4,270.1 281.0,270.0 282.6,269.9 284.3,269.9 285.9,270.4 287.5,269.9 289.1,270.0 290.7,270.0 292.3,311.2 293.9,270.0 295.5,270.2 297.1,307.3 298.7,270.4 300.3,270.0 301.9,273.1 303.5,269.3 305.2,270.0 306.8,270.1 308.4,269.9 310.0,270.3 311.6,270.0 313.2,270.0 314.8,269.8 316.4,270.0 318.0,270.0 319.6,273.5 321.2,358.7 322.8,361.2 324.4,363.4 326.0,363.7 327.6,363.7 329.1,363.9 330.7,363.8 332.3,363.9 333.9,363.9 335.5,363.8 337.1,364.1 338.7,358.1 340.3,347.9 341.8,270.0 343.4,269.7 345.0,293.1 346.6,288.5 348.2,325.5 349.8,269.5 351.4,271.0 353.0,268.7 354.6,270.2 356.1,316.4 357.7,270.0 359.3,270.1 360.9,283.2 362.5,287.1 364.1,273.3 365.7,268.8 367.3,270.5 368.9,269.4 370.5,282.6 372.0,269.4 373.6,270.0 375.3,285.7 376.9,286.2 378.4,271.3 380.0,271.0 381.6,269.8 383.2,270.8 384.8,279.3 386.4,270.0 388.0,270.0 389.6,282.6 391.2,286.0 392.8,269.5 394.4,269.0 395.9,270.2 397.5,268.9 399.1,287.1 400.7,270.0 402.3,270.0 403.9,287.1 405.5,285.8 407.1,268.4 408.7,270.1 410.3,270.0 411.9,269.9 413.4,282.8 415.0,269.9 416.6,270.6 418.3,284.9 419.9,287.5 421.4,268.3 423.0,270.9 424.6,270.2 426.2,270.0 427.8,301.0 429.4,270.4 431.0,270.0 432.6,286.4 434.2,285.8 435.8,269.4 437.4,269.8 438.9,270.9 440.5,268.9 442.1,315.6 443.7,270.0 445.3,270.0 446.9,288.2 448.5,285.3 450.1,268.1 451.7,270.7 453.3,269.8 454.9,270.5 456.4,302.7 458.0,269.5 459.6,269.8 461.2,288.1 462.8,285.7 464.4,270.6 466.0,269.1 467.6,270.4 469.2,269.6 470.8,324.5 472.4,270.0 474.0,269.9 475.6,290.7 477.1,285.8 478.7,269.2 480.3,269.9 481.9,269.0 483.5,270.2 485.1,312.1 486.7,270.0 488.3,270.0 489.9,288.2 491.4,286.9 493.0,270.2 494.6,269.5 496.2,270.0 497.8,269.9 499.4,324.5 501.0,270.2 502.6,270.3 504.2,290.5 505.8,290.4 507.4,270.4 508.9,269.0 510.5,269.5 512.1,270.0 513.7,315.4 515.3,270.0 516.9,270.2 518.5,288.9 520.1,285.0 521.7,269.9 523.3,270.1 524.9,269.5 526.5,269.8 528.0,319.0 529.6,269.8 531.2,270.0 532.9,286.9 534.4,295.2 536.0,270.9 537.6,269.9 539.2,270.2 540.8,270.0 542.4,323.6 544.0,270.0 545.6,270.0 547.2,289.7 548.8,313.5 550.4,268.9 551.9,270.4 553.5,269.7 555.1,271.0 556.7,320.9 558.3,269.9 559.9,270.1 561.5,286.0 563.1,304.9 564.7,270.2 566.3,269.8 567.8,270.7 569.4,269.4 571.0,322.2 572.6,270.0 574.2,270.5 575.8,289.8 577.4,293.2 579.0,269.7 580.6,270.2 582.2,270.0 583.8,270.6 585.3,316.8 586.9,270.0 588.5,270.5 590.1,285.9 591.7,305.1 593.3,270.1 594.9,270.0 596.5,270.4 598.0,269.6 599.6,316.1 601.2,269.9 602.8,270.0 604.4,288.9 606.0,309.4 607.6,270.1 609.2,269.8 610.8,269.9 612.4,269.5 613.9,331.5 615.5,277.8 617.1,272.6 618.7,269.3 620.3,286.0 621.9,296.6 623.5,269.9 625.1,270.2 626.7,270.2 628.3,270.0 629.9,270.1 631.5,270.2 633.1,270.0 634.7,285.4 636.2,293.7 637.8,270.2 639.4,269.9 641.0,270.8 642.6,269.1 644.2,270.0 645.8,270.0 647.4,270.4 649.0,284.9 650.6,289.3 652.2,269.8 653.7,269.9 655.3,270.1 656.9,270.0 658.5,269.8 660.1,269.9 661.7,270.0 663.3,285.8 664.9,286.8 666.5,269.4 668.1,270.9 669.7,270.2 671.3,270.4 672.9,270.0 674.4,270.0 676.1,270.0 677.7,285.1 679.3,277.7 680.9,269.8 682.4,270.2 684.0,270.1 685.6,274.2 687.2,270.0 688.8,269.3 690.4,269.7 692.0,286.1 693.6,294.4 695.2,270.0 696.8,269.4 698.4,270.3 699.9,269.6 699.9,269.6" fill="none" stroke="#C99A00" stroke-width="1.3" opacity="0.9"/>
+      <polyline points="64.4,362.5 66.0,362.8 67.6,362.8 69.2,362.8 70.8,362.8 72.4,362.8 73.9,362.8 75.5,362.8 77.1,362.8 78.7,362.8 80.3,362.8 81.9,273.1 83.5,269.8 85.1,269.8 86.7,362.2 88.2,362.8 89.8,362.8 91.4,347.8 93.0,344.5 94.6,329.8 96.2,257.5 97.8,257.5 99.4,254.2 100.9,257.8 102.5,258.4 104.1,255.1 105.7,258.4 107.3,258.7 108.9,253.3 110.5,258.7 112.2,258.4 113.8,257.5 115.4,258.7 117.0,258.7 118.6,258.4 120.2,258.7 121.8,258.7 123.4,258.4 125.1,258.7 126.7,258.7 128.3,258.7 129.9,259.0 131.5,258.4 133.1,258.7 134.7,259.0 136.3,254.5 137.9,258.7 139.5,258.7 141.2,254.5 142.7,259.0 144.4,259.0 146.0,258.4 147.6,259.0 149.2,259.0 150.8,258.7 152.4,258.7 154.0,259.0 155.6,259.0 157.2,259.0 158.8,259.0 160.4,259.0 162.0,259.3 163.6,256.3 165.3,258.7 166.9,259.0 168.5,253.6 170.1,259.0 171.7,259.0 173.3,256.9 174.9,259.0 176.5,259.0 178.1,258.7 179.7,259.0 181.3,259.3 182.9,259.0 184.6,259.0 186.2,259.3 187.8,259.0 189.4,259.3 191.0,259.0 192.6,259.0 194.2,259.3 195.8,255.7 197.4,259.0 199.0,259.3 200.6,253.6 202.2,259.0 203.9,259.0 205.5,257.8 207.1,259.3 208.7,259.3 210.3,259.0 211.9,259.3 213.5,259.0 215.1,259.0 216.7,259.0 218.4,259.3 220.0,259.0 221.6,259.3 223.2,259.3 224.8,259.3 226.4,259.3 228.0,254.8 229.6,259.0 231.2,259.0 232.8,253.9 234.4,259.3 236.0,259.3 237.6,259.0 239.2,259.3 240.8,259.3 242.5,259.0 244.1,259.3 245.7,259.3 247.3,259.3 248.9,259.3 250.5,259.3 252.1,259.3 253.7,259.3 255.3,257.2 256.9,259.0 258.5,259.0 260.2,253.9 261.7,259.3 263.4,259.3 265.0,256.6 266.6,259.3 268.2,259.3 269.8,259.0 271.4,259.3 273.0,259.3 274.6,259.3 276.2,259.3 277.8,259.3 279.4,259.3 281.0,259.0 282.6,259.3 284.3,259.0 285.9,259.3 287.5,259.3 289.1,259.3 290.7,259.3 292.3,253.6 293.9,259.3 295.5,259.3 297.1,258.1 298.7,259.3 300.3,259.3 301.9,259.3 303.5,259.3 305.2,259.3 306.8,259.3 308.4,259.3 310.0,259.3 311.6,259.3 313.2,259.3 314.8,259.3 316.4,259.3 318.0,259.3 319.6,259.6 321.2,353.8 322.8,362.8 324.4,362.5 326.0,362.8 327.6,362.8 329.1,362.2 330.7,362.8 332.3,362.5 333.9,362.5 335.5,362.8 337.1,362.8 338.7,269.8 340.3,262.3 341.8,257.5 343.4,257.8 345.0,254.5 346.6,254.5 348.2,254.5 349.8,259.3 351.4,260.2 353.0,260.2 354.6,259.0 356.1,254.8 357.7,258.7 359.3,259.0 360.9,256.3 362.5,255.1 364.1,260.8 365.7,259.3 367.3,260.8 368.9,258.4 370.5,256.0 372.0,259.3 373.6,259.3 375.3,254.8 376.9,255.1 378.4,259.6 380.0,261.4 381.6,259.0 383.2,261.1 384.8,255.7 386.4,259.3 388.0,259.3 389.6,255.7 391.2,255.1 392.8,260.2 394.4,261.1 395.9,259.0 397.5,259.6 399.1,256.0 400.7,259.0 402.3,259.3 403.9,254.8 405.5,255.1 407.1,261.4 408.7,258.7 410.3,262.0 411.9,258.4 413.4,256.0 415.0,259.0 416.6,259.0 418.3,255.4 419.9,255.1 421.4,258.4 423.0,261.7 424.6,258.7 426.2,262.0 427.8,255.4 429.4,259.0 431.0,259.0 432.6,255.1 434.2,255.1 435.8,262.0 437.4,258.4 438.9,262.3 440.5,259.0 442.1,253.9 443.7,259.3 445.3,259.3 446.9,255.1 448.5,255.1 450.1,259.0 451.7,261.1 453.3,258.4 454.9,262.3 456.4,254.8 458.0,259.3 459.6,259.6 461.2,255.1 462.8,255.1 464.4,261.4 466.0,260.2 467.6,260.8 469.2,261.1 470.8,253.6 472.4,259.3 474.0,259.3 475.6,255.1 477.1,255.1 478.7,261.7 480.3,258.4 481.9,260.8 483.5,259.9 485.1,253.9 486.7,259.3 488.3,259.3 489.9,255.1 491.4,255.1 493.0,259.3 494.6,261.7 496.2,261.1 497.8,259.6 499.4,255.4 501.0,259.3 502.6,259.3 504.2,254.8 505.8,254.5 507.4,258.4 508.9,262.0 510.5,260.8 512.1,261.1 513.7,253.3 515.3,259.3 516.9,259.3 518.5,254.8 520.1,255.4 521.7,261.4 523.3,259.0 524.9,262.0 526.5,261.1 528.0,257.2 529.6,259.3 531.2,259.3 532.9,255.1 534.4,254.2 536.0,258.4 537.6,261.4 539.2,259.0 540.8,262.0 542.4,253.3 544.0,259.3 545.6,259.3 547.2,254.8 548.8,253.3 550.4,262.0 551.9,258.4 553.5,262.0 555.1,259.3 556.7,257.8 558.3,259.6 559.9,259.6 561.5,255.1 563.1,253.9 564.7,258.7 566.3,261.7 567.8,258.4 569.4,262.3 571.0,254.2 572.6,259.3 574.2,259.3 575.8,254.8 577.4,255.1 579.0,262.3 580.6,258.7 582.2,261.7 583.8,258.1 585.3,257.8 586.9,259.3 588.5,259.3 590.1,255.1 591.7,253.6 593.3,259.0 594.9,261.4 596.5,258.4 598.0,262.0 599.6,255.4 601.2,259.3 602.8,259.3 604.4,255.1 606.0,253.6 607.6,259.0 609.2,261.4 610.8,260.2 612.4,262.0 613.9,253.3 615.5,256.9 617.1,258.7 618.7,259.0 620.3,255.1 621.9,256.3 623.5,261.4 625.1,259.6 626.7,261.1 628.3,260.8 629.9,259.3 631.5,259.3 633.1,259.3 634.7,255.1 636.2,256.6 637.8,258.4 639.4,261.7 641.0,259.0 642.6,262.0 644.2,259.0 645.8,259.3 647.4,259.3 649.0,255.1 650.6,257.5 652.2,261.7 653.7,259.9 655.3,261.1 656.9,260.8 658.5,259.0 660.1,259.3 661.7,259.3 663.3,255.1 664.9,257.5 666.5,261.1 668.1,259.9 669.7,259.0 671.3,262.0 672.9,259.3 674.4,259.3 676.1,259.3 677.7,255.1 679.3,257.5 680.9,262.0 682.4,259.0 684.0,261.7 685.6,258.1 687.2,259.3 688.8,259.3 690.4,259.3 692.0,255.1 693.6,256.6 695.2,259.9 696.8,262.3 698.4,258.4 699.9,262.3 699.9,262.3" fill="none" stroke="#2E6DB4" stroke-width="1.5"/>
+      <polyline points="64.4,146.0 66.0,146.0 67.6,146.0 69.2,146.0 70.8,146.0 72.4,146.0 73.9,146.0 75.5,146.0 77.1,144.0 78.7,144.0 80.3,144.0 81.9,142.0 83.5,140.0 85.1,140.0 86.7,142.0 88.2,142.0 89.8,142.0 91.4,140.0 93.0,138.0 94.6,136.0 96.2,84.0 97.8,80.0 99.4,98.0 100.9,78.0 102.5,78.0 104.1,118.0 105.7,76.0 107.3,74.0 108.9,102.0 110.5,78.0 112.2,78.0 113.8,80.0 115.4,76.0 117.0,74.0 118.6,76.0 120.2,74.0 121.8,74.0 123.4,74.0 125.1,76.0 126.7,76.0 128.3,78.0 129.9,76.0 131.5,82.0 133.1,76.0 134.7,74.0 136.3,118.0 137.9,74.0 139.5,78.0 141.2,82.0 142.7,76.0 144.4,74.0 146.0,76.0 147.6,74.0 149.2,72.0 150.8,74.0 152.4,72.0 154.0,76.0 155.6,76.0 157.2,76.0 158.8,74.0 160.4,74.0 162.0,74.0 163.6,108.0 165.3,72.0 166.9,76.0 168.5,114.0 170.1,76.0 171.7,74.0 173.3,78.0 174.9,72.0 176.5,72.0 178.1,76.0 179.7,76.0 181.3,72.0 182.9,76.0 184.6,74.0 186.2,72.0 187.8,72.0 189.4,72.0 191.0,86.0 192.6,78.0 194.2,74.0 195.8,114.0 197.4,74.0 199.0,72.0 200.6,82.0 202.2,72.0 203.9,76.0 205.5,78.0 207.1,74.0 208.7,74.0 210.3,74.0 211.9,72.0 213.5,72.0 215.1,74.0 216.7,72.0 218.4,70.0 220.0,74.0 221.6,74.0 223.2,84.0 224.8,72.0 226.4,70.0 228.0,116.0 229.6,74.0 231.2,72.0 232.8,78.0 234.4,72.0 236.0,74.0 237.6,74.0 239.2,72.0 240.8,72.0 242.5,74.0 244.1,74.0 245.7,72.0 247.3,72.0 248.9,72.0 250.5,72.0 252.1,72.0 253.7,72.0 255.3,96.0 256.9,74.0 258.5,74.0 260.2,116.0 261.7,74.0 263.4,72.0 265.0,76.0 266.6,72.0 268.2,70.0 269.8,78.0 271.4,74.0 273.0,72.0 274.6,74.0 276.2,72.0 277.8,72.0 279.4,72.0 281.0,72.0 282.6,72.0 284.3,76.0 285.9,74.0 287.5,72.0 289.1,72.0 290.7,72.0 292.3,80.0 293.9,72.0 295.5,70.0 297.1,80.0 298.7,74.0 300.3,72.0 301.9,74.0 303.5,72.0 305.2,72.0 306.8,72.0 308.4,70.0 310.0,72.0 311.6,74.0 313.2,70.0 314.8,72.0 316.4,72.0 318.0,72.0 319.6,80.0 321.2,128.0 322.8,130.0 324.4,132.0 326.0,134.0 327.6,136.0 329.1,136.0 330.7,138.0 332.3,138.0 333.9,140.0 335.5,140.0 337.1,140.0 338.7,138.0 340.3,130.0 341.8,84.0 343.4,84.0 345.0,114.0 346.6,96.0 348.2,122.0 349.8,82.0 351.4,74.0 353.0,76.0 354.6,74.0 356.1,118.0 357.7,74.0 359.3,72.0 360.9,110.0 362.5,92.0 364.1,76.0 365.7,74.0 367.3,72.0 368.9,74.0 370.5,88.0 372.0,74.0 373.6,74.0 375.3,88.0 376.9,88.0 378.4,76.0 380.0,78.0 381.6,74.0 383.2,70.0 384.8,86.0 386.4,74.0 388.0,72.0 389.6,90.0 391.2,94.0 392.8,72.0 394.4,70.0 395.9,72.0 397.5,72.0 399.1,100.0 400.7,76.0 402.3,74.0 403.9,86.0 405.5,86.0 407.1,74.0 408.7,74.0 410.3,72.0 411.9,70.0 413.4,86.0 415.0,74.0 416.6,74.0 418.3,90.0 419.9,90.0 421.4,76.0 423.0,74.0 424.6,72.0 426.2,70.0 427.8,114.0 429.4,72.0 431.0,74.0 432.6,88.0 434.2,90.0 435.8,74.0 437.4,72.0 438.9,78.0 440.5,72.0 442.1,116.0 443.7,72.0 445.3,70.0 446.9,90.0 448.5,86.0 450.1,76.0 451.7,70.0 453.3,72.0 454.9,72.0 456.4,114.0 458.0,72.0 459.6,72.0 461.2,88.0 462.8,88.0 464.4,72.0 466.0,72.0 467.6,70.0 469.2,74.0 470.8,118.0 472.4,72.0 474.0,70.0 475.6,100.0 477.1,92.0 478.7,74.0 480.3,74.0 481.9,72.0 483.5,70.0 485.1,116.0 486.7,72.0 488.3,76.0 489.9,86.0 491.4,88.0 493.0,72.0 494.6,70.0 496.2,72.0 497.8,68.0 499.4,82.0 501.0,70.0 502.6,70.0 504.2,90.0 505.8,110.0 507.4,76.0 508.9,72.0 510.5,74.0 512.1,70.0 513.7,116.0 515.3,72.0 516.9,70.0 518.5,88.0 520.1,86.0 521.7,74.0 523.3,76.0 524.9,70.0 526.5,68.0 528.0,78.0 529.6,72.0 531.2,70.0 532.9,86.0 534.4,114.0 536.0,72.0 537.6,72.0 539.2,74.0 540.8,72.0 542.4,116.0 544.0,72.0 545.6,72.0 547.2,94.0 548.8,118.0 550.4,74.0 551.9,72.0 553.5,72.0 555.1,68.0 556.7,78.0 558.3,72.0 559.9,72.0 561.5,90.0 563.1,114.0 564.7,72.0 566.3,72.0 567.8,70.0 569.4,72.0 571.0,106.0 572.6,72.0 574.2,72.0 575.8,88.0 577.4,112.0 579.0,70.0 580.6,72.0 582.2,70.0 583.8,70.0 585.3,76.0 586.9,70.0 588.5,72.0 590.1,88.0 591.7,116.0 593.3,72.0 594.9,70.0 596.5,68.0 598.0,72.0 599.6,78.0 601.2,72.0 602.8,70.0 604.4,96.0 606.0,116.0 607.6,74.0 609.2,72.0 610.8,72.0 612.4,72.0 613.9,118.0 615.5,78.0 617.1,74.0 618.7,72.0 620.3,88.0 621.9,80.0 623.5,68.0 625.1,70.0 626.7,68.0 628.3,70.0 629.9,72.0 631.5,70.0 633.1,70.0 634.7,88.0 636.2,84.0 637.8,72.0 639.4,74.0 641.0,72.0 642.6,72.0 644.2,74.0 645.8,72.0 647.4,70.0 649.0,88.0 650.6,78.0 652.2,74.0 653.7,72.0 655.3,68.0 656.9,70.0 658.5,72.0 660.1,72.0 661.7,70.0 663.3,96.0 664.9,76.0 666.5,72.0 668.1,76.0 669.7,70.0 671.3,70.0 672.9,72.0 674.4,70.0 676.1,70.0 677.7,88.0 679.3,72.0 680.9,72.0 682.4,70.0 684.0,68.0 685.6,84.0 687.2,72.0 688.8,72.0 690.4,70.0 692.0,90.0 693.6,76.0 695.2,72.0 696.8,72.0 698.4,68.0 699.9,70.0 699.9,70.0" fill="none" stroke="#DC4B33" stroke-width="1.7"/>
+      <text x="62" y="44" font-size="13" font-weight="700" fill="#2A2D2F">GPU温度 <tspan font-size="11" fill="#6D6E71">(&#176;C)</tspan></text>
+      <text x="62" y="238" font-size="13" font-weight="700"><tspan fill="#2E6DB4">コアクロック (MHz)</tspan> <tspan fill="#6D6E71">/</tspan> <tspan fill="#C99A00">GPU消費電力 (W&#183;カード単体)</tspan></text>
+      <line x1="319.4" y1="50" x2="319.4" y2="372" stroke="#C9CACB" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="191.7" y="170" text-anchor="middle" font-size="11" font-weight="700" fill="#6D6E71">標準生成 <tspan font-size="9.5" fill="#9A9C9E">1024px</tspan></text>
+      <text x="509.7" y="170" text-anchor="middle" font-size="11" font-weight="700" fill="#6D6E71">高解像度生成 <tspan font-size="9.5" fill="#9A9C9E">1536px</tspan></text>
+      <text x="319.4" y="262" text-anchor="middle" font-size="8.5" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">切替の小休止</text>
+      <text x="64.0" y="390" text-anchor="middle" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">0</text>
+      <text x="216.0" y="390" text-anchor="middle" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">5</text>
+      <text x="368.1" y="390" text-anchor="middle" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">10</text>
+      <text x="520.1" y="390" text-anchor="middle" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">15</text>
+      <text x="672.1" y="390" text-anchor="middle" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">20</text>
+      <text x="706" y="390" text-anchor="start" font-size="9.5" fill="#9A9C9E">分</text>
+      </svg>
+      <figcaption>ComfyUI（Stable Diffusion XL）で AI 画像を <b>約21分連続生成</b>した間の実測ログ（nvidia-smi 1秒間隔）。前半は標準解像度(1024px)、後半は高解像度(1536px)。<span style="color:#DC4B33;font-weight:700">GPU温度</span> は約81&#176;Cでほぼ一定となり、その持続負荷の最中も <span style="color:#2E6DB4;font-weight:700">コアクロック</span>（約2,767MHz）と <span style="color:#C99A00;font-weight:700">消費電力</span>（約250W・カード単体）はほぼ水平 ＝ <b>サーマルスロットリングなし・電力上限で頭打ち</b>。中央の落ち込みは生成2パターンの切替時の小休止。</figcaption>
+    </figure>
+
+    <table class="data">
+      <thead><tr><th>状態</th><th>GPU温度 中央/ピーク</th><th>コアクロック</th><th>消費電力 中央/ピーク</th><th>ファン</th><th>VRAM</th></tr></thead>
+      <tbody>
+        <tr><td>待機（アイドル）</td><td>約54&#176;C</td><td>アイドル</td><td>約16W</td><td>0%</td><td>0.8GB</td></tr>
+        <tr><td>ゲーム相当（3DMark グラフィックス負荷）</td><td>79 / 82&#176;C</td><td>約2,752 MHz</td><td>250 / 253W</td><td>〜87%</td><td>6GB</td></tr>
+        <tr class="me-row"><td>最大負荷（AI連続生成 ComfyUI）</td><td class="me">81 / 84&#176;C</td><td class="me">2,767 MHz</td><td>250 / 255W</td><td>91%</td><td class="me">11.5GB</td></tr>
+      </tbody>
+    </table>
+    <p>注目は高負荷でもコアクロックが約 2,767 MHz を維持している点です。AI 連続生成で GPU 温度が 84&#176;C に達してもクロックはほぼ低下せず、消費電力は GPU の電力上限である約 250W でほぼ一定。つまり本機は<strong class="key">熱ではなく電力リミットで頭打ち＝サーマルスロットリングは見られません</strong>。8.48L の小型筐体でも、デスクトップ RTX 5070 を温度で絞らず回せています。最大負荷ではファンが 90% 前後まで上がり動作音は大きめですが、その分クロックを維持しています。AI 連続生成では VRAM が 11.5GB（12GB 中）まで使われ、12GB は SDXL の標準〜高解像度生成を十分こなせる水準です。</p>
+    <div class="note" style="margin-top:0">
+      <span class="tag">計測方法 / 出典</span>
+      上表は計測セッションの nvidia-smi ログ（1秒間隔）から、待機＝テスト開始前のアイドル、ゲーム相当＝3DMark（Speed Way / Steel Nomad / Time Spy Extreme）の高負荷区間、最大負荷＝ComfyUI（SDXL／Hires）連続生成区間を抽出し、中央値・最大値で集計したものです（ベンチスコアの正本 benchmarks.json とは別系統の生センサー値）。実際の市販ゲームの動作計測ではありません。
+    </div>
+
+    <h3>CPUレンダ中のCPU温度 — Blender CPU（全コア持続負荷）</h3>
+    <p>GPU に続き、CPU 側も全コアを持続的に使う Blender CPU レンダの区間で温度・電力・クロックを実測しました。レンダ中はコア負荷が 100% を維持し、<strong class="key">パッケージ温度は中央値 72&#176;C、ピークでも 86&#176;C にとどまります</strong>。消費電力は、持続枠（PL1・約 65W）に対し各シーン開始のターボで瞬間最大 120W まで跳ねる鋸歯状で、ターボを含む実測平均は 74W です（平均とピークの開きが大きい瞬発型で、UPS 等の給電設計では瞬間 120W 級を見込むと安全）。全コアレンダ時のクロックは約 3.4GHz（ターボ時は一時 4.7GHz）です。<strong class="key">クロックの上下は発熱ではなく持続電力の枠（PL1・約 65W）による頭打ち</strong>で、温度は Tjmax（約 100&#176;C）まで余裕があり、サーマルスロットリングは見られませんでした。ログ上、谷でクロックが 5GHz 台を示すのはシーン切替のアイドル時に単コアがブーストしたもので、全コア動作ではありません。温度は本個体の実測値で、機体差・室温・グリス状態で変動します（機種間の温度比較は行いません）。</p>
+    <figure style="margin:18px 0 8px">
+      <svg viewBox="0 0 760 430" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'Noto Sans JP',sans-serif" role="img" aria-label="Blender CPU 全コア連続実行中の CPUパッケージ温度・消費電力・コア負荷の時系列">
+      <rect x="62" y="50" width="640" height="128" fill="#FAFAFA" stroke="#E6E6E4"/>
+      <rect x="62" y="244" width="640" height="128" fill="#FAFAFA" stroke="#E6E6E4"/>
+      <line x1="62" y1="156" x2="702" y2="156" stroke="#EEEEEC"/><text x="57" y="159" text-anchor="end" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">40</text>
+      <line x1="62" y1="116" x2="702" y2="116" stroke="#EEEEEC"/><text x="57" y="119" text-anchor="end" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">60</text>
+      <line x1="62" y1="76" x2="702" y2="76" stroke="#EEEEEC"/><text x="57" y="79" text-anchor="end" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">80</text>
+      <line x1="62" y1="329.3" x2="702" y2="329.3" stroke="#EEEEEC"/><text x="57" y="332.3" text-anchor="end" font-size="10" font-family="'JetBrains Mono',monospace" fill="#C99A00">50</text><text x="707" y="332.3" text-anchor="start" font-size="10" font-family="'JetBrains Mono',monospace" fill="#2E6DB4">50</text>
+      <line x1="62" y1="286.7" x2="702" y2="286.7" stroke="#EEEEEC"/><text x="57" y="289.7" text-anchor="end" font-size="10" font-family="'JetBrains Mono',monospace" fill="#C99A00">100</text><text x="707" y="289.7" text-anchor="start" font-size="10" font-family="'JetBrains Mono',monospace" fill="#2E6DB4">100</text>
+      <rect x="62" y="50" width="190.6" height="128" fill="#DC4B33" opacity="0.04"/>
+      <text x="157.3" y="171" text-anchor="middle" font-size="10" font-weight="700" fill="#9A9C9E">1回目</text>
+      <rect x="298.1" y="50" width="179.2" height="128" fill="#DC4B33" opacity="0.04"/>
+      <text x="387.7" y="171" text-anchor="middle" font-size="10" font-weight="700" fill="#9A9C9E">2回目</text>
+      <rect x="522.8" y="50" width="179.2" height="128" fill="#DC4B33" opacity="0.04"/>
+      <text x="612.4" y="171" text-anchor="middle" font-size="10" font-weight="700" fill="#9A9C9E">3回目</text>
+      <polyline points="63.5,369.9 65.4,369.4 67.3,365.8 69.2,366.9 71.1,353.4 73.2,346.9 75.1,370.1 76.9,360.8 79.6,292.9 82.8,286.7 86.4,286.7 89.9,286.7 93.7,286.7 97.6,286.7 99.5,286.7 101.4,286.7 104.8,286.7 108.1,290.3 111.5,286.7 115,286.7 118.6,286.7 122.1,286.7 125.3,286.7 127.3,362 129.2,370.5 131.1,370.8 133,369.8 134.9,344.9 137.4,307.8 139.4,361.2 141.3,370.3 143.3,351.9 145.6,313.6 149.4,286.7 153.1,286.7 156.8,286.7 160.1,286.7 163.8,286.7 167.3,286.7 170.5,286.7 173.8,286.7 177.4,286.7 181,286.7 184.7,286.7 188.2,286.7 191.7,316.3 193.6,367.8 195.5,369.7 197.4,370.6 199.3,335.1 201.5,350.9 203.4,369.6 205.4,327.5 209,286.7 212.3,286.7 215.6,286.7 219.2,286.7 222.6,286.7 226.1,286.7 229.7,286.7 232.9,286.7 236.2,286.7 239.4,286.7 242.9,286.7 246.3,286.7 249.2,329 251.1,368.2 253,369.6 254.9,371.2 256.8,370.9 258.7,371.3 260.6,371.3 262.5,371 264.3,371 266.2,371.3 268.1,371.3 270,371.3 271.9,370.8 273.8,370.1 275.6,371.1 277.5,370.7 279.4,369.8 281.3,370.8 283.2,371.4 285.1,371 287,371.1 288.8,371.2 290.7,371.3 292.6,371 294.5,371.2 296.4,371.3 298.3,371 300.2,370.4 302.1,365.9 304,338.3 305.9,366.2 307.8,367.3 309.7,322.7 313.6,286.7 317.2,286.7 321.1,286.7 324.9,286.7 328.5,286.7 331.9,286.7 335.2,286.7 338.8,286.7 341.9,286.7 345.2,286.7 348.6,286.7 352,286.7 354.8,328.2 356.7,369.9 358.6,368.7 360.5,360 362.5,317.6 364.5,326.3 366.4,363.8 368.3,369.4 370.3,344.2 372.8,306.6 376.7,286.7 380.1,286.7 383.7,286.7 386.5,286.7 388.4,286.7 390.2,286.7 392.1,286.7 394,286.7 395.9,286.7 397.8,286.7 401.3,286.7 404.7,286.7 408.5,286.7 412.1,286.7 415.3,286.7 418.2,324.2 420.2,368.3 422.1,369.4 424,369.3 425.9,322.3 427.8,362.4 429.7,369.6 431.6,313.7 435.3,286.7 438.6,286.7 442.1,286.7 445.4,286.7 448.8,286.7 452.3,286.7 455.3,286.7 458.9,286.7 462.4,286.7 465.6,286.7 468.8,286.7 472,286.7 475,322.3 476.9,367.6 478.8,370 480.7,370.8 482.6,371.1 484.5,371.1 486.4,371.3 488.3,371.3 490.2,371.3 492.1,371.2 493.9,371.1 495.9,371 497.7,371.6 499.6,371.5 501.5,370.9 503.4,371.5 505.3,371.3 507.2,371.3 509,371.4 510.9,369.4 512.8,371 514.7,371.1 516.6,371.5 518.5,371.1 520.4,371.6 522.3,371.3 524.2,371.1 526.1,370.7 528,349.8 530.2,352.7 532.1,369.9 534.1,343.5 537.5,286.7 541.1,286.7 544.8,286.7 548.3,286.7 552.2,286.7 555.4,286.7 558.8,286.7 562.3,286.7 565.7,286.7 569.4,286.7 572.8,286.7 576.4,286.7 579.5,321.2 581.5,369.2 583.4,370 585.3,370.2 587.3,343.5 589.5,310.2 591.3,350.8 593.2,368.8 595.1,357.8 597,313.2 598.9,304.2 600.9,286.7 604.2,286.7 607.6,286.7 610.9,286.7 614.5,286.7 617.9,286.7 621.3,286.7 624.8,286.7 628.2,286.7 631.8,286.7 635.2,286.7 638.5,286.7 641.8,286.7 644,352.6 645.9,370 647.8,370.2 649.7,346.1 652.2,345.2 654,369.4 656,328.7 659.4,286.7 662.8,286.7 666.4,286.7 669.7,286.7 672.9,286.7 676.2,286.7 679.6,286.7 683.2,286.7 686.5,286.7 689.9,286.7 693.2,286.7 696.5,286.7 699.7,318.2 701.6,367.6" fill="none" stroke="#2E6DB4" stroke-width="1.3" opacity="0.75"/>
+      <polyline points="63.5,353.4 65.4,351.9 67.3,344 69.2,343 71.1,319.3 73.2,338 75.1,351.5 76.9,318.2 79.6,269.6 82.8,269.6 86.4,269.5 89.9,269.7 93.7,269.7 97.6,269.6 99.5,269.7 101.4,314.1 104.8,316.8 108.1,316.6 111.5,316.6 115,316.5 118.6,316.6 122.1,316.6 125.3,320.1 127.3,340 129.2,353.7 131.1,357.1 133,345.7 134.9,303.5 137.4,301.5 139.4,338.5 141.3,349.3 143.3,310.6 145.6,283.9 149.4,291.5 153.1,316.8 156.8,316.6 160.1,316.6 163.8,316.6 167.3,316.5 170.5,316.6 173.8,316.5 177.4,316.5 181,316.5 184.7,316.5 188.2,316.6 191.7,329.7 193.6,353.7 195.5,352.8 197.4,351.9 199.3,307.5 201.5,336.7 203.4,351 205.4,282.1 209,272.7 212.3,316.7 215.6,316.7 219.2,316.6 222.6,316.7 226.1,316.6 229.7,316.6 232.9,316.6 236.2,316.5 239.4,316.5 242.9,316.5 246.3,317.9 249.2,332.7 251.1,353.1 253,354.2 254.9,355.3 256.8,356.6 258.7,356 260.6,355.3 262.5,356.2 264.3,356.2 266.2,358.9 268.1,356.5 270,355.4 271.9,356.1 273.8,356 275.6,355.3 277.5,355.2 279.4,354.2 281.3,355.4 283.2,356.3 285.1,355.8 287,356.2 288.8,358 290.7,355.2 292.6,358.9 294.5,357.9 296.4,355.4 298.3,355.6 300.2,356.1 302.1,336.8 304,317.1 305.9,348.5 307.8,339.6 309.7,279.7 313.6,269.7 317.2,269.5 321.1,269.7 324.9,269.6 328.5,304.8 331.9,316.8 335.2,316.6 338.8,316.6 341.9,316.5 345.2,316.6 348.6,316.5 352,317.7 354.8,336.2 356.7,353 358.6,350.9 360.5,330.9 362.5,298.4 364.5,304.4 366.4,343.7 368.3,343.2 370.3,302.2 372.8,279.1 376.7,311.2 380.1,316.7 383.7,316.7 386.5,316.4 388.4,316.7 390.2,316.8 392.1,316.4 394,316.7 395.9,316.6 397.8,316.6 401.3,316.4 404.7,316.6 408.5,316.5 412.1,316.6 415.3,316.5 418.2,332.4 420.2,352.7 422.1,353.3 424,347.3 425.9,301.6 427.8,342.2 429.7,347.3 431.6,274 435.3,281.4 438.6,316.7 442.1,316.7 445.4,316.6 448.8,316.7 452.3,316.5 455.3,316.5 458.9,316.6 462.4,316.6 465.6,316.6 468.8,316.5 472,316.5 475,331.5 476.9,351.1 478.8,356.3 480.7,356.5 482.6,356.5 484.5,355.9 486.4,356.7 488.3,357.7 490.2,357.7 492.1,357.3 493.9,355.9 495.9,355.6 497.7,355.8 499.6,355.4 501.5,358.9 503.4,355.4 505.3,355.4 507.2,357.7 509,355.4 510.9,350.4 512.8,354.1 514.7,355.7 516.6,355.5 518.5,355.7 520.4,356.6 522.3,357.4 524.2,356.6 526.1,352.4 528,316.4 530.2,341.1 532.1,348.7 534.1,292.9 537.5,269.6 541.1,269.6 544.8,269.7 548.3,269.6 552.2,290.6 555.4,316.7 558.8,316.7 562.3,316.7 565.7,316.6 569.4,316.5 572.8,316.5 576.4,316.6 579.5,333.9 581.5,353.7 583.4,355.1 585.3,349.7 587.3,301.8 589.5,297.5 591.3,333.6 593.2,352.4 595.1,327.6 597,293.7 598.9,274 600.9,285.9 604.2,316.8 607.6,316.7 610.9,316.6 614.5,316.6 617.9,316.6 621.3,316.5 624.8,316.5 628.2,316.6 631.8,316.5 635.2,316.5 638.5,316.6 641.8,320.5 644,336.3 645.9,352.6 647.8,354.9 649.7,311.8 652.2,335.6 654,350.8 656,285 659.4,278.2 662.8,316.8 666.4,316.7 669.7,316.6 672.9,316.7 676.2,316.6 679.6,316.5 683.2,316.5 686.5,316.7 689.9,316.4 693.2,316.5 696.5,316.6 699.7,329.5 701.6,351.8" fill="none" stroke="#C99A00" stroke-width="1.5"/>
+      <polyline points="63.5,134 65.4,146 67.3,122 69.2,108 71.1,118 73.2,122 75.1,142 76.9,118 79.6,96 82.8,92 86.4,86 89.9,82 93.7,80 97.6,78 99.5,72 101.4,98 104.8,100 108.1,100 111.5,100 115,100 118.6,100 122.1,100 125.3,102 127.3,98 129.2,120 131.1,126 133,112 134.9,80 137.4,76 139.4,84 141.3,96 143.3,98 145.6,80 149.4,96 153.1,100 156.8,100 160.1,98 163.8,100 167.3,100 170.5,98 173.8,98 177.4,98 181,98 184.7,96 188.2,98 191.7,84 193.6,104 195.5,120 197.4,104 199.3,88 201.5,86 203.4,96 205.4,78 209,70 212.3,96 215.6,96 219.2,96 222.6,98 226.1,96 229.7,96 232.9,96 236.2,96 239.4,96 242.9,96 246.3,96 249.2,82 251.1,114 253,104 254.9,120 256.8,104 258.7,118 260.6,122 262.5,124 264.3,124 266.2,124 268.1,124 270,124 271.9,126 273.8,126 275.6,126 277.5,114 279.4,126 281.3,130 283.2,126 285.1,130 287,130 288.8,128 290.7,108 292.6,130 294.5,116 296.4,132 298.3,116 300.2,132 302.1,96 304,104 305.9,126 307.8,106 309.7,86 313.6,80 317.2,74 321.1,72 324.9,70 328.5,90 331.9,92 335.2,94 338.8,92 341.9,92 345.2,92 348.6,92 352,96 354.8,74 356.7,104 358.6,112 360.5,96 362.5,72 364.5,74 366.4,112 368.3,90 370.3,74 372.8,70 376.7,92 380.1,92 383.7,96 386.5,92 388.4,92 390.2,92 392.1,92 394,92 395.9,90 397.8,92 401.3,92 404.7,92 408.5,92 412.1,90 415.3,92 418.2,84 420.2,94 422.1,112 424,82 425.9,80 427.8,110 429.7,100 431.6,70 435.3,80 438.6,90 442.1,90 445.4,92 448.8,92 452.3,90 455.3,90 458.9,90 462.4,90 465.6,90 468.8,92 472,90 475,94 476.9,110 478.8,116 480.7,116 482.6,116 484.5,118 486.4,120 488.3,118 490.2,120 492.1,120 493.9,120 495.9,122 497.7,124 499.6,108 501.5,124 503.4,124 505.3,126 507.2,126 509,124 510.9,124 512.8,126 514.7,126 516.6,120 518.5,126 520.4,114 522.3,128 524.2,126 526.1,106 528,96 530.2,122 532.1,110 534.1,86 537.5,74 541.1,74 544.8,72 548.3,66 552.2,86 555.4,92 558.8,92 562.3,92 565.7,92 569.4,92 572.8,92 576.4,96 579.5,72 581.5,104 583.4,116 585.3,90 587.3,78 589.5,74 591.3,72 593.2,102 595.1,82 597,86 598.9,72 600.9,88 604.2,92 607.6,92 610.9,92 614.5,94 617.9,96 621.3,96 624.8,92 628.2,94 631.8,92 635.2,96 638.5,96 641.8,92 644,76 645.9,114 647.8,116 649.7,74 652.2,86 654,94 656,74 659.4,64 662.8,92 666.4,94 669.7,92 672.9,96 676.2,92 679.6,92 683.2,92 686.5,92 689.9,92 693.2,92 696.5,92 699.7,82 701.6,114" fill="none" stroke="#DC4B33" stroke-width="1.8"/>
+      <text x="62" y="44" font-size="13" font-weight="700" fill="#2A2D2F">CPU&#12497;&#12483;&#12465;&#12540;&#12472;&#28201;&#24230; <tspan font-size="11" fill="#6D6E71">(&#176;C)</tspan></text>
+      <text x="62" y="238" font-size="13" font-weight="700"><tspan fill="#C99A00">CPU&#28040;&#36027;&#38651;&#21147; (W)</tspan> <tspan fill="#6D6E71">/</tspan> <tspan fill="#2E6DB4">CPU&#12467;&#12450;&#36000;&#33655; (%)</tspan></text>
+      <text x="62" y="390" text-anchor="middle" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">0</text>
+      <text x="232.7" y="390" text-anchor="middle" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">2</text>
+      <text x="403.3" y="390" text-anchor="middle" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">4</text>
+      <text x="574" y="390" text-anchor="middle" font-size="10" font-family="'JetBrains Mono',monospace" fill="#9A9C9E">6</text>
+      <text x="706" y="390" text-anchor="start" font-size="9.5" fill="#9A9C9E">&#20998;</text>
+      </svg>
+      <figcaption>Blender CPU（全コアレンダ）を <b>3回連続実行</b>した間の実測ログ（CPU 温度ログ・1秒間隔）。レンダ中 <span style="color:#2E6DB4;font-weight:700">コア負荷</span> は 100% を維持し、<span style="color:#C99A00;font-weight:700">消費電力</span> は <b>負荷中の平均 74W</b> に対し各シーン開始で <b>瞬間最大 120W</b> へ跳ねる鋸歯状（Intel Turbo）＝平均とピークの開きが大きい瞬発型（谷はシーン・計測回の切替時の小休止）。<span style="color:#DC4B33;font-weight:700">CPUパッケージ温度</span> は中央 72&#176;C 前後・ピーク 86&#176;C で頭打ち（Tjmax 約100&#176;C まで余裕）、クロック（全コアレンダ時 約 3.4GHz）の上下は発熱ではなく <b>電力の上限による頭打ち</b> ＝ サーマルスロットリングなし。</figcaption>
+    </figure>
+    <table class="data">
+      <thead><tr><th>負荷</th><th>CPUパッケージ温度 中央/ピーク</th><th>全コアレンダ時クロック</th><th>CPU消費電力 負荷中の平均 / 最大</th><th>コア負荷</th></tr></thead>
+      <tbody>
+        <tr class="me-row"><td>Blender CPU（全コア持続）</td><td class="me">72 / 86&#176;C</td><td class="me">約3,373 MHz</td><td>74 / 120W</td><td>100%</td></tr>
+      </tbody>
+    </table>
+    <div class="note" style="margin-top:0">
+      <span class="tag">計測方法 / 出典</span>
+      上表は Blender CPU（3回計測）の実行区間を、CPU 温度ログ（cpu-temp_log・約1秒間隔／CPUパッケージ温度・最大コアクロック・CPU Package Power）から抽出し、中央値・最大値で集計した本個体の生センサー値です。CPU レンダのスコア（合算 381）とは別系統のログで、機種間比較ではなく本機の発熱挙動の確認を目的とします。
+    </div>
+  </section>
+
+  <!-- ============ 接続性 ============ -->
+  <section>
+    <span class="sec-no">09 / プラットフォーム</span>
+    <h2 class="sec">プラットフォームと拡張性 — デスクトップ部品の強み</h2>
+    <p>MAGNUS ONE の設計上の強みは、小型でありながら デスクトップ部品をそのまま使う点にあります。
+      本機ではGPUが PCIe 5.0 x16 のフルレーン接続、CPUが Socket 1851 のソケット実装であることを実機ツールで確認しました。
+      これにより、世代をまたいだ保守・部品更新や、用途に応じた構成変更（メモリ／ストレージ増設など）がしやすく、長期運用や段階的なアップグレードを前提とした導入に向きます。</p>
+
+    <p>本機の I/O は据置ワークステーション並みに充実しています。前面は UHS-II 3-in-1 カードリーダーと USB 3.0（Type-A / Type-C）、背面は Thunderbolt 4・USB 3.2 Gen2 ×4・USB 3.0 ×2、映像は DisplayPort 2.1b（UHBR20）×3 ＋ HDMI（最大4画面クローン / 6画面拡張）、ネットワークは 5GbE ＋ Gigabit の Dual LAN と Wi-Fi 7。電源は 500W 80+ Platinum を内蔵し、外部ACアダプターは不要です。</p>
+    <div class="grid2">
+      <figure class="cell shot"><img src="images/front-io.jpg" alt="EU275070C 前面: 電源ボタン・UHS-IIカードリーダー・USB 3.0（Type-A/Type-C）・オーディオ"></figure>
+      <figure class="cell shot"><img src="images/rear-io.jpg" alt="EU275070C 背面I/O: 5GbE+1GbE・USB 3.2/3.0・HDMI・Thunderbolt 4・DisplayPort 2.1b×3+HDMI・電源インレット"></figure>
+    </div>
+    <figcaption>左: 前面（カードリーダー・USB・オーディオ・電源ボタン）。右: 背面 I/O（5GbE+1GbE / USB / Thunderbolt 4 / DisplayPort 2.1b×3＋HDMI / 内蔵PSUの電源インレット）。</figcaption>
+
+    <div class="note" style="border-left:5px solid var(--yellow)">
+      <span class="tag">MAGNUS ONE の主な特徴</span>
+      <b>① デスクトップ部品構成</b> — GPU は PCIe 5.0 x16、CPU は Socket 1851 LGA。保守・更新がしやすい。<br>
+      <b>② 500W 80+ Platinum 電源を内蔵</b> — 外部ACアダプター不要で取り回しが良い。<br>
+      <b>③ Thunderbolt 4 ＋ Dual LAN（5GbE+1GbE）＋ Wi-Fi 7</b> と <b>④ 4画面出力</b>（DP 2.1b×3＋HDMI）を 8.48L に収める。
+    </div>
+    <figure>
+      <img src="images/bundle.jpg" alt="EU275070C 同梱物: Wi-Fiアンテナ×2・USBフラッシュ・電源コード・クイックスタートガイド">
+      <figcaption>同梱物 — Wi-Fiアンテナ×2 / ドライバーUSB / 電源コード / クイックスタートガイド（※同梱は地域・モデルにより異なる）。</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 活用シーン ============ -->
+  <section>
+    <span class="sec-no">10 / 用途</span>
+    <h2 class="sec">想定される用途</h2>
+    <p>ここまでの実測を踏まえ、本機に適した代表的な用途を、計測結果と結びつけて整理します（中立・実測の範囲での想定です）。</p>
+
+    <h3>安定運用が要るローカルGPUワークロード</h3>
+    <p>3DMark（グラフィックス性能）・GPUレンダリング・CPU が cv 1%前後と再現性が高く、デスクトップ部品ベースで保守もしやすいため、
+      可視化・GPUレンダリング・シミュレーション補完など、結果の一貫性が問われる業務に向きます。Cinebench GPU 74,746 / Blender 6,010 と、ローカルでのGPU処理を十分にこなせます。</p>
+
+    <h3>ローカルAI推論・画像生成（オンプレ）</h3>
+    <p>画像生成AI（Stable Diffusion）が ComfyUI SDXL 9.05 秒/枚と上位級の生成速度で、ネットワークに依存しないオンプレAIをこのサイズで構築できます。
+      VRAM は 12GB のため、扱うモデル規模・解像度・バッチが VRAM 容量に収まる範囲では本機が速く、容量がボトルネックになる大規模用途では 16GB の 5060 Ti も併せて検討すると選定が安定します。</p>
+
+    <h3>クリエイティブ制作・可視化端末の補完</h3>
+    <p>Procyon Photo 9,195 / Essentials 4,884 と、写真編集・オフィス系も高水準（Essentials は 5070 Ti に次ぐ2位、Photo は AMD版に次ぐ高スコア）。
+      省スペースでローカルGPUレンダリングや映像・写真編集をこなしつつ、設置スペースの限られた制作現場や可視化端末にも導入しやすい構成です。</p>
+  </section>
+
+  <!-- ============ まとめ ============ -->
+  <section>
+    <span class="sec-no">11 / まとめ</span>
+    <h2 class="sec">まとめ — どんな現場に向くか</h2>
+    <p>ZBOX MAGNUS ONE EU275070C は、<b>デスクトップ部品ベースの小型機で「RTX 5070 級のGPU＋安定した20コアCPU」を再現性高く回したい現場</b>に向く一台です。
+      3DMark（グラフィックス性能）・GPUレンダリングで RTX 5060 Ti を約4割上回り、Blender では RTX 5070 同士でトップ。同じ RTX 5070 の AMD版とGPUはほぼ同等ながら、<strong class="key">CPUの速度と安定性（cv 0.17%）で上回りました</strong>。
+      AI で VRAM 容量を最優先するなら 16GB の RTX 5060 Ti が候補になりますが、
+      「性能・安定性・拡張性のバランス」で選ぶなら、本機は MAGNUS ONE の中核として導入しやすい構成です。</p>
+
+    <div class="verdict">
+      <h3>適所マップ</h3>
+      <div class="cols">
+        <div class="fit">
+          <h4>向く</h4>
+          <ul>
+            <li>RTX 5070 級のGPUを安定運用したい SIer 業務機</li>
+            <li>計測・処理の再現性が要る可視化／GPUレンダリング</li>
+            <li>オンプレのローカルAI推論・画像生成（速度重視）</li>
+            <li>デスクトップ部品で保守・段階更新したい設置</li>
+          </ul>
+        </div>
+        <div class="unfit">
+          <h4>他候補が向く</h4>
+          <ul>
+            <li>AI で VRAM 容量最優先 → 16GB の RTX 5060 Ti（MAGNUS EN）</li>
+            <li>AMD 標準環境・マルチスレッド重視 → AMD版 RTX 5070（ER98N5070C）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="buyrow center" style="margin:24px 0 4px"><a class="cta" href="https://zotac.co.jp/product/magnus-one-eu275070c/" target="_blank" rel="noopener">ZOTAC 直販ストアで購入 →</a><a class="txtlink" href="https://hub.zotac.co.jp/catalogs/zbox/eu275070c/">ZBOX MAGNUS ONE EU275070C の製品ページ・全仕様を見る →</a></div>
+  </section>
+
+  <!-- ============ データ付録 ============ -->
+  <section>
+    <span class="sec-no">12 / データ</span>
+    <h2 class="sec">付録: 全ベンチマーク結果</h2>
+    <p>本記事チャートの元数値を一覧にまとめます（すべて <b>中央値</b>。計測条件は §02、各機の識別も §02 の比較表を参照）。比較はすべて ZBOX MAGNUS 系。</p>
+    <div class="tablewrap">
+      <table class="results">
+        <thead>
+          <tr>
+            <th class="test">テスト</th>
+            <th>RTX 5070 Ti<span class="s">EU27507TC</span><span class="s">Core Ultra 7 265</span></th>
+            <th class="me">RTX 5070（本機）<span class="s">EU275070C</span><span class="s">Core Ultra 7 265</span></th>
+            <th>RTX 5070（AMD）<span class="s">ER98N5070C</span><span class="s">Ryzen 9 9850HX</span></th>
+            <th>RTX 5060 Ti<span class="s">EN275060TC</span><span class="s">Core Ultra 7 255HX</span></th>
+            <th>RTX 4070 Desktop<span class="s">ERP74070C</span><span class="s">Core i7-13700</span></th>
+            <th>RTX 4070 Laptop<span class="s">EN374070C</span><span class="s">Core i7-13700HX</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Time Spy Extreme<span class="u">score・高いほど良い</span></th><td>12,501</td><td class="me">10,562</td><td>10,365</td><td>7,674</td><td>7,833</td><td>5,527</td></tr>
+          <tr><th scope="row">3DMark Speed Way<span class="u">score・高いほど良い</span></th><td>7,474</td><td class="me">5,827</td><td>5,769</td><td>4,119</td><td>4,498</td><td>2,951</td></tr>
+          <tr><th scope="row">3DMark Steel Nomad<span class="u">score・高いほど良い</span></th><td>6,634</td><td class="me">5,283</td><td>5,251</td><td>3,620</td><td>3,999</td><td>2,662</td></tr>
+          <tr><th scope="row">Cinebench 2026 GPU<span class="u">pts・高いほど良い</span></th><td>94,543</td><td class="me">74,746</td><td>73,744</td><td>61,312</td><td>68,598</td><td>45,669</td></tr>
+          <tr><th scope="row">Blender Benchmark (OptiX)<span class="u">score・高いほど良い</span></th><td>7,666</td><td class="me">6,010</td><td>5,899</td><td>4,327</td><td>5,320</td><td>3,608</td></tr>
+          <tr><th scope="row">Cinebench 2026 CPU<span class="u">pts・高いほど良い</span></th><td>5,825</td><td class="me">5,760</td><td>5,286</td><td>5,618</td><td>4,024</td><td>3,645</td></tr>
+          <tr><th scope="row">ComfyUI SDXL (1024)<span class="u">秒/枚・短いほど良い</span></th><td>7.07</td><td class="me">9.05</td><td>9.09</td><td>12.08</td><td>10.08</td><td>15.15</td></tr>
+          <tr><th scope="row">ComfyUI SDXL Hires<span class="u">秒/枚・短いほど良い</span></th><td>21.97</td><td class="me">28.29</td><td>28.76</td><td>38.52</td><td>31.32</td><td>47.89</td></tr>
+          <tr><th scope="row">Procyon Photo Editing<span class="u">score・高いほど良い</span></th><td>8,922</td><td class="me">9,195</td><td>9,882</td><td>8,678</td><td>8,771</td><td>6,404</td></tr>
+          <tr><th scope="row">Procyon Office (Essentials)<span class="u">score・高いほど良い</span></th><td>4,907</td><td class="me">4,884</td><td>4,766</td><td>4,430</td><td>4,685</td><td>3,728</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="font-size:12.5px">凡例: 値は3回計測（ComfyUI / Procyon Photo は1回）の中央値。FAIL=実行したが無効。ComfyUI のみ「秒/枚（短いほど良い）」。</p>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section>
+    <span class="sec-no">13 / FAQ</span>
+    <h2 class="sec">よくある質問</h2>
+
+    <details open>
+      <summary>RTX 5070 版（EU275070C）の3D／ゲーム性能はどのくらい？</summary>
+      <div class="a">3DMark Time Spy Extreme 10,562 / Speed Way 5,827 / Steel Nomad 5,283（3回計測の中央値）。同じ MAGNUS 系の RTX 5060 Ti を約38〜46%上回り、比較した中では 5070 Ti に次ぐ上位（同じ RTX 5070 の AMD版とほぼ同水準）です。3D系の複数回計測でのばらつきは cv 1%未満と安定しています。</div>
+    </details>
+    <details>
+      <summary>Intel版（EU275070C）とAMD版（ER98N5070C）の RTX 5070 はどう違う？</summary>
+      <div class="a">GPU性能はほぼ同等です（3DMark（グラフィックス性能）・GPUレンダリング・AIで本機がわずかに上、いずれも数%以内）。差は CPU に出て、Core Ultra 7 265 は Cinebench 2026 CPU 5,760 pts・cv 0.17% と、AMD版の Ryzen 9 9850HX（5,286 pts・cv 8.09%）より約9%高く、かつ大幅に安定しています。一方 Procyon Photo のみ AMD版（9,882）が本機（9,195）を約7%上回りました。</div>
+    </details>
+    <details>
+      <summary>ローカルの画像生成AI（Stable Diffusion）に使える？12GB VRAM の位置づけは？</summary>
+      <div class="a">画像生成AI「Stable Diffusion（SDXL）」を ComfyUI で実測すると、1024×1024 / 30ステップで 9.05 秒/枚（6.63 枚/分）、Hires.Fix で 28.29 秒/枚。RTX 5060 Ti（12.08 秒/枚）より約25%高速です。ただし VRAM は 12GB（192-bit GDDR7）で、容量では 16GB の 5060 Ti を下回ります。生成速度重視なら本機、大規模モデルや高解像度バッチで容量を重視するなら 16GB の 5060 Ti が候補です。</div>
+    </details>
+    <details>
+      <summary>CPU性能とどんな業務に向く？</summary>
+      <div class="a">Core Ultra 7 265（20C/20T / Arrow Lake / デスクトップ LGA1851）は Cinebench 2026 CPU で 5,760 pts、複数回計測でのばらつきは cv 0.17% と非常に安定。前世代EN機の Core i7-13700HX（3,645 pts）を約58%上回ります。デスクトップ部品構成で、最新世代GPUと20コアCPUを安定運用したい SIer・可視化・制作補完・ローカルAI用途に向きます。</div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <p><b>ZOTAC ZBOX MAGNUS ONE EU275070C ベンチマークレビュー</b></p>
+    <div class="meta">
+      計測方法: 社内のベンチマーク自動化環境による実測の中央値（原則複数回・一部1回）／ 電源プラン＝高パフォーマンス ／ 計測 2026-06-25
+    </div>
+    <div class="disc">
+      ※ 掲載のベンチマーク値は本レビューのテスト構成・ドライバ・計測環境での実測値であり、構成や条件により変動します。
+      比較は ZBOX MAGNUS 系の実機に限定しています。製品仕様・付属品は地域／ロットにより異なる場合があります。
+      &copy; ZOTAC NIPPON / 株式会社ゾタック日本
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile nav drawer toggle (hub 共通ヘッダー) -->
+<script>
+(function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!toggle || !nav) return;
+  function closeNav() {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'メニューを開く');
+  }
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeNav(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) { closeNav(); toggle.focus(); }
+  });
+})();
+</script>
+
+<!-- Image lightbox (click to enlarge in overlay; no new window) -->
+<script>
+(function(){
+  var imgs = document.querySelectorAll('main img');
+  if(!imgs.length) return;
+  var lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.setAttribute('role','dialog');
+  lb.setAttribute('aria-modal','true');
+  lb.innerHTML = '<button type="button" class="lb-close" aria-label="閉じる">&times;</button><img alt=""><figcaption></figcaption>';
+  document.body.appendChild(lb);
+  var lbImg = lb.querySelector('img');
+  var lbCap = lb.querySelector('figcaption');
+  function open(src, alt){
+    lbImg.src = src; lbImg.alt = alt || '';
+    if(alt){ lbCap.textContent = alt; lbCap.style.display = ''; } else { lbCap.style.display = 'none'; }
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.removeAttribute('src');
+  }
+  for(var i=0;i<imgs.length;i++){
+    (function(im){ im.addEventListener('click', function(){ open(im.currentSrc || im.src, im.getAttribute('alt')); }); })(imgs[i]);
+  }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && lb.classList.contains('open')) close(); });
+})();
+</script>
+</body>
+</html>

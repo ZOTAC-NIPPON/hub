@@ -28,6 +28,41 @@
 <meta property="og:description" content="中立的な記述と実測値ベースの検証を基本とした、ZOTAC NIPPON の技術レビュー一覧。">
 <meta property="og:url" content="https://hub.zotac.co.jp/reviews/">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://hub.zotac.co.jp/reviews/#collection",
+      "url": "https://hub.zotac.co.jp/reviews/",
+      "name": "Reviews / プロダクトレビュー | ZOTAC NIPPON",
+      "description": "実測データと現場での検証をもとにした、ZOTAC NIPPON の中立的な技術レビュー一覧。",
+      "inLanguage": "ja",
+      "isPartOf": { "@id": "https://hub.zotac.co.jp/#website" },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListOrder": "https://schema.org/ItemListOrderDescending",
+        "numberOfItems": 5,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "url": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ti/", "name": "ZBOX MAGNUS ONE EU27507TC レビュー（RTX 5070 Ti 16GB / Core Ultra 7 265）" },
+          { "@type": "ListItem", "position": 2, "url": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ryzen-9-9850hx/", "name": "ZBOX MAGNUS ONE ER98N5070C レビュー（RTX 5070 / Ryzen 9 9850HX）" },
+          { "@type": "ListItem", "position": 3, "url": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/", "name": "ZBOX MAGNUS ONE EU275070C レビュー（RTX 5070 / Core Ultra 7 265）" },
+          { "@type": "ListItem", "position": 4, "url": "https://hub.zotac.co.jp/reviews/magnus-en-rtx-5060-ti/", "name": "ZBOX MAGNUS EN275060TC レビュー（RTX 5060 Ti 16GB / Core Ultra 7 255HX）" },
+          { "@type": "ListItem", "position": 5, "url": "https://hub.zotac.co.jp/reviews/meganex8kmk2/", "name": "MeganeX 8K Mark II レビュー（GeForce RTX 50 SERIES / VRChat）" }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://hub.zotac.co.jp/" },
+        { "@type": "ListItem", "position": 2, "name": "Reviews" }
+      ]
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -323,7 +358,7 @@ h2 {
 }
 .review-card:hover { border-color: var(--text-dark); }
 .review-card .thumb {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 800 / 580;
   background: var(--bg-soft);
   border-bottom: 4px solid var(--brand-yellow);
   display: flex; align-items: center; justify-content: center;
@@ -568,24 +603,24 @@ h2 {
     <p class="section-lead">最新の検証・取材レポートをピックアップ。</p>
 
     <!-- ↓ _data/reviews.json の priority:1 (or 最新の published) から自動生成 -->
-    <a href="meganex8kmk2/" class="featured-review" style="text-decoration: none; color: inherit;">
+    <a href="magnus-one-rtx-5070-ryzen-9-9850hx/" class="featured-review" style="text-decoration: none; color: inherit;">
       <div class="featured-thumb">
-        <img src="meganex8kmk2/images/meganex8kmk2_eyecatch.png" alt="MeganeX 8K Mark II レビュー アイキャッチ" loading="lazy">
+        <img src="magnus-one-rtx-5070-ryzen-9-9850hx/images/featured-banner.jpg" alt="ZBOX MAGNUS ONE ER98N5070C レビュー アイキャッチ" loading="lazy">
       </div>
       <div class="featured-body">
         <div class="featured-meta">
           <span class="latest-badge">LATEST</span>
-          <span>PUBLISHED 2026.05</span>
+          <span>PUBLISHED 2026.07</span>
           <span>·</span>
-          <span>TESTED 2026.04</span>
+          <span>TESTED 2026.06</span>
         </div>
-        <h3>MeganeX 8K Mark II は、どのGPUで本領を発揮するのか</h3>
-        <div class="featured-tag">GeForce RTX 50 SERIES · MeganeX 8K MARK II · VRChat 検証</div>
-        <p class="featured-excerpt">3世代6モデルのGeForce RTXで挑んだ、MeganeX 8K Mark II × VRChat検証レポート。fpsVRによる計測データと、VRChatプレイヤーによる実プレイ観察の両面から、各GPUの実力を可視化します。</p>
+        <h3>同じ RTX 5070 を、AMD 24スレッドで回す — ZBOX MAGNUS ONE ER98N5070C</h3>
+        <div class="featured-tag">GeForce RTX 5070（Desktop） · MAGNUS ONE ER98N5070C · Ryzen 9 9850HX</div>
+        <p class="featured-excerpt">デスクトップ RTX 5070 と AMD Ryzen 9 9850HX を 8.48L の MAGNUS ONE に収めた一台。Intel版と同一GPUでの実力差、Procyon Photo での比較群トップ、そして計測の再現性（cv）まで、実測データで中立に検証します。</p>
         <div class="featured-stats">
-          <span><strong>READ TIME</strong> 約20分</span>
-          <span><strong>TESTER</strong> 小林まるちゃん</span>
-          <span><strong>GPUs</strong> 6 MODELS</span>
+          <span><strong>GPU</strong> RTX 5070（Desktop）</span>
+          <span><strong>CPU</strong> Ryzen 9 9850HX（24T）</span>
+          <span><strong>BENCH</strong> 3DMark / Blender / Procyon</span>
         </div>
         <span class="featured-cta">→ READ FULL REVIEW</span>
       </div>
@@ -614,8 +649,60 @@ h2 {
 
     <!-- ↓ _data/reviews.json から自動生成 -->
     <div class="review-grid">
+      <a href="magnus-one-rtx-5070-ti/" class="review-card">
+        <div class="thumb"><img src="magnus-one-rtx-5070-ti/images/card-banner-800x580.png" alt="ZBOX MAGNUS ONE EU27507TC レビュー" loading="lazy"></div>
+        <div class="body">
+          <div class="review-meta">
+            <span class="cat-chip">MINI PC</span>
+            <span>2026.07</span>
+          </div>
+          <h3>ZBOX MAGNUS ONE EU27507TC — MAGNUS最上位、RTX 5070 Ti 16GB × Intel 20コア</h3>
+          <p>16GB GDDR7 の RTX 5070 Ti とデスクトップ Core Ultra 7 265 を 8.48L に凝縮した最上位構成。実測ベンチマークで3D/AI性能と安定性を検証。</p>
+          <span class="arrow">→ READ</span>
+        </div>
+      </a>
+
+      <a href="magnus-one-rtx-5070-core-ultra-7-265/" class="review-card">
+        <div class="thumb"><img src="magnus-one-rtx-5070-core-ultra-7-265/images/card-banner-800x580.png" alt="ZBOX MAGNUS ONE EU275070C レビュー" loading="lazy"></div>
+        <div class="body">
+          <div class="review-meta">
+            <span class="cat-chip">MINI PC</span>
+            <span>2026.07</span>
+          </div>
+          <h3>ZBOX MAGNUS ONE EU275070C — デスクトップ RTX 5070 × Intel 20コア</h3>
+          <p>デスクトップ RTX 5070 と Core Ultra 7 265（20コア）を 8.48L に凝縮。実測性能と複数回計測での安定性を検証。</p>
+          <span class="arrow">→ READ</span>
+        </div>
+      </a>
+
+      <a href="magnus-one-rtx-5070-ryzen-9-9850hx/" class="review-card">
+        <div class="thumb"><img src="magnus-one-rtx-5070-ryzen-9-9850hx/images/featured-banner.jpg" alt="ZBOX MAGNUS ONE ER98N5070C レビュー" loading="lazy"></div>
+        <div class="body">
+          <div class="review-meta">
+            <span class="cat-chip">MINI PC</span>
+            <span>2026.07</span>
+          </div>
+          <h3>ZBOX MAGNUS ONE ER98N5070C — 同じ RTX 5070 を AMD 24スレッドで</h3>
+          <p>同一GPUを Ryzen 9 9850HX（24スレッド）で駆動。Intel版との差、Procyon Photo 比較群トップを実測。</p>
+          <span class="arrow">→ READ</span>
+        </div>
+      </a>
+
+      <a href="magnus-en-rtx-5060-ti/" class="review-card">
+        <div class="thumb"><img src="magnus-en-rtx-5060-ti/images/card-banner-800x580.jpg" alt="ZBOX MAGNUS EN275060TC レビュー" loading="lazy"></div>
+        <div class="body">
+          <div class="review-meta">
+            <span class="cat-chip">MINI PC</span>
+            <span>2026.07</span>
+          </div>
+          <h3>ZBOX MAGNUS EN275060TC — 16GB VRAM の RTX 5060 Ti を 2.65L に</h3>
+          <p>RTX 5060 Ti 16GB × Core Ultra 7 255HX の 2.65L 機。前世代比と、16GB が効くAI用途・安定性を検証。</p>
+          <span class="arrow">→ READ</span>
+        </div>
+      </a>
+
       <a href="meganex8kmk2/" class="review-card">
-        <div class="thumb"><img src="meganex8kmk2/images/meganex8kmk2_eyecatch.png" alt="MeganeX 8K Mark II レビュー アイキャッチ" loading="lazy"></div>
+        <div class="thumb"><img src="meganex8kmk2/images/card-banner-800x580.jpg" alt="MeganeX 8K Mark II レビュー アイキャッチ" loading="lazy"></div>
         <div class="body">
           <div class="review-meta">
             <span class="cat-chip">HMD × GPU</span>
