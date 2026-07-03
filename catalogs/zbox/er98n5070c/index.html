@@ -154,7 +154,7 @@ section{padding:26px 0;border-top:1px solid var(--line);}
 .site-nav a.nav-cta::after{display:none!important;}
 </style>
 </head>
-<body>
+<body data-sku="ER98N5070C">
 <!-- @partial:header START — 編集は _partials/header.html、反映は python _partials/inject.py -->
 <style>
 /* === ZOTAC hub 共通ヘッダー（自己完結・単一ソース）=======================
@@ -247,7 +247,7 @@ section{padding:26px 0;border-top:1px solid var(--line);}
       <div class="chips"><span class="chip">GeForce RTX 5070</span><span class="chip">Ryzen 9 9850HX</span><span class="chip">最大96GB</span><span class="chip">8.48L</span></div>
       <a class="dl-btn" href="/pdfs/zbox_er98n5070c_flyer.pdf" target="_blank">▼ カタログ PDF をダウンロード</a>
       <div class="dl-meta">PDF · 更新 2026.06 · A4 1枚 · 約0.9MB</div>
-      <div class="dl-sub"><a class="sub-btn" href="https://zotac.co.jp/biz-inquiry">見積・在庫・構成を相談 →</a></div>
+      <div class="dl-sub"><a class="sub-btn" data-track="quote" href="https://zotac.co.jp/biz-inquiry">見積・在庫・構成を相談 →</a><a class="sub-btn" data-track="ec_purchase" href="https://zotac.co.jp/product/magnus-one-er98n5070c-barebone/" target="_blank" rel="noopener">ZOTAC 直販ストアで購入 →</a></div>
     </div>
   </div>
   <section>
@@ -279,7 +279,7 @@ section{padding:26px 0;border-top:1px solid var(--line);}
     <div class="sec-label">導入を検討する</div>
     <div class="cards2">
       <a class="lcard" href="/trial-program/"><div class="t">▣ 自社環境で評価する</div><div class="d">評価機貸出プログラム ① Web申込 → ② 発送 → ③ 最大2週間お試し</div><div class="go">申し込む →</div></a>
-      <a class="lcard" href="/case-studies/"><div class="t">▣ 実際の活用を見る</div><div class="d">ミニPCの導入事例・レビュー（映像制作・展示・AI検証）</div><div class="go">事例を見る →</div></a>
+      <a class="lcard" data-track="review_read" href="/reviews/magnus-one-rtx-5070-ryzen-9-9850hx/"><div class="t">▣ このモデルのレビューを読む</div><div class="d">実機で性能・使い勝手を検証したレビュー記事</div><div class="go">レビューを見る →</div></a>
     </div>
   </section>
   <section>
@@ -290,7 +290,7 @@ section{padding:26px 0;border-top:1px solid var(--line);}
 <div class="contact">
   <div class="wrap">
     <div><div class="t">見積り・在庫・構成のご相談</div><div class="s">法人窓口にて承ります</div></div>
-    <div class="act"><a class="btn" href="https://zotac.co.jp/biz-inquiry">お問い合わせ</a><a class="zoom" href="/catalogs/">全製品カタログを見る</a></div>
+    <div class="act"><a class="btn" data-track="quote" href="https://zotac.co.jp/biz-inquiry">お問い合わせ</a><a class="zoom" href="/catalogs/">全製品カタログを見る</a></div>
   </div>
 </div>
 <div class="wrap"><div class="legal"><p>事前に通知することなく、仕様や条件が変更される場合がございます。</p><p>掲載されているウェブサイト上の画像はイメージであり、実際の製品とは異なる場合があります。すべての特長、機能、その他の製品仕様は、予告なく変更されることがあります。</p><p>HDMI、HDMI High-Definition Multimedia Interface、HDMIトレードドレス、HDMIロゴは、HDMI Licensing Administrator, Inc.の商標または登録商標です。</p><p>©2025 NVIDIA Corporation. NVIDIA、NVIDIA ロゴ、GeForce、GeForce RTX は、米国およびその他の国における NVIDIA Corporation の登録商標または商標です。</p><p>AMD、Ryzen、Radeon は Advanced Micro Devices, Inc. の商標です。</p><p>©2025 ZOTAC Technology Pte. Ltd. 無断転載を禁じます。</p><p>その他すべての商標および著作権は、それぞれの所有者に帰属します。</p></div></div>
@@ -316,6 +316,19 @@ section{padding:26px 0;border-top:1px solid var(--line);}
     var open=nav.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded',open?'true':'false');
     toggle.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
+  });
+})();
+</script>
+<script>
+/* カタログ導線クリック計測（GA4 G-N5X4CC48YH）。link_label: quote / ec_purchase / review_read、sku は body[data-sku]。
+   遷移先(zotac.co.jp)での成果は今回不問＝hub 側のクリックのみ計測（クロスドメイン未使用）。 */
+(function(){
+  if(typeof gtag!=='function')return;
+  var sku=document.body.getAttribute('data-sku')||'';
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('[data-track]');
+    if(!el)return;
+    gtag('event','catalog_link_click',{link_label:el.getAttribute('data-track'),sku:sku});
   });
 })();
 </script>

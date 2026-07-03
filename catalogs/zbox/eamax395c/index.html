@@ -154,7 +154,7 @@ section{padding:26px 0;border-top:1px solid var(--line);}
 .site-nav a.nav-cta::after{display:none!important;}
 </style>
 </head>
-<body>
+<body data-sku="EAMAX395C">
 <!-- @partial:header START — 編集は _partials/header.html、反映は python _partials/inject.py -->
 <style>
 /* === ZOTAC hub 共通ヘッダー（自己完結・単一ソース）=======================
@@ -247,7 +247,7 @@ section{padding:26px 0;border-top:1px solid var(--line);}
       <div class="chips"><span class="chip">Radeon 8060S 統合</span><span class="chip">Ryzen AI MAX+ 395</span><span class="chip">128GB</span><span class="chip">2.65L</span></div>
       <a class="dl-btn" href="/pdfs/zbox_eamax395c_flyer.pdf" target="_blank">▼ カタログ PDF をダウンロード</a>
       <div class="dl-meta">PDF · 更新 2026.06 · A4 1枚 · 約1.0MB</div>
-      <div class="dl-sub"><a class="sub-btn" href="https://zotac.co.jp/biz-inquiry">見積・在庫・構成を相談 →</a></div>
+      <div class="dl-sub"><a class="sub-btn" data-track="quote" href="https://zotac.co.jp/biz-inquiry">見積・在庫・構成を相談 →</a><a class="sub-btn" data-track="ec_purchase" href="https://zotac.co.jp/product/magnus-eamax395c-barebone/" target="_blank" rel="noopener">ZOTAC 直販ストアで購入 →</a></div>
     </div>
   </div>
   <section>
@@ -295,7 +295,7 @@ section{padding:26px 0;border-top:1px solid var(--line);}
 <div class="contact">
   <div class="wrap">
     <div><div class="t">見積り・在庫・構成のご相談</div><div class="s">法人窓口にて承ります</div></div>
-    <div class="act"><a class="btn" href="https://zotac.co.jp/biz-inquiry">お問い合わせ</a><a class="zoom" href="/catalogs/">全製品カタログを見る</a></div>
+    <div class="act"><a class="btn" data-track="quote" href="https://zotac.co.jp/biz-inquiry">お問い合わせ</a><a class="zoom" href="/catalogs/">全製品カタログを見る</a></div>
   </div>
 </div>
 <div class="wrap"><div class="legal"><p>事前に通知することなく、仕様や条件が変更される場合がございます。</p><p>掲載されているウェブサイト上の画像はイメージであり、実際の製品とは異なる場合があります。すべての特長、機能、その他の製品仕様は、予告なく変更されることがあります。</p><p>HDMI、HDMI High-Definition Multimedia Interface、HDMIトレードドレス、HDMIロゴは、HDMI Licensing Administrator, Inc.の商標または登録商標です。</p><p>AMD、Ryzen、Radeon は Advanced Micro Devices, Inc. の商標です。</p><p>©2025 ZOTAC Technology Pte. Ltd. 無断転載を禁じます。</p><p>その他すべての商標および著作権は、それぞれの所有者に帰属します。</p></div></div>
@@ -321,6 +321,19 @@ section{padding:26px 0;border-top:1px solid var(--line);}
     var open=nav.classList.toggle('is-open');
     toggle.setAttribute('aria-expanded',open?'true':'false');
     toggle.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
+  });
+})();
+</script>
+<script>
+/* カタログ導線クリック計測（GA4 G-N5X4CC48YH）。link_label: quote / ec_purchase / review_read、sku は body[data-sku]。
+   遷移先(zotac.co.jp)での成果は今回不問＝hub 側のクリックのみ計測（クロスドメイン未使用）。 */
+(function(){
+  if(typeof gtag!=='function')return;
+  var sku=document.body.getAttribute('data-sku')||'';
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('[data-track]');
+    if(!el)return;
+    gtag('event','catalog_link_click',{link_label:el.getAttribute('data-track'),sku:sku});
   });
 })();
 </script>
