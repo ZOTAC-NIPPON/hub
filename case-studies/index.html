@@ -318,10 +318,10 @@ a { color: inherit; }
 <script>
 /* ============== 設定 ============== */
 const SITE = "https://zotac.co.jp";                 // 本番サイト
-const API  = SITE + "/blog/wp-json/wp/v2";          // 本番ブログ（正本）の REST
+const API  = SITE + "/wp-json/wp/v2";               // 本番サイト（正本）の REST ※リニューアルで /blog/ 配下の別install が統合され、REST もルート直下に移動
 const API_ORIGIN = SITE;                            // 画像パス補正用（本番は絶対URLなので実質no-op）
-const CAT_IDS = "44,66";                            // 導入・活用事例(44) / 展示会(66)
-/* タグ：展示会(66)が付けば「機材協賛」、無く44のみなら「導入事例」 */
+const CAT_IDS = "265,463,462";                       // 導入事例(265) / 展示会(463) / 機材協賛(462) ※リニューアルでカテゴリIDが振り直された（旧44,66）
+/* タグ：展示会(463)や機材協賛(462)が付けば該当ラベル、265のみなら「導入事例」 */
 /* ================================== */
 
 const app = document.getElementById('app');
