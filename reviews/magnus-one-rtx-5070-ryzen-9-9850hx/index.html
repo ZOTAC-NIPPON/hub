@@ -200,7 +200,7 @@
   .site-nav a.nav-cta::after{display:none!important}
 
   .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-  section{padding:46px 0;border-top:1px solid var(--line)}
+  section{padding:46px 0;border-top:1px solid var(--line);scroll-margin-top:72px}
   section:first-of-type{border-top:none}
 
   .hero{padding:40px 0 30px}
@@ -233,6 +233,8 @@
   p{margin:13px 0}
   .muted{color:var(--ink-mid)}
   strong.key{background:var(--yellow-soft);padding:1px 4px;border-radius:3px;font-weight:700}
+  a.xref{color:inherit;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:2px;white-space:nowrap}
+  a.xref:hover{text-decoration-color:var(--yellow)}
 
   table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
   th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -481,7 +483,7 @@
   </section>
 
   <!-- ============ 製品概要 ============ -->
-  <section>
+  <section id="s01">
     <span class="sec-no">01 / 概要</span>
     <h2 class="sec">小型筐体に「デスクトップGPU＋AMD 24スレッドCPU」を収めた MAGNUS ONE</h2>
     <p>ZBOX MAGNUS ONE ER98N5070C は、ZOTAC のミニPC「ZBOX MAGNUS ONE」シリーズのうち、GeForce
@@ -522,7 +524,7 @@
   </section>
 
   <!-- ============ テスト環境 ============ -->
-  <section>
+  <section id="s02">
     <span class="sec-no">02 / テスト環境</span>
     <h2 class="sec">テスト環境・比較機材・計測方法</h2>
 
@@ -531,7 +533,7 @@
       <tbody>
         <tr><th>製品 / SKU</th><td>ZOTAC ZBOX MAGNUS ONE <b>ER98N5070C</b>（MAGNUS ONE / Windows）</td></tr>
         <tr><th>GPU</th><td class="mono">ZOTAC GAMING GeForce RTX 5070 12GB（GDDR7・192bit / Blackwell / GB205）</td></tr>
-        <tr><th>GPUドライバー</th><td class="mono">NVIDIA GeForce 610.47（WHQL）<span class="muted">／ Boost 2,512MHz・PCIe x16 5.0 は GPU-Z（§01）参照</span></td></tr>
+        <tr><th>GPUドライバー</th><td class="mono">NVIDIA GeForce 610.47（WHQL）<span class="muted">／ Boost 2,512MHz・PCIe x16 5.0 は GPU-Z（<a class="xref" href="#s01">§01</a>）参照</span></td></tr>
         <tr><th>CPU</th><td class="mono">AMD Ryzen 9 9850HX（12C / 24T・Fire Range / 4nm）</td></tr>
         <tr><th>メモリ（テスト構成）</th><td class="mono">32GB DDR5-5600（16GB×2）</td></tr>
         <tr><th>ストレージ</th><td class="mono">NVMe SSD（Netac 1TB ほか）</td></tr>
@@ -918,7 +920,7 @@
   <section>
     <span class="sec-no">12 / データ</span>
     <h2 class="sec">付録: 全ベンチマーク結果</h2>
-    <p>本記事チャートの元数値を一覧にまとめます（すべて <b>中央値</b>。計測条件は §02、各機の識別も §02 の比較表を参照）。比較はすべて ZBOX MAGNUS 系。</p>
+    <p>本記事チャートの元数値を一覧にまとめます（すべて <b>中央値</b>。計測条件は <a class="xref" href="#s02">§02</a>、各機の識別も <a class="xref" href="#s02">§02</a> の比較表を参照）。比較はすべて ZBOX MAGNUS 系。</p>
     <div class="tablewrap">
       <table class="results">
         <thead>

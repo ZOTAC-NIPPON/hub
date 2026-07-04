@@ -200,7 +200,7 @@
   .site-nav a.nav-cta::after{display:none!important}
 
   .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-  section{padding:46px 0;border-top:1px solid var(--line)}
+  section{padding:46px 0;border-top:1px solid var(--line);scroll-margin-top:72px}
   section:first-of-type{border-top:none}
 
   .hero{padding:40px 0 30px}
@@ -233,6 +233,8 @@
   p{margin:13px 0}
   .muted{color:var(--ink-mid)}
   strong.key{background:var(--yellow-soft);padding:1px 4px;border-radius:3px;font-weight:700}
+  a.xref{color:inherit;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:2px;white-space:nowrap}
+  a.xref:hover{text-decoration-color:var(--yellow)}
 
   table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
   th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -481,7 +483,7 @@
   </section>
 
   <!-- ============ 製品概要 ============ -->
-  <section>
+  <section id="s01">
     <span class="sec-no">01 / 概要</span>
     <h2 class="sec">MAGNUS ONE の最上位 — 小型筐体に「デスクトップ RTX 5070 Ti ＋ 20コアCPU」</h2>
     <p>ZBOX MAGNUS ONE EU27507TC は、ZOTAC のミニPC「ZBOX MAGNUS ONE」シリーズのうち、GeForce
@@ -492,7 +494,7 @@
     <p>本機はベアボーン構成で、メモリ・ストレージは導入側で選定できます（本レビューのテスト機は 32GB DDR5-5600 ＋ 1TB NVMe SSD）。
       CPU・GPU ともデスクトップ部品のため、世代をまたいだ保守・更新や、用途に合わせた構成の組み替えがしやすいのが本機の構成上の利点です。
       筐体は 8.48L（270.5 × 126 × 249 mm）で、上位GPUの消費電力に合わせた <b>650W 電源を内蔵</b>（外部ACアダプター不要）。<b>デスクトップ版 GeForce RTX 5070 Ti を搭載するミニPCとしては世界最小クラス</b>の高性能機です。8.48L というこのサイズ帯で、デスクトップ用GPUカードを搭載できるミニPCの最上位クラスにあたります。</p>
-    <p>本機の GPU 選定には、MAGNUS ONE ならではの設計上の特長があります。ZOTAC の GeForce RTX 5070 Ti 搭載グラフィックスカードは、リテール（単品販売）向けでは<b>3連ファンのモデルのみ</b>です。一方で本機は、<b>MAGNUS ONE 筐体のエアフロー（ハニカムメッシュ天板・側面吸気・内部ダクト）を前提に、より小型の2連ファンの GeForce RTX 5070 Ti を採用</b>しています。筐体側の吸排気が設計段階で確定しているため、カード単体で放熱を完結させる必要がなく、8.48L という小型サイズと上位GPUの冷却を両立できています。この設計が効いていることは、高負荷でもクロックが落ちない後述の実測（§08）に表れています。</p>
+    <p>本機の GPU 選定には、MAGNUS ONE ならではの設計上の特長があります。ZOTAC の GeForce RTX 5070 Ti 搭載グラフィックスカードは、リテール（単品販売）向けでは<b>3連ファンのモデルのみ</b>です。一方で本機は、<b>MAGNUS ONE 筐体のエアフロー（ハニカムメッシュ天板・側面吸気・内部ダクト）を前提に、より小型の2連ファンの GeForce RTX 5070 Ti を採用</b>しています。筐体側の吸排気が設計段階で確定しているため、カード単体で放熱を完結させる必要がなく、8.48L という小型サイズと上位GPUの冷却を両立できています。この設計が効いていることは、高負荷でもクロックが落ちない後述の実測（<a class="xref" href="#s08">§08</a>）に表れています。</p>
 
     <div class="primer-lead">搭載するGPU・CPUの基礎知識</div>
     <div class="primer">
@@ -524,7 +526,7 @@
   </section>
 
   <!-- ============ テスト環境 ============ -->
-  <section>
+  <section id="s02">
     <span class="sec-no">02 / テスト環境</span>
     <h2 class="sec">テスト環境・比較機材・計測方法</h2>
 
@@ -533,7 +535,7 @@
       <tbody>
         <tr><th>製品 / SKU</th><td>ZOTAC ZBOX MAGNUS ONE <b>EU27507TC</b>（MAGNUS ONE / Windows）</td></tr>
         <tr><th>GPU</th><td class="mono">ZOTAC GAMING GeForce RTX 5070 Ti 16GB（GDDR7・256bit / Blackwell / GB203 / 8,960 CUDA）</td></tr>
-        <tr><th>GPUドライバー</th><td class="mono">NVIDIA GeForce 610.47（WHQL）<span class="muted">／ 帯域 896GB/s・PCIe x16 5.0 は GPU-Z（§01）参照</span></td></tr>
+        <tr><th>GPUドライバー</th><td class="mono">NVIDIA GeForce 610.47（WHQL）<span class="muted">／ 帯域 896GB/s・PCIe x16 5.0 は GPU-Z（<a class="xref" href="#s01">§01</a>）参照</span></td></tr>
         <tr><th>CPU</th><td class="mono">Intel Core Ultra 7 265（20C / 20T・Arrow Lake / Socket 1851 LGA）</td></tr>
         <tr><th>メモリ（テスト構成）</th><td class="mono">32GB DDR5-5600（16GB×2）</td></tr>
         <tr><th>ストレージ</th><td class="mono">1TB NVMe SSD ほか</td></tr>
@@ -679,7 +681,7 @@
     <h2 class="sec">ローカル画像生成AI（Stable Diffusion）— 速度と16GB VRAMを両立</h2>
     <p>画像生成AI「Stable Diffusion（SDXL）」を ComfyUI で実測すると、本機 RTX 5070 Ti は <strong class="key">1024×1024 / 30ステップで 7.07 秒/枚（8.49 枚/分）</strong>、
       Hires.Fix（1024→1536）で 21.97 秒/枚を記録。RTX 5070（9.05 / 28.29 秒/枚）より約22%、RTX 5060 Ti（12.08 / 38.52 秒/枚）より約41%高速で、比較群で最速でした。</p>
-    <p>本機の強みは、その速度に <b>16GB の VRAM 容量</b>（256-bit GDDR7）が伴う点です。RTX 5070（12GB）に対して<b>生成速度で上回りつつ、VRAM 容量も 12GB → 16GB へ拡大</b>。RTX 5070 版レビューで指摘した「速度重視なら 5070／容量重視なら 16GB の 5060 Ti」というトレードオフを、本機は<strong class="key">速度と容量の両取り</strong>で解消します。後述の実測ログ（§08）では、AI 連続生成中の VRAM 実測使用量が約 13.8GB に達しており、12GB では窮屈になる高解像度・大バッチでも 16GB の余裕が効きます。</p>
+    <p>本機の強みは、その速度に <b>16GB の VRAM 容量</b>（256-bit GDDR7）が伴う点です。RTX 5070（12GB）に対して<b>生成速度で上回りつつ、VRAM 容量も 12GB → 16GB へ拡大</b>。RTX 5070 版レビューで指摘した「速度重視なら 5070／容量重視なら 16GB の 5060 Ti」というトレードオフを、本機は<strong class="key">速度と容量の両取り</strong>で解消します。後述の実測ログ（<a class="xref" href="#s08">§08</a>）では、AI 連続生成中の VRAM 実測使用量が約 13.8GB に達しており、12GB では窮屈になる高解像度・大バッチでも 16GB の余裕が効きます。</p>
 
     <div class="chart">
       <div class="ttl">ComfyUI SDXL（1024×1024 / 30steps）</div>
@@ -702,7 +704,7 @@
       <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:80.4%"><span class="v">38.52</span></div></div></div>
       <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">47.89</span></div></div></div>
     </div>
-    <div class="note"><span class="tag">VRAM</span>本機の GPU-Z 読みで <b>16,384MB（16GB）GDDR7・256bit・帯域 896GB/s</b>。AI 連続生成中の実測 VRAM 使用量は約 13.8GB（後述 §08）。RTX 5070（12GB）を速度・容量とも上回ります。ComfyUI（SDXL）は CUDA（NVIDIA）環境のみが対象です。</div>
+    <div class="note"><span class="tag">VRAM</span>本機の GPU-Z 読みで <b>16,384MB（16GB）GDDR7・256bit・帯域 896GB/s</b>。AI 連続生成中の実測 VRAM 使用量は約 13.8GB（後述 <a class="xref" href="#s08">§08</a>）。RTX 5070（12GB）を速度・容量とも上回ります。ComfyUI（SDXL）は CUDA（NVIDIA）環境のみが対象です。</div>
   </section>
 
   <!-- ============ CPU ============ -->
@@ -772,7 +774,7 @@
   </section>
 
   <!-- ============ 安定性まとめ表 ============ -->
-  <section>
+  <section id="s08">
     <span class="sec-no">08 / 安定性</span>
     <h2 class="sec">複数回計測でのばらつき（再現性・安定性）と発熱</h2>
     <p>本プロジェクトが重視する <b>安定性指標</b>。複数回計測を実施したテストの変動係数（cv：標準偏差÷平均×100%）を一覧します。
@@ -793,7 +795,7 @@
 
     <h3>安定性を支える冷却構造</h3>
     <p>小型筐体ながら複数回計測でのばらつきが小さい背景には、デスクトップ部品を収めるための十分な冷却設計があります。
-      前述（§01）のとおり、本機は<b>筐体のエアフローを前提に2連ファンの RTX 5070 Ti を採用</b>しており、カード単体ではなく筐体全体で放熱する設計です。
+      前述（<a class="xref" href="#s01">§01</a>）のとおり、本機は<b>筐体のエアフローを前提に2連ファンの RTX 5070 Ti を採用</b>しており、カード単体ではなく筐体全体で放熱する設計です。
       長時間の連続負荷でもクロックを維持しやすく、実測の cv 1%前後（3DMark（グラフィックス性能）・GPUレンダリング・CPU）という再現性の高さに表れています。</p>
     <figure style="background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;padding:18px">
       <img src="images/exploded-view.png" alt="ZOTAC ZBOX MAGNUS ONE 分解図 — 天板ハニカムカバー / ファン / デスクトップGPUカード＋マザーボード / メッシュ側板 / 内蔵電源 / 底面トレイ">
@@ -973,7 +975,7 @@
   <section>
     <span class="sec-no">12 / データ</span>
     <h2 class="sec">付録: 全ベンチマーク結果</h2>
-    <p>本記事チャートの元数値を一覧にまとめます（すべて <b>中央値</b>。計測条件は §02、各機の識別も §02 の比較表を参照）。比較はすべて ZBOX MAGNUS 系。</p>
+    <p>本記事チャートの元数値を一覧にまとめます（すべて <b>中央値</b>。計測条件は <a class="xref" href="#s02">§02</a>、各機の識別も <a class="xref" href="#s02">§02</a> の比較表を参照）。比較はすべて ZBOX MAGNUS 系。</p>
     <div class="tablewrap">
       <table class="results">
         <thead>
