@@ -371,7 +371,7 @@ h2 {
   width: 100%; height: 100%;
   object-fit: cover;
 }
-.review-card .body { padding: 18px 20px 20px; }
+.review-card .body { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; }
 .review-card .review-meta {
   display: flex; align-items: center; gap: 10px;
   margin-bottom: 12px;
@@ -387,6 +387,7 @@ h2 {
   font-size: 16px; font-weight: 700;
   line-height: 1.45; letter-spacing: -0.005em;
   margin-bottom: 10px;
+  min-height: calc(1.45em * 3);
 }
 .review-card p {
   font-size: 12.5px; line-height: 1.65;
@@ -395,6 +396,7 @@ h2 {
 .review-card .arrow {
   font-family: var(--font-mono); font-size: 11px;
   letter-spacing: 0.1em; font-weight: 700;
+  margin-top: auto;
 }
 
 /* ===== Related CTA ===== */
