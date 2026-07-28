@@ -800,6 +800,13 @@ h2 {
 .zindex-group[data-use="workstation"] .zindex-row::before { background: #5B7C99; }
 .zindex-group[data-use="q"] .zindex-row::before { background: #3E5C76; }
 .zindex-group[data-use="compact"] .zindex-row::before { background: #00BEC7; }
+.zindex-group[data-use="graphics"] .zindex-row::before { background: var(--text-dark); }
+/* カテゴリ区切り: 完成PC(ミニPC/WS)と単体グラフィックスカード(部品)の境目を明示 */
+.zindex-cat { margin-top: 54px; padding-top: 20px; border-top: 3px solid var(--text-dark); }
+.zindex-cat-title { font-size: 19px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-dark); display: flex; align-items: baseline; gap: 10px; }
+.zindex-cat-title .zindex-cat-en { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: #9A9DA0; }
+.zindex-cat-note { font-size: 13px; color: #6a6e72; margin-top: 5px; line-height: 1.6; }
+.zindex-cat + .zindex-group { margin-top: 24px; }
 .zindex-row:hover { background: rgba(255,212,0,0.08); }
 .zindex-row:hover::before { width: 6px; }
 
@@ -1287,7 +1294,7 @@ h2 {
       <a href="/reviews/">レビュー</a>
       <a href="/catalogs/" class="is-active">製品カタログ</a>
       <a href="/press/">メディア掲載</a>
-      <a href="https://zotac.co.jp/biz-inquiry" class="nav-cta">お問い合わせ</a>
+      <a href="https://zotac.co.jp/product-biz-inquiry/" class="nav-cta">お問い合わせ</a>
     </nav>
     <div class="nav-mobile">
       <button type="button" class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
@@ -1344,29 +1351,29 @@ h2 {
       <div class="pickup-viewport">
         <div class="pickup-track">
 
-          <!-- SLIDE 1: ZBOX MAGNUS ONE -->
+          <!-- SLIDE 1: ZBOX MAGNUS ONE ULTRA -->
           <div class="pickup-feature">
             <div>
               <div class="pickup-label">// PICKUP — イチオシ製品</div>
-              <h3>ZBOX MAGNUS ONE</h3>
-              <div class="pickup-category">世界最小クラス — GeForce RTX 5070 Ti / 5070 搭載ミニPC</div>
-              <p class="pickup-desc">デスクトップ GPU をそのまま収めた約 8.3L の小型筐体。省スペース性とグラフィックス性能を両立し、VR 展示・サイネージ・クリエイティブ用途まで、法人導入の引き合いが最も多い一押しモデルです。</p>
+              <h3>ZBOX MAGNUS ONE ULTRA</h3>
+              <div class="pickup-category">デスクトップ版 GeForce RTX 5080 搭載 — MAGNUS ONE シリーズ最上位</div>
+              <p class="pickup-desc">11.46L の筐体にデスクトップ版 GeForce RTX 5080 と 20 コアの Core Ultra 7 265 を搭載した最上位モデル。850W 電源を内蔵し、4K ゲーミング・映像制作・生成AI／ローカル LLM まで、据置ワークステーション級の処理を省スペースで実行できます。</p>
               <div class="pickup-specs">
-                <span class="spec">GeForce RTX 5070 Ti / 5070</span>
-                <span class="spec">約 8.3L 小型筐体</span>
-                <span class="spec">VR Ready</span>
-                <span class="spec">法人導入実績多数</span>
+                <span class="spec">GeForce RTX 5080 16GB GDDR7</span>
+                <span class="spec">Core Ultra 7 265（20コア）</span>
+                <span class="spec">11.46L 筐体</span>
+                <span class="spec">850W 電源内蔵</span>
               </div>
             </div>
             <div class="pickup-side">
               <div class="pickup-cover">
-                <img src="../pdfs/covers/magnus_one_flyer_cover.jpg" alt="ZBOX MAGNUS ONE フライヤー表紙" loading="lazy">
+                <img src="../pdfs/covers/magnus_one_ultra_flyer_cover.jpg" alt="ZBOX MAGNUS ONE ULTRA フライヤー表紙" loading="lazy">
               </div>
               <div class="pickup-meta">
-                <span>UPDATED 2026.05</span>
-                <span>0.8 MB</span>
+                <span>UPDATED 2026.07</span>
+                <span>0.6 MB</span>
               </div>
-              <a href="../pdfs/magnus_one_flyer.pdf" class="catalog-pdf-btn" target="_blank">
+              <a href="../pdfs/magnus_one_ultra_flyer.pdf" class="catalog-pdf-btn" target="_blank">
                 <span class="icon">↓</span> PDF ダウンロード
               </a>
             </div>
@@ -1436,7 +1443,7 @@ h2 {
     <!-- ↓ _data/catalogs.json から自動生成
          カタログは「資料単位」で1つ。メタ情報は updated(更新年月)と filesize(MB)。
          pickup: true のエントリは上の PICKUP フィーチャーに表示し、グリッドからは除外
-         ① 総合・特集カタログ(全体像・少数固定) / ② 主力モデルカタログ(主力ライン MAGNUS ONE / EN のフライヤー) -->
+         ① 総合・特集カタログ(全体像・少数固定) / ② 主力モデルカタログ(主力ライン MAGNUS ONE ULTRA / ONE / EN のフライヤー) -->
 
     <!-- ① 総合・特集カタログ — まず全体像をつかむ少数固定の帯 -->
     <div class="catalog-subhead">
@@ -1529,7 +1536,8 @@ h2 {
 
     </div>
 
-    <!-- ② 主力モデルカタログ — 主力ライン MAGNUS ONE / MAGNUS EN のフライヤー。SKU 単位の導線は下の「製品インデックス」に集約 -->
+    <!-- ② 主力モデルカタログ — 主力ライン MAGNUS ONE ULTRA / MAGNUS ONE / MAGNUS EN のフライヤー。
+         並び順は性能順(ULTRA → ONE → EN)。SKU 単位の導線は下の「製品インデックス」に集約 -->
     <div class="catalog-subhead gap-lg">
       <div class="catalog-subhead-label">FOCUS</div>
       <h3>主力モデルカタログ</h3>
@@ -1537,7 +1545,22 @@ h2 {
 
     <div class="catalog-thumb-grid">
 
-      <!-- MAGNUS ONE フライヤー(PICKUP カルーセルにも掲載 — 主力モデルカタログ) -->
+      <!-- MAGNUS ONE ULTRA フライヤー(主力ラインの特別仕様 — RTX 5080 搭載の最上位) -->
+      <article class="catalog-thumb type-flyer">
+        <div class="catalog-cover">
+          <img src="../pdfs/covers/magnus_one_ultra_flyer_cover.jpg" alt="ZBOX MAGNUS ONE ULTRA フライヤー表紙" loading="lazy">
+        </div>
+        <div class="catalog-body">
+          <div class="catalog-meta"><span>Updated 2026.07</span><span class="meta-size">0.6 MB</span></div>
+          <div class="catalog-category">小型デスクトップPC — 11.46L にデスクトップ版 RTX 5080 / Core Ultra 7</div>
+          <h3>ZBOX MAGNUS ONE ULTRA フライヤー</h3>
+          <a href="../pdfs/magnus_one_ultra_flyer.pdf" class="catalog-pdf-btn" target="_blank">
+            <span class="icon">↓</span> PDF ダウンロード
+          </a>
+        </div>
+      </article>
+
+      <!-- MAGNUS ONE フライヤー(2026-07-28 に PICKUP カルーセルからは撤去。掲載はこの帯のみ) -->
       <article class="catalog-thumb type-flyer">
         <div class="catalog-cover">
           <img src="../pdfs/covers/magnus_one_flyer_cover.jpg" alt="ZBOX MAGNUS ONE フライヤー表紙" loading="lazy">
@@ -1580,7 +1603,7 @@ h2 {
     <div class="section-label">PRODUCT INDEX</div>
     <div class="yellow-bar"></div>
     <h2>製品カタログを型番から探す</h2>
-    <p class="section-lead">ZBOX 各モデルのカタログページへの索引です。用途で絞り込むか、型番・製品名・GPU で検索して、目的のモデルへお進みください。各カタログページでは、主要スペックの要約・製品写真に加え、日本語版 PDF カタログのダウンロードや評価機のご相談までご案内しています。</p>
+    <p class="section-lead">ZBOX 各モデル／GeForce RTX 50 グラフィックスカードのカタログページへの索引です。用途で絞り込むか、型番・製品名・GPU で検索して、目的のモデルへお進みください。各カタログページでは、主要スペックの要約・製品写真に加え、日本語版 PDF カタログのダウンロードや評価機のご相談までご案内しています。</p>
 
     <!-- 絞り込みツール:型番/製品名のテキスト検索 + 用途3区分チップ
          ↓ 下の #zindexResults 内の .zindex-row を data-use(用途) と data-search(検索語) で絞り込む -->
@@ -1597,6 +1620,7 @@ h2 {
         <button type="button" class="zindex-chip" data-use="compact" aria-pressed="false">C シリーズ（コンパクト）</button>
         <button type="button" class="zindex-chip" data-use="business" aria-pressed="false">法人・組み込み</button>
         <button type="button" class="zindex-chip" data-use="workstation" aria-pressed="false">GPU ワークステーション</button>
+        <button type="button" class="zindex-chip" data-use="graphics" aria-pressed="false">グラフィックスカード</button>
       </div>
     </div>
 
@@ -1808,6 +1832,131 @@ h2 {
         </div>
       </div>
 
+      <!-- グラフィックスカード(GeForce RTX 50 — GPUチップ別に枠分割。上位→下位／掲載製品のあるGPUのみ表示。ZBOX・WSの後) -->
+      <div class="zindex-cat" data-use="graphics">
+        <div class="zindex-cat-title">グラフィックスカード<span class="zindex-cat-en">GRAPHICS CARDS</span></div>
+      </div>
+
+      <!-- GeForce RTX 5090 -->
+      <div class="zindex-group" data-use="graphics">
+        <div class="zindex-group-head">
+          <h3>GeForce RTX 5090</h3>
+          <span class="zindex-group-note">RTX 50 シリーズ最上位 — 4K・クリエイティブ・生成AI／ローカル LLM</span>
+        </div>
+        <div class="zindex-list">
+
+          <a href="/catalogs/gpu/zt-b50900b/" class="zindex-row" data-use="graphics" data-search="zt-b50900b b50900b zotac gaming geforce rtx 5090 amp extreme infinity 32gb gddr7 blackwell dlss4 グラフィックスカード gpu 最上位">
+            <span class="zindex-sku">ZT-B50900B</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZOTAC GAMING GeForce RTX 5090 AMP Extreme Infinity</span>
+              <span class="zindex-spec">32GB GDDR7 · 3連ファン（100mm）</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+          <a href="/catalogs/gpu/zt-b50900j/" class="zindex-row" data-use="graphics" data-search="zt-b50900j b50900j zotac gaming geforce rtx 5090 solid oc 32gb gddr7 blackwell dlss4 グラフィックスカード gpu">
+            <span class="zindex-sku">ZT-B50900J</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZOTAC GAMING GeForce RTX 5090 Solid OC</span>
+              <span class="zindex-spec">32GB GDDR7 · 3連ファン（100mm）</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+
+          <a href="/catalogs/gpu/zt-b50900k/" class="zindex-row" data-use="graphics" data-search="zt-b50900k b50900k zotac gaming geforce rtx 5090 arcticstorm aio 32gb gddr7 blackwell dlss4 グラフィックスカード gpu">
+            <span class="zindex-sku">ZT-B50900K</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZOTAC GAMING GeForce RTX 5090 ArcticStorm AIO</span>
+              <span class="zindex-spec">32GB GDDR7 · 360mm AIO 水冷</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- GeForce RTX 5070 -->
+      <div class="zindex-group" data-use="graphics">
+        <div class="zindex-group-head">
+          <h3>GeForce RTX 5070</h3>
+          <span class="zindex-group-note">WQHD 高リフレッシュ — ゲーミング・クリエイティブ・ローカル AI</span>
+        </div>
+        <div class="zindex-list">
+
+          <a href="/catalogs/gpu/zt-b50700fq/" class="zindex-row" data-use="graphics" data-search="zt-b50700fq b50700fq zotac gaming geforce rtx 5070 amp white edition 12gb gddr7 sff-ready blackwell dlss4 グラフィックスカード gpu">
+            <span class="zindex-sku">ZT-B50700FQ</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZOTAC GAMING GeForce RTX 5070 AMP White Edition</span>
+              <span class="zindex-spec">12GB GDDR7 · 3連ファン（90mm）</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+          <a href="/catalogs/gpu/zt-b50700j/" class="zindex-row" data-use="graphics" data-search="zt-b50700j b50700j zotac gaming geforce rtx 5070 solid oc 12gb gddr7 blackwell dlss4 グラフィックスカード gpu">
+            <span class="zindex-sku">ZT-B50700J</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZOTAC GAMING GeForce RTX 5070 Solid OC</span>
+              <span class="zindex-spec">12GB GDDR7 · 3連ファン（90mm）</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+
+          <a href="/catalogs/gpu/zt-b50700d/" class="zindex-row" data-use="graphics" data-search="zt-b50700d b50700d zotac gaming geforce rtx 5070 solid 12gb gddr7 blackwell dlss4 グラフィックスカード gpu">
+            <span class="zindex-sku">ZT-B50700D</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZOTAC GAMING GeForce RTX 5070 Solid</span>
+              <span class="zindex-spec">12GB GDDR7 · 3連ファン（90mm）</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+
+          <a href="/catalogs/gpu/zt-b50700h/" class="zindex-row" data-use="graphics" data-search="zt-b50700h b50700h zotac gaming geforce rtx 5070 twin edge oc 12gb gddr7 blackwell dlss4 グラフィックスカード gpu">
+            <span class="zindex-sku">ZT-B50700H</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZOTAC GAMING GeForce RTX 5070 Twin Edge OC</span>
+              <span class="zindex-spec">12GB GDDR7 · 2連ファン（90mm）</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+
+          <a href="/catalogs/gpu/zt-b50700e/" class="zindex-row" data-use="graphics" data-search="zt-b50700e b50700e zotac gaming geforce rtx 5070 twin edge 12gb gddr7 blackwell dlss4 グラフィックスカード gpu">
+            <span class="zindex-sku">ZT-B50700E</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZOTAC GAMING GeForce RTX 5070 Twin Edge</span>
+              <span class="zindex-spec">12GB GDDR7 · 2連ファン（90mm）</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- GeForce RTX 5060 Ti -->
+      <div class="zindex-group" data-use="graphics">
+        <div class="zindex-group-head">
+          <h3>GeForce RTX 5060 Ti</h3>
+          <span class="zindex-group-note">フルHD〜WQHD — メインストリーム・ローカル AI 入門</span>
+        </div>
+        <div class="zindex-list">
+
+          <a href="/catalogs/gpu/zt-b50620h/" class="zindex-row" data-use="graphics" data-search="zt-b50620h b50620h zotac gaming geforce rtx 5060 ti 16gb twin edge oc 16gb gddr7 blackwell dlss4 グラフィックスカード gpu">
+            <span class="zindex-sku">ZT-B50620H</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZOTAC GAMING GeForce RTX 5060 Ti 16GB Twin Edge OC</span>
+              <span class="zindex-spec">16GB GDDR7 · 2連ファン（90mm）</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+
+          <a href="/catalogs/gpu/zt-b50610h/" class="zindex-row" data-use="graphics" data-search="zt-b50610h b50610h zotac gaming geforce rtx 5060 ti 8gb twin edge oc 8gb gddr7 blackwell dlss4 グラフィックスカード gpu">
+            <span class="zindex-sku">ZT-B50610H</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZOTAC GAMING GeForce RTX 5060 Ti 8GB Twin Edge OC</span>
+              <span class="zindex-spec">8GB GDDR7 · 2連ファン（90mm）</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+        </div>
+      </div>
+
       <p class="zindex-empty" id="zindexEmpty" style="display:none;">
         該当する製品が見つかりませんでした。検索条件を変えてお試しください。
       </p>
@@ -1996,7 +2145,7 @@ h2 {
         <h3>プロダクトレビュー</h3>
         <p>カタログのスペックだけでは見えない実測値・現場検証を含む技術エディトリアル。</p>
       </a>
-      <a href="https://zotac.co.jp/biz-inquiry" class="related-cta" target="_blank" rel="noopener">
+      <a href="https://zotac.co.jp/product-biz-inquiry/" class="related-cta" target="_blank" rel="noopener">
         <div class="related-meta">CONTACT</div>
         <h3>お問い合わせ</h3>
         <p>カタログ掲載製品のご相談・お見積りはこちらから。法人相談窓口にて承ります。</p>
@@ -2047,7 +2196,7 @@ h2 {
       <div class="legal-links">
         <a href="/sitemap.xml">Sitemap</a>
         <a href="https://zotac.co.jp/privacy-policy/">Privacy Policy</a>
-        <a href="https://zotac.co.jp/biz-inquiry">Contact</a>
+        <a href="https://zotac.co.jp/product-biz-inquiry/">Contact</a>
       </div>
     </div>
 
@@ -2116,9 +2265,11 @@ h2 {
   var empty = document.getElementById('zindexEmpty');
   var useFilter = 'all';
 
+  var cats = Array.prototype.slice.call(results.querySelectorAll('.zindex-cat'));
   function apply() {
     var q = (search ? search.value : '').trim().toLowerCase();
     var total = 0;
+    var perUse = {};
     groups.forEach(function (group) {
       var shown = 0;
       Array.prototype.slice.call(group.querySelectorAll('.zindex-row')).forEach(function (row) {
@@ -2126,10 +2277,14 @@ h2 {
         var matchText = !q || (row.getAttribute('data-search') || '').indexOf(q) !== -1;
         var ok = matchUse && matchText;
         row.style.display = ok ? '' : 'none';
-        if (ok) shown++;
+        if (ok) { shown++; var u = row.getAttribute('data-use'); perUse[u] = (perUse[u] || 0) + 1; }
       });
       group.style.display = shown ? '' : 'none';
       total += shown;
+    });
+    // カテゴリ区切りは、その用途の可視行が1件以上あるときだけ表示（フィルタ/検索と整合）
+    cats.forEach(function (cat) {
+      cat.style.display = (perUse[cat.getAttribute('data-use')] > 0) ? '' : 'none';
     });
     if (empty) empty.style.display = total ? 'none' : 'block';
   }

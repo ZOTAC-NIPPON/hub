@@ -63,6 +63,47 @@
     <loc>https://hub.zotac.co.jp/catalogs/zbox/s35n150p/</loc>
     <lastmod>2026-06-16</lastmod>
   </url>
+  <!-- GeForce RTX 製品カタログ -->
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/gpu/zt-b50610h/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/gpu/zt-b50620h/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/gpu/zt-b50700d/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/gpu/zt-b50700e/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/gpu/zt-b50700fq/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/gpu/zt-b50700h/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/gpu/zt-b50700j/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/gpu/zt-b50900b/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/gpu/zt-b50900j/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/gpu/zt-b50900k/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
   <!-- Enterprise / GPU ワークステーション 製品カタログ -->
   <url>
     <loc>https://hub.zotac.co.jp/catalogs/enterprise/510g-ix1p7e/</loc>
@@ -87,10 +128,6 @@
     <lastmod>2026-07-28</lastmod>
   </url>
   <url>
-    <loc>https://hub.zotac.co.jp/reviews/magnus-one-ultra-rtx-5080/</loc>
-    <lastmod>2026-07-28</lastmod>
-  </url>
-  <url>
     <loc>https://hub.zotac.co.jp/reviews/magnus-en-rtx-5060-ti/</loc>
     <lastmod>2026-07-28</lastmod>
   </url>
@@ -105,6 +142,10 @@
   <url>
     <loc>https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ti/</loc>
     <lastmod>2026-07-03</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/reviews/magnus-one-ultra-rtx-5080/</loc>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://hub.zotac.co.jp/reviews/meganex8kmk2/</loc>
