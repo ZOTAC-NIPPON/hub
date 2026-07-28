@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ZBOX MAGNUS ONE ER98N5070C ミニPCレビュー（RTX 5070 / Ryzen 9 9850HX 実測）| ZOTAC NIPPON</title>
+<title>ZOTAC ZBOX MAGNUS ONE ER98N5070C ミニPCレビュー｜GeForce RTX 5070 / Ryzen 9 9850HX 実測ベンチマーク | ZOTAC NIPPON</title>
 <!-- @partial:analytics START — 編集は _partials/analytics.html、反映は python _partials/inject.py -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5X4CC48YH"></script>
 <script>
@@ -79,7 +79,7 @@
         { "@type": "PropertyValue", "name": "CPU", "value": "AMD Ryzen 9 9850HX（12コア24スレッド / 3.0–5.2GHz / Fire Range / 4nm）" },
         { "@type": "PropertyValue", "name": "メモリ", "value": "2 × DDR5-5600 SO-DIMM（最大96GB）" },
         { "@type": "PropertyValue", "name": "ストレージ", "value": "M.2 NVMe PCIe 5.0 ×2（RAID 0 / 1 対応）" },
-        { "@type": "PropertyValue", "name": "映像出力", "value": "DisplayPort 2.1b（UHBR20）×3 ＋ HDMI（最大4画面クローン / 6画面拡張）" },
+        { "@type": "PropertyValue", "name": "映像出力", "value": "GPU側 DisplayPort 2.1b（UHBR20）×3 ＋ HDMI。iGPU側の出力を併用して最大4画面クローン / 6画面拡張" },
         { "@type": "PropertyValue", "name": "ネットワーク", "value": "5GbE Ethernet / Wi-Fi 7（802.11be）/ Bluetooth 5.4" },
         { "@type": "PropertyValue", "name": "インターフェース", "value": "USB 3.2 Gen2 ×6 / USB 3.2 Gen1 ×2（USB-C ALT Mode）/ UHS-II カードリーダー" },
         { "@type": "PropertyValue", "name": "電源", "value": "500W 80+ Platinum PSU 内蔵" },
@@ -95,7 +95,7 @@
       "description": "RTX 5070 12GB と Ryzen 9 9850HX を搭載するミニPC ZBOX MAGNUS ONE ER98N5070C を、3DMark・Cinebench・Blender・Procyon・ComfyUI で実測したレポート。",
       "image": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ryzen-9-9850hx/ogp.jpg",
       "datePublished": "2026-07-03",
-      "dateModified": "2026-07-03",
+      "dateModified": "2026-07-28",
       "author": { "@id": "https://zotac.co.jp/#organization" },
       "publisher": { "@id": "https://zotac.co.jp/#organization" },
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ryzen-9-9850hx/" },
@@ -115,23 +115,23 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "ZBOX MAGNUS ONE ER98N5070C（RTX 5070）の3D／ゲーム性能はどのくらいですか？",
-          "acceptedAnswer": { "@type": "Answer", "text": "3DMark Time Spy Extreme 10,365 / Speed Way 5,769 / Steel Nomad 5,251（いずれも3回計測の中央値）。同じ MAGNUS 系の RTX 5060 Ti を約35〜45%上回り、比較した中では 5070 Ti・Intel版に次ぐ上位グループです。GPUは Intel版 5070（EU275070C）と同一のため、3D性能はほぼ同等です。" }
+          "name": "ZBOX MAGNUS ONE ER98N5070C（RTX 5070）の3Dグラフィックス性能（3DMark）はどのくらいですか？",
+          "acceptedAnswer": { "@type": "Answer", "text": "3DMark Time Spy Extreme 10,365 / Speed Way 5,769 / Steel Nomad 5,251（3回計測の中央値）。同じ MAGNUS 系の RTX 5060 Ti を約35〜45%上回り、比較した中では RTX 5080・5070 Ti・Intel版に次ぐ位置です。GPUは Intel版 5070（EU275070C）と同一のため、3D性能はほぼ同等です。なお本レビューでは市販ゲームタイトルのフレームレートは計測していないため、これらはゲーム内の実効フレームレートを示す数値ではありません。" }
         },
         {
           "@type": "Question",
           "name": "Intel版（EU275070C）とAMD版（本機 ER98N5070C）の RTX 5070 はどう違いますか？",
-          "acceptedAnswer": { "@type": "Answer", "text": "GPUはどちらも同じデスクトップ RTX 5070 で、3D・GPUレンダリング・AIの性能はほぼ同等です。違いは CPU で、本機は AMD Ryzen 9 9850HX（12コア24スレッド）、Intel版は Core Ultra 7 265（20スレッド）。本機は Procyon Photo で比較した中でトップ（9,882）を取る一方、Cinebench 2026 CPU は 5,286 pts・複数回計測でのばらつき cv 8.09% と、Intel版（5,760 pts・cv 0.17%）より変動が大きめです。AMD プラットフォーム標準の環境やマルチスレッド用途は本機、計測の再現性を最優先するなら Intel版が向きます。" }
+          "acceptedAnswer": { "@type": "Answer", "text": "GPUはどちらも同じデスクトップ RTX 5070 で、3D・GPUレンダリング・AIの性能はほぼ同等です。違いは CPU で、本機は AMD Ryzen 9 9850HX（24スレッド）、Intel版は Core Ultra 7 265（20スレッド）。本機は Procyon Photo で比較した中でトップ（9,882）を取る一方、Cinebench CPU は 5,286 pts・cv 8.09% と、Intel版（5,760 pts・cv 0.17%）より変動が大きめです。AMD 標準環境・マルチスレッド用途は本機、計測再現性最優先なら Intel版が向きます。" }
         },
         {
           "@type": "Question",
           "name": "ローカルの画像生成AI（Stable Diffusion）に使えますか？12GB VRAM の位置づけは？",
-          "acceptedAnswer": { "@type": "Answer", "text": "ComfyUI の SDXL 1024×1024 / 30ステップで 9.09 秒／枚、Hires.Fix（1024→1536）で 28.76 秒／枚を実測しました。RTX 5060 Ti（12.08 秒／枚）より約25%高速で、Intel版 5070 とはほぼ同じです。ただし VRAM は 12GB（192-bit GDDR7）で、容量では 16GB の 5060 Ti を下回ります。生成速度を重視するなら本機、大規模モデルや高解像度バッチで容量を重視するなら 16GB の 5060 Ti が候補です。" }
+          "acceptedAnswer": { "@type": "Answer", "text": "ComfyUI の SDXL 1024×1024 / 30ステップで 9.09 秒/枚、Hires.Fix で 28.76 秒/枚。RTX 5060 Ti（12.08 秒/枚）より約25%高速で、Intel版 5070 とはほぼ同じです。ただし VRAM は 12GB（192-bit GDDR7）で、容量では 16GB の 5060 Ti を下回ります。生成速度重視なら本機、本レビュー未検証の大規模モデルや高解像度バッチで容量を重視するなら 16GB の 5060 Ti が候補です。" }
         },
         {
           "@type": "Question",
           "name": "CPU（Ryzen 9 9850HX）の特性と向く業務は？",
-          "acceptedAnswer": { "@type": "Answer", "text": "Ryzen 9 9850HX は 12コア24スレッド（SMT）で、Cinebench 2026 CPU 5,286 pts。スレッド数は Intel版（20スレッド）より多く、Procyon Photo のような CPU／iGPU 混在ワークロードで比較した中でトップ（9,882）でした。一方 Cinebench CPU の複数回計測でのばらつきは cv 8.09% とやや大きく、計測の再現性を最優先する用途では Intel版（Core Ultra 7 265 / cv 0.17%）が有利です。AMD プラットフォーム標準の環境やマルチスレッド処理に向きます。" }
+          "acceptedAnswer": { "@type": "Answer", "text": "12コア24スレッド（SMT）で Cinebench 2026 CPU 5,286 pts。スレッド数は Intel版（20スレッド）より多く、Procyon Photo のような CPU／iGPU 混在ワークロードで比較した中でトップ（9,882）でした。一方 Cinebench CPU の複数回計測でのばらつきは cv 8.09% とやや大きく、計測の再現性を最優先する用途では Intel版（Core Ultra 7 265 / cv 0.17%）が有利です。AMD 標準環境やマルチスレッド処理に向きます。" }
         }
       ]
     }
@@ -252,6 +252,15 @@
   .data tr.me-row td:first-child{border-left:3px solid var(--yellow)}
   .na{color:var(--ink-light)}
 
+  /* narrow-screen scroll container for the multi-column .data tables
+     (stability / thermal). Keeps the page body from scrolling horizontally. */
+  .datawrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+  .datawrap table{margin:0}
+  @media(max-width:620px){
+    .datawrap table.data{min-width:460px}
+    .datawrap table.data.wide{min-width:520px}
+  }
+
   /* results appendix table */
   .tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:8px;-webkit-overflow-scrolling:touch}
   .results{width:100%;min-width:720px;border-collapse:collapse;font-size:13px;margin:0}
@@ -350,6 +359,7 @@
   footer .meta{font-family:var(--mono);font-size:11.5px;line-height:1.9;color:#9a9c9e}
   footer b{color:#fff}
   footer .disc{margin-top:16px;padding-top:16px;border-top:1px solid #44484a}
+
   /* image lightbox (click to enlarge in overlay) */
   main img{cursor:zoom-in}
   .lightbox{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(22,23,25,.93);padding:28px;cursor:zoom-out;opacity:0;transition:opacity .18s ease}
@@ -415,7 +425,7 @@
       <a href="/reviews/" class="is-active">レビュー</a>
       <a href="/catalogs/">製品カタログ</a>
       <a href="/press/">メディア掲載</a>
-      <a href="https://zotac.co.jp/biz-inquiry" class="nav-cta">お問い合わせ</a>
+      <a href="https://zotac.co.jp/product-biz-inquiry/" class="nav-cta">お問い合わせ</a>
     </nav>
     <div class="nav-mobile">
       <button type="button" class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
@@ -471,7 +481,7 @@
     <div class="tldr">
       <h2>実測サマリー（3行）</h2>
       <ul>
-        <li>3DMark（グラフィックス性能）およびGPUレンダリングで <b>RTX 5060 Ti を約35〜45%上回り、比較した MAGNUS 系で 5070 Ti・Intel版に次ぐ上位</b>（Speed Way <span class="num">5,769</span> / Steel Nomad <span class="num">5,251</span> / Time Spy Extreme <span class="num">10,365</span>）。GPUは <b>Intel版 5070（EU275070C）と同一・互角</b>。</li>
+        <li>3DMark で <b>RTX 5060 Ti を約35〜45%（Blender は約36%、Cinebench GPU は約20%）上回り、比較した MAGNUS 系で RTX 5080・5070 Ti・Intel版に次ぐ位置</b>（Speed Way <span class="num">5,769</span> / Steel Nomad <span class="num">5,251</span> / Time Spy Extreme <span class="num">10,365</span>）。GPUは <b>Intel版 5070（EU275070C）と同一・互角</b>。</li>
         <li><b>Ryzen 9 9850HX は 12コア24スレッド</b>。<b>Procyon Photo 9,882 は比較した中でトップ</b>（Intel版・5060 Ti を上回る）。CPU／iGPU 混在ワークロードで強み。</li>
         <li>ただし Cinebench CPU は <span class="num">5,286</span> pts・複数回計測でのばらつき <b>cv 8.09%</b>とやや大きめ（計測の再現性を最優先するなら Intel版 265＝cv 0.17%）。AI＝ComfyUI <span class="num">9.09</span> 秒/枚、VRAM は <b>12GB</b>。テスト構成: メモリ32GB・電源プラン＝高パフォーマンス。</li>
       </ul>
@@ -498,12 +508,12 @@
     <div class="primer">
       <div class="card">
         <h4><span class="k">GPU</span>GeForce RTX 5070 とは</h4>
-        <p>NVIDIA の最新世代「Blackwell」（RTX 50 シリーズ）のデスクトップ向けGPU。本機の搭載モデルは VRAM <b>12GB（GDDR7 / 192-bit）</b>。前世代から、より高速な <b>GDDR7</b> メモリ、フレーム生成を強化した <b>DLSS 4</b>、新世代のレイトレ／AI（Tensor）ユニットへ更新された世代です。</p>
+        <p>NVIDIA の Blackwell 世代（RTX 50 シリーズ）のデスクトップ向けGPU。本機の搭載モデルは VRAM <b>12GB（GDDR7 / 192-bit）</b>。前世代から、より高速な <b>GDDR7</b> メモリ、フレーム生成を強化した <b>DLSS 4</b>、新世代のレイトレ／AI（Tensor）ユニットへ更新された世代です。</p>
         <p><span class="tl">ポイント</span>ゲームに加えて<b>ローカルでのAI画像生成・推論</b>の需要が広がり、描画性能だけでなく <b>VRAM容量</b>（扱えるモデル規模・解像度）が重視されるようになっています。RTX 5070 は、ゲーム・GPUレンダ・ローカルAIを1台でこなせるミドルハイ帯のGPUです。</p>
       </div>
       <div class="card">
         <h4><span class="k">CPU</span>Ryzen 9 9850HX とは</h4>
-        <p>AMD の最新世代「Zen 5」をベースにしたハイエンド・モバイル向けCPU（コードネーム Fire Range）。<b>12コア / 24スレッド</b>（SMT対応）で、本機ではこれを小型筐体に搭載。RDNA系の統合GPU（iGPU）も内蔵します。</p>
+        <p>AMD の Zen 5 世代をベースにしたハイエンド・モバイル向けCPU（コードネーム Fire Range）。<b>12コア / 24スレッド</b>（SMT対応）で、本機ではこれを小型筐体に搭載。RDNA系の統合GPU（iGPU）も内蔵します。</p>
         <p><span class="tl">ポイント</span>中身はデスクトップ版 Ryzen 9000（Zen 5）と同系のコア。ソケット式のデスクトップ版に対し、末尾 <b>HX</b> は基板直付けの<b>モバイル向けパッケージ</b>で、省電力・小型化に最適化された系統です。これを使うことで、<b>多コア・多スレッド</b>をミニPCに持ち込めます（クリエイティブ処理やAIの前処理など並列ワークロード向き）。</p>
       </div>
     </div>
@@ -550,7 +560,7 @@
         <tr><th>プロセッサー</th><td>AMD Ryzen 9 9850HX<br><span class="muted" style="font-size:13px">12コア / 24スレッド / 3.0–5.2GHz / Fire Range / 4nm</span></td></tr>
         <tr><th>メモリー</th><td class="mono">2 × DDR5-5600 SO-DIMM（最大96GB）</td></tr>
         <tr><th>ストレージ</th><td class="mono">2 × M.2 NVMe PCIe 5.0 ×4（RAID 0 / 1 対応）</td></tr>
-        <tr><th>映像出力</th><td class="mono">3 × DisplayPort 2.1b（UHBR20）＋ 1 × HDMI（最大4画面クローン / 6画面拡張）</td></tr>
+        <tr><th>映像出力</th><td class="mono">3 × DisplayPort 2.1b（UHBR20）＋ 1 × HDMI（GPU側4系統）／ iGPU側を併用して最大4画面クローン・6画面拡張</td></tr>
         <tr><th>ネットワーク</th><td class="mono">5GbE Ethernet ／ Wi-Fi 7（802.11be）/ Bluetooth 5.4</td></tr>
         <tr><th>前面 I/O</th><td class="mono">UHS-II 3-in-1 カードリーダー ／ 2 × USB 3.2 Gen2（10Gbps・1 × Type-C）</td></tr>
         <tr><th>背面 I/O</th><td class="mono">4 × USB 3.2 Gen2 Type-A ／ 2 × USB 3.2 Gen1 Type-A（USB-C ALT Mode）／ デュアル Wi-Fi アンテナ</td></tr>
@@ -562,10 +572,11 @@
     <p class="buyrow" style="margin:16px 0 4px"><a class="txtlink" href="https://hub.zotac.co.jp/catalogs/zbox/er98n5070c/">製品カタログで全仕様を見る（ZBOX MAGNUS ONE ER98N5070C）→</a><a class="txtlink" href="https://zotac.co.jp/product/magnus-one-er98n5070c-barebone/" target="_blank" rel="noopener">ZOTAC 直販ストア →</a></p>
 
     <h3>比較機材（すべて ZBOX MAGNUS 系）</h3>
-    <p>公平性のため、比較は同じ <b>ZBOX MAGNUS</b> 系の実機に限定しています。最上位の参考として <b>RTX 5070 Ti（EU27507TC）</b> を併載し、同じ RTX 5070 が <b>本機（AMD）と Intel版</b>の2台、RTX 4070 も <b>Desktop（ERP74070C）と Laptop（EN374070C）</b>の2台あるため、表記は <b>GPU＋CPU</b>で区別します。各機は出荷時の代表構成で計測しました。</p>
+    <p>公平性のため、比較は同じ <b>ZBOX MAGNUS</b> 系の実機に限定しています。上位の参考として <b>RTX 5080（EU275080C）・RTX 5070 Ti（EU27507TC）</b> を併載し、同じ RTX 5070 が <b>本機（AMD）と Intel版</b>の2台、RTX 4070 も <b>Desktop（ERP74070C）と Laptop（EN374070C）</b>の2台あるため、表記は <b>GPU＋CPU</b>で区別します。各機は出荷時の代表構成で計測しました。</p>
     <table class="cmp">
       <thead><tr><th>本記事の表記</th><th>モデル</th><th>SKU</th><th>CPU</th></tr></thead>
       <tbody>
+        <tr><td>RTX 5080</td><td>MAGNUS ONE ULTRA</td><td class="mono">EU275080C</td><td>Core Ultra 7 265</td></tr>
         <tr><td>RTX 5070 Ti</td><td>MAGNUS ONE</td><td class="mono">EU27507TC</td><td>Core Ultra 7 265</td></tr>
         <tr class="me-row"><td>RTX 5070（本機 / AMD）</td><td>MAGNUS ONE</td><td class="mono">ER98N5070C</td><td>Ryzen 9 9850HX</td></tr>
         <tr><td>RTX 5070（Intel）</td><td>MAGNUS ONE</td><td class="mono">EU275070C</td><td>Core Ultra 7 265</td></tr>
@@ -577,7 +588,7 @@
 
     <h3>MAGNUS ラインナップでの位置づけ</h3>
     <div class="lineup">
-      <div class="lu me"><span class="ttl">MAGNUS ONE（本機 RTX 5070・Intel版）</span><span class="d">デスクトップ級のGPUを小型筐体に収めたシリーズ。<b>PCIe 5.0 x16 のデスクトップGPUカード</b>を採用する上位構成。本機は RTX 5070＋Ryzen 9 9850HX（24スレッド）の AMD 構成。GPUは Intel版 EU275070C と同一。</span></div>
+      <div class="lu me"><span class="ttl">MAGNUS ONE（本機 RTX 5070・AMD版）</span><span class="d">デスクトップ級のGPUを小型筐体に収めたシリーズ。<b>PCIe 5.0 x16 のデスクトップGPUカード</b>を採用する上位構成。本機は RTX 5070＋Ryzen 9 9850HX（24スレッド）の AMD 構成。GPUは Intel版 EU275070C と同一。</span></div>
       <div class="lu"><span class="ttl">MAGNUS EN（RTX 5060 Ti・前世代 4070 Laptop）</span><span class="d">2.65L という非常にコンパクトな筐体に、モバイルCPU×デスクトップGPUを収めた高密度ミニPC。サイズを最優先したシリーズ。</span></div>
     </div>
 
@@ -595,7 +606,7 @@
     <p>DX12 Ultimate／レイトレを含む 3DMark の3テストでは、本機 RTX 5070 は同じ MAGNUS 系の RTX 5060 Ti を
       <strong class="key">Speed Way +40%・Steel Nomad +45%・Time Spy Extreme +35%</strong> と明確に上回りました。
       GPU が同一の <b>Intel版 5070（EU275070C）とはほぼ同等</b>（いずれも数%以内）で、GPUが同じであることがそのまま表れています。
-      比較した MAGNUS 系のなかでは 5070 Ti・Intel版に次ぐ上位に位置し、ミドルハイGPUとして期待どおりの性能です。
+      比較した MAGNUS 系のなかでは RTX 5080・5070 Ti・Intel版に次ぐ位置で、ミドルハイGPUとして期待どおりの性能です。
       複数回計測での変動はいずれも <b>cv 1%未満</b>と安定しています。</p>
 
     <div class="note" style="margin-top:0">
@@ -606,34 +617,37 @@
     <div class="chart">
       <div class="ttl">3DMark Time Spy Extreme</div>
       <div class="unit">score ／ 高いほど良い</div>
-      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">12,501</span></div></div></div>
-      <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:84.5%"><span class="v">10,562</span></div></div></div>
-      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:82.9%"><span class="v">10,365</span></div></div></div>
-      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:62.7%"><span class="v">7,833</span></div></div></div>
-      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:61.4%"><span class="v">7,674</span></div></div></div>
-      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:44.2%"><span class="v">5,527</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5080<small title="MAGNUS ONE ULTRA EU275080C ／ Core Ultra 7 265">EU275080C</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">14,859</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:84.1%"><span class="v">12,501</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:71.1%"><span class="v">10,562</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:69.8%"><span class="v">10,365</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:52.7%"><span class="v">7,833</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:51.6%"><span class="v">7,674</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:37.2%"><span class="v">5,527</span></div></div></div>
           </div>
 
     <div class="chart">
       <div class="ttl">3DMark Speed Way</div>
       <div class="unit">score ／ 高いほど良い</div>
-      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">7,474</span></div></div></div>
-      <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:78.0%"><span class="v">5,827</span></div></div></div>
-      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:77.2%"><span class="v">5,769</span></div></div></div>
-      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:60.2%"><span class="v">4,498</span></div></div></div>
-      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:55.1%"><span class="v">4,119</span></div></div></div>
-      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:39.5%"><span class="v">2,951</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5080<small title="MAGNUS ONE ULTRA EU275080C ／ Core Ultra 7 265">EU275080C</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">8,989</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:83.1%"><span class="v">7,474</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:64.8%"><span class="v">5,827</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:64.2%"><span class="v">5,769</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:50.0%"><span class="v">4,498</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:45.8%"><span class="v">4,119</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:32.8%"><span class="v">2,951</span></div></div></div>
           </div>
 
     <div class="chart">
       <div class="ttl">3DMark Steel Nomad</div>
       <div class="unit">score ／ 高いほど良い</div>
-      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">6,634</span></div></div></div>
-      <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:79.6%"><span class="v">5,283</span></div></div></div>
-      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:79.2%"><span class="v">5,251</span></div></div></div>
-      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:60.3%"><span class="v">3,999</span></div></div></div>
-      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:54.6%"><span class="v">3,620</span></div></div></div>
-      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:40.1%"><span class="v">2,662</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5080<small title="MAGNUS ONE ULTRA EU275080C ／ Core Ultra 7 265">EU275080C</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">8,588</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:77.2%"><span class="v">6,634</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:61.5%"><span class="v">5,283</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:61.1%"><span class="v">5,251</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:46.6%"><span class="v">3,999</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:42.2%"><span class="v">3,620</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:31.0%"><span class="v">2,662</span></div></div></div>
           </div>
   </section>
 
@@ -642,29 +656,31 @@
     <span class="sec-no">04 / GPUレンダリング</span>
     <h2 class="sec">GPUレンダリング — Intel版と並ぶ上位クラス</h2>
     <p>GPU レンダリングでも上位クラスのスコアを記録しました。<strong class="key">Cinebench 2026 GPU は 73,744 pts</strong> で RTX 5060 Ti（61,312）を約20%上回り、Intel版 5070（74,746）とはほぼ同水準。
-      <strong class="key">Blender Benchmark（OptiX）は 5,899</strong> と、同じ RTX 5070 では Intel版（6,010）に次ぐ2位でした（5070 Ti の 7,666 を含めると3位）。
-      いずれも GPU が同一の Intel版とほぼ同水準で、5070 Ti に次ぐ上位に位置します。</p>
+      <strong class="key">Blender Benchmark（OptiX）は 5,899</strong> と、同じ RTX 5070 では Intel版（6,010）に次ぐ2位でした（5070 Ti の 7,666・RTX 5080 の 9,329 を含めると4位）。
+      いずれも GPU が同一の Intel版とほぼ同水準で、RTX 5080・5070 Ti に次ぐ位置です。</p>
 
     <div class="chart">
       <div class="ttl">Cinebench 2026（GPU）</div>
       <div class="unit">pts ／ 高いほど良い</div>
-      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">94,543</span></div></div></div>
-      <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:79.1%"><span class="v">74,746</span></div></div></div>
-      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:78.0%"><span class="v">73,744</span></div></div></div>
-      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:72.6%"><span class="v">68,598</span></div></div></div>
-      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:64.9%"><span class="v">61,312</span></div></div></div>
-      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:48.3%"><span class="v">45,669</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5080<small title="MAGNUS ONE ULTRA EU275080C ／ Core Ultra 7 265">EU275080C</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">109,086</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:86.7%"><span class="v">94,543</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:68.5%"><span class="v">74,746</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:67.6%"><span class="v">73,744</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:62.9%"><span class="v">68,598</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:56.2%"><span class="v">61,312</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:41.9%"><span class="v">45,669</span></div></div></div>
           </div>
 
     <div class="chart">
       <div class="ttl">Blender Benchmark（GPU / OptiX）</div>
       <div class="unit">samples/min 合算スコア ／ 高いほど良い</div>
-      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">7,666</span></div></div></div>
-      <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:78.4%"><span class="v">6,010</span></div></div></div>
-      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:76.9%"><span class="v">5,899</span></div></div></div>
-      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:69.4%"><span class="v">5,320</span></div></div></div>
-      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:56.4%"><span class="v">4,327</span></div></div></div>
-      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:47.1%"><span class="v">3,608</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5080<small title="MAGNUS ONE ULTRA EU275080C ／ Core Ultra 7 265">EU275080C</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">9,329</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:82.2%"><span class="v">7,666</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:64.4%"><span class="v">6,010</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:63.2%"><span class="v">5,899</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:57.0%"><span class="v">5,320</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:46.4%"><span class="v">4,327</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:38.7%"><span class="v">3,608</span></div></div></div>
           </div>
   </section>
 
@@ -675,11 +691,12 @@
     <p>画像生成AI「Stable Diffusion（SDXL）」を ComfyUI で実測すると、本機 RTX 5070 は <strong class="key">1024×1024 / 30ステップで 9.09 秒/枚</strong>、
       Hires.Fix（1024→1536）で 28.76 秒/枚を記録。RTX 5060 Ti（12.08 / 38.52 秒/枚）より約25%高速で、GPU が同一の Intel版 5070（9.05 / 28.29）とはほぼ同じです。</p>
     <p>注意したいのは VRAM 容量です。本機の RTX 5070 は 12GB（192-bit GDDR7）で、生成<b>速度</b>では 5060 Ti を上回りますが、<b>容量</b>では 16GB の 5060 Ti を下回ります。
-      モデルのロードや高解像度・大バッチで VRAM 容量がボトルネックになる用途では、速度の速い本機より 16GB の 5060 Ti が有利になる場面があります。<b>速度重視なら 5070、容量重視なら 16GB の 5060 Ti</b>、という分かりやすいトレードオフです。</p>
+      モデルのロードや、本レビュー未検証の高解像度・大バッチで VRAM 容量がボトルネックになる用途では、速度の速い本機より 16GB の 5060 Ti が有利になる場面があります。<b>速度重視なら 5070、容量重視なら 16GB の 5060 Ti</b>、という分かりやすいトレードオフです。</p>
 
     <div class="chart">
       <div class="ttl">ComfyUI SDXL（1024×1024 / 30steps）</div>
       <div class="unit">秒/枚 ／ 短いほど良い</div>
+      <div class="row"><div class="lab">RTX 5080<small title="MAGNUS ONE ULTRA EU275080C ／ Core Ultra 7 265">EU275080C</small></div><div class="track"><div class="fill" style="width:39.9%"><span class="v">6.04</span></div></div></div>
       <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:46.7%"><span class="v">7.07</span></div></div></div>
       <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:59.7%"><span class="v">9.05</span></div></div></div>
       <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:60.0%"><span class="v">9.09</span></div></div></div>
@@ -691,6 +708,7 @@
     <div class="chart">
       <div class="ttl">ComfyUI SDXL + Hires.Fix（1024→1536）</div>
       <div class="unit">秒/枚 ／ 短いほど良い</div>
+      <div class="row"><div class="lab">RTX 5080<small title="MAGNUS ONE ULTRA EU275080C ／ Core Ultra 7 265">EU275080C</small></div><div class="track"><div class="fill" style="width:37.8%"><span class="v">18.10</span></div></div></div>
       <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:45.9%"><span class="v">21.97</span></div></div></div>
       <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:59.1%"><span class="v">28.29</span></div></div></div>
       <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:60.1%"><span class="v">28.76</span></div></div></div>
@@ -715,12 +733,13 @@
     <div class="chart">
       <div class="ttl">Cinebench 2026（CPU）</div>
       <div class="unit">pts ／ 高いほど良い</div>
-      <div class="row"><div class="lab">Core Ultra 7 265（5070 Ti）<small title="MAGNUS ONE EU27507TC ／ RTX 5070 Ti">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">5,825</span></div></div></div>
-      <div class="row"><div class="lab">Core Ultra 7 265（5070）<small title="MAGNUS ONE EU275070C ／ RTX 5070（Intel）">EU275070C</small></div><div class="track"><div class="fill" style="width:98.9%"><span class="v">5,760</span></div></div></div>
-      <div class="row"><div class="lab">Core Ultra 7 255HX<small title="MAGNUS EN275060TC ／ RTX 5060 Ti">EN275060TC</small></div><div class="track"><div class="fill" style="width:96.4%"><span class="v">5,618</span></div></div></div>
-      <div class="row me"><div class="lab">Ryzen 9 9850HX（本機）<small title="MAGNUS ONE ER98N5070C ／ RTX 5070（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:90.7%"><span class="v">5,286</span></div></div></div>
-      <div class="row"><div class="lab">Core i7-13700<small title="MAGNUS ONE ERP74070C ／ RTX 4070 Desktop">ERP74070C</small></div><div class="track"><div class="fill" style="width:69.1%"><span class="v">4,024</span></div></div></div>
-      <div class="row"><div class="lab">Core i7-13700HX<small title="MAGNUS EN374070C ／ RTX 4070 Laptop">EN374070C</small></div><div class="track"><div class="fill" style="width:62.6%"><span class="v">3,645</span></div></div></div>
+      <div class="row"><div class="lab">Core Ultra 7 265（5080）<small title="MAGNUS ONE ULTRA EU275080C ／ RTX 5080">EU275080C</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">5,980</span></div></div></div>
+      <div class="row"><div class="lab">Core Ultra 7 265（5070 Ti）<small title="MAGNUS ONE EU27507TC ／ RTX 5070 Ti">EU27507TC</small></div><div class="track"><div class="fill" style="width:97.4%"><span class="v">5,825</span></div></div></div>
+      <div class="row"><div class="lab">Core Ultra 7 265（5070）<small title="MAGNUS ONE EU275070C ／ RTX 5070（Intel）">EU275070C</small></div><div class="track"><div class="fill" style="width:96.3%"><span class="v">5,760</span></div></div></div>
+      <div class="row"><div class="lab">Core Ultra 7 255HX<small title="MAGNUS EN275060TC ／ RTX 5060 Ti">EN275060TC</small></div><div class="track"><div class="fill" style="width:93.9%"><span class="v">5,618</span></div></div></div>
+      <div class="row me"><div class="lab">Ryzen 9 9850HX（本機）<small title="MAGNUS ONE ER98N5070C ／ RTX 5070（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:88.4%"><span class="v">5,286</span></div></div></div>
+      <div class="row"><div class="lab">Core i7-13700<small title="MAGNUS ONE ERP74070C ／ RTX 4070 Desktop">ERP74070C</small></div><div class="track"><div class="fill" style="width:67.3%"><span class="v">4,024</span></div></div></div>
+      <div class="row"><div class="lab">Core i7-13700HX<small title="MAGNUS EN374070C ／ RTX 4070 Laptop">EN374070C</small></div><div class="track"><div class="fill" style="width:61.0%"><span class="v">3,645</span></div></div></div>
     </div>
     <p class="muted" style="font-size:13.5px">※ Cinebench CPU の複数回計測でのばらつき（cv：変動係数 = 標準偏差÷平均×100%）: 本機 Ryzen 9 9850HX = 8.09% ／ Core Ultra 7 265（Intel 5070）= 0.17% ／ Core Ultra 7 255HX = 2.58% ／ Core i7-13700HX = 5.48%。値はいずれも3回計測の中央値。</p>
   </section>
@@ -738,6 +757,7 @@
       <div class="unit">score ／ 高いほど良い</div>
       <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">9,882</span></div></div></div>
       <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:93.0%"><span class="v">9,195</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5080<small title="MAGNUS ONE ULTRA EU275080C ／ Core Ultra 7 265">EU275080C</small></div><div class="track"><div class="fill" style="width:92.0%"><span class="v">9,088</span></div></div></div>
       <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:90.3%"><span class="v">8,922</span></div></div></div>
       <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:88.8%"><span class="v">8,771</span></div></div></div>
       <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:87.8%"><span class="v">8,678</span></div></div></div>
@@ -747,12 +767,13 @@
     <div class="chart">
       <div class="ttl">UL Procyon — Office (Essentials)</div>
       <div class="unit">score ／ 高いほど良い</div>
-      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">4,907</span></div></div></div>
-      <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:99.5%"><span class="v">4,884</span></div></div></div>
-      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:97.1%"><span class="v">4,766</span></div></div></div>
-      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:95.5%"><span class="v">4,685</span></div></div></div>
-      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:90.3%"><span class="v">4,430</span></div></div></div>
-      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:76.0%"><span class="v">3,728</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5080<small title="MAGNUS ONE ULTRA EU275080C ／ Core Ultra 7 265">EU275080C</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">4,994</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070 Ti<small title="MAGNUS ONE EU27507TC ／ Core Ultra 7 265">EU27507TC</small></div><div class="track"><div class="fill" style="width:98.3%"><span class="v">4,907</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5070（Intel）<small title="MAGNUS ONE EU275070C ／ Core Ultra 7 265">EU275070C</small></div><div class="track"><div class="fill" style="width:97.8%"><span class="v">4,884</span></div></div></div>
+      <div class="row me"><div class="lab">RTX 5070（本機）<small title="MAGNUS ONE ER98N5070C ／ Ryzen 9 9850HX（本機）">ER98N5070C</small></div><div class="track"><div class="fill" style="width:95.4%"><span class="v">4,766</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Desktop<small title="MAGNUS ONE ERP74070C ／ Core i7-13700">ERP74070C</small></div><div class="track"><div class="fill" style="width:93.8%"><span class="v">4,685</span></div></div></div>
+      <div class="row"><div class="lab">RTX 5060 Ti<small title="MAGNUS EN275060TC ／ Core Ultra 7 255HX">EN275060TC</small></div><div class="track"><div class="fill" style="width:88.7%"><span class="v">4,430</span></div></div></div>
+      <div class="row"><div class="lab">RTX 4070 Laptop<small title="MAGNUS EN374070C ／ Core i7-13700HX">EN374070C</small></div><div class="track"><div class="fill" style="width:74.6%"><span class="v">3,728</span></div></div></div>
     </div>
   </section>
 
@@ -762,6 +783,7 @@
     <h2 class="sec">複数回計測でのばらつき（再現性・安定性）</h2>
     <p>本プロジェクトが重視する <b>安定性指標</b>。複数回計測を実施したテストの変動係数（cv：標準偏差÷平均×100%）を一覧します。
       本機は <strong class="key">3DMark・GPUレンダリングが cv 1%未満</strong>と安定している一方、Cinebench CPU は cv 8.09%と振れがあります（3回の計測間で 5,135〜5,965 pts と高低差が出ました）。GPU系の再現性は高く、CPU系の単発計測ではばらつきに留意してください。</p>
+    <div class="datawrap">
     <table class="data">
       <thead><tr><th>テスト</th><th>中央値</th><th>min–max</th><th>cv%</th><th>計測回</th></tr></thead>
       <tbody>
@@ -772,6 +794,7 @@
         <tr class="me-row"><td>Cinebench CPU</td><td class="me">5,286</td><td>5,135–5,965</td><td class="me">8.09</td><td>3</td></tr>
       </tbody>
     </table>
+    </div>
     <p class="muted" style="font-size:13.5px">※ Blender・ComfyUI・Procyon Photo / Essentials は本機では1回計測のため cv は非算出。3DMark・Cinebench は3回計測の中央値。</p>
 
     <h3>安定性を支える冷却・筐体構造</h3>
@@ -822,7 +845,8 @@
       <figcaption>ComfyUI（Stable Diffusion XL）で AI 画像を <b>約21分連続生成</b>した間の実測ログ（nvidia-smi 1秒間隔）。前半は標準解像度(1024px)、後半は高解像度(1536px)。<span style="color:#DC4B33;font-weight:700">GPU温度</span> は約84°Cでほぼ一定となり、その持続負荷の最中も <span style="color:#2E6DB4;font-weight:700">コアクロック</span>（約2,700MHz）と <span style="color:#C99A00;font-weight:700">消費電力</span>（約250W・カード単体）はほぼ水平 ＝ <b>サーマルスロットリングなし・電力上限で頭打ち</b>。中央の落ち込みは生成2パターンの切替時の小休止。</figcaption>
     </figure>
 
-    <table class="data">
+    <div class="datawrap">
+    <table class="data wide">
       <thead><tr><th>状態</th><th>GPU温度 中央/ピーク</th><th>コアクロック</th><th>消費電力 中央/ピーク</th><th>ファン</th><th>VRAM</th></tr></thead>
       <tbody>
         <tr><td>待機（アイドル）</td><td>約37°C</td><td>アイドル</td><td>約15W</td><td>0%</td><td>0.6GB</td></tr>
@@ -830,10 +854,11 @@
         <tr class="me-row"><td>最大負荷（AI連続生成 ComfyUI）</td><td class="me">84 / 86°C</td><td class="me">2,707 MHz</td><td>246 / 253W</td><td>100%</td><td class="me">11.8GB</td></tr>
       </tbody>
     </table>
-    <p>注目は 高負荷でもコアクロックが約 2,700 MHz を維持している点です。GPU 温度が 84°C 前後（ピーク 86°C）の高負荷区間でもクロックはほぼ低下せず（84°C 前後の区間で 2,707 MHz、より低温の 75〜79°C の区間でも 2,722 MHz と、温度差によるクロック低下はごくわずか）、消費電力は GPU の電力上限である約250Wでほぼ一定。つまり本機は <strong class="key">熱ではなく電力リミットで頭打ち＝サーマルスロットリングは見られません</strong>。8.48L の小型筐体でも、デスクトップ RTX 5070 を温度で絞らず回せていることを示します。最大負荷時はファンが 100% まで上がるため動作音は大きめですが、その分クロックを維持しています。</p>
+    </div>
+    <p>注目は 高負荷でもコアクロックが約 2,700 MHz を維持している点です。GPU 温度が 84°C 前後（ピーク 86°C）の高負荷区間でもクロックはほぼ低下せず（84°C 前後の区間で 2,707 MHz、より低温の 75〜79°C の区間でも 2,722 MHz と、温度差によるクロック低下はごくわずか）、消費電力は GPU の電力上限である約250Wでほぼ一定。つまり本機は <strong class="key">熱ではなく電力リミットで頭打ち＝サーマルスロットリングは見られません</strong>。8.48L の小型筐体でも、デスクトップ RTX 5070 を温度で絞らず回せていることを示します。最大負荷時は GPU カード側のファン回転率が 100% に達しました（本レビューでは騒音（dB）を計測していないため、動作音の大小は評価していません）。その分クロックを維持しています。</p>
     <div class="note" style="margin-top:0">
       <span class="tag">計測方法 / 出典</span>
-      上表は計測セッションの nvidia-smi ログ（1秒間隔）から、<b>待機</b>＝テスト開始前のアイドル、<b>ゲーム相当</b>＝3DMark（Speed Way / Steel Nomad / Time Spy Extreme）の高負荷区間、<b>最大負荷</b>＝ComfyUI（SDXL／Hires）連続生成区間を抽出し、中央値・最大値で集計したものです（ベンチスコアの正本 benchmarks.json とは別系統の生センサー値）。実際の市販ゲームの動作計測ではありません。通常のオフィス利用（Procyon Essentials）相当の段は、実測ログの追補後に追記します。
+      上表は計測セッションの nvidia-smi ログ（1秒間隔）から、<b>待機</b>＝テスト開始前のアイドル、<b>ゲーム相当</b>＝3DMark（Speed Way / Steel Nomad / Time Spy Extreme）の高負荷区間、<b>最大負荷</b>＝ComfyUI（SDXL／Hires）連続生成区間を抽出し、中央値・最大値で集計したものです（ベンチスコアの正本 benchmarks.json とは別系統の生センサー値）。実際の市販ゲームの動作計測ではありません。<b>騒音（dB）の計測は行っていません。</b>「ファン」欄は nvidia-smi が報告する GPU カードのファン回転率で、音圧レベルとは別の指標です。通常のオフィス利用（Procyon Essentials）相当の段は、実測ログの追補後に追記します。
     </div>
   </section>
 
@@ -844,7 +869,7 @@
     <p>MAGNUS ONE の強みは、小型でありながら PCIe 5.0 x16 のデスクトップGPUカードを収める点にあります（本機でも実機ツールで確認）。
       本機の CPU は AMD Ryzen 9 9850HX（Fire Range）で、AMD プラットフォームを標準にしている環境や Ryzen 指定の案件で、RTX 5070 級のGPUを小型筐体で運用できます。</p>
 
-    <p>本機の I/O も据置ワークステーション並みに充実しています。前面は UHS-II 3-in-1 カードリーダーと USB 3.2 Gen2（Type-A / Type-C）、背面は USB 3.2 Gen2 Type-A ×4 ＋ USB 3.2 Gen1 ×2（USB-C ALT Mode）、映像は DisplayPort 2.1b（UHBR20）×3 ＋ HDMI（最大4画面クローン / 6画面拡張）、ネットワークは 5GbE と Wi-Fi 7。ストレージは M.2 PCIe 5.0 ×2（RAID 0/1 対応）、電源は 500W 80+ Platinum を内蔵します。<span class="muted">（Intel版 EU275070C にある Thunderbolt 4・2本目の Gigabit LAN は本機にはありません。）</span></p>
+    <p>本機の I/O も据置ワークステーション並みに充実しています。前面は UHS-II 3-in-1 カードリーダーと USB 3.2 Gen2（Type-A / Type-C）、背面は USB 3.2 Gen2 Type-A ×4 ＋ USB 3.2 Gen1 ×2（USB-C ALT Mode）、映像は DisplayPort 2.1b（UHBR20）×3 ＋ HDMI（GPU側4系統。iGPU側の出力を併用して最大4画面クローン / 6画面拡張）、ネットワークは 5GbE と Wi-Fi 7。ストレージは M.2 PCIe 5.0 ×2（RAID 0/1 対応）、電源は 500W 80+ Platinum を内蔵します。<span class="muted">（Intel版 EU275070C にある Thunderbolt 4・2本目の Gigabit LAN は本機にはありません。）</span></p>
     <div class="grid2">
       <figure class="cell shot"><img src="images/front-io.jpg" alt="ER98N5070C 前面: 電源ボタン・UHS-IIカードリーダー・USB 3.2 Gen2（Type-A/Type-C）・オーディオ"></figure>
       <figure class="cell shot"><img src="images/rear-io.jpg" alt="ER98N5070C 背面I/O: 5GbE・USB 3.2 Gen2/Gen1・USB-C ALT・HDMI・DisplayPort 2.1b×3+HDMI・電源インレット"></figure>
@@ -877,7 +902,7 @@
     <p>Ryzen 9 9850HX の 24スレッドは、Procyon Photo 9,882（比較した中でトップ）に表れたように、CPU／iGPU を含む複合ワークロードで強みがあります。
       写真・映像編集や、多数のスレッドを使うバッチ処理に向きます。</p>
 
-    <h3>ローカルAI推論・画像生成（オンプレ）</h3>
+    <h3>ローカル画像生成AI（SDXL）（オンプレ）</h3>
     <p>画像生成AI（Stable Diffusion）が ComfyUI SDXL 9.09 秒/枚と上位級の生成速度で、ネットワークに依存しないローカルAIをこのサイズで構築できます。
       VRAM は 12GB のため、扱うモデル規模・解像度・バッチが容量に収まる範囲では本機が速く、容量がボトルネックになる大規模用途では 16GB の 5060 Ti も併せて検討すると選定が安定します。</p>
   </section>
@@ -900,7 +925,7 @@
             <li>AMD プラットフォーム標準・Ryzen 指定の環境</li>
             <li>24スレッドを活かすマルチスレッド／混在ワークロード</li>
             <li>写真・映像編集（Procyon Photo 比較した中でトップ）</li>
-            <li>オンプレのローカルAI推論・画像生成（速度重視）</li>
+            <li>オンプレのローカル画像生成AI（SDXL）（速度重視）</li>
           </ul>
         </div>
         <div class="unfit">
@@ -926,6 +951,7 @@
         <thead>
           <tr>
             <th class="test">テスト</th>
+            <th>RTX 5080<span class="s">EU275080C</span><span class="s">Core Ultra 7 265</span></th>
             <th>RTX 5070 Ti<span class="s">EU27507TC</span><span class="s">Core Ultra 7 265</span></th>
             <th class="me">RTX 5070（本機）<span class="s">ER98N5070C</span><span class="s">Ryzen 9 9850HX</span></th>
             <th>RTX 5070（Intel）<span class="s">EU275070C</span><span class="s">Core Ultra 7 265</span></th>
@@ -935,16 +961,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr><th scope="row">Time Spy Extreme<span class="u">score・高いほど良い</span></th><td>12,501</td><td class="me">10,365</td><td>10,562</td><td>7,674</td><td>7,833</td><td>5,527</td></tr>
-          <tr><th scope="row">3DMark Speed Way<span class="u">score・高いほど良い</span></th><td>7,474</td><td class="me">5,769</td><td>5,827</td><td>4,119</td><td>4,498</td><td>2,951</td></tr>
-          <tr><th scope="row">3DMark Steel Nomad<span class="u">score・高いほど良い</span></th><td>6,634</td><td class="me">5,251</td><td>5,283</td><td>3,620</td><td>3,999</td><td>2,662</td></tr>
-          <tr><th scope="row">Cinebench 2026 GPU<span class="u">pts・高いほど良い</span></th><td>94,543</td><td class="me">73,744</td><td>74,746</td><td>61,312</td><td>68,598</td><td>45,669</td></tr>
-          <tr><th scope="row">Blender Benchmark (OptiX)<span class="u">score・高いほど良い</span></th><td>7,666</td><td class="me">5,899</td><td>6,010</td><td>4,327</td><td>5,320</td><td>3,608</td></tr>
-          <tr><th scope="row">Cinebench 2026 CPU<span class="u">pts・高いほど良い</span></th><td>5,825</td><td class="me">5,286</td><td>5,760</td><td>5,618</td><td>4,024</td><td>3,645</td></tr>
-          <tr><th scope="row">ComfyUI SDXL (1024)<span class="u">秒/枚・短いほど良い</span></th><td>7.07</td><td class="me">9.09</td><td>9.05</td><td>12.08</td><td>10.08</td><td>15.15</td></tr>
-          <tr><th scope="row">ComfyUI SDXL Hires<span class="u">秒/枚・短いほど良い</span></th><td>21.97</td><td class="me">28.76</td><td>28.29</td><td>38.52</td><td>31.32</td><td>47.89</td></tr>
-          <tr><th scope="row">Procyon Photo Editing<span class="u">score・高いほど良い</span></th><td>8,922</td><td class="me">9,882</td><td>9,195</td><td>8,678</td><td>8,771</td><td>6,404</td></tr>
-          <tr><th scope="row">Procyon Office (Essentials)<span class="u">score・高いほど良い</span></th><td>4,907</td><td class="me">4,766</td><td>4,884</td><td>4,430</td><td>4,685</td><td>3,728</td></tr>
+          <tr><th scope="row">Time Spy Extreme<span class="u">score・高いほど良い</span></th><td>14,859</td><td>12,501</td><td class="me">10,365</td><td>10,562</td><td>7,674</td><td>7,833</td><td>5,527</td></tr>
+          <tr><th scope="row">3DMark Speed Way<span class="u">score・高いほど良い</span></th><td>8,989</td><td>7,474</td><td class="me">5,769</td><td>5,827</td><td>4,119</td><td>4,498</td><td>2,951</td></tr>
+          <tr><th scope="row">3DMark Steel Nomad<span class="u">score・高いほど良い</span></th><td>8,588</td><td>6,634</td><td class="me">5,251</td><td>5,283</td><td>3,620</td><td>3,999</td><td>2,662</td></tr>
+          <tr><th scope="row">Cinebench 2026 GPU<span class="u">pts・高いほど良い</span></th><td>109,086</td><td>94,543</td><td class="me">73,744</td><td>74,746</td><td>61,312</td><td>68,598</td><td>45,669</td></tr>
+          <tr><th scope="row">Blender Benchmark (OptiX)<span class="u">score・高いほど良い</span></th><td>9,329</td><td>7,666</td><td class="me">5,899</td><td>6,010</td><td>4,327</td><td>5,320</td><td>3,608</td></tr>
+          <tr><th scope="row">Cinebench 2026 CPU<span class="u">pts・高いほど良い</span></th><td>5,980</td><td>5,825</td><td class="me">5,286</td><td>5,760</td><td>5,618</td><td>4,024</td><td>3,645</td></tr>
+          <tr><th scope="row">ComfyUI SDXL (1024)<span class="u">秒/枚・短いほど良い</span></th><td>6.04</td><td>7.07</td><td class="me">9.09</td><td>9.05</td><td>12.08</td><td>10.08</td><td>15.15</td></tr>
+          <tr><th scope="row">ComfyUI SDXL Hires<span class="u">秒/枚・短いほど良い</span></th><td>18.10</td><td>21.97</td><td class="me">28.76</td><td>28.29</td><td>38.52</td><td>31.32</td><td>47.89</td></tr>
+          <tr><th scope="row">Procyon Photo Editing<span class="u">score・高いほど良い</span></th><td>9,088</td><td>8,922</td><td class="me">9,882</td><td>9,195</td><td>8,678</td><td>8,771</td><td>6,404</td></tr>
+          <tr><th scope="row">Procyon Office (Essentials)<span class="u">score・高いほど良い</span></th><td>4,994</td><td>4,907</td><td class="me">4,766</td><td>4,884</td><td>4,430</td><td>4,685</td><td>3,728</td></tr>
         </tbody>
       </table>
     </div>
@@ -957,8 +983,8 @@
     <h2 class="sec">よくある質問</h2>
 
     <details open>
-      <summary>RTX 5070 版（ER98N5070C）の3D／ゲーム性能はどのくらい？</summary>
-      <div class="a">3DMark Time Spy Extreme 10,365 / Speed Way 5,769 / Steel Nomad 5,251（3回計測の中央値）。同じ MAGNUS 系の RTX 5060 Ti を約35〜45%上回り、比較した中では 5070 Ti・Intel版に次ぐ上位グループです。GPUは Intel版 5070（EU275070C）と同一のため、3D性能はほぼ同等です。</div>
+      <summary>RTX 5070 版（ER98N5070C）の3Dグラフィックス性能（3DMark）はどのくらい？</summary>
+      <div class="a">3DMark Time Spy Extreme 10,365 / Speed Way 5,769 / Steel Nomad 5,251（3回計測の中央値）。同じ MAGNUS 系の RTX 5060 Ti を約35〜45%上回り、比較した中では RTX 5080・5070 Ti・Intel版に次ぐ位置です。GPUは Intel版 5070（EU275070C）と同一のため、3D性能はほぼ同等です。<b>なお本レビューでは市販ゲームタイトルのフレームレートは計測していないため、これらはゲーム内の実効フレームレートを示す数値ではありません。</b></div>
     </details>
     <details>
       <summary>Intel版（EU275070C）とAMD版（本機）の RTX 5070 はどう違う？</summary>
@@ -966,7 +992,7 @@
     </details>
     <details>
       <summary>ローカルの画像生成AI（Stable Diffusion）に使える？12GB VRAM の位置づけは？</summary>
-      <div class="a">ComfyUI の SDXL 1024×1024 / 30ステップで 9.09 秒/枚、Hires.Fix で 28.76 秒/枚。RTX 5060 Ti（12.08 秒/枚）より約25%高速で、Intel版 5070 とはほぼ同じです。ただし VRAM は 12GB（192-bit GDDR7）で、容量では 16GB の 5060 Ti を下回ります。生成速度重視なら本機、大規模モデルや高解像度バッチで容量を重視するなら 16GB の 5060 Ti が候補です。</div>
+      <div class="a">ComfyUI の SDXL 1024×1024 / 30ステップで 9.09 秒/枚、Hires.Fix で 28.76 秒/枚。RTX 5060 Ti（12.08 秒/枚）より約25%高速で、Intel版 5070 とはほぼ同じです。ただし VRAM は 12GB（192-bit GDDR7）で、容量では 16GB の 5060 Ti を下回ります。生成速度重視なら本機、本レビュー未検証の大規模モデルや高解像度バッチで容量を重視するなら 16GB の 5060 Ti が候補です。</div>
     </details>
     <details>
       <summary>CPU（Ryzen 9 9850HX）の特性と向く業務は？</summary>

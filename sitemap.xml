@@ -1,36 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 自動生成: python _tools/gen-sitemap.py — 手で編集しない（index/ のファイル実体が正本） -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hub.zotac.co.jp/</loc>
     <lastmod>2026-06-10</lastmod>
   </url>
+  <!-- 製品カタログ インデックス -->
   <url>
     <loc>https://hub.zotac.co.jp/catalogs/</loc>
     <lastmod>2026-06-16</lastmod>
   </url>
-  <!-- ZBOX 製品カタログページ（2026-06-16 公開・SEO/AIO の主資産＝HTML） -->
+  <!-- ZBOX 製品カタログ（SEO/AIO の主資産＝HTML） -->
   <url>
-    <loc>https://hub.zotac.co.jp/catalogs/zbox/eu275080c/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/ci655/</loc>
+    <lastmod>2026-07-08</lastmod>
   </url>
   <url>
-    <loc>https://hub.zotac.co.jp/catalogs/zbox/eu27507tc/</loc>
-    <lastmod>2026-06-16</lastmod>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/ci675/</loc>
+    <lastmod>2026-07-08</lastmod>
   </url>
   <url>
-    <loc>https://hub.zotac.co.jp/catalogs/zbox/eu275070c/</loc>
-    <lastmod>2026-06-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hub.zotac.co.jp/catalogs/zbox/eu27506tc/</loc>
-    <lastmod>2026-06-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hub.zotac.co.jp/catalogs/zbox/er98n5070c/</loc>
-    <lastmod>2026-06-16</lastmod>
-  </url>
-  <url>
-    <loc>https://hub.zotac.co.jp/catalogs/zbox/en275060tc/</loc>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/eamax385c/</loc>
     <lastmod>2026-06-16</lastmod>
   </url>
   <url>
@@ -38,12 +28,32 @@
     <lastmod>2026-06-16</lastmod>
   </url>
   <url>
-    <loc>https://hub.zotac.co.jp/catalogs/zbox/eamax390c/</loc>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/en275060tc/</loc>
     <lastmod>2026-06-16</lastmod>
   </url>
   <url>
-    <loc>https://hub.zotac.co.jp/catalogs/zbox/eamax385c/</loc>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/er98n5070c/</loc>
     <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/eu27506tc/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/eu275070c/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/eu27507tc/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/eu275080c/</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/zbox/qu27n5000/</loc>
+    <lastmod>2026-07-08</lastmod>
   </url>
   <url>
     <loc>https://hub.zotac.co.jp/catalogs/zbox/s35n150a/</loc>
@@ -53,55 +63,75 @@
     <loc>https://hub.zotac.co.jp/catalogs/zbox/s35n150p/</loc>
     <lastmod>2026-06-16</lastmod>
   </url>
-  <!-- Enterprise 総合カタログ（現状PDFのみ。将来 catalogs/enterprise/ の HTML 化時に差し替え） -->
+  <!-- Enterprise / GPU ワークステーション 製品カタログ -->
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/enterprise/510g-ix1p7e/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/enterprise/511a-ix1p7e/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/catalogs/enterprise/w511z-1p6e/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <!-- PDF 資産（EXTRA_URLS で明示収録） -->
   <url>
     <loc>https://hub.zotac.co.jp/pdfs/ZOTAC_Enterprise_Catalog_MAY_2026.pdf</loc>
     <lastmod>2026-06-16</lastmod>
   </url>
+  <!-- レビュー（一覧＋個別記事） -->
   <url>
     <loc>https://hub.zotac.co.jp/reviews/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/reviews/magnus-one-ultra-rtx-5080/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/reviews/magnus-en-rtx-5060-ti/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ryzen-9-9850hx/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ti/</loc>
     <lastmod>2026-07-03</lastmod>
   </url>
   <url>
     <loc>https://hub.zotac.co.jp/reviews/meganex8kmk2/</loc>
     <lastmod>2026-06-10</lastmod>
   </url>
-  <!-- ZBOX MAGNUS ベンチマークレビュー（2026-07-03 公開） -->
-  <url>
-    <loc>https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ti/</loc>
-    <lastmod>2026-07-03</lastmod>
-  </url>
-  <url>
-    <loc>https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ryzen-9-9850hx/</loc>
-    <lastmod>2026-07-03</lastmod>
-  </url>
-  <url>
-    <loc>https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/</loc>
-    <lastmod>2026-07-03</lastmod>
-  </url>
-  <url>
-    <loc>https://hub.zotac.co.jp/reviews/magnus-en-rtx-5060-ti/</loc>
-    <lastmod>2026-07-03</lastmod>
-  </url>
-  <url>
-    <loc>https://hub.zotac.co.jp/trial-program/</loc>
-    <lastmod>2026-06-10</lastmod>
-  </url>
-  <url>
-    <loc>https://hub.zotac.co.jp/press/</loc>
-    <lastmod>2026-06-10</lastmod>
-  </url>
-  <!-- 導入・活用事例（2026-06-29 公開・ブログ正本をライブ読み出し／一覧はハブ独自コンテンツとして index） -->
+  <!-- 導入・活用事例 -->
   <url>
     <loc>https://hub.zotac.co.jp/case-studies/</loc>
     <lastmod>2026-06-29</lastmod>
   </url>
+  <!-- メディア掲載 -->
   <url>
-    <loc>https://hub.zotac.co.jp/events/supermetafes2026/</loc>
+    <loc>https://hub.zotac.co.jp/press/</loc>
+    <lastmod>2026-06-10</lastmod>
+  </url>
+  <!-- 機材トライアルプログラム -->
+  <url>
+    <loc>https://hub.zotac.co.jp/trial-program/</loc>
+    <lastmod>2026-06-10</lastmod>
+  </url>
+  <!-- イベント -->
+  <url>
+    <loc>https://hub.zotac.co.jp/events/askfes2026/</loc>
     <lastmod>2026-06-10</lastmod>
   </url>
   <url>
-    <loc>https://hub.zotac.co.jp/events/askfes2026/</loc>
+    <loc>https://hub.zotac.co.jp/events/supermetafes2026/</loc>
     <lastmod>2026-06-10</lastmod>
   </url>
 </urlset>
