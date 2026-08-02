@@ -181,6 +181,7 @@ _TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)
 # "<head" alone also matches "<header", which every page has -- require the tag
 # to actually end there.
 _HEAD_RE = re.compile(r"<head(?=[\s>])", re.I)
+_HTML_RE = re.compile(r"<html(?=[\s>])", re.I)
 
 
 def contamination(text):
@@ -189,10 +190,13 @@ def contamination(text):
     Text-level only, so it works on a staged git blob as well as a file.
     """
     problems = []
-    if any(m in text for m in MSO_MARKERS):
+    low = text.lower()
+    if any(m.lower() in low for m in MSO_MARKERS):
         problems.append("SharePoint mso metadata")
-    is_document = "<html lang=" in text
-    if is_document:
+    # A full document is any <html ...> tag, whatever its attributes or case --
+    # matching the literal '<html lang=' would skip <html>, <HTML lang=..> and
+    # any page whose attribute order differs.
+    if _HTML_RE.search(text):
         m = _TITLE_RE.search(text)
         if m is None:
             problems.append("no <title>")
@@ -201,6 +205,19 @@ def contamination(text):
         if len(_HEAD_RE.findall(text)) > 1:
             problems.append("duplicate <head> (a contaminated partial was inlined)")
     return problems
+
+
+MARKUP_SUFFIXES = {".html", ".htm", ".xhtml", ".xml", ".svg"}
+
+
+def is_markup(rel):
+    """True if `rel` is a file the contamination check applies to.
+
+    Scoping by extension matters: this module and check-contamination.py carry
+    the mso marker strings as constants, so scanning source files would have
+    the detector flag its own definitions.
+    """
+    return Path(rel).suffix.lower() in MARKUP_SUFFIXES
 
 
 def contamination_of_bytes(data):

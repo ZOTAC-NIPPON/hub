@@ -110,18 +110,13 @@ def main():
                 check_absent(rel, "staged deletion")
             continue
 
-        # Checked before the allowlist: being deploy-only exempts a path from
-        # needing a (2') counterpart, not from having to be a real file.
+        # The allowlist exempts a path from needing a (2') counterpart. It must
+        # NOT exempt it from checks on the content itself -- _partials/ is both
+        # allowlisted and the very thing SharePoint contaminated, so letting the
+        # allowlist skip the scan would leave the guard blind where it matters
+        # most.
         if mode not in REGULAR_MODES:
             errors.append(f"staged as a non-regular file (mode {mode}): {rel}")
-            continue
-
-        if hublib.is_deploy_only(rel):
-            continue
-
-        src = index / rel
-        if src.is_symlink() or not src.is_file():
-            errors.append(f"staged but missing (or not a regular file) in (2') index: {rel}")
             continue
 
         try:
@@ -130,12 +125,20 @@ def main():
             errors.append(f"cannot read the staged blob for {rel}: {e}")
             continue
 
-        if blob != src.read_bytes():
-            errors.append(f"staged content differs from (2') index: {rel}")
+        if hublib.is_markup(rel):
+            for problem in hublib.contamination_of_bytes(blob):
+                errors.append(f"contaminated, must not be published [{problem}]: {rel}")
+
+        if hublib.is_deploy_only(rel):
+            continue        # git-canonical / deploy-only: no (2') counterpart
+
+        src = index / rel
+        if src.is_symlink() or not src.is_file():
+            errors.append(f"staged but missing (or not a regular file) in (2') index: {rel}")
             continue
 
-        for problem in hublib.contamination_of_bytes(blob):
-            errors.append(f"contaminated, must not be published [{problem}]: {rel}")
+        if blob != src.read_bytes():
+            errors.append(f"staged content differs from (2') index: {rel}")
 
     if errors:
         print("pre-commit: commit blocked -- (3) must mirror a clean (2'). See HUB.md sec.2.")

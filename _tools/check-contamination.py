@@ -70,12 +70,15 @@ def main():
         print(f"root not found: {root}", file=sys.stderr)
         return 2
 
-    hits = []
+    hits, unreadable = [], []
     for p in paths:
         try:
             text = p.read_text(encoding="utf-8", errors="replace")
         except OSError as e:
-            print(f"  ? cannot read {p}: {e}")
+            # Never "skip and stay green": an unreadable file is usually an
+            # unmaterialised OneDrive placeholder or a stalled sync, i.e. we do
+            # not know whether it is clean. Fail closed.
+            unreadable.append((p.relative_to(root).as_posix(), str(e)))
             continue
         problems = hublib.contamination(text)
         if problems:
@@ -84,12 +87,19 @@ def main():
     print(f"check-contamination: {label}  {root}")
     print(f"  scanned: {len(paths)} html files")
     print()
+    if unreadable:
+        print(f"UNREADABLE ({len(unreadable)}) -- cannot be verified "
+              "(OneDrive placeholder not materialised / sync stalled?):")
+        for rel, err in unreadable:
+            print(f"  ? {rel}  [{err}]")
+        print()
     if hits:
         print(f"CONTAMINATED ({len(hits)}):")
         for rel, problems in hits:
             print(f"  ! {rel}  [{', '.join(problems)}]")
         print()
-        print("RESULT: CONTAMINATION FOUND")
+    if hits or unreadable:
+        print("RESULT: " + ("CONTAMINATION FOUND" if hits else "UNVERIFIABLE"))
         return 1
     print("RESULT: OK (clean)")
     return 0
