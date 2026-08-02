@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+"""pre-commit-hub.py -- READ-ONLY guard run by the pre-commit hook in (3).
+
+Purpose: block commits in the deploy repo (3) that were NOT made through the
+editing canonical (2') OneDrive index. For every staged change it verifies that
+an identical file exists in (2'); staged deletions must already be deleted in
+(2') as well. Deploy-only files (allowlist, HUB.md sec.2) are exempt.
+
+Unlike check-hub-drift.py (full-tree audit), this only inspects STAGED changes,
+so unrelated work-in-progress in (2') never blocks a commit.
+
+What is compared is the STAGED BLOB, not the working-tree file: `git add`ing a
+bad version and then restoring the working tree would otherwise slip through
+(a flaw inherited from the original pre-commit-hub.ps1).
+
+Also refuses to commit SharePoint-contaminated HTML, so a damaged (2') cannot
+reach GitHub Pages even if the content matches on both sides.
+
+Exit code: 0 = ok to commit, 1 = blocked, 2 = environment error (also blocks).
+
+Cross-platform replacement for pre-commit-hub.ps1 (pwsh/Windows only).
+"""
+
+import argparse
+import subprocess
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import hublib  # noqa: E402
+
+# Blob modes git may report. Anything else (symlink 120000, submodule 160000)
+# has no meaning as a mirrored page and is refused.
+REGULAR_MODES = {"100644", "100755"}
+
+
+def git(hub, *args, binary=False):
+    out = subprocess.run(
+        ["git", "-C", str(hub), "-c", "core.quotepath=false", *args],
+        capture_output=True,
+    )
+    if out.returncode != 0:
+        msg = out.stderr.decode("utf-8", "replace").strip()
+        raise RuntimeError(msg or f"git {' '.join(args)} failed")
+    return out.stdout if binary else out.stdout.decode("utf-8", "replace")
+
+
+def staged_changes(hub):
+    """Parse `git diff --cached --raw -z` into (status, mode, sha, path, old_path).
+
+    The raw format carries the mode and blob sha that will actually be
+    committed, and -z keeps non-ASCII paths intact. Renames (R) and copies (C)
+    carry two paths; every other status carries one.
+    """
+    raw = git(hub, "diff", "--cached", "--raw", "-z", "--diff-filter=ACMRTD")
+    fields = raw.split("\0")
+    i, changes = 0, []
+    while i < len(fields):
+        head = fields[i]
+        if not head.startswith(":"):
+            i += 1
+            continue
+        # :<srcmode> <dstmode> <srcsha> <dstsha> <status>
+        parts = head[1:].split()
+        dst_mode, dst_sha, status = parts[1], parts[3], parts[4]
+        if status[0] in ("R", "C"):
+            old_path, path = fields[i + 1], fields[i + 2]
+            i += 3
+        else:
+            old_path, path = None, fields[i + 1]
+            i += 2
+        changes.append((status[0], dst_mode, dst_sha, path, old_path))
+    return changes
+
+
+def main():
+    hublib.use_utf8_stdout()
+    ap = argparse.ArgumentParser(add_help=True)
+    ap.add_argument("--hub", help="path to the (3) deploy repo")
+    args = ap.parse_args()
+
+    index = hublib.index_path()
+    hub = hublib.deploy_path(args.hub)
+
+    if not index.is_dir():
+        print(f"pre-commit: editing canonical not found (OneDrive offline?): {index}")
+        print("pre-commit: refusing to commit without verification.")
+        return 2
+
+    try:
+        changes = staged_changes(hub)
+    except (OSError, RuntimeError, IndexError) as e:
+        print(f"pre-commit: cannot read the staging area: {e}")
+        print("pre-commit: refusing to commit without verification.")
+        return 2
+
+    errors = []
+
+    def check_absent(rel, why):
+        if (index / rel).exists():
+            errors.append(f"{why}, but the file still exists in (2') index: {rel}")
+
+    for status, mode, sha, rel, old_rel in changes:
+        # A rename moves the old path away: (2') must no longer have it.
+        if old_rel is not None and not hublib.is_deploy_only(old_rel):
+            check_absent(old_rel, "staged rename away from this path")
+
+        if status == "D":
+            if not hublib.is_deploy_only(rel):
+                check_absent(rel, "staged deletion")
+            continue
+
+        # Checked before the allowlist: being deploy-only exempts a path from
+        # needing a (2') counterpart, not from having to be a real file.
+        if mode not in REGULAR_MODES:
+            errors.append(f"staged as a non-regular file (mode {mode}): {rel}")
+            continue
+
+        if hublib.is_deploy_only(rel):
+            continue
+
+        src = index / rel
+        if src.is_symlink() or not src.is_file():
+            errors.append(f"staged but missing (or not a regular file) in (2') index: {rel}")
+            continue
+
+        try:
+            blob = git(hub, "cat-file", "blob", sha, binary=True)
+        except (OSError, RuntimeError) as e:
+            errors.append(f"cannot read the staged blob for {rel}: {e}")
+            continue
+
+        if blob != src.read_bytes():
+            errors.append(f"staged content differs from (2') index: {rel}")
+            continue
+
+        for problem in hublib.contamination_of_bytes(blob):
+            errors.append(f"contaminated, must not be published [{problem}]: {rel}")
+
+    if errors:
+        print("pre-commit: commit blocked -- (3) must mirror a clean (2'). See HUB.md sec.2.")
+        for e in errors:
+            print(f"  ! {e}")
+        print("Fix: edit in (2') OneDrive index, copy the changed files here, then commit.")
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

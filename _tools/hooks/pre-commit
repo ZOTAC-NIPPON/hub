@@ -1,0 +1,46 @@
+#!/bin/sh
+# pre-commit hook for the hub deploy repo (3).
+#
+# Canonical copy lives at _tools/hooks/pre-commit in this repository -- if the
+# repo is re-cloned, restore it with:
+#     cp _tools/hooks/pre-commit .git/hooks/ && chmod +x .git/hooks/pre-commit
+#
+# The guard itself lives in this repo (_tools/pre-commit-hub.py) since the
+# 2026-08-02 migration, so there is nothing to discover outside it. Fails
+# CLOSED: if the guard or a python interpreter is missing, the commit is
+# refused rather than allowed unverified.
+
+set -u
+
+# --- 1. Locate this repository --------------------------------------------
+# Never fall back to a default path: an unchecked failure would have the guard
+# validate some other repo and pass.
+if ! HUB=$(git rev-parse --show-toplevel 2>/dev/null) || [ -z "$HUB" ] || [ ! -d "$HUB" ]; then
+  echo "pre-commit: cannot determine the repository root (git rev-parse failed)." >&2
+  echo "pre-commit: refusing to commit without verification." >&2
+  exit 1
+fi
+
+GUARD="$HUB/_tools/pre-commit-hub.py"
+if [ ! -f "$GUARD" ]; then
+  echo "pre-commit: guard not found: $GUARD" >&2
+  echo "pre-commit: refusing to commit without verification." >&2
+  exit 1
+fi
+
+# --- 2. Locate a python interpreter ---------------------------------------
+PY=""
+for p in python3 python py; do
+  if command -v "$p" >/dev/null 2>&1; then
+    "$p" -c "import sys; sys.exit(0 if sys.version_info >= (3, 8) else 1)" >/dev/null 2>&1 \
+      && { PY="$p"; break; }
+  fi
+done
+
+if [ -z "$PY" ]; then
+  echo "pre-commit: no python3 (>=3.8) found on PATH." >&2
+  echo "pre-commit: refusing to commit without verification." >&2
+  exit 1
+fi
+
+exec "$PY" "$GUARD" --hub "$HUB"
