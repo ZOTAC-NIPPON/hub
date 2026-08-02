@@ -42,7 +42,6 @@
   .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;padding:40px 0 8px}
   .gal-main{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:10px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in}
   .gal-main img{width:100%;height:100%;object-fit:contain;padding:14px}
-  .gal-main .zoomhint{position:absolute;right:10px;bottom:10px;font-family:var(--mono);font-size:10.5px;color:#fff;background:rgba(28,30,32,.72);padding:3px 8px;border-radius:4px;pointer-events:none}
   .gal-carousel{position:relative;margin-top:10px;padding:0 4px}
   .gal-strip{display:flex;gap:8px;overflow:hidden;scroll-behavior:smooth}
   .gal-strip button{flex:0 0 calc((100% - 24px)/4);background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:4px;cursor:pointer;aspect-ratio:1/1}
@@ -72,8 +71,7 @@
   footer{border-top:1px solid var(--line);margin-top:24px;padding:22px 0 40px;font-size:11px;color:var(--sub)}
   .disc{background:#fff8d6;border:1px dashed #e3cf6a;border-radius:8px;padding:10px 14px;font-size:12px;color:#6b5a10;margin:24px 0}
   @media(max-width:760px){.hero{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}}
-</style>
-</head><body data-inquiry-sku="ZT-B50700E" data-inquiry-pname="ZOTAC GAMING GeForce RTX 5070 Twin Edge" data-inquiry-series="RTX 5070" data-inquiry-line="gpu">
+</style></head><body data-inquiry-sku="ZT-B50700E" data-inquiry-pname="ZOTAC GAMING GeForce RTX 5070 Twin Edge" data-inquiry-series="RTX 5070" data-inquiry-line="gpu">
 <!-- @partial:header START — 編集は _partials/header.html、反映は python _partials/inject.py -->
 <style>
 /* === ZOTAC hub 共通ヘッダー（自己完結・単一ソース）=======================
@@ -202,12 +200,11 @@
   });
 })();
 </script>
-
 <div class="wrap">
   <div class="crumb"><a href="/">ホーム</a> ／ <a href="/catalogs/">カタログ</a> ／ <a href="/catalogs/#gpu-rtx-5070">GeForce RTX 5070</a> ／ <b>ZT-B50700E-10P</b></div>
   <div class="hero">
     <div>
-      <div class="gal-main" onclick="lbOpen(gcur)"><img id="main" src="img/ZT-B50700E-10P-image01.jpg" alt="RTX 5070"><span class="zoomhint">🔍 クリックで拡大</span></div>
+      <div class="gal-main" onclick="lbOpen(gcur)"><img id="main" src="img/ZT-B50700E-10P-image01.jpg" alt="RTX 5070"></div>
       <div class="gal-carousel"><button class="gal-nav prev" id="navPrev" onclick="stripMove(-1)">‹</button><div class="gal-strip" id="strip"></div><button class="gal-nav next" id="navNext" onclick="stripMove(1)">›</button></div>
     </div>
     <div>
