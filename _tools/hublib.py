@@ -44,6 +44,11 @@ ALLOW_HUB_ONLY_DIRS = {
 ALLOW_INDEX_ONLY = {
     "CLAUDE.md",
 }
+# ③ 側で生成される派生物。②' にも同名ファイルがあるが内容は一致しない
+# （③ の実体から生成するため）。ミラー比較の対象外にする。
+GENERATED_IN_HUB = {
+    "sitemap.xml",
+}
 
 
 def use_utf8_stdout():
