@@ -36,6 +36,7 @@ ALLOW_HUB_ONLY_FILES = {
 ALLOW_HUB_ONLY_DIRS = {
     "event",
     ".claude",
+    ".github",      # CI ワークフロー。git にしか存在しえない
     "_partials",
     "_tools",
 }

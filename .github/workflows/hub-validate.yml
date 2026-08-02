@@ -1,0 +1,61 @@
+# hub-validate -- 公開前の必須検査。
+#
+# ローカルの pre-commit フックは早期警告にすぎない（--no-verify、フック未導入の
+# 端末、別 GUI クライアント、clone し直しで回避できる）。複数デバイスで運用する
+# 以上、最終的な歯止めはここに置く。
+#
+# ブランチ保護の required status check にこの job 名 `hub-validate` を指定する。
+# paths フィルターは付けない（付けると対象外 PR で check が発行されず、
+# required check が永久に pending になる）。
+
+name: hub-validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]        # 保護をすり抜けた直 push も検知する
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hub-validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  hub-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # ガード自身が「何も検出しない状態」に退化していないか。
+      # 対象が清浄だと他の検査は緑になってしまうため、これを最初に置く。
+      - name: ガードの自己テスト
+        run: python3 _tools/test_guards.py
+
+      # SharePoint がドキュメントライブラリ上の HTML に書き込む列メタデータ
+      # （<title> の空化・mso ブロック）が混入していないか。2026-08-02 の
+      # インシデントで、これだけが正本自体の破損を検知できる検査だった。
+      - name: SharePoint 汚染検査
+        run: python3 _tools/check-contamination.py --all
+
+      # 共通ヘッダー・計測タグが全ページへ反映済みか（_partials との差分ゼロ）
+      - name: 共通パーツの反映確認
+        run: python3 _partials/inject.py --check
+
+      # 新規ページの載せ忘れ・削除済み URL の残置を防ぐ
+      - name: sitemap の整合確認
+        run: python3 _tools/gen-sitemap.py --check
+
+      # CNAME 等、消えると公開が壊れるものが消えていないか
+      - name: 不変条件の確認
+        run: python3 _tools/check-invariants.py
+
+      # 生成物がコミット漏れなく最新か（上の各 --check を通っていれば差分は出ない）
+      - name: 作業ツリーに差分が残っていないこと
+        run: git diff --exit-code
