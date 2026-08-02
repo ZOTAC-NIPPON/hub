@@ -22,6 +22,7 @@ AI エージェントから叩くときはサブコマンド（+ 任意で --jso
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -458,6 +459,75 @@ def cmd_publish(args):
     return 0
 
 
+def cmd_import(args):
+    """②' OneDrive から ③ へ取り込む。HTML は取り込み時に清浄化する。"""
+    import shutil
+    from sanitize import sanitize, EMPTY_TITLE_RE
+
+    hr("②' から取り込み")
+    od = hublib.onedrive_root()
+    if od is None:
+        print("  ✗ OneDrive 側の制作フォルダが見つかりません（doctor を実行してください）")
+        return 2
+    src_root, dst_root = od / "index", ROOT
+
+    targets = []
+    for spec in args.paths:
+        s = src_root / spec
+        if not s.exists():
+            print(f"  ✗ ②' に見つかりません: {spec}")
+            return 1
+        targets += [s] if s.is_file() else [p for p in sorted(s.rglob("*")) if p.is_file()]
+
+    copied = cleaned = skipped = 0
+    blocked = []
+    for s in targets:
+        rel = s.relative_to(src_root).as_posix()
+        if not hublib.in_published_scope(rel):
+            skipped += 1
+            continue
+        d = dst_root / rel
+        if s.suffix.lower() in hublib.MARKUP_SUFFIXES:
+            text = s.read_text(encoding="utf-8", errors="replace")
+            out, fixes, unresolved = sanitize(text)
+            if unresolved and d.is_file():
+                # og:title が無くても、③ に既存ページがあればその title を使える
+                m = re.search(r"<title>(.*?)</title>",
+                              d.read_text(encoding="utf-8", errors="replace"), re.S)
+                if m and m.group(1).strip():
+                    out = EMPTY_TITLE_RE.sub(f"<title>{m.group(1).strip()}</title>", out, count=1)
+                    fixes.append(f"title を ③ の既存ページから復元: {m.group(1).strip()}")
+                    unresolved = []
+            if unresolved:
+                blocked.append((rel, unresolved))
+                continue
+            if fixes:
+                cleaned += 1
+                if args.verbose:
+                    print(f"  ○ {rel}")
+                    for x in fixes:
+                        print(f"       {x}")
+            d.parent.mkdir(parents=True, exist_ok=True)
+            with open(d, "w", encoding="utf-8", newline="") as fh:
+                fh.write(out)
+        else:
+            d.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(s, d)
+        copied += 1
+
+    print(f"\n  取り込み: {copied} 件（うち清浄化 {cleaned} 件）"
+          f" / 対象外 {skipped} 件")
+    if blocked:
+        print(f"\n  ✗ 取り込めなかったファイル {len(blocked)} 件"
+              "（title が空で復元元が無い。公開すると SEO 上の損失になる）:")
+        for rel, why in blocked:
+            print(f"     {rel}  [{', '.join(why)}]")
+        print("\n     これらは報告してください。生成し直すか、別の復元元が要ります。")
+        return 1
+    print("\n  次は 公開（メニュー 5 / hub.py publish）で反映・検査・送信まで行えます。")
+    return 0
+
+
 def cmd_glossary(args):
     hr("用語")
     for term, desc in GLOSSARY:
@@ -523,19 +593,23 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd")
     for name, fn in (("status", cmd_status), ("doctor", cmd_doctor), ("sync", cmd_sync),
-                     ("check", cmd_check), ("publish", cmd_publish), ("glossary", cmd_glossary)):
+                     ("check", cmd_check), ("publish", cmd_publish),
+                     ("import", cmd_import), ("glossary", cmd_glossary)):
         p = sub.add_parser(name)
         p.add_argument("--json", action="store_true", help="機械可読な出力")
         p.set_defaults(func=fn)
         if name == "publish":
             p.add_argument("--yes", action="store_true", help="確認を省略")
             p.add_argument("-m", "--message", help="変更内容の説明")
+        if name == "import":
+            p.add_argument("paths", nargs="+", help="②' index/ からの相対パス")
+            p.add_argument("-v", "--verbose", action="store_true", help="1件ずつ表示")
     args = ap.parse_args()
     if not args.cmd:
         return menu()
-    for a in ("yes", "message"):
+    for a, default in (("yes", False), ("message", None), ("verbose", False)):
         if not hasattr(args, a):
-            setattr(args, a, None if a == "message" else False)
+            setattr(args, a, default)
     return args.func(args)
 
 
