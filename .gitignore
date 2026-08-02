@@ -12,3 +12,8 @@ desktop.ini
 *_addendum.md
 *-mockup-*.html
 _internal/
+
+# Python ツールの実行で生成される中間物（_tools/ は許容リストなのでガードが
+# 素通しする。hub.py publish は git add -A するため明示的に除外が必要）
+__pycache__/
+*.py[cod]

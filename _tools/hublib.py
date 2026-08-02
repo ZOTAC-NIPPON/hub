@@ -71,19 +71,78 @@ def site_root():
     return (root / "index") if (root / "index").is_dir() else root
 
 
-# Known locations of (2') 00_hub_zotac. The folder is named differently on the
-# two machines because the SharePoint library is synced under different names.
+# Fast paths for (2') 00_hub_zotac. Only a shortcut -- never rely on these
+# alone: the SharePoint library has already been renamed once (2026-08, the
+# Windows box was still on "00_Marketing NAS"), which silently disabled the
+# guard there. Discovery below is what actually has to work.
 _ONEDRIVE_CANDIDATES = (
-    "Library/CloudStorage/OneDrive-株式会社ゾタック日本/00_Share Point - マーケティング/hub_zotac",
-    "OneDrive - 株式会社ゾタック日本/00_Marketing NAS/00_hub_zotac",
+    "Library/CloudStorage/OneDrive-株式会社ゾタック日本/00_Share Point - マーケティング/hub_zotac",  # macOS
+    "OneDrive - 株式会社ゾタック日本/00_Share Point - マーケティング/hub_zotac",                    # Windows
+    "OneDrive - 株式会社ゾタック日本/00_Marketing NAS/00_hub_zotac",                              # 〜2026-08 の旧名
 )
 
 
-def onedrive_root():
-    """(2') 00_hub_zotac, or None when it cannot be located.
+def _safe_dirs(p):
+    """p 直下のディレクトリ。列挙できなければ空。
 
-    Only the transition-period mirror check needs this; the canonical for the
-    site itself is the deploy repo. Override with $HUB_ONEDRIVE_ROOT.
+    クラウド同期フォルダは .Trash などで列挙が固まる／失敗することがあるので、
+    素通しせず握って進む（探索は補助手段で、失敗しても env と既知候補が残る）。
+    """
+    try:
+        return [c for c in p.iterdir() if c.is_dir() and not c.name.startswith(".")]
+    except OSError:
+        return []
+
+
+def _onedrive_sync_roots():
+    home = Path.home()
+    try:
+        yield from (d for d in home.iterdir()
+                    if d.is_dir() and d.name.startswith("OneDrive"))
+    except OSError:
+        pass
+    yield from _safe_dirs(home / "Library" / "CloudStorage")
+
+
+def _looks_like_hub(p):
+    """ライブラリ名は変わりうるので、名前ではなく中身で判定する。"""
+    try:
+        return (p.name.endswith("hub_zotac")
+                and (p / "HUB.md").is_file() and (p / "index").is_dir())
+    except OSError:
+        return False
+
+
+def discover_onedrive_roots():
+    """同期ルート配下（2 階層まで）から 00_hub_zotac を探し、全件返す。
+
+    実体パスで重複排除する。macOS は ~/OneDrive-<組織> を
+    ~/Library/CloudStorage/... への symlink として作るため、素朴に数えると
+    同じ場所が 2 件に見えて「判断できない」と誤判定する。
+    """
+    found = {}
+    for root in _onedrive_sync_roots():
+        if not root.name.startswith("OneDrive"):
+            continue
+        for a in _safe_dirs(root):
+            for cand in ([a] if _looks_like_hub(a) else
+                         [b for b in _safe_dirs(a) if _looks_like_hub(b)]):
+                try:
+                    found[cand.resolve()] = cand
+                except OSError:
+                    found[cand] = cand
+    # 表示は見つけたときの形、同一判定は実体パスで行う
+    return [found[k] for k in sorted(found)]
+
+
+def onedrive_root():
+    """(2') 00_hub_zotac、見つからない／一意に決まらない場合は None。
+
+    移行期のミラー検査だけがこれを必要とする。サイト本体の正本は deploy
+    リポジトリ側。$HUB_ONEDRIVE_ROOT で明示指定できる。
+
+    候補が複数見つかった場合は推測せず None を返す（古いコピーや別の同期先を
+    掴んで「正本が1つ」の前提を壊さないため）。
     """
     env = os.environ.get("HUB_ONEDRIVE_ROOT")
     if env:
@@ -93,7 +152,8 @@ def onedrive_root():
         p = Path.home() / rel
         if p.is_dir():
             return p
-    return None
+    found = discover_onedrive_roots()
+    return found[0] if len(found) == 1 else None
 
 
 def index_path():
