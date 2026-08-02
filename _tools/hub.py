@@ -101,6 +101,35 @@ def hr(title=""):
     print("\n" + (f"── {title} " + "─" * max(0, 56 - len(title)) if title else "─" * 60))
 
 
+def current_branch():
+    return git("rev-parse", "--abbrev-ref", "HEAD").stdout.strip()
+
+
+def device_id():
+    """作業ブランチ名に入れる端末名。どの端末からの変更か一目で分かるように。"""
+    import re
+    import socket
+    name = socket.gethostname().split(".")[0].lower()
+    return re.sub(r"[^a-z0-9-]+", "-", name).strip("-") or "device"
+
+
+def new_work_branch():
+    from datetime import datetime
+    return f"work/{device_id()}/{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+
+
+def repo_web_url():
+    """git@github.com:owner/repo.git → https://github.com/owner/repo"""
+    url = git("remote", "get-url", "origin").stdout.strip()
+    if url.startswith("git@"):
+        url = "https://" + url[4:].replace(":", "/", 1)
+    return url[:-4] if url.endswith(".git") else url
+
+
+def is_work_branch(name):
+    return name.startswith("work/")
+
+
 # ── 状態 ──────────────────────────────────────────────────────────────
 def collect_status():
     st = {}
@@ -208,11 +237,32 @@ def cmd_doctor(args):
 def cmd_sync(args):
     hr("GitHub から最新を取得")
     st = collect_status()
+    branch = st["branch"]
+
     if st["dirty"]:
         print(f"  ✗ 未保存の変更が {st['dirty_count']} 件あります。")
         print("     取得すると衝突するおそれがあるため中止しました。")
         print("     先に公開（メニュー 5）を済ませるか、変更内容を確認してください。")
         return 1
+
+    git("fetch", "--prune", "--quiet", "origin")
+
+    # 作業ブランチにいる場合、マージ済みなら main へ戻して片付ける。
+    # 放置すると次の公開が古い枝から分岐してしまう。
+    if is_work_branch(branch):
+        merged = git("branch", "--merged", "origin/main", "--format=%(refname:short)")
+        if branch in merged.stdout.split():
+            print(f"  作業ブランチ {branch} は GitHub 側へ取り込み済みです。")
+            print("  main へ戻して片付けます…")
+            git("checkout", "main", check=False)
+            git("merge", "--ff-only", "origin/main")
+            git("branch", "-d", branch)
+            print(f"  ✓ main に戻り、{branch} を削除しました")
+            return 0
+        print(f"  ▲ いま作業ブランチ {branch} にいます（まだ取り込まれていません）。")
+        print("     PR がマージされてからもう一度実行してください。")
+        return 1
+
     if not st["behind"]:
         print("  ○ すでに最新です。取得するものはありません。")
         return 0
@@ -301,6 +351,20 @@ def cmd_publish(args):
             print("\n  中止しました。")
             return 0
 
+    # main へ直接 push せず、作業ブランチ → PR を通す。
+    # main は保護されており、直接 push は拒否される。またその経路では
+    # 検査が push の後に走るため歯止めにならない（PR なら通過が必須になる）。
+    branch = st["branch"]
+    if branch == "main":
+        branch = new_work_branch()
+        r = git("checkout", "-b", branch)
+        if r.returncode != 0:
+            print("  ✗ 作業ブランチを作れませんでした: " + (r.stderr or "").strip())
+            return 1
+        print(f"\n  作業ブランチを作成: {branch}")
+    else:
+        print(f"\n  いまの作業ブランチに追加します: {branch}")
+
     if st["dirty"]:
         msg = args.message or input("  変更内容の説明を一行で: ").strip() or "content: 更新"
         git("add", "-A")
@@ -312,13 +376,20 @@ def cmd_publish(args):
             return 1
 
     hr("GitHub へ送信")
-    r = git("push", "origin", "main")
+    r = git("push", "-u", "origin", branch)
     print("  " + (r.stdout or r.stderr).strip().replace("\n", "\n  "))
     if r.returncode != 0:
         print("  ✗ 送信できませんでした。報告してください。")
         return 1
-    print("\n  ✓ 公開しました。反映まで 1〜2 分かかります。")
-    print("     確認: https://hub.zotac.co.jp/")
+
+    hr("あと 2 ステップ（ブラウザ操作）")
+    print(f"  1. 下の URL を開いて「Create pull request」を押す\n")
+    print(f"     {repo_web_url()}/compare/main...{branch}?expand=1\n")
+    print("  2. 検査（hub-validate）が緑になったら「Merge pull request」を押す")
+    print("     ※ 検査が赤いときはマージせず、内容を報告してください\n")
+    print("  マージ後、メニュー 3（最新を取得）を実行すると main に戻り、")
+    print("  作業ブランチが片付きます。")
+    print(f"\n  公開の反映確認: https://hub.zotac.co.jp/")
     return 0
 
 
@@ -334,9 +405,9 @@ def cmd_glossary(args):
 MENU = [
     ("1", "いまの状態をみる", "何が同期されていて、何が未送信かを表示します", cmd_status),
     ("2", "この端末の設定を確認する", "自動検査が入っているか等を調べます（doctor）", cmd_doctor),
-    ("3", "GitHub から最新を取得する", "他の端末での変更を受け取ります（ダウンロード）", cmd_sync),
+    ("3", "GitHub から最新を取得する", "他の端末での変更を受け取ります（ダウンロード）。\n     公開後の後片付けもここで行います", cmd_sync),
     ("4", "検査だけ実行する", "何も書き換えずに問題がないか調べます", cmd_check),
-    ("5", "公開する", "反映 → 検査 → 記録 → 送信（アップロード）", cmd_publish),
+    ("5", "公開する", "反映 → 検査 → 送信 → 最後にブラウザで PR を作成（アップロード）", cmd_publish),
     ("6", "用語をみる", "②' や 正本 などの言葉の意味", cmd_glossary),
 ]
 
