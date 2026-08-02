@@ -512,7 +512,10 @@ def cmd_import(args):
                 fh.write(out)
         else:
             d.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(s, d)
+            # copy2 ではなく copyfile。copy2 は OneDrive 側のパーミッション
+            # （rwx------）まで複製し、git が 216 件のモード変更として拾って
+            # しまった。持ってくるのは中身だけでよい。
+            shutil.copyfile(s, d)
         copied += 1
 
     print(f"\n  取り込み: {copied} 件（うち清浄化 {cleaned} 件）"
