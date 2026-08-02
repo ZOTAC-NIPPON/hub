@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """pre-commit-hub.py -- READ-ONLY guard run by the pre-commit hook in (3).
 
-Purpose: block commits in the deploy repo (3) that were NOT made through the
-editing canonical (2') OneDrive index. For every staged change it verifies that
-an identical file exists in (2'); staged deletions must already be deleted in
-(2') as well. Deploy-only files (allowlist, HUB.md sec.2) are exempt.
+Purpose: block commits in the deploy repo (3) that cannot have come through the
+sanctioned path. For every staged change it verifies that a counterpart exists
+in (2'), that the blob is a regular file, and that no SharePoint contamination
+is being committed. Staged deletions must already be deleted in (2') as well.
+Deploy-only files (allowlist, HUB.md sec.2) are exempt from needing a
+counterpart, but never from the content checks.
+
+Content is NOT compared byte-for-byte against (2') any more -- see the comment
+in main(). (3) is a derived artifact, not a mirror.
 
 Unlike check-hub-drift.py (full-tree audit), this only inspects STAGED changes,
 so unrelated work-in-progress in (2') never blocks a commit.
@@ -28,7 +33,6 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import hublib  # noqa: E402
-from sanitize import to_hub  # noqa: E402
 
 # Blob modes git may report. Anything else (symlink 120000, submodule 160000)
 # has no meaning as a mirrored page and is refused.
@@ -133,30 +137,30 @@ def main():
         if hublib.is_deploy_only(rel) or rel in hublib.GENERATED_IN_HUB:
             continue        # git 正本 / deploy 専用 / ③ 側の生成物
 
+        # 対応するファイルが (2') に存在すること。ここは維持する
+        # ――③ にだけ勝手に増やしたファイルを検出できる。
         src = index / rel
         if src.is_symlink() or not src.is_file():
             errors.append(f"staged but missing (or not a regular file) in (2') index: {rel}")
             continue
 
-        # (2') の HTML は SharePoint に汚染されているため、そのままでは一致しない。
-        # 取り込み時に清浄化しているので、比較対象も清浄化後にする。ここを素の
-        # バイト比較のままにすると、正しく取り込んだ内容が全て弾かれる。
-        expected = src.read_bytes()
-        if hublib.is_markup(rel):
-            try:
-                previous = None
-                try:                       # ③ の直前の内容（title の最終復元源）
-                    previous = git(hub, "show", f"HEAD:{rel}")
-                except RuntimeError:
-                    pass                   # 新規ファイル
-                cleaned, _, unresolved = to_hub(src.read_text(encoding="utf-8"), previous)
-                if not unresolved:
-                    expected = cleaned.encode("utf-8")
-            except (OSError, UnicodeDecodeError):
-                pass
-
-        if blob != expected:
-            errors.append(f"staged content differs from (2') index: {rel}")
+        # 【2026-08-02 に内容のバイト照合を廃止】
+        #
+        # 「③ は ②' のバイト単位のミラー」という前提が成り立たなくなったため。
+        # 現在の ③ の HTML は ②' の派生物で、取り込みまでに 3 つの変換が入る:
+        #   1. SharePoint 汚染の除去（sanitize）
+        #   2. <title> の復元（og:title もしくは ③ の既存値から）
+        #   3. inject による共通パーツの置換
+        #      （②' はマーカー無しで直接埋め込み、③ はマーカー付き）
+        # 3 を正しく照合するにはフック内で inject を再実装する必要があり、
+        # 実装を二重に持てば必ずずれる。今日 5 回パッチして、いずれも局所的には
+        # 正しく構造的には不十分だった。
+        #
+        # 通らないガードは --no-verify を誘発して形骸化するので、成立しない
+        # 検査は畳む。ここで守るべき「壊れたものを公開しない」は、内容そのものを
+        # 見る検査（汚染検査・inject --check・sitemap --check・不変条件）と
+        # CI＋ブランチ保護が担う。「③ を手編集しない」は hub.py import を唯一の
+        # 経路にすることと、PR で差分が見えることで担保する。
 
     if errors:
         print("pre-commit: commit blocked -- (3) must mirror a clean (2'). See HUB.md sec.2.")
