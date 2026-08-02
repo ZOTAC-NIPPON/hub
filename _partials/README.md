@@ -34,3 +34,4 @@
 ## 未対応（次フェーズ）
 - 兄弟プロジェクト `Reviews/` `2601_ZBOX_Trial_Campaign/` の各ソースは未取り込み（`inject.py` の `ONBOARD` に追加して取り込む。Campaign は `header-light.html` を作成のうえ variant 指定）。
 - `index/_brochure_poc/catalog_zrs-*.html`（dev プレビュー）は旧ヘッダーのまま＝`build_enterprise.py` 再生成で更新。
+
