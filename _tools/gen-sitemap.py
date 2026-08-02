@@ -61,22 +61,10 @@ LASTMOD_OVERRIDE = {}
 # 未公開ページを sitemap に載せると 404 を申告することになるため、ここで明示除外する。
 # 公開したら該当行を消すこと（--verify で 200 を確認してから）。
 PENDING_PUBLISH = {
-    # 2026-07-28: GPU 全10ページは公開済み。以下はエンタープライズの未公開分（②' にのみ存在・本番404）。
-    # 公開したら該当行を削除して再生成。enterprise_catalog_may_2026_a4 は総合PDFから誤生成された
-    # 偽製品ページ（sku="WORKSTATION &"）＝公開対象ではなく、生成器側の修正で削除予定。
+    # 2026-08-02: エンタープライズ 12 ページを公開したため一覧から削除。
+    # 残る enterprise_catalog_may_2026_a4 は総合PDFから誤生成された偽製品ページ
+    # （sku="WORKSTATION &"）＝公開対象ではない。生成器側を直して削除する。
     "/catalogs/enterprise/enterprise_catalog_may_2026_a4/",
-    "/catalogs/enterprise/zrs-2100m4/",
-    "/catalogs/enterprise/zrs-2110m4/",
-    "/catalogs/enterprise/zrs-3200m4/",
-    "/catalogs/enterprise/zrs-3210m4/",
-    "/catalogs/enterprise/zrs-3220m2/",
-    "/catalogs/enterprise/zrs-3220m4/",
-    "/catalogs/enterprise/zrs-3260g1/",
-    "/catalogs/enterprise/zrs-326sv2/",
-    "/catalogs/enterprise/zrs-326v2/",
-    "/catalogs/enterprise/zrs-3290h1/",
-    "/catalogs/enterprise/zrs-9220m4/",
-    "/catalogs/enterprise/zrs-mgx-r1/",
 }
 
 # ── 出力順とセクション見出しコメント（前方一致・先に書いたものが優先）──

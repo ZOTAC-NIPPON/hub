@@ -28,6 +28,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import hublib  # noqa: E402
+from sanitize import sanitize  # noqa: E402
 
 # Blob modes git may report. Anything else (symlink 120000, submodule 160000)
 # has no meaning as a mirrored page and is refused.
@@ -129,15 +130,27 @@ def main():
             for problem in hublib.contamination_of_bytes(blob):
                 errors.append(f"contaminated, must not be published [{problem}]: {rel}")
 
-        if hublib.is_deploy_only(rel):
-            continue        # git-canonical / deploy-only: no (2') counterpart
+        if hublib.is_deploy_only(rel) or rel in hublib.GENERATED_IN_HUB:
+            continue        # git 正本 / deploy 専用 / ③ 側の生成物
 
         src = index / rel
         if src.is_symlink() or not src.is_file():
             errors.append(f"staged but missing (or not a regular file) in (2') index: {rel}")
             continue
 
-        if blob != src.read_bytes():
+        # (2') の HTML は SharePoint に汚染されているため、そのままでは一致しない。
+        # 取り込み時に清浄化しているので、比較対象も清浄化後にする。ここを素の
+        # バイト比較のままにすると、正しく取り込んだ内容が全て弾かれる。
+        expected = src.read_bytes()
+        if hublib.is_markup(rel):
+            try:
+                cleaned, _, unresolved = sanitize(src.read_text(encoding="utf-8"))
+                if not unresolved:
+                    expected = cleaned.encode("utf-8")
+            except (OSError, UnicodeDecodeError):
+                pass
+
+        if blob != expected:
             errors.append(f"staged content differs from (2') index: {rel}")
 
     if errors:

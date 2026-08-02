@@ -22,6 +22,7 @@ AI エージェントから叩くときはサブコマンド（+ 任意で --jso
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -128,6 +129,29 @@ def repo_web_url():
 
 def is_work_branch(name):
     return name.startswith("work/")
+
+
+def branch_is_merged(branch):
+    """この作業ブランチの変更が origin/main に取り込まれているか。
+
+    祖先判定（git branch --merged）は使えない。PR をスカッシュマージすると
+    枝のコミットは main の祖先にならないため、常に「未マージ」と判定される。
+    内容の完全一致も使えない。他の PR が先に入って main が進んでいると差分が
+    出る。
+
+    そこで「この枝が触ったファイルが、いま main と同じ内容になっているか」で
+    判定する。枝の仕事が main に入っていれば真になり、main 側でその後さらに
+    変更されていれば偽（＝安全側に倒れる）。
+    """
+    if git("merge-base", "--is-ancestor", "HEAD", "origin/main").returncode == 0:
+        return True                      # 通常のマージコミットの場合
+    base = git("merge-base", "origin/main", "HEAD").stdout.strip()
+    if not base:
+        return False
+    files = [f for f in git("diff", "--name-only", base, "HEAD").stdout.splitlines() if f]
+    if not files:
+        return True                      # 枝が何も変えていない
+    return git("diff", "--quiet", "origin/main", "HEAD", "--", *files).returncode == 0
 
 
 # ── 状態 ──────────────────────────────────────────────────────────────
@@ -261,21 +285,30 @@ def cmd_sync(args):
 
     git("fetch", "--prune", "--quiet", "origin")
 
-    # 作業ブランチにいる場合、マージ済みなら main へ戻して片付ける。
+    # 作業ブランチにいる場合、取り込み済みなら main へ戻して片付ける。
     # 放置すると次の公開が古い枝から分岐してしまう。
     if is_work_branch(branch):
-        merged = git("branch", "--merged", "origin/main", "--format=%(refname:short)")
-        if branch in merged.stdout.split():
-            print(f"  作業ブランチ {branch} は GitHub 側へ取り込み済みです。")
-            print("  main へ戻して片付けます…")
-            git("checkout", "main", check=False)
-            git("merge", "--ff-only", "origin/main")
-            git("branch", "-d", branch)
-            print(f"  ✓ main に戻り、{branch} を削除しました")
-            return 0
-        print(f"  ▲ いま作業ブランチ {branch} にいます（まだ取り込まれていません）。")
-        print("     PR がマージされてからもう一度実行してください。")
-        return 1
+        if not branch_is_merged(branch):
+            print(f"  ▲ いま作業ブランチ {branch} にいます（まだ取り込まれていません）。")
+            print("     PR がマージされてからもう一度実行してください。")
+            print("     マージ済みなのにこう出る場合は、この枝が触ったファイルが")
+            print("     その後 main 側でさらに変更されています。報告してください。")
+            return 1
+
+        print(f"  作業ブランチ {branch} は GitHub 側へ取り込み済みです。")
+        print("  main へ戻して片付けます…")
+        r = git("checkout", "main")
+        if r.returncode != 0:
+            print("  ✗ main へ戻れませんでした: " + (r.stderr or "").strip())
+            return 1
+        git("merge", "--ff-only", "origin/main")
+        # -d ではなく -D。スカッシュマージだと枝のコミットは main の祖先に
+        # ならないため、-d は「未マージ」と判断して拒否する。
+        git("branch", "-D", branch)
+        rm = git("push", "origin", "--delete", branch)
+        print(f"  ✓ main に戻り、{branch} を削除しました"
+              + ("（リモートも削除）" if rm.returncode == 0 else "（リモートは既に削除済み）"))
+        return 0
 
     if not st["behind"]:
         print("  ○ すでに最新です。取得するものはありません。")
@@ -319,10 +352,29 @@ def cmd_publish(args):
         print("\n  ✗ 端末の設定に問題があります。先にそちらを解決してください。")
         return 2
 
+    # 取り込み済みの古い作業ブランチに残っていたら、先に main へ戻す。
+    # そのまま進めると「マージ済みの枝に積み増した PR」ができてしまう。
+    # 未保存の変更は checkout をまたいで保持される。
+    st = collect_status()
+    if is_work_branch(st["branch"]) and branch_is_merged(st["branch"]):
+        old = st["branch"]
+        print(f"\n  前回の作業ブランチ {old} は取り込み済みです。main へ戻します…")
+        # 切り替える前にローカル main を origin/main へ進めておく。古いままだと
+        # 「作業中のファイルが checkout で上書きされる」と言われて切り替えられない
+        # （その差分は既に取り込み済みの内容なので、進めてから移るのが正しい）。
+        if git("merge-base", "--is-ancestor", "main", "origin/main").returncode == 0:
+            git("branch", "-f", "main", "origin/main")
+        if git("checkout", "main").returncode != 0:
+            print("  ✗ main へ戻れませんでした（変更が衝突している可能性）。報告してください。")
+            return 1
+        git("branch", "-D", old)
+        git("push", "origin", "--delete", old)
+        print(f"  ✓ main に戻り、{old} を片付けました")
+        st = collect_status()
+
     # 公開時は「未保存の変更がある」のが正常なので dirty は止めない。
     # 止めるのは「GitHub 側に自分が持っていない変更がある」場合だけ。
     # そのまま進めると他の端末での作業を上書きする形になるため。
-    st = collect_status()
     if st["behind"]:
         print(f"\n  ✗ GitHub 側に {st['behind']} 件の新しい変更があります。")
         print("     先に取得（メニュー 3）してから公開してください。")
@@ -407,6 +459,75 @@ def cmd_publish(args):
     return 0
 
 
+def cmd_import(args):
+    """②' OneDrive から ③ へ取り込む。HTML は取り込み時に清浄化する。"""
+    import shutil
+    from sanitize import sanitize, EMPTY_TITLE_RE
+
+    hr("②' から取り込み")
+    od = hublib.onedrive_root()
+    if od is None:
+        print("  ✗ OneDrive 側の制作フォルダが見つかりません（doctor を実行してください）")
+        return 2
+    src_root, dst_root = od / "index", ROOT
+
+    targets = []
+    for spec in args.paths:
+        s = src_root / spec
+        if not s.exists():
+            print(f"  ✗ ②' に見つかりません: {spec}")
+            return 1
+        targets += [s] if s.is_file() else [p for p in sorted(s.rglob("*")) if p.is_file()]
+
+    copied = cleaned = skipped = 0
+    blocked = []
+    for s in targets:
+        rel = s.relative_to(src_root).as_posix()
+        if not hublib.in_published_scope(rel):
+            skipped += 1
+            continue
+        d = dst_root / rel
+        if s.suffix.lower() in hublib.MARKUP_SUFFIXES:
+            text = s.read_text(encoding="utf-8", errors="replace")
+            out, fixes, unresolved = sanitize(text)
+            if unresolved and d.is_file():
+                # og:title が無くても、③ に既存ページがあればその title を使える
+                m = re.search(r"<title>(.*?)</title>",
+                              d.read_text(encoding="utf-8", errors="replace"), re.S)
+                if m and m.group(1).strip():
+                    out = EMPTY_TITLE_RE.sub(f"<title>{m.group(1).strip()}</title>", out, count=1)
+                    fixes.append(f"title を ③ の既存ページから復元: {m.group(1).strip()}")
+                    unresolved = []
+            if unresolved:
+                blocked.append((rel, unresolved))
+                continue
+            if fixes:
+                cleaned += 1
+                if args.verbose:
+                    print(f"  ○ {rel}")
+                    for x in fixes:
+                        print(f"       {x}")
+            d.parent.mkdir(parents=True, exist_ok=True)
+            with open(d, "w", encoding="utf-8", newline="") as fh:
+                fh.write(out)
+        else:
+            d.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(s, d)
+        copied += 1
+
+    print(f"\n  取り込み: {copied} 件（うち清浄化 {cleaned} 件）"
+          f" / 対象外 {skipped} 件")
+    if blocked:
+        print(f"\n  ✗ 取り込めなかったファイル {len(blocked)} 件"
+              "（title が空で復元元が無い。公開すると SEO 上の損失になる）:")
+        for rel, why in blocked:
+            print(f"     {rel}  [{', '.join(why)}]")
+        print("\n     これらは報告してください。生成し直すか、別の復元元が要ります。")
+        return 1
+    print("\n  次は 公開（メニュー 5 / hub.py publish）で反映・検査・送信まで行えます。")
+    return 0
+
+
 def cmd_glossary(args):
     hr("用語")
     for term, desc in GLOSSARY:
@@ -472,19 +593,23 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd")
     for name, fn in (("status", cmd_status), ("doctor", cmd_doctor), ("sync", cmd_sync),
-                     ("check", cmd_check), ("publish", cmd_publish), ("glossary", cmd_glossary)):
+                     ("check", cmd_check), ("publish", cmd_publish),
+                     ("import", cmd_import), ("glossary", cmd_glossary)):
         p = sub.add_parser(name)
         p.add_argument("--json", action="store_true", help="機械可読な出力")
         p.set_defaults(func=fn)
         if name == "publish":
             p.add_argument("--yes", action="store_true", help="確認を省略")
             p.add_argument("-m", "--message", help="変更内容の説明")
+        if name == "import":
+            p.add_argument("paths", nargs="+", help="②' index/ からの相対パス")
+            p.add_argument("-v", "--verbose", action="store_true", help="1件ずつ表示")
     args = ap.parse_args()
     if not args.cmd:
         return menu()
-    for a in ("yes", "message"):
+    for a, default in (("yes", False), ("message", None), ("verbose", False)):
         if not hasattr(args, a):
-            setattr(args, a, None if a == "message" else False)
+            setattr(args, a, default)
     return args.func(args)
 
 
