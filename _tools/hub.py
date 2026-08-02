@@ -201,7 +201,15 @@ def cmd_doctor(args):
     elif not st["hook_current"]:
         problems.append("自動検査（フック）が追跡版と違います（古い可能性）")
     if st["onedrive"] is None:
-        warns.append("OneDrive 側の制作フォルダが見つかりません")
+        # 警告ではなく問題として扱う。ここが解決しないと pre-commit ガードが
+        # fail-closed で commit を止める（Windows 機で実際に起きた）。
+        found = hublib.discover_onedrive_roots()
+        if len(found) > 1:
+            problems.append("OneDrive 側の候補が複数見つかり、どれか判断できません:\n"
+                            + "\n".join(f"       {p}" for p in found))
+        else:
+            problems.append("OneDrive 側の制作フォルダが見つかりません"
+                            "（この状態では commit がガードで止まります）")
     if st["behind"]:
         warns.append(f"GitHub 側に {st['behind']} 件の新しい変更があります")
 
@@ -231,6 +239,12 @@ def cmd_doctor(args):
         print("\n  【直し方】次のコマンドで自動検査を入れ直せます:")
         print(f"    cd {ROOT}")
         print("    cp _tools/hooks/pre-commit .git/hooks/    （Windows は copy）")
+    if st["onedrive"] is None:
+        print("\n  【直し方】制作フォルダの場所を環境変数で指定できます:")
+        print("    macOS   : export HUB_ONEDRIVE_ROOT=\"/path/to/00_hub_zotac\"")
+        print("    Windows : setx HUB_ONEDRIVE_ROOT \"C:\\path\\to\\00_hub_zotac\"")
+        print("    ※ 恒久的に必要になる場合は、パスを報告して hublib.py 側へ")
+        print("       登録してください（端末ごとの設定を増やさないため）")
     return 2 if problems else 0
 
 
