@@ -80,6 +80,26 @@ def sanitize(text):
     return out, fixes, unresolved
 
 
+def to_hub(text, previous=None):
+    """②' の内容から、③ に置くべき内容を作る。
+
+    取り込み（hub.py import）とガード（pre-commit-hub.py）の両方がこれを使う。
+    別々に実装すると必ずずれて、正しく取り込んだ内容をガードが弾く
+    （実際に起きた）。
+
+    previous には ③ の既存内容を渡す。og:title が無くて title を復元できない
+    場合の、最後の復元源になる。
+    """
+    out, fixes, unresolved = sanitize(text)
+    if unresolved and previous:
+        m = re.search(r"<title>(.*?)</title>", previous, re.S)
+        if m and m.group(1).strip():
+            out = EMPTY_TITLE_RE.sub(f"<title>{m.group(1).strip()}</title>", out, count=1)
+            fixes.append(f"title を ③ の既存ページから復元: {m.group(1).strip()}")
+            unresolved = []
+    return out, fixes, unresolved
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("files", nargs="+")

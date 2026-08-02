@@ -28,7 +28,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import hublib  # noqa: E402
-from sanitize import sanitize  # noqa: E402
+from sanitize import to_hub  # noqa: E402
 
 # Blob modes git may report. Anything else (symlink 120000, submodule 160000)
 # has no meaning as a mirrored page and is refused.
@@ -144,7 +144,12 @@ def main():
         expected = src.read_bytes()
         if hublib.is_markup(rel):
             try:
-                cleaned, _, unresolved = sanitize(src.read_text(encoding="utf-8"))
+                previous = None
+                try:                       # ③ の直前の内容（title の最終復元源）
+                    previous = git(hub, "show", f"HEAD:{rel}")
+                except RuntimeError:
+                    pass                   # 新規ファイル
+                cleaned, _, unresolved = to_hub(src.read_text(encoding="utf-8"), previous)
                 if not unresolved:
                     expected = cleaned.encode("utf-8")
             except (OSError, UnicodeDecodeError):

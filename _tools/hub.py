@@ -462,7 +462,7 @@ def cmd_publish(args):
 def cmd_import(args):
     """②' OneDrive から ③ へ取り込む。HTML は取り込み時に清浄化する。"""
     import shutil
-    from sanitize import sanitize, EMPTY_TITLE_RE
+    from sanitize import to_hub
 
     hr("②' から取り込み")
     od = hublib.onedrive_root()
@@ -489,15 +489,8 @@ def cmd_import(args):
         d = dst_root / rel
         if s.suffix.lower() in hublib.MARKUP_SUFFIXES:
             text = s.read_text(encoding="utf-8", errors="replace")
-            out, fixes, unresolved = sanitize(text)
-            if unresolved and d.is_file():
-                # og:title が無くても、③ に既存ページがあればその title を使える
-                m = re.search(r"<title>(.*?)</title>",
-                              d.read_text(encoding="utf-8", errors="replace"), re.S)
-                if m and m.group(1).strip():
-                    out = EMPTY_TITLE_RE.sub(f"<title>{m.group(1).strip()}</title>", out, count=1)
-                    fixes.append(f"title を ③ の既存ページから復元: {m.group(1).strip()}")
-                    unresolved = []
+            previous = d.read_text(encoding="utf-8", errors="replace") if d.is_file() else None
+            out, fixes, unresolved = to_hub(text, previous)
             if unresolved:
                 blocked.append((rel, unresolved))
                 continue
@@ -512,7 +505,10 @@ def cmd_import(args):
                 fh.write(out)
         else:
             d.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(s, d)
+            # copy2 ではなく copyfile。copy2 は OneDrive 側のパーミッション
+            # （rwx------）まで複製し、git が 216 件のモード変更として拾って
+            # しまった。持ってくるのは中身だけでよい。
+            shutil.copyfile(s, d)
         copied += 1
 
     print(f"\n  取り込み: {copied} 件（うち清浄化 {cleaned} 件）"
