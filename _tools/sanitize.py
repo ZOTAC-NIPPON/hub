@@ -80,6 +80,21 @@ def sanitize(text):
     return out, fixes, unresolved
 
 
+PARTIAL_REGION_RE = re.compile(
+    r"\n?<!-- @partial:(\w+) START.*?<!-- @partial:\1 END -->", re.S)
+
+
+def strip_partial_regions(text):
+    """共通パーツの注入領域を落とす。
+
+    ③ の HTML は「②' の内容 ＋ inject.py が注入した共通パーツ」。注入部分は
+    ③ 側の生成物（`_partials/` が正本）なので、②' との照合対象にしてはいけない。
+    生成器が作ったページは ②' 側にマーカーを持たないため、ここを比較に含めると
+    正しく取り込んだ内容が丸ごと弾かれる。
+    """
+    return PARTIAL_REGION_RE.sub("", text)
+
+
 def to_hub(text, previous=None):
     """②' の内容から、③ に置くべき内容を作る。
 
