@@ -1,10 +1,16 @@
-# hub-validate -- 公開前の必須検査。
+# hub-validate -- 公開前の必須検査と、それを通ったときだけ行う公開。
 #
 # ローカルの pre-commit フックは早期警告にすぎない（--no-verify、フック未導入の
 # 端末、別 GUI クライアント、clone し直しで回避できる）。複数デバイスで運用する
 # 以上、最終的な歯止めはここに置く。
 #
-# ブランチ保護の required status check にこの job 名 `hub-validate` を指定する。
+# 2026-08-03: Pages の配信を「main ブランチを直接配信」から、この workflow の
+# deploy job 経由へ変更した。従来は main へ push した時点で配信対象になり、
+# 検査が赤くなっても手遅れだった（＝検査が事後検知でしかなかった）。
+# deploy を hub-validate の成功に依存させることで、PR を必須にしなくても
+# 「検査を通ったものだけが公開される」を維持できる。
+#
+# ブランチ保護の required status check にはこの job 名 `hub-validate` を指定する。
 # paths フィルターは付けない（付けると対象外 PR で check が発行されず、
 # required check が永久に pending になる）。
 
@@ -13,15 +19,16 @@ name: hub-validate
 on:
   pull_request:
   push:
-    branches: [main]        # 保護をすり抜けた直 push も検知する
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: hub-validate-${{ github.ref }}
-  cancel-in-progress: true
+  # 公開まで含むので、同時実行を許さず後勝ちにする（cancel-in-progress は付けない。
+  # deploy 途中で打ち切ると中途半端な状態で配信されうるため）。
+  group: hub-pages
 
 jobs:
   hub-validate:
@@ -59,3 +66,42 @@ jobs:
       # 生成物がコミット漏れなく最新か（上の各 --check を通っていれば差分は出ない）
       - name: 作業ツリーに差分が残っていないこと
         run: git diff --exit-code
+
+  build:
+    # 検査を通らなければビルドしない＝公開物が作られない。
+    needs: hub-validate
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      # 従来と同じ Jekyll ビルド。_partials/ _tools/ など "_" 始まりが成果物から
+      # 除外される挙動は、これに依存している（本番で 404 になることを確認済み）。
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      # 公開してはいけないものが成果物に混ざっていないかを、配信前に確認する。
+      - name: 成果物の確認
+        run: |
+          test ! -e _site/_partials || { echo "_partials が成果物に含まれている"; exit 1; }
+          test ! -e _site/_tools    || { echo "_tools が成果物に含まれている"; exit 1; }
+          test -f _site/CNAME       || { echo "CNAME が成果物に無い（独自ドメインが停止する）"; exit 1; }
+          test -f _site/sitemap.xml || { echo "sitemap.xml が成果物に無い"; exit 1; }
+          echo "OK: $(find _site -name '*.html' | wc -l) HTML / CNAME=$(cat _site/CNAME)"
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    # 公開権限はこの job だけに与える。
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
