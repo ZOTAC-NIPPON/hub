@@ -386,7 +386,8 @@ def cmd_publish(args):
     # ②'↔③ のずれ自体が起きにくくなり、drift 検査を持つ必要がなくなる。
     if args.paths:
         if cmd_import(argparse.Namespace(paths=args.paths, json=False,
-                                         verbose=args.verbose)) != 0:
+                                         verbose=args.verbose,
+                                         delete=getattr(args, "delete", False))) != 0:
             return 1
 
     hr("共通パーツと sitemap を反映")
@@ -508,8 +509,40 @@ def cmd_import(args):
             shutil.copyfile(s, d)
         copied += 1
 
+    # ②' で消したファイルが ③ に残り続ける問題への対処。取り込みは「②' に
+    # 今あるもの」しか見ないため、削除が伝播しない。消したはずのページが公開
+    # され続け、sitemap も ③ の実体から作るので検査も通ってしまう。
+    # 取り込んだ範囲に限って、②' に無い ③ のファイルを候補として挙げる。
+    stale = []
+    for spec in args.paths:
+        d = dst_root / spec
+        if not d.is_dir():
+            continue
+        for f in sorted(d.rglob("*")):
+            if not f.is_file():
+                continue
+            rel = f.relative_to(dst_root).as_posix()
+            if not hublib.in_published_scope(rel) or hublib.is_deploy_only(rel):
+                continue
+            if not (src_root / rel).is_file():
+                stale.append(rel)
+
     print(f"\n  取り込み: {copied} 件（うち清浄化 {cleaned} 件）"
           f" / 対象外 {skipped} 件")
+
+    if stale:
+        print(f"\n  ②' に無いのに ③ に残っているファイル: {len(stale)} 件")
+        for rel in stale:
+            print(f"     {rel}")
+        if getattr(args, "delete", False):
+            for rel in stale:
+                (dst_root / rel).unlink()
+            print(f"  → {len(stale)} 件を削除しました（--delete 指定）")
+            print("     ※ 公開停止するページはリダイレクトの要否も確認すること")
+        else:
+            print("  → 削除していません。②' で意図的に消したものなら --delete を")
+            print("     付けて再実行してください（このままでは公開され続けます）。")
+
     if blocked:
         print(f"\n  ✗ 取り込めなかったファイル {len(blocked)} 件"
               "（title が空で復元元が無い。公開すると SEO 上の損失になる）:")
@@ -541,7 +574,8 @@ MENU = [
 
 
 def menu():
-    ns = argparse.Namespace(json=False, yes=False, message=None, verbose=False, paths=None)
+    ns = argparse.Namespace(json=False, yes=False, message=None, verbose=False,
+                            paths=None, delete=False)
     print("=" * 60)
     print("  hub.zotac.co.jp  取得・検査・公開ツール")
     print("=" * 60)
@@ -593,16 +627,21 @@ def main():
         p.set_defaults(func=fn)
         if name == "publish":
             p.add_argument("paths", nargs="*", help="②' index/ から取り込むパス（省略可）")
+            p.add_argument("--delete", action="store_true",
+                           help="②' に無い ③ のファイルを削除する（公開停止）")
             p.add_argument("--yes", action="store_true", help="確認を省略")
             p.add_argument("-m", "--message", help="変更内容の説明")
             p.add_argument("-v", "--verbose", action="store_true", help="取り込みを1件ずつ表示")
         if name == "import":
             p.add_argument("paths", nargs="+", help="②' index/ からの相対パス")
             p.add_argument("-v", "--verbose", action="store_true", help="1件ずつ表示")
+            p.add_argument("--delete", action="store_true",
+                           help="②' に無い ③ のファイルを削除する（公開停止）")
     args = ap.parse_args()
     if not args.cmd:
         return menu()
-    for a, default in (("yes", False), ("message", None), ("verbose", False), ("paths", None)):
+    for a, default in (("yes", False), ("message", None), ("verbose", False),
+                       ("paths", None), ("delete", False)):
         if not hasattr(args, a):
             setattr(args, a, default)
     return args.func(args)

@@ -33,14 +33,25 @@ PDIR = ROOT / "_partials"
 # deploy リポジトリ（③）では ROOT 自身がサイトのルート。
 SITE = (ROOT / "index") if (ROOT / "index").is_dir() else ROOT
 
+# --- 実行場所のガード ---------------------------------------------------
+# このスクリプトは deploy リポジトリ（③）の中でしか動かない。②' の OneDrive
+# 側で実行すると、SharePoint に汚染された共通パーツを全ページへ配ってしまう
+# （2026-08-02 に実際に起きた。退役させたファイルが復元・再コピーされれば
+# 同じ事故を再現できるため、コード側で拒否する）。
+if not ((ROOT / ".git").exists() and (ROOT / "_tools" / "hublib.py").is_file()):
+    sys.stderr.write(
+        f"このスクリプトは deploy リポジトリの中でしか実行できません。\n"
+        f"  実行しようとした場所: {ROOT}\n"
+        f"  ②' の OneDrive 側で動かすと、汚染された共通パーツを全ページへ配ります。\n"
+        f"  ③ へ移動して実行してください（例: cd ~/Developer/hub）。\n")
+    sys.exit(2)
+
+
 # deploy 専用ファイルの判定は _tools/hublib.py を単一の正本として使う。
 # hublib が無い配置（OneDrive 側の旧コピー等）では全ファイルを対象にする従来動作。
 sys.path.insert(0, str(ROOT / "_tools"))
-try:
-    from hublib import is_deploy_only as _is_deploy_only
-except ImportError:
-    def _is_deploy_only(rel):
-        return False
+from hublib import is_deploy_only as _is_deploy_only   # 見つからなければ落ちてよい
+                                                          # （検査が黙って弱まるより止める）
 
 # ── 注入対象パーツ定義 ───────────────────────────────────────────────
 # anchor: マーカーが無い初回に挿入する位置。('</title>', 'after') = </title> の直後
