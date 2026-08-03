@@ -173,19 +173,45 @@ def index_path():
     return (root / "index") if root else local
 
 
+# deploy リポジトリ (3) の置き場所。端末ごとに違ってよい。
+# 直書きを候補の羅列にとどめ、最終的には「中身」で判定する。SharePoint
+# ライブラリ名の変更で直書きパスが黙って外れ、Windows のガードが不成立に
+# なっていた（2026-08-02）のと同じ失敗を繰り返さないため。
+_DEPLOY_CANDIDATES = (
+    "Developer/hub",              # macOS 標準の開発用フォルダ。iCloud 対象外
+    "Documents/projects/hub",     # Windows / 移行前の macOS
+    "projects/hub",
+)
+
+
+def _looks_like_deploy(p):
+    """名前ではなく中身で判定する。"""
+    try:
+        return ((p / ".git").exists() and (p / "_tools" / "hublib.py").is_file()
+                and (p / "_partials").is_dir())
+    except OSError:
+        return False
+
+
 def deploy_path(override=None):
     """(3) the git deploy repo.
 
-    Resolution order: explicit override -> $HUB_DEPLOY_PATH -> the default
-    layout. Path.home() covers both C:\\Users\\<user> and /Users/<user>, so the
-    default is identical on Windows and macOS.
+    解決順: 明示指定 -> $HUB_DEPLOY_PATH -> このファイル自身の位置 ->
+    既知の候補。自分自身がリポジトリ内にあるなら、それが答え。
     """
     if override:
         return Path(override).expanduser()
     env = os.environ.get("HUB_DEPLOY_PATH")
     if env:
         return Path(env).expanduser()
-    return Path.home() / "Documents" / "projects" / "hub"
+    here = hub_root()
+    if _looks_like_deploy(here):
+        return here
+    for rel in _DEPLOY_CANDIDATES:
+        p = Path.home() / rel
+        if _looks_like_deploy(p):
+            return p
+    return Path.home() / _DEPLOY_CANDIDATES[0]
 
 
 def in_published_scope(rel):
