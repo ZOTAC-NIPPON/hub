@@ -46,6 +46,7 @@ CASES = [
 ALLOWLIST_CASES = [
     ("CNAME", True), ("README.md", True), ("event/askfes2026/index.html", True),
     ("_partials/header.html", True), ("_tools/hublib.py", True),
+    ("CLAUDE.md", True),
     ("index.html", False), ("catalogs/index.html", False),
 ]
 

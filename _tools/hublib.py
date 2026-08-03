@@ -25,6 +25,7 @@ ALLOW_HUB_ONLY_FILES = {
     "favicon.ico",
     "robots.txt",
     "google2a4e44ce4ec33d4a.html",
+    "CLAUDE.md",    # AI の作業入口。README への薄いポインタ
 }
 # Hub-only top-level folders (old-URL redirect stubs, local tool settings, and
 # the build inputs that became git-canonical on 2026-08-02). Jekyll drops every
