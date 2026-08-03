@@ -39,26 +39,73 @@
       "name": "Reviews / プロダクトレビュー | ZOTAC NIPPON",
       "description": "実測データと現場での検証をもとにした、ZOTAC NIPPON の中立的な技術レビュー一覧。",
       "inLanguage": "ja",
-      "isPartOf": { "@id": "https://hub.zotac.co.jp/#website" },
+      "isPartOf": {
+        "@id": "https://hub.zotac.co.jp/#website"
+      },
       "mainEntity": {
         "@type": "ItemList",
         "itemListOrder": "https://schema.org/ItemListOrderDescending",
-        "numberOfItems": 6,
+        "numberOfItems": 7,
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "url": "https://hub.zotac.co.jp/reviews/magnus-one-ultra-rtx-5080/", "name": "ZBOX MAGNUS ONE ULTRA EU275080C レビュー（RTX 5080 16GB / Core Ultra 7 265）" },
-          { "@type": "ListItem", "position": 2, "url": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ti/", "name": "ZBOX MAGNUS ONE EU27507TC レビュー（RTX 5070 Ti 16GB / Core Ultra 7 265）" },
-          { "@type": "ListItem", "position": 3, "url": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ryzen-9-9850hx/", "name": "ZBOX MAGNUS ONE ER98N5070C レビュー（RTX 5070 / Ryzen 9 9850HX）" },
-          { "@type": "ListItem", "position": 4, "url": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/", "name": "ZBOX MAGNUS ONE EU275070C レビュー（RTX 5070 / Core Ultra 7 265）" },
-          { "@type": "ListItem", "position": 5, "url": "https://hub.zotac.co.jp/reviews/magnus-en-rtx-5060-ti/", "name": "ZBOX MAGNUS EN275060TC レビュー（RTX 5060 Ti 16GB / Core Ultra 7 255HX）" },
-          { "@type": "ListItem", "position": 6, "url": "https://hub.zotac.co.jp/reviews/meganex8kmk2/", "name": "MeganeX 8K Mark II レビュー（GeForce RTX 50 SERIES / VRChat）" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://hub.zotac.co.jp/reviews/power-limit-rtx-50-series/",
+            "name": "「0円でできる夏の暑さ対策」、本当に効く？ — GeForce RTX 5090 / 5080 / 5070 で Power Limit 省電力化を実測検証"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://hub.zotac.co.jp/reviews/magnus-one-ultra-rtx-5080/",
+            "name": "ZBOX MAGNUS ONE ULTRA EU275080C レビュー（RTX 5080 16GB / Core Ultra 7 265）"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ti/",
+            "name": "ZBOX MAGNUS ONE EU27507TC レビュー（RTX 5070 Ti 16GB / Core Ultra 7 265）"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-ryzen-9-9850hx/",
+            "name": "ZBOX MAGNUS ONE ER98N5070C レビュー（RTX 5070 / Ryzen 9 9850HX）"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "url": "https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/",
+            "name": "ZBOX MAGNUS ONE EU275070C レビュー（RTX 5070 / Core Ultra 7 265）"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "url": "https://hub.zotac.co.jp/reviews/magnus-en-rtx-5060-ti/",
+            "name": "ZBOX MAGNUS EN275060TC レビュー（RTX 5060 Ti 16GB / Core Ultra 7 255HX）"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "url": "https://hub.zotac.co.jp/reviews/meganex8kmk2/",
+            "name": "MeganeX 8K Mark II レビュー（GeForce RTX 50 SERIES / VRChat）"
+          }
         ]
       }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://hub.zotac.co.jp/" },
-        { "@type": "ListItem", "position": 2, "name": "Reviews" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://hub.zotac.co.jp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Reviews"
+        }
       ]
     }
   ]
@@ -501,6 +548,7 @@ h2 {
 .site-nav a.nav-cta:hover{background:#f2c800;}
 .site-nav a.nav-cta::after{display:none!important;}
 </style>
+
 </head>
 <body>
 <!-- @partial:header START — 編集は _partials/header.html、反映は python _partials/inject.py -->
@@ -608,23 +656,23 @@ h2 {
     <p class="section-lead">最新の検証・取材レポートをピックアップ。</p>
 
     <!-- ↓ _data/reviews.json の priority:1 (or 最新の published) から自動生成 -->
-    <a href="magnus-one-ultra-rtx-5080/" class="featured-review" style="text-decoration: none; color: inherit;">
+    <a href="power-limit-rtx-50-series/" class="featured-review" style="text-decoration: none; color: inherit;">
       <div class="featured-thumb">
-        <img src="magnus-one-ultra-rtx-5080/images/card-banner-800x580.jpg" alt="ZBOX MAGNUS ONE ULTRA EU275080C レビュー アイキャッチ" loading="lazy">
+        <img src="power-limit-rtx-50-series/images/card-banner-800x580.jpg" alt="RTX 5090 / 5080 / 5070 Power Limit 省電力化 実測検証 アイキャッチ" loading="lazy">
       </div>
       <div class="featured-body">
         <div class="featured-meta">
           <span class="latest-badge">LATEST</span>
-          <span>PUBLISHED 2026.07</span>
+          <span>PUBLISHED 2026.08</span>
           <span>·</span>
-          <span>TESTED 2026.07</span>
+          <span>TESTED 2026.07&ndash;08</span>
         </div>
-        <h3>ZBOX MAGNUS ONE ULTRA EU275080C — RTX 5080 × 20コアを 11.46L に</h3>
-        <div class="featured-tag">GeForce RTX 5080 16GB（Desktop） · MAGNUS ONE ULTRA EU275080C · Core Ultra 7 265</div>
-        <p class="featured-excerpt">デスクトップ RTX 5080 16GB と Core Ultra 7 265 を 850W 電源内蔵の 11.46L 筐体へ。GPU 指標で比較群トップ、最大負荷 73&#176;C の冷却余裕を実測で検証します。</p>
+        <h3>「0円でできる夏の暑さ対策」、本当に効く？</h3>
+        <div class="featured-tag">GeForce RTX 5090 / 5080 / 5070 · Power Limit 100% → 85% → 最小設定</div>
+        <p class="featured-excerpt">Power Limit を 85% まで絞ると、性能はどこまで残るのか。3GPU×4条件×7テストで、消費電力・GPU温度・ファン回転がどこまで下がるかを実測しました。</p>
         <div class="featured-stats">
-          <span><strong>GPU</strong> RTX 5080 16GB</span>
-          <span><strong>CPU</strong> Core Ultra 7 265</span>
+          <span><strong>GPU</strong> 5090 / 5080 / 5070</span>
+          <span><strong>設定</strong> 4条件</span>
           <span><strong>BENCH</strong> 3DMark / Blender / ComfyUI</span>
         </div>
         <span class="featured-cta">→ READ FULL REVIEW</span>
@@ -654,6 +702,18 @@ h2 {
 
     <!-- ↓ _data/reviews.json から自動生成 -->
     <div class="review-grid">
+      <a href="power-limit-rtx-50-series/" class="review-card">
+        <div class="thumb"><img src="power-limit-rtx-50-series/images/card-banner-800x580.jpg" alt="RTX 5090 / 5080 / 5070 Power Limit 省電力化 実測検証" loading="lazy"></div>
+        <div class="body">
+          <div class="review-meta">
+            <span class="cat-chip">GPU</span>
+            <span>2026.08</span>
+          </div>
+          <h3>「0円でできる夏の暑さ対策」、本当に効く？ — RTX 5090 / 5080 / 5070 の Power Limit を実測</h3>
+          <p>Power Limit を 85% まで絞ると性能はどこまで残るのか。3GPU×4条件×7テストで、消費電力・GPU温度・ファン回転の削減効果を実測しました。</p>
+          <span class="arrow">→ READ</span>
+        </div>
+      </a>
       <a href="magnus-one-ultra-rtx-5080/" class="review-card">
         <div class="thumb"><img src="magnus-one-ultra-rtx-5080/images/card-banner-800x580.jpg" alt="ZBOX MAGNUS ONE ULTRA EU275080C レビュー" loading="lazy"></div>
         <div class="body">

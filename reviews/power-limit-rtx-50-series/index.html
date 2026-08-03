@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>0円でできる夏の暑さ対策 — RTX 5090 / 5080 / 5070 で Power Limit 省電力化を実測検証 | ZOTAC NIPPON</title>
+<!-- @partial:analytics START — 編集は _partials/analytics.html、反映は python _partials/inject.py -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5X4CC48YH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N5X4CC48YH', { 'anonymize_ip': true });
+</script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wk7j63hn3o");
+</script>
+<!-- @partial:analytics END -->
+<meta name="description" content="GPUのPower Limit設定は夏の発熱対策にどこまで効くのか。GeForce RTX 5090 / 5080 / 5070 の3GPUを100%・85%・85%＋自動チューニング・最小設定の4条件で実測。3DMark・Blender・Cinebench・Stable Diffusion(SDXL)の性能低下と、消費電力・GPU温度・ファン回転の削減効果、ワットパフォーマンスの変化を中立に検証します。">
+<link rel="canonical" href="https://hub.zotac.co.jp/reviews/power-limit-rtx-50-series/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+
+<!-- OGP -->
+<meta property="og:title" content="0円でできる夏の暑さ対策 — RTX 5090 / 5080 / 5070 で Power Limit 省電力化を実測検証">
+<meta property="og:description" content="消費電力・GPU温度はどこまで下がり、性能はどこまで残るのか。3カード×4条件×7ベンチマークで実測。">
+<meta property="og:image" content="https://hub.zotac.co.jp/reviews/power-limit-rtx-50-series/ogp.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hub.zotac.co.jp/reviews/power-limit-rtx-50-series/">
+<meta property="og:site_name" content="ZOTAC NIPPON">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type":"Organization","@id":"https://zotac.co.jp/#organization","name":"ZOTAC NIPPON","alternateName":["株式会社ゾタック日本","ZOTAC Japan"],"legalName":"ZOTAC Nippon Co., Ltd.","url":"https://zotac.co.jp/","logo":{"@type":"ImageObject","url":"https://hub.zotac.co.jp/assets/zotac_logo.svg","width":600,"height":60},"sameAs":["https://www.zotac.com/jp/","https://x.com/ZOTAC_JAPAN","https://www.youtube.com/@ZOTACJAPAN"]},
+    {"@type":"WebSite","@id":"https://hub.zotac.co.jp/#website","url":"https://hub.zotac.co.jp/","name":"ZOTAC NIPPON HUB","publisher":{"@id":"https://zotac.co.jp/#organization"},"inLanguage":"ja"},
+    {"@type":["Article","TechArticle"],"@id":"https://hub.zotac.co.jp/reviews/power-limit-rtx-50-series/#article",
+     "headline":"「0円でできる夏の暑さ対策」、本当に効く？ — GeForce RTX 5090 / 5080 / 5070 で Power Limit 省電力化を実測検証",
+     "alternativeHeadline":"消費電力・GPU温度はどこまで下がり、性能はどこまで残るのか。3カード×4条件×7ベンチマークの実測",
+     "description":"GPUのPower Limit設定は夏の発熱対策にどこまで効くのか。GeForce RTX 5090 / 5080 / 5070 の3GPUを100%・85%・85%＋自動チューニング・最小設定の4条件で実測。3DMark・Blender・Cinebench・Stable Diffusion(SDXL)の性能低下と、消費電力・GPU温度・ファン回転の削減効果、ワットパフォーマンスの変化を中立に検証します。",
+     "image":"https://hub.zotac.co.jp/reviews/power-limit-rtx-50-series/ogp.jpg","datePublished":"2026-08-03","dateModified":"2026-08-03",
+     "author":{"@id":"https://zotac.co.jp/#organization"},"publisher":{"@id":"https://zotac.co.jp/#organization"},
+     "mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.zotac.co.jp/reviews/power-limit-rtx-50-series/"},
+     "about":[
+       {"@type":"Thing","name":"ZOTAC GAMING GeForce RTX 5090 AMP Extreme INFINITY (ZT-B50900B-10P)"},
+       {"@type":"Thing","name":"ZOTAC GAMING GeForce RTX 5080 SOLID OC (ZT-B50800J-10P)"},
+       {"@type":"Thing","name":"ZOTAC GAMING GeForce RTX 5070 SOLID (ZT-B50700D-10P)"}
+     ],"inLanguage":"ja"},
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"ホーム","item":"https://hub.zotac.co.jp/"},
+      {"@type":"ListItem","position":2,"name":"Reviews","item":"https://hub.zotac.co.jp/reviews/"},
+      {"@type":"ListItem","position":3,"name":"RTX 50シリーズ Power Limit 省電力化検証"}]},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Power Limit を下げるとどのくらい性能が落ちますか？","acceptedAnswer":{"@type":"Answer","text":"85%設定なら、GPUを使い切る3DMarkでも約2〜7%の低下でした（RTX 5090 / 5080 / 5070 実測）。BlenderやCinebenchのような電力上限まで使わない処理は実測でほぼ0%です。下限の67〜70%まで絞ると3DMarkで約8〜20%低下します。"}},
+      {"@type":"Question","name":"温度や消費電力はどのくらい下がりますか？","acceptedAnswer":{"@type":"Answer","text":"Steel Nomad実行中の実測（負荷時平均）で、RTX 5090は595W→398W（67%設定）・最高温度71→62℃。RTX 5080は355W→249W・66→57℃、RTX 5070は249W→173W・71→60℃でした。ファンの最大回転数も全カードで低下しています。"}},
+      {"@type":"Question","name":"設定は再起動後も維持されますか？","acceptedAnswer":{"@type":"Answer","text":"Power Limit（電力最大%）は再起動後に既定値（100%）へ戻っていることがあります。常用する場合は起動後にNVIDIA Appで設定値を確認してください。いっぽう自動チューニングのトグルは再起動後も維持されるため、両方の状態を確認するのが確実です。"}},
+      {"@type":"Question","name":"どんな用途なら100%のままにすべきですか？","acceptedAnswer":{"@type":"Answer","text":"今回の実測では、RTX 5090で画像生成AI（SDXL標準設定）を重視する場合が該当します（85%でも約24%低下）。ベンチマークスコアの最大化が目的の場合も100%が基本です。3DMark の3テスト（-2〜7%）や Blender / Cinebench（低下ほぼ0%）に近い負荷が中心なら85%のデメリットは小さい結果でした。"}}
+    ]}
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --yellow:#FFD400;
+    --yellow-soft:rgba(255,212,0,.14);
+    --dark:#2A2D2F;
+    --ink:#2A2D2F;
+    --ink-mid:#6D6E71;
+    --ink-light:#9A9C9E;
+    --bg:#FFFFFF;
+    --bg-subtle:#FAFAFA;
+    --bg-soft:#F4F4F3;
+    --line:#E6E6E4;
+    --line-strong:#C9CACB;
+    --font:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+    --max:780px;
+    --pad:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit}
+
+  /* ===== Site Header (hub.zotac.co.jp 共通ヘッダー / 正本) ===== */
+  .site-header{position:sticky;top:0;z-index:200;background:#2A2D2F;border-bottom:3px solid #FFD400;padding:16px 0;line-height:1.55}
+  .site-header-inner{max-width:1200px;margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+  @media (max-width:700px){.site-header-inner{padding:0 24px}}
+  .site-logo{display:flex;align-items:center;gap:16px;text-decoration:none;border:none}
+  .site-logo img{height:22px;width:auto;display:block}
+  .logo-divider{color:#B1B3B6;font-family:'JetBrains Mono',monospace;font-weight:300;font-size:16px}
+  .logo-url{font-family:'JetBrains Mono',monospace;font-size:12px;color:#B1B3B6;letter-spacing:.05em}
+  .logo-url .host-hub{color:#FFD400;font-weight:500}
+  .site-nav{display:flex;gap:22px;align-items:center}
+  .site-nav a{text-decoration:none;color:#fff;font-size:13px;font-weight:500;position:relative;padding:4px 0;display:inline-flex;align-items:center;gap:6px;border:none}
+  .site-nav a.is-active{color:#FFD400}
+  .site-nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#FFD400;transform:scaleX(0);transform-origin:left;transition:transform .2s}
+  .site-nav a:hover::after,.site-nav a.is-active::after{transform:scaleX(1)}
+  @media (max-width:1100px){.site-nav{gap:16px}}
+  @media (max-width:1000px){.site-nav a{font-size:12px}}
+  .nav-mobile{display:none;align-items:center;gap:12px}
+  .nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer}
+  .nav-toggle:hover{border-color:#FFD400}
+  .nav-toggle-bar{display:block;width:100%;height:2px;background:#fff;transition:transform .2s,opacity .2s}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  @media (max-width:900px){
+    .nav-mobile{display:flex}
+    .site-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#2A2D2F;border-bottom:3px solid #FFD400;box-shadow:0 14px 28px rgba(0,0,0,.35);padding:6px 0}
+    .site-nav.is-open{display:flex}
+    .site-nav a{width:100%;padding:14px 24px;font-size:15px}
+    .site-nav a + a{border-top:1px solid rgba(255,255,255,.08)}
+    .site-nav a::after{display:none}
+  }
+  @media (max-width:600px){.logo-divider,.logo-url{display:none}}
+  .site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700}
+  .site-nav a.nav-cta:hover{background:#f2c800}
+  .site-nav a.nav-cta::after{display:none!important}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+  section{padding:46px 0;border-top:1px solid var(--line);scroll-margin-top:72px}
+  section:first-of-type{border-top:none}
+
+  .hero{padding:40px 0 30px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mid);display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:3px;background:var(--yellow);display:inline-block}
+  h1{font-weight:900;font-size:clamp(27px,5vw,42px);line-height:1.28;margin:16px 0 14px;letter-spacing:.01em;word-break:keep-all}
+  h1 .hl{background:linear-gradient(transparent 62%,var(--yellow) 62%)}
+  h1 .h1-sub{display:block;margin-top:12px;font-size:.56em;font-weight:700;line-height:1.55;color:#3c3f41;letter-spacing:.01em}
+  .lead{font-size:17px;color:#3c3f41;margin-bottom:22px}
+  .hero-fig{margin:24px 0 6px;background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .hero-fig img{width:100%}
+  figure{margin:22px 0}
+  figcaption{font-size:12.5px;color:var(--ink-mid);margin-top:8px;font-family:var(--mono)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+  .chip{font-family:var(--mono);font-size:12.5px;background:var(--dark);color:#fff;padding:6px 11px;border-radius:5px;letter-spacing:.02em}
+  .chip b{color:var(--yellow)}
+
+  .tldr{background:var(--bg-subtle);border:1px solid var(--line);border-left:5px solid var(--yellow);border-radius:6px;padding:22px 24px;margin:8px 0}
+  .tldr h2{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);font-family:var(--mono);margin-bottom:12px}
+  .tldr ul{list-style:none}
+  .tldr li{padding:7px 0 7px 26px;position:relative;border-top:1px dashed var(--line)}
+  .tldr li:first-child{border-top:none}
+  .tldr li::before{content:"";position:absolute;left:2px;top:15px;width:9px;height:9px;background:var(--yellow);border-radius:2px;transform:rotate(45deg)}
+  .num{font-family:var(--mono);font-weight:700}
+
+  h2.sec{font-weight:900;font-size:clamp(20px,3.4vw,27px);line-height:1.35;margin-bottom:6px;letter-spacing:.01em}
+  .sec-no{font-family:var(--mono);font-size:12px;color:var(--yellow);font-weight:700;letter-spacing:.14em;background:var(--dark);padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:14px}
+  h3{font-weight:700;font-size:18px;margin:30px 0 10px}
+  p{margin:13px 0}
+  .muted{color:var(--ink-mid)}
+  strong.key{background:var(--yellow-soft);padding:1px 4px;border-radius:3px;font-weight:700}
+  a.xref{color:inherit;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:2px;white-space:nowrap}
+  a.xref:hover{text-decoration-color:var(--yellow)}
+
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--dark);color:#fff;font-size:12.5px;letter-spacing:.04em;border-bottom:none}
+  .spec th{width:34%;background:var(--bg-soft);font-weight:700;color:#3c3f41}
+  td.mono,th.mono{font-family:var(--mono)}
+  tbody tr:hover{background:var(--bg-subtle)}
+  .cmp td{font-size:13.5px}
+  .cmp td.mono{font-family:var(--mono);font-size:13px}
+  .cmp tr.me-row td{background:var(--yellow-soft)}
+  .cmp tr.me-row td:first-child{border-left:3px solid var(--yellow);font-weight:700}
+  .data td{font-family:var(--mono);font-size:13.5px}
+  .data td:first-child{font-family:var(--font);font-weight:500}
+  .data .me{background:var(--yellow-soft);font-weight:700}
+  .data tr.me-row td:first-child{border-left:3px solid var(--yellow)}
+  .na{color:var(--ink-light)}
+
+  /* results appendix table */
+  .tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:8px;-webkit-overflow-scrolling:touch}
+  .results{width:100%;min-width:660px;border-collapse:collapse;font-size:13px;margin:0}
+  .results th,.results td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+  .results thead th{background:var(--dark);color:#fff;vertical-align:bottom;font-size:12px;line-height:1.3;font-weight:700}
+  .results thead th .s{display:block;font-family:var(--mono);font-size:10px;font-weight:400;color:#c9cacb}
+  .results thead th.me{background:#34383a;border-bottom:3px solid var(--yellow)}
+  .results thead th.me .s{color:var(--yellow)}
+  .results th.test{text-align:left;background:var(--dark)}
+  .results tbody th{text-align:left;background:var(--bg-soft);font-weight:600;font-family:var(--font);white-space:normal}
+  .results tbody th .u{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--ink-mid)}
+  .results tbody td{font-family:var(--mono)}
+  .results tbody td.me{background:var(--yellow-soft);font-weight:700}
+  .results .bad{color:var(--ink-light);font-family:var(--font);font-size:12px}
+
+  .chart{margin:20px 0 8px}
+  .chart .ttl{font-weight:700;font-size:15px;margin-bottom:3px}
+  .chart .unit{font-family:var(--mono);font-size:11.5px;color:var(--ink-mid);margin-bottom:12px}
+  .row{display:grid;grid-template-columns:156px 1fr;align-items:center;gap:10px;margin:7px 0}
+  .row .lab{font-size:12.5px;text-align:right;color:#3c3f41;line-height:1.25}
+  .row .lab small{display:block;color:var(--ink-light);font-size:10px;font-family:var(--mono);margin-top:1px}
+  .track{background:var(--bg-soft);border-radius:4px;overflow:hidden;height:32px;position:relative}
+  .fill{height:100%;background:linear-gradient(90deg,#3a3e40,#55595b);border-radius:4px;display:flex;align-items:center;justify-content:flex-end;min-width:46px}
+  .fill .v{font-family:var(--mono);font-weight:700;font-size:12.5px;color:#fff;padding:0 9px;white-space:nowrap}
+  .row.me .fill{background:linear-gradient(90deg,#E6BE00,var(--yellow))}
+  .row.me .fill .v{color:var(--dark)}
+  .row.me .lab{font-weight:700;color:var(--ink)}
+  .fill.fail{background:repeating-linear-gradient(45deg,#eee,#eee 6px,#e3e3e3 6px,#e3e3e3 12px);min-width:0;width:100%!important}
+  .fill.fail .v{color:var(--ink-light)}
+
+  .note{background:var(--bg-subtle);border:1px solid var(--line);border-radius:6px;padding:16px 18px;margin:20px 0;font-size:14px;color:#3c3f41}
+  .note b{color:var(--ink)}
+  .note .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);display:block;margin-bottom:6px}
+
+  /* primer / 用語解説 columns (GPU/CPU とは) */
+  .primer-lead{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin:26px 0 10px;display:flex;align-items:center;gap:9px}
+  .primer-lead::before{content:"";width:22px;height:3px;background:var(--yellow);display:inline-block}
+  .primer{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 6px}
+  .primer .card{border:1px solid var(--line);border-top:3px solid var(--yellow);border-radius:8px;background:var(--bg-subtle);padding:15px 18px}
+  .primer .card h4{font-size:15.5px;font-weight:900;margin:0 0 9px;display:flex;align-items:baseline;gap:9px;line-height:1.3}
+  .primer .card h4 .k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--dark);background:var(--yellow);padding:2px 8px;border-radius:4px;flex:none}
+  .primer .card p{font-size:13px;line-height:1.78;margin:0;color:#3c3f41}
+  .primer .card p+p{margin-top:9px}
+  .primer .card b{color:var(--ink)}
+  .primer .card .tl{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--dark);background:var(--bg-soft);border:1px solid var(--line-strong);padding:1px 6px;border-radius:3px;margin-right:7px}
+  @media(max-width:560px){.primer{grid-template-columns:1fr}}
+
+  /* lineup positioning */
+  .lineup{display:flex;flex-direction:column;gap:10px;margin:14px 0 6px}
+  .lu{border:1px solid var(--line);border-left:4px solid var(--line-strong);border-radius:6px;padding:12px 16px;font-size:14px;line-height:1.7}
+  .lu b{font-weight:700;color:var(--ink)}
+  .lu .ttl{display:block;font-weight:700;color:var(--ink);margin-bottom:2px}
+  .lu span.d{color:#3c3f41}
+  .lu.me{border-left-color:var(--yellow);background:var(--yellow-soft)}
+
+  /* CTA */
+  .cta{display:inline-block;background:var(--yellow);color:var(--dark);font-weight:700;font-size:14.5px;text-decoration:none;padding:12px 22px;border-radius:6px;letter-spacing:.02em;border:1px solid #E6BE00}
+  .cta:hover{filter:brightness(.95)}
+  /* product action row: sales button (.cta) + catalog/secondary text link (.txtlink) */
+  .buyrow{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin:18px 0 4px}
+  .buyrow.center{justify-content:center;text-align:center}
+  .txtlink{display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong)}
+  .txtlink:hover{text-decoration-color:var(--yellow)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+  .grid2 figure{margin:0}
+  .grid2 .cell{background:var(--bg-soft);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .grid2 .cell.shot{background:#fff;padding:12px;display:flex;align-items:flex-start;justify-content:center}
+  .grid2 .cell.shot img{border:1px solid var(--line);border-radius:3px;width:auto;max-width:100%}
+  @media(max-width:560px){.grid2{grid-template-columns:1fr}.row{grid-template-columns:120px 1fr}}
+
+  /* exploded view (cooling) */
+  .exploded{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 10px}
+  .ex-card{margin:0;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+  .ex-card img{height:140px;width:100%;object-fit:contain;display:block;margin:0 0 12px}
+  .ex-card figcaption{font-family:var(--font);font-size:13px;color:var(--ink-mid);line-height:1.45;position:relative;padding-left:34px;min-height:24px;margin:0}
+  .ex-card figcaption b{display:block;color:var(--ink);font-weight:700;font-size:13.5px}
+  .ex-card .n{position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--dark);color:var(--yellow);font-family:var(--mono);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
+  @media(max-width:560px){.exploded{grid-template-columns:1fr}}
+
+  details{border:1px solid var(--line);border-radius:6px;margin:10px 0;overflow:hidden;background:var(--bg-subtle)}
+  summary{cursor:pointer;padding:15px 18px;font-weight:700;font-size:15px;list-style:none;position:relative;padding-right:44px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:18px;top:13px;font-family:var(--mono);font-size:20px;color:var(--yellow);font-weight:700}
+  details[open] summary::after{content:"–"}
+  details .a{padding:0 18px 16px;font-size:14.5px;color:#3c3f41}
+
+  .verdict{background:var(--dark);color:#ececed;border-radius:8px;padding:28px 26px;margin:18px 0}
+  .verdict h3{color:#fff;margin-top:0}
+  .verdict .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+  .verdict h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .verdict .fit h4{color:var(--yellow)}
+  .verdict .unfit h4{color:#c9cacb}
+  .verdict ul{list-style:none;font-size:14px}
+  .verdict li{padding:5px 0 5px 20px;position:relative;color:#d6d7d8}
+  .verdict li::before{content:"›";position:absolute;left:2px;color:var(--yellow);font-weight:700}
+  @media(max-width:560px){.verdict .cols{grid-template-columns:1fr}}
+
+  footer{background:var(--dark);color:#b9babb;font-size:12.5px;padding:34px var(--pad);margin-top:40px}
+  footer .inner{max-width:var(--max);margin:0 auto}
+  footer .meta{font-family:var(--mono);font-size:11.5px;line-height:1.9;color:#9a9c9e}
+  footer b{color:#fff}
+  footer .disc{margin-top:16px;padding-top:16px;border-top:1px solid #44484a}
+  /* image lightbox (click to enlarge in overlay) */
+  main img{cursor:zoom-in}
+  .lightbox{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(22,23,25,.93);padding:28px;cursor:zoom-out;opacity:0;transition:opacity .18s ease}
+  .lightbox.open{display:flex;opacity:1}
+  .lightbox img{max-width:92vw;max-height:84vh;width:auto;height:auto;border-radius:6px;box-shadow:0 24px 70px rgba(0,0,0,.55);background:#fff;cursor:zoom-out}
+  .lightbox figcaption{max-width:760px;color:#d6d7d8;font-size:13px;line-height:1.6;text-align:center;font-family:var(--font)}
+  .lb-close{position:fixed;top:16px;right:20px;width:42px;height:42px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:24px;line-height:1;border-radius:6px;cursor:pointer}
+  .lb-close:hover{border-color:var(--yellow);color:var(--yellow)}
+
+  /* Safari(WebKit) で H1 が折り返さない問題の修正。
+     テンプレ継承の h1 は word-break:keep-all を持つが、WebKit は keep-all を厳密に解釈し
+     CJK の約物（、」等）でも改行機会を作らない。既存レビューの H1 は半角スペースを含むため
+     顕在化しなかったが、本記事の主見出し「0円でできる夏の暑さ対策」、本当に効く？ は
+     21文字すべて空白なし＝改行機会ゼロになり、Safari でのみ1行のまま溢れる。
+     Blink(Chrome/Edge) は約物で改行するため再現しない。
+     対処は2段構え: (1) 見出しの語句境界に <wbr>（keep-all でも有効な「明示的な改行機会」）を置き、
+     どちらのブラウザでも同じ位置で折り返す。(2) それでも入らない幅のために overflow-wrap:anywhere を
+     保険として持たせ、溢れる代わりに強制改行させる。keep-all 自体はテンプレのまま残す。 */
+  h1{overflow-wrap:anywhere}
+  /* .datawrap は ②' 側テンプレには存在するが、②側ステージングのテンプレ
+     （このスクリプトが読む magnus-en-rtx-5060-ti）にはまだ無いため自前で持つ。
+     定義は ②' と同一（乖離させない）。 */
+  .datawrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+  .datawrap table{margin:0}
+  @media(max-width:620px){
+    .datawrap table.data{min-width:460px}
+    .datawrap table.cmp{min-width:520px}
+  }
+  .pcta{margin-top:10px}
+
+  /* ---- 本記事の追加スタイル（テンプレ準拠の範囲で最小限） ---- */
+  .note-important{background:var(--yellow-soft);border:1px solid var(--line-strong);border-left:5px solid var(--yellow);border-radius:6px;padding:18px 22px;margin:10px 0 6px;font-size:14.5px}
+  ol.steps{margin:10px 0 14px 1.4em}
+  ol.steps li{margin:4px 0}
+  ul.sum{margin:8px 0 16px 1.3em}
+  ul.sum li{margin:8px 0}
+  .chart .grp{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--ink-mid);letter-spacing:.06em;margin:16px 0 5px;padding-bottom:3px;border-bottom:1px solid var(--line)}
+  .chart .grp:first-of-type{margin-top:10px}
+  .carousel{border:1px solid var(--line);border-radius:8px;padding:18px 20px 14px;margin:16px 0;background:#fff}
+  .carousel .ctabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+  .carousel .ctab{font-family:var(--mono);font-size:12.5px;padding:6px 13px;border:1px solid var(--line-strong);border-radius:5px;background:var(--bg-soft);cursor:pointer;color:var(--ink-mid);line-height:1.4}
+  .carousel .ctab[aria-selected="true"]{background:var(--dark);color:#fff;border-color:var(--dark)}
+  .carousel .ctab:hover{border-color:var(--yellow)}
+  .carousel .cpane{display:none}
+  .carousel .cpane.is-on{display:block}
+  .carousel .chart{margin:0}
+  .carousel .cnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+  .carousel .cbtn{font-family:var(--mono);font-size:12px;padding:5px 12px;border:1px solid var(--line-strong);border-radius:5px;background:#fff;cursor:pointer;color:var(--ink)}
+  .carousel .cbtn:hover{border-color:var(--yellow)}
+  .carousel .cbtn[disabled]{opacity:.35;cursor:default}
+  .carousel .cidx{font-family:var(--mono);font-size:12px;color:var(--ink-light)}
+  .prodcard{display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:20px 22px;margin:14px 0;background:#fff}
+  .prodcard img{width:100%;height:auto}
+  .prodcard .pname{font-weight:700;font-size:17px;line-height:1.45;margin-bottom:6px}
+  .prodcard .pspec{font-family:var(--mono);font-size:12.5px;color:var(--ink-mid);line-height:1.9;margin-bottom:10px}
+  .prodcard .pdesc{font-size:14px;color:#3c3f41;line-height:1.75}
+  .prodcard .ptag{display:inline-block;font-family:var(--mono);font-size:11.5px;background:var(--dark);color:#fff;padding:3px 9px;border-radius:4px;margin-bottom:8px}
+  .prodcard .ptag b{color:var(--yellow)}
+  @media (max-width:620px){.prodcard{grid-template-columns:1fr;gap:14px}.prodcard img{max-width:340px;margin:0 auto}}
+  .chart .takeaway{font-size:13.5px;font-weight:700;color:#3c3f41;margin:4px 0 0;padding-left:10px;border-left:3px solid var(--yellow)}
+</style>
+</head>
+<!-- 本記事は3製品を横断する特集で単一製品ページではないため、data-inquiry-* は付けない。
+     付けるとヘッダーCTAが実在しない型番 POWERLIMIT-RTX50 を問い合わせ対象として送ってしまう
+     （inject.py の型番検証パターンは通過してしまうため弾かれない）。属性なし＝from のみ渡る。
+     テーマ記事の先例＝ index/reviews/meganex8kmk2（素の <body>
+<!-- @partial:header START — 編集は _partials/header.html、反映は python _partials/inject.py -->
+<style>
+/* === ZOTAC hub 共通ヘッダー（自己完結・単一ソース）=======================
+   正本はこのファイルだけ。ダーク／幅1100px。ページ側CSS(.wrap/.container)に
+   一切依存しないよう、ヘッダー専用CSSを同梱し色はリテラル固定。
+   反映: 手書きHTML = python _partials/inject.py ／ 生成HTML = build_*.py。
+   is-active は注入側がページ階層に応じて自動付与（ここでは付けない）。 */
+.site-header{position:sticky;top:0;z-index:100;background:#2A2D2F;border-bottom:3px solid #FFD400;padding:16px 0;line-height:1.5;}
+.site-header,.site-header *{box-sizing:border-box;}
+.site-header .site-header-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;}
+.site-header .site-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.site-header .site-logo img{height:22px;width:auto;}
+.site-header .logo-divider{color:#B1B3B6;font-family:'JetBrains Mono',monospace;font-weight:300;font-size:15px;}
+.site-header .logo-url{font-family:'JetBrains Mono',monospace;font-size:11px;color:#B1B3B6;letter-spacing:.05em;white-space:nowrap;}
+.site-header .logo-url .host-hub{color:#FFD400;font-weight:500;}
+.site-header .site-nav{display:flex;gap:20px;align-items:center;}
+.site-header .site-nav a{text-decoration:none;color:#fff;font-size:13px;font-weight:500;position:relative;padding:4px 0;display:inline-flex;align-items:center;gap:6px;border:none;}
+.site-header .site-nav a.is-active{color:#FFD400;}
+.site-header .site-nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#FFD400;transform:scaleX(0);transform-origin:left;transition:transform .2s;}
+.site-header .site-nav a:hover::after,.site-header .site-nav a.is-active::after{transform:scaleX(1);}
+.site-header .site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700;}
+.site-header .site-nav a.nav-cta:hover{background:#f2c800;}
+.site-header .site-nav a.nav-cta::after{display:none!important;}
+.site-header .nav-mobile{display:none;align-items:center;gap:12px;}
+.site-header .nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer;}
+.site-header .nav-toggle:hover{border-color:#FFD400;}
+.site-header .nav-toggle-bar{display:block;width:100%;height:2px;background:#fff;transition:transform .2s,opacity .2s;}
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0;}
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media (max-width:1100px){.site-header .site-nav{gap:15px;}}
+@media (max-width:900px){
+  .site-header .nav-mobile{display:flex;}
+  .site-header .site-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#2A2D2F;border-bottom:3px solid #FFD400;box-shadow:0 14px 28px rgba(0,0,0,.35);padding:6px 0;z-index:200;}
+  .site-header .site-nav.is-open{display:flex;}
+  .site-header .site-nav a{width:100%;padding:14px 24px;font-size:15px;}
+  .site-header .site-nav a+a{border-top:1px solid rgba(255,255,255,.08);}
+  .site-header .site-nav a::after{display:none;}
+}
+@media (max-width:600px){.site-header .logo-divider,.site-header .logo-url{display:none;}}
+</style>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-logo">
+      <img src="/assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+      <span class="logo-divider">/</span>
+      <span class="logo-url">https://<span class="host-hub">hub</span>.zotac.co.jp</span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="/trial-program/">評価機貸出</a>
+      <a href="/case-studies/">導入事例</a>
+      <a href="/reviews/" class="is-active">レビュー</a>
+      <a href="/catalogs/">製品カタログ</a>
+      <a href="/press/">メディア掲載</a>
+      <a href="https://zotac.co.jp/product-biz-inquiry/?from=/reviews/power-limit-rtx-50-series/" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <div class="nav-mobile">
+      <button type="button" class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+<script>
+(function(){
+  var hdr=document.querySelector('header.site-header'); if(!hdr) return;
+  var btn=hdr.querySelector('.nav-toggle'), nav=hdr.querySelector('#site-nav');
+  if(!btn||!nav||btn.dataset.bound) return; btn.dataset.bound='1';
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+})();
+</script>
+<!-- @partial:header END -->）。2026-08-03 Codex 指摘で是正。 -->
+<body>
+
+
+<main class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <span class="eyebrow">Summer Lab — Power Limit</span>
+    <h1>「<span class="hl">0円でできる<wbr>夏の<wbr>暑さ対策</span>」、<wbr>本当に効く？<span class="h1-sub">GeForce RTX 5090 / 5080 / 5070 — Power Limit 設定で<wbr>消費電力・温度はどこまで下がり、<wbr>性能はどこまで残るのか</span></h1>
+    <p class="lead">連日の猛暑日。ゲーミングPCの発熱が部屋の暑さに直結する季節です。「エアコンをつけても室温が上がる」「ファンの音が気になる」——そんなときに追加費用ゼロで試せるのが、GPUの<b>Power Limit（電力制限）</b>調整です。ただし、性能が落ちてしまっては元も子もありません。<b>実際どの程度なのか</b>。ZOTAC GAMING GeForce RTX 5090 / 5080 / 5070 の3枚で、Power Limit を段階的に絞りながら 3DMark・Blender・Cinebench・画像生成AI（Stable Diffusion）を実測しました。</p>
+    <div class="chips">
+      <span class="chip"><b>3GPU</b> RTX 5090 / 5080 / 5070</span>
+      <span class="chip"><b>4条件</b> 100% / 85% / 85%+自動OC / 最小設定</span>
+      <span class="chip"><b>7テスト</b> 3DMark×3・Blender・Cinebench・SDXL×2</span>
+      <span class="chip">電力・温度ログ</span>
+    </div>
+
+    <figure class="hero-fig">
+      <img src="images/hero-1920x580.jpg" alt="「0円でできる夏の暑さ対策」を実測する — ZOTAC GAMING GeForce RTX 5090 / 5080 / 5070 の Power Limit 検証キービジュアル" fetchpriority="high" width="1920" height="580">
+    </figure>
+    <figcaption>ZOTAC GAMING GeForce RTX 5090 AMP Extreme INFINITY / RTX 5080 SOLID OC / RTX 5070 SOLID の3枚で、Power Limit を 100% → 85% → 最小設定まで絞りながら実測した</figcaption>
+  </section>
+
+  <!-- ============ TL;DR ============ -->
+  <section class="tldr" id="tldr">
+    <h2>実測サマリー（3行）</h2>
+    <ul>
+      <li><b>推奨は「まず85%」。</b>Steel Nomad の性能維持率は RTX 5090 92.9% / 5080 95.5% / 5070 96.7%。同じ85%で電力は<b>-91W / -51W / -38W</b>、最高温度も4〜6℃下がった。Blender・Cinebench のように電力上限まで使わない処理は<b>低下ほぼ0%</b>。</li>
+      <li><b>もっと熱を抑えたい日は下限設定（67〜70%）。</b>性能低下は9〜20%と目に見えるが、RTX 5090 は負荷時平均595W→398W（<b>-197W</b>）、GPU最高温度は3DMarkで9〜11℃・画像生成では最大13℃（78→65℃）下がる。ワットパフォーマンスは全カードで向上（+10〜31%）。</li>
+      <li><b>例外はAI画像生成。</b>RTX 5090 の SDXL（標準設定）だけは85%でも性能が約24%低下した（3.04→3.98秒/枚。5080 / 5070 は85%ではほぼ無風）。画像生成を重視するなら、85%と100%をご自身の環境で見比べてから。</li>
+    </ul>
+  </section>
+
+  <section class="note-important" id="caution">
+    <p><b>ご注意</b> — Power Limit の変更や自動チューニングは、NVIDIA 公式アプリの標準機能の範囲でも<b>オーバークロックに類する設定変更</b>にあたり、保証の扱いはメーカー・製品ごとに異なります。設定変更は自己責任でお願いします（詳細は <a class="xref" href="#s02">§02</a>）。</p>
+  </section>
+
+
+  <!-- ============ Power Limit 85% — 性能はほぼ残して、電力と熱だけ削れた ============ -->
+  <section id="s01">
+    <span class="sec-no">01 / まず結論</span>
+    <h2 class="sec">Power Limit 85% — 性能はほぼ残して、電力と熱だけ削れた</h2>
+
+    <p>昨夏、RTX 5080 の Power Limit を80%まで絞ったところ、3DMark は約7%下がった一方、実ゲームの低下は0〜1.4%に収まりました。正直、ここまで性能が残るとは予想していませんでした。では RTX 5090 や 5070 でも同じことが言えるのか——今年はカードを3枚に増やし、「まず試すならどの設定か」まで実測で探ります。</p>
+    <p>先に結論です。GPUを使い切る 3DMark Steel Nomad で Power Limit を<b>85%</b>にすると：</p>
+    <div class="datawrap"><table class="cmp">
+      <thead><tr><th>85%設定（対100%）</th><th>性能維持率</th><th>負荷時平均電力</th><th>GPU最高温度</th></tr></thead>
+      <tbody>
+        <tr><td>RTX 5090</td><td class="mono">92.9%</td><td class="mono">595W → 504W（<b>-91W</b>）</td><td class="mono">71℃ → 67℃</td></tr>
+        <tr><td>RTX 5080</td><td class="mono">95.5%</td><td class="mono">355W → 304W（<b>-51W</b>）</td><td class="mono">66℃ → 62℃</td></tr>
+        <tr><td>RTX 5070</td><td class="mono">96.7%</td><td class="mono">249W → 211W（<b>-38W</b>）</td><td class="mono">71℃ → 65℃</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>性能の落ち幅より、電力と熱の下げ幅のほうが大きい。</b>だから最初の一手は85%です。しかも電力上限まで使わない Blender や Cinebench は、この設定でも±1%前後＝実質差なしでした（<a class="xref" href="#s05">§05</a>）。もっと熱を削りたければ下限（67〜70%）という選択肢もあります（<a class="xref" href="#s04">§04</a>）。唯一の例外である画像生成AIについては <a class="xref" href="#s06">§06</a> で正直に書きます。</p>
+
+  </section>
+
+  <!-- ============ Power Limit とは — スライダー1本で「電力の天井」を決める ============ -->
+  <section id="s02">
+    <span class="sec-no">02 / 設定は3分</span>
+    <h2 class="sec">Power Limit とは — スライダー1本で「電力の天井」を決める</h2>
+
+    <p>NVIDIA GPU の Power Limit は、<b>GPUが消費してよい電力の最大許容値</b>を決めるパラメータです。GPUは温度・電圧・電力の余裕を見ながら動作クロック（Boost Clock）を自動調整しており、Power Limit を絞ると「電力の天井」が下がるぶん、高負荷時のクロックが少し落ちます。逆に言えば、<b>電力が天井に届かない処理はほとんど影響を受けません</b>。ここが今回の検証の最大のポイントです。</p>
+    <h3>設定は NVIDIA App のスライダー1本、3分で完了</h3>
+    <p>今回の設定には NVIDIA 公式アプリ「<b>NVIDIA App</b>」を使いました。ドライバーと一緒に導入される標準アプリで、追加インストールは不要です。</p>
+    <ol class="steps">
+      <li>NVIDIA App を開き、<b>システム → パフォーマンス</b> を表示</li>
+      <li>「パフォーマンス制限」内の <b>電力最大（%）</b> スライダーを目的の%へ動かす（即時反映）</li>
+      <li>戻すときはスライダーを100%へ、または「復元」をクリック</li>
+    </ol>
+    <figure>
+      <img src="images/nvidia-app-autotune-off-85.png" alt="NVIDIA App のシステム → パフォーマンス画面。自動チューニングはOFF、パフォーマンス制限の「電力最大（%）」スライダーを85に設定した状態（RTX 5090）" loading="lazy">
+      <figcaption>NVIDIA App「システム → パフォーマンス」。<b>電力最大（%）</b>のスライダーを85%にした状態で、上の「自動チューニング」はOFF——基本手順はこれで完了です。画面上部の統計情報で、現在のクロック・電力・温度をそのまま確認できます。なおトグルの下に残っている「GPUチューニング +86MHz ／ VRAMチューニング +200MHz」は、過去に自動チューニング（<a class="xref" href="#s08">§08</a>）を実行したときの記録で、OFFに戻したあとも表示自体は残ります</figcaption>
+    </figure>
+    <p>ZOTAC のグラフィックスカードでは、チューニングツール「<a class="txtlink" href="https://www.zotac.com/jp/page/zotac-gaming-firestorm" target="_blank" rel="noopener">FireStorm</a>」でも同様の調整が可能です。</p>
+    <h3>設定できる範囲と、適用されているかの確認</h3>
+    <p>Power Limit で下げられる範囲は<b>カードごとに決まっています</b>。無償ツール「GPU-Z」の <b>Advanced タブ → Power Limit</b> で確認できます。</p>
+    <figure>
+      <img src="images/gpuz-power-limit-range.png" alt="GPU-Z の Advanced タブに表示された RTX 5090 の Power Limit。Current 85.0%、Minimum 66.7%、Default 100.0%、Maximum 100.0%、Adjustment Range -33% to +0%" loading="lazy">
+      <figcaption>GPU-Z「Advanced → Power Limit」。今回の RTX 5090 AMP Extreme INFINITY は <b>Minimum 66.7%〜Maximum 100.0%</b>（Adjustment Range -33%〜+0%）。本記事で最小設定を67%としたのはこのためです。同じ3枚でも RTX 5080 SOLID OC は Min 69.4%〜Max 111.1% と範囲が異なります</figcaption>
+    </figure>
+    <p>この画面は<b>設定が効いているかの確認にも使えます</b>。黄色で囲った <b>Current</b> が現在の適用値で、上の画像は NVIDIA App で85%に設定した直後の状態です。ここが 100.0% のままなら、設定が反映されていません。</p>
+    <div class="note"><b>ここが要注意:</b> <b>Power Limit の設定はPCの再起動後に既定値（100%）へ戻っていることがあります</b>。実際、今回の計測中にも再起動後に設定が外れたまま1条件を計測してしまい、取り直しています。常用する場合は起動後に、NVIDIA App の統計情報（消費電力表示）か上の GPU-Z の Current で適用状態を確かめるのが確実です。<br>
+    なお「自動チューニング」（<a class="xref" href="#s08">§08</a>）のトグルは逆に<b>再起動後も維持されます</b>ので、両方の状態を確認してください。</div>
+    <div class="note"><b>保証について:</b> Power Limit の変更や自動チューニングは、NVIDIA 公式アプリの標準機能として提供されているものですが、オーバークロックに類する動作設定の変更にあたります。これらの操作やそれに起因するトラブルが製品保証の対象となるかは<b>メーカー・製品ごとに判断が異なり、本記事が保証の適用を約束するものではありません</b>。設定はいつでも既定値（100%）に戻せますが、変更後の動作の安定性はご自身の環境で確認したうえ、自己責任でお願いします。</div>
+
+  </section>
+
+  <!-- ============ 検証に使った3枚のグラフィックスカード ============ -->
+  <section id="s02b">
+    <span class="sec-no">02b / 検証機材</span>
+    <h2 class="sec">検証に使った3枚のグラフィックスカード</h2>
+
+    <p>いずれも ZOTAC GAMING のカードで、同一のテストベンチ（Ryzen 7 9800X3D / 32GB DDR5-6400）に差し替えながら計測しました。TGP（カードが使える電力の枠）が 600W / 360W / 250W と大きく異なる3枚を選んでいます。</p>
+
+    <div class="prodcard">
+      <img src="images/card-rtx5090.png" alt="ZOTAC GAMING GeForce RTX 5090 AMP Extreme INFINITY（ZT-B50900B-10P）の製品パッケージとグラフィックスカード本体" loading="lazy">
+      <div>
+        <span class="ptag">TGP <b>600W</b></span>
+        <div class="pname">ZOTAC GAMING GeForce RTX 5090 AMP Extreme INFINITY</div>
+        <div class="pspec">GeForce RTX 5090（GB202）/ 32GB GDDR7 / 3.5スロット / IceStorm 3.0 / SPECTRA 2.0<br>型番: ZT-B50900B-10P</div>
+        <p class="pdesc">今回の3枚で唯一の600Wクラス。絞ったときの<b>削減量が3枚で最も大きく</b>、Steel Nomad 実行中の負荷時平均は最大-197W。夏の発熱対策としての効き目は最も大きい。一方、画像生成AIが85%でも影響を受けた唯一のカードでもある。設定可能範囲は Min 66.7%〜Max 100.0%。</p>
+        <p class="pcta"><a class="txtlink" href="https://hub.zotac.co.jp/catalogs/#gpu-rtx-5090">GeForce RTX 5090 のカタログ一覧を見る →</a></p>
+      </div>
+    </div>
+
+    <div class="prodcard">
+      <img src="images/card-rtx5080.png" alt="ZOTAC GAMING GeForce RTX 5080 SOLID OC（ZT-B50800J-10P）の製品パッケージとグラフィックスカード本体" loading="lazy">
+      <div>
+        <span class="ptag">TGP <b>360W</b></span>
+        <div class="pname">ZOTAC GAMING GeForce RTX 5080 SOLID OC</div>
+        <div class="pspec">GeForce RTX 5080（GB203）/ 16GB GDDR7 / 3.5スロット / IceStorm 3.0 / SPECTRA 2.0<br>型番: ZT-B50800J-10P</div>
+        <p class="pdesc">昨年の検証と同じ RTX 5080 クラス（モデルは AMP Extreme INFINITY から変更）。85%で性能95.5%を保ちつつ-51W、下限70%でも87.7%と<b>バランスが良い</b>。ComfyUI SDXL 標準は4条件すべて同値だった。設定可能範囲は Min 69.4%〜Max 111.1%。</p>
+        <p class="pcta"><a class="txtlink" href="https://hub.zotac.co.jp/catalogs/#gpu-rtx-5080">GeForce RTX 5080 のカタログ一覧を見る →</a></p>
+      </div>
+    </div>
+
+    <div class="prodcard">
+      <img src="images/card-rtx5070.png" alt="ZOTAC GAMING GeForce RTX 5070 SOLID（ZT-B50700D-10P）の製品パッケージとグラフィックスカード本体" loading="lazy">
+      <div>
+        <span class="ptag">TGP <b>250W</b></span>
+        <div class="pname">ZOTAC GAMING GeForce RTX 5070 SOLID</div>
+        <div class="pspec">GeForce RTX 5070（GB205）/ 12GB GDDR7 / 2.5スロット / IceStorm 2.0<br>型番: ZT-B50700D-10P</div>
+        <p class="pdesc">3枚で最も小さいTGP。<b>絞っても性能がいちばん粘り</b>（85%で96.7%、下限70%でも90.9%）、ワットパフォーマンスの改善率は最大の+31%。今回の個体では、85%＋自動チューニングで定格の98.6%まで戻った。</p>
+        <p class="pcta"><a class="txtlink" href="https://hub.zotac.co.jp/catalogs/#gpu-rtx-5070">GeForce RTX 5070 のカタログ一覧を見る →</a></p>
+      </div>
+    </div>
+    <p class="muted">※ 掲載の仕様は本検証時点のものです。設定可能な Power Limit の範囲はカードごとに異なります（<a class="xref" href="#s02">§02</a>）。</p>
+
+  </section>
+
+  <!-- ============ 3DMark — 最悪条件でも、85%なら93〜98%残る ============ -->
+  <section id="s03">
+    <span class="sec-no">03 / グラフィックス</span>
+    <h2 class="sec">3DMark — 最悪条件でも、85%なら93〜98%残る</h2>
+
+    <p>3DMark のようなGPUを使い切るベンチマークは、常に電力上限に張り付いて動くため、Power Limit の影響が<b>もっとも素直に出る「ワーストケース」</b>です。3テストそれぞれについて、<b>性能（上）と消費電力（下）を3GPU×4条件で対にしたグラフ</b>を用意しました。上のタブで切り替えられます。</p>
+    <div class="note"><b>グラフの読み方:</b> 黄色のバーは本記事の推奨設定「85%」（結論は<a class="xref" href="#s09">§09</a>）。カッコ内は各GPUの100%を基準にした維持率。棒の長さは3GPU共通スケールなので、GPU間の絶対性能差もそのまま比較できます。消費電力グラフの破線は「その設定で使える最大電力」。スコアは各3回計測の中央値。Time Spy Extreme は総合でなく<b>Graphics スコア</b>で比較（総合はCPU性能で薄まるため）。最小設定は RTX 5090 のみ67%、5080 / 5070 は70%——<b>絞り幅が異なるため最小設定同士の比較は目安</b>としてご覧ください。</div>
+<div class="carousel" id="cr1" data-carousel>
+  <div class="ctabs" role="tablist" aria-label="3DMark 3テストの切り替え"><button type="button" class="ctab" role="tab" aria-selected="true" aria-controls="cr1-p0" data-i="0">Speed Way</button><button type="button" class="ctab" role="tab" aria-selected="false" aria-controls="cr1-p1" data-i="1">Steel Nomad</button><button type="button" class="ctab" role="tab" aria-selected="false" aria-controls="cr1-p2" data-i="2">Time Spy Extreme<br><span style="font-size:11px">Graphics</span></button></div>
+<div class="cpane is-on" id="cr1-p0" role="tabpanel" data-i="0"><div class="chart">
+  <div class="ttl">Speed Way</div>
+  <div class="takeaway">85%はどのGPUも<b>93.9〜96.6%</b>を維持。下限まで絞ると81.0〜90.3%</div>
+  <div class="unit">score ／ 高いほど良い（棒内は 実測値（対100%維持率））／ 3GPU共通スケール</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:100.0%"><span class="v">14,471</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:93.9%"><span class="v">13,583（93.9%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:94.8%"><span class="v">13,716（94.8%）</span></div></div></div>
+  <div class="row"><div class="lab">67%</div><div class="track"><div class="fill" style="width:81.0%"><span class="v">11,716（81.0%）</span></div></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:62.2%"><span class="v">8,997</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:60.0%"><span class="v">8,678（96.5%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:60.4%"><span class="v">8,734（97.1%）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:55.2%"><span class="v">7,991（88.8%）</span></div></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:41.0%"><span class="v">5,935</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:39.6%"><span class="v">5,736（96.6%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:40.3%"><span class="v">5,826（98.2%）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:37.0%"><span class="v">5,361（90.3%）</span></div></div></div>
+</div>
+<div class="chart">
+  <div class="ttl">Speed Way 実行中の消費電力</div>
+  <div class="takeaway">85%で<b>-37〜-86W</b>、下限で<b>-74〜-196W</b>。棒がどのGPUも破線（上限）に張り付く</div>
+  <div class="unit">棒 = 負荷時の平均W（GPU使用率50%以上の区間） ／ 破線 = その設定で使える最大電力（Power Limit 上限） ／ 3GPU共通スケール（0〜600W）</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row"><div class="lab">100%<small>上限 600W</small></div><div class="track" style="position:relative"><div class="fill" style="width:98.9%"><span class="v">平均 594W</span></div><span style="position:absolute;left:100.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 600W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 510W</small></div><div class="track" style="position:relative"><div class="fill" style="width:84.5%"><span class="v">平均 507W（-86W）</span></div><span style="position:absolute;left:85.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 510W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 510W</small></div><div class="track" style="position:relative"><div class="fill" style="width:84.7%"><span class="v">平均 508W（-85W）</span></div><span style="position:absolute;left:85.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 510W"></span></div></div>
+  <div class="row"><div class="lab">67%<small>上限 402W</small></div><div class="track" style="position:relative"><div class="fill" style="width:66.3%"><span class="v">平均 398W（-196W）</span></div><span style="position:absolute;left:67.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 402W"></span></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row"><div class="lab">100%<small>上限 360W</small></div><div class="track" style="position:relative"><div class="fill" style="width:57.6%"><span class="v">平均 346W</span></div><span style="position:absolute;left:60.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 360W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 306W</small></div><div class="track" style="position:relative"><div class="fill" style="width:50.6%"><span class="v">平均 304W（-42W）</span></div><span style="position:absolute;left:51.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 306W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 306W</small></div><div class="track" style="position:relative"><div class="fill" style="width:50.8%"><span class="v">平均 305W（-41W）</span></div><span style="position:absolute;left:51.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 306W"></span></div></div>
+  <div class="row"><div class="lab">70%<small>上限 252W</small></div><div class="track" style="position:relative"><div class="fill" style="width:41.8%"><span class="v">平均 251W（-94W）</span></div><span style="position:absolute;left:42.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 252W"></span></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row"><div class="lab">100%<small>上限 250W</small></div><div class="track" style="position:relative"><div class="fill" style="width:41.1%"><span class="v">平均 246W</span></div><span style="position:absolute;left:41.7%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 250W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 212W</small></div><div class="track" style="position:relative"><div class="fill" style="width:34.9%"><span class="v">平均 210W（-37W）</span></div><span style="position:absolute;left:35.4%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 212W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 212W</small></div><div class="track" style="position:relative"><div class="fill" style="width:35.2%"><span class="v">平均 211W（-35W）</span></div><span style="position:absolute;left:35.4%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 212W"></span></div></div>
+  <div class="row"><div class="lab">70%<small>上限 175W</small></div><div class="track" style="position:relative"><div class="fill" style="width:28.8%"><span class="v">平均 173W（-74W）</span></div><span style="position:absolute;left:29.2%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 175W"></span></div></div>
+</div></div>
+<div class="cpane" id="cr1-p1" role="tabpanel" data-i="1"><div class="chart">
+  <div class="ttl">Steel Nomad</div>
+  <div class="takeaway">85%はどのGPUも<b>92.9〜96.7%</b>を維持。下限まで絞ると80.2〜90.9%</div>
+  <div class="unit">score ／ 高いほど良い（棒内は 実測値（対100%維持率））／ 3GPU共通スケール</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:100.0%"><span class="v">14,447</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:92.9%"><span class="v">13,422（92.9%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:93.8%"><span class="v">13,555（93.8%）</span></div></div></div>
+  <div class="row"><div class="lab">67%</div><div class="track"><div class="fill" style="width:80.2%"><span class="v">11,583（80.2%）</span></div></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:59.6%"><span class="v">8,608</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:56.9%"><span class="v">8,223（95.5%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:57.2%"><span class="v">8,268（96.1%）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:52.3%"><span class="v">7,550（87.7%）</span></div></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:37.2%"><span class="v">5,377</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:36.0%"><span class="v">5,198（96.7%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:36.7%"><span class="v">5,300（98.6%）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:33.8%"><span class="v">4,887（90.9%）</span></div></div></div>
+</div>
+<div class="chart">
+  <div class="ttl">Steel Nomad 実行中の消費電力</div>
+  <div class="takeaway">85%で<b>-38〜-91W</b>、下限で<b>-76〜-197W</b>。3テスト中もっとも電力に張り付く</div>
+  <div class="unit">棒 = 負荷時の平均W（GPU使用率50%以上の区間） ／ 破線 = その設定で使える最大電力（Power Limit 上限） ／ 3GPU共通スケール（0〜600W）</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row"><div class="lab">100%<small>上限 600W</small></div><div class="track" style="position:relative"><div class="fill" style="width:99.1%"><span class="v">平均 595W</span></div><span style="position:absolute;left:100.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 600W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 510W</small></div><div class="track" style="position:relative"><div class="fill" style="width:84.0%"><span class="v">平均 504W（-91W）</span></div><span style="position:absolute;left:85.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 510W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 510W</small></div><div class="track" style="position:relative"><div class="fill" style="width:84.2%"><span class="v">平均 505W（-90W）</span></div><span style="position:absolute;left:85.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 510W"></span></div></div>
+  <div class="row"><div class="lab">67%<small>上限 402W</small></div><div class="track" style="position:relative"><div class="fill" style="width:66.4%"><span class="v">平均 398W（-197W）</span></div><span style="position:absolute;left:67.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 402W"></span></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row"><div class="lab">100%<small>上限 360W</small></div><div class="track" style="position:relative"><div class="fill" style="width:59.1%"><span class="v">平均 355W</span></div><span style="position:absolute;left:60.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 360W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 306W</small></div><div class="track" style="position:relative"><div class="fill" style="width:50.6%"><span class="v">平均 304W（-51W）</span></div><span style="position:absolute;left:51.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 306W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 306W</small></div><div class="track" style="position:relative"><div class="fill" style="width:50.6%"><span class="v">平均 303W（-52W）</span></div><span style="position:absolute;left:51.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 306W"></span></div></div>
+  <div class="row"><div class="lab">70%<small>上限 252W</small></div><div class="track" style="position:relative"><div class="fill" style="width:41.5%"><span class="v">平均 249W（-106W）</span></div><span style="position:absolute;left:42.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 252W"></span></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row"><div class="lab">100%<small>上限 250W</small></div><div class="track" style="position:relative"><div class="fill" style="width:41.5%"><span class="v">平均 249W</span></div><span style="position:absolute;left:41.7%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 250W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 212W</small></div><div class="track" style="position:relative"><div class="fill" style="width:35.2%"><span class="v">平均 211W（-38W）</span></div><span style="position:absolute;left:35.4%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 212W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 212W</small></div><div class="track" style="position:relative"><div class="fill" style="width:35.0%"><span class="v">平均 210W（-39W）</span></div><span style="position:absolute;left:35.4%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 212W"></span></div></div>
+  <div class="row"><div class="lab">70%<small>上限 175W</small></div><div class="track" style="position:relative"><div class="fill" style="width:28.8%"><span class="v">平均 173W（-76W）</span></div><span style="position:absolute;left:29.2%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 175W"></span></div></div>
+</div></div>
+<div class="cpane" id="cr1-p2" role="tabpanel" data-i="2"><div class="chart">
+  <div class="ttl">Time Spy Extreme Graphics</div>
+  <div class="takeaway">85%はどのGPUも<b>95.9〜97.6%</b>を維持。3テスト中もっとも落ちにくい</div>
+  <div class="unit">Graphics score ／ 高いほど良い（棒内は 実測値（対100%維持率））／ 3GPU共通スケール</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:100.0%"><span class="v">25,732</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:95.9%"><span class="v">24,672（95.9%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:96.2%"><span class="v">24,764（96.2%）</span></div></div></div>
+  <div class="row"><div class="lab">67%</div><div class="track"><div class="fill" style="width:85.6%"><span class="v">22,023（85.6%）</span></div></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:63.4%"><span class="v">16,325</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:61.9%"><span class="v">15,925（97.5%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:62.1%"><span class="v">15,972（97.8%）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:58.0%"><span class="v">14,926（91.4%）</span></div></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:42.4%"><span class="v">10,914</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:41.4%"><span class="v">10,654（97.6%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:42.2%"><span class="v">10,858（99.5%）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:39.1%"><span class="v">10,059（92.2%）</span></div></div></div>
+</div>
+<div class="chart">
+  <div class="ttl">Time Spy Extreme 実行中の消費電力</div>
+  <div class="takeaway">85%で<b>-31〜-66W</b>、下限で<b>-67〜-173W</b>。CPU区間を含むぶん平均はやや低め</div>
+  <div class="unit">棒 = 負荷時の平均W（GPU使用率50%以上の区間） ／ 破線 = その設定で使える最大電力（Power Limit 上限） ／ 3GPU共通スケール（0〜600W）</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row"><div class="lab">100%<small>上限 600W</small></div><div class="track" style="position:relative"><div class="fill" style="width:95.4%"><span class="v">平均 572W</span></div><span style="position:absolute;left:100.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 600W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 510W</small></div><div class="track" style="position:relative"><div class="fill" style="width:84.3%"><span class="v">平均 506W（-66W）</span></div><span style="position:absolute;left:85.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 510W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 510W</small></div><div class="track" style="position:relative"><div class="fill" style="width:84.3%"><span class="v">平均 506W（-67W）</span></div><span style="position:absolute;left:85.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 510W"></span></div></div>
+  <div class="row"><div class="lab">67%<small>上限 402W</small></div><div class="track" style="position:relative"><div class="fill" style="width:66.5%"><span class="v">平均 399W（-173W）</span></div><span style="position:absolute;left:67.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 402W"></span></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row"><div class="lab">100%<small>上限 360W</small></div><div class="track" style="position:relative"><div class="fill" style="width:55.5%"><span class="v">平均 333W</span></div><span style="position:absolute;left:60.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 360W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 306W</small></div><div class="track" style="position:relative"><div class="fill" style="width:50.3%"><span class="v">平均 302W（-31W）</span></div><span style="position:absolute;left:51.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 306W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 306W</small></div><div class="track" style="position:relative"><div class="fill" style="width:50.4%"><span class="v">平均 302W（-31W）</span></div><span style="position:absolute;left:51.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 306W"></span></div></div>
+  <div class="row"><div class="lab">70%<small>上限 252W</small></div><div class="track" style="position:relative"><div class="fill" style="width:41.6%"><span class="v">平均 250W（-83W）</span></div><span style="position:absolute;left:42.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 252W"></span></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row"><div class="lab">100%<small>上限 250W</small></div><div class="track" style="position:relative"><div class="fill" style="width:40.2%"><span class="v">平均 241W</span></div><span style="position:absolute;left:41.7%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 250W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 212W</small></div><div class="track" style="position:relative"><div class="fill" style="width:34.9%"><span class="v">平均 210W（-31W）</span></div><span style="position:absolute;left:35.4%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 212W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 212W</small></div><div class="track" style="position:relative"><div class="fill" style="width:35.0%"><span class="v">平均 210W（-31W）</span></div><span style="position:absolute;left:35.4%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 212W"></span></div></div>
+  <div class="row"><div class="lab">70%<small>上限 175W</small></div><div class="track" style="position:relative"><div class="fill" style="width:28.9%"><span class="v">平均 174W（-67W）</span></div><span style="position:absolute;left:29.2%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 175W"></span></div></div>
+</div></div>
+<div class="cnav"><button type="button" class="cbtn" data-nav="prev" disabled>← 前</button><span class="cidx"><b>1</b> / 3</span><button type="button" class="cbtn" data-nav="next">次 →</button></div>
+</div>
+    <p>3テストを通して読み取れることは3つ。第一に、<b>85%設定の性能低下はどのGPU・どのテストでも約2〜7%</b>。電力を15%削っても性能は1桁%しか落ちません。第二に、下限（67〜70%）まで絞ると低下は明確になり、特に RTX 5090（67%）では約14〜20%の低下となります。第三に、同じ「下限まで絞る」でも<b>カードのクラスと絞り幅によって落ち方は異なる</b>ため、次章の電力・温度と合わせて「自分の許容ライン」を探るのが実用的です。</p>
+    <div class="note">実ゲームでの検証は今回行っていません。3DMark はGPU占有率100%で回り続ける最も厳しい条件です。参考として、昨年 RTX 5080（AMP Extreme INFINITY）で行った同種の検証の一例では、3DMark が約7%低下した設定でも実ゲームのフレームレート低下は0〜1.4%にとどまりました（モデル・環境が異なるため、あくまで傾向の参考としてご覧ください）。</div>
+
+  </section>
+
+  <!-- ============ ここが本題 — 部屋に出る熱は、どれだけ減るのか ============ -->
+  <section id="s04">
+    <span class="sec-no">04 / 電力と熱</span>
+    <h2 class="sec">ここが本題 — 部屋に出る熱は、どれだけ減るのか</h2>
+
+    <p>この企画の目的は<b>夏の発熱対策</b>です。消費電力の削減量は §03 の電力グラフのとおり（Steel Nomad 実行中の負荷時平均で RTX 5090 <b>-197W</b> / 5080 <b>-106W</b> / 5070 <b>-76W</b>、いずれも下限設定時）。GPUが消費した電力はほぼすべて熱として部屋に出るので、RTX 5090 の最小設定（67%）で削れる約200Wは、<b>大人2人分の発熱（1人あたり約100W）に相当する熱</b>が、GPUに高負荷がかかっている間ずっと部屋に出なくなる計算です。何℃下がるかは部屋の広さ・換気・空調しだいですが、熱源そのものが減るぶん室温は上がりにくくなることが期待できます。</p>
+    <p>その結果、GPU最高温度はどのカードも下がり、ファンの最大回転もはっきり下がりました（体感の静かさは環境によるため、ここではファン回転の実測値のみを示します）。</p>
+<div class="chart">
+  <div class="ttl">Steel Nomad 実行中のGPU温度・ファン回転</div>
+  <div class="takeaway">85%で最高温度 <b>-4〜-6℃</b>、下限設定で <b>-9〜-11℃</b>。ファン最大も 53→41% / 44→30% / 42→35% に低下</div>
+  <div class="unit">GPU最高温度（nvidia-smi 1秒ログ） ／ 低いほど冷えている</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:100.0%"><span class="v">最高 71℃ ／ ファン最大 53%</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:94.4%"><span class="v">最高 67℃（-4℃） ／ ファン最大 47%</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:94.4%"><span class="v">最高 67℃（-4℃） ／ ファン最大 48%</span></div></div></div>
+  <div class="row"><div class="lab">67%</div><div class="track"><div class="fill" style="width:87.3%"><span class="v">最高 62℃（-9℃） ／ ファン最大 41%</span></div></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:93.0%"><span class="v">最高 66℃ ／ ファン最大 44%</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:87.3%"><span class="v">最高 62℃（-4℃） ／ ファン最大 37%</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:87.3%"><span class="v">最高 62℃（-4℃） ／ ファン最大 37%</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:80.3%"><span class="v">最高 57℃（-9℃） ／ ファン最大 30%</span></div></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:100.0%"><span class="v">最高 71℃ ／ ファン最大 42%</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:91.5%"><span class="v">最高 65℃（-6℃） ／ ファン最大 38%</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:91.5%"><span class="v">最高 65℃（-6℃） ／ ファン最大 38%</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:84.5%"><span class="v">最高 60℃（-11℃） ／ ファン最大 35%</span></div></div></div>
+</div>
+    <p>画像生成まで含めると、RTX 5090 の SDXL（標準設定）が78℃→65℃＝<b>-13℃</b>で今回の最大の低下幅でした（Hires.Fix でも78℃→67℃＝-11℃）。</p>
+
+    <h3>1秒ログで見る「天井」の効き方と、性能が落ちる正体</h3>
+    <p>ここまでは平均と最高値で見てきましたが、実行中に何が起きているのかを1秒間隔のログでそのまま見ておきます。3枚のうち最も電力の大きい RTX 5090 で、Steel Nomad を3回連続実行したときの消費電力・GPU温度・コアクロック・ファン回転です。</p>
+<div class="chart">
+  <div class="ttl">Steel Nomad 実行中のテレメトリ時系列（RTX 5090）</div>
+  <div class="takeaway">負荷中の消費電力は<b>設定上限そのものに張り付く</b>（中央値 600W / 510W / 402W）。減っているのは電力だけで、代わりに<b>コアクロックが 2,640 → 2,392 → 1,972MHz</b> と下がっている</div>
+  <div class="unit">nvidia-smi 1秒間隔ログ ／ 3回連続実行の全区間（灰色の帯＝GPU使用率50%以上の実負荷区間。帯の外はベンチのロード・結果画面と次のrun待ち）／ 破線＝その設定で使える最大電力／ 時系列は 100% / 85% / 最小設定 の3条件（85%＋自動チューニングは電力がほぼ同じため割愛）</div>
+<svg viewBox="0 0 760 570" role="img" style="width:100%;height:auto;font-family:var(--mono)" aria-label="5090 の Steel Nomad 3回連続実行中の消費電力・GPU温度・コアクロック・ファン回転の時系列（Power Limit 条件別）">
+<title>5090 — Power Limit 条件別のテレメトリ時系列</title>
+<text x="0" y="22" font-size="11.5" font-weight="700" fill="#2A2D2F">GPU消費電力<tspan fill="#6D6E71" font-weight="400">（W）</tspan></text>
+<line x1="52" y1="182.0" x2="748" y2="182.0" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="185.5" font-size="9.5" fill="#9A9C9E" text-anchor="end">0</text>
+<line x1="52" y1="158.1" x2="748" y2="158.1" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="161.6" font-size="9.5" fill="#9A9C9E" text-anchor="end">100</text>
+<line x1="52" y1="134.2" x2="748" y2="134.2" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="137.7" font-size="9.5" fill="#9A9C9E" text-anchor="end">200</text>
+<line x1="52" y1="110.3" x2="748" y2="110.3" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="113.8" font-size="9.5" fill="#9A9C9E" text-anchor="end">300</text>
+<line x1="52" y1="86.4" x2="748" y2="86.4" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="89.9" font-size="9.5" fill="#9A9C9E" text-anchor="end">400</text>
+<line x1="52" y1="62.5" x2="748" y2="62.5" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="66.0" font-size="9.5" fill="#9A9C9E" text-anchor="end">500</text>
+<line x1="52" y1="38.6" x2="748" y2="38.6" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="42.1" font-size="9.5" fill="#9A9C9E" text-anchor="end">600</text>
+<rect x="106.6" y="30.0" width="92.1" height="152" fill="#FAFAFA"/>
+<rect x="370.3" y="30.0" width="93.6" height="152" fill="#FAFAFA"/>
+<rect x="635.6" y="30.0" width="92.1" height="152" fill="#FAFAFA"/>
+<line x1="52" y1="38.6" x2="748" y2="38.6" stroke="#2A2D2F" stroke-width="1" stroke-dasharray="5 4" opacity=".85"/>
+<text x="746" y="35.6" font-size="9" fill="#2A2D2F" text-anchor="end">上限 600W</text>
+<line x1="52" y1="60.1" x2="748" y2="60.1" stroke="#FFD400" stroke-width="1" stroke-dasharray="5 4" opacity=".85"/>
+<text x="746" y="57.1" font-size="9" fill="#FFD400" text-anchor="end">上限 510W</text>
+<line x1="52" y1="85.9" x2="748" y2="85.9" stroke="#9A9C9E" stroke-width="1" stroke-dasharray="5 4" opacity=".85"/>
+<text x="746" y="82.9" font-size="9" fill="#9A9C9E" text-anchor="end">上限 402W</text>
+<polyline points="52.0,174.8 55.1,163.3 58.2,164.4 61.4,162.8 64.5,162.6 67.6,163.0 70.7,162.9 73.8,166.4 77.0,174.1 80.1,174.9 83.2,174.7 86.3,174.7 89.5,174.9 92.6,166.2 95.7,166.3 98.8,170.3 101.9,162.1 105.1,166.5 108.2,38.6 114.4,38.2 117.5,38.7 120.7,38.8 123.8,38.5 126.9,38.5 130.0,38.6 133.1,38.6 136.3,38.9 139.4,38.5 142.5,38.5 145.6,38.6 148.8,38.6 151.9,38.7 155.0,38.7 158.1,38.7 161.2,38.7 164.4,38.7 167.5,38.5 170.6,38.6 173.7,38.7 176.8,38.5 180.0,38.6 183.1,38.9 186.2,38.6 189.3,38.6 192.4,38.6 195.6,38.5 198.7,38.7 201.8,152.8 204.9,169.7 208.1,170.3 211.2,165.9 214.3,164.8 217.4,171.4 220.5,173.2 223.7,173.3 226.8,173.4 229.9,173.4 233.0,173.5 236.1,173.4 239.3,173.5 242.4,173.5 245.5,173.6 251.7,174.2 254.9,174.2 258.0,174.2 261.1,174.3 264.2,174.3 267.4,174.4 270.5,174.4 273.6,174.5 276.7,174.5 279.8,174.4 283.0,174.6 286.1,174.4 289.2,174.6 292.3,174.5 295.4,174.6 298.6,174.6 301.7,174.7 304.8,174.6 307.9,174.6 311.0,174.7 314.2,174.6 320.4,165.0 323.5,163.0 326.7,163.0 329.8,162.9 332.9,162.7 336.0,162.7 339.1,163.1 342.3,172.9 345.4,174.9 348.5,174.9 351.6,174.7 354.7,174.8 357.9,172.6 361.0,163.5 364.1,169.7 367.2,168.5 370.3,152.7 373.5,38.7 376.6,38.6 379.7,38.4 382.8,38.7 389.1,38.4 392.2,38.6 395.3,38.7 398.4,38.6 401.6,39.0 404.7,38.6 407.8,38.6 410.9,38.7 414.0,38.6 417.2,38.6 423.4,38.6 426.5,38.6 429.7,38.7 432.8,38.6 435.9,38.6 439.0,38.7 442.1,38.5 445.3,38.6 448.4,38.6 451.5,38.4 457.7,38.6 460.9,38.5 464.0,38.7 467.1,152.8 470.2,169.5 473.3,170.1 476.5,161.8 479.6,171.1 482.7,173.2 485.8,173.2 492.1,173.3 495.2,173.3 498.3,173.4 501.4,173.4 504.6,173.4 507.7,173.5 510.8,173.6 513.9,174.2 517.0,174.2 520.2,174.2 526.4,174.3 529.5,174.3 532.6,174.4 535.8,174.4 538.9,174.4 542.0,174.5 545.1,174.4 548.3,174.5 551.4,174.5 554.5,174.6 557.6,174.6 560.7,174.8 563.9,174.8 567.0,174.6 570.1,174.7 573.2,174.6 576.3,174.7 579.5,174.6 582.6,169.8 585.7,163.0 588.8,162.9 595.1,162.6 598.2,163.0 601.3,162.9 604.4,163.0 607.6,173.2 610.7,174.8 613.8,174.6 616.9,174.8 620.0,174.4 626.3,165.7 629.4,171.0 632.5,163.3 635.6,81.7 638.8,39.0 641.9,38.9 645.0,38.7 648.1,38.8 651.2,38.5 654.4,38.5 657.5,38.8 660.6,38.6 663.7,38.6 666.9,38.6 670.0,38.6 673.1,38.6 676.2,38.6 679.3,38.7 682.5,38.7 685.6,38.6 688.7,38.6 691.8,38.3 698.1,38.6 701.2,38.7 704.3,38.7 707.4,38.6 710.5,38.6 713.7,38.6 716.8,38.6 719.9,38.7 723.0,38.5 726.2,38.7 732.4,163.1 735.5,170.4 738.6,167.9 741.8,161.8 744.9,172.5 748.0,173.0" fill="none" stroke="#2A2D2F" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="55.1,163.2 58.2,167.3 61.4,163.4 64.5,163.0 67.6,163.3 70.7,163.2 73.8,166.8 77.0,174.2 80.1,175.2 83.2,174.9 86.3,175.0 89.5,175.1 92.6,167.2 95.7,163.9 98.8,170.3 101.9,166.6 105.1,164.0 108.2,58.2 111.3,60.3 114.4,60.0 117.5,60.1 120.7,60.2 123.8,60.1 126.9,60.1 130.0,60.2 133.1,59.9 136.3,60.1 139.4,60.1 142.5,60.1 145.6,60.2 148.8,60.1 151.9,60.1 155.0,60.1 158.1,60.1 161.2,60.1 164.4,60.0 167.5,60.1 170.6,60.1 173.7,60.1 176.8,60.0 180.0,60.1 183.1,60.3 186.2,60.0 189.3,60.1 192.4,60.1 195.6,60.1 198.7,60.1 201.8,122.5 204.9,166.9 208.1,170.8 211.2,169.5 214.3,162.0 217.4,172.2 220.5,173.2 223.7,173.6 226.8,173.6 233.0,173.8 236.1,173.8 239.3,173.8 242.4,173.8 245.5,173.9 248.6,174.3 251.7,174.5 254.9,174.4 258.0,174.5 261.1,174.5 264.2,174.6 267.4,174.7 270.5,174.5 273.6,174.7 276.7,174.7 279.8,174.8 283.0,174.6 286.1,174.7 289.2,174.8 292.3,174.8 298.6,173.9 301.7,162.9 304.8,172.6 307.9,174.8 311.0,174.9 314.2,174.8 317.3,174.9 320.4,164.3 323.5,166.3 326.7,163.1 332.9,162.9 336.0,163.2 339.1,163.3 342.3,170.8 345.4,175.0 348.5,175.1 351.6,174.9 354.7,175.1 357.9,173.0 361.0,163.6 364.1,170.1 370.3,163.5 373.5,62.5 376.6,60.2 379.7,60.0 382.8,60.1 386.0,60.1 389.1,60.0 392.2,60.2 395.3,60.1 398.4,60.1 404.7,60.1 407.8,60.1 410.9,60.1 414.0,60.1 417.2,60.1 420.3,60.1 423.4,60.1 426.5,60.1 429.7,60.1 432.8,60.1 439.0,60.2 442.1,60.0 445.3,60.1 448.4,60.3 451.5,60.1 454.6,60.1 457.7,60.1 460.9,60.1 464.0,60.1 467.1,153.5 473.3,170.6 476.5,164.1 479.6,162.0 482.7,172.5 485.8,173.0 489.0,173.7 492.1,173.9 495.2,173.8 498.3,173.9 501.4,173.9 504.6,173.9 507.7,173.9 510.8,173.9 513.9,174.3 517.0,174.5 520.2,174.5 523.3,174.6 526.4,174.6 529.5,174.6 532.6,174.7 538.9,174.7 542.0,174.7 545.1,174.7 548.3,174.7 551.4,174.7 554.5,174.7 557.6,174.8 560.7,174.8 563.9,174.8 567.0,174.9 570.1,174.8 573.2,174.7 576.3,174.8 579.5,174.9 582.6,174.9 585.7,163.4 588.8,163.1 591.9,162.9 595.1,162.8 598.2,163.2 601.3,163.2 604.4,166.9 607.6,173.9 610.7,175.0 613.8,174.8 616.9,174.9 620.0,175.0 623.2,163.6 626.3,165.8 629.4,171.4 632.5,163.5 635.6,62.6 638.8,60.1 645.0,60.2 648.1,60.2 651.2,60.1 654.4,60.1 657.5,60.2 660.6,60.0 663.7,60.1 666.9,60.1 670.0,60.1 673.1,60.1 679.3,60.2 682.5,60.1 685.6,60.1 688.7,60.1 691.8,60.0 694.9,60.1 698.1,60.1 701.2,60.2 704.3,60.1 707.4,60.1 713.7,60.1 716.8,60.1 719.9,60.1 723.0,60.1 726.2,60.1 729.3,136.9 732.4,168.8 735.5,170.8 738.6,165.6 741.8,165.9 744.9,173.2 748.0,173.4" fill="none" stroke="#FFD400" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="52.0,175.1 55.1,163.4 58.2,168.0 61.4,163.5 64.5,163.1 67.6,163.5 70.7,163.2 73.8,163.5 77.0,173.9 80.1,175.1 83.2,175.0 86.3,175.1 89.5,175.1 92.6,168.7 95.7,163.8 98.8,170.1 101.9,167.3 105.1,166.9 108.2,81.9 111.3,85.9 114.4,85.9 117.5,85.9 123.8,85.9 126.9,85.9 130.0,85.9 133.1,85.9 136.3,85.9 139.4,85.9 142.5,85.9 145.6,85.9 148.8,85.9 151.9,85.9 158.1,85.9 161.2,85.9 164.4,85.9 167.5,85.9 170.6,85.9 173.7,85.9 176.8,85.9 180.0,85.9 183.1,85.9 186.2,85.9 192.4,85.9 195.6,85.9 198.7,85.9 201.8,120.1 204.9,164.8 208.1,171.3 211.2,169.9 214.3,162.5 217.4,172.9 220.5,173.7 223.7,173.8 226.8,173.8 229.9,173.9 233.0,173.9 236.1,173.9 239.3,174.0 242.4,174.1 245.5,174.0 248.6,174.6 251.7,174.7 254.9,174.9 261.1,174.8 264.2,174.9 267.4,174.8 270.5,174.8 273.6,174.8 276.7,174.9 279.8,174.8 283.0,175.0 286.1,175.0 289.2,175.0 295.4,174.9 298.6,174.9 301.7,174.9 304.8,175.0 307.9,175.1 311.0,175.1 314.2,175.1 317.3,175.1 320.4,164.9 323.5,166.8 329.8,164.3 332.9,163.2 336.0,163.6 339.1,173.9 342.3,175.1 345.4,175.2 348.5,174.9 351.6,168.7 354.7,163.4 357.9,166.4 361.0,163.9 364.1,170.0 367.2,170.6 370.3,163.0 373.5,114.2 376.6,85.9 379.7,85.9 382.8,85.9 386.0,85.9 389.1,85.9 392.2,85.9 395.3,85.9 398.4,85.9 404.7,85.9 407.8,85.9 410.9,85.9 414.0,85.9 417.2,85.9 420.3,85.9 423.4,85.9 426.5,85.9 429.7,85.9 432.8,85.9 439.0,85.9 442.1,85.9 445.3,85.9 448.4,85.9 451.5,85.9 454.6,85.9 457.7,85.9 460.9,85.9 464.0,85.9 467.1,142.0 470.2,156.7 473.3,171.1 476.5,163.8 479.6,162.3 482.7,172.9 485.8,173.4 489.0,173.7 492.1,173.8 495.2,173.8 498.3,173.8 501.4,173.9 504.6,173.9 507.7,174.0 510.8,174.0 513.9,174.0 517.0,174.7 520.2,174.6 523.3,174.7 526.4,174.6 529.5,174.7 532.6,174.7 535.8,174.8 538.9,174.9 542.0,174.8 545.1,175.0 548.3,174.9 551.4,174.9 554.5,174.9 557.6,174.9 560.7,174.8 563.9,175.0 567.0,174.8 573.2,175.0 576.3,175.1 579.5,175.1 582.6,166.9 585.7,163.5 588.8,163.6 591.9,163.6 595.1,163.5 598.2,163.4 601.3,163.5 604.4,173.1 610.7,175.1 613.8,175.0 616.9,175.1 620.0,174.6 623.2,163.7 626.3,169.5 629.4,167.1 632.5,160.5 635.6,85.9 641.9,85.9 645.0,85.9 648.1,85.9 651.2,85.9 654.4,85.9 657.5,85.9 660.6,85.9 663.7,85.9 666.9,85.9 670.0,85.9 673.1,85.9 676.2,85.9 679.3,85.9 682.5,85.9 685.6,85.9 688.7,85.9 691.8,85.9 694.9,85.9 698.1,85.9 701.2,85.9 704.3,85.9 707.4,85.9 710.5,85.9 713.7,85.9 716.8,85.9 719.9,85.9 723.0,85.9 726.2,85.9 729.3,154.5 732.4,171.2 735.5,171.1 738.6,162.2 741.8,166.5" fill="none" stroke="#9A9C9E" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="52" y1="182" x2="748" y2="182" stroke="#C9CACB" stroke-width="1"/>
+<text x="0" y="198" font-size="11.5" font-weight="700" fill="#2A2D2F">GPU温度<tspan fill="#6D6E71" font-weight="400">（℃）</tspan></text>
+<line x1="52" y1="310.0" x2="748" y2="310.0" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="313.5" font-size="9.5" fill="#9A9C9E" text-anchor="end">35</text>
+<line x1="52" y1="286.9" x2="748" y2="286.9" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="290.4" font-size="9.5" fill="#9A9C9E" text-anchor="end">45</text>
+<line x1="52" y1="263.8" x2="748" y2="263.8" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="267.3" font-size="9.5" fill="#9A9C9E" text-anchor="end">55</text>
+<line x1="52" y1="240.7" x2="748" y2="240.7" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="244.2" font-size="9.5" fill="#9A9C9E" text-anchor="end">65</text>
+<line x1="52" y1="217.6" x2="748" y2="217.6" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="221.1" font-size="9.5" fill="#9A9C9E" text-anchor="end">75</text>
+<rect x="106.6" y="206.0" width="92.1" height="104" fill="#FAFAFA"/>
+<rect x="370.3" y="206.0" width="93.6" height="104" fill="#FAFAFA"/>
+<rect x="635.6" y="206.0" width="92.1" height="104" fill="#FAFAFA"/>
+<polyline points="52.0,289.2 55.1,286.9 58.2,286.9 61.4,286.9 64.5,286.9 67.6,286.9 70.7,289.2 73.8,289.2 77.0,291.5 80.1,291.5 83.2,293.8 86.3,293.8 89.5,293.8 92.6,291.5 95.7,291.5 98.8,293.8 101.9,291.5 105.1,293.8 108.2,256.8 114.4,249.9 117.5,249.9 120.7,247.6 123.8,247.6 126.9,245.3 130.0,243.0 133.1,243.0 136.3,243.0 139.4,240.7 142.5,240.7 145.6,238.4 148.8,238.4 151.9,236.0 155.0,236.0 158.1,236.0 161.2,236.0 164.4,233.7 167.5,233.7 170.6,231.4 173.7,231.4 176.8,231.4 180.0,231.4 183.1,229.1 186.2,229.1 189.3,226.8 192.4,229.1 195.6,226.8 198.7,226.8 201.8,256.8 204.9,263.8 208.1,266.1 211.2,263.8 214.3,268.4 217.4,268.4 220.5,270.7 223.7,273.0 226.8,273.0 229.9,273.0 233.0,275.3 236.1,275.3 239.3,277.6 242.4,277.6 245.5,277.6 251.7,280.0 254.9,280.0 258.0,280.0 261.1,282.3 264.2,282.3 267.4,282.3 270.5,282.3 273.6,284.6 276.7,284.6 279.8,284.6 283.0,284.6 286.1,286.9 289.2,286.9 292.3,286.9 295.4,286.9 298.6,286.9 301.7,289.2 304.8,289.2 307.9,289.2 311.0,289.2 314.2,289.2 320.4,286.9 323.5,286.9 326.7,286.9 329.8,286.9 332.9,289.2 336.0,289.2 339.1,289.2 342.3,291.5 345.4,291.5 348.5,293.8 351.6,293.8 354.7,293.8 357.9,291.5 361.0,291.5 364.1,293.8 367.2,291.5 370.3,277.6 373.5,256.8 376.6,254.5 379.7,249.9 382.8,249.9 389.1,245.3 392.2,245.3 395.3,245.3 398.4,243.0 401.6,243.0 404.7,240.7 407.8,238.4 410.9,238.4 414.0,238.4 417.2,236.0 423.4,236.0 426.5,236.0 429.7,233.7 432.8,233.7 435.9,233.7 439.0,231.4 442.1,231.4 445.3,231.4 448.4,229.1 451.5,229.1 457.7,229.1 460.9,226.8 464.0,226.8 467.1,254.5 470.2,263.8 473.3,266.1 476.5,263.8 479.6,268.4 482.7,270.7 485.8,270.7 492.1,273.0 495.2,275.3 498.3,275.3 501.4,275.3 504.6,277.6 507.7,277.6 510.8,277.6 513.9,280.0 517.0,280.0 520.2,280.0 526.4,282.3 529.5,282.3 532.6,282.3 535.8,284.6 538.9,284.6 542.0,284.6 545.1,284.6 548.3,284.6 551.4,286.9 554.5,286.9 557.6,286.9 560.7,286.9 563.9,286.9 567.0,289.2 570.1,289.2 573.2,289.2 576.3,289.2 579.5,289.2 582.6,286.9 585.7,286.9 588.8,286.9 595.1,286.9 598.2,289.2 601.3,289.2 604.4,289.2 607.6,291.5 610.7,291.5 613.8,293.8 616.9,293.8 620.0,293.8 626.3,291.5 629.4,293.8 632.5,291.5 635.6,259.2 638.8,254.5 641.9,252.2 645.0,249.9 648.1,247.6 651.2,247.6 654.4,245.3 657.5,243.0 660.6,243.0 663.7,243.0 666.9,240.7 670.0,240.7 673.1,240.7 676.2,238.4 679.3,236.0 682.5,236.0 685.6,236.0 688.7,236.0 691.8,233.7 698.1,233.7 701.2,231.4 704.3,231.4 707.4,231.4 710.5,229.1 713.7,229.1 716.8,226.8 719.9,229.1 723.0,226.8 726.2,226.8 732.4,261.5 735.5,263.8 738.6,263.8 741.8,266.1 744.9,268.4 748.0,270.7" fill="none" stroke="#2A2D2F" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="55.1,291.5 58.2,291.5 61.4,291.5 64.5,291.5 67.6,291.5 70.7,291.5 73.8,293.8 77.0,293.8 80.1,293.8 83.2,296.1 86.3,293.8 89.5,293.8 92.6,291.5 95.7,291.5 98.8,293.8 101.9,291.5 105.1,291.5 108.2,261.5 111.3,259.2 114.4,256.8 117.5,254.5 120.7,254.5 123.8,252.2 126.9,252.2 130.0,252.2 133.1,249.9 136.3,249.9 139.4,249.9 142.5,247.6 145.6,247.6 148.8,245.3 151.9,245.3 155.0,245.3 158.1,243.0 161.2,243.0 164.4,243.0 167.5,243.0 170.6,243.0 173.7,243.0 176.8,240.7 180.0,240.7 183.1,240.7 186.2,238.4 189.3,238.4 192.4,238.4 195.6,238.4 198.7,238.4 201.8,259.2 204.9,268.4 208.1,270.7 211.2,270.7 214.3,270.7 217.4,273.0 220.5,275.3 223.7,275.3 226.8,277.6 233.0,280.0 236.1,280.0 239.3,280.0 242.4,282.3 245.5,282.3 248.6,282.3 251.7,282.3 254.9,284.6 258.0,284.6 261.1,284.6 264.2,284.6 267.4,286.9 270.5,286.9 273.6,286.9 276.7,286.9 279.8,289.2 283.0,289.2 286.1,289.2 289.2,289.2 292.3,289.2 298.6,289.2 301.7,289.2 304.8,291.5 307.9,291.5 311.0,291.5 314.2,293.8 317.3,293.8 320.4,291.5 323.5,291.5 326.7,291.5 332.9,291.5 336.0,291.5 339.1,291.5 342.3,293.8 345.4,293.8 348.5,293.8 351.6,296.1 354.7,296.1 357.9,293.8 361.0,291.5 364.1,293.8 370.3,291.5 373.5,261.5 376.6,259.2 379.7,256.8 382.8,254.5 386.0,254.5 389.1,254.5 392.2,252.2 395.3,252.2 398.4,249.9 404.7,249.9 407.8,247.6 410.9,247.6 414.0,247.6 417.2,245.3 420.3,245.3 423.4,245.3 426.5,243.0 429.7,243.0 432.8,243.0 439.0,240.7 442.1,240.7 445.3,240.7 448.4,240.7 451.5,238.4 454.6,238.4 457.7,238.4 460.9,238.4 464.0,236.0 467.1,261.5 473.3,270.7 476.5,268.4 479.6,270.7 482.7,275.3 485.8,275.3 489.0,277.6 492.1,277.6 495.2,277.6 498.3,280.0 501.4,280.0 504.6,280.0 507.7,282.3 510.8,282.3 513.9,282.3 517.0,282.3 520.2,284.6 523.3,284.6 526.4,284.6 529.5,286.9 532.6,286.9 538.9,286.9 542.0,286.9 545.1,289.2 548.3,289.2 551.4,289.2 554.5,289.2 557.6,289.2 560.7,291.5 563.9,291.5 567.0,291.5 570.1,291.5 573.2,291.5 576.3,291.5 579.5,293.8 582.6,293.8 585.7,291.5 588.8,291.5 591.9,291.5 595.1,291.5 598.2,291.5 601.3,291.5 604.4,293.8 607.6,293.8 610.7,293.8 613.8,293.8 616.9,293.8 620.0,293.8 623.2,291.5 626.3,291.5 629.4,293.8 632.5,291.5 635.6,263.8 638.8,259.2 645.0,254.5 648.1,254.5 651.2,254.5 654.4,252.2 657.5,252.2 660.6,249.9 663.7,249.9 666.9,249.9 670.0,247.6 673.1,245.3 679.3,245.3 682.5,245.3 685.6,243.0 688.7,243.0 691.8,243.0 694.9,243.0 698.1,243.0 701.2,240.7 704.3,243.0 707.4,240.7 713.7,238.4 716.8,238.4 719.9,238.4 723.0,238.4 726.2,238.4 729.3,261.5 732.4,268.4 735.5,270.7 738.6,268.4 741.8,273.0 744.9,273.0 748.0,275.3" fill="none" stroke="#FFD400" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="52.0,296.1 55.1,291.5 58.2,291.5 61.4,291.5 64.5,291.5 67.6,291.5 70.7,291.5 73.8,291.5 77.0,293.8 80.1,293.8 83.2,293.8 86.3,293.8 89.5,293.8 92.6,291.5 95.7,291.5 98.8,291.5 101.9,289.2 105.1,291.5 108.2,266.1 111.3,266.1 114.4,261.5 117.5,263.8 123.8,261.5 126.9,259.2 130.0,259.2 133.1,259.2 136.3,259.2 139.4,256.8 142.5,256.8 145.6,256.8 148.8,256.8 151.9,256.8 158.1,256.8 161.2,254.5 164.4,254.5 167.5,252.2 170.6,252.2 173.7,252.2 176.8,252.2 180.0,252.2 183.1,249.9 186.2,249.9 192.4,249.9 195.6,249.9 198.7,249.9 201.8,266.1 204.9,273.0 208.1,275.3 211.2,275.3 214.3,275.3 217.4,277.6 220.5,280.0 223.7,280.0 226.8,282.3 229.9,282.3 233.0,282.3 236.1,284.6 239.3,284.6 242.4,284.6 245.5,284.6 248.6,286.9 251.7,286.9 254.9,286.9 261.1,289.2 264.2,289.2 267.4,289.2 270.5,289.2 273.6,289.2 276.7,291.5 279.8,291.5 283.0,291.5 286.1,291.5 289.2,291.5 295.4,293.8 298.6,293.8 301.7,293.8 304.8,293.8 307.9,293.8 311.0,296.1 314.2,293.8 317.3,293.8 320.4,291.5 323.5,293.8 329.8,291.5 332.9,291.5 336.0,291.5 339.1,293.8 342.3,293.8 345.4,293.8 348.5,293.8 351.6,291.5 354.7,291.5 357.9,291.5 361.0,289.2 364.1,291.5 367.2,291.5 370.3,289.2 373.5,268.4 376.6,263.8 379.7,263.8 382.8,261.5 386.0,261.5 389.1,261.5 392.2,259.2 395.3,259.2 398.4,259.2 404.7,256.8 407.8,256.8 410.9,256.8 414.0,256.8 417.2,256.8 420.3,254.5 423.4,254.5 426.5,254.5 429.7,252.2 432.8,252.2 439.0,252.2 442.1,252.2 445.3,249.9 448.4,252.2 451.5,249.9 454.6,249.9 457.7,249.9 460.9,249.9 464.0,247.6 467.1,266.1 470.2,270.7 473.3,275.3 476.5,273.0 479.6,275.3 482.7,277.6 485.8,280.0 489.0,280.0 492.1,282.3 495.2,282.3 498.3,282.3 501.4,282.3 504.6,284.6 507.7,284.6 510.8,284.6 513.9,286.9 517.0,286.9 520.2,286.9 523.3,286.9 526.4,286.9 529.5,289.2 532.6,289.2 535.8,289.2 538.9,289.2 542.0,289.2 545.1,291.5 548.3,291.5 551.4,291.5 554.5,291.5 557.6,293.8 560.7,293.8 563.9,293.8 567.0,293.8 573.2,293.8 576.3,296.1 579.5,296.1 582.6,291.5 585.7,291.5 588.8,291.5 591.9,291.5 595.1,291.5 598.2,291.5 601.3,291.5 604.4,293.8 610.7,293.8 613.8,293.8 616.9,293.8 620.0,293.8 623.2,291.5 626.3,291.5 629.4,291.5 632.5,284.6 635.6,266.1 641.9,261.5 645.0,261.5 648.1,259.2 651.2,261.5 654.4,259.2 657.5,259.2 660.6,259.2 663.7,259.2 666.9,256.8 670.0,256.8 673.1,256.8 676.2,256.8 679.3,254.5 682.5,254.5 685.6,254.5 688.7,254.5 691.8,252.2 694.9,252.2 698.1,252.2 701.2,252.2 704.3,252.2 707.4,252.2 710.5,249.9 713.7,249.9 716.8,249.9 719.9,249.9 723.0,247.6 726.2,247.6 729.3,268.4 732.4,275.3 735.5,275.3 738.6,275.3 741.8,277.6" fill="none" stroke="#9A9C9E" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="52" y1="310" x2="748" y2="310" stroke="#C9CACB" stroke-width="1"/>
+<text x="0" y="326" font-size="11.5" font-weight="700" fill="#2A2D2F">コアクロック<tspan fill="#6D6E71" font-weight="400">（MHz）　※実負荷区間のみ</tspan></text>
+<line x1="52" y1="430.0" x2="748" y2="430.0" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="433.5" font-size="9.5" fill="#9A9C9E" text-anchor="end">0</text>
+<line x1="52" y1="398.0" x2="748" y2="398.0" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="401.5" font-size="9.5" fill="#9A9C9E" text-anchor="end">1000</text>
+<line x1="52" y1="366.0" x2="748" y2="366.0" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="369.5" font-size="9.5" fill="#9A9C9E" text-anchor="end">2000</text>
+<line x1="52" y1="334.0" x2="748" y2="334.0" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="337.5" font-size="9.5" fill="#9A9C9E" text-anchor="end">3000</text>
+<rect x="106.6" y="334.0" width="92.1" height="96" fill="#FAFAFA"/>
+<rect x="370.3" y="334.0" width="93.6" height="96" fill="#FAFAFA"/>
+<rect x="635.6" y="334.0" width="92.1" height="96" fill="#FAFAFA"/>
+<polyline points="108.2,345.5 114.4,345.0 117.5,344.3 120.7,343.6 123.8,343.9 126.9,343.4 130.0,343.4 133.1,345.0 136.3,345.0 139.4,345.0 142.5,345.5 145.6,345.3 148.8,345.5 151.9,345.3 155.0,345.3 158.1,344.3 161.2,344.1 164.4,346.7 167.5,346.7 170.6,346.7 173.7,343.9 176.8,345.8 180.0,346.0 183.1,345.5 186.2,345.3 189.3,346.7 192.4,346.0 195.6,346.3 198.7,346.0" fill="none" stroke="#2A2D2F" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="370.3,345.0 373.5,345.3 376.6,344.3 379.7,346.0 382.8,344.8 389.1,345.0 392.2,344.3 395.3,344.3 398.4,345.5 401.6,346.0 404.7,345.8 407.8,346.0 410.9,345.8 414.0,346.3 417.2,346.0 423.4,344.6 426.5,344.6 429.7,347.0 432.8,346.5 435.9,346.5 439.0,344.8 442.1,346.5 445.3,347.0 448.4,345.5 451.5,347.0 457.7,347.0 460.9,347.0 464.0,346.0" fill="none" stroke="#2A2D2F" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="635.6,346.0 638.8,344.3 641.9,343.9 645.0,344.6 648.1,343.6 651.2,344.6 654.4,344.1 657.5,343.9 660.6,344.1 663.7,345.5 666.9,345.3 670.0,345.8 673.1,346.0 676.2,345.8 679.3,345.5 682.5,345.0 685.6,344.3 688.7,344.3 691.8,347.0 698.1,346.5 701.2,346.0 704.3,345.0 707.4,346.7 710.5,347.0 713.7,345.8 716.8,346.7 719.9,346.5 723.0,346.5 726.2,346.0" fill="none" stroke="#2A2D2F" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="108.2,353.9 111.3,351.5 114.4,353.5 117.5,352.5 120.7,350.6 123.8,352.5 126.9,352.2 130.0,349.8 133.1,353.2 136.3,353.2 139.4,353.2 142.5,353.5 145.6,353.2 148.8,353.2 151.9,353.0 155.0,353.0 158.1,351.3 161.2,351.1 164.4,354.2 167.5,353.5 170.6,353.7 173.7,353.9 176.8,353.5 180.0,353.9 183.1,353.0 186.2,353.7 189.3,354.2 192.4,354.6 195.6,354.6 198.7,352.7" fill="none" stroke="#FFD400" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="373.5,354.2 376.6,352.0 379.7,351.8 382.8,352.5 386.0,350.6 389.1,352.5 392.2,350.3 395.3,350.8 398.4,353.0 404.7,353.5 407.8,353.5 410.9,353.7 414.0,353.5 417.2,353.5 420.3,353.0 423.4,351.5 426.5,351.1 429.7,354.2 432.8,353.9 439.0,353.2 442.1,352.7 445.3,353.9 448.4,354.2 451.5,353.7 454.6,354.4 457.7,354.9 460.9,353.7 464.0,352.7" fill="none" stroke="#FFD400" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="635.6,354.2 638.8,352.5 645.0,353.5 648.1,351.5 651.2,351.3 654.4,352.2 657.5,352.0 660.6,353.9 663.7,353.9 666.9,353.9 670.0,353.5 673.1,353.7 679.3,354.2 682.5,353.2 685.6,351.8 688.7,351.3 691.8,352.7 694.9,354.2 698.1,353.9 701.2,354.4 704.3,353.5 707.4,354.2 713.7,354.6 716.8,354.9 719.9,354.9 723.0,354.6 726.2,353.5" fill="none" stroke="#FFD400" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="108.2,367.1 111.3,365.9 114.4,366.4 117.5,366.2 123.8,364.7 126.9,366.2 130.0,365.7 133.1,367.1 136.3,367.4 139.4,367.1 142.5,366.6 145.6,367.1 148.8,366.6 151.9,366.9 158.1,365.9 161.2,365.0 164.4,367.4 167.5,367.1 170.6,366.6 173.7,365.5 176.8,366.2 180.0,367.4 183.1,366.4 186.2,366.9 192.4,368.3 195.6,368.1 198.7,365.9" fill="none" stroke="#9A9C9E" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="373.5,365.2 376.6,367.6 379.7,366.2 382.8,368.1 386.0,365.9 389.1,367.6 392.2,368.6 395.3,367.6 398.4,368.8 404.7,368.8 407.8,368.3 410.9,368.6 414.0,367.6 417.2,368.6 420.3,368.3 423.4,367.4 426.5,366.6 429.7,369.0 432.8,368.1 439.0,368.3 442.1,368.1 445.3,368.6 448.4,369.0 451.5,368.6 454.6,368.8 457.7,369.8 460.9,368.1 464.0,367.1" fill="none" stroke="#9A9C9E" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="632.5,347.0 635.6,365.9 641.9,363.8 645.0,365.9 648.1,364.2 651.2,366.2 654.4,363.3 657.5,363.5 660.6,366.9 663.7,366.4 666.9,366.6 670.0,366.9 673.1,365.5 676.2,366.2 679.3,366.6 682.5,366.2 685.6,365.2 688.7,364.5 691.8,367.4 694.9,366.4 698.1,367.1 701.2,364.0 704.3,366.4 707.4,367.1 710.5,366.9 713.7,367.1 716.8,367.1 719.9,368.1 723.0,366.4 726.2,365.7" fill="none" stroke="#9A9C9E" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="52" y1="430" x2="748" y2="430" stroke="#C9CACB" stroke-width="1"/>
+<text x="0" y="446" font-size="11.5" font-weight="700" fill="#2A2D2F">ファン回転<tspan fill="#6D6E71" font-weight="400">（%）　※0%＝ファン停止（低温時に停止する仕様）</tspan></text>
+<line x1="52" y1="526.0" x2="748" y2="526.0" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="529.5" font-size="9.5" fill="#9A9C9E" text-anchor="end">0</text>
+<line x1="52" y1="502.0" x2="748" y2="502.0" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="505.5" font-size="9.5" fill="#9A9C9E" text-anchor="end">20</text>
+<line x1="52" y1="478.0" x2="748" y2="478.0" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="481.5" font-size="9.5" fill="#9A9C9E" text-anchor="end">40</text>
+<line x1="52" y1="454.0" x2="748" y2="454.0" stroke="#E6E6E4" stroke-width="1"/>
+<text x="46" y="457.5" font-size="9.5" fill="#9A9C9E" text-anchor="end">60</text>
+<rect x="106.6" y="454.0" width="92.1" height="72" fill="#FAFAFA"/>
+<rect x="370.3" y="454.0" width="93.6" height="72" fill="#FAFAFA"/>
+<rect x="635.6" y="454.0" width="92.1" height="72" fill="#FAFAFA"/>
+<polyline points="52.0,482.8 55.1,482.8 58.2,482.8 61.4,482.8 64.5,482.8 67.6,482.8 70.7,482.8 73.8,482.8 77.0,482.8 80.1,482.8 83.2,482.8 86.3,482.8 89.5,482.8 92.6,482.8 95.7,482.8 98.8,482.8 101.9,526.0 105.1,526.0 108.2,526.0 114.4,484.0 117.5,482.8 120.7,481.6 123.8,479.2 126.9,476.8 130.0,475.6 133.1,474.4 136.3,473.2 139.4,473.2 142.5,472.0 145.6,472.0 148.8,470.8 151.9,470.8 155.0,469.6 158.1,469.6 161.2,468.4 164.4,468.4 167.5,467.2 170.6,467.2 173.7,466.0 176.8,466.0 180.0,464.8 183.1,464.8 186.2,464.8 189.3,463.6 192.4,463.6 195.6,463.6 198.7,462.4 201.8,462.4 204.9,462.4 208.1,463.6 211.2,464.8 214.3,467.2 217.4,467.2 220.5,468.4 223.7,470.8 226.8,472.0 229.9,473.2 233.0,474.4 236.1,475.6 239.3,475.6 242.4,476.8 245.5,476.8 251.7,478.0 254.9,479.2 258.0,479.2 261.1,479.2 264.2,480.4 267.4,480.4 270.5,481.6 273.6,481.6 276.7,481.6 279.8,482.8 283.0,482.8 286.1,482.8 289.2,482.8 292.3,482.8 295.4,482.8 298.6,482.8 301.7,482.8 304.8,482.8 307.9,482.8 311.0,482.8 314.2,482.8 320.4,482.8 323.5,482.8 326.7,482.8 329.8,482.8 332.9,482.8 336.0,482.8 339.1,482.8 342.3,482.8 345.4,482.8 348.5,482.8 351.6,482.8 354.7,482.8 357.9,482.8 361.0,482.8 364.1,482.8 367.2,526.0 370.3,526.0 373.5,526.0 376.6,487.6 379.7,482.8 382.8,482.8 389.1,479.2 392.2,476.8 395.3,475.6 398.4,474.4 401.6,474.4 404.7,473.2 407.8,472.0 410.9,472.0 414.0,470.8 417.2,470.8 423.4,469.6 426.5,469.6 429.7,468.4 432.8,467.2 435.9,467.2 439.0,466.0 442.1,466.0 445.3,466.0 448.4,464.8 451.5,464.8 457.7,463.6 460.9,463.6 464.0,463.6 467.1,462.4 470.2,462.4 473.3,463.6 476.5,464.8 479.6,467.2 482.7,468.4 485.8,469.6 492.1,472.0 495.2,473.2 498.3,474.4 501.4,475.6 504.6,475.6 507.7,476.8 510.8,476.8 513.9,478.0 517.0,478.0 520.2,479.2 526.4,480.4 529.5,480.4 532.6,480.4 535.8,481.6 538.9,481.6 542.0,481.6 545.1,482.8 548.3,482.8 551.4,482.8 554.5,482.8 557.6,482.8 560.7,482.8 563.9,482.8 567.0,482.8 570.1,482.8 573.2,482.8 576.3,482.8 579.5,482.8 582.6,482.8 585.7,482.8 588.8,482.8 595.1,482.8 598.2,482.8 601.3,482.8 604.4,482.8 607.6,482.8 610.7,482.8 613.8,482.8 616.9,482.8 620.0,482.8 626.3,482.8 629.4,482.8 632.5,526.0 635.6,526.0 638.8,490.0 641.9,484.0 645.0,482.8 648.1,481.6 651.2,479.2 654.4,476.8 657.5,475.6 660.6,475.6 663.7,474.4 666.9,473.2 670.0,473.2 673.1,472.0 676.2,472.0 679.3,470.8 682.5,469.6 685.6,469.6 688.7,468.4 691.8,468.4 698.1,467.2 701.2,467.2 704.3,466.0 707.4,466.0 710.5,464.8 713.7,464.8 716.8,464.8 719.9,463.6 723.0,463.6 726.2,463.6 732.4,462.4 735.5,462.4 738.6,464.8 741.8,466.0 744.9,467.2 748.0,468.4" fill="none" stroke="#2A2D2F" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="55.1,482.8 58.2,482.8 61.4,482.8 64.5,482.8 67.6,482.8 70.7,482.8 73.8,526.0 77.0,526.0 80.1,526.0 83.2,526.0 86.3,526.0 89.5,526.0 92.6,526.0 95.7,526.0 98.8,526.0 101.9,526.0 105.1,526.0 108.2,526.0 111.3,490.0 114.4,484.0 117.5,482.8 120.7,482.8 123.8,481.6 126.9,481.6 130.0,480.4 133.1,479.2 136.3,479.2 139.4,478.0 142.5,478.0 145.6,476.8 148.8,476.8 151.9,475.6 155.0,475.6 158.1,474.4 161.2,474.4 164.4,474.4 167.5,473.2 170.6,473.2 173.7,473.2 176.8,472.0 180.0,472.0 183.1,472.0 186.2,470.8 189.3,470.8 192.4,470.8 195.6,470.8 198.7,469.6 201.8,469.6 204.9,469.6 208.1,469.6 211.2,469.6 214.3,470.8 217.4,472.0 220.5,473.2 223.7,474.4 226.8,475.6 233.0,476.8 236.1,478.0 239.3,478.0 242.4,479.2 245.5,479.2 248.6,480.4 251.7,480.4 254.9,481.6 258.0,481.6 261.1,482.8 264.2,482.8 267.4,482.8 270.5,482.8 273.6,482.8 276.7,482.8 279.8,482.8 283.0,482.8 286.1,482.8 289.2,482.8 292.3,482.8 298.6,482.8 301.7,482.8 304.8,482.8 307.9,482.8 311.0,482.8 314.2,482.8 317.3,482.8 320.4,482.8 323.5,482.8 326.7,482.8 332.9,482.8 336.0,482.8 339.1,526.0 342.3,526.0 345.4,526.0 348.5,526.0 351.6,526.0 354.7,526.0 357.9,526.0 361.0,526.0 364.1,526.0 370.3,526.0 373.5,526.0 376.6,490.0 379.7,484.0 382.8,482.8 386.0,482.8 389.1,481.6 392.2,480.4 395.3,480.4 398.4,479.2 404.7,478.0 407.8,478.0 410.9,476.8 414.0,476.8 417.2,475.6 420.3,475.6 423.4,474.4 426.5,474.4 429.7,474.4 432.8,473.2 439.0,473.2 442.1,472.0 445.3,472.0 448.4,472.0 451.5,470.8 454.6,470.8 457.7,470.8 460.9,469.6 464.0,469.6 467.1,469.6 473.3,469.6 476.5,469.6 479.6,470.8 482.7,472.0 485.8,473.2 489.0,474.4 492.1,475.6 495.2,476.8 498.3,476.8 501.4,478.0 504.6,478.0 507.7,479.2 510.8,480.4 513.9,480.4 517.0,480.4 520.2,481.6 523.3,481.6 526.4,482.8 529.5,482.8 532.6,482.8 538.9,482.8 542.0,482.8 545.1,482.8 548.3,482.8 551.4,482.8 554.5,482.8 557.6,482.8 560.7,482.8 563.9,482.8 567.0,482.8 570.1,482.8 573.2,482.8 576.3,482.8 579.5,482.8 582.6,482.8 585.7,482.8 588.8,482.8 591.9,482.8 595.1,482.8 598.2,482.8 601.3,526.0 604.4,526.0 607.6,526.0 610.7,526.0 613.8,526.0 616.9,526.0 620.0,526.0 623.2,526.0 626.3,526.0 629.4,526.0 632.5,526.0 635.6,526.0 638.8,490.0 645.0,482.8 648.1,482.8 651.2,481.6 654.4,481.6 657.5,480.4 660.6,479.2 663.7,479.2 666.9,478.0 670.0,476.8 673.1,476.8 679.3,475.6 682.5,475.6 685.6,474.4 688.7,474.4 691.8,474.4 694.9,473.2 698.1,473.2 701.2,473.2 704.3,472.0 707.4,472.0 713.7,472.0 716.8,470.8 719.9,470.8 723.0,470.8 726.2,469.6 729.3,469.6 732.4,469.6 735.5,469.6 738.6,469.6 741.8,470.8 744.9,472.0 748.0,472.0" fill="none" stroke="#FFD400" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="52.0,526.0 55.1,526.0 58.2,526.0 61.4,526.0 64.5,526.0 67.6,526.0 70.7,526.0 73.8,526.0 77.0,526.0 80.1,526.0 83.2,526.0 86.3,526.0 89.5,526.0 92.6,526.0 95.7,526.0 98.8,526.0 101.9,526.0 105.1,526.0 108.2,526.0 111.3,490.0 114.4,485.2 117.5,482.8 123.8,482.8 126.9,482.8 130.0,482.8 133.1,482.8 136.3,482.8 139.4,482.8 142.5,482.8 145.6,482.8 148.8,481.6 151.9,481.6 158.1,481.6 161.2,481.6 164.4,480.4 167.5,480.4 170.6,480.4 173.7,479.2 176.8,479.2 180.0,479.2 183.1,479.2 186.2,478.0 192.4,478.0 195.6,478.0 198.7,476.8 201.8,476.8 204.9,476.8 208.1,476.8 211.2,476.8 214.3,478.0 217.4,478.0 220.5,478.0 223.7,478.0 226.8,479.2 229.9,479.2 233.0,480.4 236.1,480.4 239.3,481.6 242.4,481.6 245.5,482.8 248.6,482.8 251.7,482.8 254.9,482.8 261.1,482.8 264.2,482.8 267.4,482.8 270.5,482.8 273.6,482.8 276.7,482.8 279.8,482.8 283.0,482.8 286.1,482.8 289.2,482.8 295.4,482.8 298.6,482.8 301.7,482.8 304.8,482.8 307.9,526.0 311.0,526.0 314.2,526.0 317.3,526.0 320.4,526.0 323.5,526.0 329.8,526.0 332.9,526.0 336.0,526.0 339.1,526.0 342.3,526.0 345.4,526.0 348.5,526.0 351.6,526.0 354.7,526.0 357.9,526.0 361.0,526.0 364.1,526.0 367.2,526.0 370.3,526.0 373.5,526.0 376.6,526.0 379.7,487.6 382.8,482.8 386.0,482.8 389.1,482.8 392.2,482.8 395.3,482.8 398.4,482.8 404.7,482.8 407.8,482.8 410.9,481.6 414.0,481.6 417.2,481.6 420.3,481.6 423.4,481.6 426.5,480.4 429.7,480.4 432.8,480.4 439.0,479.2 442.1,479.2 445.3,479.2 448.4,478.0 451.5,478.0 454.6,478.0 457.7,478.0 460.9,476.8 464.0,476.8 467.1,476.8 470.2,476.8 473.3,476.8 476.5,476.8 479.6,476.8 482.7,476.8 485.8,478.0 489.0,478.0 492.1,479.2 495.2,479.2 498.3,480.4 501.4,480.4 504.6,480.4 507.7,481.6 510.8,481.6 513.9,482.8 517.0,482.8 520.2,482.8 523.3,482.8 526.4,482.8 529.5,482.8 532.6,482.8 535.8,482.8 538.9,482.8 542.0,482.8 545.1,482.8 548.3,482.8 551.4,482.8 554.5,482.8 557.6,482.8 560.7,482.8 563.9,482.8 567.0,482.8 573.2,482.8 576.3,526.0 579.5,526.0 582.6,526.0 585.7,526.0 588.8,526.0 591.9,526.0 595.1,526.0 598.2,526.0 601.3,526.0 604.4,526.0 610.7,526.0 613.8,526.0 616.9,526.0 620.0,526.0 623.2,526.0 626.3,526.0 629.4,526.0 632.5,526.0 635.6,526.0 641.9,486.4 645.0,482.8 648.1,482.8 651.2,482.8 654.4,482.8 657.5,482.8 660.6,482.8 663.7,482.8 666.9,482.8 670.0,482.8 673.1,481.6 676.2,481.6 679.3,481.6 682.5,481.6 685.6,480.4 688.7,480.4 691.8,480.4 694.9,480.4 698.1,479.2 701.2,479.2 704.3,479.2 707.4,478.0 710.5,478.0 713.7,478.0 716.8,478.0 719.9,478.0 723.0,476.8 726.2,476.8 729.3,476.8 732.4,476.8 735.5,476.8 738.6,476.8 741.8,476.8" fill="none" stroke="#9A9C9E" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="52" y1="526" x2="748" y2="526" stroke="#C9CACB" stroke-width="1"/>
+<line x1="52.0" y1="526" x2="52.0" y2="530" stroke="#C9CACB" stroke-width="1"/>
+<text x="52.0" y="541" font-size="9.5" fill="#9A9C9E" text-anchor="middle">0s</text>
+<line x1="145.6" y1="526" x2="145.6" y2="530" stroke="#C9CACB" stroke-width="1"/>
+<text x="145.6" y="541" font-size="9.5" fill="#9A9C9E" text-anchor="middle">60s</text>
+<line x1="239.3" y1="526" x2="239.3" y2="530" stroke="#C9CACB" stroke-width="1"/>
+<text x="239.3" y="541" font-size="9.5" fill="#9A9C9E" text-anchor="middle">120s</text>
+<line x1="332.9" y1="526" x2="332.9" y2="530" stroke="#C9CACB" stroke-width="1"/>
+<text x="332.9" y="541" font-size="9.5" fill="#9A9C9E" text-anchor="middle">180s</text>
+<line x1="426.5" y1="526" x2="426.5" y2="530" stroke="#C9CACB" stroke-width="1"/>
+<text x="426.5" y="541" font-size="9.5" fill="#9A9C9E" text-anchor="middle">240s</text>
+<line x1="520.2" y1="526" x2="520.2" y2="530" stroke="#C9CACB" stroke-width="1"/>
+<text x="520.2" y="541" font-size="9.5" fill="#9A9C9E" text-anchor="middle">300s</text>
+<line x1="613.8" y1="526" x2="613.8" y2="530" stroke="#C9CACB" stroke-width="1"/>
+<text x="613.8" y="541" font-size="9.5" fill="#9A9C9E" text-anchor="middle">360s</text>
+<line x1="707.4" y1="526" x2="707.4" y2="530" stroke="#C9CACB" stroke-width="1"/>
+<text x="707.4" y="541" font-size="9.5" fill="#9A9C9E" text-anchor="middle">420s</text>
+</svg>
+  <div class="unit" style="margin:8px 0 0"><span style="white-space:nowrap"><span style="display:inline-block;width:18px;height:3px;background:#2A2D2F;vertical-align:middle;margin-right:5px"></span>100%</span> <span style="white-space:nowrap"><span style="display:inline-block;width:18px;height:3px;background:#FFD400;vertical-align:middle;margin-right:5px"></span>85%</span> <span style="white-space:nowrap"><span style="display:inline-block;width:18px;height:3px;background:#9A9C9E;vertical-align:middle;margin-right:5px"></span>67%</span></div>
+</div>
+    <p>この4段を上から読むと、Power Limit が何をしている設定なのかがそのまま見えます。まず電力（1段目）は、ベンチ実行中はどの条件でも<b>破線＝設定上限に貼り付いたまま</b>動きます。負荷中の中央値は 100%で600W、85%で510W、67%で402Wと、いずれも上限ぴったりです。つまり Power Limit は「電力を減らす」設定ではなく、<b>使ってよい電力の天井を決める</b>設定で、GPUはその天井いっぱいまで使い切ろうとします。</p>
+    <p>では何を削って天井に収めているのか——それが3段目の<b>コアクロック</b>です。負荷中の中央値は 100%で約2,640MHz、85%で約2,392MHz、67%で約1,972MHz。<b>85%でのクロック低下は約9%</b>で、Steel Nomad の性能低下7.1%とおおむね対応します。§02 で書いた「電力の天井が下がるぶん高負荷時のクロックが少し落ちる」が、そのまま実測に出ている形です。</p>
+    <p>温度（2段目）とファン（4段目）は、1本目のrunで上がりきったあとは2本目・3本目でもほぼ同じ高さで推移します。<b>連続で回しても温度が積み上がっていかない</b>ということで、85%設定の-4℃や67%設定の-9℃は、一時的な数字ではなく負荷をかけ続けた状態での差だと分かります。ファンの最大回転が 53% → 47% → 41% と下がっているのもここで確認できます（音圧レベルは計測していないため、回転数の実測値のみを示します）。</p>
+
+    <h3>その熱は、性能をどれだけ手放して買ったのか</h3>
+    <p>ここまで「電力と熱が下がった」ことだけを見てきましたが、当然それは<b>性能と引き換え</b>です。そこで、<b>性能を1%手放すごとに何ワット削れたか</b>——いわば「交換レート」を計算しました。数値が大きいほど、少ない性能低下で多くの電力を削れた＝お得な交換だったことを意味します。</p>
+<div class="chart">
+  <div class="ttl">性能とのトレードオフ — 性能を1%手放すごとに削れる電力</div>
+  <div class="takeaway"><b>85%（黄色）のほうが交換レートが良い（1%あたり11.4〜12.8W）</b>。下限までの通算では8.3〜9.9Wに落ちる＝<b>後半ほど割高</b>になる</div>
+  <div class="unit">Steel Nomad の実測から算出 ／ 数値が大きいほど「少ない性能低下で多くの電力が削れる」＝お得な交換</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:100.0%"><span class="v">1%あたり 12.8W（性能-7.1% / 電力-91W / 温度-4℃）</span></div></div></div>
+  <div class="row"><div class="lab">67%</div><div class="track"><div class="fill" style="width:77.4%"><span class="v">1%あたり 9.9W（性能-19.8% / 電力-197W / 温度-9℃）</span></div></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:89.5%"><span class="v">1%あたり 11.5W（性能-4.5% / 電力-51W / 温度-4℃）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:67.1%"><span class="v">1%あたり 8.6W（性能-12.3% / 電力-106W / 温度-9℃）</span></div></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:89.3%"><span class="v">1%あたり 11.4W（性能-3.3% / 電力-38W / 温度-6℃）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:65.1%"><span class="v">1%あたり 8.3W（性能-9.1% / 電力-76W / 温度-11℃）</span></div></div></div>
+</div>
+    <p>ここに<b>「まず85%」を推す最大の理由</b>があります。100%→85%の区間は、性能1%と引き換えに<b>11.4〜12.8W</b>削れます。いっぽう下限までの通算レートは8.3〜9.9Wへ下がり、85%→下限の区間だけを取り出すと<b>6.6〜8.3W</b>とさらに悪化します。GPUは定格付近の「最後のひと伸び」にもっとも多くの電力を使っているため、<b>最初に削る15%がいちばん効率が良く、そこから先は値段が上がっていく</b>という構造です。</p>
+    <p>言い換えると、85%は「ほとんど気づかない性能低下（3DMarkで2〜7%）で、いちばん割のいい削減が得られる点」。下限設定は「割高になるのを承知で、とにかく熱を抑えたいとき用」という位置づけになります。</p>
+
+    <p>もうひとつ確認できたのが、<b>設定した「天井」が実際に効いていること</b>です。1秒間隔ログの上位水準（p95＝サンプルの95%が収まる値）は各条件とも設定上限の±0.5%に一致しており、RTX 5090 なら100%設定で601W、67%設定では402Wで頭打ちになります。スライダーで指定した%のとおりに、電力の上限そのものが下がっているという裏づけです。<span class="muted">（1秒間隔のサンプリングのため、これより短い時間スケールの電力変動は捉えていません。電源ユニットの選定で問題になる過渡的なピークとは別の指標です）</span></p>
+    <div class="note"><b>法人・SIer向けメモ:</b> 連続GPU負荷時に1台あたり38〜91W（85%設定・負荷時平均）を削減できたという結果は、GPU搭載機を複数台導入する際の回路容量・UPS・排熱設計を考えるうえでの参考値になります。ただし削減量はワークロードに強く依存するため、実運用のソフトウェアでの確認を前提としてください。</div>
+
+  </section>
+
+  <!-- ============ Blender・Cinebench — 電力上限に「届かない」処理はほぼ無傷 ============ -->
+  <section id="s05">
+    <span class="sec-no">05 / クリエイティブ</span>
+    <h2 class="sec">Blender・Cinebench — 電力上限に「届かない」処理はほぼ無傷</h2>
+
+    <p>今回の検証でもっとも意外性があるのがここです。GPUレンダリングの Blender と Cinebench 2026 GPU は、<b>3カード×4条件のほぼすべてで性能が変わりませんでした</b>（±1%前後＝計測誤差の範囲）。</p>
+<div class="chart">
+  <div class="ttl">Blender GPU</div>
+  <div class="takeaway">12条件すべてで維持率<b>98.5〜101.0%</b>＝Power Limit の影響を実質受けない</div>
+  <div class="unit">samples/min ／ 高いほど良い ／ 3GPU共通スケール</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:99.4%"><span class="v">16,569.9</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:99.2%"><span class="v">16,545.7（99.9%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:100.0%"><span class="v">16,675.2（100.6%）</span></div></div></div>
+  <div class="row"><div class="lab">67%</div><div class="track"><div class="fill" style="width:97.8%"><span class="v">16,316.2（98.5%）</span></div></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:55.6%"><span class="v">9,278.8</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:56.0%"><span class="v">9,339.6（100.7%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:56.2%"><span class="v">9,373.8（101.0%）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:56.0%"><span class="v">9,342.7（100.7%）</span></div></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:36.4%"><span class="v">6,067.4</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:36.4%"><span class="v">6,070.8（100.1%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:36.7%"><span class="v">6,118.9（100.9%）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:36.4%"><span class="v">6,066.9（100.0%）</span></div></div></div>
+</div>
+    <p>理由は消費電力を見ると明快です。同じ条件の実測を、設定上限（破線）と重ねます。</p>
+<div class="chart">
+  <div class="ttl">Blender GPU 実行中の消費電力</div>
+  <div class="takeaway">どのGPUも<b>負荷時平均が設定上限（破線）を下回っている</b>＝下げてもほぼ無傷の理由</div>
+  <div class="unit">棒 = 負荷時の平均W（GPU使用率50%以上の区間） ／ 破線 = その設定で使える最大電力（Power Limit 上限） ／ 3GPU共通スケール（0〜600W）</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row"><div class="lab">100%<small>上限 600W</small></div><div class="track" style="position:relative"><div class="fill" style="width:68.5%"><span class="v">平均 411W</span></div><span style="position:absolute;left:100.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 600W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 510W</small></div><div class="track" style="position:relative"><div class="fill" style="width:67.8%"><span class="v">平均 407W（-4W）</span></div><span style="position:absolute;left:85.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 510W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 510W</small></div><div class="track" style="position:relative"><div class="fill" style="width:67.7%"><span class="v">平均 406W（-5W）</span></div><span style="position:absolute;left:85.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 510W"></span></div></div>
+  <div class="row"><div class="lab">67%<small>上限 402W</small></div><div class="track" style="position:relative"><div class="fill" style="width:63.1%"><span class="v">平均 378W（-33W）</span></div><span style="position:absolute;left:67.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 402W"></span></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row"><div class="lab">100%<small>上限 360W</small></div><div class="track" style="position:relative"><div class="fill" style="width:33.0%"><span class="v">平均 198W</span></div><span style="position:absolute;left:60.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 360W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 306W</small></div><div class="track" style="position:relative"><div class="fill" style="width:33.5%"><span class="v">平均 201W（+3W）</span></div><span style="position:absolute;left:51.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 306W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 306W</small></div><div class="track" style="position:relative"><div class="fill" style="width:33.7%"><span class="v">平均 202W（+4W）</span></div><span style="position:absolute;left:51.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 306W"></span></div></div>
+  <div class="row"><div class="lab">70%<small>上限 252W</small></div><div class="track" style="position:relative"><div class="fill" style="width:33.3%"><span class="v">平均 200W（+2W）</span></div><span style="position:absolute;left:42.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 252W"></span></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row"><div class="lab">100%<small>上限 250W</small></div><div class="track" style="position:relative"><div class="fill" style="width:22.6%"><span class="v">平均 136W</span></div><span style="position:absolute;left:41.7%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 250W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 212W</small></div><div class="track" style="position:relative"><div class="fill" style="width:22.5%"><span class="v">平均 135W（-1W）</span></div><span style="position:absolute;left:35.4%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 212W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 212W</small></div><div class="track" style="position:relative"><div class="fill" style="width:22.8%"><span class="v">平均 136W（+1W）</span></div><span style="position:absolute;left:35.4%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 212W"></span></div></div>
+  <div class="row"><div class="lab">70%<small>上限 175W</small></div><div class="track" style="position:relative"><div class="fill" style="width:22.5%"><span class="v">平均 135W（-1W）</span></div><span style="position:absolute;left:29.2%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 175W"></span></div></div>
+</div>
+    <p>たとえば RTX 5080 の Blender 実行中の負荷時平均は約200W。360Wの70%（252W）の破線に届いていません。<b>電力の天井を下げても、もともと天井まで使っていない処理は影響を受けない</b>——Power Limit の性質がそのまま表れた結果です。Cinebench も含めた維持率は次のとおりです。</p>
+
+    <div class="datawrap"><table class="cmp">
+      <thead><tr><th rowspan="2">維持率（対100%）</th><th colspan="2">RTX 5090</th><th colspan="2">RTX 5080</th><th colspan="2">RTX 5070</th></tr>
+      <tr><th>85%</th><th>67%</th><th>85%</th><th>70%</th><th>85%</th><th>70%</th></tr></thead>
+      <tbody>
+        <tr><td>Blender GPU</td><td class="mono">99.9%</td><td class="mono">98.5%</td><td class="mono">100.7%</td><td class="mono">100.7%</td><td class="mono">100.1%</td><td class="mono">100.0%</td></tr>
+        <tr><td>Cinebench 2026 GPU</td><td class="mono">100.6%</td><td class="mono">100.6%</td><td class="mono">100.0%</td><td class="mono">98.8%</td><td class="mono">101.0%</td><td class="mono">100.3%</td></tr>
+      </tbody>
+    </table></div>
+    <p>RTX 5090 だけは Blender の負荷時平均が411Wと大きく、67%の上限（402W）を要求が上回るため、最小設定でわずかに削られます（-1.5%）。それでも誤差に近い水準です。</p>
+
+  </section>
+
+  <!-- ============ Stable Diffusion（SDXL）— 唯一の要注意ゾーン。RTX 5090 は85%でも遅くなる ============ -->
+  <section id="s06">
+    <span class="sec-no">06 / 画像生成AI</span>
+    <h2 class="sec">Stable Diffusion（SDXL）— 唯一の要注意ゾーン。RTX 5090 は85%でも遅くなる</h2>
+
+    <p>ローカル画像生成（ComfyUI / SDXL）は、ゲームともレンダリングとも違う挙動を見せました。高負荷版の Hires.Fix（1024→1536）から見ていきます。</p>
+<div class="chart">
+  <div class="ttl">SDXL Hires.Fix（秒/枚）</div>
+  <div class="takeaway">85%の維持率は <b>91.7%（5090）／ 100.0%（5080）／ 96.6%（5070）</b>。5090 だけ影響が大きい</div>
+  <div class="unit">秒/枚 ／ 低いほど良い（棒が短いほど高速）／ 3GPU共通スケール</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:34.8%"><span class="v">10.16</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:38.0%"><span class="v">11.08（91.7%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:38.0%"><span class="v">11.09（91.6%）</span></div></div></div>
+  <div class="row"><div class="lab">67%</div><div class="track"><div class="fill" style="width:41.4%"><span class="v">12.09（84.0%）</span></div></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:62.1%"><span class="v">18.13</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:62.1%"><span class="v">18.13（100.0%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:62.1%"><span class="v">18.12（100.1%）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:65.4%"><span class="v">19.09（95.0%）</span></div></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:94.1%"><span class="v">27.47</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:97.4%"><span class="v">28.43（96.6%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:97.7%"><span class="v">28.51（96.4%）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:100.0%"><span class="v">29.19（94.1%）</span></div></div></div>
+</div>
+    <p>そして本記事で唯一の「要注意」がこちら。標準設定の SDXL（1024×1024）では、RTX 5090 だけが85%の時点ではっきり遅くなります。</p>
+<div class="chart">
+  <div class="ttl">SDXL（秒/枚）</div>
+  <div class="takeaway"><b>RTX 5090 は85%で3.04→3.98秒/枚（約24%低下）</b>。5080 は4条件とも同値、5070 は85%まで無風</div>
+  <div class="unit">秒/枚 ／ 低いほど良い（棒が短いほど高速）／ 3GPU共通スケール</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:30.2%"><span class="v">3.04</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:39.5%"><span class="v">3.98（76.4%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:38.2%"><span class="v">3.85（79.0%）</span></div></div></div>
+  <div class="row"><div class="lab">67%</div><div class="track"><div class="fill" style="width:40.0%"><span class="v">4.03（75.4%）</span></div></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:60.0%"><span class="v">6.04</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:60.0%"><span class="v">6.04（100.0%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:60.0%"><span class="v">6.04（100.0%）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:60.0%"><span class="v">6.04（100.0%）</span></div></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row"><div class="lab">100%</div><div class="track"><div class="fill" style="width:90.0%"><span class="v">9.06</span></div></div></div>
+  <div class="row me"><div class="lab">85%</div><div class="track"><div class="fill" style="width:90.1%"><span class="v">9.07（99.9%）</span></div></div></div>
+  <div class="row"><div class="lab">85%+自動OC</div><div class="track"><div class="fill" style="width:90.6%"><span class="v">9.12（99.3%）</span></div></div></div>
+  <div class="row"><div class="lab">70%</div><div class="track"><div class="fill" style="width:100.0%"><span class="v">10.07（90.0%）</span></div></div></div>
+</div>
+    <p>消費電力側はどうでしょうか。もっとも電力を使う Hires.Fix の実測を、設定上限（破線）と重ねます。</p>
+<div class="chart">
+  <div class="ttl">SDXL Hires.Fix 実行中の消費電力</div>
+  <div class="takeaway">5090 の Hires.Fix は負荷時平均550Wと今回最大級。<b>85%で-76W、67%なら-169W</b>削れる</div>
+  <div class="unit">棒 = 負荷時の平均W（GPU使用率50%以上の区間） ／ 破線 = その設定で使える最大電力（Power Limit 上限） ／ 3GPU共通スケール（0〜600W）</div>
+  <div class="grp">GeForce RTX 5090</div>
+  <div class="row"><div class="lab">100%<small>上限 600W</small></div><div class="track" style="position:relative"><div class="fill" style="width:91.7%"><span class="v">平均 550W</span></div><span style="position:absolute;left:100.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 600W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 510W</small></div><div class="track" style="position:relative"><div class="fill" style="width:79.1%"><span class="v">平均 474W（-76W）</span></div><span style="position:absolute;left:85.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 510W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 510W</small></div><div class="track" style="position:relative"><div class="fill" style="width:78.5%"><span class="v">平均 471W（-80W）</span></div><span style="position:absolute;left:85.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 510W"></span></div></div>
+  <div class="row"><div class="lab">67%<small>上限 402W</small></div><div class="track" style="position:relative"><div class="fill" style="width:63.6%"><span class="v">平均 382W（-169W）</span></div><span style="position:absolute;left:67.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 402W"></span></div></div>
+  <div class="grp">GeForce RTX 5080</div>
+  <div class="row"><div class="lab">100%<small>上限 360W</small></div><div class="track" style="position:relative"><div class="fill" style="width:47.8%"><span class="v">平均 287W</span></div><span style="position:absolute;left:60.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 360W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 306W</small></div><div class="track" style="position:relative"><div class="fill" style="width:47.3%"><span class="v">平均 284W（-3W）</span></div><span style="position:absolute;left:51.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 306W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 306W</small></div><div class="track" style="position:relative"><div class="fill" style="width:47.6%"><span class="v">平均 286W（-1W）</span></div><span style="position:absolute;left:51.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 306W"></span></div></div>
+  <div class="row"><div class="lab">70%<small>上限 252W</small></div><div class="track" style="position:relative"><div class="fill" style="width:40.7%"><span class="v">平均 244W（-42W）</span></div><span style="position:absolute;left:42.0%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 252W"></span></div></div>
+  <div class="grp">GeForce RTX 5070</div>
+  <div class="row"><div class="lab">100%<small>上限 250W</small></div><div class="track" style="position:relative"><div class="fill" style="width:38.4%"><span class="v">平均 230W</span></div><span style="position:absolute;left:41.7%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 250W"></span></div></div>
+  <div class="row me"><div class="lab">85%<small>上限 212W</small></div><div class="track" style="position:relative"><div class="fill" style="width:33.6%"><span class="v">平均 201W（-29W）</span></div><span style="position:absolute;left:35.4%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 212W"></span></div></div>
+  <div class="row"><div class="lab">85%+自動OC<small>上限 212W</small></div><div class="track" style="position:relative"><div class="fill" style="width:33.6%"><span class="v">平均 202W（-29W）</span></div><span style="position:absolute;left:35.4%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 212W"></span></div></div>
+  <div class="row"><div class="lab">70%<small>上限 175W</small></div><div class="track" style="position:relative"><div class="fill" style="width:28.7%"><span class="v">平均 172W（-58W）</span></div><span style="position:absolute;left:29.2%;top:-2px;bottom:-2px;border-left:2px dashed var(--ink-light)" title="設定上限 175W"></span></div></div>
+</div>
+    <p>RTX 5080 / 5070 は85%設定ではほぼ無風で、下限（70%）で5〜6%の低下。一方 RTX 5090 は Hires.Fix でも85%で約8%、67%では約16%低下します。<b>画像生成での効き方はカードと絞り幅によって変わる</b>——今回の3枚では、85%の時点で影響が出たのは RTX 5090 だけでした。</p>
+    <p>標準版 SDXL の約24%低下（3.04→3.98秒/枚）は別日の再計測でも同じ値が再現されていますが、<b>原因までは今回の計測では特定できていません</b>（各条件1回計測である点も含め、この環境での観察結果としてご覧ください）。</p>
+    <div class="note">画像生成を日常的に回すなら、RTX 5080 / 5070 は85%設定のデメリットが実測上ごく小さいという結果でした（5080 は標準・Hires.Fix とも同値、5070 は標準が同値・Hires.Fix で-3.4%）。RTX 5090 は「速度を最優先する日は100%、発熱を抑えたい日は85%」のような使い分けが現実的です。</div>
+
+  </section>
+
+  <!-- ============ ワットパフォーマンスは全カードで向上する ============ -->
+  <section id="s07">
+    <span class="sec-no">07 / 電力効率</span>
+    <h2 class="sec">ワットパフォーマンスは全カードで向上する</h2>
+
+    <p>「性能が少し落ちて、電力が大きく減る」ということは、<b>1ワットあたりの仕事量（ワットパフォーマンス）は上がる</b>ということです。Steel Nomad のスコアを負荷時の平均電力で割った値で比較します。</p>
+<div class="chart">
+  <div class="ttl">電力効率の改善率 — Steel Nomad スコア ÷ 負荷時平均W</div>
+  <div class="takeaway">絞るほど効率が伸びる。今回の3枚では RTX 5070 の下限 <b>+31%</b> が最大</div>
+  <div class="unit">対100%の改善率 ／ 高いほど「1Wあたりの仕事」が増えている</div>
+  <div class="row"><div class="lab">GeForce RTX 5090<small>下限 67%</small></div><div class="track"><div class="fill" style="width:63.7%"><span class="v">85%で+10% → 下限で<b>+20%</b></span></div></div></div>
+  <div class="row"><div class="lab">GeForce RTX 5080<small>下限 70%</small></div><div class="track"><div class="fill" style="width:80.4%"><span class="v">85%で+12% → 下限で<b>+25%</b></span></div></div></div>
+  <div class="row"><div class="lab">GeForce RTX 5070<small>下限 70%</small></div><div class="track"><div class="fill" style="width:99.3%"><span class="v">85%で+14% → 下限で<b>+31%</b></span></div></div></div>
+</div>
+    <p>どのカードも絞るほど効率が伸び、85%で+10〜14%、下限設定では<b>+20〜31%</b>。GPUは定格の最後の数%の性能を絞り出すために大きな電力を使っているため、そこを削ると効率が大きく改善します。「性能の最後のひと伸びより、消費電力・熱・効率を取る」——これが Power Limit 調整の本質です。</p>
+    <p class="muted">※ <a class="xref" href="#s04">§04</a> の「交換レート」が<b>100%からの削減効率</b>（性能を1%手放すごとに何W削れたか）を見ているのに対し、こちらは<b>各設定そのものの効率</b>を100%と比べたものです。下限設定は「効率の絶対値は最も高いが、そこに至る最後のひと絞りは割高」という関係になります。</p>
+
+  </section>
+
+  <!-- ============ 85%＋自動チューニング — 「削った電力はそのまま、性能を少し取り返す」 ============ -->
+  <section id="s08">
+    <span class="sec-no">08 / 応用</span>
+    <h2 class="sec">85%＋自動チューニング — 「削った電力はそのまま、性能を少し取り返す」</h2>
+
+    <p>応用編として、<b>Power Limit 85%のまま、NVIDIA App の「自動チューニング」をONにする</b>設定も試しました。自動チューニングは、アプリがシステムに影響を及ぼさない範囲を自動で見つけてオーバークロックを適用してくれる機能で、オーバークロックの知識がなくても扱えます（同じ「システム → パフォーマンス」画面のトグルひとつでON/OFF）。今回の3カードでは、いずれもメモリ+200MHz、コアはカードごとに異なる値（実測で+0〜75MHz相当、RTX 5090 のアプリ表示は+88MHz）が自動設定されました。</p>
+    <div class="datawrap"><table class="cmp">
+      <thead><tr><th>Steel Nomad</th><th>85%</th><th>85%＋自動チューニング</th><th>負荷時平均電力</th></tr></thead>
+      <tbody>
+        <tr><td>RTX 5090</td><td class="mono">13,422（92.9%）</td><td class="mono"><b>13,555（93.8%）</b></td><td class="mono">504W → 505W（同等）</td></tr>
+        <tr><td>RTX 5080</td><td class="mono">8,223（95.5%）</td><td class="mono"><b>8,268（96.1%）</b></td><td class="mono">304W → 303W（同等）</td></tr>
+        <tr><td>RTX 5070</td><td class="mono">5,198（96.7%）</td><td class="mono"><b>5,300（98.6%）</b></td><td class="mono">211W → 210W（同等）</td></tr>
+      </tbody>
+    </table></div>
+    <p>ポイントは<b>消費電力が85%設定と変わらない</b>ことです。電力の天井は同じまま、自動チューニングが引き上げたクロックのぶんだけ性能が戻ります。今回の個体では RTX 5070 の回復が最も大きく、Steel Nomad で定格の98.6%まで復帰しました（※自動チューニングの適用量はカードの個体ごとにアプリが決めるため、カード間の「効き」の直接比較はできず、同じ結果になる保証もありません）。</p>
+    <div class="note"><b>注意:</b> 自動チューニングは NVIDIA App の標準機能ですが、オーバークロックである以上、結果は個体差の影響を受けます。また設定変更に起因するトラブルが保証対象となるかはメーカー・製品ごとに異なります。動作の安定確認は必ずご自身の環境で行ってください。なお自動チューニングのトグルは<b>再起動後も維持されます</b>（Power Limit % が戻ることがあるのとは逆の挙動です→<a class="xref" href="#s02">§02</a>）。</div>
+
+  </section>
+
+  <!-- ============ 結論 — まず85%から。「性能の落ち幅」より「熱の下げ幅」が大きい ============ -->
+  <section id="s09">
+    <span class="sec-no">09 / まとめ</span>
+    <h2 class="sec">結論 — まず85%から。「性能の落ち幅」より「熱の下げ幅」が大きい</h2>
+
+    <p>3カード×4条件×7テストの実測から言えることをまとめます。</p>
+    <ul class="sum">
+      <li><b>迷ったら85%。</b>3DMarkで2〜7%の低下と引き換えに、電力・温度・ファン回転が明確に下がる。しかも<b>性能1%あたり11.4〜12.8Wという最も割のいい交換</b>ができる区間（<a class="xref" href="#s04">§04</a>）。Blender / Cinebench のような「上限まで使わない」処理は<b>そもそも影響を受けない</b>。</li>
+      <li><b>とにかく熱を抑えたい日は下限（67〜70%）。</b>性能低下は9〜20%と目に見えるうえ交換レートも8.3〜9.9Wに悪化するが、RTX 5090 なら負荷時平均で約200Wの発熱源が減り、最高温度も最大13℃下がる（画像生成時）。</li>
+      <li><b>例外はAI画像生成。</b>RTX 5090 の SDXL 標準は85%でも約24%低下。画像生成を重視するなら85%と100%を実測で見比べる。</li>
+      <li><b>ワットパフォーマンスは絞るほど向上</b>（+10〜31%）。消費電力と発熱の観点では、定格100%は「最後のひと伸びに大きく払っている」状態。</li>
+      <li><b>設定は3分・いつでも戻せる・追加費用0円。</b>ただし再起動で設定が戻ることがある点と、保証の扱いはメーカー・製品ごとに異なる点は忘れずに。</li>
+    </ul>
+    <div class="verdict">
+      <h3>設定の適所マップ</h3>
+      <div class="cols">
+        <div class="fit">
+          <h4>85% が向く</h4>
+          <ul>
+            <li>夏場にGPUの発熱・ファン回転を抑えたい（最高温度 -4〜-6℃）</li>
+            <li>3DMark系の高負荷でも性能低下は2〜7%——熱と電力の下げ幅のほうが大きい</li>
+            <li>Blender / Cinebench など電力上限まで使わない処理が中心（低下ほぼ0%）</li>
+            <li>RTX 5080 / 5070 での画像生成（85%は実測でほぼ無風）</li>
+          </ul>
+        </div>
+        <div class="unfit">
+          <h4>100% のままが基本</h4>
+          <ul>
+            <li>RTX 5090 で画像生成AI（SDXL 標準設定）を重視（85%でも約24%低下）</li>
+            <li>ベンチマークスコアの最大化が目的</li>
+            <li>※とにかく熱を抑えたい日は下限（67〜70%）という選択肢もある——交換レートが割高になる点は§04のとおり</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="buyrow center" style="margin:24px 0 4px">
+      <a class="txtlink" href="https://hub.zotac.co.jp/catalogs/#gpu-rtx-5090">RTX 5090 のカタログ一覧 →</a>
+      <a class="txtlink" href="https://hub.zotac.co.jp/catalogs/#gpu-rtx-5080">RTX 5080 のカタログ一覧 →</a>
+      <a class="txtlink" href="https://hub.zotac.co.jp/catalogs/#gpu-rtx-5070">RTX 5070 のカタログ一覧 →</a>
+    </div>
+
+    <p>試し方は簡単です。NVIDIA App で Power Limit を<b>85%</b>へ。いつものゲームや制作ソフトをひととおり動かして、性能と消費電力・ファンの音を見比べます。合わなければスライダーを100%へ戻すだけ。RTX 5090 で画像生成を重視する方だけは、85%と100%を必ず実測で比較してください。<b>3分で始められる夏の自由研究</b>として、お手元のGPUでも「ちょうどいい点」を探してみてください。</p>
+    <p class="muted">今回の結果はベンチマークによる検証であり、実際のゲームやアプリケーションでの体感は用途・タイトルによって異なります。また消費電力や到達クロックはグラフィックスカードの個体によって差があります。数値の良し悪しを断定するものではなく、「夏のGPUにはこういう運用の選択肢がある」という参考としてご覧ください。</p>
+
+  </section>
+
+  <!-- ============ テスト環境・計測条件と全ベンチマーク結果 ============ -->
+  <section id="s10">
+    <span class="sec-no">10 / 付録</span>
+    <h2 class="sec">テスト環境・計測条件と全ベンチマーク結果</h2>
+
+    <table class="spec">
+      <tbody>
+        <tr><th>GeForce RTX 5090</th><td class="mono">ZOTAC GAMING GeForce RTX 5090 AMP Extreme INFINITY（ZT-B50900B-10P）<span class="muted">／ TGP 600W ／ 設定条件: 100% → 85% → 85%+自動OC → 67%</span></td></tr>
+        <tr><th>GeForce RTX 5080</th><td class="mono">ZOTAC GAMING GeForce RTX 5080 SOLID OC（ZT-B50800J-10P）<span class="muted">／ TGP 360W ／ 設定条件: 100% → 85% → 85%+自動OC → 70%</span></td></tr>
+        <tr><th>GeForce RTX 5070</th><td class="mono">ZOTAC GAMING GeForce RTX 5070 SOLID（ZT-B50700D-10P）<span class="muted">／ TGP 250W ／ 設定条件: 100% → 85% → 85%+自動OC → 70%</span></td></tr>
+        <tr><th>テストベンチ</th><td class="mono">AMD Ryzen 7 9800X3D（8C/16T）／ 32GB DDR5-6400（16GB×2）／ MSI MAG B850M MORTAR WIFI</td></tr>
+        <tr><th>OS / ドライバー</th><td class="mono">Windows 11 Pro 25H2（Build 26200）／ NVIDIA 610.62</td></tr>
+        <tr><th>ベンチマーク</th><td class="mono">3DMark Speed Way・Steel Nomad・Time Spy Extreme ／ Blender Benchmark 5.1.0（GPU）／ Cinebench 2026 GPU ／ ComfyUI SDXL 1024×1024・30ステップ（48枚）／ SDXL Hires.Fix 1024→1536（24枚）</td></tr>
+        <tr><th>設定ツール</th><td class="mono">NVIDIA App（システム → パフォーマンス → 電力最大%）／ 85%+自動OC 条件は同アプリの「自動チューニング」ON</td></tr>
+        <tr><th>計測方法</th><td class="mono">各テスト3回実行の中央値（SDXL系は1回）／ nvidia-smi 1秒間隔ログで負荷時平均電力（GPU使用率50%以上の区間平均）・最高温度・最大ファン回転を記録</td></tr>
+        <tr><th>計測日</th><td class="mono">2026-07-29 〜 08-01</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <b>計測の規約:</b>
+      ① Time Spy Extreme は総合スコアがCPU性能で薄まるため、<b>Graphics スコア</b>で比較。
+      ② SDXL系（秒/枚）は値が小さいほど高速。維持率は「100%時の速度を100とした性能維持率」。
+      ③ 最小設定は RTX 5090 のみ 67%（600W×0.67≒402W）、5080 / 5070 は 70%。
+      ④ 電力制限が正しく効いていることは、各条件の1秒ログ p95（サンプルの95%が収まる値）が設定値の±0.5%に一致することで確認。1秒より短い時間スケールの変動は未計測。
+      ⑤ グラフの黄色いバーは推奨設定「85%」、消費電力グラフの破線は「その設定で使える最大電力（上限）」。
+    </div>
+    <p>本文で扱った全データです。スコアは各3回計測の中央値（SDXL系は1回）、電力は nvidia-smi 1秒ログによる負荷時（GPU使用率50%以上）の平均です。</p>
+
+    <h3>GeForce RTX 5090（ZOTAC GAMING GeForce RTX 5090 AMP Extreme INFINITY / ZT-B50900B-10P）</h3>
+    <div class="datawrap"><table class="data">
+      <thead><tr><th>スコア</th><th>100%</th><th>85%</th><th>85%+自動OC</th><th>67%</th></tr></thead>
+      <tbody>
+        <tr><td>Speed Way</td><td class="mono">14,471</td><td class="mono">13,583</td><td class="mono">13,716</td><td class="mono">11,716</td></tr>
+        <tr><td>Steel Nomad</td><td class="mono">14,447</td><td class="mono">13,422</td><td class="mono">13,555</td><td class="mono">11,583</td></tr>
+        <tr><td>Time Spy Extreme Graphics</td><td class="mono">25,732</td><td class="mono">24,672</td><td class="mono">24,764</td><td class="mono">22,023</td></tr>
+        <tr><td>Blender GPU</td><td class="mono">16,569.9</td><td class="mono">16,545.7</td><td class="mono">16,675.2</td><td class="mono">16,316.2</td></tr>
+        <tr><td>Cinebench 2026 GPU</td><td class="mono">160,505</td><td class="mono">161,487</td><td class="mono">159,938</td><td class="mono">161,464</td></tr>
+        <tr><td>SDXL（秒/枚）</td><td class="mono">3.04</td><td class="mono">3.98</td><td class="mono">3.85</td><td class="mono">4.03</td></tr>
+        <tr><td>SDXL Hires.Fix（秒/枚）</td><td class="mono">10.16</td><td class="mono">11.08</td><td class="mono">11.09</td><td class="mono">12.09</td></tr>
+        </tbody>
+    </table></div>
+    <div class="datawrap"><table class="data">
+      <thead><tr><th>負荷時平均電力</th><th>100%</th><th>85%</th><th>85%+自動OC</th><th>67%</th></tr></thead>
+      <tbody>
+        <tr><td>Speed Way</td><td class="mono">594W</td><td class="mono">507W</td><td class="mono">508W</td><td class="mono">398W</td></tr>
+        <tr><td>Steel Nomad</td><td class="mono">595W</td><td class="mono">504W</td><td class="mono">505W</td><td class="mono">398W</td></tr>
+        <tr><td>Time Spy Extreme</td><td class="mono">572W</td><td class="mono">506W</td><td class="mono">506W</td><td class="mono">399W</td></tr>
+        <tr><td>Blender GPU</td><td class="mono">411W</td><td class="mono">407W</td><td class="mono">406W</td><td class="mono">378W</td></tr>
+        <tr><td>Cinebench 2026 GPU</td><td class="mono">318W</td><td class="mono">310W</td><td class="mono">308W</td><td class="mono">291W</td></tr>
+        <tr><td>SDXL</td><td class="mono">564W</td><td class="mono">454W</td><td class="mono">458W</td><td class="mono">362W</td></tr>
+        <tr><td>SDXL Hires.Fix</td><td class="mono">550W</td><td class="mono">474W</td><td class="mono">471W</td><td class="mono">382W</td></tr>
+        </tbody>
+    </table></div>
+    <h3>GeForce RTX 5080（ZOTAC GAMING GeForce RTX 5080 SOLID OC / ZT-B50800J-10P）</h3>
+    <div class="datawrap"><table class="data">
+      <thead><tr><th>スコア</th><th>100%</th><th>85%</th><th>85%+自動OC</th><th>70%</th></tr></thead>
+      <tbody>
+        <tr><td>Speed Way</td><td class="mono">8,997</td><td class="mono">8,678</td><td class="mono">8,734</td><td class="mono">7,991</td></tr>
+        <tr><td>Steel Nomad</td><td class="mono">8,608</td><td class="mono">8,223</td><td class="mono">8,268</td><td class="mono">7,550</td></tr>
+        <tr><td>Time Spy Extreme Graphics</td><td class="mono">16,325</td><td class="mono">15,925</td><td class="mono">15,972</td><td class="mono">14,926</td></tr>
+        <tr><td>Blender GPU</td><td class="mono">9,278.8</td><td class="mono">9,339.6</td><td class="mono">9,373.8</td><td class="mono">9,342.7</td></tr>
+        <tr><td>Cinebench 2026 GPU</td><td class="mono">110,634</td><td class="mono">110,614</td><td class="mono">111,331</td><td class="mono">109,291</td></tr>
+        <tr><td>SDXL（秒/枚）</td><td class="mono">6.04</td><td class="mono">6.04</td><td class="mono">6.04</td><td class="mono">6.04</td></tr>
+        <tr><td>SDXL Hires.Fix（秒/枚）</td><td class="mono">18.13</td><td class="mono">18.13</td><td class="mono">18.12</td><td class="mono">19.09</td></tr>
+        </tbody>
+    </table></div>
+    <div class="datawrap"><table class="data">
+      <thead><tr><th>負荷時平均電力</th><th>100%</th><th>85%</th><th>85%+自動OC</th><th>70%</th></tr></thead>
+      <tbody>
+        <tr><td>Speed Way</td><td class="mono">346W</td><td class="mono">304W</td><td class="mono">305W</td><td class="mono">251W</td></tr>
+        <tr><td>Steel Nomad</td><td class="mono">355W</td><td class="mono">304W</td><td class="mono">303W</td><td class="mono">249W</td></tr>
+        <tr><td>Time Spy Extreme</td><td class="mono">333W</td><td class="mono">302W</td><td class="mono">302W</td><td class="mono">250W</td></tr>
+        <tr><td>Blender GPU</td><td class="mono">198W</td><td class="mono">201W</td><td class="mono">202W</td><td class="mono">200W</td></tr>
+        <tr><td>Cinebench 2026 GPU</td><td class="mono">174W</td><td class="mono">178W</td><td class="mono">177W</td><td class="mono">175W</td></tr>
+        <tr><td>SDXL</td><td class="mono">269W</td><td class="mono">273W</td><td class="mono">275W</td><td class="mono">238W</td></tr>
+        <tr><td>SDXL Hires.Fix</td><td class="mono">287W</td><td class="mono">284W</td><td class="mono">286W</td><td class="mono">244W</td></tr>
+        </tbody>
+    </table></div>
+    <h3>GeForce RTX 5070（ZOTAC GAMING GeForce RTX 5070 SOLID / ZT-B50700D-10P）</h3>
+    <div class="datawrap"><table class="data">
+      <thead><tr><th>スコア</th><th>100%</th><th>85%</th><th>85%+自動OC</th><th>70%</th></tr></thead>
+      <tbody>
+        <tr><td>Speed Way</td><td class="mono">5,935</td><td class="mono">5,736</td><td class="mono">5,826</td><td class="mono">5,361</td></tr>
+        <tr><td>Steel Nomad</td><td class="mono">5,377</td><td class="mono">5,198</td><td class="mono">5,300</td><td class="mono">4,887</td></tr>
+        <tr><td>Time Spy Extreme Graphics</td><td class="mono">10,914</td><td class="mono">10,654</td><td class="mono">10,858</td><td class="mono">10,059</td></tr>
+        <tr><td>Blender GPU</td><td class="mono">6,067.4</td><td class="mono">6,070.8</td><td class="mono">6,118.9</td><td class="mono">6,066.9</td></tr>
+        <tr><td>Cinebench 2026 GPU</td><td class="mono">75,870</td><td class="mono">76,600</td><td class="mono">76,574</td><td class="mono">76,099</td></tr>
+        <tr><td>SDXL（秒/枚）</td><td class="mono">9.06</td><td class="mono">9.07</td><td class="mono">9.12</td><td class="mono">10.07</td></tr>
+        <tr><td>SDXL Hires.Fix（秒/枚）</td><td class="mono">27.47</td><td class="mono">28.43</td><td class="mono">28.51</td><td class="mono">29.19</td></tr>
+        </tbody>
+    </table></div>
+    <div class="datawrap"><table class="data">
+      <thead><tr><th>負荷時平均電力</th><th>100%</th><th>85%</th><th>85%+自動OC</th><th>70%</th></tr></thead>
+      <tbody>
+        <tr><td>Speed Way</td><td class="mono">246W</td><td class="mono">210W</td><td class="mono">211W</td><td class="mono">173W</td></tr>
+        <tr><td>Steel Nomad</td><td class="mono">249W</td><td class="mono">211W</td><td class="mono">210W</td><td class="mono">173W</td></tr>
+        <tr><td>Time Spy Extreme</td><td class="mono">241W</td><td class="mono">210W</td><td class="mono">210W</td><td class="mono">174W</td></tr>
+        <tr><td>Blender GPU</td><td class="mono">136W</td><td class="mono">135W</td><td class="mono">136W</td><td class="mono">135W</td></tr>
+        <tr><td>Cinebench 2026 GPU</td><td class="mono">124W</td><td class="mono">123W</td><td class="mono">126W</td><td class="mono">123W</td></tr>
+        <tr><td>SDXL</td><td class="mono">237W</td><td class="mono">205W</td><td class="mono">204W</td><td class="mono">169W</td></tr>
+        <tr><td>SDXL Hires.Fix</td><td class="mono">230W</td><td class="mono">201W</td><td class="mono">202W</td><td class="mono">172W</td></tr>
+        </tbody>
+    </table></div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq">
+    <span class="sec-no">FAQ</span>
+    <h2 class="sec">よくある質問</h2>
+    <details open>
+      <summary>Power Limit を下げるとどのくらい性能が落ちますか？</summary>
+      <div class="a">85%設定なら、GPUを使い切る 3DMark でも約2〜7%の低下でした（RTX 5090 / 5080 / 5070 実測）。Blender・Cinebench のような電力上限まで使わない処理は実測でほぼ0%です。下限の67〜70%まで絞ると3DMarkで約8〜20%低下します。</div>
+    </details>
+    <details>
+      <summary>設定は再起動後も維持されますか？</summary>
+      <div class="a">Power Limit（電力最大%）は再起動後に既定値（100%）へ戻っていることがあります。実際、今回の計測中にも発生しました。常用する場合は起動後に NVIDIA App で設定値を確認してください。いっぽう「自動チューニング」のトグルは再起動後も維持されるため、両方の状態を確認するのが確実です。</div>
+    </details>
+    <details>
+      <summary>どんな用途なら100%のままにすべきですか？</summary>
+      <div class="a">今回の実測では、RTX 5090 で画像生成AI（SDXL 標準設定）を重視する場合が該当します（85%でも約24%低下）。ベンチマークスコアの最大化が目的の場合も100%が基本です。逆に 3DMark の3テスト（-2〜7%）や Blender / Cinebench（低下ほぼ0%）に近い負荷が中心なら、85%のデメリットは小さいという結果でした。</div>
+    </details>
+    <details>
+      <summary>温度や消費電力はどのくらい下がりますか？</summary>
+      <div class="a">Steel Nomad 実行中の実測（負荷時平均）で、RTX 5090 は595W→398W（67%設定）・最高温度71→62℃。RTX 5080 は355W→249W・66→57℃、RTX 5070 は249W→173W・71→60℃でした。ファンの最大回転数も全カードで低下しています。</div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <p><b>GeForce RTX 5090 / 5080 / 5070 — Power Limit 省電力化 実測検証</b></p>
+    <div class="meta">
+      計測方法: 社内のベンチマーク自動化環境による実測（原則3回計測の中央値・SDXL系は1回）／ 電源プラン＝高パフォーマンス ／ 計測 2026-07-29〜08-01
+    </div>
+    <div class="disc">
+      ※ 掲載の値は本検証のテスト構成・ドライバ・計測環境での実測値であり、構成・環境・グラフィックスカードの個体により変動します。
+      Power Limit 等の設定変更やそれに起因するトラブルが保証対象となるかはメーカー・製品ごとに判断が異なります。設定変更は自己責任でお願いいたします。
+      &copy; ZOTAC NIPPON / 株式会社ゾタック日本
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  document.querySelectorAll('[data-carousel]').forEach(function(root){
+    var tabs=[].slice.call(root.querySelectorAll('.ctab'));
+    var panes=[].slice.call(root.querySelectorAll('.cpane'));
+    var idx=root.querySelector('.cidx'), prev=root.querySelector('[data-nav="prev"]'), next=root.querySelector('[data-nav="next"]');
+    var cur=0;
+    function show(i){
+      cur=Math.max(0,Math.min(i,panes.length-1));
+      tabs.forEach(function(t,k){t.setAttribute('aria-selected', k===cur?'true':'false');});
+      panes.forEach(function(p,k){p.classList.toggle('is-on', k===cur);});
+      if(idx) idx.innerHTML='<b>'+(cur+1)+'</b> / '+panes.length;
+      if(prev) prev.disabled = cur===0;
+      if(next) next.disabled = cur===panes.length-1;
+    }
+    tabs.forEach(function(t){t.addEventListener('click',function(){show(+t.dataset.i);});});
+    if(prev) prev.addEventListener('click',function(){show(cur-1);});
+    if(next) next.addEventListener('click',function(){show(cur+1);});
+    root.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'){show(cur+1);} else if(e.key==='ArrowLeft'){show(cur-1);}
+    });
+    show(0);
+  });
+})();
+</script>
+<!-- Mobile nav drawer toggle (hub 共通ヘッダー) -->
+<script>
+(function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!toggle || !nav) return;
+  function closeNav() {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'メニューを開く');
+  }
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeNav(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) { closeNav(); toggle.focus(); }
+  });
+})();
+</script>
+
+<!-- Image lightbox (click to enlarge in overlay; no new window) -->
+<script>
+(function(){
+  var imgs = document.querySelectorAll('main img');
+  if(!imgs.length) return;
+  var lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.setAttribute('role','dialog');
+  lb.setAttribute('aria-modal','true');
+  lb.innerHTML = '<button type="button" class="lb-close" aria-label="閉じる">&times;</button><img alt=""><figcaption></figcaption>';
+  document.body.appendChild(lb);
+  var lbImg = lb.querySelector('img');
+  var lbCap = lb.querySelector('figcaption');
+  function open(src, alt){
+    lbImg.src = src; lbImg.alt = alt || '';
+    if(alt){ lbCap.textContent = alt; lbCap.style.display = ''; } else { lbCap.style.display = 'none'; }
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.removeAttribute('src');
+  }
+  for(var i=0;i<imgs.length;i++){
+    (function(im){ im.addEventListener('click', function(){ open(im.currentSrc || im.src, im.getAttribute('alt')); }); })(imgs[i]);
+  }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && lb.classList.contains('open')) close(); });
+})();
+</script>
+</body>
+</html>
