@@ -82,13 +82,33 @@ jobs:
           source: ./
           destination: ./_site
       # 公開してはいけないものが成果物に混ざっていないかを、配信前に確認する。
+      # 失敗時に原因が分かるよう、判定の前に中身を必ず出す（ログは認証が無いと
+      # 外から読めないため、後から追えるようにしておく）。
       - name: 成果物の確認
         run: |
-          test ! -e _site/_partials || { echo "_partials が成果物に含まれている"; exit 1; }
-          test ! -e _site/_tools    || { echo "_tools が成果物に含まれている"; exit 1; }
-          test -f _site/CNAME       || { echo "CNAME が成果物に無い（独自ドメインが停止する）"; exit 1; }
-          test -f _site/sitemap.xml || { echo "sitemap.xml が成果物に無い"; exit 1; }
-          echo "OK: $(find _site -name '*.html' | wc -l) HTML / CNAME=$(cat _site/CNAME)"
+          echo "===== _site 直下 ====="
+          ls -la _site || { echo "_site が生成されていない"; exit 1; }
+          echo "===== 判定 ====="
+          fail=0
+          for p in _partials _tools; do
+            if [ -e "_site/$p" ]; then
+              echo "NG  $p が成果物に含まれている（非公開のはず）"; fail=1
+            else
+              echo "OK  $p は除外されている"
+            fi
+          done
+          for f in CNAME sitemap.xml index.html robots.txt; do
+            if [ -f "_site/$f" ]; then
+              echo "OK  $f あり"
+            else
+              echo "NG  $f が無い"; fail=1
+            fi
+          done
+          echo "----- 参考 -----"
+          echo "HTML 数        : $(find _site -name '*.html' | wc -l)"
+          echo "CNAME の内容   : $(cat _site/CNAME 2>/dev/null || echo '(無し)')"
+          echo "リポジトリ側の  : $(cat CNAME)"
+          exit $fail
       - uses: actions/upload-pages-artifact@v3
 
   deploy:
