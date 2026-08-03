@@ -103,10 +103,12 @@ jobs:
         run: |
           mkdir -p _site
           # "*" は dotfile に一致しないので .github/.gitignore 等は自動的に除外。
-          # 加えて "_" 始まり（_partials, _tools）と CNAME を除く。
+          # 加えて "_" 始まり（_partials, _tools）と、サイトの一部ではないものを除く。
+          # README.md はリポジトリの説明であってページではない（サイトのルートに
+          # 置く必要がなく、運用手順が閲覧できる状態にする理由もない）。
           for e in *; do
             case "$e" in
-              _*|CNAME|_site) continue ;;
+              _*|CNAME|README.md|_site) continue ;;
             esac
             cp -a -- "$e" _site/
           done
@@ -114,7 +116,7 @@ jobs:
       - name: 成果物を確認
         run: |
           fail=0
-          for p in _partials _tools .github .git CNAME; do
+          for p in _partials _tools .github .git CNAME README.md; do
             if [ -e "_site/$p" ]; then
               echo "::error::成果物に $p が含まれている（公開してはいけない）"; fail=1
             fi
