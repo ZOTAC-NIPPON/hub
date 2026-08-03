@@ -902,6 +902,15 @@ h2 {
   background: var(--brand-yellow); border-color: var(--brand-yellow); color: var(--text-dark);
 }
 
+/* ページ内アンカー（/catalogs/#gpu-rtx-5080 等）が sticky ヘッダーに隠れないようにする。
+   .site-header は position:sticky。実測の高さは PC(1440px)=73px / モバイル(<=1100px)=79px。
+   指定が無いとアンカー先が top:0 に着地し、グループ見出しが完全にヘッダーの下へ潜る。
+   96px は最大値79pxに余白17pxを足した値（PCでは余白23pxになるが実害なし）。
+   モバイルナビは position:absolute; top:100% なので、展開してもヘッダー自身の高さは増えない。
+   html 側に scroll-padding-top を置くことで、このページの全アンカーに一括で効く。
+   ※ヘッダーの高さを変えたらこの値も見直すこと（共通パーツの正本は ③ _partials/header.html）。 */
+html { scroll-padding-top: 96px; }
+
 .zindex-group { margin-top: 40px; }
 .zindex-group-head {
   display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
