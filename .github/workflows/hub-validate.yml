@@ -88,8 +88,14 @@ jobs:
       # ブランチ配信なので、そちらのビルド挙動を変えない方法を採る。
       - name: CNAME を成果物へ
         run: |
+          # jekyll-build-pages はコンテナ内で root として動くため、生成された
+          # _site はランナーのユーザーでは書き込めない（2026-08-03 に cp が
+          # exit 1 で失敗して判明）。所有権を移してから置く。
+          echo "before: $(ls -ld _site)"
+          sudo chown -R "$(id -u):$(id -g)" _site
+          echo "after : $(ls -ld _site)"
           cp CNAME _site/CNAME
-          echo "CNAME=$(cat _site/CNAME)"
+          echo "::notice::CNAME を成果物へ配置: $(cat _site/CNAME)"
       # 公開してはいけないものが成果物に混ざっていないかを、配信前に確認する。
       # 失敗時に原因が分かるよう、判定の前に中身を必ず出す（ログは認証が無いと
       # 外から読めないため、後から追えるようにしておく）。
