@@ -34,6 +34,13 @@ CASES = [
     ("大文字タグ", '<HTML LANG="ja"><HEAD><TITLE></TITLE></HEAD><BODY></BODY></HTML>', True),
     ("断片（partial。title を持たないのが正常）", '<style>a{}</style>\n<header>x</header>', False),
     ("断片に mso 追記", '<style>a{}</style>\n' + MSO_BLOCK, True),
+    # 偽陽性の負例（2026-08-03 に実際に発生）。marker 名を平文で書いただけの
+    # 文書や、検査ツール自身のソースを汚染と判定してはいけない。
+    ("marker 名を平文で説明している文書",
+     CLEAN.replace("<body>", "<body><p>mso:CustomDocumentProperties や xmlns:mso= が入る</p>"), False),
+    # <head> を持たない描画補助 HTML。title が無いのが正常で、SharePoint 障害とは無関係。
+    ("head を持たない canvas ラッパ",
+     '<!DOCTYPE html><html><body style="margin:0"><canvas id="c"></canvas></body></html>', False),
 ]
 
 ALLOWLIST_CASES = [
