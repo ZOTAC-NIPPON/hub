@@ -61,7 +61,9 @@ from hublib import is_deploy_only as _is_deploy_only   # 見つからなけれ�
 # ── HTML 以外で収録したい URL（明示のみ）──────────────────────────────
 # パスは SITE からの相対。存在しないものは警告して落とす（404 を sitemap に載せない）。
 EXTRA_URLS = [
-    ("pdfs/ZOTAC_Enterprise_Catalog_MAY_2026.pdf", "2026-06-16"),
+    # 2026-08-03 エンタープライズの公開を一時取りやめのため sitemap から除外。
+    # 再開時はこの行のコメントを外す（ファイル自体は残してある）。
+    # ("pdfs/ZOTAC_Enterprise_Catalog_MAY_2026.pdf", "2026-06-16"),
 ]
 
 # ── lastmod を固定したい URL パス（"/reviews/" 形式）→ 日付 ──────────
