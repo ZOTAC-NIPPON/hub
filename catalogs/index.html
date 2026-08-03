@@ -37,7 +37,7 @@
   "name": "ZBOX 製品カタログ インデックス",
   "description": "ZOTAC ZBOX 各モデルの製品カタログページ一覧。用途・型番・GPU から検索できます。",
   "url": "https://hub.zotac.co.jp/catalogs/",
-  "numberOfItems": 13,
+  "numberOfItems": 16,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -167,6 +167,36 @@
         "name": "ZOTAC ZBOX PRO S35N150P",
         "url": "https://hub.zotac.co.jp/catalogs/zbox/s35n150p/",
         "description": "Intel N150 · ファンレス（パッシブ冷却）"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "item": {
+        "@type": "Thing",
+        "name": "ZOTAC GPU Workstation W511Z-1P6E",
+        "url": "https://hub.zotac.co.jp/catalogs/enterprise/w511z-1p6e/",
+        "description": "Intel Xeon W（Sapphire Rapids）· DDR5 8 DIMM · PCIe Gen5 ×7 / RTX PRO 6000・4500"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "item": {
+        "@type": "Thing",
+        "name": "ZOTAC BOLT Workstation 510G-IX1P7E",
+        "url": "https://hub.zotac.co.jp/catalogs/enterprise/510g-ix1p7e/",
+        "description": "Intel Xeon W-3300 · DDR4 8 DIMM · PCIe Gen4 ×7 / 最大3 GPU"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "item": {
+        "@type": "Thing",
+        "name": "ZOTAC BOLT Workstation 511A-IX1P7E",
+        "url": "https://hub.zotac.co.jp/catalogs/enterprise/511a-ix1p7e/",
+        "description": "Intel Xeon W-3300 · DDR4 8 DIMM · PCIe Gen4 ×7 / Dual 10GbE"
       }
     }
   ]
@@ -1643,10 +1673,7 @@ html { scroll-padding-top: 96px; }
       </article>
 
       <!-- 5. ZOTAC Enterprise 総合カタログ(ワークステーション・ラックサーバー / 日本語) -->
-      <!-- 2026-08-03 エンタープライズの公開を一時取りやめ。総合カタログPDFの導線も停止。
-     再開時はこのコメントを外し、gen-sitemap.py の EXTRA_URLS も戻すこと。 -->
-        <!--
-<article class="catalog-thumb type-enterprise">
+      <article class="catalog-thumb type-enterprise">
         <div class="catalog-cover">
           <img src="../pdfs/covers/enterprise_catalog_cover.jpg" alt="ZOTAC Enterprise ワークステーション・サーバー総合カタログ表紙" loading="lazy">
           <span class="catalog-label">総合</span>
@@ -1660,7 +1687,6 @@ html { scroll-padding-top: 96px; }
           </a>
         </div>
       </article>
-        -->
 
     </div>
 
@@ -1926,11 +1952,7 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- 2026-08-03 エンタープライズの公開を一時取りやめ（ユーザー決定）。
-     ページ自体は残し noindex 化。再開するときはこのコメントを外すだけでよい。
-     あわせて上部 JSON-LD の ItemList からも該当3件を除いている。 -->
-      <!--
-<div class="zindex-group" data-use="workstation">
+      <div class="zindex-group" data-use="workstation">
         <div class="zindex-group-head">
           <h3>GPU ワークステーション（タワー型）</h3>
           <span class="zindex-group-note">NVIDIA RTX PRO 搭載タワー — Xeon W・マルチ GPU・AI 推論／HPC</span>
@@ -1963,7 +1985,6 @@ html { scroll-padding-top: 96px; }
           </a>
         </div>
       </div>
-      -->
 
       <!-- グラフィックスカード(GeForce RTX 50 — GPUチップ別に枠分割。上位→下位／掲載製品のあるGPUのみ表示。ZBOX・WSの後) -->
       <div class="zindex-cat" data-use="graphics" id="gpu">
