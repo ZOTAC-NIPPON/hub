@@ -89,10 +89,13 @@ jobs:
           echo "===== _site 直下 ====="
           ls -la _site || { echo "_site が生成されていない"; exit 1; }
           echo "===== 判定 ====="
+          # 判定結果は ::error:: / ::notice:: でも出す。Actions のログ本体は
+          # 認証が無いと外部から読めないが、注釈は public API で取得できるため、
+          # 失敗原因をブラウザを開かずに追える。
           fail=0
           for p in _partials _tools; do
             if [ -e "_site/$p" ]; then
-              echo "NG  $p が成果物に含まれている（非公開のはず）"; fail=1
+              echo "::error::成果物に $p が含まれている（非公開のはず）"; fail=1
             else
               echo "OK  $p は除外されている"
             fi
@@ -101,13 +104,10 @@ jobs:
             if [ -f "_site/$f" ]; then
               echo "OK  $f あり"
             else
-              echo "NG  $f が無い"; fail=1
+              echo "::error::成果物に $f が無い"; fail=1
             fi
           done
-          echo "----- 参考 -----"
-          echo "HTML 数        : $(find _site -name '*.html' | wc -l)"
-          echo "CNAME の内容   : $(cat _site/CNAME 2>/dev/null || echo '(無し)')"
-          echo "リポジトリ側の  : $(cat CNAME)"
+          echo "::notice::_site 直下= $(ls _site | tr '\n' ' ') / HTML $(find _site -name '*.html' | wc -l) 件 / CNAME=$(cat _site/CNAME 2>/dev/null || echo 'なし')"
           exit $fail
       - uses: actions/upload-pages-artifact@v3
 
