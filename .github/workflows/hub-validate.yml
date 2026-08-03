@@ -81,6 +81,15 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      # Jekyll ビルダーは CNAME を成果物へ入れない（2026-08-03 の実行で確認。
+      # `_site` 直下に CNAME が無かった）。Actions 配信では成果物に CNAME が
+      # 無いと独自ドメインの設定が外れうるため、明示的に置く。
+      # `_config.yml` の include で対応する手もあるが、現在の本番はまだ
+      # ブランチ配信なので、そちらのビルド挙動を変えない方法を採る。
+      - name: CNAME を成果物へ
+        run: |
+          cp CNAME _site/CNAME
+          echo "CNAME=$(cat _site/CNAME)"
       # 公開してはいけないものが成果物に混ざっていないかを、配信前に確認する。
       # 失敗時に原因が分かるよう、判定の前に中身を必ず出す（ログは認証が無いと
       # 外から読めないため、後から追えるようにしておく）。
