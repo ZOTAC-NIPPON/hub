@@ -350,10 +350,14 @@
   .chart .takeaway{font-size:13.5px;font-weight:700;color:#3c3f41;margin:4px 0 0;padding-left:10px;border-left:3px solid var(--yellow)}
 </style>
 </head>
-<!-- 本記事は3製品を横断する特集で単一製品ページではないため、data-inquiry-* は付けない。
+<!-- 本記事は3製品を横断する特集で単一製品ページではないため data-inquiry-* は付けない。
      付けるとヘッダーCTAが実在しない型番 POWERLIMIT-RTX50 を問い合わせ対象として送ってしまう
-     （inject.py の型番検証パターンは通過してしまうため弾かれない）。属性なし＝from のみ渡る。
-     テーマ記事の先例＝ index/reviews/meganex8kmk2（素の <body>
+     （inject.py の型番検証パターンを通過してしまい弾かれない）。属性なし＝from のみ渡る。
+     テーマ記事の先例＝ index/reviews/meganex8kmk2。
+     ※このコメントに body の開始タグを文字列で書かないこと。inject.py が
+       正規表現でそれを本物と誤認し、コメント内へヘッダーを注入して
+       コメントを破壊する（2026-08-03 に実際に発生・本番へ流出）。 -->
+<body>
 <!-- @partial:header START — 編集は _partials/header.html、反映は python _partials/inject.py -->
 <style>
 /* === ZOTAC hub 共通ヘッダー（自己完結・単一ソース）=======================
@@ -430,8 +434,7 @@
   });
 })();
 </script>
-<!-- @partial:header END -->）。2026-08-03 Codex 指摘で是正。 -->
-<body>
+<!-- @partial:header END -->
 
 
 <main class="wrap">
