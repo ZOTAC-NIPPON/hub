@@ -19,7 +19,10 @@ import hublib  # noqa: E402
 
 # 消えたら公開が壊れるファイル（消失＝即座に実害）
 REQUIRED = {
-    "CNAME": "hub.zotac.co.jp",          # 消えると独自ドメインが停止
+    # 独自ドメインの正本は「リポジトリ設定の Custom domain」であって
+    # このファイルではない（Actions 配信では成果物の CNAME は無視される）。
+    # ブランチ配信へ戻す場合の記録として保持する。
+    "CNAME": "hub.zotac.co.jp",
     "robots.txt": None,
     "favicon.ico": None,
     "google2a4e44ce4ec33d4a.html": None,  # 消えると Search Console の認証が外れる

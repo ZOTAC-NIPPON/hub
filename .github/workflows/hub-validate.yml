@@ -70,61 +70,67 @@ jobs:
   build:
     # 検査を通らなければビルドしない＝公開物が作られない。
     needs: hub-validate
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    # PR や作業ブランチでも成果物を検証する。ここを main 限定にしていたため、
+    # 直すたびに main で試すしかなく、3 回続けて main の実行を赤くした。
+    # 公開の制限は deploy job 側だけに置く。
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      # 従来と同じ Jekyll ビルド。_partials/ _tools/ など "_" 始まりが成果物から
-      # 除外される挙動は、これに依存している（本番で 404 になることを確認済み）。
-      - uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
-      # Jekyll ビルダーは CNAME を成果物へ入れない（2026-08-03 の実行で確認。
-      # `_site` 直下に CNAME が無かった）。Actions 配信では成果物に CNAME が
-      # 無いと独自ドメインの設定が外れうるため、明示的に置く。
-      # `_config.yml` の include で対応する手もあるが、現在の本番はまだ
-      # ブランチ配信なので、そちらのビルド挙動を変えない方法を採る。
-      - name: CNAME を成果物へ
+
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      # 独自ドメインの正本は「リポジトリ設定の Custom domain」であって、
+      # 成果物の CNAME ファイルではない。GitHub は Actions 配信について
+      # "any CNAME file is ignored and is not required" と明記している。
+      # そこで成果物ではなく設定そのものを配信前に確認する。
+      - name: Pages の独自ドメイン設定を確認
+        env:
+          PAGES_HOST: ${{ steps.pages.outputs.host }}
         run: |
-          # jekyll-build-pages はコンテナ内で root として動くため、生成された
-          # _site はランナーのユーザーでは書き込めない（2026-08-03 に cp が
-          # exit 1 で失敗して判明）。所有権を移してから置く。
-          echo "before: $(ls -ld _site)"
-          sudo chown -R "$(id -u):$(id -g)" _site
-          echo "after : $(ls -ld _site)"
-          cp CNAME _site/CNAME
-          echo "::notice::CNAME を成果物へ配置: $(cat _site/CNAME)"
-      # 公開してはいけないものが成果物に混ざっていないかを、配信前に確認する。
-      # 失敗時に原因が分かるよう、判定の前に中身を必ず出す（ログは認証が無いと
-      # 外から読めないため、後から追えるようにしておく）。
-      - name: 成果物の確認
+          echo "::notice::Pages host = ${PAGES_HOST:-（空）}"
+          if [ "$PAGES_HOST" != "hub.zotac.co.jp" ]; then
+            echo "::error::Pages の Custom domain が想定外です: ${PAGES_HOST:-（空）}"
+            exit 1
+          fi
+
+      # Jekyll は使わない。テンプレート機能（front matter / Liquid）を一切
+      # 使っておらず、"_ 始まりを除外する" という一点のためだけに Ruby・gem・
+      # Docker action へ依存していた。その依存が今回の失敗の原因でもある
+      # （成果物が root 所有で書き込めない／CNAME が入らない）。
+      # 除外規則は Jekyll の慣習に任せず、ここで明示する。
+      - name: 公開成果物を作成
         run: |
-          echo "===== _site 直下 ====="
-          ls -la _site || { echo "_site が生成されていない"; exit 1; }
-          echo "===== 判定 ====="
-          # 判定結果は ::error:: / ::notice:: でも出す。Actions のログ本体は
-          # 認証が無いと外部から読めないが、注釈は public API で取得できるため、
-          # 失敗原因をブラウザを開かずに追える。
+          mkdir -p _site
+          # "*" は dotfile に一致しないので .github/.gitignore 等は自動的に除外。
+          # 加えて "_" 始まり（_partials, _tools）と CNAME を除く。
+          for e in *; do
+            case "$e" in
+              _*|CNAME|_site) continue ;;
+            esac
+            cp -a -- "$e" _site/
+          done
+
+      - name: 成果物を確認
+        run: |
           fail=0
-          for p in _partials _tools; do
+          for p in _partials _tools .github .git CNAME; do
             if [ -e "_site/$p" ]; then
-              echo "::error::成果物に $p が含まれている（非公開のはず）"; fail=1
-            else
-              echo "OK  $p は除外されている"
+              echo "::error::成果物に $p が含まれている（公開してはいけない）"; fail=1
             fi
           done
-          for f in CNAME sitemap.xml index.html robots.txt; do
-            if [ -f "_site/$f" ]; then
-              echo "OK  $f あり"
-            else
+          for f in index.html sitemap.xml robots.txt favicon.ico google2a4e44ce4ec33d4a.html; do
+            if [ ! -f "_site/$f" ]; then
               echo "::error::成果物に $f が無い"; fail=1
             fi
           done
-          echo "::notice::_site 直下= $(ls _site | tr '\n' ' ') / HTML $(find _site -name '*.html' | wc -l) 件 / CNAME=$(cat _site/CNAME 2>/dev/null || echo 'なし')"
-          exit $fail
+          echo "::notice::_site 直下= $(ls _site | tr '\n' ' ')"
+          echo "::notice::HTML= $(find _site -type f -name '*.html' | wc -l) 件"
+          exit "$fail"
+
       - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
 
   deploy:
     needs: build
