@@ -6,10 +6,9 @@ Single source of truth for:
   - the "published scope" file walk (excludes "_" / "." path segments)
   - path resolution for (2') index and (3) deploy repo, on Windows and macOS
 
-Used by check-hub-drift.py (full-tree audit) and pre-commit-hub.py (staged
-guard). Replaces the Windows/pwsh-only check-hub-drift.ps1 + pre-commit-hub.ps1
-so that one implementation covers both machines -- keeping the allowlist in a
-single place, per HUB.md sec.2.
+Used by pre-commit-hub.py (staged guard), check-contamination.py,
+check-invariants.py, gen-sitemap.py, inject.py and hub.py -- the allowlist and
+the scan scope live here only, per HUB.md sec.2.
 """
 
 import hashlib
@@ -243,6 +242,12 @@ MSO_MARKERS = (
     "xmlns:mso=",
     "xmlns:msdt=",
 )
+# 平文で marker 名を書いただけのファイル（この件を説明する文書や検査ツール自身）を
+# 汚染と誤判定しないため、実際の構文として現れる場合だけを拾う:
+#   - 条件付きコメントのブロック
+#   - タグの属性としての xmlns:mso / xmlns:msdt
+_MSO_BLOCK_RE = re.compile(r"<!--\[if\s+gte\s+mso\s+9\]>", re.I)
+_MSO_ATTR_RE = re.compile(r"<[a-z][^>]*\sxmlns:(?:mso|msdt)\s*=", re.I)
 _TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)
 # "<head" alone also matches "<header", which every page has -- require the tag
 # to actually end there.
@@ -256,19 +261,20 @@ def contamination(text):
     Text-level only, so it works on a staged git blob as well as a file.
     """
     problems = []
-    low = text.lower()
-    if any(m.lower() in low for m in MSO_MARKERS):
+    if _MSO_BLOCK_RE.search(text) or _MSO_ATTR_RE.search(text):
         problems.append("SharePoint mso metadata")
-    # A full document is any <html ...> tag, whatever its attributes or case --
-    # matching the literal '<html lang=' would skip <html>, <HTML lang=..> and
-    # any page whose attribute order differs.
-    if _HTML_RE.search(text):
+
+    # <title> を問うのは <head> を持つページだけ。<html><body> 直結の描画補助
+    # HTML（canvas ラッパ等）はタイトルを持たないのが正常で、SharePoint 障害とは
+    # 無関係。ここを区別しないと別問題を汚染として数えてしまう。
+    heads = len(_HEAD_RE.findall(text))
+    if _HTML_RE.search(text) and heads:
         m = _TITLE_RE.search(text)
         if m is None:
             problems.append("no <title>")
         elif not m.group(1).strip():
             problems.append("empty <title>")
-        if len(_HEAD_RE.findall(text)) > 1:
+        if heads > 1:
             problems.append("duplicate <head> (a contaminated partial was inlined)")
     return problems
 

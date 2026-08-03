@@ -11,8 +11,8 @@ counterpart, but never from the content checks.
 Content is NOT compared byte-for-byte against (2') any more -- see the comment
 in main(). (3) is a derived artifact, not a mirror.
 
-Unlike check-hub-drift.py (full-tree audit), this only inspects STAGED changes,
-so unrelated work-in-progress in (2') never blocks a commit.
+Only STAGED changes are inspected, so unrelated work-in-progress in (2') never
+blocks a commit.
 
 What is compared is the STAGED BLOB, not the working-tree file: `git add`ing a
 bad version and then restoring the working tree would otherwise slip through

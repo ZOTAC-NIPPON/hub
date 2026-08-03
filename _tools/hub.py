@@ -382,6 +382,14 @@ def cmd_publish(args):
             print("     ※ 未保存の変更があるため自動では取得できません。報告してください。")
         return 1
 
+    # 取り込みを publish に内包する。手コピーの余地を残すと、規約でしか
+    # 「import が唯一の経路」を担保できない（Codex 指摘）。経路が 1 本になれば
+    # ②'↔③ のずれ自体が起きにくくなり、drift 検査を持つ必要がなくなる。
+    if args.paths:
+        if cmd_import(argparse.Namespace(paths=args.paths, json=False,
+                                         verbose=args.verbose)) != 0:
+            return 1
+
     hr("共通パーツと sitemap を反映")
     for rel in (["_partials/inject.py"], ["_tools/gen-sitemap.py"]):
         ok, out = run_script(rel)
@@ -544,7 +552,7 @@ MENU = [
 
 
 def menu():
-    ns = argparse.Namespace(json=False, yes=False, message=None)
+    ns = argparse.Namespace(json=False, yes=False, message=None, verbose=False, paths=None)
     print("=" * 60)
     print("  hub.zotac.co.jp  取得・検査・公開ツール")
     print("=" * 60)
@@ -595,15 +603,17 @@ def main():
         p.add_argument("--json", action="store_true", help="機械可読な出力")
         p.set_defaults(func=fn)
         if name == "publish":
+            p.add_argument("paths", nargs="*", help="②' index/ から取り込むパス（省略可）")
             p.add_argument("--yes", action="store_true", help="確認を省略")
             p.add_argument("-m", "--message", help="変更内容の説明")
+            p.add_argument("-v", "--verbose", action="store_true", help="取り込みを1件ずつ表示")
         if name == "import":
             p.add_argument("paths", nargs="+", help="②' index/ からの相対パス")
             p.add_argument("-v", "--verbose", action="store_true", help="1件ずつ表示")
     args = ap.parse_args()
     if not args.cmd:
         return menu()
-    for a, default in (("yes", False), ("message", None), ("verbose", False)):
+    for a, default in (("yes", False), ("message", None), ("verbose", False), ("paths", None)):
         if not hasattr(args, a):
             setattr(args, a, default)
     return args.func(args)
