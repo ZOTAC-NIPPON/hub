@@ -11,6 +11,7 @@ AI エージェントから叩くときはサブコマンド（+ 任意で --jso
   python3 _tools/hub.py sync         # GitHub から最新を取得
   python3 _tools/hub.py check        # 検査だけ（何も書き換えない）
   python3 _tools/hub.py publish [パス]  # 取り込み → 反映 → 検査 → commit → push
+  python3 _tools/hub.py publish -n      # 上記のうち commit/push だけしない（確認用）
 
 終了コード: 0 = OK / 1 = 検査違反・作業未完了 / 2 = 環境エラー
 
@@ -415,6 +416,12 @@ def cmd_publish(args):
         print(f"\n  未送信の記録 {st['ahead']} 件:")
         print(git("log", "--oneline", f"-{st['ahead']}").stdout.rstrip())
 
+    if getattr(args, "dry_run", False):
+        print("\n  （--dry-run）ここで終了します。commit も push もしていません。")
+        print("      取り込みと反映は実行済みなので、作業ツリーには変更が残ります。")
+        print("      戻すには: git checkout -- . && git clean -fd")
+        return 0
+
     if not args.yes:
         print()
         try:
@@ -575,7 +582,7 @@ MENU = [
 
 def menu():
     ns = argparse.Namespace(json=False, yes=False, message=None, verbose=False,
-                            paths=None, delete=False)
+                            paths=None, delete=False, dry_run=False)
     print("=" * 60)
     print("  hub.zotac.co.jp  取得・検査・公開ツール")
     print("=" * 60)
@@ -632,6 +639,8 @@ def main():
             p.add_argument("--yes", action="store_true", help="確認を省略")
             p.add_argument("-m", "--message", help="変更内容の説明")
             p.add_argument("-v", "--verbose", action="store_true", help="取り込みを1件ずつ表示")
+            p.add_argument("-n", "--dry-run", action="store_true",
+                           help="検査と変更内容の確認まで。commit も push もしない")
         if name == "import":
             p.add_argument("paths", nargs="+", help="②' index/ からの相対パス")
             p.add_argument("-v", "--verbose", action="store_true", help="1件ずつ表示")
@@ -641,7 +650,7 @@ def main():
     if not args.cmd:
         return menu()
     for a, default in (("yes", False), ("message", None), ("verbose", False),
-                       ("paths", None), ("delete", False)):
+                       ("paths", None), ("delete", False), ("dry_run", False)):
         if not hasattr(args, a):
             setattr(args, a, default)
     return args.func(args)

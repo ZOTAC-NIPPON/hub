@@ -34,9 +34,9 @@ jobs:
   hub-validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
@@ -75,7 +75,7 @@ jobs:
     # 公開の制限は deploy job 側だけに置く。
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - id: pages
         uses: actions/configure-pages@v5
