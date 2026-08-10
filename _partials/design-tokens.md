@@ -1,6 +1,6 @@
 # design-tokens.md — 既定の配色・タイポグラフィ（正本）
 
-最終更新: 2026-07-02
+最終更新: 2026-08-09
 
 > **特に指定がない場合、`00_hub_zotac` 配下で作る HTML 成果物（レビュー・LP・企画書・カタログ・社内資料）は
 > この配色・タイポを既定とする。** 独自トーンを使うのは明示的な指定・意図があるときだけ
@@ -64,3 +64,20 @@
 - 製品カタログ／ブロシュアの**シリーズ差し色**（C `#00BEC7`／E `#FFE12B`／M `#71C79C`／Pico `#F77462`／
   PRO `#515152`、明色は `--accent`＋`--accent-ink` の2分割）は上書きレイヤー。正本は
   [`..\index\_brochure_poc\README.md`](../index/_brochure_poc/README.md) §2/§9。
+
+## 5. 配布ファイル `zotac-tokens.css`（他プロジェクトで使うとき）
+
+**値の配布は同ディレクトリの [`zotac-tokens.css`](zotac-tokens.css) で行う**（Version 1.0.0 / 2026-08-09）。
+§3 のコピペ用 `:root` は参照用として残すが、**プロジェクトへ持ち出すときは必ず CSS ファイルごと
+コピー（vendoring）**し、手写しをしない（手写しは値がドリフトする — 2026-08 に EdgeTech 文書群で
+`--bg-soft` の写し間違いが実際に発生）。
+
+- ルール: コピーは**編集禁止**。プロジェクト側CSSに色・フォント・角丸の生値を書かず `var()` で参照。
+- ズレ確認: `diff <コピー> ~/Developer/hub/_partials/zotac-tokens.css`（ヘッダに正本パスとVersionを記載済み
+  ＝コピーだけを見ても出自と版が辿れる）。
+- 値の変更は正本→Version更新→各コピー上書き、の順。
+- v1.0.0 は §3 に対し次を追加収録: `--yellow-hover`・ダーク面トークン一式・状態色（`--ok/--warn/--bad`・
+  LLMデモ由来、白地の本文テキストに使う場合はコントラスト確認）・`--radius`・`--shadow`・
+  フォントフォールバックに `'Hiragino Kaku Gothic ProN'`。
+- 既知のコピー: `~/Developer/edgetech-localai-demo/web/css/zotac-tokens.css`
+  （※LLMデモ本体の `style.css` は展示凍結のため既存の `:root` 直書きのまま。機械照合の結果 `--dark-panel` のみ独自値 `#232527`（エンジンルーム用の意図的な深め設定・凍結のため維持）、他は v1.0.0 と一致）
