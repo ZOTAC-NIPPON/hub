@@ -91,6 +91,12 @@ def nav_toggle_violations(root, tracked):
             out.append(
                 "ヘッダー要素が1個ずつでない "
                 f"(site-header/#site-nav/.nav-toggle = {counts}): {rel}")
+        # 生成器が partial をマーカー無しで焼き込むと、inject が別途マーカー範囲を
+        # 挿入し、ヘッダーの CSS/JS だけがページ内に二重で残る（GPU カタログ16ページ）。
+        # 見た目は正常なので、共通ヘッダー CSS の個数で検出する。
+        css = len(re.findall(r"=== ZOTAC hub 共通ヘッダー", s))
+        if css != 1:
+            out.append(f"共通ヘッダーの CSS が {css} 個ある（1 個であること）: {rel}")
     return out
 
 

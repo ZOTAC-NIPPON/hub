@@ -164,57 +164,6 @@
 })();
 </script>
 <!-- @partial:header END -->
-<style>
-/* === ZOTAC hub 共通ヘッダー（自己完結・単一ソース）=======================
-   正本はこのファイルだけ。ダーク／幅1100px。ページ側CSS(.wrap/.container)に
-   一切依存しないよう、ヘッダー専用CSSを同梱し色はリテラル固定。
-   反映: 手書きHTML = python _partials/inject.py ／ 生成HTML = build_*.py。
-   is-active は注入側がページ階層に応じて自動付与（ここでは付けない）。 */
-.site-header{position:sticky;top:0;z-index:100;background:#2A2D2F;border-bottom:3px solid #FFD400;padding:16px 0;line-height:1.5;}
-.site-header,.site-header *{box-sizing:border-box;}
-.site-header .site-header-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;}
-.site-header .site-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
-.site-header .site-logo img{height:22px;width:auto;}
-.site-header .logo-divider{color:#B1B3B6;font-family:'JetBrains Mono',monospace;font-weight:300;font-size:15px;}
-.site-header .logo-url{font-family:'JetBrains Mono',monospace;font-size:11px;color:#B1B3B6;letter-spacing:.05em;white-space:nowrap;}
-.site-header .logo-url .host-hub{color:#FFD400;font-weight:500;}
-.site-header .site-nav{display:flex;gap:20px;align-items:center;}
-.site-header .site-nav a{text-decoration:none;color:#fff;font-size:13px;font-weight:500;position:relative;padding:4px 0;display:inline-flex;align-items:center;gap:6px;border:none;}
-.site-header .site-nav a.is-active{color:#FFD400;}
-.site-header .site-nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#FFD400;transform:scaleX(0);transform-origin:left;transition:transform .2s;}
-.site-header .site-nav a:hover::after,.site-header .site-nav a.is-active::after{transform:scaleX(1);}
-.site-header .site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700;}
-.site-header .site-nav a.nav-cta:hover{background:#f2c800;}
-.site-header .site-nav a.nav-cta::after{display:none!important;}
-.site-header .nav-mobile{display:none;align-items:center;gap:12px;}
-.site-header .nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer;}
-.site-header .nav-toggle:hover{border-color:#FFD400;}
-.site-header .nav-toggle-bar{display:block;width:100%;height:2px;background:#fff;transition:transform .2s,opacity .2s;}
-.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0;}
-.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-@media (max-width:1100px){.site-header .site-nav{gap:15px;}}
-@media (max-width:900px){
-  .site-header .nav-mobile{display:flex;}
-  .site-header .site-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#2A2D2F;border-bottom:3px solid #FFD400;box-shadow:0 14px 28px rgba(0,0,0,.35);padding:6px 0;z-index:200;}
-  .site-header .site-nav.is-open{display:flex;}
-  .site-header .site-nav a{width:100%;padding:14px 24px;font-size:15px;}
-  .site-header .site-nav a+a{border-top:1px solid rgba(255,255,255,.08);}
-  .site-header .site-nav a::after{display:none;}
-}
-@media (max-width:600px){.site-header .logo-divider,.site-header .logo-url{display:none;}}
-</style>
-<script>
-(function(){
-  var hdr=document.querySelector('header.site-header'); if(!hdr) return;
-  var btn=hdr.querySelector('.nav-toggle'), nav=hdr.querySelector('#site-nav');
-  if(!btn||!nav||btn.dataset.bound) return; btn.dataset.bound='1';
-  btn.addEventListener('click',function(){
-    var open=nav.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded',open?'true':'false');
-  });
-})();
-</script>
 
 <div class="wrap">
   <div class="crumb"><a href="/">ホーム</a> ／ <a href="/catalogs/">カタログ</a> ／ <a href="/catalogs/#gpu-rtx-5090">GeForce RTX 5090</a> ／ <b>ZT-B50900B-10P</b></div>
