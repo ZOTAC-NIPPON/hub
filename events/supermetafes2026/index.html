@@ -1599,14 +1599,28 @@
   </div>
 </header>
 <script>
+/* モバイルナビの開閉。ページ側に同種のスクリプトを置かないこと
+   （同じボタンに2つ登録されると開閉が相殺して「押しても出ない」になる。2026-08-13 の事象）。 */
 (function(){
   var hdr=document.querySelector('header.site-header'); if(!hdr) return;
   var btn=hdr.querySelector('.nav-toggle'), nav=hdr.querySelector('#site-nav');
   if(!btn||!nav||btn.dataset.bound) return; btn.dataset.bound='1';
-  btn.addEventListener('click',function(){
-    var open=nav.classList.toggle('is-open');
+  function set(open){
+    nav.classList[open?'add':'remove']('is-open');
     btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
+  }
+  btn.addEventListener('click',function(){ set(!nav.classList.contains('is-open')); });
+  nav.addEventListener('click',function(e){ if(e.target.closest('a')) set(false); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&nav.classList.contains('is-open')){ set(false); btn.focus(); }
   });
+  /* ドロワー幅（max-width:900px）を外れたら開いた状態を畳む。
+     開いたまま横向きにするとデスクトップ表示へ戻った際に開きっぱなしになるため。 */
+  var mq=window.matchMedia('(max-width:900px)');
+  function onMq(e){ if(!e.matches) set(false); }
+  if(mq.addEventListener) mq.addEventListener('change',onMq);
+  else if(mq.addListener) mq.addListener(onMq);
 })();
 </script>
 <!-- @partial:header END -->

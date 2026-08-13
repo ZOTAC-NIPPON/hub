@@ -10,6 +10,7 @@
 終了コード: 0 = OK / 1 = 違反あり / 2 = 環境エラー
 """
 
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -53,6 +54,46 @@ def tracked_files(root):
         yield meta.split()[0], path          # (mode, path)
 
 
+def nav_toggle_violations(root, tracked):
+    """モバイルナビの開閉ハンドラが二重登録されていないかを見る。
+
+    2026-08-13 まで、共通ヘッダーとページ側の両方に同じ開閉スクリプトが
+    あり、1クリックで「開く→閉じる」が相殺してハンバーガーが無反応だった
+    （公開31ページ）。ページ側の実装には再登録ガードが無かったため、
+    partial 側のガードでは止まらなかった。
+
+    規則: `.nav-toggle` に click を登録するスクリプトは、必ず
+    `dataset.bound` の再登録ガードを持つこと。ヘッダーの構成要素は
+    1ページに1個ずつであること。
+    """
+    out = []
+    for _mode, rel in tracked:
+        if not rel.endswith(".html") or rel.startswith("_"):
+            continue
+        p = root / rel
+        if not p.is_file():
+            continue
+        s = p.read_text(encoding="utf-8", errors="replace")
+        if 'class="nav-toggle"' not in s:
+            continue
+        for m in re.finditer(r"<script\b[^>]*>(.*?)</script>", s, re.S):
+            body = m.group(1)
+            if ("nav-toggle" in body
+                    and re.search(r"addEventListener\(\s*['\"]click", body)
+                    and "dataset.bound" not in body):
+                out.append(f"再登録ガードの無いナビ開閉スクリプトがある: {rel}")
+        counts = (
+            len(re.findall(r'<header[^>]*class="[^"]*site-header', s)),
+            len(re.findall(r'id="site-nav"', s)),
+            len(re.findall(r'class="nav-toggle"', s)),
+        )
+        if counts != (1, 1, 1):
+            out.append(
+                "ヘッダー要素が1個ずつでない "
+                f"(site-header/#site-nav/.nav-toggle = {counts}): {rel}")
+    return out
+
+
 def main():
     hublib.use_utf8_stdout()
     root = hublib.hub_root()
@@ -90,6 +131,8 @@ def main():
     if (root / ".nojekyll").exists():
         errors.append(
             ".nojekyll があると Jekyll の除外が効かず _partials/ と _tools/ が公開される")
+
+    errors.extend(nav_toggle_violations(root, tracked))
 
     print(f"  追跡ファイル: {len(tracked)}")
     print()
