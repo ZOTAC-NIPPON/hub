@@ -37,7 +37,7 @@
   "name": "ZBOX 製品カタログ インデックス",
   "description": "ZOTAC ZBOX 各モデルの製品カタログページ一覧。用途・型番・GPU から検索できます。",
   "url": "https://hub.zotac.co.jp/catalogs/",
-  "numberOfItems": 16,
+  "numberOfItems": 18,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -197,6 +197,26 @@
         "name": "ZOTAC BOLT Workstation 511A-IX1P7E",
         "url": "https://hub.zotac.co.jp/catalogs/enterprise/511a-ix1p7e/",
         "description": "Intel Xeon W-3300 · DDR4 8 DIMM · PCIe Gen4 ×7 / Dual 10GbE"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "item": {
+        "@type": "Thing",
+        "name": "ZOTAC ZBOX edge MI676",
+        "url": "https://hub.zotac.co.jp/catalogs/zbox/mi676/",
+        "description": "Intel Core Ultra 7 255H · Intel ARC 140T · NPU内蔵 · 0.64L"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
+      "item": {
+        "@type": "Thing",
+        "name": "ZOTAC ZBOX edge MI656",
+        "url": "https://hub.zotac.co.jp/catalogs/zbox/mi656/",
+        "description": "Intel Core Ultra 5 225H · Intel ARC 130T · NPU内蔵 · 0.64L"
       }
     }
   ]
@@ -953,6 +973,7 @@ html { scroll-padding-top: 96px; }
 .zindex-group[data-use="workstation"] .zindex-row::before { background: #5B7C99; }
 .zindex-group[data-use="q"] .zindex-row::before { background: #3E5C76; }
 .zindex-group[data-use="compact"] .zindex-row::before { background: #00BEC7; }
+.zindex-group[data-use="m"] .zindex-row::before { background: #71C79C; }
 .zindex-group[data-use="graphics"] .zindex-row::before { background: var(--text-dark); }
 /* カテゴリ区切り: 完成PC(ミニPC/WS)と単体グラフィックスカード(部品)の境目を明示 */
 .zindex-cat { margin-top: 54px; padding-top: 20px; border-top: 3px solid var(--text-dark); }
@@ -1786,6 +1807,7 @@ html { scroll-padding-top: 96px; }
         <button type="button" class="zindex-chip" data-use="ai" aria-pressed="false">Ryzen AI MAX</button>
         <button type="button" class="zindex-chip" data-use="q" aria-pressed="false">Q シリーズ（小型WS）</button>
         <button type="button" class="zindex-chip" data-use="compact" aria-pressed="false">C シリーズ（コンパクト）</button>
+        <button type="button" class="zindex-chip" data-use="m" aria-pressed="false">M シリーズ（ミニPC）</button>
         <button type="button" class="zindex-chip" data-use="business" aria-pressed="false">法人・組み込み</button>
         <button type="button" class="zindex-chip" data-use="workstation" aria-pressed="false">GPU ワークステーション</button>
         <button type="button" class="zindex-chip" data-use="graphics" aria-pressed="false">グラフィックスカード</button>
@@ -1930,6 +1952,35 @@ html { scroll-padding-top: 96px; }
             <span class="zindex-main">
               <span class="zindex-name">ZBOX C SERIES<span class="zindex-tier">NPU・標準</span></span>
               <span class="zindex-spec">Core Ultra 5 225U · NPU内蔵 · ファンレス · 1.79L</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- ミニPC・オンデバイスAI(ZBOX edge / M シリーズ) -->
+      <div class="zindex-group" data-use="m">
+        <div class="zindex-group-head">
+          <h3>ZBOX edge — ミニPC・オンデバイス AI</h3>
+          <span class="zindex-group-note">Core Ultra H・Intel ARC・NPU 内蔵 — オフィス／サイネージ／4K デュアルディスプレイを 0.64L で</span>
+        </div>
+        <div class="zindex-list">
+
+          <a href="/catalogs/zbox/mi676/" class="zindex-row" data-use="m" data-search="mi676 zbox-mi676 zbox edge m series intel core ultra 7 255h intel arc 140t npu ai boost wi-fi 7 4k デュアルディスプレイ ミニpc 省スペース オフィス サイネージ 0.64l">
+            <span class="zindex-sku">edge MI676</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZBOX M SERIES<span class="zindex-tier">ARC 140T・上位</span></span>
+              <span class="zindex-spec">Core Ultra 7 255H · Intel ARC 140T · NPU内蔵 · 0.64L</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+
+          <a href="/catalogs/zbox/mi656/" class="zindex-row" data-use="m" data-search="mi656 zbox-mi656 zbox edge m series intel core ultra 5 225h intel arc 130t npu ai boost wi-fi 7 4k デュアルディスプレイ ミニpc 省スペース オフィス サイネージ 0.64l">
+            <span class="zindex-sku">edge MI656</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZBOX M SERIES<span class="zindex-tier">ARC 130T・標準</span></span>
+              <span class="zindex-spec">Core Ultra 5 225H · Intel ARC 130T · NPU内蔵 · 0.64L</span>
             </span>
             <span class="zindex-go">カタログページ →</span>
           </a>
