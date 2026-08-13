@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>ZOTAC ZBOX edge MI676 / MI656 ベンチマークレビュー（Core Ultra 7 255H / Core Ultra 5 225H）</title>
+<!-- @partial:analytics START — 編集は _partials/analytics.html、反映は python _partials/inject.py -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5X4CC48YH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N5X4CC48YH', { 'anonymize_ip': true });
+</script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wk7j63hn3o");
+</script>
+<!-- @partial:analytics END -->
+<meta name="description" content="小型PC「ZBOX edge MI676」（Core Ultra 7 255H / Arc 140T）と「ZBOX edge MI656」（Core Ultra 5 225H / Arc 130T）を同一条件で実測し、1本の記事で選び分けます。軽量3D・2時間連続動画再生は両機とも同等、差が出るのはCPUスループットのみ——7-Zip実測+11.4%の意味を、温度・電力ログとあわせて中立に検証します。">
+<link rel="canonical" href="https://hub.zotac.co.jp/reviews/edge-mi676-mi656/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+
+<!-- OGP -->
+<meta property="og:title" content="ZOTAC ZBOX edge MI676 / MI656 ベンチマークレビュー（Core Ultra 7 255H / Core Ultra 5 225H）">
+<meta property="og:description" content="兄弟機2台を同一条件で実測。軽量3D・動画再生は同等、差はCPUスループットの+11.4%だけ——実測で答えを出す選び分けレビュー。">
+<meta property="og:image" content="https://hub.zotac.co.jp/reviews/edge-mi676-mi656/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hub.zotac.co.jp/reviews/edge-mi676-mi656/">
+<meta property="og:site_name" content="ZOTAC NIPPON">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://zotac.co.jp/#organization",
+      "name": "ZOTAC NIPPON",
+      "alternateName": [
+        "株式会社ゾタック日本",
+        "ZOTAC Japan"
+      ],
+      "legalName": "ZOTAC Nippon Co., Ltd.",
+      "url": "https://zotac.co.jp/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://hub.zotac.co.jp/assets/zotac_logo.svg",
+        "width": 600,
+        "height": 60
+      },
+      "sameAs": [
+        "https://www.zotac.com/jp/",
+        "https://x.com/ZOTAC_JAPAN",
+        "https://www.youtube.com/@ZOTACJAPAN"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hub.zotac.co.jp/#website",
+      "url": "https://hub.zotac.co.jp/",
+      "name": "ZOTAC NIPPON HUB",
+      "publisher": {
+        "@id": "https://zotac.co.jp/#organization"
+      },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": [
+        "Article",
+        "TechArticle"
+      ],
+      "@id": "https://hub.zotac.co.jp/reviews/edge-mi676-mi656/#article",
+      "headline": "ZOTAC ZBOX edge MI676 / MI656 ベンチマークレビュー（Core Ultra 7 255H / Core Ultra 5 225H）",
+      "alternativeHeadline": "差が出たのはCPUスループットだけ — 兄弟機2台の同一条件実測で答えを出す選び分けレビュー",
+      "description": "ZBOX edge MI676（Core Ultra 7 255H / Arc 140T）と MI656（Core Ultra 5 225H / Arc 130T）を同一の自動化環境・同一ドライバーで実測。3DMark Night Raid・7-Zip・CrystalMark Retro・CrystalDiskMark・VLC 2時間連続再生と温度ログにもとづく2機併載レビュー。",
+      "image": "https://hub.zotac.co.jp/reviews/edge-mi676-mi656/ogp.jpg",
+      "datePublished": "2026-08-14",
+      "dateModified": "2026-08-14",
+      "author": {
+        "@id": "https://zotac.co.jp/#organization"
+      },
+      "publisher": {
+        "@id": "https://zotac.co.jp/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://hub.zotac.co.jp/reviews/edge-mi676-mi656/"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "ZOTAC ZBOX edge MI676"
+        },
+        {
+          "@type": "Thing",
+          "name": "ZOTAC ZBOX edge MI656"
+        }
+      ],
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://hub.zotac.co.jp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Reviews",
+          "item": "https://hub.zotac.co.jp/reviews/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ZBOX edge MI676 / MI656 ベンチマークレビュー"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "MI676 と MI656、結局どちらを選べばよい？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "実測では、軽量3D（Night Raid）と1080p動画の2時間連続再生は両機とも同等でした。差が出たのはCPUスループットのみで、7-Zip 実測で MI676 が +11.4% 上回ります。表示・再生・軽量3Dが主体なら MI656 で足り、圧縮・変換・多重処理など CPU スループットが効く現場では MI676 が適します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "内蔵GPU（Arc 140T と 130T）の差はある？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "カタログ上は Arc 140T が上位のため差を想定して計測しましたが、3DMark Night Raid を3回計測しても MI676（Arc 140T）26,729、MI656（Arc 130T）26,778 と差は0.2%未満にとどまり、明確な差は得られませんでした。少なくともこの軽量3Dの負荷帯では2機を同等とみなして選定できます。ただし計測したGPU系テストは Night Raid と動画再生のみで、より重い3D負荷やGPU演算・AI処理での差は検証していません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "動画を流し続ける用途（サイネージ等）に使える？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1080p ループ再生の120分連続実測を両機で行い、いずれも完走を確認しました。ハードウェアデコード（D3D11VA）が有効で、再生中の CPU 負荷は1%未満・電力10W台・温度は中央値45〜47°Cでした。なお本実測は120分間の再生継続の確認であり、フレーム落ちゼロや24時間365日運用を保証するものではありません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "メモリーとストレージは付属する？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "両機ともベアボーン仕様のため、メモリー（SO-DIMM DDR5）とストレージ（M.2 NVMe SSD）は別売です。本レビューは両機とも DDR5-5600 16GB×2（計32GB・デュアルチャネル）で計測しています。内蔵GPU性能はメモリー帯域の影響を受けるため、デュアルチャネル構成を推奨します。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --yellow:#FFD400;
+    --yellow-soft:rgba(255,212,0,.14);
+    --dark:#2A2D2F;
+    --ink:#2A2D2F;
+    --ink-mid:#6D6E71;
+    --ink-light:#9A9C9E;
+    --bg:#FFFFFF;
+    --bg-subtle:#FAFAFA;
+    --bg-soft:#F4F4F3;
+    --line:#E6E6E4;
+    --line-strong:#C9CACB;
+    --font:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+    --max:780px;
+    --pad:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit}
+
+  /* ===== Site Header (hub.zotac.co.jp 共通ヘッダー / 正本) ===== */
+  .site-header{position:sticky;top:0;z-index:200;background:#2A2D2F;border-bottom:3px solid #FFD400;padding:16px 0;line-height:1.55}
+  .site-header-inner{max-width:1200px;margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+  @media (max-width:700px){.site-header-inner{padding:0 24px}}
+  .site-logo{display:flex;align-items:center;gap:16px;text-decoration:none;border:none}
+  .site-logo img{height:22px;width:auto;display:block}
+  .logo-divider{color:#B1B3B6;font-family:'JetBrains Mono',monospace;font-weight:300;font-size:16px}
+  .logo-url{font-family:'JetBrains Mono',monospace;font-size:12px;color:#B1B3B6;letter-spacing:.05em}
+  .logo-url .host-hub{color:#FFD400;font-weight:500}
+  .site-nav{display:flex;gap:22px;align-items:center}
+  .site-nav a{text-decoration:none;color:#fff;font-size:13px;font-weight:500;position:relative;padding:4px 0;display:inline-flex;align-items:center;gap:6px;border:none}
+  .site-nav a.is-active{color:#FFD400}
+  .site-nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#FFD400;transform:scaleX(0);transform-origin:left;transition:transform .2s}
+  .site-nav a:hover::after,.site-nav a.is-active::after{transform:scaleX(1)}
+  @media (max-width:1100px){.site-nav{gap:16px}}
+  @media (max-width:1000px){.site-nav a{font-size:12px}}
+  .nav-mobile{display:none;align-items:center;gap:12px}
+  .nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer}
+  .nav-toggle:hover{border-color:#FFD400}
+  .nav-toggle-bar{display:block;width:100%;height:2px;background:#fff;transition:transform .2s,opacity .2s}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  @media (max-width:900px){
+    .nav-mobile{display:flex}
+    .site-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#2A2D2F;border-bottom:3px solid #FFD400;box-shadow:0 14px 28px rgba(0,0,0,.35);padding:6px 0}
+    .site-nav.is-open{display:flex}
+    .site-nav a{width:100%;padding:14px 24px;font-size:15px}
+    .site-nav a + a{border-top:1px solid rgba(255,255,255,.08)}
+    .site-nav a::after{display:none}
+  }
+  @media (max-width:600px){.logo-divider,.logo-url{display:none}}
+  .site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700}
+  .site-nav a.nav-cta:hover{background:#f2c800}
+  .site-nav a.nav-cta::after{display:none!important}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+  section{padding:46px 0;border-top:1px solid var(--line);scroll-margin-top:72px}
+  section:first-of-type{border-top:none}
+
+  .hero{padding:40px 0 30px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mid);display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:3px;background:var(--yellow);display:inline-block}
+  h1{font-weight:900;font-size:clamp(27px,5vw,42px);line-height:1.28;margin:16px 0 14px;letter-spacing:.01em;word-break:keep-all}
+  h1 .hl{background:linear-gradient(transparent 62%,var(--yellow) 62%)}
+  h1 .h1-sub{display:block;margin-top:12px;font-size:.56em;font-weight:700;line-height:1.55;color:#3c3f41;letter-spacing:.01em}
+  .lead{font-size:17px;color:#3c3f41;margin-bottom:22px}
+  .hero-fig{margin:24px 0 6px;background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .hero-fig img{width:100%}
+  figure{margin:22px 0}
+  figcaption{font-size:12.5px;color:var(--ink-mid);margin-top:8px;font-family:var(--mono)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+  .chip{font-family:var(--mono);font-size:12.5px;background:var(--dark);color:#fff;padding:6px 11px;border-radius:5px;letter-spacing:.02em}
+  .chip b{color:var(--yellow)}
+
+  .tldr{background:var(--bg-subtle);border:1px solid var(--line);border-left:5px solid var(--yellow);border-radius:6px;padding:22px 24px;margin:8px 0}
+  .tldr h2{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);font-family:var(--mono);margin-bottom:12px}
+  .tldr ul{list-style:none}
+  .tldr li{padding:7px 0 7px 26px;position:relative;border-top:1px dashed var(--line)}
+  .tldr li:first-child{border-top:none}
+  .tldr li::before{content:"";position:absolute;left:2px;top:15px;width:9px;height:9px;background:var(--yellow);border-radius:2px;transform:rotate(45deg)}
+  .num{font-family:var(--mono);font-weight:700}
+
+  h2.sec{font-weight:900;font-size:clamp(20px,3.4vw,27px);line-height:1.35;margin-bottom:6px;letter-spacing:.01em}
+  .sec-no{font-family:var(--mono);font-size:12px;color:var(--yellow);font-weight:700;letter-spacing:.14em;background:var(--dark);padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:14px}
+  h3{font-weight:700;font-size:18px;margin:30px 0 10px}
+  p{margin:13px 0}
+  .muted{color:var(--ink-mid)}
+  strong.key{background:var(--yellow-soft);padding:1px 4px;border-radius:3px;font-weight:700}
+  a.xref{color:inherit;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:2px;white-space:nowrap}
+  a.xref:hover{text-decoration-color:var(--yellow)}
+  .buyrow{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;margin:14px 0 2px}
+  .txtlink{display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong)}
+  .txtlink:hover{text-decoration-color:var(--yellow)}
+  .cta{display:inline-block;background:var(--yellow);color:var(--dark);font-weight:700;font-size:14.5px;text-decoration:none;padding:12px 22px;border-radius:6px;letter-spacing:.02em;border:1px solid #E6BE00}
+  .cta:hover{background:#f2c800}
+
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--dark);color:#fff;font-size:12.5px;letter-spacing:.04em;border-bottom:none}
+  .spec th{width:34%;background:var(--bg-soft);font-weight:700;color:#3c3f41}
+  td.mono,th.mono{font-family:var(--mono)}
+  tbody tr:hover{background:var(--bg-subtle)}
+  .cmp td{font-size:13.5px}
+  .cmp td.mono{font-family:var(--mono);font-size:13px}
+  .cmp tr.me-row td{background:var(--yellow-soft)}
+  .cmp tr.me-row td:first-child{border-left:3px solid var(--yellow);font-weight:700}
+  /* 2機比較テーブル(.c2): 項目列は左・機種列は中央で縦のラインを揃える */
+  .cmp.c2 thead th:first-child,.cmp.c2 td:first-child{width:26%;text-align:left}
+  .cmp.c2 thead th:nth-child(2),.cmp.c2 thead th:nth-child(3){text-align:center;width:37%}
+  .cmp.c2 td:nth-child(2),.cmp.c2 td:nth-child(3){text-align:center}
+  .data td{font-family:var(--mono);font-size:13.5px}
+  .data td:first-child{font-family:var(--font);font-weight:500}
+  .data .me{background:var(--yellow-soft);font-weight:700}
+  .data tr.me-row td:first-child{border-left:3px solid var(--yellow)}
+  .na{color:var(--ink-light)}
+
+  .tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:8px;-webkit-overflow-scrolling:touch}
+  .results{width:100%;min-width:560px;border-collapse:collapse;font-size:13px;margin:0}
+  .results th,.results td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+  .results thead th{background:var(--dark);color:#fff;vertical-align:bottom;font-size:12px;line-height:1.3;font-weight:700}
+  .results th.test{text-align:left;background:var(--dark)}
+  .results tbody th{text-align:left;background:var(--bg-soft);font-weight:600;font-family:var(--font);white-space:normal}
+  .results tbody th .u{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--ink-mid)}
+  .results tbody td{font-family:var(--mono)}
+
+  .chart{margin:20px 0 8px}
+  .chart .ttl{font-weight:700;font-size:15px;margin-bottom:3px}
+  .chart .unit{font-family:var(--mono);font-size:11.5px;color:var(--ink-mid);margin-bottom:12px}
+  .row{display:grid;grid-template-columns:156px 1fr;align-items:center;gap:10px;margin:7px 0}
+  .row .lab{font-size:12.5px;text-align:right;color:#3c3f41;line-height:1.25}
+  .row .lab small{display:block;color:var(--ink-light);font-size:10px;font-family:var(--mono);margin-top:1px}
+  .track{background:var(--bg-soft);border-radius:4px;overflow:hidden;height:32px;position:relative}
+  .fill{height:100%;background:linear-gradient(90deg,#3a3e40,#55595b);border-radius:4px;display:flex;align-items:center;justify-content:flex-end;min-width:46px}
+  .fill .v{font-family:var(--mono);font-weight:700;font-size:12.5px;color:#fff;padding:0 9px;white-space:nowrap}
+  .row.me .fill{background:linear-gradient(90deg,#E6BE00,var(--yellow))}
+  .row.me .fill .v{color:var(--dark)}
+  .row.me .lab{font-weight:700;color:var(--ink)}
+
+  .note{background:var(--bg-subtle);border:1px solid var(--line);border-radius:6px;padding:16px 18px;margin:20px 0;font-size:14px;color:#3c3f41}
+  .note b{color:var(--ink)}
+  .note .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);display:block;margin-bottom:6px}
+
+  /* primer / 用語解説 columns */
+  .primer-lead{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin:26px 0 10px;display:flex;align-items:center;gap:9px}
+  .primer-lead::before{content:"";width:22px;height:3px;background:var(--yellow);display:inline-block}
+  .primer{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 6px}
+  .primer .card{border:1px solid var(--line);border-top:3px solid var(--yellow);border-radius:8px;background:var(--bg-subtle);padding:15px 18px}
+  .primer .card h4{font-size:15.5px;font-weight:900;margin:0 0 9px;display:flex;align-items:baseline;gap:9px;line-height:1.3}
+  .primer .card h4 .k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--dark);background:var(--yellow);padding:2px 8px;border-radius:4px;flex:none}
+  .primer .card p{font-size:13px;line-height:1.78;margin:0;color:#3c3f41}
+  .primer .card p+p{margin-top:9px}
+  .primer .card b{color:var(--ink)}
+  .primer .card .tl{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--dark);background:var(--bg-soft);border:1px solid var(--line-strong);padding:1px 6px;border-radius:3px;margin-right:7px}
+  @media(max-width:560px){.primer{grid-template-columns:1fr}}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+  .grid2 figure{margin:0}
+  .grid2 .cell{background:var(--bg-soft);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  @media(max-width:560px){.grid2{grid-template-columns:1fr}.row{grid-template-columns:120px 1fr}}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:22px 0}
+  .grid3 figure{margin:0}
+  .grid3 .cell{background:var(--bg-soft);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  @media(max-width:560px){.grid3{grid-template-columns:1fr}}
+
+  /* 図版ボックス（EU275080C と共通の見せ方）: 透過素材が乗るので背景は白 */
+  figure.figbox{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;padding:16px}
+  figure.figbox figcaption{padding-top:10px;margin-top:0}
+  /* 縦長図版: 高さを抑えてクリックで原寸（lightbox）へ */
+  figure.tall{text-align:center}
+  figure.tall img{max-height:62vh;width:auto;margin:0 auto}
+  figure.tall figcaption{text-align:left}
+  .zoomhint{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-mid);background:var(--bg-subtle);border:1px solid var(--line);border-radius:4px;padding:2px 8px;margin-top:8px}
+  .zoomhint::before{content:"⤢";color:var(--yellow);font-weight:700}
+
+  details{border:1px solid var(--line);border-radius:6px;margin:10px 0;overflow:hidden;background:var(--bg-subtle)}
+  summary{cursor:pointer;padding:15px 18px;font-weight:700;font-size:15px;list-style:none;position:relative;padding-right:44px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:18px;top:13px;font-family:var(--mono);font-size:20px;color:var(--yellow);font-weight:700}
+  details[open] summary::after{content:"–"}
+  details .a{padding:0 18px 16px;font-size:14.5px;color:#3c3f41}
+
+  .verdict{background:var(--dark);color:#ececed;border-radius:8px;padding:28px 26px;margin:18px 0}
+  .verdict h3{color:#fff;margin-top:0}
+  .verdict .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+  .verdict h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .verdict .fit h4{color:var(--yellow)}
+  .verdict .unfit h4{color:#c9cacb}
+  .verdict ul{list-style:none;font-size:14px}
+  .verdict li{padding:5px 0 5px 20px;position:relative;color:#d6d7d8}
+  .verdict li::before{content:"›";position:absolute;left:2px;color:var(--yellow);font-weight:700}
+  @media(max-width:560px){.verdict .cols{grid-template-columns:1fr}}
+
+  footer{background:var(--dark);color:#b9babb;font-size:12.5px;padding:34px var(--pad);margin-top:40px}
+  footer .inner{max-width:var(--max);margin:0 auto}
+  footer .meta{font-family:var(--mono);font-size:11.5px;line-height:1.9;color:#9a9c9e}
+  footer b{color:#fff}
+  footer .disc{margin-top:16px;padding-top:16px;border-top:1px solid #44484a}
+
+  /* image lightbox */
+  main img{cursor:zoom-in}
+  .lightbox{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(22,23,25,.93);padding:28px;cursor:zoom-out;opacity:0;transition:opacity .18s ease}
+  .lightbox.open{display:flex;opacity:1}
+  .lightbox img{max-width:92vw;max-height:84vh;width:auto;height:auto;border-radius:6px;box-shadow:0 24px 70px rgba(0,0,0,.55);background:#fff;cursor:zoom-out}
+  .lightbox figcaption{max-width:760px;color:#d6d7d8;font-size:13px;line-height:1.6;text-align:center;font-family:var(--font)}
+  .lb-close{position:fixed;top:16px;right:20px;width:42px;height:42px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:24px;line-height:1;border-radius:6px;cursor:pointer}
+  .lb-close:hover{border-color:var(--yellow);color:var(--yellow)}
+</style>
+
+</head>
+<body data-inquiry-sku="ZBOX-MI676" data-inquiry-pname="ZBOX edge MI676" data-inquiry-series="ZBOX M SERIES" data-inquiry-line="zbox">
+<!-- @partial:header START — 編集は _partials/header.html、反映は python _partials/inject.py -->
+<style>
+/* === ZOTAC hub 共通ヘッダー（自己完結・単一ソース）=======================
+   正本はこのファイルだけ。ダーク／幅1100px。ページ側CSS(.wrap/.container)に
+   一切依存しないよう、ヘッダー専用CSSを同梱し色はリテラル固定。
+   反映: 手書きHTML = python _partials/inject.py ／ 生成HTML = build_*.py。
+   is-active は注入側がページ階層に応じて自動付与（ここでは付けない）。 */
+.site-header{position:sticky;top:0;z-index:100;background:#2A2D2F;border-bottom:3px solid #FFD400;padding:16px 0;line-height:1.5;}
+.site-header,.site-header *{box-sizing:border-box;}
+.site-header .site-header-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;}
+.site-header .site-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.site-header .site-logo img{height:22px;width:auto;}
+.site-header .logo-divider{color:#B1B3B6;font-family:'JetBrains Mono',monospace;font-weight:300;font-size:15px;}
+.site-header .logo-url{font-family:'JetBrains Mono',monospace;font-size:11px;color:#B1B3B6;letter-spacing:.05em;white-space:nowrap;}
+.site-header .logo-url .host-hub{color:#FFD400;font-weight:500;}
+.site-header .site-nav{display:flex;gap:20px;align-items:center;}
+.site-header .site-nav a{text-decoration:none;color:#fff;font-size:13px;font-weight:500;position:relative;padding:4px 0;display:inline-flex;align-items:center;gap:6px;border:none;}
+.site-header .site-nav a.is-active{color:#FFD400;}
+.site-header .site-nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#FFD400;transform:scaleX(0);transform-origin:left;transition:transform .2s;}
+.site-header .site-nav a:hover::after,.site-header .site-nav a.is-active::after{transform:scaleX(1);}
+.site-header .site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700;}
+.site-header .site-nav a.nav-cta:hover{background:#f2c800;}
+.site-header .site-nav a.nav-cta::after{display:none!important;}
+.site-header .nav-mobile{display:none;align-items:center;gap:12px;}
+.site-header .nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer;}
+.site-header .nav-toggle:hover{border-color:#FFD400;}
+.site-header .nav-toggle-bar{display:block;width:100%;height:2px;background:#fff;transition:transform .2s,opacity .2s;}
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0;}
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media (max-width:1100px){.site-header .site-nav{gap:15px;}}
+@media (max-width:900px){
+  .site-header .nav-mobile{display:flex;}
+  .site-header .site-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#2A2D2F;border-bottom:3px solid #FFD400;box-shadow:0 14px 28px rgba(0,0,0,.35);padding:6px 0;z-index:200;}
+  .site-header .site-nav.is-open{display:flex;}
+  .site-header .site-nav a{width:100%;padding:14px 24px;font-size:15px;}
+  .site-header .site-nav a+a{border-top:1px solid rgba(255,255,255,.08);}
+  .site-header .site-nav a::after{display:none;}
+}
+@media (max-width:600px){.site-header .logo-divider,.site-header .logo-url{display:none;}}
+</style>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-logo">
+      <img src="/assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+      <span class="logo-divider">/</span>
+      <span class="logo-url">https://<span class="host-hub">hub</span>.zotac.co.jp</span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="/trial-program/">評価機貸出</a>
+      <a href="/case-studies/">導入事例</a>
+      <a href="/reviews/" class="is-active">レビュー</a>
+      <a href="/catalogs/">製品カタログ</a>
+      <a href="/press/">メディア掲載</a>
+      <a href="https://zotac.co.jp/product-biz-inquiry/?sku=ZBOX-MI676&pname=ZBOX%20edge%20MI676&series=ZBOX%20M%20SERIES&line=zbox&from=/reviews/edge-mi676-mi656/" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <div class="nav-mobile">
+      <button type="button" class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+<script>
+/* モバイルナビの開閉。ページ側に同種のスクリプトを置かないこと
+   （同じボタンに2つ登録されると開閉が相殺して「押しても出ない」になる。2026-08-13 の事象）。 */
+(function(){
+  var hdr=document.querySelector('header.site-header'); if(!hdr) return;
+  var btn=hdr.querySelector('.nav-toggle'), nav=hdr.querySelector('#site-nav');
+  if(!btn||!nav||btn.dataset.bound) return; btn.dataset.bound='1';
+  function set(open){
+    nav.classList[open?'add':'remove']('is-open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
+  }
+  btn.addEventListener('click',function(){ set(!nav.classList.contains('is-open')); });
+  nav.addEventListener('click',function(e){ if(e.target.closest('a')) set(false); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&nav.classList.contains('is-open')){ set(false); btn.focus(); }
+  });
+  /* ドロワー幅（max-width:900px）を外れたら開いた状態を畳む。
+     開いたまま横向きにするとデスクトップ表示へ戻った際に開きっぱなしになるため。 */
+  var mq=window.matchMedia('(max-width:900px)');
+  function onMq(e){ if(!e.matches) set(false); }
+  if(mq.addEventListener) mq.addEventListener('change',onMq);
+  else if(mq.addListener) mq.addListener(onMq);
+})();
+</script>
+<!-- @partial:header END -->
+
+
+
+<main class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <span class="eyebrow">Benchmark Review — ZBOX edge Series（2機種併載）</span>
+    <h1>ZBOX edge <span class="hl">MI676 / MI656</span><span class="h1-sub">差が出たのはCPUスループットだけ — 兄弟機2台の同一条件実測で答えを出す選び分けレビュー</span></h1>
+    <p class="lead">ZOTAC の小型PC「ZBOX edge」シリーズに、Intel Core Ultra（シリーズ2 / Arrow Lake-H）を搭載した兄弟機
+      <b>MI676</b>（Core Ultra 7 255H）と <b>MI656</b>（Core Ultra 5 225H）が加わりました。
+      本レビューは2機を同一の自動化環境・同一グラフィックスドライバーで実測し、
+      <b>「どちらを選ぶべきか」に実測値で答えを出す</b>ことを目的に、
+      軽量3D・CPUスループット・2時間連続動画再生・温度と電力の挙動を1本の記事で読み解きます。</p>
+
+    <div class="chips">
+      <span class="chip"><b>MI676</b> Core Ultra 7 255H / Arc 140T</span>
+      <span class="chip"><b>MI656</b> Core Ultra 5 225H / Arc 130T</span>
+      <span class="chip"><b>共通筐体</b> ZBOX edge</span>
+      <span class="chip"><b>0.64L</b> 149.5×149.5×28.5mm</span>
+      <span class="chip"><b>最大2画面</b> HDMI 2.1 ＋ DP 1.4</span>
+      <span class="chip"><b>VESA</b> ブラケット同梱</span>
+      <span class="chip"><b>ベアボーン</b> RAM / SSD 別売</span>
+      <span class="chip"><b>Wi-Fi 7</b> / Bluetooth 5.4</span>
+    </div>
+
+    <figure style="margin:24px 0 6px">
+      <div class="hero-fig" style="margin:0">
+      <img src="images/keyvisual-1920x580.jpg" width="1920" height="580" alt="ZOTAC ZBOX edge MI676 / MI656 キービジュアル — 薄型筐体の3/4ビューと「LIGHTWEIGHT PERFORMANCE」のコピー">
+      </div>
+    <figcaption>ZBOX edge MI676 / MI656 — 共通筐体の兄弟機。（ZOTAC 公式キービジュアル）</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ TL;DR ============ -->
+  <section>
+    <div class="tldr">
+      <h2>実測サマリー（3行）</h2>
+      <ul>
+        <li>2機の差が出たのは CPU スループットだけ。7-Zip 実測で MI676 <span class="num">83,847 MIPS</span>対 MI656 <span class="num">75,268 MIPS</span> — <strong class="key">+11.4%</strong>（CrystalMark CPUマルチも +4.6%）。</li>
+        <li>軽量3D（3DMark Night Raid）は MI676 <span class="num">26,729</span> / MI656 <span class="num">26,778</span> — 差 0.2%未満で<strong class="key">実質同値</strong>。1080p動画の<b>2時間連続再生も両機とも完走</b>（負荷1%未満・10W台）。</li>
+        <li>結論はシンプル: <b>表示・再生・軽量3Dが主体なら MI656 で足りる。圧縮・変換・多重処理など CPU スループットが効く現場は MI676</b>。</li>
+      </ul>
+    </div>
+    <div class="buyrow">
+      <a class="txtlink" href="https://hub.zotac.co.jp/catalogs/zbox/mi676/">製品カタログで全仕様を見る（MI676 / MI656）→</a>
+      <a class="txtlink" href="https://zotac.co.jp/product-biz-inquiry/?sku=ZBOX-MI676&pname=ZBOX%20edge%20MI676&series=ZBOX%20M%20SERIES&line=zbox&intent=quote&from=/reviews/edge-mi676-mi656/" target="_blank" rel="noopener">法人向けお問い合わせ →</a>
+    </div>
+  </section>
+
+  <!-- ============ 01 概要 ============ -->
+  <section>
+    <span class="sec-no">01 / 概要</span>
+    <h2 class="sec">共通の筐体・共通の設計 — 違いは SoC だけの兄弟機</h2>
+    <p>ZBOX edge MI676 と MI656 は、ZOTAC の小型PC「ZBOX」のうち薄型・省スペースの <b>edge（M シリーズ）</b>に属する兄弟機です。
+      筐体・冷却設計・拡張構成は共通で、違いは搭載する SoC のみ。
+      MI676 が <b>Intel Core Ultra 7 255H</b>（16コア / 16スレッド・最大5.1GHz・内蔵GPU: Arc 140T）、
+      MI656 が <b>Intel Core Ultra 5 225H</b>（14コア / 14スレッド・最大4.9GHz・内蔵GPU: Arc 130T）を搭載します。
+      いずれもベアボーン仕様で、メモリー（SO-DIMM DDR5 ×2）とストレージ（M.2 NVMe）は導入側で選定します。</p>
+    <p>「上位の MI676 と下位の MI656 で、実際のところ何がどれだけ違うのか」——
+      カタログスペックの差（Pコア2基・最大クロック 0.2GHz・GPU実行ユニット1基）が実務にどう現れるかを、以降の実測で確認します。</p>
+
+    <div class="primer-lead">搭載するCPU・グラフィックスの基礎知識</div>
+    <div class="primer">
+      <div class="card">
+        <h4><span class="k">CPU</span>Core Ultra 7 255H / Ultra 5 225H とは</h4>
+        <p>Intel「Core Ultra（シリーズ2 / Arrow Lake-H）」世代の<b>薄型高性能（H）系</b>CPU。255H は <b>16コア / 16スレッド</b>（Pコア6＋Eコア8＋低電力Eコア2）・最大5.1GHz、225H は <b>14コア / 14スレッド</b>（Pコア4＋Eコア8＋低電力Eコア2）・最大4.9GHz。いずれも NPU（Intel AI Boost）を内蔵する「AI PC」世代です。</p>
+        <p><span class="tl">ポイント</span>2機の差は<b>Pコア2基と最大クロック 0.2GHz</b>。シングルスレッド性能はほぼ同じで、差が出るのは全コアを使うスループット処理です。この構図がそのまま実測結果（<a class="xref" href="#s05">§05</a>）に現れます。</p>
+      </div>
+      <div class="card">
+        <h4><span class="k">GPU</span>Intel Arc 140T / 130T（CPU内蔵）とは</h4>
+        <p>CPU パッケージに統合された Arc グラフィックス。Arc 140T は実行ユニット（Xeコア）8基、130T は 7基で、いずれも XMX（AI演算ユニット）を備えます。メインメモリーを表示用に共有し、事務描画・動画再生支援・軽量3Dを担います。</p>
+        <p><span class="tl">ポイント</span>カタログ上は 140T が上位のため差が出ることを想定しましたが、軽量3Dの実測（<a class="xref" href="#s06">§06</a>）では<b>明確な差が得られませんでした</b>。実行ユニット数の違いがそのままスコアに出るとは限らない——というのが実測の結果です。</p>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <figure>
+        <div class="cell"><img src="images/product-front.png" width="1500" height="1000" alt="ZBOX edge MI676 / MI656 の外観 — ハニカム開口の天面と前面の電源ボタンを持つ薄型正方形の筐体"></div>
+        <figcaption>共通筐体の外観（ZOTAC 公式レンダー）</figcaption>
+      </figure>
+      <figure>
+        <div class="cell"><img src="images/product-rear.png" width="1500" height="1000" alt="ZBOX edge MI676 / MI656 の背面斜め — 背面インターフェースと側面の通気開口"></div>
+        <figcaption>背面まわり。I/O の詳細は <a class="xref" href="#s04">§04</a>。（ZOTAC 公式レンダー）</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 02 実機のハードウェア確認 ============ -->
+  <section id="s02">
+    <span class="sec-no">02 / 実機</span>
+    <h2 class="sec">実機のハードウェア確認（CPU-Z / GPU-Z）</h2>
+    <p>計測に使った2個体の構成を、CPU-Z と GPU-Z で確認します。MI676 は <b>Core Ultra 7 255H</b>（Pコア6＋Eコア8＋LPコア2＝16コア/16スレッド）、
+      MI656 は <b>Core Ultra 5 225H</b>（Pコア4＋Eコア8＋LPコア2＝14コア/14スレッド）。
+      マザーボードのSMBIOS表記は両機とも <span class="num">ZBOX-MI672/MI652</span> という共通のプラットフォーム名（BIOS 5.32）を返すため、
+      機体の判別はCPUで行っています。メモリーは両機とも DDR5-5600 SO-DIMM 16GB×2 を装着し（<a class="xref" href="#s03">§03</a>）、
+      GPU-Z では両機ともグラフィックスドライバー 32.0.101.8801（WHQL）で揃っていることが確認できます。</p>
+
+    <div class="grid2">
+      <figure>
+        <div class="cell"><img src="images/cpuz-cpu-mi676.png" width="403" height="402" alt="CPU-Z の CPU タブ（MI676）— Intel Core Ultra 7 255H、Arrow Lake、16コア16スレッド（6P+8E+2LP）"></div>
+        <figcaption>CPU-Z（MI676）: Core Ultra 7 255H / 6P+8E+2LP・16スレッド</figcaption>
+      </figure>
+      <figure>
+        <div class="cell"><img src="images/cpuz-cpu-mi656.png" width="403" height="402" alt="CPU-Z の CPU タブ（MI656）— Intel Core Ultra 5 225H、Arrow Lake、14コア14スレッド（4P+8E+2LP）"></div>
+        <figcaption>CPU-Z（MI656）: Core Ultra 5 225H / 4P+8E+2LP・14スレッド</figcaption>
+      </figure>
+      <figure>
+        <div class="cell"><img src="images/gpuz-mi676.png" width="388" height="539" alt="GPU-Z（MI676）— Intel Arc 140T GPU、ドライバー 32.0.101.8801"></div>
+        <figcaption>GPU-Z（MI676）: Arc 140T / ドライバー 32.0.101.8801（WHQL）</figcaption>
+      </figure>
+      <figure>
+        <div class="cell"><img src="images/gpuz-mi656.png" width="388" height="539" alt="GPU-Z（MI656）— Intel Arc 130T GPU、ドライバー 32.0.101.8801"></div>
+        <figcaption>GPU-Z（MI656）: Arc 130T / ドライバー 32.0.101.8801（WHQL）</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 03 テスト環境 ============ -->
+  <section id="s03">
+    <span class="sec-no">03 / テスト環境</span>
+    <h2 class="sec">テスト環境・計測方法 — 2機を同一条件で揃える</h2>
+
+    <h3>機種別の構成（違うのはここだけ）</h3>
+    <table class="cmp c2">
+      <thead><tr><th></th><th>ZBOX edge MI676</th><th>ZBOX edge MI656</th></tr></thead>
+      <tbody>
+        <tr><td>CPU</td><td class="mono">Core Ultra 7 255H<br>16C/16T・最大5.1GHz</td><td class="mono">Core Ultra 5 225H<br>14C/14T・最大4.9GHz</td></tr>
+        <tr><td>グラフィックス</td><td class="mono">Intel Arc 140T（内蔵）</td><td class="mono">Intel Arc 130T（内蔵）</td></tr>
+        <tr><td>計測日</td><td class="mono">2026-08-12</td><td class="mono">2026-08-11</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2機共通の条件</h3>
+    <table class="spec">
+      <tbody>
+        <tr><th>GPUドライバー</th><td class="mono">32.0.101.8801（両機で統一）</td></tr>
+        <tr><th>メモリー（テスト構成）</th><td class="mono">32GB DDR5-5600（16GB×2・デュアルチャネル）</td></tr>
+        <tr><th>ストレージ（テスト構成）</th><td class="mono">1TB NVMe SSD（システムドライブ・両機同一構成）</td></tr>
+        <tr><th>OS</th><td class="mono">Windows 11 Home 25H2（Build 26200）</td></tr>
+        <tr><th>電源プラン</th><td class="mono">高パフォーマンス</td></tr>
+      </tbody>
+    </table>
+
+    <h3>製品仕様（公式・2機共通）</h3>
+    <table class="spec">
+      <tbody>
+        <tr><th>映像出力</th><td>HDMI ×1（HDMI 2.1 仕様の 4K 60Hz HDR に対応）＋ DisplayPort 1.4 ×1（最大 4096×2160@60Hz）・最大2画面</td></tr>
+        <tr><th>USB</th><td>USB 3.2（10Gbps）×6 — 前面 Type-A ×2／背面 Type-A ×3・Type-C ×1</td></tr>
+        <tr><th>オーディオ</th><td>HDMI 経由 デジタル 8ch／前面 ステレオ・マイク コンボ端子</td></tr>
+        <tr><th>ネットワーク</th><td>Gigabit Ethernet ×1／Wi-Fi 7・Bluetooth 5.4</td></tr>
+        <tr><th>メモリー（公称）</th><td>DDR5-5600/5200 SO-DIMM ×2（最大 64GB）</td></tr>
+        <tr><th>ストレージ（公称）</th><td>M.2 NVMe PCIe 4.0 x4（2230/2240）×1 ＋ M.2 2280（NVMe PCIe 4.0 x4 / SATA3 兼用）×1</td></tr>
+        <tr><th>冷却</th><td>アクティブ冷却（ブロワーファン＋ヒートシンク）</td></tr>
+        <tr><th>外形・質量</th><td>149.5 × 149.5 × 28.5 mm・約 0.64L／約 0.45kg（ベアボーン）</td></tr>
+        <tr><th>電源</th><td>AC アダプター（DC 19V・65W）</td></tr>
+        <tr><th>盗難対策</th><td>セキュリティロックスロット（Kensington 対応・側面）</td></tr>
+        <tr><th>付属品</th><td>VESA マウントブラケット・Wi-Fi アンテナ ほか（<a class="xref" href="#s04">§04</a>）</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <span class="tag">計測方法と本記事の読み方</span>
+      両機の数値は社内のベンチマーク自動化環境による実測で、<b>各テスト3回計測の中央値</b>（VLC 連続再生のみ1回）。
+      表示倍率100%・電源プラン「高パフォーマンス」・テスト間クールダウンを含む同一の計測プロファイルを2機に適用し、
+      グラフィックスドライバーも <b>32.0.101.8801 で統一</b>しています。
+      温度・電力は計測エージェントによる<b>1秒間隔のCPUパッケージ温度・電力・負荷ログ</b>
+      （MI676: 7,763行 / MI656: 8,287行・いずれもVLC 2時間を含む全区間）から各テストの実行区間を切り出して集計しています。
+      代表スクリーンショットは各指標の中央値に最も近い回（自動選定）のものを使用しており、<b>表の値と画面表示が一致しない場合があります</b>。
+      比較チャートは本記事の2機のみで構成し、他記事の機材との横断比較は行いません。
+    </div>
+  </section>
+
+  <!-- ============ 04 外観と設置性 ============ -->
+  <section id="s04">
+    <span class="sec-no">04 / 外観と設置性</span>
+    <h2 class="sec">外観と設置性 — 置けるか・つなげるか・組み込めるか</h2>
+    <p>性能の前に、モノとしての2機を確認します——設置場所に置けるか、必要な機器をつなげられるか、導入構成をどう組み込むか。
+      MI676 と MI656 は筐体・装備が共通のため、<b>本節は2機共通で読めます</b>。</p>
+
+    <h3>寸法 — A4 の4割弱の設置面積、高さ 28.5mm</h3>
+    <p>外形は <b>149.5 × 149.5 × 28.5 mm・約 0.64L</b>、質量は約 0.45kg（ベアボーン時）。
+      設置面積は A4 用紙（297×210mm）の4割弱の正方形で、高さは 28.5mm の薄型です。
+      机上ならモニターの脇や下、什器なら棚板のわずかな隙間に収まり、「PC の置き場所」を新たに用意せずに導入できます。</p>
+    <figure class="figbox">
+      <img src="images/dimensions-annotated.png" width="1920" height="1271" alt="ZBOX edge MI676 / MI656 の寸法図 — 幅149.5mm、奥行き149.5mm、高さ28.5mm・約0.64L">
+      <figcaption>外形寸法。A4 用紙の半分弱の面に収まる 149.5mm 四方・高さ 28.5mm。（ZOTAC 公式レンダー）</figcaption>
+    </figure>
+
+    <h3>梱包・同梱物 — VESA ブラケットが入っている</h3>
+    <p>ベアボーン構成の同梱物は、本体・AC アダプター・電源コード・Wi-Fi アンテナ・USB フラッシュドライブ（ドライバー類）・
+      クイックスタートガイド・保証書、そして <b>VESA 対応マウントブラケット1組（取り付けネジ付き）</b>。
+      モニター背面への固定が<b>買った時点で完結</b>します。</p>
+    <figure class="figbox">
+      <img src="images/accessories.jpg" width="1800" height="1242" alt="ZBOX edge MI676 / MI656 の同梱物一式 — 本体、ACアダプター、電源コード、Wi-Fiアンテナ、USBフラッシュドライブ、クイックスタートガイド、VESAマウントブラケット">
+      <figcaption>同梱物一式（ZOTAC 公式画像）。電源コードの形状は地域により異なる。</figcaption>
+    </figure>
+
+    <h3>設置は3通り — 置く・隠す・掛ける</h3>
+    <p>設置は<b>机上の横置き、同梱ブラケットによるモニター背面（VESA）への固定、壁面への取り付け</b>の3通り。
+      冷却はブロワーファンによるアクティブ式で、通気開口は天面・側面・底面に分散して取られています。
+      どの置き方でも<b>開口をふさがない</b>ことが基本です（壁面への取り付けは、環境に応じて追加の金具・工具が必要な場合があります）。</p>
+    <div class="grid3">
+      <figure>
+        <div class="cell"><img src="images/install-desk.jpg" width="506" height="506" alt="ZBOX edge MI676 / MI656 の机上設置 — モニター下に横置きされた本体"></div>
+        <figcaption>机上（モニター下に横置き）</figcaption>
+      </figure>
+      <figure>
+        <div class="cell"><img src="images/install-vesa.jpg" width="506" height="506" alt="ZBOX edge MI676 / MI656 のモニター背面設置 — VESAブラケットでディスプレイ背面に固定"></div>
+        <figcaption>モニター背面（VESA・ブラケット同梱）</figcaption>
+      </figure>
+      <figure>
+        <div class="cell"><img src="images/install-wall.jpg" width="506" height="506" alt="ZBOX edge MI676 / MI656 の壁面設置 — 壁に取り付けられた本体"></div>
+        <figcaption>壁面（追加金具が必要な場合あり）</figcaption>
+      </figure>
+    </div>
+    <p class="muted" style="font-size:12.5px">設置イメージはいずれも ZOTAC 公式画像。</p>
+
+    <h3>前面 — 日常の抜き差しはここで足りる</h3>
+    <p>前面は電源ボタン（電源 LED リング内蔵）、<b>USB 3.2 Type-A ×2（10Gbps）</b>、マイク/ヘッドホンのコンボ端子。
+      USB メモリーやヘッドセットの抜き差しを、本体を回さずに済ませられます。</p>
+    <figure class="figbox">
+      <img src="images/io-front-annotated.png" width="1900" height="940" alt="ZBOX edge MI676 / MI656 の前面インターフェース図 — 電源ボタン、USB 3.2 Type-A ×2、マイク/ヘッドホンコンボ">
+      <figcaption>前面インターフェース（MI676 / MI656 共通）</figcaption>
+    </figure>
+
+    <h3>背面 — 常設配線をまとめる</h3>
+    <p>背面は <b>HDMI 2.1 ×1 ＋ DisplayPort 1.4 ×1</b>（各 最大 4096×2160@60Hz・<b>最大2画面</b>）、
+      USB 3.2 Type-A ×3 と Type-C ×1（いずれも 10Gbps）、Gigabit Ethernet、Wi-Fi アンテナ端子、DC 入力。
+      事務用途で標準的な<b>2画面構成をそのまま賄い</b>、常設の周辺機器を背面へまとめられます。</p>
+    <figure class="figbox">
+      <img src="images/io-rear-annotated.png" width="1900" height="960" alt="ZBOX edge MI676 / MI656 の背面インターフェース図 — HDMI 2.1、DisplayPort 1.4、USB 3.2 Type-A ×3、USB 3.2 Type-C、Gigabit Ethernet、Wi-Fiアンテナ端子、DC入力">
+      <figcaption>背面インターフェース（MI676 / MI656 共通）</figcaption>
+    </figure>
+
+    <h3>盗難対策 — 側面にロックスロット</h3>
+    <p>側面に<b>セキュリティロックスロット（Kensington 対応）</b>を備えます。
+      受付カウンターや共用スペースなど人の出入りがある場所でも、ワイヤーロックで本体ごと固定できます。</p>
+
+    <h3>中身 — 28.5mm に収めたブロワーファンとヒートシンク</h3>
+    <p>薄型筐体の内部では、CPU の熱をアルミフィンのヒートシンクで受け、<b>ブロワーファン1基</b>が筐体外へ送り出します。
+      この冷却系が、全コア負荷時の持続 35〜38W を 85°C 前後以下に収めています（<a class="xref" href="#s09">§09</a>）。</p>
+    <figure class="figbox">
+      <img src="images/cooling-unit.png" width="1540" height="902" alt="ZBOX edge MI676 / MI656 のメインボード — ブロワーファンとアルミフィンのヒートシンク、M.2 スロット">
+      <figcaption>メインボードとブロワーファン・ヒートシンク（ZOTAC 公式レンダー）</figcaption>
+    </figure>
+    <figure class="figbox tall">
+      <img src="images/exploded-view.png" width="948" height="1558" alt="ZBOX edge MI676 / MI656 の分解図 — 天面カバー、メインボード（ブロワーファン・ヒートシンク）、底面トレイ">
+      <span class="zoomhint">クリックで拡大</span>
+      <figcaption>分解図（ZOTAC 公式レンダー）。上から天面カバー、メインボード（ブロワーファン・ヒートシンク）、底面トレイ。MI676 / MI656 で共通の構造。</figcaption>
+    </figure>
+
+    <h3>保守アクセス — メモリー・ストレージは導入側で組み込む</h3>
+    <p>両機ともベアボーンのため、メモリー（SO-DIMM DDR5 ×2・最大 64GB）と M.2 SSD は導入側で選定・組み込みます。
+      M.2 スロットは <b>NVMe PCIe 4.0 x4（2230/2240）×1 ＋ 2280（NVMe PCIe 4.0 x4 / SATA3 兼用）×1</b> の2基。
+      本レビューのテスト構成も DDR5-5600 16GB×2 と NVMe SSD を実際に組み込んで計測しました（<a class="xref" href="#s03">§03</a>）。
+      内蔵GPUの性能はメモリー帯域の影響を受けるため、<b>2枚差しのデュアルチャネル構成を推奨</b>します（<a class="xref" href="#s06">§06</a>）。
+      内部アクセスにはプラスドライバーが必要です（同梱されません）。</p>
+
+    <div class="note">
+      <span class="tag">動作音について</span>
+      両機はブロワーファンによるアクティブ冷却です。本レビューでは動作音の定量計測（騒音計）は実施していません。
+      参考として、全コア負荷時の CPU 電力は両機とも持続 35〜38W・瞬間 40W 級（<a class="xref" href="#s09">§09</a>）で、冷却はこの電力帯に対する設計です。
+    </div>
+
+    <p>ここまでが「モノとして」の2機——共通筐体ゆえ、置き方・つなぎ方・組み込み方に差はありません。以降の性能実測で、唯一の違いである SoC の差がどこに現れるかを確かめます。</p>
+  </section>
+
+  <!-- ============ 05 CPUスループット ============ -->
+  <section id="s05">
+    <span class="sec-no">05 / CPUの地力</span>
+    <h2 class="sec">CPUスループット — 2機の差はここだけ、そして確実に出る</h2>
+    <p>本記事の主眼です。全コアを使い切る 7-Zip 内蔵ベンチマーク（圧縮・展開）の実測で、
+      MI676 は <strong class="key">83,847 MIPS</strong>、MI656 は <strong class="key">75,268 MIPS</strong> — 差は <strong class="key">+11.4%</strong>。
+      Pコア2基と最大クロックの差が、スループット処理でそのまま数値になりました。</p>
+
+    <div class="chart">
+      <div class="ttl">7-Zip 26.00 内蔵ベンチマーク（総合）</div>
+      <div class="unit">MIPS ／ 高いほど良い ／ 3回計測の中央値</div>
+      <div class="row me"><div class="lab">MI676<small title="Core Ultra 7 255H / 16スレッド">Core Ultra 7 255H</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">83,847</span></div></div></div>
+      <div class="row"><div class="lab">MI656<small title="Core Ultra 5 225H / 14スレッド">Core Ultra 5 225H</small></div><div class="track"><div class="fill" style="width:89.8%"><span class="v">75,268</span></div></div></div>
+    </div>
+    <p class="muted" style="font-size:13.5px">内訳（中央値run）: MI676 圧縮 87,471 / 展開 80,223 MIPS（16スレッド）、MI656 圧縮 77,863 / 展開 72,673 MIPS（14スレッド）。圧縮 +12.3% / 展開 +10.4% と、どちらの方向でも一貫して差が出ています。</p>
+
+    <p>CrystalMark Retro の CPU 系サブスコアも同じ構図です。全コアを使う <b>CPUマルチが 97,612 対 93,330 で +4.6%</b>。
+      一方、1コアだけを使う <b>CPUシングルは 10,925 対 11,046 でほぼ同値（−1.1%）</b>でした。
+      つまり2機の体感差は「1操作の速さ」ではなく、<b>圧縮・変換・ビルド・多重処理のような「まとめて処理する時間」</b>に現れます。</p>
+
+    <div class="grid2">
+      <figure>
+        <div class="cell"><img src="images/crystalmark-retro-representative-mi676.png" width="982" height="665" alt="CrystalMark Retro 2.1.0 の実行結果画面（MI676・代表run）"></div>
+        <figcaption>CrystalMark Retro 代表run（MI676）。総合スコアはSSD構成に依存するため、2機の比較はCPU系サブスコアで行う。</figcaption>
+      </figure>
+      <figure>
+        <div class="cell"><img src="images/crystalmark-retro-representative-mi656.png" width="982" height="665" alt="CrystalMark Retro 2.1.0 の実行結果画面（MI656・代表run）"></div>
+        <figcaption>CrystalMark Retro 代表run（MI656）。画面の値は代表runのもので、本文の中央値と一致しない場合がある。</figcaption>
+      </figure>
+    </div>
+    <p class="muted" style="font-size:13.5px">規模感の参考として、当サイトの同一テストでは省電力小型機の ZBOX（N150搭載）が約 13,800 MIPS、
+      dGPU搭載のデスクトップ級 MAGNUS（Core Ultra 7 265）が約 147,000 MIPS です。本2機はその中間、
+      「小型筐体で実務のスループットも確保したい」というレンジに位置します。</p>
+
+    <p>再現性も確認できています。3回計測の変動係数（cv）は MI676 0.30% / MI656 0.11% と小さく、
+      実行のたびに結果がばらつくことはありません。負荷中の挙動は <a class="xref" href="#s09">§09</a> で確認します。</p>
+  </section>
+
+  <!-- ============ 06 軽量3D ============ -->
+  <section id="s06">
+    <span class="sec-no">06 / 軽量3D</span>
+    <h2 class="sec">Arc 140T と 130T — カタログの差は、この負荷帯では出ない</h2>
+    <p>内蔵GPU向けの 3DMark <b>Night Raid</b> で、2機の内蔵 Arc を同一条件で比較しました。
+      結果は MI676（Arc 140T）<strong class="key">26,729</strong>、MI656（Arc 130T）<strong class="key">26,778</strong> — 差は0.2%未満で<b>実質同値</b>です。</p>
+
+    <div class="chart">
+      <div class="ttl">3DMark Night Raid（総合）</div>
+      <div class="unit">score ／ 高いほど良い ／ 3回計測の中央値</div>
+      <div class="row me"><div class="lab">MI676<small title="Intel Arc 140T（Xeコア8基）">Arc 140T</small></div><div class="track"><div class="fill" style="width:99.8%"><span class="v">26,729</span></div></div></div>
+      <div class="row"><div class="lab">MI656<small title="Intel Arc 130T（Xeコア7基）">Arc 130T</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">26,778</span></div></div></div>
+    </div>
+    <p class="muted" style="font-size:13.5px">内訳（中央値run）: MI676 Graphics 32,198 / CPU 13,621、MI656 Graphics 32,316 / CPU 13,586。Graphics サブスコアも −0.4% と誤差の範囲です。</p>
+
+    <p>Arc 140T は実行ユニット（Xeコア）8基、130T は 7基と、カタログ上は 140T が上位です。
+      この構成差から内蔵GPUにも差が出ることを想定して計測しましたが、<b>3回計測しても両機の差は0.2%未満にとどまり、明確な差は得られませんでした</b>
+      （変動係数は MI676 0.07% / MI656 0.27% と小さく、ばらつきに埋もれたわけではありません）。
+      Graphics サブスコアでも同じ傾向で、実行ユニット数の違いがそのままスコアに出るとは限らない、というのがこの負荷帯での実測結果です。
+      したがって<b>Night Raid が対象とする軽量3Dの負荷帯では、2機のGPUを同等とみなして選定してよい</b>と言えます。</p>
+    <div class="note">
+      <span class="tag">この結果の範囲について</span>
+      本レビューで計測したGPU系のテストは Night Raid と1080p動画再生のみです。より重い3D負荷、GPU演算、AI推論（NPUを含む）、
+      動画エンコードなどでの差は検証していないため、これらが要件に含まれる場合は別途の確認が必要です。
+      また差が出なかった要因（メモリー帯域・電力枠・ドライバーなど）は、本実測からは特定できません。
+    </div>
+  </section>
+
+  <!-- ============ 07 連続動画再生 ============ -->
+  <section id="s07">
+    <span class="sec-no">07 / 連続動画再生</span>
+    <h2 class="sec">1080p を2時間流し続ける — 両機とも完走、負荷は1%未満</h2>
+    <p>サイネージ・掲示端末・監視表示のような「画面を出し続ける」用途を想定し、
+      VLC で 1080p 動画のループ再生を<b>120分間連続実行</b>する実測を両機で行いました。結果は明快です。</p>
+    <table class="cmp c2">
+      <thead><tr><th></th><th>MI676</th><th>MI656</th></tr></thead>
+      <tbody>
+        <tr><td>120分連続再生</td><td class="mono"><b>完走</b>（7,200s）</td><td class="mono"><b>完走</b>（7,200s）</td></tr>
+        <tr><td>再生レート（実時間比）</td><td class="mono">1.0003（乖離 0.03%）</td><td class="mono">1.0004（乖離 0.04%）</td></tr>
+        <tr><td>ハードウェアデコード</td><td class="mono">D3D11VA 有効</td><td class="mono">D3D11VA 有効</td></tr>
+        <tr><td>再生中の平均CPU負荷</td><td class="mono">0.6%</td><td class="mono">0.8%</td></tr>
+        <tr><td>CPU電力（中央値）</td><td class="mono">10.7W</td><td class="mono">10.2W</td></tr>
+        <tr><td>パッケージ温度（中央値）</td><td class="mono">47°C</td><td class="mono">45°C</td></tr>
+      </tbody>
+    </table>
+    <p>両機とも GPU の動画再生支援（D3D11VA）が有効に働き、<strong class="key">CPU負荷1%未満・10W台・パッケージ温度40°C台後半</strong>で
+      2時間を回り切りました。この用途において2機の差はなく、<b>再生・表示が主目的なら下位の MI656 で過不足ありません</b>。</p>
+    <div class="note">
+      <span class="tag">この結果の範囲について</span>
+      本実測は120分間の再生継続とレート・デコード経路の確認であり、フレーム落ちゼロの保証や、24時間365日運用の適性を示すものではありません。
+      常時運用の設計には、設置環境の温度条件・電源計画・保守体制を含めた検討が必要です。
+    </div>
+  </section>
+
+  <!-- ============ 08 ストレージ ============ -->
+  <section id="s08">
+    <span class="sec-no">08 / ストレージ</span>
+    <h2 class="sec">ストレージ — テスト個体構成の参考値</h2>
+    <p>両機ともベアボーンで SSD は別売のため、以下は<b>本レビューで組み込んだ SSD 構成での参考値</b>です。
+      テスト構成では<b>両機とも同一型番の NVMe SSD（PCIe 4.0 世代）をシステムドライブに組み込みました</b>が、
+      それでもストレージの数値は SLC キャッシュなどドライブ側の状態に左右され、回・セッションによって大きく振れます。
+      2機の優劣としては読まないでください（実運用の速度は搭載する SSD で決まります）。</p>
+    <div class="tablewrap">
+      <table class="results">
+        <thead>
+          <tr><th class="test">CrystalDiskMark 9.0.3（システムドライブ）</th><th>MI676 Read</th><th>MI676 Write</th><th>MI656 Read</th><th>MI656 Write</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">SEQ1M Q8T1<span class="u">MB/s</span></th><td>3,394.26</td><td>954.48</td><td>3,219.68</td><td>1,110.77</td></tr>
+          <tr><th scope="row">SEQ1M Q1T1<span class="u">MB/s</span></th><td>1,436.00</td><td>692.08</td><td>977.99</td><td>781.64</td></tr>
+          <tr><th scope="row">RND4K Q32T1<span class="u">MB/s</span></th><td>462.22</td><td>408.37</td><td>468.71</td><td>348.52</td></tr>
+          <tr><th scope="row">RND4K Q1T1<span class="u">MB/s</span></th><td>48.70</td><td>206.11</td><td>43.55</td><td>114.32</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="font-size:13.5px">各値は3回計測の中央値。システムドライブとして NVMe SSD が実用十分な速度で動作することの確認が目的です。
+      M.2 スロットの公称は PCIe 4.0 x4 ×2基です（<a class="xref" href="#s04">§04</a>）。</p>
+
+    <div class="grid2">
+      <figure>
+        <div class="cell"><img src="images/crystaldiskmark-representative-run1-mi676.png" width="486" height="349" alt="CrystalDiskMark 9.0.3 の実行結果画面（MI676・run1）"></div>
+        <figcaption>CrystalDiskMark 代表run（MI676・run1＝全指標の中央値に最も近い回）。表の採用値は指標ごとの3回中央値のため、画面表示とは一致しない場合がある。</figcaption>
+      </figure>
+      <figure>
+        <div class="cell"><img src="images/crystaldiskmark-representative-run2-mi656.png" width="486" height="349" alt="CrystalDiskMark 9.0.3 の実行結果画面（MI656・run2）"></div>
+        <figcaption>CrystalDiskMark 代表run（MI656・run2）。テスト個体構成での参考値。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 09 温度・電力 ============ -->
+  <section id="s09">
+    <span class="sec-no">09 / 温度・電力</span>
+    <h2 class="sec">温度・電力の挙動 — 同じ筐体、同じ絞り方、同じ安定</h2>
+    <p>全テスト実行中の 1秒間隔ログから、テスト区間ごとの CPU パッケージ温度と電力を切り出しました。
+      共通筐体の兄弟機らしく、<b>2機の熱・電力の挙動はほぼ相似形</b>です。</p>
+
+    <h3>MI676（Core Ultra 7 255H）</h3>
+    <div class="tablewrap">
+      <table class="results">
+        <thead><tr><th class="test">実行区間</th><th>平均負荷</th><th>温度 中央/最大</th><th>CPU電力 中央/最大</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">7-Zip ×3（全コア）</th><td>70.7%</td><td>70 / 83°C</td><td>37.4 / 40.5W</td></tr>
+          <tr><th scope="row">CrystalMark ×3</th><td>13.9%</td><td>75 / 85°C</td><td>24.6 / 39.8W</td></tr>
+          <tr><th scope="row">Night Raid ×3</th><td>12.2%</td><td>61 / 83°C</td><td>25.4 / 39.6W</td></tr>
+          <tr><th scope="row">VLC 120分連続再生</th><td>0.6%</td><td>47 / 81°C</td><td>10.7 / 24.8W</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure class="figbox">
+      <img src="images/thermal-timeline-full-mi676.png" width="1600" height="900" alt="MI676 の全計測区間タイムライン — CPUパッケージ温度・電力・クロックの1秒間隔ログ。前半がベンチマーク5種、後半が1080p動画の120分連続再生">
+      <figcaption>MI676: 全区間のタイムライン（1秒間隔ログ・7,763行）。前半がベンチマーク5種、後半が1080p動画の120分連続再生。再生に入ると温度・電力が下がって一定になる。</figcaption>
+    </figure>
+
+    <h3>MI656（Core Ultra 5 225H）</h3>
+    <div class="tablewrap">
+      <table class="results">
+        <thead><tr><th class="test">実行区間</th><th>平均負荷</th><th>温度 中央/最大</th><th>CPU電力 中央/最大</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">7-Zip ×3（全コア）</th><td>68.8%</td><td>68 / 75°C</td><td>37.7 / 39.5W</td></tr>
+          <tr><th scope="row">CrystalMark ×3</th><td>17.7%</td><td>69 / 84°C</td><td>24.0 / 39.4W</td></tr>
+          <tr><th scope="row">Night Raid ×3</th><td>14.6%</td><td>61 / 82°C</td><td>26.6 / 40.9W</td></tr>
+          <tr><th scope="row">VLC 120分連続再生</th><td>0.8%</td><td>45 / 77°C</td><td>10.2 / 22.4W</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure class="figbox">
+      <img src="images/thermal-timeline-full-mi656.png" width="1600" height="900" alt="MI656 の全計測区間タイムライン — CPUパッケージ温度・電力・クロックの1秒間隔ログ。前半がベンチマーク5種、後半が1080p動画の120分連続再生">
+      <figcaption>MI656: 全区間のタイムライン（1秒間隔ログ・8,287行）。挙動は MI676 と相似形で、同じ電力枠・同じ絞り方で動いていることが見て取れる。</figcaption>
+    </figure>
+
+    <p>読み取れることは3つあります。第一に、<b>全計測を通したパッケージ温度の最大は両機とも85°C前後</b>（MI676: 85°C / MI656: 84°C）で、
+      設計上の天井に対して余裕を残して制御されています。第二に、全コア負荷時の <b>CPU電力は両機とも持続35〜38W・瞬間40W級で共通</b>——
+      同じ筐体・同じ冷却設計に対して、2機とも同じ電力枠で動いていることが分かります。
+      第三に、<b>7-Zip と Night Raid の総合スコアは3回計測の変動係数が 0.3% 以下</b>と小さく、これらのテストでは連続実行による落ち込みは見られませんでした。ただし CrystalMark Retro の CPU 系サブスコアは MI656 の3回目だけが落ちており（cpu_single 11,046 / 11,053 → 9,899、cpu_multi 93,557 / 93,330 → 85,051）、すべての指標で一様に安定しているわけではありません（代表値は中央値運用のため影響しません）。</p>
+    <div class="note">
+      <span class="tag">温度データの注記</span>
+      温度・電力は CPU 内部センサーの値で、システム全体の消費電力（AC入力）ではありません。
+      Intel 内蔵GPU環境ではセンサー仕様上 GPU 単体の温度が取得できないため、温度は iGPU を同一パッケージに含む CPU パッケージ温度で代表しています
+      （GPU の電力・クロック・使用率は取得できており、Night Raid 実行中の GPU 電力は最大 11.5W でした）。
+      温度・スコアの実測のみからサーマルスロットリングの有無を断定することはできません。室温・設置環境・個体差により値は変動します。
+    </div>
+  </section>
+
+  <!-- ============ 10 用途・選び分け ============ -->
+  <section>
+    <span class="sec-no">10 / 選び分け</span>
+    <h2 class="sec">想定される用途と選び分けマップ</h2>
+    <p>実測が示した構図——「GPU・再生・軽量3Dは同等、CPUスループットだけ +11.4%」——を、そのまま選定基準に落とします。</p>
+
+    <h3>MI656 で足りる用途 — 表示・再生・事務が主体</h3>
+    <p>サイネージ・掲示・受付端末（<a class="xref" href="#s07">§07</a>: 2時間連続再生を負荷1%未満で完走）、
+      一般的な事務端末、POS・キオスクのフロントエンド。
+      軽量3Dの実測では両機に明確な差が出なかったため（<a class="xref" href="#s06">§06</a>）、これらの用途で上位機を選ぶ理由は本レビューの範囲では見当たりません。</p>
+
+    <h3>MI676 が効く用途 — CPUスループットが業務時間に直結する現場</h3>
+    <p>ファイルの圧縮・展開やデータ変換をともなうバックオフィス処理、複数サービスの同時稼働（<a class="xref" href="#s05">§05</a>: 7-Zip +11.4% / CPUマルチ +4.6%）、
+      端末上でのビルド・バッチ処理。「まとめて処理する時間」が短縮され、日々繰り返される処理ほど差が積み上がります。
+      写真の一括現像・画像変換や簡単な動画のカット編集のような、<b>CPU 性能で対応できる範囲のライトなクリエイティブ作業</b>も MI676 なら視野に入ります。</p>
+
+    <h3>共通の留意点</h3>
+    <p>いずれもベアボーンのため、メモリー・SSD の選定と組み込みが必要です。本実測はデュアルチャネル（16GB×2）構成で行っており、
+      内蔵GPUの性能はメモリー帯域の影響を受けるため、<b>1枚差しのシングルチャネル構成では §06 の結果より低下する可能性</b>があります。デュアルチャネル構成を推奨します。</p>
+
+    <div class="verdict">
+      <h3>選び分けマップ</h3>
+      <div class="cols">
+        <div class="fit">
+          <h4>MI656 で足りる</h4>
+          <ul>
+            <li>サイネージ・掲示・受付などの表示/再生端末</li>
+            <li>一般事務・フロントエンド端末</li>
+            <li>軽量3D（Night Raid の負荷帯では MI676 と明確な差なし）</li>
+            <li>コストを抑えて台数を揃えたい案件</li>
+          </ul>
+        </div>
+        <div class="unfit">
+          <h4>MI676 が効く</h4>
+          <ul>
+            <li>圧縮・変換・データ処理をともなうバックオフィス</li>
+            <li>複数サービス・多重処理の同時稼働</li>
+            <li>端末上のビルド・バッチ処理</li>
+            <li>写真現像・簡単な動画編集などのライトクリエイティブ</li>
+            <li>「処理待ち時間」が業務効率に直結する現場</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="note" style="border-left:5px solid var(--yellow)">
+      <span class="tag">構成のカスタマイズについて</span>
+      両機ともベアボーンのため、メモリー・SSD・OS を業務に合わせて選定できます。構成を組み込んだシステム販売にも対応しているため、
+      定番構成のままの導入も、案件ごとの細かな構成変更も、<b>開発・デザイン・製造まで一気通貫の ZOTAC</b> だからこそご相談いただけます。
+    </div>
+  </section>
+
+  <!-- ============ 11 まとめ ============ -->
+  <section>
+    <span class="sec-no">11 / まとめ</span>
+    <h2 class="sec">まとめ — 「差が出るのはCPUスループットだけ」と分かって選べる2台</h2>
+    <p>同一条件の実測が示した2機の関係は、カタログの印象よりずっとシンプルでした。
+      本レビューで計測した範囲では、内蔵GPU・動画再生・温度と電力の挙動に<b>明確な差は出ませんでした</b>。違いは CPU スループットの <strong class="key">+11.4%</strong>（7-Zip実測）だけです。
+      だからこそ選び分けに迷いがありません——<b>ワークロードに CPU の「まとめて処理する時間」が含まれるなら MI676、
+      含まれないなら MI656 が適正コスト</b>です。
+      どちらを選んでも、7-Zip と Night Raid が3回計測で変動係数 0.3% 以下という再現性と、40W級の電力枠で85°C以下に収まる熱設計は共通しています。</p>
+
+    <div class="buyrow" style="margin-top:22px">
+      <a class="cta" href="https://hub.zotac.co.jp/trial-program/?from=/reviews/edge-mi676-mi656/">評価機を借りて試す →</a>
+      <a class="txtlink" href="https://zotac.co.jp/product-biz-inquiry/?sku=ZBOX-MI676&pname=ZBOX%20edge%20MI676&series=ZBOX%20M%20SERIES&line=zbox&intent=quote&from=/reviews/edge-mi676-mi656/" target="_blank" rel="noopener">法人向けお問い合わせ →</a>
+    </div>
+  </section>
+
+  <!-- ============ 12 データ付録 ============ -->
+  <section>
+    <span class="sec-no">12 / データ</span>
+    <h2 class="sec">付録: 全ベンチマーク結果</h2>
+    <p>両機の元数値を一覧にまとめます（計測条件は <a class="xref" href="#s03">§03</a> 参照）。</p>
+    <div class="tablewrap">
+      <table class="results">
+        <thead>
+          <tr>
+            <th class="test">テスト</th>
+            <th>MI676 各回の値</th>
+            <th>中央値</th>
+            <th>cv%</th>
+            <th>MI656 各回の値</th>
+            <th>中央値</th>
+            <th>cv%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">3DMark Night Raid<span class="u">score・高いほど良い</span></th><td>26,736 / 26,729 / 26,692</td><td>26,729</td><td>0.07</td><td>26,665 / 26,838 / 26,778</td><td>26,778</td><td>0.27</td></tr>
+          <tr><th scope="row">7-Zip 26.00 CPU<span class="u">MIPS・高いほど良い</span></th><td>83,468 / 83,847 / 84,086</td><td>83,847</td><td>0.30</td><td>75,268 / 75,335 / 75,136</td><td>75,268</td><td>0.11</td></tr>
+          <tr><th scope="row">CrystalMark Retro 2.1.0 All<span class="u">score・高いほど良い ※1</span></th><td>9,658 / 9,558 / 9,511</td><td>9,558</td><td>0.64</td><td>9,662 / 9,714 / 9,648</td><td>9,662</td><td>0.29</td></tr>
+          <tr><th scope="row">CrystalDiskMark SEQ1M Q8T1 Read<span class="u">MB/s ※1</span></th><td>3,411.36 / 3,179.19 / 3,394.26</td><td>3,394.26</td><td>3.17</td><td>3,219.68 / 3,180.86 / 3,255.88</td><td>3,219.68</td><td>0.95</td></tr>
+          <tr><th scope="row">VLC 1080p ループ 120分<span class="u">再生継続の確認・1回</span></th><td>完走（rate 1.0003）</td><td>—</td><td>—</td><td>完走（rate 1.0004）</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="font-size:12.5px">凡例: cv＝変動係数（標準偏差÷平均×100%）。※1 CrystalMark Retro の総合スコアと CrystalDiskMark はテスト個体のSSD構成に依存するため、2機の優劣としては読まないでください（CrystalMark の CPU 系サブスコアのみ比較可: CPUシングル 10,925 対 11,046・CPUマルチ 97,612 対 93,330）。2D/3D 系サブスコアは僅差で優劣が割れ（2D は MI656、3D は MI676 が僅かに上）、実質同等です。
+      同一機・同一SSDでもストレージ計測は指標によって大きく振れます（総合値でセッション間最大9%程度、シーケンシャル読み書きでは run 間で3〜4割振れる例も確認）。ストレージ値は参考値に留めています。</p>
+  </section>
+
+  <!-- ============ 13 FAQ ============ -->
+  <section>
+    <span class="sec-no">13 / FAQ</span>
+    <h2 class="sec">よくある質問</h2>
+
+    <details open>
+      <summary>MI676 と MI656、結局どちらを選べばよい？</summary>
+      <div class="a">実測では、軽量3D（Night Raid）と1080p動画の2時間連続再生は両機とも同等でした。差が出たのはCPUスループットのみで、7-Zip 実測で MI676 が +11.4% 上回ります。表示・再生・軽量3Dが主体なら MI656 で足り、圧縮・変換・多重処理など CPU スループットが効く現場では MI676 が適します。</div>
+    </details>
+    <details>
+      <summary>内蔵GPU（Arc 140T と 130T）の差はある？</summary>
+      <div class="a">カタログ上は Arc 140T が上位のため差を想定して計測しましたが、3DMark Night Raid を3回計測しても MI676（Arc 140T）26,729、MI656（Arc 130T）26,778 と差は0.2%未満にとどまり、明確な差は得られませんでした。少なくともこの軽量3Dの負荷帯では2機を同等とみなして選定できます。ただし計測したGPU系テストは Night Raid と動画再生のみで、より重い3D負荷やGPU演算・AI処理での差は検証していません。</div>
+    </details>
+    <details>
+      <summary>動画を流し続ける用途（サイネージ等）に使える？</summary>
+      <div class="a">1080p ループ再生の120分連続実測を両機で行い、いずれも完走を確認しました。ハードウェアデコード（D3D11VA）が有効で、再生中の CPU 負荷は1%未満・電力10W台・温度は中央値45〜47°Cでした。なお本実測は120分間の再生継続の確認であり、フレーム落ちゼロや24時間365日運用を保証するものではありません。</div>
+    </details>
+    <details>
+      <summary>メモリーとストレージは付属する？</summary>
+      <div class="a">両機ともベアボーン仕様のため、メモリー（SO-DIMM DDR5）とストレージ（M.2 NVMe SSD）は別売です。本レビューは両機とも DDR5-5600 16GB×2（計32GB・デュアルチャネル）で計測しています。内蔵GPU性能はメモリー帯域の影響を受けるため、デュアルチャネル構成を推奨します。</div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <p><b>ZOTAC ZBOX edge MI676 / MI656 ベンチマークレビュー</b></p>
+    <div class="meta">
+      計測方法: 社内のベンチマーク自動化環境による実測（各テスト3回の中央値・VLC連続再生のみ1回）／ 両機とも GPUドライバー 32.0.101.8801・電源プラン＝高パフォーマンス ／ 計測 2026-08-11（MI656）・2026-08-12（MI676）
+    </div>
+    <div class="disc">
+      ※ 掲載のベンチマーク値は本レビューのテスト構成・計測環境での実測値であり、構成や条件により変動します。
+      両機はベアボーンのため、メモリー・ストレージはテスト用に組み込んだ構成です（ストレージ関連の値はテスト個体構成の参考値）。
+      温度は本個体の実測値で、室温・設置環境・個体差で変動します。
+      製品仕様・付属品は地域／ロットにより異なる場合があり、<b>予告なく変更される場合があります</b>。最新の仕様は製品カタログ・公式製品ページをご確認ください。
+      &copy; ZOTAC NIPPON / 株式会社ゾタック日本
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile nav drawer toggle (hub 共通ヘッダー) -->
+<script>
+(function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!toggle || !nav) return;
+  function closeNav() {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'メニューを開く');
+  }
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeNav(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) { closeNav(); toggle.focus(); }
+  });
+})();
+</script>
+
+<!-- Image lightbox (click to enlarge in overlay; no new window) -->
+<script>
+(function(){
+  var imgs = document.querySelectorAll('main img');
+  if(!imgs.length) return;
+  var lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.setAttribute('role','dialog');
+  lb.setAttribute('aria-modal','true');
+  lb.innerHTML = '<button type="button" class="lb-close" aria-label="閉じる">&times;</button><img alt=""><figcaption></figcaption>';
+  document.body.appendChild(lb);
+  var lbImg = lb.querySelector('img');
+  var lbCap = lb.querySelector('figcaption');
+  function open(src, alt){
+    lbImg.src = src; lbImg.alt = alt || '';
+    if(alt){ lbCap.textContent = alt; lbCap.style.display = ''; } else { lbCap.style.display = 'none'; }
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.removeAttribute('src');
+  }
+  for(var i=0;i<imgs.length;i++){
+    (function(im){ im.addEventListener('click', function(){ open(im.currentSrc || im.src, im.getAttribute('alt')); }); })(imgs[i]);
+  }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && lb.classList.contains('open')) close(); });
+})();
+</script>
+</body>
+</html>

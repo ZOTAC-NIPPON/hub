@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>ZOTAC ZBOX CI675 nano / CI655 nano ベンチマークレビュー（ファンレス / Core Ultra 7 255U・Core Ultra 5 225U）</title>
+<!-- @partial:analytics START — 編集は _partials/analytics.html、反映は python _partials/inject.py -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5X4CC48YH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N5X4CC48YH', { 'anonymize_ip': true });
+</script>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "wk7j63hn3o");
+</script>
+<!-- @partial:analytics END -->
+<meta name="description" content="完全ファンレスの1.79Lミニ PC「ZBOX CI675 nano / CI655 nano」。静かな場所でのリッチコンテンツ再生にも、集中したい事務席にも。CI655（Core Ultra 5 225U）の実機で、1080p動画の2時間連続再生・事務作業の体感を決めるシングルスレッド性能・7-Zipのスループットを実測し、約1秒間隔の温度／電力ログからファンレスのまま15Wを使い切る挙動を中立に検証します。">
+<link rel="canonical" href="https://hub.zotac.co.jp/reviews/ci675-ci655-nano/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+
+<!-- OGP -->
+<meta property="og:title" content="ZOTAC ZBOX CI675 nano / CI655 nano ベンチマークレビュー（ファンレス / Core Ultra U シリーズ）">
+<meta property="og:description" content="可動部ゼロの1.79Lファンレス機。静かな場所でのリッチコンテンツ再生にも、集中したい事務席にも。1080p 2時間連続再生は6.3W・60°Cで定常、シングルスレッドはH系と同等。">
+<meta property="og:image" content="https://hub.zotac.co.jp/reviews/ci675-ci655-nano/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hub.zotac.co.jp/reviews/ci675-ci655-nano/">
+<meta property="og:site_name" content="ZOTAC NIPPON">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://zotac.co.jp/#organization",
+      "name": "ZOTAC NIPPON",
+      "alternateName": [
+        "株式会社ゾタック日本",
+        "ZOTAC Japan"
+      ],
+      "legalName": "ZOTAC Nippon Co., Ltd.",
+      "url": "https://zotac.co.jp/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://hub.zotac.co.jp/assets/zotac_logo.svg",
+        "width": 600,
+        "height": 60
+      },
+      "sameAs": [
+        "https://www.zotac.com/jp/",
+        "https://x.com/ZOTAC_JAPAN",
+        "https://www.youtube.com/@ZOTACJAPAN"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hub.zotac.co.jp/#website",
+      "url": "https://hub.zotac.co.jp/",
+      "name": "ZOTAC NIPPON HUB",
+      "publisher": {
+        "@id": "https://zotac.co.jp/#organization"
+      },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": [
+        "Article",
+        "TechArticle"
+      ],
+      "@id": "https://hub.zotac.co.jp/reviews/ci675-ci655-nano/#article",
+      "headline": "ZOTAC ZBOX CI675 nano / CI655 nano ベンチマークレビュー（ファンレス / Core Ultra U シリーズ）",
+      "alternativeHeadline": "音のない1.79L — 映像を楽しむ場所にも、仕事に集中する席にも。15Wを使い切るファンレス機を実測する",
+      "description": "ファンレスの1.79LミニPC ZBOX CI675 nano / CI655 nano を、CI655（Core Ultra 5 225U）の実機で検証。シングルスレッド性能・7-Zip・1080p連続再生・ストレージの実測と、約1秒間隔の温度／電力ログによる持続挙動のレポート。",
+      "image": "https://hub.zotac.co.jp/reviews/ci675-ci655-nano/ogp.jpg",
+      "datePublished": "2026-08-14",
+      "dateModified": "2026-08-14",
+      "author": {
+        "@id": "https://zotac.co.jp/#organization"
+      },
+      "publisher": {
+        "@id": "https://zotac.co.jp/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://hub.zotac.co.jp/reviews/ci675-ci655-nano/"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "ZOTAC ZBOX CI655 nano"
+      },
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://hub.zotac.co.jp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Reviews",
+          "item": "https://hub.zotac.co.jp/reviews/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ZBOX CI675 nano / CI655 nano ベンチマークレビュー"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ファンレスで事務作業に足りますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "体感を左右するシングルスレッド性能は CrystalMark Retro の cpu_single で 11,094 — ファンを搭載する上位機（Core Ultra 5 225H＝11,046 / Core Ultra 7 255H＝10,925）とほぼ同じ値です。Office・ブラウザ・Web会議のような1スレッドの速さで決まる作業では、上位機に近い快適さが期待できます（実アプリの応答性そのものは計測していません）。差が出るのは長時間の重い一括処理で、7-Zip ではH系2機の約52〜58%、cpu_multi では約53〜56%です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "CI675 nano と CI655 nano の違いは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "違いは CPU グレードだけです。CI675 nano は Core Ultra 7 255U、CI655 nano は Core Ultra 5 225U を搭載し、どちらも12コア/14スレッド構成。筐体（204×129×68mm・約1.79L・完全ファンレス）、インターフェース、メモリー上限（DDR5-5600/5200 SO-DIMM ×2・最大64GB）、ストレージ構成（M.2 NVMe PCIe 4.0 ×4 が2基）はすべて共通です。なお本レビューで実測したのは CI655 nano です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ファンレスで熱は大丈夫ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "約1秒間隔・8,262サンプルのタイムラインでは、CPUパッケージ温度は中央値61°C・95パーセンタイル86°C・最大91°C。90°C以上は全体の0.1%（8サンプル）にとどまる瞬間的なスパイクで、負荷時の持続域は60〜84°Cです。5種13回のベンチマークはすべて停止なしで完走しました。持続CPU電力は中央値14.9〜15.0Wで、TDP枠15Wに張り付いたまま処理を続けています（本個体の実測値で、室温・設置環境により変動します）。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "動画の連続再生やサイネージ用途に使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VLC による 1080p 動画の120分連続ループ再生を停止なしで完走しました（再生レート 1.0004・D3D11VA ハードウェアデコード有効）。開始30分以降は 60〜61°C・6.3W・CPU負荷1.1% でほぼ定常となり、以後90分間ほぼ変化しません。映像出力は HDMI 2.1 ×1 と DisplayPort 1.4 ×2 で最大3画面に対応します。ただし2時間の実測範囲での結果であり、24時間365日の耐久を保証するものではありません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "メモリーやSSDは後から増やせますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "本機はベアボーンで、メモリー（SO-DIMM ×2・最大64GB）とストレージ（M.2 NVMe PCIe 4.0 ×4・2280 が2基。うち1基は SATA3 兼用）を導入時に選定します。テスト個体は DDR5-5600 16GB×2 と 1TB NVMe SSD の構成でした。構成込みでのご相談も承っています。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --yellow:#FFD400;
+    --yellow-soft:rgba(255,212,0,.14);
+    --dark:#2A2D2F;
+    --ink:#2A2D2F;
+    --ink-mid:#6D6E71;
+    --ink-light:#9A9C9E;
+    --bg:#FFFFFF;
+    --bg-subtle:#FAFAFA;
+    --bg-soft:#F4F4F3;
+    --line:#E6E6E4;
+    --line-strong:#C9CACB;
+    --font:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+    --max:780px;
+    --pad:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit}
+
+  /* ===== Site Header (hub.zotac.co.jp 共通ヘッダー / 正本) ===== */
+  .site-header{position:sticky;top:0;z-index:200;background:#2A2D2F;border-bottom:3px solid #FFD400;padding:16px 0;line-height:1.55}
+  .site-header-inner{max-width:1200px;margin:0 auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+  @media (max-width:700px){.site-header-inner{padding:0 24px}}
+  .site-logo{display:flex;align-items:center;gap:16px;text-decoration:none;border:none}
+  .site-logo img{height:22px;width:auto;display:block}
+  .logo-divider{color:#B1B3B6;font-family:'JetBrains Mono',monospace;font-weight:300;font-size:16px}
+  .logo-url{font-family:'JetBrains Mono',monospace;font-size:12px;color:#B1B3B6;letter-spacing:.05em}
+  .logo-url .host-hub{color:#FFD400;font-weight:500}
+  .site-nav{display:flex;gap:22px;align-items:center}
+  .site-nav a{text-decoration:none;color:#fff;font-size:13px;font-weight:500;position:relative;padding:4px 0;display:inline-flex;align-items:center;gap:6px;border:none}
+  .site-nav a.is-active{color:#FFD400}
+  .site-nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#FFD400;transform:scaleX(0);transform-origin:left;transition:transform .2s}
+  .site-nav a:hover::after,.site-nav a.is-active::after{transform:scaleX(1)}
+  @media (max-width:1100px){.site-nav{gap:16px}}
+  @media (max-width:1000px){.site-nav a{font-size:12px}}
+  .nav-mobile{display:none;align-items:center;gap:12px}
+  .nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer}
+  .nav-toggle:hover{border-color:#FFD400}
+  .nav-toggle-bar{display:block;width:100%;height:2px;background:#fff;transition:transform .2s,opacity .2s}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0}
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  @media (max-width:900px){
+    .nav-mobile{display:flex}
+    .site-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#2A2D2F;border-bottom:3px solid #FFD400;box-shadow:0 14px 28px rgba(0,0,0,.35);padding:6px 0}
+    .site-nav.is-open{display:flex}
+    .site-nav a{width:100%;padding:14px 24px;font-size:15px}
+    .site-nav a + a{border-top:1px solid rgba(255,255,255,.08)}
+    .site-nav a::after{display:none}
+  }
+  @media (max-width:600px){.logo-divider,.logo-url{display:none}}
+  .site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700}
+  .site-nav a.nav-cta:hover{background:#f2c800}
+  .site-nav a.nav-cta::after{display:none!important}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+  section{padding:46px 0;border-top:1px solid var(--line);scroll-margin-top:72px}
+  section:first-of-type{border-top:none}
+
+  .hero{padding:40px 0 30px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mid);display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:3px;background:var(--yellow);display:inline-block}
+  h1{font-weight:900;font-size:clamp(27px,5vw,42px);line-height:1.28;margin:16px 0 14px;letter-spacing:.01em;word-break:keep-all}
+  h1 .hl{background:linear-gradient(transparent 62%,var(--yellow) 62%)}
+  h1 .h1-sub{display:block;margin-top:12px;font-size:.56em;font-weight:700;line-height:1.55;color:#3c3f41;letter-spacing:.01em}
+  .lead{font-size:17px;color:#3c3f41;margin-bottom:22px}
+  .hero-fig{margin:24px 0 6px;background:var(--bg-soft);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .hero-fig img{width:100%}
+  figure{margin:22px 0}
+  figcaption{font-size:12.5px;color:var(--ink-mid);margin-top:8px;font-family:var(--mono)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+  .chip{font-family:var(--mono);font-size:12.5px;background:var(--dark);color:#fff;padding:6px 11px;border-radius:5px;letter-spacing:.02em}
+  .chip b{color:var(--yellow)}
+
+  .tldr{background:var(--bg-subtle);border:1px solid var(--line);border-left:5px solid var(--yellow);border-radius:6px;padding:22px 24px;margin:8px 0}
+  .tldr h2{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);font-family:var(--mono);margin-bottom:12px}
+  .tldr ul{list-style:none}
+  .tldr li{padding:7px 0 7px 26px;position:relative;border-top:1px dashed var(--line)}
+  .tldr li:first-child{border-top:none}
+  .tldr li::before{content:"";position:absolute;left:2px;top:15px;width:9px;height:9px;background:var(--yellow);border-radius:2px;transform:rotate(45deg)}
+  .num{font-family:var(--mono);font-weight:700}
+
+  h2.sec{font-weight:900;font-size:clamp(20px,3.4vw,27px);line-height:1.35;margin-bottom:6px;letter-spacing:.01em}
+  .sec-no{font-family:var(--mono);font-size:12px;color:var(--yellow);font-weight:700;letter-spacing:.14em;background:var(--dark);padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:14px}
+  h3{font-weight:700;font-size:18px;margin:30px 0 10px}
+  p{margin:13px 0}
+  .muted{color:var(--ink-mid)}
+  strong.key{background:var(--yellow-soft);padding:1px 4px;border-radius:3px;font-weight:700}
+  a.xref{color:inherit;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:2px;white-space:nowrap}
+  a.xref:hover{text-decoration-color:var(--yellow)}
+  .buyrow{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;margin:14px 0 2px}
+  .txtlink{display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong)}
+  .txtlink:hover{text-decoration-color:var(--yellow)}
+  .cta{display:inline-block;background:var(--yellow);color:var(--dark);font-weight:700;font-size:14.5px;text-decoration:none;padding:12px 22px;border-radius:6px;letter-spacing:.02em;border:1px solid #E6BE00}
+  .cta:hover{background:#f2c800}
+
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--dark);color:#fff;font-size:12.5px;letter-spacing:.04em;border-bottom:none}
+  .spec th{width:34%;background:var(--bg-soft);font-weight:700;color:#3c3f41}
+  td.mono,th.mono{font-family:var(--mono)}
+  tbody tr:hover{background:var(--bg-subtle)}
+  .data td{font-family:var(--mono);font-size:13.5px}
+  .data td:first-child{font-family:var(--font);font-weight:500}
+  .data .me{background:var(--yellow-soft);font-weight:700}
+  .data tr.me-row td:first-child{border-left:3px solid var(--yellow)}
+  .na{color:var(--ink-light)}
+
+  .tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:8px;-webkit-overflow-scrolling:touch}
+  .results{width:100%;min-width:560px;border-collapse:collapse;font-size:13px;margin:0}
+  .results th,.results td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+  .results thead th{background:var(--dark);color:#fff;vertical-align:bottom;font-size:12px;line-height:1.3;font-weight:700}
+  .results th.test{text-align:left;background:var(--dark)}
+  .results tbody th{text-align:left;background:var(--bg-soft);font-weight:600;font-family:var(--font);white-space:normal}
+  .results tbody th .u{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;color:var(--ink-mid)}
+  .results tbody td{font-family:var(--mono)}
+
+  .chart{margin:20px 0 8px}
+  .chart .ttl{font-weight:700;font-size:15px;margin-bottom:3px}
+  .chart .unit{font-family:var(--mono);font-size:11.5px;color:var(--ink-mid);margin-bottom:12px}
+  .row{display:grid;grid-template-columns:156px 1fr;align-items:center;gap:10px;margin:7px 0}
+  .row .lab{font-size:12.5px;text-align:right;color:#3c3f41;line-height:1.25}
+  .row .lab small{display:block;color:var(--ink-light);font-size:10px;font-family:var(--mono);margin-top:1px}
+  .track{background:var(--bg-soft);border-radius:4px;overflow:hidden;height:32px;position:relative}
+  .fill{height:100%;background:linear-gradient(90deg,#3a3e40,#55595b);border-radius:4px;display:flex;align-items:center;justify-content:flex-end;min-width:46px}
+  .fill .v{font-family:var(--mono);font-weight:700;font-size:12.5px;color:#fff;padding:0 9px;white-space:nowrap}
+  .row.me .fill{background:linear-gradient(90deg,#E6BE00,var(--yellow))}
+  .row.me .fill .v{color:var(--dark)}
+  .row.me .lab{font-weight:700;color:var(--ink)}
+
+  .note{background:var(--bg-subtle);border:1px solid var(--line);border-radius:6px;padding:16px 18px;margin:20px 0;font-size:14px;color:#3c3f41}
+  .note b{color:var(--ink)}
+  .note .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);display:block;margin-bottom:6px}
+
+  /* primer / 用語解説 columns */
+  .primer-lead{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin:26px 0 10px;display:flex;align-items:center;gap:9px}
+  .primer-lead::before{content:"";width:22px;height:3px;background:var(--yellow);display:inline-block}
+  .primer{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 6px}
+  .primer .card{border:1px solid var(--line);border-top:3px solid var(--yellow);border-radius:8px;background:var(--bg-subtle);padding:15px 18px}
+  .primer .card h4{font-size:15.5px;font-weight:900;margin:0 0 9px;display:flex;align-items:baseline;gap:9px;line-height:1.3}
+  .primer .card h4 .k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--dark);background:var(--yellow);padding:2px 8px;border-radius:4px;flex:none}
+  .primer .card p{font-size:13px;line-height:1.78;margin:0;color:#3c3f41}
+  .primer .card p+p{margin-top:9px}
+  .primer .card b{color:var(--ink)}
+  @media(max-width:560px){.primer{grid-template-columns:1fr}}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+  .grid2 figure{margin:0}
+  .grid2 .cell{background:var(--bg-soft);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  @media(max-width:560px){.grid2{grid-template-columns:1fr}.row{grid-template-columns:120px 1fr}}
+
+  /* 図版ボックス（EU275080C と共通の見せ方）: 透過素材が乗るので背景は白 */
+  figure.figbox{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;padding:16px}
+  figure.figbox figcaption{padding-top:10px;margin-top:0}
+  /* 縦長図版: 高さを抑えてクリックで原寸（lightbox）へ */
+  figure.tall{text-align:center}
+  figure.tall img{max-height:62vh;width:auto;margin:0 auto}
+  figure.tall figcaption{text-align:left}
+  .zoomhint{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-mid);background:var(--bg-subtle);border:1px solid var(--line);border-radius:4px;padding:2px 8px;margin-top:8px}
+  .zoomhint::before{content:"⤢";color:var(--yellow);font-weight:700}
+
+  details{border:1px solid var(--line);border-radius:6px;margin:10px 0;overflow:hidden;background:var(--bg-subtle)}
+  summary{cursor:pointer;padding:15px 18px;font-weight:700;font-size:15px;list-style:none;position:relative;padding-right:44px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:18px;top:13px;font-family:var(--mono);font-size:20px;color:var(--yellow);font-weight:700}
+  details[open] summary::after{content:"–"}
+  details .a{padding:0 18px 16px;font-size:14.5px;color:#3c3f41}
+
+  .verdict{background:var(--dark);color:#ececed;border-radius:8px;padding:28px 26px;margin:18px 0}
+  .verdict h3{color:#fff;margin-top:0}
+  .verdict .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px}
+  .verdict h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .verdict .fit h4{color:var(--yellow)}
+  .verdict .unfit h4{color:#c9cacb}
+  .verdict ul{list-style:none;font-size:14px}
+  .verdict li{padding:5px 0 5px 20px;position:relative;color:#d6d7d8}
+  .verdict li::before{content:"›";position:absolute;left:2px;color:var(--yellow);font-weight:700}
+  @media(max-width:560px){.verdict .cols{grid-template-columns:1fr}}
+
+  footer{background:var(--dark);color:#b9babb;font-size:12.5px;padding:34px var(--pad);margin-top:40px}
+  footer .inner{max-width:var(--max);margin:0 auto}
+  footer .meta{font-family:var(--mono);font-size:11.5px;line-height:1.9;color:#9a9c9e}
+  footer b{color:#fff}
+  footer .disc{margin-top:16px;padding-top:16px;border-top:1px solid #44484a}
+
+  /* image lightbox */
+  main img{cursor:zoom-in}
+  .lightbox{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(22,23,25,.93);padding:28px;cursor:zoom-out;opacity:0;transition:opacity .18s ease}
+  .lightbox.open{display:flex;opacity:1}
+  .lightbox img{max-width:92vw;max-height:84vh;width:auto;height:auto;border-radius:6px;box-shadow:0 24px 70px rgba(0,0,0,.55);background:#fff;cursor:zoom-out}
+  .lightbox figcaption{max-width:760px;color:#d6d7d8;font-size:13px;line-height:1.6;text-align:center;font-family:var(--font)}
+  .lb-close{position:fixed;top:16px;right:20px;width:42px;height:42px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:24px;line-height:1;border-radius:6px;cursor:pointer}
+  .lb-close:hover{border-color:var(--yellow);color:var(--yellow)}
+</style>
+
+</head>
+<body data-inquiry-sku="ZBOX-CI655NANO" data-inquiry-pname="ZBOX CI655 nano" data-inquiry-series="ZBOX C SERIES" data-inquiry-line="zbox">
+<!-- @partial:header START — 編集は _partials/header.html、反映は python _partials/inject.py -->
+<style>
+/* === ZOTAC hub 共通ヘッダー（自己完結・単一ソース）=======================
+   正本はこのファイルだけ。ダーク／幅1100px。ページ側CSS(.wrap/.container)に
+   一切依存しないよう、ヘッダー専用CSSを同梱し色はリテラル固定。
+   反映: 手書きHTML = python _partials/inject.py ／ 生成HTML = build_*.py。
+   is-active は注入側がページ階層に応じて自動付与（ここでは付けない）。 */
+.site-header{position:sticky;top:0;z-index:100;background:#2A2D2F;border-bottom:3px solid #FFD400;padding:16px 0;line-height:1.5;}
+.site-header,.site-header *{box-sizing:border-box;}
+.site-header .site-header-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;}
+.site-header .site-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+.site-header .site-logo img{height:22px;width:auto;}
+.site-header .logo-divider{color:#B1B3B6;font-family:'JetBrains Mono',monospace;font-weight:300;font-size:15px;}
+.site-header .logo-url{font-family:'JetBrains Mono',monospace;font-size:11px;color:#B1B3B6;letter-spacing:.05em;white-space:nowrap;}
+.site-header .logo-url .host-hub{color:#FFD400;font-weight:500;}
+.site-header .site-nav{display:flex;gap:20px;align-items:center;}
+.site-header .site-nav a{text-decoration:none;color:#fff;font-size:13px;font-weight:500;position:relative;padding:4px 0;display:inline-flex;align-items:center;gap:6px;border:none;}
+.site-header .site-nav a.is-active{color:#FFD400;}
+.site-header .site-nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:#FFD400;transform:scaleX(0);transform-origin:left;transition:transform .2s;}
+.site-header .site-nav a:hover::after,.site-header .site-nav a.is-active::after{transform:scaleX(1);}
+.site-header .site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700;}
+.site-header .site-nav a.nav-cta:hover{background:#f2c800;}
+.site-header .site-nav a.nav-cta::after{display:none!important;}
+.site-header .nav-mobile{display:none;align-items:center;gap:12px;}
+.site-header .nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer;}
+.site-header .nav-toggle:hover{border-color:#FFD400;}
+.site-header .nav-toggle-bar{display:block;width:100%;height:2px;background:#fff;transition:transform .2s,opacity .2s;}
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0;}
+.site-header .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media (max-width:1100px){.site-header .site-nav{gap:15px;}}
+@media (max-width:900px){
+  .site-header .nav-mobile{display:flex;}
+  .site-header .site-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#2A2D2F;border-bottom:3px solid #FFD400;box-shadow:0 14px 28px rgba(0,0,0,.35);padding:6px 0;z-index:200;}
+  .site-header .site-nav.is-open{display:flex;}
+  .site-header .site-nav a{width:100%;padding:14px 24px;font-size:15px;}
+  .site-header .site-nav a+a{border-top:1px solid rgba(255,255,255,.08);}
+  .site-header .site-nav a::after{display:none;}
+}
+@media (max-width:600px){.site-header .logo-divider,.site-header .logo-url{display:none;}}
+</style>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-logo">
+      <img src="/assets/ZOTAC_white.svg" alt="ZOTAC NIPPON" />
+      <span class="logo-divider">/</span>
+      <span class="logo-url">https://<span class="host-hub">hub</span>.zotac.co.jp</span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="/trial-program/">評価機貸出</a>
+      <a href="/case-studies/">導入事例</a>
+      <a href="/reviews/" class="is-active">レビュー</a>
+      <a href="/catalogs/">製品カタログ</a>
+      <a href="/press/">メディア掲載</a>
+      <a href="https://zotac.co.jp/product-biz-inquiry/?sku=ZBOX-CI655NANO&pname=ZBOX%20CI655%20nano&series=ZBOX%20C%20SERIES&line=zbox&from=/reviews/ci675-ci655-nano/" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <div class="nav-mobile">
+      <button type="button" class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+<script>
+/* モバイルナビの開閉。ページ側に同種のスクリプトを置かないこと
+   （同じボタンに2つ登録されると開閉が相殺して「押しても出ない」になる。2026-08-13 の事象）。 */
+(function(){
+  var hdr=document.querySelector('header.site-header'); if(!hdr) return;
+  var btn=hdr.querySelector('.nav-toggle'), nav=hdr.querySelector('#site-nav');
+  if(!btn||!nav||btn.dataset.bound) return; btn.dataset.bound='1';
+  function set(open){
+    nav.classList[open?'add':'remove']('is-open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+    btn.setAttribute('aria-label',open?'メニューを閉じる':'メニューを開く');
+  }
+  btn.addEventListener('click',function(){ set(!nav.classList.contains('is-open')); });
+  nav.addEventListener('click',function(e){ if(e.target.closest('a')) set(false); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&nav.classList.contains('is-open')){ set(false); btn.focus(); }
+  });
+  /* ドロワー幅（max-width:900px）を外れたら開いた状態を畳む。
+     開いたまま横向きにするとデスクトップ表示へ戻った際に開きっぱなしになるため。 */
+  var mq=window.matchMedia('(max-width:900px)');
+  function onMq(e){ if(!e.matches) set(false); }
+  if(mq.addEventListener) mq.addEventListener('change',onMq);
+  else if(mq.addListener) mq.addListener(onMq);
+})();
+</script>
+<!-- @partial:header END -->
+
+
+
+<main class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <span class="eyebrow">Benchmark Review — ZBOX C SERIES nano</span>
+    <h1>ZBOX <span class="hl">CI675 / CI655 nano</span><span class="h1-sub">音のない1.79L — 映像を楽しむ場所にも、仕事に集中する席にも</span></h1>
+    <p class="lead">ファンを一つも持たない 1.79L のミニPC「ZBOX CI675 nano / CI655 nano」。
+      本レビューは速さを競う検証ではなく、<b>「静かな場所でリッチコンテンツを楽しむ機として、あるいは仕事に集中する事務機として、どこまで使えるか」</b>を主題に、
+      1080p動画の2時間連続再生・画面まわり・体感を左右するシングルスレッド性能・全コアのスループットを実測し、
+      約1秒間隔の温度／電力ログから、15Wの枠を使い切るファンレス機の持続挙動を中立に読み解きます。
+      <b>計測したのは、スタンダードクラスにあたる CI655 nano（Core Ultra 5 225U）</b> です（<a class="xref" href="#s01">§01</a>）。</p>
+
+    <div class="chips">
+      <span class="chip"><b>完全ファンレス</b> 可動部ゼロ</span>
+      <span class="chip"><b>1.79L</b> 204×129×68mm</span>
+      <span class="chip"><b>12コア/14スレッド</b> Core Ultra U</span>
+      <span class="chip"><b>最大3画面</b> HDMI 2.1 ＋ DP1.4 ×2</span>
+      <span class="chip"><b>Wi-Fi 7</b> / Bluetooth 5.4</span>
+      <span class="chip"><b>M.2 ×2</b> PCIe 4.0 x4</span>
+      <span class="chip"><b>VESA</b> プレート同梱</span>
+    </div>
+
+    <figure style="margin:24px 0 6px">
+      <div class="hero-fig" style="margin:0">
+      <img src="images/keyvisual-1920x580.jpg" width="1920" height="580" alt="ZOTAC ZBOX CI675 nano / CI655 nano キービジュアル — ハニカム状の天面を持つファンレスミニPC">
+      </div>
+    <figcaption>ZBOX CI675 / CI655 nano — 可動部を持たない完全ファンレスの 1.79L ミニPC。（ZOTAC 公式キービジュアル）</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ TL;DR ============ -->
+  <section>
+    <div class="tldr">
+      <h2>実測サマリー（3行）</h2>
+      <ul>
+        <li>1080p 2時間連続再生は <strong class="key">開始30分以降 60〜61°C・6.3W・CPU負荷1.1% でほぼ定常</strong>。動画の常時表示は本機にとって「ほぼ空転」の軽さ。</li>
+        <li>体感を決めるシングルスレッドは <strong class="key">ファン付きの上位機とほぼ同値</strong>（CrystalMark <span class="num">cpu_single 11,094</span>／Core Ultra 5 225H 11,046・Core Ultra 7 255H 10,925）。差が出るのは全コアを使う一括処理で、7-Zip はH系2機の約52〜58%。</li>
+        <li>ファンレスの持続挙動: 持続CPU電力は <strong class="key">中央値 14.9〜15.0W でTDP枠15Wに張り付き</strong>、パッケージ温度は持続 60〜84°C（瞬間最大91°C・90°C超は全体の0.1%）。<strong class="key">5種13回すべて停止なしで完走</strong>。</li>
+      </ul>
+    </div>
+    <div class="buyrow">
+      <a class="txtlink" href="https://hub.zotac.co.jp/catalogs/zbox/ci655/">製品カタログで全仕様を見る（CI675 / CI655 nano）→</a>
+      <a class="txtlink" href="https://zotac.co.jp/product-biz-inquiry/?sku=ZBOX-CI655NANO&pname=ZBOX%20CI655%20nano&series=ZBOX%20C%20SERIES&line=zbox&intent=quote&from=/reviews/ci675-ci655-nano/" target="_blank" rel="noopener">法人向けお問い合わせ →</a>
+    </div>
+  </section>
+
+  <!-- ============ 01 概要 ============ -->
+  <section id="s01">
+    <span class="sec-no">01 / 概要</span>
+    <h2 class="sec">CI675 と CI655 — 筐体も冷却も I/O も同じ。選ぶのは CPU グレードだけ</h2>
+    <p>ZBOX CI シリーズは、<b>可動部を持たないファンレス設計</b>のミニPCです。今回の CI675 nano / CI655 nano は
+      Intel Core Ultra（開発コード Arrow Lake-U）世代を載せた 1.79L モデルで、
+      <b>2機の違いは CPU グレードだけ</b> — 筐体・冷却機構・インターフェース・メモリー上限・ストレージ構成はすべて共通です。</p>
+
+    <div class="tablewrap">
+      <table class="results">
+        <thead>
+          <tr><th class="test">項目</th><th>CI675 nano</th><th>CI655 nano（本記事の実測機）</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">プロセッサー</th><td>Core Ultra 7 <b>255U</b></td><td>Core Ultra 5 <b>225U</b></td></tr>
+          <tr><th scope="row">動作クロック</th><td>1.2GHz / 最大 5.2GHz</td><td>1.5GHz / 最大 4.8GHz</td></tr>
+          <tr><th scope="row">コア / スレッド</th><td colspan="2">12コア / 14スレッド</td></tr>
+          <tr><th scope="row">グラフィックス</th><td colspan="2">Intel Graphics（CPU内蔵）／ NPU（Intel AI Boost）内蔵</td></tr>
+          <tr><th scope="row">メモリー</th><td colspan="2">DDR5-5600 / 5200 SO-DIMM ×2（最大 64GB）</td></tr>
+          <tr><th scope="row">ストレージ</th><td colspan="2">M.2 NVMe PCIe 4.0 ×4（2280）×2 ※1基は SATA3 兼用</td></tr>
+          <tr><th scope="row">映像出力</th><td colspan="2">HDMI 2.1 ×1 ＋ DisplayPort 1.4 ×2（各 最大 4096×2160@60Hz）・最大3画面</td></tr>
+          <tr><th scope="row">ネットワーク</th><td colspan="2">Gigabit Ethernet ×1 / Wi-Fi 7 / Bluetooth 5.4</td></tr>
+          <tr><th scope="row">冷却・外形</th><td colspan="2">完全ファンレス（パッシブ）／ 204 × 129 × 68 mm・約 1.79L</td></tr>
+          <tr><th scope="row">電源</th><td colspan="2">AC アダプター（DC 19V・65W）</td></tr>
+          <tr><th scope="row">盗難対策</th><td colspan="2">セキュリティロックスロット（Kensington 対応・側面）</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><b>本レビューで実測したのは CI655 nano（Core Ultra 5 225U）です。</b>
+      CI675 nano の実測データは本記事にはありません。以降のグラフ・温度・スコアはすべて CI655 の値で、
+      CI675 については上表のカタログ仕様の併載にとどめます（推定値は掲載しません）。
+      筐体と冷却機構が共通であることは、<a class="xref" href="#s04">§04</a> の分解図のとおりです。</p>
+
+    <div class="primer-lead">ZBOX PRO との住み分け</div>
+    <div class="note" style="margin-top:0">
+      同じ「ファンレスのミニPC」でも、<b>ZBOX PRO</b>（産業向けの S35 シリーズなど）は
+      シリアルポートやウォッチドッグ、広い動作温度範囲といった<b>組み込み・産業設備向けの装備</b>に振った構成です。
+      対して本機 <b>CI nano</b> は、同じ無音・省スペースでありながら、
+      <b>12コア/14スレッドのCore Ultraで事務作業の実性能を持たせた側</b>にあります。
+      産業用途にも使えますが、軸足は<b>オフィスの事務端末と簡易マルチメディア</b>です。
+    </div>
+
+    <div class="primer-lead">搭載するCPU・グラフィックスの基礎知識</div>
+    <div class="primer">
+      <div class="card">
+        <h4><span class="k">CPU</span>Core Ultra 5 225U とは</h4>
+        <p>Intel Core Ultra シリーズ2（Arrow Lake-U）の省電力モデル。<b>12コア / 14スレッド</b>で、内訳は高性能のPコア2基（4スレッド）、高効率のEコア8基、さらに待機時を担う低消費電力のLPコア2基という構成です。</p>
+        <p>基本の電力枠は <b>TDP 15W</b>（12W / 15W / 28W の3段階を持つ）。ノートPC向けの省電力設計を、ファンのない筐体に載せているのが本機です。</p>
+      </div>
+      <div class="card">
+        <h4><span class="k">GPU</span>内蔵 Intel Graphics と NPU</h4>
+        <p>CPUに内蔵されたグラフィックス（<b>4 Xeコア / 64 EU</b>・最大2.0GHz）。単体グラフィックスカードは搭載しません。動画のデコード／エンコードは専用回路が担うため、再生時のCPU負荷はごく小さく収まります。</p>
+        <p>AI処理を担う <b>NPU（Intel AI Boost）</b> も内蔵しますが、本レビューの計測項目にAI系ベンチマークは含みません（仕様としての記載にとどめます）。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 実機のハードウェア確認 ============ -->
+  <section id="s02">
+    <span class="sec-no">02 / 実機</span>
+    <h2 class="sec">実機のハードウェア確認（CPU-Z / GPU-Z）</h2>
+    <p>計測に使った個体の構成を、CPU-Z と GPU-Z で確認します。CPUは <b>Core Ultra 5 225U</b>、
+      コア構成は <b>Pコア2（4スレッド）＋ Eコア8 ＋ LPコア2</b> の 12コア/14スレッド。TDP Limit は 15.0W と表示されます。
+      マザーボードのSMBIOS表記は <span class="num">ZBOX-CI675NANO/CI655NANO</span> と両モデル共通の名称を返すため、
+      機体の判別はCPUで行っています。</p>
+
+    <div class="grid2">
+      <figure>
+        <div class="cell"><img src="images/cpuz-cpu.png" width="403" height="402" alt="CPU-Z の CPU タブ — Intel Core Ultra 5 225U、Arrow Lake、Max TDP 15.0W、12コア14スレッド（2P+8E+2LP）"></div>
+        <figcaption>CPU-Z: Core Ultra 5 225U / Max TDP 15.0W / 2P+8E+2LP</figcaption>
+      </figure>
+      <figure>
+        <div class="cell"><img src="images/cpuz-mainboard.png" width="403" height="402" alt="CPU-Z の Mainboard タブ — ZOTAC ZBOX-CI675NANO/CI655NANO、Arrow Lake-U PCH、BIOS 5.32"></div>
+        <figcaption>CPU-Z: マザーボードは CI675/CI655 共通表記・BIOS 5.32</figcaption>
+      </figure>
+      <figure>
+        <div class="cell"><img src="images/cpuz-graphics.png" width="403" height="402" alt="CPU-Z の Graphics タブ — Intel Graphics、64 EU / 4 Xeコア、512 シェーダー"></div>
+        <figcaption>CPU-Z: 内蔵グラフィックスは 64 EU / 4 Xeコア</figcaption>
+      </figure>
+      <figure>
+        <div class="cell"><img src="images/gpuz.png" width="388" height="539" alt="GPU-Z — Intel Graphics、Arrow Lake、ドライバー 32.0.101.8801"></div>
+        <figcaption>GPU-Z: ドライバー 32.0.101.8801（2026-05-12 WHQL）</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 03 テスト環境 ============ -->
+  <section id="s03">
+    <span class="sec-no">03 / 計測</span>
+    <h2 class="sec">テスト環境・計測方法</h2>
+    <p>本機はベアボーンのため、メモリー・SSD・OS はテスト個体の構成です。
+      各テストは <b>3回ずつ独立に実行し、中央値</b>を代表値とします（120分の連続再生のみ1回）。
+      電源プランは高パフォーマンス。全テストを通して <b>約1秒間隔でCPUの温度・電力・クロック・負荷を記録</b>しており、
+      <a class="xref" href="#s10">§10</a> 以降の温度の話はこのログにもとづきます。</p>
+
+    <table class="spec">
+      <tbody>
+        <tr><th>本体</th><td>ZOTAC ZBOX CI655 nano（ベアボーン）</td></tr>
+        <tr><th>CPU</th><td>Intel Core Ultra 5 225U（12コア / 14スレッド・TDP 15W）</td></tr>
+        <tr><th>グラフィックス</th><td>CPU内蔵 Intel Graphics（ドライバー 32.0.101.8801）</td></tr>
+        <tr><th>メモリー</th><td>DDR5-5600 SO-DIMM 16GB ×2（32GB・テスト個体構成）</td></tr>
+        <tr><th>ストレージ</th><td>1TB NVMe SSD（PCIe 4.0 x4・システムドライブ／テスト個体構成）</td></tr>
+        <tr><th>OS</th><td>Windows 11 Home 26200（25H2）</td></tr>
+        <tr><th>電源</th><td>AC アダプター（DC 19V・65W）</td></tr>
+        <tr><th>電源プラン</th><td>高パフォーマンス</td></tr>
+        <tr><th>計測日</th><td>2026-08-08</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <span class="tag">計測項目</span>
+      <b>3DMark Night Raid</b>（内蔵GPU向けの軽量3D）／ <b>7-Zip 26.00</b>（全コアの圧縮・展開スループット）／
+      <b>VLC 3.0.23</b> による 1080p 動画の120分ループ再生 ／ <b>CrystalMark Retro 2.1.0</b>（CPU・2D描画・ディスクの総合）／
+      <b>CrystalDiskMark 9.0.3</b>（システムドライブ）の5種・計13回。
+      ストレージ関連の値は<b>テスト個体のSSD構成に依存する参考値</b>で、機種の優劣として扱いません。
+    </div>
+  </section>
+
+  <!-- ============ 04 外観と設置 ============ -->
+  <section id="s04">
+    <span class="sec-no">04 / 外観</span>
+    <h2 class="sec">置けるか・つなげるか・静かか — 外観と設置性</h2>
+    <p>性能の話に入る前に、モノとしての把握を済ませておきます。外形は <b>204 × 129 × 68 mm（約1.79L）</b>。
+      A4用紙（297×210mm）より小さい設置面積で、机上ならモニターの脇、什器なら棚板1段に収まる寸法です。
+      <b>この節の内容は CI675 nano と CI655 nano で共通</b>です。</p>
+
+    <figure class="figbox">
+      <img src="images/dimensions-annotated.png" width="1920" height="1378" alt="ZBOX CI655 nano の寸法図 — 幅204mm、奥行き129mm、高さ68mm">
+      <figcaption>外形寸法。高さ68mmは、モニタースタンドの下や什器の1段に収めやすい高さ。（ZOTAC 公式レンダー）</figcaption>
+    </figure>
+
+    <h3>同梱物 — VESAプレートが入っている</h3>
+    <p>ベアボーン構成の同梱物は、本体・ACアダプター・電源コード・Wi-Fiアンテナ・USBドライブ・クイックスタートガイド、
+      そして <b>VESAマウントプレート（取り付けネジ付き）</b>。
+      モニター背面への固定が<b>買った時点で完結</b>するため、机上を占有しない設置がそのまま選べます。</p>
+    <figure class="figbox">
+      <img src="images/accessories.jpg" width="1800" height="1242" alt="ZBOX CI655 nano の同梱物一式 — 本体、ACアダプター、電源コード、Wi-Fiアンテナ、USBドライブ、クイックスタートガイド、VESAマウントプレート">
+      <figcaption>同梱物一式（ZOTAC 公式画像）。電源コードの形状は地域により異なる。このほか保証書が同梱される。</figcaption>
+    </figure>
+
+    <h3>設置は3通り — 机上・什器内・モニター背面</h3>
+    <p>設置は<b>机上の横置き、什器や棚への収納、同梱のVESAプレートによるモニター背面への固定</b>の3通りがそのまま選べます。
+      ファンレスのため吸気・排気の向きを考える必要はありませんが、<b>天面と側面のハニカム開口が放熱面</b>を兼ねるため、
+      この開口を塞がない置き方が基本です。周囲の空気が動きにくい什器内などに収める場合は温度条件が変わります
+      （<a class="xref" href="#s11">§11</a> の測定条件を参照）。</p>
+
+    <h3>前面 — 手の届く位置に USB 2ポート</h3>
+    <p>前面は電源ボタン、状態LED（電源 / ストレージ / Wi-Fi）、<b>USB 3.2 Type-A ×2</b>、マイク/ヘッドホンのコンボ端子。
+      USBメモリーの抜き差しやヘッドセットの接続を、本体を回さずに済ませられます。</p>
+    <figure class="figbox">
+      <img src="images/io-front-annotated.png" width="1900" height="940" alt="ZBOX CI675 / CI655 nano の前面インターフェース図 — USB 3.2 Type-A ×2、マイク/ヘッドホンコンボ、電源ボタン、状態LED">
+      <figcaption>前面インターフェース（CI675 / CI655 共通）</figcaption>
+    </figure>
+
+    <h3>背面 — 3画面出力と、有線・無線の両方</h3>
+    <p>背面は <b>HDMI 2.1 ×1 ＋ DisplayPort 1.4 ×2</b> で最大3画面（各 最大 4096×2160@60Hz）。
+      USB は Type-A ×2 と Type-C ×1（いずれも 10Gbps）、加えて USB 2.0 ×1。
+      有線LANは Gigabit Ethernet、無線は Wi-Fi 7 / Bluetooth 5.4 で、アンテナ端子が1系統出ています。
+      事務端末としては、<b>2画面＋周辺機器を挿してもポートが余る</b>構成です。</p>
+    <figure class="figbox">
+      <img src="images/io-rear-annotated.png" width="1900" height="960" alt="ZBOX CI675 / CI655 nano の背面インターフェース図 — HDMI 2.1、DisplayPort 1.4 ×2、USB 3.2 Type-A ×2、USB 3.2 Type-C、USB 2.0、Gigabit Ethernet、Wi-Fiアンテナ端子、DC入力">
+      <figcaption>背面インターフェース（CI675 / CI655 共通）</figcaption>
+    </figure>
+
+    <h3>盗難対策 — 側面にロックスロット</h3>
+    <p>側面に<b>セキュリティロックスロット（Kensington 対応）</b>を備えます。
+      受付や会議室、相談ブースのように人の出入りがある場所でも、ワイヤーロックで本体ごと固定できます。</p>
+
+    <h3>中身 — 筐体そのものがヒートシンク</h3>
+    <p>本機がファンなしで成立している理由は、内部構造を見ると分かります。
+      基板の熱はヒートパイプで筐体側へ渡され、<b>外装の内側にびっしり立った金属フィン</b>から、
+      天面と側面のハニカム開口を通って逃げていきます。回転部品が一つもないため、
+      <b>稼働音・振動が構造的に発生しません</b>。</p>
+    <figure class="figbox">
+      <img src="images/heatsink-fins.png" width="1540" height="758" alt="ZBOX CI675 / CI655 nano の内部にある放熱フィン — 密に並んだ金属フィンの列">
+      <figcaption>筐体内側の放熱フィン。この面積と厚みが、ファンの代わりに15Wを捨て続ける。（ZOTAC 公式レンダー）</figcaption>
+    </figure>
+    <h3>ほこりを吸い込む要因がない — 保守と設置環境の話</h3>
+    <p>ファンレスであることは、静かさと同じくらい<b>ほこり</b>に効きます。ファンで冷やす機種は、
+      空気を筐体内へ送り込む過程でほこりも一緒に取り込み、ヒートシンクやフィルターに積もっていきます。
+      これが進むと風量が落ちて温度が上がり、清掃という保守作業が定期的に必要になります。</p>
+    <p>本機には<b>その空気の流れを作る部品がありません</b>。放熱は筐体表面からの自然放熱に任せているため、
+      ほこりを積極的に吸い込む要因がなく、<b>吸気フィルターの清掃やファンの交換といった保守が発生しません</b>。
+      店頭・工場の事務所・什器の中など、ほこりの多い場所や手の届きにくい場所へ置く機器ほど、
+      この差は運用コストとして効いてきます。</p>
+    <div class="note">
+      <span class="tag">この点について</span>
+      本レビューでは防塵性能そのもの（IP 等級や粉塵環境での耐久）は計測していません。
+      ここで述べているのは<b>「強制的に空気を吸い込む機構を持たない」という構造上の性質</b>であり、
+      開口部からのほこりの侵入が皆無という意味ではありません。長期運用では設置環境に応じた清掃をご検討ください。
+    </div>
+
+    <figure class="figbox tall">
+      <img src="images/exploded-view.png" width="940" height="3217" alt="ZBOX CI675 / CI655 nano の分解図 — 外装カバー、放熱フィン、プレート、メインボード、フレーム、底板">
+      <span class="zoomhint">クリックで拡大</span>
+      <figcaption>分解図（ZOTAC 公式レンダー）。上から外装カバー、放熱フィン、プレート、メインボード、フレーム、底板。CI675 / CI655 で共通の構造。</figcaption>
+    </figure>
+
+    <div class="note">
+      <span class="tag">保守アクセス</span>
+      メモリーは <b>SO-DIMM ×2（最大64GB）</b>、ストレージは <b>M.2 NVMe PCIe 4.0 ×4（2280）が2基</b>で、うち1基は SATA3 兼用。
+      ベアボーンのため、導入時に業務に合わせた容量を選べます。
+    </div>
+  </section>
+
+  <!-- ============ 05 動画連続再生 ============ -->
+  <section id="s05">
+    <span class="sec-no">05 / 再生</span>
+    <h2 class="sec">簡易マルチメディア — 1080pを2時間、6.3W・60°Cで流し続ける</h2>
+    <p>受付の案内表示、会議室の資料表示、店頭のループ再生。映像を流し続ける機として使う場合を想定し、
+      1080p動画の <b>120分連続ループ再生</b>を実行しました。結果は <strong class="key">停止なしで完走</strong>、
+      再生レートは 1.0004（ほぼ等速）、<b>D3D11VA によるハードウェアデコードが有効</b>に働いています。</p>
+
+    <div class="tablewrap">
+      <table class="results">
+        <thead>
+          <tr><th class="test">経過</th><th>パッケージ温度 中央値</th><th>CPU電力 中央値</th><th>平均CPU負荷</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">0–15分</th><td>67°C</td><td>9.2W</td><td>0.9%</td></tr>
+          <tr><th scope="row">15–30分</th><td>62°C</td><td>6.3W</td><td>1.0%</td></tr>
+          <tr><th scope="row">30–45分</th><td>61°C</td><td>6.3W</td><td>1.1%</td></tr>
+          <tr><th scope="row">45–60分</th><td>60°C</td><td>6.3W</td><td>1.2%</td></tr>
+          <tr><th scope="row">60–75分</th><td>60°C</td><td>6.3W</td><td>1.1%</td></tr>
+          <tr><th scope="row">75–90分</th><td>60°C</td><td>6.4W</td><td>1.1%</td></tr>
+          <tr><th scope="row">90–105分</th><td>60°C</td><td>6.4W</td><td>1.2%</td></tr>
+          <tr><th scope="row">105–120分</th><td>60°C</td><td>6.3W</td><td>1.1%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><b>開始30分以降は 60〜61°C・6.3〜6.4W・負荷1.1〜1.2% で、以後90分間ほぼ変化しません。</b>
+      再生そのものは専用のデコード回路が担うため、CPUはほとんど仕事をしていない状態です。
+      なお 0–15分だけ温度と電力が高いのは、<b>直前までCPUベンチマークを連続実行していた余熱</b>によるもので、
+      電源投入直後から再生を始めた場合の値は計測していません。</p>
+
+    <div class="note">
+      <span class="tag">この計測でいえること・いえないこと</span>
+      2時間の実測範囲では、連続再生はきわめて低い負荷で安定していました。
+      一方、<b>24時間365日の連続稼働の耐久性を保証するものではありません</b>。
+      常時稼働を前提にする場合は、設置場所の温度条件を含めて評価機での確認をおすすめします。
+    </div>
+  </section>
+
+  <!-- ============ 06 画面まわり ============ -->
+  <section id="s06">
+    <span class="sec-no">06 / 描画</span>
+    <h2 class="sec">画面まわり — 内蔵グラフィックスの実力と3画面出力</h2>
+    <p>内蔵グラフィックス向けの軽量3Dテスト「3DMark Night Raid」の総合スコアは <strong class="key">16,335</strong>
+      （Graphics 22,578 / CPU 6,400）。3Dゲームを主目的にする機種ではありませんが、
+      業務システムの描画や複数ウィンドウの操作には十分な水準です。</p>
+
+    <div class="chart">
+      <div class="ttl">3DMark Night Raid — 総合スコア</div>
+      <div class="unit">score・高いほど良い / 3回の中央値</div>
+      <div class="row me"><div class="lab">ZBOX CI655 nano<small>内蔵 Intel Graphics</small></div><div class="track"><div class="fill" style="width:61.0%"><span class="v">16,335</span></div></div></div>
+      <div class="row"><div class="lab">ZBOX edge MI656<small>Arc 130T</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">26,778</span></div></div></div>
+      <div class="row"><div class="lab">ZBOX edge MI676<small>Arc 140T</small></div><div class="track"><div class="fill" style="width:99.8%"><span class="v">26,729</span></div></div></div>
+      <div class="row"><div class="lab">ZBOX PRO S35N150P<small>Intel UHD Graphics</small></div><div class="track"><div class="fill" style="width:14.6%"><span class="v">3,902</span></div></div></div>
+    </div>
+
+    <p>2D描画（CrystalMark Retro）の項目別中央値は、テキスト 9,106 / 矩形 15,597 / 円 11,032 / 画像 19,542。
+      3D項目は wireframe 1,261 / polygon 778 でした。
+      表示系については、<b>HDMI 2.1 ×1 ＋ DisplayPort 1.4 ×2 で最大3画面</b>（各 最大 4096×2160@60Hz）に対応します。
+      事務機として使うなら一般的な2画面構成に余裕があり、案内表示やサイネージとして使うなら3画面目まで伸ばせます。</p>
+
+    <figure class="figbox">
+      <img src="images/crystalmark-retro-representative-run2.png" width="982" height="665" alt="CrystalMark Retro 2.1.0 の実行結果画面（代表run）">
+      <figcaption>CrystalMark Retro 2.1.0 の代表run（3回のうち各指標の中央値に最も近い回）。表の数値は項目別の中央値のため、画面の値と一致しない場合がある。</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 07 シングルスレッド ============ -->
+  <section id="s07">
+    <span class="sec-no">07 / 体感</span>
+    <h2 class="sec">事務作業の体感 — シングルスレッドはファン付きの上位機と同等</h2>
+    <p>Office、ブラウザ、Web会議、業務システムの画面遷移。日常の事務作業で「速い / 遅い」を感じる場面の多くは、
+      <b>1スレッドあたりの速さ</b>で決まります。CrystalMark Retro のシングルスレッド指標（cpu_single）で見ると、
+      本機は <strong class="key">11,094</strong> — ファンを搭載する上位機とほぼ同じ値でした。
+        合成ベンチマークの1指標なので実アプリの応答そのものではありませんが、<b>1スレッド律速の作業で上位機に近い快適さが期待できる</b>水準です。</p>
+
+    <div class="chart">
+      <div class="ttl">CrystalMark Retro 2.1.0 — cpu_single（シングルスレッド）</div>
+      <div class="unit">score・高いほど良い / 中央値</div>
+      <div class="row me"><div class="lab">ZBOX CI655 nano<small>Core Ultra 5 225U</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">11,094</span></div></div></div>
+      <div class="row"><div class="lab">ZBOX edge MI656<small>Core Ultra 5 225H</small></div><div class="track"><div class="fill" style="width:99.6%"><span class="v">11,046</span></div></div></div>
+      <div class="row"><div class="lab">ZBOX edge MI676<small>Core Ultra 7 255H</small></div><div class="track"><div class="fill" style="width:98.5%"><span class="v">10,925</span></div></div></div>
+      <div class="row"><div class="lab">ZBOX PRO S35N150P<small>Intel N150</small></div><div class="track"><div class="fill" style="width:60.6%"><span class="v">6,728</span></div></div></div>
+    </div>
+
+    <p>比較対象の MI656 / MI676 は、同じ計測プランで別途実測したファン搭載機です。
+      <b>ファンレスの本機と、ファン付きの上位機で、シングルスレッドの値がほぼ並ぶ</b> — これが本機の性格を最もよく表しています。
+      一方、全コアを使うマルチスレッド指標（cpu_multi）では差がはっきり出ます。</p>
+
+    <div class="chart">
+      <div class="ttl">CrystalMark Retro 2.1.0 — cpu_multi（マルチスレッド）</div>
+      <div class="unit">score・高いほど良い / 中央値</div>
+      <div class="row me"><div class="lab">ZBOX CI655 nano<small>Core Ultra 5 225U</small></div><div class="track"><div class="fill" style="width:53.3%"><span class="v">51,980</span></div></div></div>
+      <div class="row"><div class="lab">ZBOX edge MI656<small>Core Ultra 5 225H</small></div><div class="track"><div class="fill" style="width:95.6%"><span class="v">93,330</span></div></div></div>
+      <div class="row"><div class="lab">ZBOX edge MI676<small>Core Ultra 7 255H</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">97,612</span></div></div></div>
+      <div class="row"><div class="lab">ZBOX PRO S35N150P<small>Intel N150</small></div><div class="track"><div class="fill" style="width:15.2%"><span class="v">14,804</span></div></div></div>
+    </div>
+
+    <p>マルチはH系2機の約53〜56%。ただし <b>N150搭載機に対しては約3.5倍</b>で、
+      事務アプリを何本も開いたままにする使い方の余裕は、エントリー級とは明確に違います。
+      <b>「一瞬の反応は上位機と同等、長時間の重い一括処理では差がつく」</b> — これが選定の軸になります。</p>
+  </section>
+
+  <!-- ============ 08 7-Zip ============ -->
+  <section id="s08">
+    <span class="sec-no">08 / CPU</span>
+    <h2 class="sec">まとめて処理する力 — 7-Zip 43,713 MIPS</h2>
+    <p>全コアを使い切ったときのスループットを、7-Zip 26.00 の内蔵ベンチマークで測ります。
+      圧縮・展開を14スレッドで回した実測は <strong class="key">43,713 MIPS</strong>（3回の中央値・cv 1.02%）。
+      内訳は圧縮 44,509 MIPS / 展開 42,838 MIPS でした。</p>
+
+    <div class="chart">
+      <div class="ttl">7-Zip 26.00 — CPUベンチマーク（Total Rating）</div>
+      <div class="unit">MIPS・高いほど良い / 3回の中央値</div>
+      <div class="row me"><div class="lab">ZBOX CI655 nano<small>Core Ultra 5 225U</small></div><div class="track"><div class="fill" style="width:52.1%"><span class="v">43,713</span></div></div></div>
+      <div class="row"><div class="lab">ZBOX edge MI656<small>Core Ultra 5 225H</small></div><div class="track"><div class="fill" style="width:89.8%"><span class="v">75,268</span></div></div></div>
+      <div class="row"><div class="lab">ZBOX edge MI676<small>Core Ultra 7 255H</small></div><div class="track"><div class="fill" style="width:100%"><span class="v">83,847</span></div></div></div>
+      <div class="row"><div class="lab">ZBOX PRO S35N150P<small>Intel N150</small></div><div class="track"><div class="fill" style="width:16.5%"><span class="v">13,849</span></div></div></div>
+    </div>
+
+    <p>ファン付きの上位機に対して約52〜58%、N150機に対して <b>約3.2倍</b>。
+      大量ファイルの圧縮・展開、まとまったデータの一括処理といった「待ち時間が発生する仕事」が日常的にあるなら上位機、
+      <b>事務アプリ中心で、時々そうした処理が入る</b>程度なら本機の領域です。</p>
+    <p>数値のばらつき（cv）は <b>1.02%</b>。3回とも 43,104〜44,188 MIPS の範囲に収まっており、
+      <b>同じ処理を繰り返しても同じ時間で終わる</b>という意味での安定性は高いといえます。</p>
+  </section>
+
+  <!-- ============ 09 ストレージ ============ -->
+  <section id="s09">
+    <span class="sec-no">09 / ストレージ</span>
+    <h2 class="sec">ストレージ — M.2 は PCIe 4.0 x4 が2基</h2>
+    <p>テスト個体のシステムドライブ（1TB NVMe SSD・PCIe 4.0 x4）での実測は、
+      シーケンシャル読取 <strong class="key">3,696 MB/s</strong>（SEQ1M Q8T1）、書込 3,263 MB/s。
+      ランダム4K（Q1T1）は読取 53.66 MB/s / 書込 129.25 MB/s でした。</p>
+
+    <div class="tablewrap">
+      <table class="results">
+        <thead>
+          <tr><th class="test">CrystalDiskMark 9.0.3</th><th>読取 (MB/s)</th><th>書込 (MB/s)</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">SEQ1M Q8T1</th><td>3,696.32</td><td>3,262.85</td></tr>
+          <tr><th scope="row">SEQ1M Q1T1</th><td>1,970.22</td><td>2,608.74</td></tr>
+          <tr><th scope="row">RND4K Q32T1</th><td>359.85</td><td>308.38</td></tr>
+          <tr><th scope="row">RND4K Q1T1</th><td>53.66</td><td>129.25</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="tag">この値の読み方</span>
+      本機はベアボーンで、<b>SSDは製品の一部ではありません</b>。上の数値は<b>テスト個体に搭載したSSDの性能</b>であり、
+      機種の優劣として比較できるものではありません。本機で意味があるのは
+      <b>「M.2 NVMe PCIe 4.0 x4 のスロットを2基持ち、搭載するSSD次第でこの水準の速度が期待できる」</b>という点です
+      （PCIe 4.0 x4 の帯域上限そのものを測ったテストではありません）。
+    </div>
+
+    <figure class="figbox">
+      <img src="images/crystaldiskmark-representative-run3.png" width="486" height="349" alt="CrystalDiskMark 9.0.3 の実行結果画面（代表run）">
+      <figcaption>CrystalDiskMark 9.0.3 の代表run（テスト個体構成での参考値）</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 10 ファンレスの持続挙動 ============ -->
+  <section id="s10">
+    <span class="sec-no">10 / 温度</span>
+    <h2 class="sec">無音で回し切る仕組み — 15Wに張り付き、2.5GHzで走り続ける</h2>
+    <p>ここからは、全テストを通して約1秒間隔で記録した <b>8,262サンプル</b>の温度・電力・クロックのタイムラインを見ます。
+      セッション全体（2時間47分）のパッケージ温度は <b>中央値61°C / 95パーセンタイル86°C / 最大91°C</b>。
+      ただし <strong class="key">90°C以上は全体の0.1%（8サンプル）</strong>にとどまる瞬間的なスパイクで、
+      負荷時の持続域は60〜84°Cです。<b>5種13回のベンチマークはすべて停止なしで完走</b>しました。</p>
+
+    <figure class="figbox">
+      <img src="images/thermal-timeline-full.png" width="1600" height="900" alt="全計測区間の温度・電力・クロックのタイムライン — ベンチマーク区間と120分の動画再生区間">
+      <figcaption>全区間のタイムライン。前半がベンチマーク5種、後半（約47分以降）が1080p動画の120分連続再生。再生に入ると温度・電力ともに下がって一定になる。</figcaption>
+    </figure>
+
+    <p>読み取れることは3つあります。</p>
+    <p><b>1. 持続電力は約15Wに張り付く。</b> Night Raid・7-Zipとも CPU電力の中央値は 14.9〜15.0W で、
+      CPU-Zが示すTDP Limit 15.0Wと一致します。瞬間的には36.1Wまで上がりますが、それは短時間のスパイクだけ。
+      <b>ファンレス筐体が捨てられる熱量の範囲で、電力を上限まで使い切っている</b>状態です。</p>
+    <p><b>2. 負荷時の最大コアクロックは約2.5GHz。</b> アイドルや軽負荷では4,757MHzを示す一方、
+      Night Raid中は 2,477〜2,577MHz、7-Zip中は 2,477〜2,874MHz。
+      ブーストの上限まで回すのは一瞬で、<b>持続領域では2.5GHz前後で安定して走り続けます</b>。</p>
+    <p><b>3. 連続実行では温度がじわりと上がる。</b> CrystalMark Retro を3回続けたときの中央温度は
+      74°C → 81°C → 84°C と上昇し、これに対応して2D描画のスコアも 9,666 → 9,106 → 8,754（テキスト項目）と逓減します。
+      ファンで熱を運び出さない構造上、<b>この2D項目では連続実行のたびに値が下がり、実運用の定常は3回目寄り</b>という読み方が要ります
+      （全テストが同じ傾向というわけではなく、Night Raid は1回目だけが低く出ています。理由は付録に記載）。</p>
+
+    <figure class="figbox">
+      <img src="images/thermal-timeline-zoom.png" width="1600" height="900" alt="ベンチマーク区間の温度・電力・クロックの拡大タイムライン">
+      <figcaption>ベンチマーク区間の拡大。テスト間のクールダウンで温度が64〜71°Cまで落ち、次のテストが始まると再び上がる。</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 11 作業別の温度サマリー ============ -->
+  <section id="s11">
+    <span class="sec-no">11 / 温度</span>
+    <h2 class="sec">作業別の温度サマリー — 記録した全ワークロード</h2>
+    <p>各テストの実行区間だけを切り出した集計です。クロックは<b>最大コアの値</b>（実効・平均ではありません）、
+      CPU電力は<b>パッケージ内部センサーの値</b>（システム全体の消費電力ではありません）。</p>
+
+    <div class="tablewrap">
+      <table class="results">
+        <thead>
+          <tr><th class="test">区間</th><th>サンプル</th><th>平均CPU負荷</th><th>パッケージ温度 中央/最大</th><th>CPU電力 中央/最大</th><th>最大コアclock 中央</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">CrystalMark Retro ×3</th><td>855</td><td>15.3%</td><td>74–84 / 91°C</td><td>14.7 / 36.1W</td><td>4,757MHz</td></tr>
+          <tr><th scope="row">3DMark Night Raid ×3</th><td>604</td><td>20.6%</td><td>75–77 / 90°C</td><td>14.9 / 27.6W</td><td>2,477–2,577MHz</td></tr>
+          <tr><th scope="row">CrystalDiskMark ×3</th><td>310</td><td>4.2%</td><td>81 / 89°C</td><td>13.3 / 21.0W</td><td>4,757MHz</td></tr>
+          <tr><th scope="row">7-Zip ×3</th><td>69</td><td>73.0%</td><td>79 / 88°C</td><td>15.0 / 31.7W</td><td>2,477–2,874MHz</td></tr>
+          <tr><th scope="row">VLC 1080p 120分</th><td>6,051</td><td>1.1%</td><td>61 / 90°C</td><td>6.4 / 28.1W</td><td>4,757MHz</td></tr>
+          <tr><th scope="row">テスト間クールダウン</th><td>350</td><td>0.6%</td><td>64–71 / 78°C</td><td>4.5–4.7W</td><td>4,757MHz</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>全コア負荷の 7-Zip でも中央79°C・最大88°Cで、<b>電力を15Wに保ったまま完走</b>しています。
+      一方、動画の連続再生は中央61°C・6.4W。<b>同じ筐体でも、仕事の種類によって発熱がはっきり分かれる</b>ことが分かります。
+      なお、マザーボード温度とGPU温度・ファン回転数は本機の環境では取得できないため、本記事の温度はすべてCPUパッケージ温度です。</p>
+
+    <div class="note">
+      <span class="tag">測定条件</span>
+      温度は<b>本個体の実測値</b>で、室温・設置環境・個体差により変動します（実測は空調のある室内・机上に単体で設置した状態）。
+      什器内への設置やモニター背面への固定など、周囲の空気が動きにくい条件では値が変わります。
+    </div>
+  </section>
+
+  <!-- ============ 12 どちらを選ぶか ============ -->
+  <section id="s12">
+    <span class="sec-no">12 / 選定</span>
+    <h2 class="sec">CI655 で足りる仕事、CI675 を選ぶ仕事</h2>
+    <p>2機の違いは CPU グレードだけです（<a class="xref" href="#s01">§01</a>）。
+      筐体・冷却・インターフェースが共通である以上、<b>選定は「どんな処理をどれだけ続けるか」の一点</b>に絞られます。</p>
+    <table class="spec">
+      <tbody>
+        <tr><th>CI655 nano（Core Ultra 5 225U）</th><td>事務アプリ・ブラウザ・Web会議が中心で、重い一括処理は時々。あるいは案内表示・資料表示の機として常時稼働させる。<b>本記事で実測した挙動がそのまま当てはまるのはこちら。</b></td></tr>
+        <tr><th>CI675 nano（Core Ultra 7 255U）</th><td>同じ設置条件のまま、CPUグレードを一段上げたい場合。<b>本記事に CI675 の実測値はありません</b>ので、性能差はカタログ仕様の範囲でご判断ください。</td></tr>
+      </tbody>
+    </table>
+    <p class="muted" style="font-size:13.5px">※ どちらを選んでも、外形寸法・設置方法・ポート構成・メモリー上限は変わりません。設置設計を先に固めてから、CPUグレードだけを後で決められる構成です。</p>
+  </section>
+
+  <!-- ============ 13 想定用途 ============ -->
+  <section id="s13">
+    <span class="sec-no">13 / 適所</span>
+    <h2 class="sec">想定される用途</h2>
+    <div class="verdict">
+      <h3>適所マップ</h3>
+      <div class="cols">
+        <div class="fit">
+          <h4>向いている</h4>
+          <ul>
+            <li><b>事務機として</b> — 無音で仕事に集中できる。省スペース・VESAで背面設置</li>
+            <li><b>マルチメディア機として</b> — 静かな空間でリッチコンテンツを再生し続ける</li>
+            <li>受付・案内表示・簡易サイネージ — 1080p連続再生が定常6.3W</li>
+            <li>静粛性が要る場所 — 役員室・相談ブース・図書室・診察室</li>
+            <li>ほこりの多い場所・手の届きにくい場所 — 吸気機構がなくフィルター清掃やファン交換が不要</li>
+          </ul>
+        </div>
+        <div class="unfit">
+          <h4>ほかを検討したい</h4>
+          <ul>
+            <li>長時間の動画エンコード・RAW現像など全コアを回し続ける作業 → H系搭載機</li>
+            <li>3Dゲーム・GPUレンダリング → 単体GPU搭載機</li>
+            <li>シリアル通信・ウォッチドッグ・広動作温度が要る産業設備 → ZBOX PRO</li>
+            <li>4面以上のマルチディスプレイ → 出力数の多い上位機</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="note" style="border-left:5px solid var(--yellow)">
+      <span class="tag">構成のカスタマイズについて</span>
+      本機はベアボーンのため、メモリー・SSD・OSを業務に合わせて選定できます。構成を組み込んだシステム販売にも対応しているため、
+      定番構成のままの導入も、案件ごとの細かな構成変更も、<b>開発・デザイン・製造まで一気通貫の ZOTAC</b> だからこそご相談いただけます。
+    </div>
+  </section>
+
+  <!-- ============ 14 まとめ ============ -->
+  <section id="s14">
+    <span class="sec-no">14 / 結論</span>
+    <h2 class="sec">まとめ — 静けさが、置ける場所と使い道を決める</h2>
+    <p>ZBOX CI655 nano の実測から見えたのは、<b>「熱を音に変えずに処理し切る」</b>という設計の一貫性でした。
+      持続CPU電力は15Wの枠に張り付き、最大コアは2.5GHz前後を維持したまま、5種13回のテストを停止なしで完走。
+      温度は持続60〜84°Cで、90°C超は全体の0.1%にすぎません。</p>
+    <p>性能の位置づけははっきりしています。<b>体感を決めるシングルスレッドはファン付きの上位機と同等</b>、
+      マルチはH系2機の約53〜56%、内蔵グラフィックスは約70%。N150クラスの機種に対しては Night Raid・7-Zip・cpu_multi で約3.2〜4.2倍。
+      つまり<b>「N150では足りないが、事務席にファンの音は置きたくない」</b>という要求に対する答えが本機です。</p>
+    <p>そして 1080p の連続再生は 6.3W・60°C・負荷1.1% で定常。
+      静かな空間で映像を流し続ける機としても、無理のない範囲に収まっています。
+      設置面では 1.79L の筐体に VESAプレートが同梱され、机上・什器内・モニター背面のいずれも最初から選べます。
+    加えて<b>空気を吸い込む機構がないぶん、ほこりの多い場所でもフィルター清掃やファン交換という保守が発生しません</b>。
+    静かさと保守の軽さは、どちらも「回転部品がない」という同じ構造から来ています。</p>
+    <p class="muted">なお本記事の数値はすべて CI655 nano の実測です。上位の CI675 nano は筐体・冷却・I/Oが共通で、
+      違いはCPUグレードのみ。設置設計を変えずにCPUだけを選び分けられる構成になっています。</p>
+    <div class="buyrow" style="margin-top:22px">
+      <a class="cta" href="https://hub.zotac.co.jp/trial-program/?from=/reviews/ci675-ci655-nano/">評価機を借りて試す →</a>
+      <a class="txtlink" href="https://zotac.co.jp/product-biz-inquiry/?sku=ZBOX-CI655NANO&pname=ZBOX%20CI655%20nano&series=ZBOX%20C%20SERIES&line=zbox&intent=quote&from=/reviews/ci675-ci655-nano/" target="_blank" rel="noopener">法人向けお問い合わせ →</a>
+    </div>
+  </section>
+
+  <!-- ============ 15 データ付録 ============ -->
+  <section id="s15">
+    <span class="sec-no">15 / データ</span>
+    <h2 class="sec">付録: 全ベンチマーク結果</h2>
+    <p>本機（CI655 nano）の元数値を一覧にまとめます（計測条件は <a class="xref" href="#s03">§03</a> 参照）。
+      内蔵グラフィックスの省電力機のため、3DMark の上位テスト・GPUレンダリング等の単体GPU前提のテストは実施していません。</p>
+    <div class="tablewrap">
+      <table class="results">
+        <thead>
+          <tr><th class="test">テスト</th><th>各回の値</th><th>中央値</th><th>cv%</th><th>計測回</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">3DMark Night Raid<span class="u">score・高いほど良い</span></th><td>15,096 / 16,370 / 16,335</td><td>16,335</td><td>3.72</td><td>3</td></tr>
+          <tr><th scope="row">〃 Graphics<span class="u">score</span></th><td>19,846 / 22,578 / 22,616</td><td>22,578</td><td>5.98</td><td>3</td></tr>
+          <tr><th scope="row">〃 CPU<span class="u">score</span></th><td>6,407 / 6,400 / 6,347</td><td>6,400</td><td>0.42</td><td>3</td></tr>
+          <tr><th scope="row">7-Zip 26.00 CPU<span class="u">MIPS・高いほど良い</span></th><td>44,188 / 43,104 / 43,713</td><td>43,713</td><td>1.02</td><td>3</td></tr>
+          <tr><th scope="row">VLC 3.0.23 1080p ループ再生 120分<span class="u">継続性エビデンス</span></th><td>7,200s 完走・rate 1.0004・D3D11VA有効</td><td>完走</td><td>—</td><td>1</td></tr>
+          <tr><th scope="row">CrystalMark Retro 2.1.0 All<span class="u">score・高いほど良い</span></th><td>7,460 / 7,442 / 7,285</td><td>7,442</td><td>1.06</td><td>3</td></tr>
+          <tr><th scope="row">〃 cpu_single<span class="u">score</span></th><td>11,587 / 11,094 / 10,584</td><td>11,094</td><td>3.69</td><td>3</td></tr>
+          <tr><th scope="row">〃 cpu_multi<span class="u">score</span></th><td>52,583 / 51,896 / 51,980</td><td>51,980</td><td>0.59</td><td>3</td></tr>
+          <tr><th scope="row">CrystalDiskMark 9.0.3 SEQ1M Q8T1 読取<span class="u">MB/s・テスト個体構成</span></th><td>3,711.53 / 3,398.20 / 3,696.32</td><td>3,696.32</td><td>4.00</td><td>3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="font-size:12.5px">凡例: cv＝変動係数（標準偏差÷平均×100%）。
+      Night Raid は1回目のみ Graphics が低く出ています（19,846 → 22,578 / 22,616）。CPUスコアは3回とも安定しており（cv 0.42%）、
+      グラフィックスドライバー更新直後の初回実行に伴うものとみられます。中央値運用のため代表値への影響はありません。
+      CrystalDiskMark も1回目のみ書込が低く（1,305 → 3,264 / 3,263 MB/s）、SSD側の立ち上がりとみられます。
+      ストレージ系の値はテスト個体のSSD構成に依存する参考値です。</p>
+  </section>
+
+  <!-- ============ 16 FAQ ============ -->
+  <section id="s16">
+    <span class="sec-no">16 / FAQ</span>
+    <h2 class="sec">よくある質問</h2>
+
+    <details open>
+      <summary>ファンレスで事務作業に足りますか？</summary>
+      <div class="a">体感を左右するシングルスレッド性能は CrystalMark Retro の cpu_single で 11,094 — ファンを搭載する上位機（Core Ultra 5 225H＝11,046 / Core Ultra 7 255H＝10,925）とほぼ同じ値です。Office・ブラウザ・Web会議のような1スレッドの速さで決まる作業では、上位機に近い快適さが期待できます（実アプリの応答性そのものは計測していません）。差が出るのは長時間の重い一括処理で、7-Zip ではH系2機の約52〜58%、cpu_multi では約53〜56%です。</div>
+    </details>
+    <details>
+      <summary>CI675 nano と CI655 nano の違いは何ですか？</summary>
+      <div class="a">違いは CPU グレードだけです。CI675 nano は Core Ultra 7 255U、CI655 nano は Core Ultra 5 225U を搭載し、どちらも12コア/14スレッド構成。筐体（204×129×68mm・約1.79L・完全ファンレス）、インターフェース、メモリー上限（DDR5-5600/5200 SO-DIMM ×2・最大64GB）、ストレージ構成（M.2 NVMe PCIe 4.0 ×4 が2基）はすべて共通です。なお本レビューで実測したのは CI655 nano です。</div>
+    </details>
+    <details>
+      <summary>ファンレスで熱は大丈夫ですか？</summary>
+      <div class="a">約1秒間隔・8,262サンプルのタイムラインでは、CPUパッケージ温度は中央値61°C・95パーセンタイル86°C・最大91°C。90°C以上は全体の0.1%（8サンプル）にとどまる瞬間的なスパイクで、負荷時の持続域は60〜84°Cです。5種13回のベンチマークはすべて停止なしで完走しました。持続CPU電力は中央値14.9〜15.0Wで、TDP枠15Wに張り付いたまま処理を続けています（本個体の実測値で、室温・設置環境により変動します）。</div>
+    </details>
+    <details>
+      <summary>動画の連続再生やサイネージ用途に使えますか？</summary>
+      <div class="a">VLC による 1080p 動画の120分連続ループ再生を停止なしで完走しました（再生レート 1.0004・D3D11VA ハードウェアデコード有効）。開始30分以降は 60〜61°C・6.3W・CPU負荷1.1% でほぼ定常となり、以後90分間ほぼ変化しません。映像出力は HDMI 2.1 ×1 と DisplayPort 1.4 ×2 で最大3画面に対応します。ただし2時間の実測範囲での結果であり、24時間365日の耐久を保証するものではありません。</div>
+    </details>
+    <details>
+      <summary>メモリーやSSDは後から増やせますか？</summary>
+      <div class="a">本機はベアボーンで、メモリー（SO-DIMM ×2・最大64GB）とストレージ（M.2 NVMe PCIe 4.0 ×4・2280 が2基。うち1基は SATA3 兼用）を導入時に選定します。テスト個体は DDR5-5600 16GB×2 と 1TB NVMe SSD の構成でした。構成込みでのご相談も承っています。</div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <p><b>ZOTAC ZBOX CI675 nano / CI655 nano ベンチマークレビュー</b></p>
+    <div class="meta">
+      計測方法: 社内のベンチマーク自動化環境による実測（原則3回計測の中央値・VLC連続再生のみ1回）／ 電源プラン＝高パフォーマンス ／ 計測 2026-08-08 ／ 実測機＝ZBOX CI655 nano
+    </div>
+    <div class="disc">
+      ※ 掲載のベンチマーク値は本レビューのテスト構成・計測環境での実測値であり、構成や条件により変動します。
+      本機はベアボーンのため、メモリー・ストレージ・OSはテスト個体の構成です。温度は本個体の実測値で、室温・設置環境・個体差で変動します。
+      CI675 nano の性能・温度は計測していません。比較に用いた他機種の値は、同一の計測プランで別途実測したものです。
+      製品仕様・付属品は地域／ロットにより異なる場合があり、<b>予告なく変更される場合があります</b>。最新の仕様は製品カタログ・公式製品ページをご確認ください。
+      &copy; ZOTAC NIPPON / 株式会社ゾタック日本
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile nav drawer toggle (hub 共通ヘッダー) -->
+<script>
+(function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!toggle || !nav) return;
+  function closeNav() {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'メニューを開く');
+  }
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeNav(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) { closeNav(); toggle.focus(); }
+  });
+})();
+</script>
+
+<!-- Image lightbox (click to enlarge in overlay; no new window) -->
+<script>
+(function(){
+  var imgs = document.querySelectorAll('main img');
+  if(!imgs.length) return;
+  var lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.setAttribute('role','dialog');
+  lb.setAttribute('aria-modal','true');
+  lb.innerHTML = '<button type="button" class="lb-close" aria-label="閉じる">&times;</button><img alt=""><figcaption></figcaption>';
+  document.body.appendChild(lb);
+  var lbImg = lb.querySelector('img');
+  var lbCap = lb.querySelector('figcaption');
+  function open(src, alt){
+    lbImg.src = src; lbImg.alt = alt || '';
+    if(alt){ lbCap.textContent = alt; lbCap.style.display = ''; } else { lbCap.style.display = 'none'; }
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.removeAttribute('src');
+  }
+  for(var i=0;i<imgs.length;i++){
+    (function(im){ im.addEventListener('click', function(){ open(im.currentSrc || im.src, im.getAttribute('alt')); }); })(imgs[i]);
+  }
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && lb.classList.contains('open')) close(); });
+})();
+</script>
+</body>
+</html>
