@@ -38,6 +38,37 @@ REQUIRED = {
 # git に実体を置かない方針（大容量素材は OneDrive）。逸脱を早期に検出する。
 MAX_FILE_MB = 30
 
+# 共通ヘッダーの CSS がページ側にも残っているページ（2026-08-14 時点の棚卸し）。
+# 経緯と規則は hublib.header_css_selectors の解説にある。
+# ここに載っている間だけ公開を通す移行用の名簿で、**減らす方向にしか変えない**。
+# 新しいページを足してはいけない（足したくなったら、それは直すべき複製）。
+# 空になったらこの表ごと消す。
+#
+# reviews/ 配下は 2026-08-14 に清掃済み。残りはカタログ生成器
+# （②' の _brochure_poc/build_pages.py と catalog_*.html）と手書き 4 ページ。
+HEADER_CSS_LEGACY = {
+    "case-studies/index.html",
+    "catalogs/index.html",
+    "catalogs/zbox/ci655/index.html",
+    "catalogs/zbox/ci675/index.html",
+    "catalogs/zbox/eamax385c/index.html",
+    "catalogs/zbox/eamax395c/index.html",
+    "catalogs/zbox/en275060tc/index.html",
+    "catalogs/zbox/er98n5070c/index.html",
+    "catalogs/zbox/eu27506tc/index.html",
+    "catalogs/zbox/eu275070c/index.html",
+    "catalogs/zbox/eu27507tc/index.html",
+    "catalogs/zbox/eu275080c/index.html",
+    "catalogs/zbox/mi656/index.html",
+    "catalogs/zbox/mi676/index.html",
+    "catalogs/zbox/qu27n5000/index.html",
+    "catalogs/zbox/s35n150a/index.html",
+    "catalogs/zbox/s35n150p/index.html",
+    "index.html",
+    "press/index.html",
+    "trial-program/index.html",
+}
+
 
 def tracked_files(root):
     out = subprocess.run(
@@ -100,6 +131,29 @@ def nav_toggle_violations(root, tracked):
     return out
 
 
+def header_css_violations(root):
+    """共通ヘッダーの CSS がページ側にも書かれていないかを見る。
+
+    追跡済みファイルではなく作業ツリーを見る。publish は「取り込み → 反映 →
+    検査」の順なので、②' から入ってきたばかりの未追跡ページこそ検査したい。
+    """
+    out, cleaned = [], []
+    for rel in hublib.rel_files(root):
+        if not rel.endswith(".html") or hublib.is_deploy_only(rel):
+            continue
+        hits = hublib.header_css_selectors((root / rel).read_text(
+            encoding="utf-8", errors="replace"))
+        if hits and rel not in HEADER_CSS_LEGACY:
+            out.append(f"共通ヘッダーの CSS がページ側にもある（{len(hits)} 規則。"
+                       f"例: {hits[0]}）: {rel}")
+        elif not hits and rel in HEADER_CSS_LEGACY:
+            cleaned.append(rel)
+    if cleaned:
+        out.append("HEADER_CSS_LEGACY に載っているが既に清浄。名簿から消すこと: "
+                   + ", ".join(cleaned))
+    return out
+
+
 def main():
     hublib.use_utf8_stdout()
     root = hublib.hub_root()
@@ -139,6 +193,7 @@ def main():
             ".nojekyll があると Jekyll の除外が効かず _partials/ と _tools/ が公開される")
 
     errors.extend(nav_toggle_violations(root, tracked))
+    errors.extend(header_css_violations(root))
 
     print(f"  追跡ファイル: {len(tracked)}")
     print()

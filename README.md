@@ -63,9 +63,29 @@ publish → push → GitHub Actions
 | `check-contamination.py` | SharePoint 由来のメタデータ混入・空タイトル・`<head>` 重複 |
 | `inject.py --check` | 共通ヘッダーが全ページへ行き渡っているか |
 | `gen-sitemap.py --check` | ページ一覧が最新か |
-| `check-invariants.py` | CNAME 等、消えると壊れるものが消えていないか |
+| `check-invariants.py` | CNAME 等、消えると壊れるものが消えていないか／共通ヘッダーの CSS がページ側に複製されていないか |
 
 `.git/hooks/pre-commit` も同種の検査を commit 時に行う（未導入なら `hub.py doctor` が指摘）。
+
+### 共通ヘッダーの CSS をページに書かない（2026-08-14 追加）
+
+ヘッダーの見た目を決める CSS は `_partials/header.html` だけに置く。ページ側の
+`<style>` に `.site-header` / `.site-nav` / `.nav-toggle` 等を書くと
+`check-invariants.py` が公開を止める。
+
+`inject.py` が差し替えるのはマークアップだけなので、制作時のプレビュー用に書いた
+ヘッダー CSS は注入後もページに残る。公開版では partial 側
+（`.site-header .site-header-inner` ＝クラス2個）が詳細度で勝つため見た目は正常で、
+30 ページで気づかれないまま残っていた。実害は「②' のプレビューが本番と違う幅で出る」
+ことと、「partial のセレクタを 1 段浅くした瞬間に全ページが静かに壊れる」こと。
+
+制作時にヘッダー付きでプレビューしたいときは、②' のページに
+`<!-- @partial:header START … END -->` ブロックごと持たせる（注入で毎回上書きされる
+生成物として扱う）。ページごとにヘッダーの見た目を変えたい場合は、ページ CSS で
+上書きせず `header-<variant>.html` を作る。
+
+移行が済んでいないページは `check-invariants.py` の `HEADER_CSS_LEGACY` に列挙してある。
+**この名簿は減らす方向にしか変えない**（新しいページを足したくなったら、それは直すべき複製）。
 
 ## SharePoint による HTML の書き換えについて
 
@@ -81,6 +101,7 @@ publish → push → GitHub Actions
 - **このリポジトリのサイト内容を直接編集しない。** 編集は ②' 側で行い `hub.py publish` で取り込む
   （`_partials/` と `_tools/` はここが正本なので直接編集してよい）
 - **`inject.py` や生成器を ②' に対して実行しない。** 実行するのはこのリポジトリの中だけ
+- **共通ヘッダーの CSS をページ側に書かない**（→ 「検査の中身」節）
 - **`git commit --no-verify` を使わない。** フックが止めたら理由がある
 - **`git push --force` を使わない**（サーバ側でも禁止している）
 - **`.nojekyll` を作らない**

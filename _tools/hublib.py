@@ -325,3 +325,79 @@ def contamination_of_bytes(data):
         return contamination(data.decode("utf-8"))
     except UnicodeDecodeError:
         return []
+
+
+# --- 共通ヘッダーの複製検出 --------------------------------------------------
+# 制作時のプレビューを成立させるため、ページ側に共通ヘッダーの CSS を丸ごと
+# 書き写す運用が続いていた。inject.py はマークアップ（<header class="site-header">）
+# だけを差し替えるので、CSS の写しは注入後もページに残る。公開版では
+# partial 側（.site-header .site-header-inner = クラス2個）が詳細度で勝つため
+# 見た目は正しく、2026-08-14 まで 30 ページで気づかれなかった。
+# 実害は二つ。②' のプレビューが本番と違う幅で出る（今回の発見の経緯）。
+# そして partial のセレクタを 1 段浅くした瞬間に全ページが静かに壊れる。
+#
+# 規則: 共通ヘッダーの見た目を決める CSS は @partial:header 領域だけに置く。
+# ページ側で上書きしたくなったら header-<variant>.html を作る（ページCSSで
+# ねじ伏せない）。
+HEADER_HOOKS = (
+    ".site-header", ".site-header-inner", ".site-logo", ".logo-divider",
+    ".logo-url", ".host-hub", ".site-nav", ".nav-cta", ".nav-mobile",
+    ".nav-toggle", ".nav-toggle-bar", "#site-nav",
+)
+# 予約フックの直後に続けて識別子が来る別クラス（.site-navigation 等）は無関係。
+_HOOK_RE = re.compile("|".join(re.escape(h) + r"(?![\w-])" for h in HEADER_HOOKS))
+_HEADER_REGION_RE = re.compile(
+    r"<!--\s*@partial:header START.*?@partial:header END[^>]*-->", re.S)
+_STYLE_RE = re.compile(r"<style\b[^>]*>(.*?)</style>", re.S)
+_NESTED_AT = ("@media", "@supports", "@layer", "@container")
+
+
+def _css_selectors(css):
+    """CSS 中の通常規則のセレクタを返す（@media 等の中も再帰）。
+
+    宣言値・コメント・JS 文字列に現れる ".site-header" を拾わないよう、
+    「{ の手前」だけをセレクタとして扱う。閉じ括弧が足りない場合は解析を
+    打ち切り、呼び出し側が「解析できない」と分かるよう None を混ぜる。
+    """
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    out, i, n = [], 0, len(css)
+    while i < n:
+        b = css.find("{", i)
+        if b < 0:
+            return out
+        sel = " ".join(css[i:b].split())
+        depth, j = 1, b + 1
+        while j < n and depth:
+            if css[j] == "{":
+                depth += 1
+            elif css[j] == "}":
+                depth -= 1
+            j += 1
+        if depth:                                  # 波括弧が閉じていない
+            out.append(None)
+            return out
+        head = sel.split()[0] if sel.split() else sel
+        if sel.startswith("@"):
+            if head in _NESTED_AT:
+                out.extend(_css_selectors(css[b + 1:j - 1]))
+        else:
+            out.append(sel)
+        i = j
+    return out
+
+
+def header_css_selectors(text):
+    """ページ側 <style> に残る「共通ヘッダー用セレクタ」を返す（無ければ空）。
+
+    @partial:header 領域は生成物なので対象外。混在セレクタ（`a, .site-nav a`）も
+    一枝でも予約フックを含むなら返す（自動削除できないので人が分ける）。
+    """
+    outside = _HEADER_REGION_RE.sub("", text)
+    hits = []
+    for m in _STYLE_RE.finditer(outside):
+        for sel in _css_selectors(m.group(1)):
+            if sel is None:
+                hits.append("<CSS を解析できない: 波括弧が閉じていない>")
+            elif any(_HOOK_RE.search(b) for b in sel.split(",")):
+                hits.append(sel)
+    return hits

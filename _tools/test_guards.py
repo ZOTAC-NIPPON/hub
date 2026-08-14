@@ -50,6 +50,31 @@ ALLOWLIST_CASES = [
     ("index.html", False), ("catalogs/index.html", False),
 ]
 
+# 2026-08-14: ページ側に共通ヘッダーの CSS が残る形（30 ページで起きていた）。
+# partial 側が詳細度で勝つため見た目は正常で、検出器が黙ると誰も気づけない。
+_PARTIAL = ('<!-- @partial:header START — 編集は _partials/header.html -->\n'
+            '<style>.site-header .site-header-inner{max-width:1100px;}</style>\n'
+            '<header class="site-header"><div class="site-header-inner"></div></header>\n'
+            '<!-- @partial:header END -->')
+HEADER_CSS_CASES = [
+    # (説明, 入力, 検出されるべきか)
+    ("注入済みブロックだけ", _PARTIAL, False),
+    ("ページ側にも .site-header-inner",
+     _PARTIAL + '<style>.site-header-inner{max-width:1200px}</style>', True),
+    ("@media の中に隠れている",
+     _PARTIAL + '<style>@media (max-width:700px){.site-nav{gap:8px}}</style>', True),
+    ("混在セレクタ（自動削除できない形）",
+     _PARTIAL + '<style>a, .site-nav a{color:#fff}</style>', True),
+    ("宣言値やコメントの中の文字列は拾わない",
+     _PARTIAL + '<style>/* .site-header を上書きしない */\n.x{--n:".site-nav"}</style>', False),
+    ("フック名で始まる別クラスは無関係",
+     _PARTIAL + '<style>.site-navigation{display:flex}</style>', False),
+    ("波括弧が閉じていない CSS は解析不能として挙げる",
+     _PARTIAL + '<style>.x{color:red</style>', True),
+    ("ヘッダーCSSを持たない素のページ",
+     '<style>body{margin:0}.wrap{max-width:780px}</style>', False),
+]
+
 MARKUP_CASES = [
     ("index.html", True), ("_partials/header.html", True), ("sitemap.xml", True),
     ("_tools/hublib.py", False),      # 検査ツール自身を誤検知しないこと
@@ -76,7 +101,13 @@ def main():
         if got != expected:
             fails.append(f"is_markup: {rel} → {got} 期待={expected}")
 
-    total = len(CASES) + len(ALLOWLIST_CASES) + len(MARKUP_CASES)
+    for label, text, should_flag in HEADER_CSS_CASES:
+        got = bool(hublib.header_css_selectors(text))
+        if got != should_flag:
+            fails.append(f"header_css_selectors: {label} → 検出={got} 期待={should_flag}")
+
+    total = (len(CASES) + len(ALLOWLIST_CASES) + len(MARKUP_CASES)
+             + len(HEADER_CSS_CASES))
     print(f"test_guards: {total - len(fails)}/{total} 合格")
     if fails:
         for f in fails:
