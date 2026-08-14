@@ -12,10 +12,12 @@ the scan scope live here only, per HUB.md sec.2.
 """
 
 import hashlib
+import json
 import os
 import re
 import sys
 from pathlib import Path
+from urllib.parse import unquote
 
 # --- Deploy-only paths allowed to exist ONLY in (3). Keep in sync with HUB.md sec.2.
 ALLOW_HUB_ONLY_FILES = {
@@ -401,3 +403,158 @@ def header_css_selectors(text):
             elif any(_HOOK_RE.search(b) for b in sel.split(",")):
                 hits.append(sel)
     return hits
+
+
+# --- UTM の検査 --------------------------------------------------------------
+# 2026-07〜08 の GA4 で、セッションの 23%（162/711）が Unassigned（チャネル判定
+# 不能）になっていた。原因は X 投稿の UTM が `utm_source=x` / `utm_medium=article`
+# だったこと。GA4 の Organic Social 判定は「ソースが公式のソーシャル一覧に一致
+# OR メディアが ^(social|social-network|social-media|sm|...)$ に一致」の OR で、
+# この値は両方を外す。Google 公式の Source Categories 一覧（819 エントリ・
+# 2026-08-14 照合）に `x` も `x.com` も無く、`twitter` / `twitter.com` / `t.co`
+# だけが SOCIAL として載っている。
+#
+# つまり「UTM を丁寧に付けた投稿ほど Unassigned に落ち、付けていない X 流入は
+# t.co のリファラで正しく分類される」という逆転が起きていた。値を1つ間違える
+# だけで起きる事故なので、閉じたリストと登録簿で縛り、ここで機械的に検査する。
+#
+# 規約の正本は _tools/analytics/utm-policy.md、値は utm-taxonomy.json と
+# campaigns.json。**規約・登録簿・検査の3点で1組**（どれか1つだけ直さない）。
+ANALYTICS_DIR = "_tools/analytics"
+
+# 本文中の URL らしきものを拾う。Markdown の [文言](url) と HTML の href="url"
+# の両方を通すため、閉じ括弧・引用符・空白・和文の句読点で切る。
+_URL_RE = re.compile(r"""(?:https?://|/)[^\s"'<>()\[\]｜、。「」]+""")
+
+# yyyymm_name（開始年月6桁）。媒体ごとに campaign を分けると横断集計ができない。
+_CAMPAIGN_RE = re.compile(r"^(20\d{2})(0[1-9]|1[0-2])_[a-z0-9_]+$")
+
+UTM_KEYS = ("utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term")
+
+
+def load_analytics(root=None):
+    """utm-taxonomy.json と campaigns.json を読む。戻り値 = (taxonomy, campaigns)。
+
+    見つからない・壊れているときは例外にする（fail-open しない）。検査だけ静かに
+    素通りすると「規約が無いから緑」になり、事故の再発に気づけない。
+    """
+    base = Path(root) if root else hub_root()
+    tax_path = base / ANALYTICS_DIR / "utm-taxonomy.json"
+    cmp_path = base / ANALYTICS_DIR / "campaigns.json"
+    for p in (tax_path, cmp_path):
+        if not p.exists():
+            raise FileNotFoundError(f"UTM の登録簿がありません: {p}")
+    taxonomy = json.loads(tax_path.read_text(encoding="utf-8"))
+    campaigns = json.loads(cmp_path.read_text(encoding="utf-8"))
+    return taxonomy, campaigns
+
+
+def find_utm_urls(text):
+    """本文から UTM を含む URL を拾う（重複は保ったまま出現順で返す）。"""
+    return [m.group(0).rstrip(".,;:") for m in _URL_RE.finditer(text)
+            if "utm_" in m.group(0)]
+
+
+def _query_pairs(url):
+    """URL のクエリを (key, value) の並びで返す。&amp; 表記も解く。"""
+    if "?" not in url:
+        return []
+    query = url.split("?", 1)[1].split("#", 1)[0].replace("&amp;", "&")
+    pairs = []
+    for part in query.split("&"):
+        if not part:
+            continue
+        key, _, val = part.partition("=")
+        pairs.append((unquote(key), unquote(val)))
+    return pairs
+
+
+def utm_problems(url, taxonomy, campaigns, on_hub_page=False):
+    """URL 1本の UTM 規約違反を返す（無ければ空リスト）。
+
+    「なぜ駄目か」ではなく「どう直すか」を返す。登録簿に代替案を持たせてあるのは、
+    エラーを見た人がそのまま直せるようにするため。
+
+    `on_hub_page` は「この URL を書いた文書自身がハブのページか」。内部リンク判定
+    はリンク先のホストでは決まらない ―― X の投稿から hub.zotac.co.jp へ UTM 付き
+    で送るのは正しい用法で、同じ URL がハブのページ内にあると内部リンクになる。
+    """
+    pairs = _query_pairs(url)
+    utm = {k: v for k, v in pairs if k.startswith("utm_")}
+    if not utm:
+        return []
+
+    problems = []
+    host = ""
+    m = re.match(r"https?://([^/]+)", url)
+    if m:
+        host = m.group(1).lower()
+
+    # 1. 内部リンクへの UTM。セッションが途中で分断され、本来の流入元が失われる。
+    #    ルート相対リンクは書いた場所によらず内部（外部媒体では成立しない書き方）。
+    internal = (not host and url.startswith("/")) or (
+        on_hub_page and host in taxonomy.get("internal_hosts", []))
+    if internal:
+        problems.append("内部リンクに UTM が付いている（内部リンクには付けない）")
+        return problems  # 以降の値の検査は無意味
+
+    # 2. 値の書式（小文字 ASCII のみ）。大文字・全角は GA4 で別値になり集計が割れる。
+    pattern = re.compile(taxonomy.get("value_pattern", r"^[a-z0-9_.-]+$"))
+    for key in UTM_KEYS:
+        val = utm.get(key)
+        if val and not pattern.match(val):
+            problems.append(f"{key}={val} は小文字 ASCII と _ . - のみ")
+
+    # 3. 必須3項目。1つでも欠けると GA4 のチャネル判定が崩れる。
+    for key in taxonomy.get("required_keys", []):
+        if not utm.get(key):
+            problems.append(f"{key} が無い（必須）")
+
+    # 4. utm_medium は閉じたリストから。禁止語には代替案を添える。
+    medium = utm.get("utm_medium", "")
+    if medium and medium not in taxonomy.get("mediums", {}):
+        hint = taxonomy.get("banned_mediums", {}).get(medium)
+        allowed = ", ".join(k for k in taxonomy.get("mediums", {}) if not k.startswith("_"))
+        problems.append(
+            f"utm_medium={medium} は使用禁止 → {hint}" if hint else
+            f"utm_medium={medium} は未登録 → 使えるのは {allowed}")
+
+    # 5. utm_source は登録簿から。x / x.com は今回の事故そのものなので個別に説明する。
+    source = utm.get("utm_source", "")
+    if source:
+        banned = taxonomy.get("banned_sources", {}).get(source)
+        if banned:
+            problems.append(f"utm_source={source} は使用禁止 → {banned}")
+        elif source not in taxonomy.get("sources", {}):
+            problems.append(
+                f"utm_source={source} が未登録 → 先に utm-taxonomy.json の "
+                "sources へ登録する（GA4 のチャネル判定を確認したという宣言）")
+
+    # 6. utm_campaign は登録簿にあり、かつ yyyymm_name 形式であること。
+    campaign = utm.get("utm_campaign", "")
+    if campaign:
+        known = campaigns.get("campaigns", {})
+        if campaign not in known:
+            problems.append(
+                f"utm_campaign={campaign} が未登録 → campaigns.json に追加する")
+        if not _CAMPAIGN_RE.match(campaign):
+            problems.append(
+                f"utm_campaign={campaign} の形式が違う → yyyymm_name（例 202609_tgs）")
+
+    # 7. utm_term は有料検索専用。それ以外に付いていたら utm_content の誤用。
+    if utm.get("utm_term") and medium not in ("cpc", "paid_social", "display"):
+        problems.append(
+            f"utm_term は有料検索専用（utm_medium={medium or '未指定'} には付けない）"
+            " → クリエイティブの識別は utm_content")
+
+    return problems
+
+
+def utm_legacy_paths(taxonomy):
+    """訂正不能な既投稿の記録として、検査から除外するパスの集合。
+
+    投稿済みの X 記事などは「規約違反だが記録としては正しい」ので書き換えない。
+    check-invariants.py の HEADER_CSS_LEGACY と同じ移行用の名簿で、**減らす方向
+    にしか変えない**（新しい項目を足したくなったら、それは直すべき違反）。
+    """
+    return set(taxonomy.get("legacy_records", {}).get("_paths", []))

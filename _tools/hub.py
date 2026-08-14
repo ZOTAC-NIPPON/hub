@@ -76,6 +76,8 @@ CHECKS = [
      "ページ一覧が最新か"),
     ("不変条件の確認", ["_tools/check-invariants.py"],
      "CNAME など消えたら困るものが消えていないか"),
+    ("UTM の規約確認", ["_tools/check-utm.py", "--both"],
+     "計測用パラメータが GA4 で判定できる値になっているか"),
 ]
 
 
@@ -419,7 +421,14 @@ def cmd_publish(args):
     if getattr(args, "dry_run", False):
         print("\n  （--dry-run）ここで終了します。commit も push もしていません。")
         print("      取り込みと反映は実行済みなので、作業ツリーには変更が残ります。")
-        print("      戻すには: git checkout -- . && git clean -fd")
+        # 以前ここは `git checkout -- . && git clean -fd` を案内していたが、
+        # 作業ツリーは複数セッションで共有される。2026-08-14 に、この案内どおりの
+        # 操作が別セッションの未コミット作業（ガード1本＋10ページの清掃）を
+        # 巻き添えで消した。追跡外のファイルは clean で消えるため git からも
+        # 復旧できない。退避（stash）なら取り違えても戻せるので、こちらを案内する。
+        print("      戻すには: git stash -u   （破棄せず退避。git stash pop で戻せる）")
+        print("      ⚠ 作業ツリーは他のセッションと共有です。まず git status で")
+        print("         自分以外の変更が無いか確認してください（破棄する操作は案内しません）。")
         return 0
 
     if not args.yes:

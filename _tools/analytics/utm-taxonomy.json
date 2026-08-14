@@ -1,0 +1,68 @@
+{
+  "_readme": "UTM の値の登録簿。規約の正本は utm-policy.md、検査は _tools/check-utm.py。この3点で1組。",
+  "_updated": "2026-08-14",
+  "version": "1.0.0",
+
+  "required_keys": ["utm_source", "utm_medium", "utm_campaign"],
+
+  "value_pattern": "^[a-z0-9_.-]+$",
+  "_value_pattern_why": "小文字 ASCII のみ。大文字・全角・空白は GA4 で別の値として扱われ、表記揺れが集計を割る。",
+
+  "mediums": {
+    "_why": "GA4 デフォルトチャネルグループの定義と1対1で対応する値だけを許可する。ここに無い値は Unassigned に落ちる。",
+    "social":      {"channel": "Organic Social", "use": "自社 X などの無償 SNS 投稿"},
+    "email":       {"channel": "Email",          "use": "メールマガジン・案内メール"},
+    "referral":    {"channel": "Referral",       "use": "UTM を付けてもらえるメディア・パートナー"},
+    "link":        {"channel": "Referral",       "use": "PDF 内リンク／QR コード／紙資料"},
+    "paid_social": {"channel": "Paid Social",    "use": "X・Facebook 等の有料 SNS 広告"},
+    "cpc":         {"channel": "Paid Search",    "use": "検索広告"},
+    "display":     {"channel": "Display",        "use": "ディスプレイ・バナー広告"}
+  },
+
+  "banned_mediums": {
+    "_why": "過去に候補として出た、または実際に使われて事故った値。エラーメッセージで代替案を出すために持つ。",
+    "article":    "クリエイティブ形式。utm_content=article_<対象> へ移す",
+    "thread":     "クリエイティブ形式。utm_content=thread_<対象> へ移す",
+    "summary":    "クリエイティブ形式。utm_content=summary_<対象> へ移す",
+    "post":       "クリエイティブ形式。utm_content へ移す",
+    "tweet":      "クリエイティブ形式。utm_content へ移す",
+    "newsletter": "媒体名。utm_medium=email + utm_source=zotac_newsletter",
+    "qr":         "掲出形態。utm_medium=link + utm_content=qr_<場所>",
+    "pdf":        "掲出形態。utm_medium=link + utm_source=owned_pdf",
+    "print":      "掲出形態。utm_medium=link + utm_source=offline_<場所>",
+    "offline":    "GA4 に Offline チャネルは無い。utm_medium=link + utm_source=offline_<場所>"
+  },
+
+  "sources": {
+    "_why": "登録＝『この source で GA4 のチャネル判定がどうなるか確認した』という宣言。新しい媒体は先に登録する。",
+    "twitter":             {"note": "自社 X。GA4 ソースカテゴリ一覧に掲載あり（SOCIAL）"},
+    "zotac_newsletter":    {"note": "メールマガジン"},
+    "pc_watch":            {"note": "PC Watch。先方が UTM を受け入れた場合のみ。通常は UTM なしの自然な Referral"},
+    "owned_pdf":           {"note": "自社 PDF 資料内のリンク"},
+    "offline_tgs_booth":   {"note": "東京ゲームショウ ブースの QR"},
+    "offline_tgs_handout": {"note": "東京ゲームショウ 配布物"}
+  },
+
+  "banned_sources": {
+    "_why": "2026-08-14 に Google 公式『GA4 Source Categories』一覧（819 エントリ）を照合した結果。",
+    "x":     "GA4 のソースカテゴリ一覧に 'x' は無い。twitter を使う（Unassigned 23% の原因）",
+    "x.com": "GA4 のソースカテゴリ一覧に 'x.com' は無い。twitter を使う"
+  },
+
+  "internal_hosts": ["hub.zotac.co.jp"],
+  "_internal_hosts_why": "ハブのページからハブのページへ UTM 付きで送ると、セッションが途中で分断され流入元が失われる。ルート相対リンクは書いた場所によらず内部扱い。",
+
+  "legacy_records": {
+    "_why": "投稿済みで訂正不能な記録。規約違反だが、記録としては正しいので書き換えない。減らす方向にしか変えない（新しい項目を足してはいけない）。空になったらこの表ごと消す。",
+    "_paths": [
+      "Reviews/GPU_PowerLimit-RTX50-Summer2026/promo/x/POSTS.md",
+      "Reviews/GPU_PowerLimit-RTX50-Summer2026/promo/x/paste/x-article_5070.html",
+      "Reviews/GPU_PowerLimit-RTX50-Summer2026/promo/x/paste/x-article_5080.html",
+      "Reviews/GPU_PowerLimit-RTX50-Summer2026/promo/x/paste/x-article_5090.html",
+      "Reviews/GPU_PowerLimit-RTX50-Summer2026/notes/x-article_rtx5070.md",
+      "Reviews/GPU_PowerLimit-RTX50-Summer2026/notes/x-article_rtx5080.md",
+      "Reviews/GPU_PowerLimit-RTX50-Summer2026/notes/x-article_rtx5090.md",
+      "_forms/IMPORT.md"
+    ]
+  }
+}

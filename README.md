@@ -43,7 +43,7 @@ AI エージェントから叩く場合は `--json` を付けると機械可読�
 
 ```
 publish → push → GitHub Actions
-                   ├ hub-validate  … 5 検査
+                   ├ hub-validate  … 6 検査
                    ├ build         … 成果物を組み立て（hub-validate 成功が前提）
                    └ deploy        … Pages へ配信（build 成功が前提）
 ```
@@ -64,8 +64,28 @@ publish → push → GitHub Actions
 | `inject.py --check` | 共通ヘッダーが全ページへ行き渡っているか |
 | `gen-sitemap.py --check` | ページ一覧が最新か |
 | `check-invariants.py` | CNAME 等、消えると壊れるものが消えていないか／共通ヘッダーの CSS がページ側に複製されていないか |
+| `check-utm.py` | 計測用パラメータが GA4 で判定できる値か（規約は `_tools/analytics/utm-policy.md`） |
 
 `.git/hooks/pre-commit` も同種の検査を commit 時に行う（未導入なら `hub.py doctor` が指摘）。
+
+### UTM は閉じたリストからしか選べない（2026-08-14 追加）
+
+外部から hub へ送るリンクの `utm_*` は `_tools/analytics/utm-policy.md` が正本で、
+値の登録簿は同ディレクトリの `utm-taxonomy.json`（medium の閉じたリスト・source の
+登録簿）と `campaigns.json`（キャンペーン登録簿）。**規約・登録簿・検査の3点で1組**
+なので、どれか1つだけ直さない。
+
+2026-07〜08 の GA4 で**セッションの 23%（162/711）が Unassigned**（チャネル判定不能）
+になっていた。X 投稿の UTM が `utm_source=x` / `utm_medium=article` で、GA4 の
+ソースカテゴリ一覧に `x` が無く `article` もどのチャネル定義にも一致しないため、
+**UTM を丁寧に付けた投稿ほど計測できなくなっていた**（付けていない X 流入は `t.co`
+のリファラで正しく Organic Social に入る、という逆転）。値を1つ間違えるだけで起きる
+ので機械で止める。
+
+ローカルの `hub.py check` は `--both` で ②' の投稿下書きまで見る。CI は ②' に到達
+できないので ③ の公開物だけ（内部リンクへの UTM 混入）を見る。投稿済みで訂正できない
+記録は `utm-taxonomy.json` の `legacy_records` に列挙してあり、**減らす方向にしか
+変えない**（新しい項目を足したくなったら、それは直すべき違反）。
 
 ### 共通ヘッダーの CSS をページに書かない（2026-08-14 追加）
 

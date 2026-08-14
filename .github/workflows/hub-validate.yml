@@ -63,6 +63,13 @@ jobs:
       - name: 不変条件の確認
         run: python3 _tools/check-invariants.py
 
+      # 計測用パラメータが GA4 で判定できる値か。2026-07〜08 は utm_source=x /
+      # utm_medium=article だったため、セッションの 23% が Unassigned に落ちていた。
+      # ここでは ③ の公開物だけを見る（内部リンクへの UTM 混入）。②' 側の投稿下書きは
+      # CI から到達できないので、そちらはローカルの hub.py check が --both で見る。
+      - name: UTM の規約確認
+        run: python3 _tools/check-utm.py
+
       # 生成物がコミット漏れなく最新か（上の各 --check を通っていれば差分は出ない）
       - name: 作業ツリーに差分が残っていないこと
         run: git diff --exit-code

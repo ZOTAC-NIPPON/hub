@@ -81,6 +81,61 @@ MARKUP_CASES = [
     ("CNAME", False), ("pdfs/a.pdf", False),
 ]
 
+# 2026-08: GA4 のセッション 23%（162/711）が Unassigned になっていた形。
+# 規約（_tools/analytics/utm-policy.md）どおりの URL を誤検知しないことと、
+# 実際に踏んだ間違いを必ず検出することの両方を確かめる。
+_BASE = "https://hub.zotac.co.jp/reviews/power-limit-rtx-50-series/"
+_OK = "?utm_source=twitter&utm_medium=social&utm_campaign=202607_power_limit"
+UTM_CASES = [
+    # (説明, URL, ハブのページ上か, 検出されるべきか)
+    ("規約どおり（最小構成）", _BASE + _OK, False, False),
+    ("規約どおり（utm_content 付き）", _BASE + _OK + "&utm_content=article_5090", False, False),
+    ("UTM を持たない普通のリンク", _BASE, False, False),
+    ("HTML エンティティ &amp; 区切り",
+     _BASE + _OK.replace("&", "&amp;") + "&amp;utm_content=thread_day1", False, False),
+    ("別ドメイン宛ての正しい UTM",
+     "https://zotac.co.jp/lp/?utm_source=twitter&utm_medium=social&utm_campaign=202609_tgs",
+     False, False),
+
+    # 実際に踏んだ間違い（2026-07 の Power Limit 企画）
+    ("utm_source=x（GA4 のソース一覧に無い）",
+     _BASE + "?utm_source=x&utm_medium=social&utm_campaign=202607_power_limit", False, True),
+    ("utm_medium=article（チャネル定義に無い）",
+     _BASE + "?utm_source=twitter&utm_medium=article&utm_campaign=202607_power_limit", False, True),
+    ("当時の実物そのまま",
+     _BASE + "?utm_source=x&utm_medium=thread&utm_campaign=powerlimit2026&utm_content=5090",
+     False, True),
+
+    # 規約の各条項
+    ("utm_campaign が無い", _BASE + "?utm_source=twitter&utm_medium=social", False, True),
+    ("utm_campaign が未登録",
+     _BASE + "?utm_source=twitter&utm_medium=social&utm_campaign=202612_unknown", False, True),
+    ("utm_campaign の形式違反（年月が無い）",
+     _BASE + "?utm_source=twitter&utm_medium=social&utm_campaign=powerlimit2026", False, True),
+    ("utm_source が未登録",
+     _BASE + "?utm_source=note&utm_medium=social&utm_campaign=202607_power_limit", False, True),
+    ("大文字が混じる",
+     _BASE + "?utm_source=Twitter&utm_medium=social&utm_campaign=202607_power_limit", False, True),
+    ("utm_term を無償投稿に付けている", _BASE + _OK + "&utm_term=rtx_5090", False, True),
+
+    # 内部リンク判定はリンク先ではなく「書いた文書がハブのページか」で決まる。
+    # 同じ URL が、X の投稿では正しく、ハブのページ内では違反になる。
+    ("ハブのページ内に同じ URL（内部リンク）", _BASE + _OK, True, True),
+    ("ルート相対リンクは書いた場所によらず内部", "/reviews/meganex8kmk2/" + _OK, False, True),
+    ("ハブのページから別ドメインへ UTM 付き（正しい用法）",
+     "https://zotac.co.jp/lp/?utm_source=twitter&utm_medium=social&utm_campaign=202609_tgs",
+     True, False),
+]
+
+# 本文からの URL 抽出。Markdown と HTML の両方の書き方で拾えること。
+UTM_EXTRACT_CASES = [
+    ("Markdown のリンク記法", f"詳しくは[こちら]({_BASE}{_OK})をご覧ください。", 1),
+    ("HTML の href", f'<a href="{_BASE}{_OK}">記事</a>', 1),
+    ("裸の URL が和文に埋まっている", f"公開しました。{_BASE}{_OK}、ぜひどうぞ。", 1),
+    ("UTM を持たない URL は拾わない", f'<a href="{_BASE}">記事</a>', 0),
+    ("複数行に複数本", f"{_BASE}{_OK}\n{_BASE}{_OK}&utm_content=thread_day1", 2),
+]
+
 
 def main():
     hublib.use_utf8_stdout()
@@ -106,8 +161,27 @@ def main():
         if got != should_flag:
             fails.append(f"header_css_selectors: {label} → 検出={got} 期待={should_flag}")
 
+    # UTM は登録簿（utm-taxonomy.json / campaigns.json）を読んで判定するので、
+    # 登録簿が消えていれば検査ごと成立しない。ここで一緒に落とす。
+    try:
+        taxonomy, campaigns = hublib.load_analytics()
+    except (OSError, ValueError) as e:
+        fails.append(f"load_analytics: 登録簿を読めない → {e}")
+        taxonomy = campaigns = None
+
+    if taxonomy is not None:
+        for label, url, on_hub, should_flag in UTM_CASES:
+            got = bool(hublib.utm_problems(url, taxonomy, campaigns, on_hub_page=on_hub))
+            if got != should_flag:
+                fails.append(f"utm_problems: {label} → 検出={got} 期待={should_flag}")
+
+    for label, text, expected in UTM_EXTRACT_CASES:
+        got = len(hublib.find_utm_urls(text))
+        if got != expected:
+            fails.append(f"find_utm_urls: {label} → {got} 本 期待={expected} 本")
+
     total = (len(CASES) + len(ALLOWLIST_CASES) + len(MARKUP_CASES)
-             + len(HEADER_CSS_CASES))
+             + len(HEADER_CSS_CASES) + len(UTM_CASES) + len(UTM_EXTRACT_CASES))
     print(f"test_guards: {total - len(fails)}/{total} 合格")
     if fails:
         for f in fails:
