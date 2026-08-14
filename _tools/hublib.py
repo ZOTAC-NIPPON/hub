@@ -16,6 +16,7 @@ import json
 import os
 import re
 import sys
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote
 
@@ -316,10 +317,12 @@ def contamination(text):
     # 無関係。ここを区別しないと別問題を汚染として数えてしまう。
     heads = len(_HEAD_RE.findall(text))
     if _HTML_RE.search(text) and heads:
-        m = _TITLE_RE.search(text)
-        if m is None:
+        # 正規表現ではなくパーサで取る。コメント内に "<title>" と書かれた文書で
+        # 誤った文字列を拾い、「空ではない」と判定して通していた（title-policy.md §6）。
+        title = page_title(text)
+        if title is None:
             problems.append("no <title>")
-        elif not m.group(1).strip():
+        elif not title.strip():
             problems.append("empty <title>")
         if heads > 1:
             problems.append("duplicate <head> (a contaminated partial was inlined)")
@@ -686,3 +689,175 @@ def utm_legacy_paths(taxonomy):
     にしか変えない**（新しい項目を足したくなったら、それは直すべき違反）。
     """
     return set(taxonomy.get("legacy_records", {}).get("_paths", []))
+
+
+# --- <title> の抽出と規約判定 -------------------------------------------------
+# 「毎回レビューで指摘され、毎回直すのに終わらない」状態を止めるための機械判定。
+# 直しても戻っていたのではなく、完了の定義が無かった（公開64ページでサフィックス
+# 9種・区切り3種に割れており、誰が見ても何か指摘できた）。規約の正本は
+# _tools/seo/title-policy.md、登録簿は title-registry.json。3点で1組。
+#
+# 抽出を正規表現でやらないのが要点。trial-program/index.html の冒頭コメントに
+# "- <title>を確定版に更新" という行があり、`<title>(.*?)</title>` はコメント側
+# から拾って壊れた文字列を返していた。contamination() もそれを「空ではない」と
+# 判定して通していた＝判定が効いていなかった（title-policy.md §6）。
+SEO_DIR = "_tools/seo"
+
+TITLE_SUFFIX = " | ZOTAC NIPPON"
+
+# ページ種別ごとの固定カテゴリ語。GPU だけ違うのは、現行サフィックスのうち
+# "ZOTAC GAMING" は製品名と重複する一方 "グラフィックスカード" は重複しておらず、
+# GSC に `zotac グラボ` 等のクエリが実在するため（title-policy.md §3）。
+TITLE_CATEGORY = {
+    "catalog_zbox": "製品カタログ",
+    "catalog_enterprise": "製品カタログ",
+    "catalog_gpu": "グラフィックスカード",
+}
+
+TITLE_MAX_LEN = 60          # 超過は警告だけ。文字数は CTR を説明しない（§4）
+_FULLWIDTH_BAR = "｜"
+_TITLE_IN_COMMENT_RE = re.compile(r"<!--(?:(?!-->).)*?<\s*title\b", re.S | re.I)
+
+
+class _TitleReader(HTMLParser):
+    """<head> 内の <title> だけを拾う。コメントとメタ要素は自動的に無視される。"""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.titles = []
+        self._in_head = False
+        self._in_title = False
+        self._buf = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "head":
+            self._in_head = True
+        elif tag == "title" and self._in_head:
+            self._in_title = True
+            self._buf = []
+        elif tag == "body":
+            self._in_head = False
+
+    def handle_endtag(self, tag):
+        if tag == "title" and self._in_title:
+            self.titles.append("".join(self._buf))
+            self._in_title = False
+        elif tag == "head":
+            self._in_head = False
+
+    def handle_data(self, data):
+        if self._in_title:
+            self._buf.append(data)
+
+
+def page_titles(text):
+    """<head> 内の <title> の中身を出現順で返す（0個なら空リスト）。"""
+    r = _TitleReader()
+    try:
+        r.feed(text)
+        r.close()
+    except Exception:
+        # 壊れた HTML でも例外で検査全体を落とさない。拾えた分だけ返す。
+        pass
+    return r.titles
+
+
+def page_title(text):
+    """<head> 内の最初の <title> の中身。無ければ None。"""
+    t = page_titles(text)
+    return t[0] if t else None
+
+
+def title_in_comment(text):
+    """HTML コメントの中に "<title" と書かれていれば True（§6 の事故の再発検知）。"""
+    return bool(_TITLE_IN_COMMENT_RE.search(text))
+
+
+def title_kind(rel):
+    """パスからページ種別を決める。
+
+    カタログ配下でも `catalogs/<系統>/index.html` は製品ページではなく索引なので
+    listing 扱いにする（製品名もカテゴリ語も持たないのが正しい）。
+    """
+    rel = rel.lstrip("/")
+    if rel == "index.html":
+        return "home"
+    parts = rel.split("/")
+    if parts[0] == "catalogs" and len(parts) == 4 and parts[3] == "index.html":
+        return {"gpu": "catalog_gpu", "zbox": "catalog_zbox",
+                "enterprise": "catalog_enterprise"}.get(parts[1], "other")
+    if parts[0] == "reviews" and len(parts) == 3:
+        return "review"
+    if rel in ("catalogs/index.html", "catalogs/zbox/index.html",
+               "catalogs/gpu/index.html", "catalogs/enterprise/index.html",
+               "reviews/index.html", "press/index.html", "case-studies/index.html"):
+        return "listing"
+    return "other"
+
+
+def title_problems(rel, title):
+    """タイトル1本の規約違反を返す（無ければ空リスト）。
+
+    返すのは「なぜ駄目か」ではなく「どう直すか」。utm_problems() と同じ方針。
+    重複検査はサイト全体を見ないと判定できないので、呼び出し側で行う。
+    """
+    kind = title_kind(rel)
+    problems = []
+
+    if title is None:
+        return ["<head> 内に <title> が無い"]
+    if not title.strip():
+        return ["<title> が空"]
+    if title != title.strip():
+        problems.append("前後に空白がある")
+    if "\n" in title or "\r" in title:
+        problems.append("改行が入っている")
+
+    t = title.strip()
+
+    # 区切り文字。全角と半角の混在は 2026-08-14 時点で3ページにあった。
+    has_full = _FULLWIDTH_BAR in t
+    has_half = " | " in t
+    if has_full and has_half:
+        problems.append(f"全角 {_FULLWIDTH_BAR} と半角 | が混在 → 半角 ' | ' に統一する")
+    elif has_full:
+        problems.append(f"全角 {_FULLWIDTH_BAR} を使っている → 半角 ' | ' に統一する")
+    if re.search(r"\S\|\S", t):
+        problems.append("| の前後にスペースが無い → ' | ' の形にする")
+
+    # サフィックス。トップは別型、それ以外は ZOTAC NIPPON で名乗る。
+    if kind != "home" and not t.endswith(TITLE_SUFFIX):
+        problems.append(f"サフィックスが '{TITLE_SUFFIX.strip()}' でない"
+                        f" → 末尾を '{TITLE_SUFFIX}' にする")
+
+    # カタログのカテゴリ語。製品名の正本照合は生成器側の責務（CI から ②' の
+    # sku_catalog.json へ到達できないため、ここでは見ない。§8）。
+    cat = TITLE_CATEGORY.get(kind)
+    if cat:
+        core = t[:-len(TITLE_SUFFIX)] if t.endswith(TITLE_SUFFIX) else t
+        if f" — {cat}" not in core:
+            problems.append(f"カテゴリ語が '{cat}' でない"
+                            f" → '{{製品名}} — {cat}{TITLE_SUFFIX}' の形にする")
+        if core.strip().startswith("—"):
+            problems.append("製品名が入っていない")
+
+    return problems
+
+
+def title_warnings(rel, title):
+    """公開は止めないが伝えたいこと。文字数は CTR を説明しないので警告止まり。"""
+    if not title:
+        return []
+    out = []
+    if len(title) > TITLE_MAX_LEN:
+        out.append(f"{len(title)}字（目安 {TITLE_MAX_LEN} 字超）")
+    return out
+
+
+def load_title_registry(root=None):
+    """title-registry.json を読む。無ければ例外（fail-open しない）。"""
+    base = Path(root) if root else hub_root()
+    p = base / SEO_DIR / "title-registry.json"
+    if not p.exists():
+        raise FileNotFoundError(f"タイトルの登録簿がありません: {p}")
+    return json.loads(p.read_text(encoding="utf-8"))

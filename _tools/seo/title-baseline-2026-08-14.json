@@ -1,0 +1,391 @@
+{
+  "_readme": "2026-08-14 時点の公開ページのタイトル記録。タイトルを変更したあと、変更前の状態を辿るための固定スナップショット。更新しない（新しい時点を残すなら別ファイルを作る）。",
+  "captured": "2026-08-14",
+  "page_count": 64,
+  "pages": {
+    "case-studies/index.html": {
+      "title": "導入・活用事例 | ZOTAC NIPPON",
+      "h1": "Case Studies",
+      "og_title": null,
+      "kind": "listing"
+    },
+    "catalogs/enterprise/510g-ix1p7e/index.html": {
+      "title": "510G-IX1P7E — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "510G-IX1P7E — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/511a-ix1p7e/index.html": {
+      "title": "511A-IX1P7E — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "511A-IX1P7E — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/w511z-1p6e/index.html": {
+      "title": "W511Z-1P6E — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "W511Z-1P6E — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/zrs-2100m4/index.html": {
+      "title": "ZRS-2100M4 — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "ZRS-2100M4 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/zrs-2110m4/index.html": {
+      "title": "ZRS-2110M4 — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "ZRS-2110M4 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/zrs-3200m4/index.html": {
+      "title": "ZRS-3200M4 — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "ZRS-3200M4 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/zrs-3210m4/index.html": {
+      "title": "ZRS-3210M4 — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "ZRS-3210M4 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/zrs-3220m2/index.html": {
+      "title": "ZRS-3220M2 — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "ZRS-3220M2 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/zrs-3220m4/index.html": {
+      "title": "ZRS-3220M4 — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "ZRS-3220M4 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/zrs-3260g1/index.html": {
+      "title": "ZRS-3260G1 — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "ZRS-3260G1 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/zrs-326sv2/index.html": {
+      "title": "ZRS-326SV2 — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "ZRS-326SV2 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/zrs-326v2/index.html": {
+      "title": "ZRS-326V2 — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "ZRS-326V2 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/zrs-3290h1/index.html": {
+      "title": "ZRS-3290H1 — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "ZRS-3290H1 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/zrs-9220m4/index.html": {
+      "title": "ZRS-9220M4 — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "ZRS-9220M4 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/enterprise/zrs-mgx-r1/index.html": {
+      "title": "ZRS-MGX-R1 — 製品カタログ | ZOTAC NIPPON",
+      "h1": null,
+      "og_title": "ZRS-MGX-R1 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_enterprise"
+    },
+    "catalogs/gpu/zt-b50610h/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5060 Ti 8GB Twin Edge OC ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5060 Ti 8GBTwin Edge OC",
+      "og_title": "ZOTAC GAMING GeForce RTX 5060 Ti 8GB Twin Edge OC ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50620h/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5060 Ti 16GB Twin Edge OC ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5060 Ti 16GBTwin Edge OC",
+      "og_title": "ZOTAC GAMING GeForce RTX 5060 Ti 16GB Twin Edge OC ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50700d/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5070 SOLID ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5070SOLID",
+      "og_title": "ZOTAC GAMING GeForce RTX 5070 SOLID ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50700e/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5070 Twin Edge ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5070Twin Edge",
+      "og_title": "ZOTAC GAMING GeForce RTX 5070 Twin Edge ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50700fq/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5070 AMP White Edition ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5070AMP White Edition",
+      "og_title": "ZOTAC GAMING GeForce RTX 5070 AMP White Edition ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50700h/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5070 Twin Edge OC ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5070Twin Edge OC",
+      "og_title": "ZOTAC GAMING GeForce RTX 5070 Twin Edge OC ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50700j/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5070 SOLID OC ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5070SOLID OC",
+      "og_title": "ZOTAC GAMING GeForce RTX 5070 SOLID OC ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50800b/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5080 AMP Extreme INFINITY ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5080AMP Extreme INFINITY",
+      "og_title": "ZOTAC GAMING GeForce RTX 5080 AMP Extreme INFINITY ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50800d/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5080 SOLID ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5080SOLID",
+      "og_title": "ZOTAC GAMING GeForce RTX 5080 SOLID ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50800d2/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5080 SOLID CORE ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5080SOLID CORE",
+      "og_title": "ZOTAC GAMING GeForce RTX 5080 SOLID CORE ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50800j/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5080 SOLID OC ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5080SOLID OC",
+      "og_title": "ZOTAC GAMING GeForce RTX 5080 SOLID OC ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50800j2/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5080 SOLID CORE OC ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5080SOLID CORE OC",
+      "og_title": "ZOTAC GAMING GeForce RTX 5080 SOLID CORE OC ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50800q/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5080 SOLID OC White Edition ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5080SOLID OC White Edition",
+      "og_title": "ZOTAC GAMING GeForce RTX 5080 SOLID OC White Edition ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50900b/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5090 AMP Extreme INFINITY ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5090AMP Extreme INFINITY",
+      "og_title": "ZOTAC GAMING GeForce RTX 5090 AMP Extreme INFINITY ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50900j/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5090 SOLID OC ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5090SOLID OC",
+      "og_title": "ZOTAC GAMING GeForce RTX 5090 SOLID OC ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/gpu/zt-b50900k/index.html": {
+      "title": "ZOTAC GAMING GeForce RTX 5090 ARCTICSTORM AIO ｜ ZOTAC GAMING グラフィックスカード",
+      "h1": "ZOTAC GAMINGGeForce RTX 5090ARCTICSTORM AIO",
+      "og_title": "ZOTAC GAMING GeForce RTX 5090 ARCTICSTORM AIO ｜ ZOTAC GAMING グラフィックスカード",
+      "kind": "catalog_gpu"
+    },
+    "catalogs/index.html": {
+      "title": "Product Catalogs / 製品カタログ・モデル別インデックス | ZOTAC NIPPON",
+      "h1": "Product Catalogs",
+      "og_title": "Product Catalogs / 製品カタログ・モデル別インデックス | ZOTAC NIPPON",
+      "kind": "listing"
+    },
+    "catalogs/zbox/ci655/index.html": {
+      "title": "CI655 nano — 製品カタログ | ZOTAC NIPPON",
+      "h1": "CI655 nano",
+      "og_title": "CI655 nano — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/ci675/index.html": {
+      "title": "CI675 nano — 製品カタログ | ZOTAC NIPPON",
+      "h1": "CI675 nano",
+      "og_title": "CI675 nano — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/eamax385c/index.html": {
+      "title": "MAGNUS EAMAX385C — 製品カタログ | ZOTAC NIPPON",
+      "h1": "MAGNUS EAMAX385C",
+      "og_title": "MAGNUS EAMAX385C — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/eamax395c/index.html": {
+      "title": "MAGNUS EAMAX395C — 製品カタログ | ZOTAC NIPPON",
+      "h1": "MAGNUS EAMAX395C",
+      "og_title": "MAGNUS EAMAX395C — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/en275060tc/index.html": {
+      "title": "MAGNUS EN275060TC — 製品カタログ | ZOTAC NIPPON",
+      "h1": "MAGNUS EN275060TC",
+      "og_title": "MAGNUS EN275060TC — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/er98n5070c/index.html": {
+      "title": "MAGNUS ONE ER98N5070C — 製品カタログ | ZOTAC NIPPON",
+      "h1": "MAGNUS ONE ER98N5070C",
+      "og_title": "MAGNUS ONE ER98N5070C — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/eu27506tc/index.html": {
+      "title": "MAGNUS ONE EU27506TC — 製品カタログ | ZOTAC NIPPON",
+      "h1": "MAGNUS ONE EU27506TC",
+      "og_title": "MAGNUS ONE EU27506TC — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/eu275070c/index.html": {
+      "title": "MAGNUS ONE EU275070C — 製品カタログ | ZOTAC NIPPON",
+      "h1": "MAGNUS ONE EU275070C",
+      "og_title": "MAGNUS ONE EU275070C — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/eu27507tc/index.html": {
+      "title": "MAGNUS ONE EU27507TC — 製品カタログ | ZOTAC NIPPON",
+      "h1": "MAGNUS ONE EU27507TC",
+      "og_title": "MAGNUS ONE EU27507TC — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/eu275080c/index.html": {
+      "title": "MAGNUS ONE ULTRA EU275080C — 製品カタログ | ZOTAC NIPPON",
+      "h1": "MAGNUS ONE ULTRA EU275080C",
+      "og_title": "MAGNUS ONE ULTRA EU275080C — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/index.html": {
+      "title": "製品カタログ | ZOTAC",
+      "h1": null,
+      "og_title": null,
+      "kind": "listing"
+    },
+    "catalogs/zbox/mi656/index.html": {
+      "title": "MI656 — 製品カタログ | ZOTAC NIPPON",
+      "h1": "MI656",
+      "og_title": "MI656 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/mi676/index.html": {
+      "title": "MI676 — 製品カタログ | ZOTAC NIPPON",
+      "h1": "MI676",
+      "og_title": "MI676 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/qu27n5000/index.html": {
+      "title": "QU27N5000 — 製品カタログ | ZOTAC NIPPON",
+      "h1": "QU27N5000",
+      "og_title": "QU27N5000 — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/s35n150a/index.html": {
+      "title": "S35N150A — 製品カタログ | ZOTAC NIPPON",
+      "h1": "S35N150A",
+      "og_title": "S35N150A — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "catalogs/zbox/s35n150p/index.html": {
+      "title": "S35N150P — 製品カタログ | ZOTAC NIPPON",
+      "h1": "S35N150P",
+      "og_title": "S35N150P — 製品カタログ | ZOTAC NIPPON",
+      "kind": "catalog_zbox"
+    },
+    "events/askfes2026/index.html": {
+      "title": "ZOTAC NIPPON at ASK FES 2026 | カタログ・資料ダウンロード",
+      "h1": "ZOTAC",
+      "og_title": "ZOTAC NIPPON at ASK FES 2026 | カタログ・資料ダウンロード",
+      "kind": "other"
+    },
+    "events/supermetafes2026/index.html": {
+      "title": "ZOTAC NIPPON at 超メタフェス2026 | VRChat GPU検証・カタログ",
+      "h1": "ZOTAC",
+      "og_title": "ZOTAC NIPPON at 超メタフェス2026 | VRChat GPU検証・カタログ",
+      "kind": "other"
+    },
+    "index.html": {
+      "title": "ZOTAC NIPPON 公式情報ハブ｜ZBOX・GeForce実機検証",
+      "h1": "ZOTAC NIPPON 公式技術情報ハブ",
+      "og_title": "ZOTAC NIPPON 公式情報ハブ｜ZBOX・GeForce実機検証",
+      "kind": "home"
+    },
+    "press/index.html": {
+      "title": "Press & Media / メディア掲載 | ZOTAC NIPPON",
+      "h1": "Press &amp; Media",
+      "og_title": "Press &amp; Media / メディア掲載 | ZOTAC NIPPON",
+      "kind": "listing"
+    },
+    "reviews/ci675-ci655-nano/index.html": {
+      "title": "ZOTAC ZBOX CI675 nano / CI655 nano ベンチマークレビュー（ファンレス / Core Ultra 7 255U・Core Ultra 5 225U）",
+      "h1": "ZBOX CI675 / CI655 nano音のない1.79L — 映像を楽しむ場所にも、仕事に集中する席にも",
+      "og_title": "ZOTAC ZBOX CI675 nano / CI655 nano ベンチマークレビュー（ファンレス / Core Ultra U シリーズ）",
+      "kind": "review"
+    },
+    "reviews/edge-mi676-mi656/index.html": {
+      "title": "ZOTAC ZBOX edge MI676 / MI656 ベンチマークレビュー（Core Ultra 7 255H / Core Ultra 5 225H）",
+      "h1": "ZBOX edge MI676 / MI656差が出たのはCPUスループットだけ — 兄弟機2台の同一条件実測で答えを出す選び分けレビュー",
+      "og_title": "ZOTAC ZBOX edge MI676 / MI656 ベンチマークレビュー（Core Ultra 7 255H / Core Ultra 5 225H）",
+      "kind": "review"
+    },
+    "reviews/index.html": {
+      "title": "Reviews / プロダクトレビュー | ZOTAC NIPPON",
+      "h1": "Reviews",
+      "og_title": "Reviews / プロダクトレビュー | ZOTAC NIPPON",
+      "kind": "listing"
+    },
+    "reviews/magnus-en-rtx-5060-ti/index.html": {
+      "title": "ZOTAC ZBOX MAGNUS EN275060TC ベンチマークレビュー（GeForce RTX 5060 Ti 16GB / Core Ultra 7 255HX）| ZOTAC NIPPON",
+      "h1": "ZBOX MAGNUS EN275060TCわずか2.65Lに RTX 5060 Ti 16GB を凝縮",
+      "og_title": "ZOTAC ZBOX MAGNUS EN275060TC ベンチマークレビュー（RTX 5060 Ti 16GB / Core Ultra 7 255HX）",
+      "kind": "review"
+    },
+    "reviews/magnus-one-rtx-5070-core-ultra-7-265/index.html": {
+      "title": "ZOTAC ZBOX MAGNUS ONE EU275070C ミニPCレビュー｜GeForce RTX 5070 / Core Ultra 7 265 実測ベンチマーク | ZOTAC NIPPON",
+      "h1": "ZBOX MAGNUS ONE EU275070Cデスクトップ Core Ultra 7 × RTX 5070、フルデスクトップ構成",
+      "og_title": "ZOTAC ZBOX MAGNUS ONE EU275070C ベンチマークレビュー（RTX 5070 / Core Ultra 7 265）",
+      "kind": "review"
+    },
+    "reviews/magnus-one-rtx-5070-ryzen-9-9850hx/index.html": {
+      "title": "ZOTAC ZBOX MAGNUS ONE ER98N5070C ミニPCレビュー｜GeForce RTX 5070 / Ryzen 9 9850HX 実測ベンチマーク | ZOTAC NIPPON",
+      "h1": "ZBOX MAGNUS ONE ER98N5070CRyzen 9 9850HX × RTX 5070、24スレッドのAMD構成",
+      "og_title": "ZOTAC ZBOX MAGNUS ONE ER98N5070C ベンチマークレビュー（RTX 5070 / Ryzen 9 9850HX）",
+      "kind": "review"
+    },
+    "reviews/magnus-one-rtx-5070-ti/index.html": {
+      "title": "ZBOX MAGNUS ONE EU27507TC ミニPCレビュー（RTX 5070 Ti 16GB / Core Ultra 7 265 実測）| ZOTAC NIPPON",
+      "h1": "ZBOX MAGNUS ONE EU27507TC16GB GDDR7 の RTX 5070 Ti × 20コア Core Ultra 7、8.48L の最上位構成",
+      "og_title": "ZOTAC ZBOX MAGNUS ONE EU27507TC ベンチマークレビュー（RTX 5070 Ti 16GB / Core Ultra 7 265）",
+      "kind": "review"
+    },
+    "reviews/magnus-one-ultra-rtx-5080/index.html": {
+      "title": "ZOTAC ZBOX MAGNUS ONE ULTRA EU275080C ミニPCレビュー｜GeForce RTX 5080 / Core Ultra 7 265 実測ベンチマーク | ZOTAC NIPPON",
+      "h1": "ZBOX MAGNUS ONE ULTRA EU275080CRTX 5080 16GB × 20コア Core Ultra 7、11.46L の実力",
+      "og_title": "ZOTAC ZBOX MAGNUS ONE ULTRA EU275080C ベンチマークレビュー（RTX 5080 / Core Ultra 7 265）",
+      "kind": "review"
+    },
+    "reviews/meganex8kmk2/index.html": {
+      "title": "MeganeX 8K Mark II は、どのGPUで本領を発揮するのか | ZOTAC Review",
+      "h1": "MEGANEX 8K MARK II",
+      "og_title": "MeganeX 8K Mark II は、どのGPUで本領を発揮するのか",
+      "kind": "review"
+    },
+    "reviews/power-limit-rtx-50-series/index.html": {
+      "title": "0円でできる夏の暑さ対策 — RTX 5090 / 5080 / 5070 で Power Limit 省電力化を実測検証 | ZOTAC NIPPON",
+      "h1": "「0円でできる夏の暑さ対策」、本当に効く？GeForce RTX 5090 / 5080 / 5070 — Power Limit 設定で消費電力・温度はどこまで下がり、性能はどこまで残るのか",
+      "og_title": "0円でできる夏の暑さ対策 — RTX 5090 / 5080 / 5070 で Power Limit 省電力化を実測検証",
+      "kind": "review"
+    },
+    "trial-program/index.html": {
+      "title": "ZOTAC 機材トライアルプログラム | 法人向けミニPC・GPUの無料貸出",
+      "h1": "設置の制約を、ゼロへ。 現場の「動かない」を解決する世界最小クラスのRTX 50搭載高性能ミニPC。",
+      "og_title": "ZOTAC 機材トライアルプログラム | ミニPC・グラフィックスカードの無料貸出",
+      "kind": "other"
+    }
+  }
+}

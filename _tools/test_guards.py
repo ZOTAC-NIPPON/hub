@@ -166,6 +166,85 @@ UTM_CASES = [
      True, False),
 ]
 
+# 2026-08: <title> の抽出と規約判定（_tools/seo/title-policy.md）。
+# 最重要は「コメント内の <title> を拾わないこと」。trial-program/index.html の
+# 冒頭コメントに "- <title>を確定版に更新" があり、正規表現がそちらを拾って
+# 壊れた文字列を返していた。contamination() もそれを「空ではない」と判定して
+# 通していた＝判定が効いていなかった。
+_DOC = ('<!doctype html><html lang="ja"><head><title>{}</title>'
+        '</head><body><h1>x</h1></body></html>')
+TITLE_EXTRACT_CASES = [
+    # (説明, HTML, 期待するタイトル)
+    ("普通のページ", _DOC.format("製品カタログ | ZOTAC NIPPON"), "製品カタログ | ZOTAC NIPPON"),
+    ("コメント内の <title> を拾わない",
+     "<!--\n  - <title>を確定版に更新\n-->\n" + _DOC.format("正しいタイトル | ZOTAC NIPPON"),
+     "正しいタイトル | ZOTAC NIPPON"),
+    ("実体参照を解く", _DOC.format("Press &amp; Media | ZOTAC NIPPON"),
+     "Press & Media | ZOTAC NIPPON"),
+    ("body 内の <title>（SVG 等）は head の外なので拾わない",
+     '<html><head><title>本物 | ZOTAC NIPPON</title></head>'
+     '<body><svg><title>図の説明</title></svg></body></html>', "本物 | ZOTAC NIPPON"),
+    ("<title> が無い", "<html><head></head><body></body></html>", None),
+]
+
+TITLE_COMMENT_CASES = [
+    ("コメント内に <title> がある", "<!-- - <title>を確定版に更新 -->", True),
+    ("コメントに title という語だけ", "<!-- タイトルを確定版に更新 -->", False),
+    ("普通の <title>", _DOC.format("x | ZOTAC NIPPON"), False),
+    ("コメントを閉じた後の <title> は対象外",
+     "<!-- 説明 -->\n" + _DOC.format("x | ZOTAC NIPPON"), False),
+]
+
+TITLE_CASES = [
+    # (説明, パス, タイトル, 検出されるべきか)
+    ("カタログ（規約どおり）", "catalogs/zbox/eu275080c/index.html",
+     "ZOTAC ZBOX MAGNUS ONE ULTRA EU275080C — 製品カタログ | ZOTAC NIPPON", False),
+    ("GPU カタログ（規約どおり）", "catalogs/gpu/zt-b50800j/index.html",
+     "ZOTAC GAMING GeForce RTX 5080 SOLID — グラフィックスカード | ZOTAC NIPPON", False),
+    ("一覧（規約どおり）", "reviews/index.html", "プロダクトレビュー | ZOTAC NIPPON", False),
+    ("レビュー（サフィックスさえ合っていれば文言は自由）",
+     "reviews/power-limit-rtx-50-series/index.html",
+     "0円でできる夏の暑さ対策 — RTX 5090 で実測検証 | ZOTAC NIPPON", False),
+    ("トップはサフィックス強制なし", "index.html", "ZOTAC NIPPON 公式情報ハブ", False),
+
+    # 実際に踏んでいた逸脱
+    ("GPU カタログの現行（全角｜・別サフィックス）", "catalogs/gpu/zt-b50800j/index.html",
+     "ZOTAC GAMING GeForce RTX 5080 SOLID ｜ ZOTAC GAMING グラフィックスカード", True),
+    ("A型レビュー（全角と半角の混在）", "reviews/magnus-one-ultra-rtx-5080/index.html",
+     "ZOTAC ZBOX MAGNUS ONE ULTRA EU275080C ミニPCレビュー｜GeForce RTX 5080 実測 | ZOTAC NIPPON", True),
+    ("パイプ前のスペースが無い", "reviews/magnus-en-rtx-5060-ti/index.html",
+     "ZOTAC ZBOX MAGNUS EN275060TC ベンチマークレビュー（RTX 5060 Ti）| ZOTAC NIPPON", True),
+    ("サフィックス無し", "reviews/ci675-ci655-nano/index.html",
+     "ZOTAC ZBOX CI675 nano ベンチマークレビュー（ファンレス）", True),
+    ("サフィックスが説明文", "trial-program/index.html",
+     "ZOTAC 機材トライアルプログラム | 法人向けミニPC・GPUの無料貸出", True),
+    ("サフィックスが ZOTAC 単独（本家と区別がつかない）", "catalogs/zbox/index.html",
+     "製品カタログ | ZOTAC", True),
+    ("カタログのカテゴリ語が違う", "catalogs/gpu/zt-b50800j/index.html",
+     "ZOTAC GAMING GeForce RTX 5080 SOLID — 製品カタログ | ZOTAC NIPPON", True),
+    ("カタログに製品名が無い", "catalogs/zbox/eu275080c/index.html",
+     "— 製品カタログ | ZOTAC NIPPON", True),
+    ("空", "reviews/index.html", "   ", True),
+    ("前後に空白", "reviews/index.html", " プロダクトレビュー | ZOTAC NIPPON ", True),
+    ("改行が入っている", "reviews/index.html", "プロダクトレビュー\n | ZOTAC NIPPON", True),
+    ("<title> が無い", "reviews/index.html", None, True),
+]
+
+# パスからページ種別を決める。カタログ配下でも索引は製品ページではない。
+TITLE_KIND_CASES = [
+    ("index.html", "home"),
+    ("catalogs/gpu/zt-b50800j/index.html", "catalog_gpu"),
+    ("catalogs/zbox/eu275080c/index.html", "catalog_zbox"),
+    ("catalogs/enterprise/zrs-3220m4/index.html", "catalog_enterprise"),
+    ("catalogs/zbox/index.html", "listing"),      # 索引を製品ページ扱いしない
+    ("catalogs/index.html", "listing"),
+    ("reviews/index.html", "listing"),
+    ("reviews/meganex8kmk2/index.html", "review"),
+    ("press/index.html", "listing"),
+    ("trial-program/index.html", "other"),
+]
+
+
 # 本文からの URL 抽出。Markdown と HTML の両方の書き方で拾えること。
 UTM_EXTRACT_CASES = [
     ("Markdown のリンク記法", f"詳しくは[こちら]({_BASE}{_OK})をご覧ください。", 1),
@@ -224,9 +303,48 @@ def main():
         if got != expected:
             fails.append(f"find_utm_urls: {label} → {got} 本 期待={expected} 本")
 
+    for label, text, expected in TITLE_EXTRACT_CASES:
+        got = hublib.page_title(text)
+        if got != expected:
+            fails.append(f"page_title: {label} → {got!r} 期待={expected!r}")
+
+    for label, text, expected in TITLE_COMMENT_CASES:
+        got = hublib.title_in_comment(text)
+        if got != expected:
+            fails.append(f"title_in_comment: {label} → {got} 期待={expected}")
+
+    for label, rel, title, should_flag in TITLE_CASES:
+        got = bool(hublib.title_problems(rel, title))
+        if got != should_flag:
+            fails.append(f"title_problems: {label} → 検出={got} 期待={should_flag}")
+
+    for rel, expected in TITLE_KIND_CASES:
+        got = hublib.title_kind(rel)
+        if got != expected:
+            fails.append(f"title_kind: {rel} → {got} 期待={expected}")
+
+    # 登録簿が消えたら検査ごと成立しないので、ここで一緒に落とす。
+    # 各行のメタ（理由・オーナー・期限）が欠けた登録は「検査を黙らせるゴミ箱」の
+    # 始まりなので、書式そのものを検査する（title-policy.md §5）。
+    try:
+        reg = hublib.load_title_registry()
+        for state in ("frozen", "migration"):
+            for rel, meta in reg.get(state, {}).items():
+                if rel.startswith("_"):
+                    continue
+                for key in ("reason", "owner", "registered"):
+                    if not meta.get(key):
+                        fails.append(f"title-registry: {state}/{rel} に {key} が無い")
+                if state == "migration" and not meta.get("review_by"):
+                    fails.append(f"title-registry: migration/{rel} に review_by が無い")
+    except (OSError, ValueError) as e:
+        fails.append(f"load_title_registry: 登録簿を読めない → {e}")
+
     total = (len(CASES) + len(ALLOWLIST_CASES) + len(MARKUP_CASES)
              + len(HEADER_CSS_CASES) + len(HEADER_CSS_LINK_CASES)
-             + len(UTM_CASES) + len(UTM_EXTRACT_CASES))
+             + len(UTM_CASES) + len(UTM_EXTRACT_CASES)
+             + len(TITLE_EXTRACT_CASES) + len(TITLE_COMMENT_CASES)
+             + len(TITLE_CASES) + len(TITLE_KIND_CASES))
     print(f"test_guards: {total - len(fails)}/{total} 合格")
     if fails:
         for f in fails:

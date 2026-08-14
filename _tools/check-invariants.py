@@ -157,6 +157,73 @@ def header_css_violations(root):
     return out
 
 
+def title_violations(root):
+    """`<title>` が規約（_tools/seo/title-policy.md）に合っているかを見る。
+
+    戻り値 = (公開を止める違反, 報告だけの指摘)。Phase 0 では移行中なので前者は
+    「登録簿そのものの腐り」だけにし、ページの型違反は後者に入れる（レポート
+    モード）。公開停止への昇格は Phase 2。
+
+    frozen と migration を区別するのが要点。migration はページが適合したら名簿
+    から消させるが、frozen は適合していても残す ―― 成果の出ているページを将来の
+    「改善」から守るのが目的で、未処理の負債ではないため。
+    """
+    reg = hublib.load_title_registry(root)
+    frozen = reg.get("frozen", {})
+    migration = {k: v for k, v in reg.get("migration", {}).items()
+                 if not k.startswith("_")}
+
+    hard, report = [], []
+    titles, seen_migration, backlog = {}, set(), []
+
+    for rel in hublib.injected_pages(root):
+        text = (root / rel).read_text(encoding="utf-8", errors="replace")
+        title = hublib.page_title(text)
+        problems = hublib.title_problems(rel, title)
+
+        # コメント内の <title> は登録簿で免除しない。正規表現でタイトルを読む
+        # 道具を壊し、実タイトルを直しても毎回「壊れている」と再発見される
+        # （title-policy.md §6 の事故そのもの）。
+        if hublib.title_in_comment(text):
+            hard.append(f"HTML コメントの中に <title> がある（抽出器が壊れる）: {rel}")
+
+        if rel in frozen:
+            continue                     # frozen は型違反を報告しない（レビュー対象外）
+        if rel in migration:
+            seen_migration.add(rel)
+            if not problems:
+                hard.append("title-registry.json の migration に載っているが既に"
+                            f"規約に適合。名簿から消すこと: {rel}")
+            else:
+                backlog.append((migration[rel].get("review_by", "期限なし"), rel))
+            continue
+
+        for msg in problems:
+            report.append(f"{msg}: {rel}")
+        if title:
+            titles.setdefault(title.strip(), []).append(rel)
+
+    for rel in sorted(set(migration) - seen_migration):
+        hard.append("title-registry.json の migration にあるページが存在しない。"
+                    f"名簿から消すこと: {rel}")
+    for rel in sorted(frozen):
+        if not (root / rel).is_file():
+            hard.append("title-registry.json の frozen にあるページが存在しない。"
+                        f"名簿から消すこと: {rel}")
+
+    for title, rels in sorted(titles.items()):
+        if len(rels) > 1:
+            report.append(f"タイトルが重複している（{title}）: {' / '.join(rels)}")
+
+    # 期限なしの migration は永久 lag になるので、名簿の欠陥として必ず挙げる。
+    for review_by, rel in backlog:
+        if review_by == "期限なし":
+            hard.append("title-registry.json の migration に review_by が無い"
+                        f"（期限の無い移行は終わらない）: {rel}")
+
+    return hard, report, backlog
+
+
 def main():
     hublib.use_utf8_stdout()
     root = hublib.hub_root()
@@ -198,7 +265,35 @@ def main():
     errors.extend(nav_toggle_violations(root, tracked))
     errors.extend(header_css_violations(root))
 
+    title_hard, title_report, title_backlog = title_violations(root)
+    errors.extend(title_hard)
+
     print(f"  追跡ファイル: {len(tracked)}")
+    # Phase 0 はレポートのみ（公開を止めない）。公開停止への昇格は Phase 2
+    # （title-policy.md §7）。登録簿に無い違反＝新しく増えたものなので目立たせる。
+    if title_report:
+        print()
+        print(f"  ▲ タイトル規約の未登録違反（報告のみ・公開は止めません）: {len(title_report)} 件")
+        for msg in title_report:
+            print(f"    - {msg}")
+        print("    直すか、_tools/seo/title-registry.json の migration へ期限付きで登録すること")
+    if title_backlog:
+        # 名簿を「検査を黙らせるゴミ箱」にしないため、残数と期限を常に見せる。
+        print()
+        print(f"  タイトル規約の移行残り: {len(title_backlog)} 件"
+              "（登録済み・_tools/seo/title-registry.json）")
+        by_date = {}
+        for review_by, rel in title_backlog:
+            by_date.setdefault(review_by, []).append(rel)
+        for review_by in sorted(by_date):
+            rels = by_date[review_by]
+            # 表示用の短縮。ルート直下の index.html はディレクトリ名を持たない。
+            def short(r):
+                parts = r.split("/")
+                return parts[-2] if len(parts) > 1 else r
+            head = ", ".join(short(r) for r in sorted(rels)[:3])
+            more = f" ほか{len(rels) - 3}件" if len(rels) > 3 else ""
+            print(f"    期限 {review_by}: {len(rels):2d} 件  （{head}{more}）")
     print()
     if errors:
         print(f"VIOLATION ({len(errors)}):")

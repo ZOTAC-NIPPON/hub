@@ -1,0 +1,95 @@
+{
+  "_readme": "<title> の登録簿。規約の正本は title-policy.md、検査は _tools/check-invariants.py の title_violations()。この3点で1組。",
+  "_updated": "2026-08-14",
+  "version": "1.0.0",
+
+  "_states": {
+    "frozen": "成果が出ているので触らない。期限なし。レビュー対象外。規約に適合していても登録したままにする（将来の『改善』から守るのが目的で、未処理の負債ではない）。追加は規約オーナーの承認を要する。",
+    "migration": "規約に合っていないが、いつか直す。期限（review_by）が必須。ページが規約に適合したら、または存在しなくなったら、検査が『名簿から消すこと』と報告する。"
+  },
+
+  "frozen": {
+    "catalogs/zbox/eu275080c/index.html": {
+      "reason": "表示220・クリック42・CTR 19.09%・平均順位3.4。サイト最高の獲得ページ。型番指名クエリ『zotac magnus one ultra eu275080c』で CTR 44.6%",
+      "owner": "marketing",
+      "registered": "2026-08-14"
+    },
+    "reviews/meganex8kmk2/index.html": {
+      "reason": "表示569・クリック48・CTR 8.44%。非ブランドクエリ経由のクリック23件のうち22件がこのページ＝自社製品名なしで集客できている唯一のページ。サフィックス『| ZOTAC Review』は規約外だが、これを型に寄せる利益がリスクを上回る根拠が無い",
+      "owner": "marketing",
+      "registered": "2026-08-14"
+    },
+    "reviews/magnus-one-rtx-5070-ryzen-9-9850hx/index.html": {
+      "reason": "表示84・クリック7・CTR 8.33%。レビュー記事で2番目に良い CTR。同型（A型）の他記事が CTR 0.6% なのに対しこのページは機能しており、型が原因でないことの実例でもある",
+      "owner": "marketing",
+      "registered": "2026-08-14"
+    }
+  },
+
+  "migration": {
+    "_gpu": "GPU カタログ16ページ。現行サフィックスは全角『｜ZOTAC GAMING グラフィックスカード』。Phase 2 で _gpu_gen.py のテンプレートを直して再生成する（HTML を手で直さない）。表示回数は3ページが24〜34、残り13ページは0。",
+    "catalogs/gpu/zt-b50610h/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50620h/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50700d/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50700e/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）。表示27", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50700fq/index.html": {"reason": "GPU カタログ生成器の出力（_gpu）。表示34", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50700h/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）。表示24・クリック1", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50700j/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50800b/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50800d/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50800d2/index.html": {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50800j/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50800j2/index.html": {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50800q/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50900b/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50900j/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+    "catalogs/gpu/zt-b50900k/index.html":  {"reason": "GPU カタログ生成器の出力（_gpu）", "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"},
+
+    "catalogs/zbox/index.html": {
+      "reason": "ZBOX 索引。サフィックスが『| ZOTAC』で本家と区別がつかない。Phase 2 で『製品カタログ（ZBOX）| ZOTAC NIPPON』等へ",
+      "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"
+    },
+    "events/askfes2026/index.html": {
+      "reason": "イベントページ。サフィックスが説明文『| カタログ・資料ダウンロード』。会期終了済みのため優先度低",
+      "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-10-01"
+    },
+    "events/supermetafes2026/index.html": {
+      "reason": "イベントページ。サフィックスが説明文『| VRChat GPU検証・カタログ』",
+      "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-10-01"
+    },
+    "trial-program/index.html": {
+      "reason": "サフィックスが説明文『| 法人向けミニPC・GPUの無料貸出』。検索では表示36・クリック0。Phase 2 で『法人向けミニPC・GPU無料貸出 | ZOTAC NIPPON』へ",
+      "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-10-01"
+    },
+    "index.html": {
+      "reason": "トップ。全角｜使用。指名クエリ『zotac』で表示125・クリック0（本家 zotac.com に負けている）。Phase 4 で単独実験。他の変更と同一バッチにしない",
+      "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-10-15"
+    },
+
+    "_reviews": "レビュー記事。A型（ミニPCレビュー｜…実測ベンチマーク）は全角｜と半角|が混在。CTR が悪い4本は Phase 3 で1バッチとして書き換える。文字数は CTR を説明しないので短縮を目的にしない。",
+    "reviews/ci675-ci655-nano/index.html": {
+      "reason": "サフィックス無し。公開直後で検索実績なし。追加が容易",
+      "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"
+    },
+    "reviews/edge-mi676-mi656/index.html": {
+      "reason": "サフィックス無し。公開直後で検索実績なし。追加が容易",
+      "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-09-11"
+    },
+    "reviews/magnus-one-ultra-rtx-5080/index.html": {
+      "reason": "全角｜と半角|の混在（A型）。ただし表示177・CTR 7.34% と機能しているため、Phase 3 の対象外。区切り文字の修正のみ",
+      "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-10-01"
+    },
+    "reviews/magnus-one-rtx-5070-core-ultra-7-265/index.html": {
+      "reason": "全角｜と半角|の混在（A型）。表示167・CTR 0.60%＝最悪。Phase 3 の書き換え対象。先に GSC のページ×クエリで原因を特定すること",
+      "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-10-01"
+    },
+    "reviews/magnus-en-rtx-5060-ti/index.html": {
+      "reason": "『）| ZOTAC NIPPON』でパイプ前のスペースが無い。表示250・CTR 2.40%。Phase 3 の書き換え対象",
+      "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-10-01"
+    },
+    "reviews/magnus-one-rtx-5070-ti/index.html": {
+      "reason": "『）| ZOTAC NIPPON』でパイプ前のスペースが無い。先頭の ZOTAC も欠落。表示84・CTR 0.00%。Phase 3 の書き換え対象",
+      "owner": "marketing", "registered": "2026-08-14", "review_by": "2026-10-01"
+    }
+  }
+}
