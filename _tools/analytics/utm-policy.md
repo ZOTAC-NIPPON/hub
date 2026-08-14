@@ -102,8 +102,6 @@ twitter              自社 X（x や x.com は不可）
 zotac_newsletter     メールマガジン
 pc_watch             PC Watch（先方が UTM を受け入れた場合のみ）
 owned_pdf            自社 PDF 資料内のリンク
-offline_tgs_booth    展示会ブースの QR
-offline_tgs_handout  展示会の配布物
 ```
 
 ### `utm_campaign` — `yyyymm_campaign_name`
@@ -113,7 +111,6 @@ offline_tgs_handout  展示会の配布物
 
 ```
 202607_power_limit
-202609_tgs
 ```
 
 ### `utm_content` — `形式_対象_掲出位置` / バリアント
@@ -139,16 +136,16 @@ report_v1_p12     PDF レポート v1 の 12 ページ目
 
 ```
 自社 X
-  ?utm_source=twitter&utm_medium=social&utm_campaign=202609_tgs&utm_content=thread_day1
+  ?utm_source=twitter&utm_medium=social&utm_campaign=202607_power_limit&utm_content=thread_day1
 
 メールマガジン
-  ?utm_source=zotac_newsletter&utm_medium=email&utm_campaign=202609_tgs&utm_content=mail_header
+  ?utm_source=zotac_newsletter&utm_medium=email&utm_campaign=202607_power_limit&utm_content=mail_header
 
 UTM を依頼できるメディア掲載
-  ?utm_source=pc_watch&utm_medium=referral&utm_campaign=202609_tgs&utm_content=article_body
+  ?utm_source=pc_watch&utm_medium=referral&utm_campaign=202607_power_limit&utm_content=article_body
 
-展示会 QR
-  ?utm_source=offline_tgs_booth&utm_medium=link&utm_campaign=202609_tgs&utm_content=qr_panel_a
+展示会 QR（source は掲出ごとに offline_<場所> を先に登録する）
+  ?utm_source=offline_<場所>&utm_medium=link&utm_campaign=<yyyymm_name>&utm_content=qr_panel_a
 
 PDF 資料内リンク
   ?utm_source=owned_pdf&utm_medium=link&utm_campaign=202607_power_limit&utm_content=report_v1_p12

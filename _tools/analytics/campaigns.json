@@ -12,16 +12,6 @@
       "landing": "/reviews/power-limit-rtx-50-series/",
       "workspace": "Reviews/GPU_PowerLimit-RTX50-Summer2026/",
       "note": "実投稿では utm_source=x / utm_medium=article|thread|summary を使用し、GA4 で Unassigned に落ちた。投稿済みで訂正不能なため utm-taxonomy.json の legacy_records に登録。GA4 側はカスタムチャネルグループ 'Organic Social - Legacy X (v1)' で救済する（utm-policy.md §6）。"
-    },
-
-    "202609_tgs": {
-      "name": "東京ゲームショウ 2026 プロモーション",
-      "started": "2026-09",
-      "status": "準備中",
-      "sources": ["twitter", "offline_tgs_booth", "offline_tgs_handout", "zotac_newsletter"],
-      "landing": "/campaigns/tgs2026/",
-      "workspace": "Campaigns/2609_TGS_Promotion/",
-      "note": "本規約の適用第1号。QR は掲出面ごとに utm_content を分ける（qr_panel_a / qr_panel_b / qr_handout_a …）。landing は未公開のため、LP 公開時に実パスを確認すること。"
     }
   }
 }

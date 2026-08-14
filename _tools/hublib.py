@@ -667,7 +667,7 @@ def utm_problems(url, taxonomy, campaigns, on_hub_page=False):
                 f"utm_campaign={campaign} が未登録 → campaigns.json に追加する")
         if not _CAMPAIGN_RE.match(campaign):
             problems.append(
-                f"utm_campaign={campaign} の形式が違う → yyyymm_name（例 202609_tgs）")
+                f"utm_campaign={campaign} の形式が違う → yyyymm_name（例 202607_power_limit）")
 
     # 7. utm_term は有料検索専用。それ以外に付いていたら utm_content の誤用。
     if utm.get("utm_term") and medium not in ("cpc", "paid_social", "display"):

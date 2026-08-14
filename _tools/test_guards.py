@@ -133,7 +133,7 @@ UTM_CASES = [
     ("HTML エンティティ &amp; 区切り",
      _BASE + _OK.replace("&", "&amp;") + "&amp;utm_content=thread_day1", False, False),
     ("別ドメイン宛ての正しい UTM",
-     "https://zotac.co.jp/lp/?utm_source=twitter&utm_medium=social&utm_campaign=202609_tgs",
+     "https://zotac.co.jp/lp/?utm_source=twitter&utm_medium=social&utm_campaign=202607_power_limit",
      False, False),
 
     # 実際に踏んだ間違い（2026-07 の Power Limit 企画）
@@ -162,7 +162,7 @@ UTM_CASES = [
     ("ハブのページ内に同じ URL（内部リンク）", _BASE + _OK, True, True),
     ("ルート相対リンクは書いた場所によらず内部", "/reviews/meganex8kmk2/" + _OK, False, True),
     ("ハブのページから別ドメインへ UTM 付き（正しい用法）",
-     "https://zotac.co.jp/lp/?utm_source=twitter&utm_medium=social&utm_campaign=202609_tgs",
+     "https://zotac.co.jp/lp/?utm_source=twitter&utm_medium=social&utm_campaign=202607_power_limit",
      True, False),
 ]
 
