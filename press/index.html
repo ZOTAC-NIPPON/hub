@@ -66,66 +66,6 @@ a { color: inherit; }
 .yellow-bar { width: 48px; height: 4px; background: var(--brand-yellow); margin-bottom: 18px; }
 .yellow-bar-lg { width: 56px; height: 5px; margin-bottom: 18px; }
 
-/* ===== Header (INDEX と共通) ===== */
-.site-header {
-  position: sticky; top: 0; z-index: 100;
-  background: var(--bg-dark);
-  border-bottom: 3px solid var(--brand-yellow);
-  padding: 16px 0;
-}
-.site-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-.site-logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
-.site-logo img { height: 22px; width: auto; }
-.logo-divider { color: var(--text-faint); font-family: var(--font-mono); font-weight: 300; font-size: 16px; }
-.logo-url { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); letter-spacing: 0.05em; }
-.logo-url .host-hub { color: var(--brand-yellow); font-weight: 500; }
-.site-nav { display: flex; gap: 22px; align-items: center; }
-.site-nav a {
-  text-decoration: none; color: #fff;
-  font-size: 13px; font-weight: 500;
-  position: relative; padding: 4px 0;
-  display: inline-flex; align-items: center; gap: 6px;
-}
-.site-nav a.is-active { color: var(--brand-yellow); }
-.site-nav a::after {
-  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-  height: 2px; background: var(--brand-yellow);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.2s;
-}
-.site-nav a:hover::after, .site-nav a.is-active::after { transform: scaleX(1); }
-.nav-cta {
-  background: var(--brand-yellow); color: var(--text-dark) !important;
-  padding: 9px 18px; font-weight: 700;
-}
-.nav-cta::after { display: none !important; }
-@media (max-width: 1100px) { .site-nav { gap: 16px; } }
-/* ===== Mobile header: hamburger + drawer (Contact は常時表示) ===== */
-.nav-mobile { display: none; align-items: center; gap: 12px; }
-.nav-toggle {
-  display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
-  width: 44px; height: 44px; padding: 11px;
-  background: transparent; border: 1px solid rgba(255,255,255,0.25); cursor: pointer;
-}
-.nav-toggle:hover { border-color: var(--brand-yellow); }
-.nav-toggle-bar { display: block; width: 100%; height: 2px; background: #fff; transition: transform 0.2s, opacity 0.2s; }
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-@media (max-width: 900px) {
-  .nav-mobile { display: flex; }
-  .site-nav {
-    display: none; position: absolute; top: 100%; left: 0; right: 0;
-    flex-direction: column; align-items: stretch; gap: 0;
-    background: var(--bg-dark); border-bottom: 3px solid var(--brand-yellow);
-    box-shadow: 0 14px 28px rgba(0,0,0,0.35); padding: 6px 0;
-  }
-  .site-nav.is-open { display: flex; }
-  .site-nav a { width: 100%; padding: 14px 24px; font-size: 15px; }
-  .site-nav a + a { border-top: 1px solid rgba(255,255,255,0.08); }
-  .site-nav a::after { display: none; }
-}
-@media (max-width: 600px) { .logo-divider, .logo-url { display: none; } }
 
 /* ===== Page Hero(余白圧縮版) ===== */
 .page-hero {
@@ -321,10 +261,6 @@ h2 {
 }
 .analytics-notice a { color: var(--text-faint); text-decoration: underline; text-underline-offset: 2px; }
 .analytics-notice a:hover { color: var(--brand-yellow); }
-/* CTA: 基底 .site-nav a(詳細度0-1-1)を上書きするため詳細度を上げる + リテラル色で全トークン体系に対応 */
-.site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700;}
-.site-nav a.nav-cta:hover{background:#f2c800;}
-.site-nav a.nav-cta::after{display:none!important;}
 </style>
 
 </head>

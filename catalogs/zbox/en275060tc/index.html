@@ -48,37 +48,6 @@ body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.6;-w
 img{max-width:100%;display:block;}
 a{color:inherit;}
 .wrap{max-width:1100px;margin:0 auto;padding:0 40px;}
-.site-header{position:sticky;top:0;z-index:100;background:var(--bg-dark);border-bottom:3px solid var(--yellow);padding:16px 0;}
-.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:32px;}
-.site-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
-.site-logo img{height:22px;width:auto;}
-.logo-divider{color:var(--faint);font-family:var(--mono);font-weight:300;font-size:15px;}
-.logo-url{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.05em;}
-.logo-url .host-hub{color:var(--yellow);font-weight:500;}
-.site-nav{display:flex;gap:20px;align-items:center;}
-.site-nav a{text-decoration:none;color:#fff;font-size:13px;font-weight:500;position:relative;padding:4px 0;display:inline-flex;align-items:center;gap:6px;}
-.site-nav a.is-active{color:var(--yellow);}
-.site-nav a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .2s;}
-.site-nav a:hover::after,.site-nav a.is-active::after{transform:scaleX(1);}
-.nav-cta{background:var(--yellow);color:var(--ink)!important;padding:9px 18px;font-weight:700;}
-.nav-cta::after{display:none!important;}
-.nav-mobile{display:none;align-items:center;gap:12px;}
-.nav-toggle{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:11px;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer;}
-.nav-toggle:hover{border-color:var(--yellow);}
-.nav-toggle-bar{display:block;width:100%;height:2px;background:#fff;transition:transform .2s,opacity .2s;}
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0;}
-.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-@media (max-width:1100px){.site-nav{gap:15px;}}
-@media (max-width:900px){
-  .nav-mobile{display:flex;}
-  .site-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--bg-dark);border-bottom:3px solid var(--yellow);box-shadow:0 14px 28px rgba(0,0,0,.35);padding:6px 0;z-index:200;}
-  .site-nav.is-open{display:flex;}
-  .site-nav a{width:100%;padding:14px 24px;font-size:15px;}
-  .site-nav a+a{border-top:1px solid rgba(255,255,255,.08);}
-  .site-nav a::after{display:none;}
-}
-@media (max-width:600px){.logo-divider,.logo-url{display:none;}}
 .crumb{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);padding:18px 0 0;}
 .crumb .sep{color:var(--faint);margin:0 7px;}
 .crumb .cur{color:var(--yellow-deep);}
@@ -161,10 +130,6 @@ section{padding:26px 0;border-top:1px solid var(--line);}
 .legal{font-size:10px;color:var(--faint);line-height:1.7;padding:22px 0 4px;border-top:1px solid var(--line);}
 .legal p{margin-bottom:5px;}
 .disc{font-family:var(--mono);font-size:10px;color:var(--faint);padding:10px 0 30px;}
-/* CTA: 基底 .site-nav a(詳細度0-1-1)を上書きするため詳細度を上げる + リテラル色で全トークン体系に対応 */
-.site-nav a.nav-cta{background:#FFD400;color:#1A1B1C!important;padding:9px 18px;font-weight:700;}
-.site-nav a.nav-cta:hover{background:#f2c800;}
-.site-nav a.nav-cta::after{display:none!important;}
 </style>
 </head>
 <body data-sku="EN275060TC" data-inquiry-sku="ZBOX-EN275060TC" data-inquiry-pname="MAGNUS EN275060TC" data-inquiry-series="ZBOX MAGNUS EN" data-inquiry-line="zbox">

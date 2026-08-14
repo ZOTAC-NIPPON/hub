@@ -39,40 +39,15 @@ REQUIRED = {
 # git に実体を置かない方針（大容量素材は OneDrive）。逸脱を早期に検出する。
 MAX_FILE_MB = 30
 
-# 共通ヘッダーの CSS がページ側にも残っているページ（2026-08-14 時点の棚卸し）。
-# 経緯と規則は hublib.header_css_selectors の解説にある。
-# ここに載っている間だけ公開を通す移行用の名簿で、**減らす方向にしか変えない**。
-# 新しいページを足してはいけない（足したくなったら、それは直すべき複製）。
-# 空になったらこの表ごと消す。
+# 共通ヘッダーの CSS がページ側にも残っているページ。経緯と規則は
+# hublib.header_css_selectors の解説にある。
 #
-# 値は「その時点で残っていた規則の数」。単なるパス免除だと、免除中のページに
-# 規則が増えても通ってしまう（Codex 指摘）。増えたら違反、減ったら「名簿を更新
-# しろ」、ページ自体が消えたら「名簿から消せ」と言う。移行中の悪化も止まる。
-#
-# reviews/ 配下は 2026-08-14 に清掃済み。残りはカタログ生成器
-# （②' の _brochure_poc/build_pages.py と catalog_*.html）と手書き 4 ページ。
-HEADER_CSS_LEGACY = {
-    "case-studies/index.html": 31,
-    "catalogs/index.html": 32,
-    "catalogs/zbox/ci655/index.html": 32,
-    "catalogs/zbox/ci675/index.html": 32,
-    "catalogs/zbox/eamax385c/index.html": 32,
-    "catalogs/zbox/eamax395c/index.html": 32,
-    "catalogs/zbox/en275060tc/index.html": 32,
-    "catalogs/zbox/er98n5070c/index.html": 32,
-    "catalogs/zbox/eu27506tc/index.html": 32,
-    "catalogs/zbox/eu275070c/index.html": 32,
-    "catalogs/zbox/eu27507tc/index.html": 32,
-    "catalogs/zbox/eu275080c/index.html": 32,
-    "catalogs/zbox/mi656/index.html": 32,
-    "catalogs/zbox/mi676/index.html": 32,
-    "catalogs/zbox/qu27n5000/index.html": 32,
-    "catalogs/zbox/s35n150a/index.html": 32,
-    "catalogs/zbox/s35n150p/index.html": 32,
-    "index.html": 33,
-    "press/index.html": 32,
-    "trial-program/index.html": 33,
-}
+# 2026-08-14 に公開30ページすべての移行が終わったので空にした。**ここに新しい
+# ページを足さないこと** — 足したくなったら、それは直すべき複製の方。
+# 移行中は {パス: 規則数} で「増えたら違反・減ったら値を更新」を回していた
+# （単なるパス免除だと免除中の悪化が通る、という Codex 指摘への対応）。
+# 同じ移行をまたやるならその形に戻す。
+HEADER_CSS_LEGACY = {}
 
 
 def tracked_files(root):
