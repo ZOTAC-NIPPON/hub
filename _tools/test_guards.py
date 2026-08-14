@@ -157,6 +157,27 @@ UTM_CASES = [
      _BASE + "?utm_source=Twitter&utm_medium=social&utm_campaign=202607_power_limit", False, True),
     ("utm_term を無償投稿に付けている", _BASE + _OK + "&utm_term=rtx_5090", False, True),
 
+    # 2026-08-15 v2: 層A（自社所有ドメインには付けない）。判定するのは utm_source の値で
+    # あって、リンク先のホストではない。実際に 14 セッションが Unassigned に落ちた形。
+    ("本家からの常設リンクに UTM（層A違反・実際に起きた形）",
+     _BASE + "?utm_source=zotac.com&utm_medium=product_page&utm_campaign=owned_crosslink",
+     False, True),
+    ("本家に正しい medium を付けても層A違反",
+     _BASE + "?utm_source=zotac.com&utm_medium=referral&utm_campaign=202607_power_limit",
+     False, True),
+    ("日本の販売サイトも同じ", _BASE + "?utm_source=zotac.co.jp&utm_medium=referral"
+     "&utm_campaign=202607_power_limit", False, True),
+
+    # 2026-08-15 v2: カタログQR（naming_mode=dated・allowed_sources/mediums つき）
+    ("カタログQR（規約どおり）", _BASE + "?utm_source=catalog&utm_medium=link"
+     "&utm_campaign=202605_b2b_catalog&utm_content=qr_cover", False, False),
+    ("旧カタログQR（medium=qr は禁止語）",
+     _BASE + "?utm_source=catalog&utm_medium=qr&utm_campaign=202605_b2b_catalog", False, True),
+    ("campaign が許可していない source",
+     _BASE + "?utm_source=twitter&utm_medium=link&utm_campaign=202605_b2b_catalog", False, True),
+    ("campaign が許可していない medium",
+     _BASE + "?utm_source=catalog&utm_medium=social&utm_campaign=202605_b2b_catalog", False, True),
+
     # 内部リンク判定はリンク先ではなく「書いた文書がハブのページか」で決まる。
     # 同じ URL が、X の投稿では正しく、ハブのページ内では違反になる。
     ("ハブのページ内に同じ URL（内部リンク）", _BASE + _OK, True, True),

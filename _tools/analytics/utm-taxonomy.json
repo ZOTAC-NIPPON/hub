@@ -1,44 +1,51 @@
 {
   "_readme": "UTM の値の登録簿。規約の正本は utm-policy.md、検査は _tools/check-utm.py。この3点で1組。",
-  "_updated": "2026-08-14",
-  "version": "1.0.0",
+  "_updated": "2026-08-15",
+  "version": "2.0.0",
 
   "required_keys": ["utm_source", "utm_medium", "utm_campaign"],
+  "_required_why": "UTM を付けるなら3点そろえる。source+medium だけの部分UTM は referrer を上書きしたうえで campaign が (not set) になり、計測欠落と区別できなくなる（2026-08 の zotac.com / product_page と catalog / qr がこれだった）。付けないなら3つとも付けない。",
 
   "value_pattern": "^[a-z0-9_.-]+$",
-  "_value_pattern_why": "小文字 ASCII のみ。大文字・全角・空白は GA4 で別の値として扱われ、表記揺れが集計を割る。",
+  "_value_pattern_why": "小文字 ASCII のみ。大文字・全角・空白は GA4 で別の値として扱われ、表記揺れが集計を割る。ホスト名を source にするときはドットをそのまま使う（zotac_com のような別名を作ると、UTM なしの自然参照と2行に割れる）。",
 
   "mediums": {
-    "_why": "GA4 デフォルトチャネルグループの定義と1対1で対応する値だけを許可する。ここに無い値は Unassigned に落ちる。",
+    "_why": "GA4 デフォルトチャネルグループの定義に載る値だけを許可する。ここに無い値は Unassigned に落ちる。",
+    "_not_one_to_one": "medium とチャネルは1対1ではない。referral と link は両方 Referral、cpc と paid_social は source 側の条件（検索サイト一覧／ソーシャル一覧）との AND で決まる。2026-08-15 に Google 公式定義で確認。",
     "social":      {"channel": "Organic Social", "use": "自社 X などの無償 SNS 投稿"},
-    "email":       {"channel": "Email",          "use": "メールマガジン・案内メール"},
+    "email":       {"channel": "Email",          "use": "メールマガジン・案内メール・営業の個別メール"},
     "referral":    {"channel": "Referral",       "use": "UTM を付けてもらえるメディア・パートナー"},
-    "link":        {"channel": "Referral",       "use": "PDF 内リンク／QR コード／紙資料"},
-    "paid_social": {"channel": "Paid Social",    "use": "X・Facebook 等の有料 SNS 広告"},
-    "cpc":         {"channel": "Paid Search",    "use": "検索広告"},
+    "link":        {"channel": "Referral",       "use": "QR コード／PDF 内リンク／紙資料"},
+    "paid_social": {"channel": "Paid Social",    "use": "X・Facebook 等の有料 SNS 広告（source が認識済みソーシャルであること）"},
+    "cpc":         {"channel": "Paid Search",    "use": "検索広告（source が認識済み検索エンジンであること）"},
     "display":     {"channel": "Display",        "use": "ディスプレイ・バナー広告"}
   },
 
   "banned_mediums": {
-    "_why": "過去に候補として出た、または実際に使われて事故った値。エラーメッセージで代替案を出すために持つ。",
-    "article":    "クリエイティブ形式。utm_content=article_<対象> へ移す",
-    "thread":     "クリエイティブ形式。utm_content=thread_<対象> へ移す",
-    "summary":    "クリエイティブ形式。utm_content=summary_<対象> へ移す",
-    "post":       "クリエイティブ形式。utm_content へ移す",
-    "tweet":      "クリエイティブ形式。utm_content へ移す",
-    "newsletter": "媒体名。utm_medium=email + utm_source=zotac_newsletter",
-    "qr":         "掲出形態。utm_medium=link + utm_content=qr_<場所>",
-    "pdf":        "掲出形態。utm_medium=link + utm_source=owned_pdf",
-    "print":      "掲出形態。utm_medium=link + utm_source=offline_<場所>",
-    "offline":    "GA4 に Offline チャネルは無い。utm_medium=link + utm_source=offline_<場所>"
+    "_why": "過去に候補として出た、または実際に使われて事故った値。エラーメッセージで代替案を出すために持つ。共通するのは『チャネルの種類ではないものを medium に書いた』こと。",
+    "article":      "クリエイティブ形式。utm_content=article_<対象> へ移す",
+    "thread":       "クリエイティブ形式。utm_content=thread_<対象> へ移す",
+    "summary":      "クリエイティブ形式。utm_content=summary_<対象> へ移す",
+    "post":         "クリエイティブ形式。utm_content へ移す",
+    "tweet":        "クリエイティブ形式。utm_content へ移す",
+    "product_page": "掲出位置。そもそも本家サイトからの常設リンクに UTM を付けない（utm-policy.md §2 層A）",
+    "newsletter":   "媒体名。utm_medium=email + utm_source=zotac_newsletter",
+    "qr":           "到達手段。utm_medium=link + utm_content=qr_<掲出面>",
+    "pdf":          "掲出形態。utm_medium=link + utm_source=catalog 等",
+    "print":        "掲出形態。utm_medium=link + utm_source=offline_<場所>",
+    "offline":      "GA4 に Offline チャネルは無い。utm_medium=link + utm_source=offline_<場所>",
+    "webinar":      "施策の種類。utm_medium=email か link、区別は utm_campaign",
+    "partner":      "関係性。utm_medium=referral、区別は utm_source",
+    "signage":      "掲出形態。utm_medium=link + utm_content=signage_<場所>",
+    "business_card": "掲出形態。utm_medium=link + utm_content=card"
   },
 
   "sources": {
-    "_why": "登録＝『この source で GA4 のチャネル判定がどうなるか確認した』という宣言。新しい媒体は先に登録する。",
-    "twitter":             {"note": "自社 X。GA4 ソースカテゴリ一覧に掲載あり（SOCIAL）"},
-    "zotac_newsletter":    {"note": "メールマガジン"},
-    "pc_watch":            {"note": "PC Watch。先方が UTM を受け入れた場合のみ。通常は UTM なしの自然な Referral"},
-    "owned_pdf":           {"note": "自社 PDF 資料内のリンク"}
+    "_why": "登録＝『この source で GA4 のチャネル判定がどうなるか確認した』という宣言。新しい媒体は先に登録する。使う予定が立つまで足さない（一人運用では、埋まらない登録が増えるほど登録簿が信用されなくなる）。",
+    "twitter":          {"note": "自社 X。GA4 ソースカテゴリ一覧に掲載あり（SOCIAL）"},
+    "zotac_newsletter": {"note": "メールマガジン（一斉配信）"},
+    "pc_watch":         {"note": "PC Watch。先方が UTM を受け入れた場合のみ。通常は UTM なしの自然な Referral"},
+    "catalog":          {"note": "カタログPDF。QR コードと PDF 内リンク。版は utm_campaign 側で区別する"}
   },
 
   "banned_sources": {
@@ -47,11 +54,16 @@
     "x.com": "GA4 のソースカテゴリ一覧に 'x.com' は無い。twitter を使う"
   },
 
+  "no_utm_hosts": {
+    "_why": "自社所有で、かつ通常の Web リンクで referrer が届くドメイン。UTM を付けると逆にチャネル判定を壊す（2026-08 に zotac.com / product_page で 14 セッションが Unassigned になった）。hub 側の検査ではこれらの逸脱を検知できないため、規約で『付けない』と決めておくのが唯一の再発防止になる。",
+    "_hosts": ["zotac.com", "www.zotac.com", "zotac.co.jp", "www.zotac.co.jp"]
+  },
+
   "internal_hosts": ["hub.zotac.co.jp"],
   "_internal_hosts_why": "ハブのページからハブのページへ UTM 付きで送ると、セッションが途中で分断され流入元が失われる。ルート相対リンクは書いた場所によらず内部扱い。",
 
   "legacy_records": {
-    "_why": "投稿済みで訂正不能な記録。規約違反だが、記録としては正しいので書き換えない。減らす方向にしか変えない（新しい項目を足してはいけない）。空になったらこの表ごと消す。",
+    "_why": "投稿済み・配布済みで訂正不能な記録。規約違反だが、記録としては正しいので書き換えない。減らす方向にしか変えない（新しい項目を足したくなったら、それは直すべき違反）。空になったらこの表ごと消す。",
     "_paths": [
       "Reviews/GPU_PowerLimit-RTX50-Summer2026/promo/x/POSTS.md",
       "Reviews/GPU_PowerLimit-RTX50-Summer2026/promo/x/paste/x-article_5070.html",
@@ -62,5 +74,13 @@
       "Reviews/GPU_PowerLimit-RTX50-Summer2026/notes/x-article_rtx5090.md",
       "_forms/IMPORT.md"
     ]
+  },
+
+  "legacy_values": {
+    "_why": "GA4 に既に記録されてしまった、新規発行を禁止する組み合わせ。hub の外（本家サイト・配布済みPDF）にあるため検査では止められない。GA4 側でカスタムチャネルグループを作って分析上だけ救済する（utm-policy.md §7）。",
+    "zotac.com / product_page": "本家サイトの常設クロスリンク。14セッション（2026-08 実測）。UTM を外す方針に変更したため、修正後は自然な zotac.com / referral になる",
+    "catalog / qr": "旧カタログPDF の QR。5セッション（2026-08 実測）。配布済みファイルは訂正しない。次の改訂版から新タグ",
+    "x / article": "Power Limit 企画の X 投稿。133セッション",
+    "x / thread": "同上。5セッション"
   }
 }

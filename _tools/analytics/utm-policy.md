@@ -1,6 +1,6 @@
 # utm-policy.md — UTM パラメータ規約（正本）
 
-最終更新: 2026-08-14
+最終更新: 2026-08-15（v2）
 
 > **正本マップ = `②' 00_hub_zotac\HUB.md`**（OneDrive 側）。
 > 本ファイルは hub.zotac.co.jp へ向かう**外部リンクに付ける UTM の唯一の正本**。
@@ -10,215 +10,228 @@
 
 ---
 
-## 0. なぜこの規約があるか（2026-08 の実測）
+## 0. 一番大事なルール — 迷ったら付けない
 
-2026-07-15〜08-13 の GA4 で、**セッションの 23%（162/711）が Unassigned**（チャネル判定不能）
-だった。原因は X 投稿に付けていた UTM の値である。
+**UTM は「付けるほど正確になる」ものではない。**むしろ逆で、付け方を間違えると
+referrer による正しい判定を上書きして壊す。実際 2026-08 に、**丁寧に UTM を付けた流入ほど
+Unassigned（チャネル判定不能）に落ちる**という逆転が起きていた。
 
-```
-utm_source=x           ← Google のソースカテゴリ一覧に "x" も "x.com" も無い
-utm_medium=article     ← GA4 のどのチャネル定義にも一致しない
-```
-
-GA4 が Organic Social と判定する条件は次の **OR** で、現行値は両方を外していた。
-
-```
-ソースが GA4 のソーシャルサイト一覧に一致
-  OR
-メディアが ^(social|social-network|social-media|sm|social network|social media)$ に一致
-```
-
-Google 公式「GA4 Source Categories」一覧（819 エントリ）を 2026-08-14 に照合した結果:
-
-| ソース名 | 掲載 | カテゴリ |
-|---|---|---|
-| `twitter` | あり | SOURCE_CATEGORY_SOCIAL |
-| `twitter.com` | あり | SOURCE_CATEGORY_SOCIAL |
-| `t.co` | あり | SOURCE_CATEGORY_SOCIAL |
-| `x` | **なし** | — |
-| `x.com` | **なし** | — |
-
-つまり **UTM を丁寧に付けた投稿ほど Unassigned に落ち、UTM を付けていない X 流入は
-`t.co` のリファラ経由で正しく Organic Social に入る**という逆転が起きていた。
-PC Watch 掲載で流入が跳ねた月に、その効果検証ができない状態だったということ。
-
-**この事故は「値を1つ間違えた」だけで起きる。**だから閉じたリスト＋検査で縛る。
+この規約は**一人で運用される**。だから守るべき対象を増やさないことが最優先で、
+規約の価値の半分は「付けなくていい場面を明示すること」にある。
 
 ---
 
-## 1. ハードルール
+## 1. まず層を判定する（§2 の型より先に、これ）
 
-1. **`utm_medium` は §2 の閉じたリストからしか選ばない。**
-   medium は「チャネルの種類」であって、クリエイティブの形式ではない。
-2. **内部リンク（ハブのページからハブのページ）に UTM を付けない。**
-   セッションが途中で分断され、本来の流入元が失われる。
-3. **`utm_source` / `utm_medium` / `utm_campaign` は必須。**1つでも欠けると判定が崩れる。
-4. **`utm_campaign` は [`campaigns.json`](campaigns.json) に登録済みのものだけ。**
-   未登録の値は検査で落ちる。キャンペーン開始時にまず登録する。
-5. **小文字 ASCII のみ。**単語区切りは `_`。全角・空白・大文字は禁止。
-6. **X のソースは `x` ではなく `twitter`。**（§0 の理由）
-7. **個人情報・メールアドレス・問い合わせ内容を UTM に入れない。**
-   UTM は URL に露出し、リファラとして外部に渡り、GA4 に平文で保存される。
+```
+そのリンクは、普通の Web ページの中にある <a> か？
+├─ はい → referrer が届く    → 【層A】UTM を付けない
+└─ いいえ（QR・PDF・メール・アプリ内） → referrer が落ちる
+    ├─ 版や実施回を区別したい  → 【層B】3点セット・campaign は dated
+    └─ 差し替え不能で終わりもない → 【層C】3点セット・campaign は stable
+```
+
+| 層 | UTM | campaign | 例 |
+|---|---|---|---|
+| **A** | **付けない** | — | 本家 zotac.com / zotac.co.jp の製品ページ、メディア記事、他社サイト |
+| **B** | 3点必須 | `dated`（`yyyymm_name`） | 夏企画、展示会、**改訂版カタログPDF** |
+| **C** | 3点必須 | `stable`（日付なし） | 製品同梱物のQR、メール署名 |
+
+### 層A を「付けない」にする理由
+
+`zotac.com` は自社ドメインだが、hub とは別の GA4 プロパティで測っている。UTM を付けなければ
+`zotac.com / referral` として自動的に Referral に入る。**付けたせいで壊れていた**のが
+2026-08 の 14 セッションだった。
+
+決定的なのは、**hub の CI は本家サイトを検査できない**こと。あちらに規約を敷いても違反を
+検知する手段が永久に無いので、「付けない」と決めておくのが唯一の再発防止になる。
+`utm-taxonomy.json` の `no_utm_hosts` に対象ドメインを列挙してある。
+
+掲出位置（製品ページ／フッター／バナー）を区別したくなった時点で初めて層B へ上げる。
+現状は着地ページがすべて製品固有なので、区別する必要が無い。
+
+### 部分UTM は最悪
+
+`source` と `medium` だけ付けて `campaign` を省くと、**referrer を上書きしたうえで
+campaign が `(not set)` になり、タグ欠落による `(not set)` と区別できなくなる**。
+付けるなら3点、付けないなら0点。中間は禁止。
 
 ---
 
-## 2. `utm_medium` の閉じたリスト
+## 2. 型
 
-**この7つ以外は使用禁止。**GA4 デフォルトチャネルグループでの落ち先を併記する。
+区切りは**半角パイプ・前後スペース** ` | `（タイトル規約と共通）。
+
+```
+?utm_source={登録済みの source}
+&utm_medium={§3 の閉じたリスト}
+&utm_campaign={campaigns.json に登録済み}
+&utm_content={掲出面・クリエイティブ。任意だが実質必須}
+```
+
+### ケース別（現に運用しているもの）
+
+```
+自社 X
+  ?utm_source=twitter&utm_medium=social&utm_campaign=202607_power_limit&utm_content=article_5090
+
+カタログPDF の QR
+  ?utm_source=catalog&utm_medium=link&utm_campaign=202605_b2b_catalog&utm_content=qr_cover
+
+メールマガジン
+  ?utm_source=zotac_newsletter&utm_medium=email&utm_campaign=<campaign>&utm_content=mail_header
+
+本家 zotac.com / zotac.co.jp からのリンク
+  （何も付けない）
+```
+
+---
+
+## 3. `utm_medium` の閉じたリスト
+
+**この7つ以外は使用禁止。**
 
 | 値 | 使う場面 | GA4 のチャネル |
 |---|---|---|
 | `social` | 自社 X などの無償 SNS 投稿 | Organic Social |
-| `email` | メールマガジン・案内メール | Email |
+| `email` | メールマガジン・案内メール・営業の個別メール | Email |
 | `referral` | UTM を付けてもらえるメディア・パートナー | Referral |
-| `link` | PDF 内リンク／QR コード／紙資料 | Referral |
-| `paid_social` | X・Facebook 等の有料 SNS 広告 | Paid Social |
-| `cpc` | 検索広告 | Paid Search |
+| `link` | QR コード／PDF 内リンク／紙資料 | Referral |
+| `paid_social` | 有料 SNS 広告 | Paid Social ※ |
+| `cpc` | 検索広告 | Paid Search ※ |
 | `display` | ディスプレイ・バナー広告 | Display |
 
-**medium に置いてはいけない語**（すべて過去に候補として出たもの）:
+> ⚠ **medium とチャネルは1対1ではない**（2026-08-15 に Google 公式定義で確認）。
+> `referral` と `link` は**どちらも Referral**。`cpc` と `paid_social` は
+> **source 側の条件（検索サイト一覧／ソーシャル一覧）との AND** で決まるので、
+> 未知の source と組むと Paid Other 等に落ちる。
+
+**medium に置いてはいけない語**（すべて実際に候補として出たもの）:
 
 ```
-article  thread  summary  newsletter  qr  pdf  print  offline  post  tweet
+article  thread  summary  post  tweet  product_page
+newsletter  qr  pdf  print  offline  webinar  partner  signage  business_card
 ```
 
-`article` / `thread` / `summary` はクリエイティブ形式なので **`utm_content` に移す**。
+共通するのは「**チャネルの種類ではないものを medium に書いた**」こと。クリエイティブ形式・
+掲出形態・関係性・施策の種類は、それぞれ `utm_content` / `utm_source` / `utm_campaign` へ置く。
 
-> ⚠ **GA4 には「Offline」チャネルが存在しない。**展示会 QR のようなオフライン起点は
-> `utm_medium=link`（＝Referral に落ちる）とし、`utm_source` に `offline_` 接頭辞を付ける。
-> 社内分析ではカスタムチャネルグループで `offline_` を「Offline」に再分類する（§6）。
+**足りなくなったら足す（先回りしない）。** 将来の候補は `video`（Organic Video）、
+`affiliate`（成果報酬型の提携のみ）、`paid_other`（記事広告等）。使う時点で登録する。
 
 ---
 
-## 3. 各パラメータの命名規則
+## 4. `utm_campaign` の命名 — `naming_mode` で分岐
 
-### `utm_source` — 媒体・送信主体・物理的な起点
+**`yyyymm` は「登録した月」ではなく「施策の開始月／版の発行月」**（`effective_month` フィールドが
+その意味を明示する）。ここを取り違えると、同じ導線を直すたびに `202608_` `202609_` と増えて
+分裂する。
 
-[`utm-taxonomy.json`](utm-taxonomy.json) の `sources` に登録済みの値のみ。新しい媒体を使うときは
-**先に登録する**（登録＝「この source で GA4 のチャネル判定がどうなるか確認した」という宣言）。
+| naming_mode | 命名 | 対象 | 例 |
+|---|---|---|---|
+| `dated` | `yyyymm_name` | 実施回・版を区別するもの | `202607_power_limit` / `202605_b2b_catalog` |
+| `stable` | `name`（日付なし） | 差し替え不能で終わりも版もないもの | （現在なし） |
 
-```
-twitter              自社 X（x や x.com は不可）
-zotac_newsletter     メールマガジン
-pc_watch             PC Watch（先方が UTM を受け入れた場合のみ）
-owned_pdf            自社 PDF 資料内のリンク
-```
+**カタログPDF は `stable` ではなく `dated`。**年数回改訂される版物なので、束ねると5月版と
+12月版を比較できない。版をまたいで見たいときは `family` で寄せる。
 
-### `utm_campaign` — `yyyymm_campaign_name`
-
-開始年月6桁 ＋ `_` ＋ 施策名。**同じ施策なら X・メール・QR で同じ値を使う**
-（媒体の違いは `utm_source` が持つ。campaign を媒体ごとに分けると横断集計ができない）。
-
-```
-202607_power_limit
-```
-
-### `utm_content` — `形式_対象_掲出位置` / バリアント
-
-同じキャンペーン内でクリエイティブを識別する。**A/B や出し分けの評価はここで行う。**
-
-```
-article_5090      X の記事形式・RTX 5090 向け
-thread_day1       X のスレッド・初日
-summary_day7      X のまとめ投稿・7日目
-mail_header       メールのヘッダーリンク
-qr_panel_a        ブースパネル A の QR
-report_v1_p12     PDF レポート v1 の 12 ページ目
-```
-
-### `utm_term` — 有料検索のキーワード専用
-
-それ以外では**付けない**。Google 広告では原則として自動タグ設定（`gclid`）を優先する。
+`stable` は**逃げ先になりやすい**ので入場条件を厳しくする ―― referrer が使えない **かつ**
+終了日も版もない **かつ** 既存の dated に寄せられない。展示会・季節企画・カタログは、
+たとえ「これから何年も使う」でも `dated`。
 
 ---
 
-## 4. ケース別サンプル
+## 5. 登録簿に持つもの（一人運用向けに削ってある）
 
-```
-自社 X
-  ?utm_source=twitter&utm_medium=social&utm_campaign=202607_power_limit&utm_content=thread_day1
+`campaigns.json` の各エントリ:
 
-メールマガジン
-  ?utm_source=zotac_newsletter&utm_medium=email&utm_campaign=202607_power_limit&utm_content=mail_header
+| フィールド | 必須 | 意味 |
+|---|---|---|
+| `naming_mode` | ✅ | `dated` / `stable` |
+| `effective_month` | dated のみ | 施策の開始月／版の発行月。接頭辞と一致すること |
+| `allowed_sources` / `allowed_mediums` | ✅ | 不正な組み合わせを防ぐ（値を個別に許可するだけでは防げない） |
+| **`placement`** | ✅ | **どこに貼ったか。**半年後の自分が思い出せるように書く |
+| **`fixable`** | ✅ | `yes`＝差し替えで訂正できる／`no`＝配布済みで訂正不能 |
+| `family` | 任意 | 版をまたいで束ねるグループ名 |
 
-UTM を依頼できるメディア掲載
-  ?utm_source=pc_watch&utm_medium=referral&utm_campaign=202607_power_limit&utm_content=article_body
-
-展示会 QR（source は掲出ごとに offline_<場所> を先に登録する）
-  ?utm_source=offline_<場所>&utm_medium=link&utm_campaign=<yyyymm_name>&utm_content=qr_panel_a
-
-PDF 資料内リンク
-  ?utm_source=owned_pdf&utm_medium=link&utm_campaign=202607_power_limit&utm_content=report_v1_p12
-```
-
-### UTM を依頼できないメディア掲載（PC Watch 等）
-
-**何も付けず、自然な Referral として計測する。**後から `utm_campaign` を復元することは
-できないので、評価は次の組み合わせで行う。
-
-- セッションの参照元（`pc.watch.impress.co.jp / referral`）
-- ランディングページ
-- 掲載日（**GA4 のアノテーションに掲載日を必ず残す**。これを忘れると後から追えない）
+**入れなかったもの**（`owner` / `status` / `last_checked` / `placement_id` / `asset_version`）。
+一人運用では `owner` は常に自分で、`last_checked` は定期棚卸しの儀式が前提になり、忙しい月に
+必ず途切れて古い日付だけが残る。**埋まらないフィールドを持つ登録簿は、検査を黙らせる逃げ先に
+なる。**チームで運用する日が来たら足す。
 
 ---
 
-## 5. hub → 問い合わせフォーム（別ドメイン）のパラメータ
+## 6. 検査でできること・できないこと
 
-**現状、hub 側の生成器は `utm_*` を CTA に一切付与していない**（2026-08-14 に
-`inject.py` / `build_pages.py` / `_gpu_gen.py` / `build_enterprise.py` の4本を確認）。
-付くのは `sku` / `pname` / `series` / `line` / `intent` / `from` のみで、フォーム側
-WPForms の `utm_*` hidden は実運用では常に空。規約は ②' の `_forms\README.md` §3 が正本。
+`_tools/check-utm.py`（`hub.py check` / CI に組み込み済み）が見るのは **hub リポジトリと
+②' OneDrive の中だけ**。
 
-将来「訪問者の流入時 UTM をフォームまで引き継ぐ」を実装する場合、
-**パラメータ名は `utm_*` ではなく `lead_source` / `lead_medium` / `lead_campaign` /
-`lead_content` にすること。**フォーム側ドメインの GA4 は URL 上の `utm_*` を
-イベントスコープの流入情報として拾うため、社内導線の情報を `utm_*` に入れると
-フォーム側のアトリビューションを汚す。
+**検査できない場所** ―― 本家 zotac.com、別ドメインの問い合わせフォーム、配布済みPDF、
+展示会資材、X の投稿済みポスト。ここは**規約と手順でしか守れない**。だから §1 の層A
+（付けない）を既定にして、守る対象そのものを減らしてある。
+
+**投稿・掲出の前に必ず通す:**
+
+```bash
+python3 _tools/check-utm.py --both
+```
 
 ---
 
-## 6. 過去データの救済（GA4 カスタムチャネルグループ）
+## 7. 過去データの救済（GA4 カスタムチャネルグループ）
 
-2026-07〜08 に発生済みの Unassigned は、GA4 のカスタムチャネルグループで後から拾える
-（**カスタムチャネルグループのディメンションは過去データにも遡及適用される**）。
+既に GA4 に記録された誤った値は書き換えられない。カスタムチャネルグループで**分析上だけ**
+救済する（**過去データにも遡及適用される**）。対象は `utm-taxonomy.json` の `legacy_values`。
 
 ```
-チャネル名: Organic Social - Legacy X (v1)
+Organic Social - Legacy X (v1)
+  Source 完全一致 x  AND  Medium 正規表現 ^(article|thread|summary)$  AND  Campaign 完全一致 powerlimit2026
 
-  Source     完全一致     : x
-  AND Medium 正規表現一致 : ^(article|thread|summary)$
-  AND Campaign 完全一致   : powerlimit2026
+Referral - Legacy Owned (v1)
+  Source 完全一致 zotac.com  AND  Medium 完全一致 product_page
+
+Referral - Legacy QR (v1)
+  Source 完全一致 catalog  AND  Medium 完全一致 qr
 ```
 
-**`utm_campaign` まで条件に入れるのが要点。**こうしておくと、将来また同じ誤った medium が
+**campaign やホストまで条件に入れるのが要点。**こうしておくと、将来また同じ誤った値が
 使われたときに自動で救済されず、規約違反として検知できる。
 
 注意点:
 
-- デフォルトチャネルグループ側の Unassigned は**変わらない**（公式基準は従来どおり）。
-- カスタムグループを「メイン」に切り替えた場合、メインとしての記録は切替後のデータから。
-- オーディエンスには遡及しない。BigQuery Export にも出力されない。
-- 「Organic Social が増えた」のが実流入増かルール変更か分からなくならないよう、
-  **グループ名に `v1` を付け、作成日とルールを本ファイルに追記する**。
+- デフォルトチャネルグループ側の Unassigned は**変わらない**（公式基準は従来どおり）
+- カスタムグループを「メイン」に切り替えた場合、メインとしての記録は切替後のデータから
+- オーディエンスには遡及しない。BigQuery Export にも出力されない
+- グループ名に `v1` を付け、作成日とルールを本ファイルに追記する
 
 ---
 
-## 7. 逸脱を防ぐ仕組み
+## 8. hub → 問い合わせフォーム（別ドメイン）
 
-| 手段 | 内容 |
-|---|---|
-| 検査 | `python3 _tools/check-utm.py` — `hub.py check` / `publish` の検査群に組み込み済み |
-| 自己テスト | `python3 _tools/test_guards.py` — 検査器が退化していないかを CI で確認 |
-| 登録簿 | 未登録の source / campaign、閉じたリスト外の medium はすべて検査で落ちる |
-| 手順 | キャンペーン開始時に `campaigns.json` へ登録 → §4 の形で URL を作る → 投稿前に `--both` で検査 |
+**本規約は inbound（外部 → hub）専用。**hub からフォームへの outbound は別の話で、現状
+hub 側の生成器は `utm_*` を CTA に一切付与していない（2026-08-14 に `inject.py` /
+`build_pages.py` / `_gpu_gen.py` / `build_enterprise.py` を確認）。付くのは
+`sku` / `pname` / `series` / `line` / `intent` / `from` のみ。規約は ②' の
+`_forms\README.md` §3 が正本。
 
-**X の投稿文に URL を手入力しない。**必ず本ファイルの形をコピーし、投稿前に
-`python3 _tools/check-utm.py --both` を通す。
+将来「訪問者の流入時 UTM をフォームまで引き継ぐ」を実装する場合、**パラメータ名は `utm_*`
+ではなく `lead_source` / `lead_medium` / `lead_campaign` / `lead_content`**。フォーム側
+ドメインの GA4 が URL 上の `utm_*` をイベントスコープの流入情報として拾い、アトリビューションを
+汚すため。
 
 ---
 
-## 8. 変更履歴
+## 9. 未解決
+
+- **`(not set)` 13 セッション**（2026-08 実測）は `session_start` の欠落で、UTM 規約では直らない。
+  同意モード・タグ発火順・ブロッカーの調査が要る。Unassigned 170 のうち 13 がこれ
+- `zotac.co.jp` から hub へのリンクは 2026-08-15 時点で**まだ無い**。張るときは層A（付けない）
+
+---
+
+## 10. 変更履歴
 
 | 日付 | 変更 |
 |---|---|
 | 2026-08-14 | 新規作成。`utm_source=x` / `utm_medium=article` による Unassigned 23% を受けて規約化 |
+| 2026-08-15 | v2。GA4 実測で想定漏れ2件（本家クロスリンク・カタログQR）が判明したのを受けて全面改訂。①層A/B/C の判定を導入し**既定を「付けない」に変更** ②`yyyymm` 強制をやめ `naming_mode` + `effective_month` へ ③medium とチャネルが1対1という誤った説明を修正（`referral` と `link` は両方 Referral、`cpc`・`paid_social` は source との AND） ④登録簿に `placement` / `fixable` を追加（一人運用で機能する2つに絞り、`owner`・`last_checked` 等は入れない） |

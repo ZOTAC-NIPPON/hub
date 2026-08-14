@@ -1,17 +1,46 @@
 {
-  "_readme": "utm_campaign の登録簿。ここに無い値は _tools/check-utm.py で落ちる。キャンペーン開始時にまず1行足す。",
-  "_updated": "2026-08-14",
-  "_format": "utm_campaign は yyyymm_campaign_name（開始年月6桁）。同じ施策なら X・メール・QR で同じ値を使う。",
+  "_readme": "utm_campaign の登録簿。ここに無い値は _tools/check-utm.py で落ちる。規約の正本は utm-policy.md。",
+  "_updated": "2026-08-15",
+  "version": "2.0.0",
+
+  "_naming_mode": {
+    "dated": "yyyymm_name。実施回・版を区別するもの（期間施策・年次イベント・改訂版PDF）。yyyymm は effective_month（施策の開始月／版の発行月）であって、登録した月ではない。",
+    "stable": "name（日付なし）。同じ意味で恒久的に集計するもの。差し替えができない掲出（出荷済み同梱物など）に限る。"
+  },
+  "_fields": {
+    "placement": "どこに貼ったか。半年後の自分が思い出せるように書く（一人運用で唯一まともに機能する情報）。",
+    "fixable": "yes = 差し替えで訂正できる / no = 配布済みで訂正不能。ミスを直すか諦めるかの判断に使う。",
+    "family": "版をまたいで束ねたいときのグループ名（任意）。"
+  },
 
   "campaigns": {
     "202607_power_limit": {
       "name": "Power Limit 夏企画（RTX 5090 / 5080 / 5070 省電力化 実測）",
-      "started": "2026-07",
+      "naming_mode": "dated",
+      "effective_month": "2026-07",
       "status": "実施済み",
-      "sources": ["twitter"],
+      "allowed_sources": ["twitter"],
+      "allowed_mediums": ["social"],
       "landing": "/reviews/power-limit-rtx-50-series/",
-      "workspace": "Reviews/GPU_PowerLimit-RTX50-Summer2026/",
-      "note": "実投稿では utm_source=x / utm_medium=article|thread|summary を使用し、GA4 で Unassigned に落ちた。投稿済みで訂正不能なため utm-taxonomy.json の legacy_records に登録。GA4 側はカスタムチャネルグループ 'Organic Social - Legacy X (v1)' で救済する（utm-policy.md §6）。"
+      "placement": "X の連載投稿（Day 0〜Day 7）。原稿は Reviews/GPU_PowerLimit-RTX50-Summer2026/promo/x/POSTS.md",
+      "fixable": "no",
+      "registered": "2026-08-14",
+      "note": "実投稿では utm_source=x / utm_medium=article|thread|summary を使用し GA4 で Unassigned に落ちた。投稿済みで訂正不能なため utm-taxonomy.json の legacy_records に登録。GA4 側はカスタムチャネルグループで救済する（utm-policy.md §7）。"
+    },
+
+    "202605_b2b_catalog": {
+      "name": "B2B 総合カタログ 2026年5月版",
+      "naming_mode": "dated",
+      "effective_month": "2026-05",
+      "family": "b2b_catalog",
+      "status": "配布中",
+      "allowed_sources": ["catalog"],
+      "allowed_mediums": ["link"],
+      "landing": "/catalogs/zbox/eu275080c/ ほか",
+      "placement": "カタログPDF 内の QR コード。着地は EU275080C カタログとトップの2種（2026-08 の GA4 実測）",
+      "fixable": "yes",
+      "registered": "2026-08-15",
+      "note": "改訂版が出たら新しい campaign を作る（版をまたいで束ねたいときは family=b2b_catalog で寄せる）。差し替え前に配布された PDF は旧タグを持ち続けるが、版の記録として正しいので retro-fit しない。"
     }
   }
 }

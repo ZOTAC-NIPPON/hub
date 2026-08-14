@@ -557,8 +557,13 @@ ANALYTICS_DIR = "_tools/analytics"
 # の両方を通すため、閉じ括弧・引用符・空白・和文の句読点で切る。
 _URL_RE = re.compile(r"""(?:https?://|/)[^\s"'<>()\[\]｜、。「」]+""")
 
-# yyyymm_name（開始年月6桁）。媒体ごとに campaign を分けると横断集計ができない。
-_CAMPAIGN_RE = re.compile(r"^(20\d{2})(0[1-9]|1[0-2])_[a-z0-9_]+$")
+# utm_campaign の命名は登録簿の naming_mode で分岐する（utm-policy.md §4）。
+#   dated  … yyyymm_name。実施回・版を区別するもの（施策・年次イベント・改訂版PDF）
+#   stable … name（日付なし）。差し替え不能で終わりも版もないものだけ
+# yyyymm は「登録した月」ではなく effective_month（施策の開始月／版の発行月）。ここを
+# 取り違えると、同じ導線を直すたびに 202608_ 202609_ と増えて分裂する。
+_CAMPAIGN_DATED_RE = re.compile(r"^(20\d{2})(0[1-9]|1[0-2])_[a-z0-9_]+$")
+_CAMPAIGN_STABLE_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 
 UTM_KEYS = ("utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term")
 
@@ -629,6 +634,17 @@ def utm_problems(url, taxonomy, campaigns, on_hub_page=False):
         problems.append("内部リンクに UTM が付いている（内部リンクには付けない）")
         return problems  # 以降の値の検査は無意味
 
+    # 1.5 層A の検査。判定するのは「リンク先のホスト」ではなく utm_source の値。
+    #     自社所有で referrer が届くドメインを source に書いている＝普通の <a> に UTM を
+    #     付けたということで、referrer による正しい判定を上書きして壊す。2026-08 に
+    #     zotac.com / product_page で 14 セッションが Unassigned に落ちた（§1）。
+    src = utm.get("utm_source", "")
+    if src and src in taxonomy.get("no_utm_hosts", {}).get("_hosts", []):
+        problems.append(
+            f"utm_source={src} は自社所有で referrer が届くドメイン"
+            " → UTM を付けない（3点とも削除する）。付けるとチャネル判定を壊す")
+        return problems
+
     # 2. 値の書式（小文字 ASCII のみ）。大文字・全角は GA4 で別値になり集計が割れる。
     pattern = re.compile(taxonomy.get("value_pattern", r"^[a-z0-9_.-]+$"))
     for key in UTM_KEYS:
@@ -661,16 +677,47 @@ def utm_problems(url, taxonomy, campaigns, on_hub_page=False):
                 f"utm_source={source} が未登録 → 先に utm-taxonomy.json の "
                 "sources へ登録する（GA4 のチャネル判定を確認したという宣言）")
 
-    # 6. utm_campaign は登録簿にあり、かつ yyyymm_name 形式であること。
+    # 6. utm_campaign は登録簿にあり、naming_mode に沿った形式であること。さらに登録簿の
+    #    allowed_sources / allowed_mediums と噛み合うこと（値を個別に許可するだけでは、
+    #    不正な組み合わせを防げない）。
     campaign = utm.get("utm_campaign", "")
     if campaign:
-        known = campaigns.get("campaigns", {})
-        if campaign not in known:
+        entry = campaigns.get("campaigns", {}).get(campaign)
+        if entry is None:
             problems.append(
                 f"utm_campaign={campaign} が未登録 → campaigns.json に追加する")
-        if not _CAMPAIGN_RE.match(campaign):
-            problems.append(
-                f"utm_campaign={campaign} の形式が違う → yyyymm_name（例 202607_power_limit）")
+        else:
+            mode = entry.get("naming_mode")
+            if mode == "dated":
+                if not _CAMPAIGN_DATED_RE.match(campaign):
+                    problems.append(
+                        f"utm_campaign={campaign} の形式が違う"
+                        " → naming_mode=dated は yyyymm_name（例 202605_b2b_catalog）")
+                eff = (entry.get("effective_month") or "").replace("-", "")
+                if eff and not campaign.startswith(eff + "_"):
+                    problems.append(
+                        f"utm_campaign={campaign} の接頭辞が effective_month"
+                        f"（{entry.get('effective_month')}）と一致しない")
+            elif mode == "stable":
+                if not _CAMPAIGN_STABLE_RE.match(campaign):
+                    problems.append(
+                        f"utm_campaign={campaign} の形式が違う"
+                        " → naming_mode=stable は日付なしの小文字名")
+            else:
+                problems.append(
+                    f"utm_campaign={campaign} の naming_mode が未設定"
+                    " → campaigns.json に dated か stable を書く")
+
+            allowed_s = entry.get("allowed_sources")
+            if allowed_s and source and source not in allowed_s:
+                problems.append(
+                    f"utm_source={source} は {campaign} で許可されていない"
+                    f" → {', '.join(allowed_s)}")
+            allowed_m = entry.get("allowed_mediums")
+            if allowed_m and medium and medium not in allowed_m:
+                problems.append(
+                    f"utm_medium={medium} は {campaign} で許可されていない"
+                    f" → {', '.join(allowed_m)}")
 
     # 7. utm_term は有料検索専用。それ以外に付いていたら utm_content の誤用。
     if utm.get("utm_term") and medium not in ("cpc", "paid_social", "display"):
