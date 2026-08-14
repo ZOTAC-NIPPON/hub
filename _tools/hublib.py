@@ -239,6 +239,24 @@ def rel_files(base):
     return sorted(out)
 
 
+# 公開ページではないが共通パーツを注入する生成元（inject.py と同じ定義を使う）。
+INJECT_EXTRA_SOURCES = ("_case_studies_poc/live.html",)
+
+
+def injected_pages(base):
+    """共通パーツを注入する HTML（base からの相対 POSIX パス）。
+
+    inject.py の対象と検査の対象がずれると、「注入はされるが検査はされない」
+    ページができる（実際 _case_studies_poc/live.html がそれだった）。定義を
+    ここ 1 か所に置き、注入器と検査の両方から使う。
+    """
+    base = Path(base)
+    out = [rel for rel in rel_files(base)
+           if rel.endswith(".html") and not is_deploy_only(rel)]
+    out += [rel for rel in INJECT_EXTRA_SOURCES if (base / rel).is_file()]
+    return sorted(out)
+
+
 def md5(path):
     h = hashlib.md5()
     with open(path, "rb") as fh:
@@ -350,56 +368,166 @@ HEADER_HOOKS = (
 _HOOK_RE = re.compile("|".join(re.escape(h) + r"(?![\w-])" for h in HEADER_HOOKS))
 _HEADER_REGION_RE = re.compile(
     r"<!--\s*@partial:header START.*?@partial:header END[^>]*-->", re.S)
-_STYLE_RE = re.compile(r"<style\b[^>]*>(.*?)</style>", re.S)
-_NESTED_AT = ("@media", "@supports", "@layer", "@container")
+_STYLE_RE = re.compile(r"<style\b[^>]*>(.*?)</style>", re.S | re.I)
+_LINK_RE = re.compile(r"<link\b[^>]*>", re.I)
+_HREF_RE = re.compile(r"""\bhref\s*=\s*["']([^"']+)["']""", re.I)
+_REL_SHEET_RE = re.compile(r"""\brel\s*=\s*["']?[^"'>]*\bstylesheet\b""", re.I)
+# 中に「規則」が入る at-rule（＝再帰する）。@keyframes / @font-face / @page /
+# @property の中身はセレクタではないので再帰しない（0% などを拾わないため）。
+_NESTED_AT = ("media", "supports", "layer", "container", "scope")
+_AT_HEAD_RE = re.compile(r"^@([\w-]+)")
+UNPARSABLE = "<CSS を解析できない: 波括弧が閉じていない>"
+
+
+def _css_skip(css, i):
+    """css[i] から「中身を読み飛ばすべきもの」を飛ばした次位置を返す。
+
+    文字列・コメント・エスケープ・url() を素通りさせないためのもの。
+    2026-08-14 の初版はこれが無く、`content:"{"` のような**正常な CSS で
+    公開を止め**、逆に文字列内の `/*` で本物の規則を見落としていた（Codex 指摘）。
+    """
+    c = css[i]
+    if c == "\\":
+        return i + 2
+    if c in "\"'":
+        j = i + 1
+        while j < len(css):
+            if css[j] == "\\":
+                j += 2
+                continue
+            if css[j] == c:
+                return j + 1
+            j += 1
+        return len(css)
+    if css.startswith("/*", i):
+        e = css.find("*/", i + 2)
+        return len(css) if e < 0 else e + 2
+    if css[i:i + 4].lower() == "url(":            # 引用符なし url(...) の中は生
+        e = css.find(")", i + 4)
+        return len(css) if e < 0 else e + 1
+    return i + 1
+
+
+def _selector_text(css, a, b):
+    """css[a:b] をセレクタ文字列にする。コメントは落とし、文字列は残す。
+
+    セレクタの直前に置かれた見出しコメント（`/* ===== Site Header ===== */`）を
+    セレクタの一部として拾うと、コメントに書いただけのフック名で公開が
+    止まってしまう。
+    """
+    out, i = [], a
+    while i < b:
+        if css.startswith("/*", i):
+            e = css.find("*/", i + 2)
+            i = b if e < 0 else min(e + 2, b)
+            continue
+        if css[i] in "\"'":
+            j = _css_skip(css, i)
+            out.append(css[i:min(j, b)])
+            i = j
+            continue
+        out.append(css[i])
+        i += 1
+    return " ".join("".join(out).split())
+
+
+def _css_rules(css, out):
+    """css 中の規則のセレクタを out へ積む。解析不能なら False を返す。
+
+    ネストした規則（`.card{& .site-nav{…}}`）も拾うため、通常規則の中身へも
+    再帰する。宣言（`color:red;`）は `;` 区切りの文として読み飛ばされる。
+    """
+    i, n, start = 0, len(css), 0
+    while i < n:
+        c = css[i]
+        if c in "\"'\\/" or css[i:i + 4].lower() == "url(":
+            j = _css_skip(css, i)
+            if j > i + 1 or c in "\"'\\":
+                i = j
+                continue
+        if c == ";":                               # @import 等・宣言の切れ目
+            i += 1
+            start = i
+            continue
+        if c == "}":                               # 対応の無い閉じ括弧は読み飛ばす
+            i += 1
+            start = i
+            continue
+        if c == "{":
+            sel = _selector_text(css, start, i)
+            depth, j = 1, i + 1
+            while j < n and depth:
+                ch = css[j]
+                if ch in "\"'\\/" or css[j:j + 4].lower() == "url(":
+                    k = _css_skip(css, j)
+                    if k > j + 1 or ch in "\"'\\":
+                        j = k
+                        continue
+                if ch == "{":
+                    depth += 1
+                elif ch == "}":
+                    depth -= 1
+                j += 1
+            if depth:
+                return False                       # 閉じていない＝解析不能
+            body = css[i + 1:j - 1]
+            at = _AT_HEAD_RE.match(sel)
+            if at:
+                if at.group(1).lower() in _NESTED_AT and not _css_rules(body, out):
+                    return False
+            else:
+                out.append(sel)
+                if "{" in body and not _css_rules(body, out):
+                    return False
+            i = j
+            start = i
+            continue
+        i += 1
+    return True
 
 
 def _css_selectors(css):
-    """CSS 中の通常規則のセレクタを返す（@media 等の中も再帰）。
-
-    宣言値・コメント・JS 文字列に現れる ".site-header" を拾わないよう、
-    「{ の手前」だけをセレクタとして扱う。閉じ括弧が足りない場合は解析を
-    打ち切り、呼び出し側が「解析できない」と分かるよう None を混ぜる。
-    """
-    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
-    out, i, n = [], 0, len(css)
-    while i < n:
-        b = css.find("{", i)
-        if b < 0:
-            return out
-        sel = " ".join(css[i:b].split())
-        depth, j = 1, b + 1
-        while j < n and depth:
-            if css[j] == "{":
-                depth += 1
-            elif css[j] == "}":
-                depth -= 1
-            j += 1
-        if depth:                                  # 波括弧が閉じていない
-            out.append(None)
-            return out
-        head = sel.split()[0] if sel.split() else sel
-        if sel.startswith("@"):
-            if head in _NESTED_AT:
-                out.extend(_css_selectors(css[b + 1:j - 1]))
-        else:
-            out.append(sel)
-        i = j
+    """CSS 中の規則のセレクタを返す。解析不能なら末尾に None を足す。"""
+    out = []
+    if not _css_rules(css, out):
+        out.append(None)
     return out
 
 
-def header_css_selectors(text):
-    """ページ側 <style> に残る「共通ヘッダー用セレクタ」を返す（無ければ空）。
+def page_stylesheets(text):
+    """ページが読み込むローカル CSS の href（絶対 URL・プロトコル相対は除く）。"""
+    out = []
+    for tag in _LINK_RE.findall(text):
+        if not _REL_SHEET_RE.search(tag):
+            continue
+        m = _HREF_RE.search(tag)
+        if m and not re.match(r"[a-z][a-z0-9+.-]*:|//", m.group(1), re.I):
+            out.append(m.group(1))
+    return out
+
+
+def header_css_selectors(text, read_stylesheet=None):
+    """ページ側の CSS に残る「共通ヘッダー用セレクタ」を返す（無ければ空）。
 
     @partial:header 領域は生成物なので対象外。混在セレクタ（`a, .site-nav a`）も
     一枝でも予約フックを含むなら返す（自動削除できないので人が分ける）。
+
+    read_stylesheet(href) を渡すと、ページが読み込むローカル CSS も同じ基準で
+    見る。渡さない場合はインライン <style> だけが対象（＝外部 CSS へ複製を
+    移されると見逃す。呼び出し側が解決手段を持つときは必ず渡すこと）。
     """
     outside = _HEADER_REGION_RE.sub("", text)
+    sources = [m.group(1) for m in _STYLE_RE.finditer(outside)]
+    if read_stylesheet:
+        for href in page_stylesheets(outside):
+            css = read_stylesheet(href)
+            if css:
+                sources.append(css)
     hits = []
-    for m in _STYLE_RE.finditer(outside):
-        for sel in _css_selectors(m.group(1)):
+    for css in sources:
+        for sel in _css_selectors(css):
             if sel is None:
-                hits.append("<CSS を解析できない: 波括弧が閉じていない>")
+                hits.append(UNPARSABLE)
             elif any(_HOOK_RE.search(b) for b in sel.split(",")):
                 hits.append(sel)
     return hits

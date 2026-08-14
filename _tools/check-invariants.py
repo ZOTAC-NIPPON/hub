@@ -14,6 +14,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import unquote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import hublib  # noqa: E402
@@ -44,29 +45,33 @@ MAX_FILE_MB = 30
 # 新しいページを足してはいけない（足したくなったら、それは直すべき複製）。
 # 空になったらこの表ごと消す。
 #
+# 値は「その時点で残っていた規則の数」。単なるパス免除だと、免除中のページに
+# 規則が増えても通ってしまう（Codex 指摘）。増えたら違反、減ったら「名簿を更新
+# しろ」、ページ自体が消えたら「名簿から消せ」と言う。移行中の悪化も止まる。
+#
 # reviews/ 配下は 2026-08-14 に清掃済み。残りはカタログ生成器
 # （②' の _brochure_poc/build_pages.py と catalog_*.html）と手書き 4 ページ。
 HEADER_CSS_LEGACY = {
-    "case-studies/index.html",
-    "catalogs/index.html",
-    "catalogs/zbox/ci655/index.html",
-    "catalogs/zbox/ci675/index.html",
-    "catalogs/zbox/eamax385c/index.html",
-    "catalogs/zbox/eamax395c/index.html",
-    "catalogs/zbox/en275060tc/index.html",
-    "catalogs/zbox/er98n5070c/index.html",
-    "catalogs/zbox/eu27506tc/index.html",
-    "catalogs/zbox/eu275070c/index.html",
-    "catalogs/zbox/eu27507tc/index.html",
-    "catalogs/zbox/eu275080c/index.html",
-    "catalogs/zbox/mi656/index.html",
-    "catalogs/zbox/mi676/index.html",
-    "catalogs/zbox/qu27n5000/index.html",
-    "catalogs/zbox/s35n150a/index.html",
-    "catalogs/zbox/s35n150p/index.html",
-    "index.html",
-    "press/index.html",
-    "trial-program/index.html",
+    "case-studies/index.html": 31,
+    "catalogs/index.html": 32,
+    "catalogs/zbox/ci655/index.html": 32,
+    "catalogs/zbox/ci675/index.html": 32,
+    "catalogs/zbox/eamax385c/index.html": 32,
+    "catalogs/zbox/eamax395c/index.html": 32,
+    "catalogs/zbox/en275060tc/index.html": 32,
+    "catalogs/zbox/er98n5070c/index.html": 32,
+    "catalogs/zbox/eu27506tc/index.html": 32,
+    "catalogs/zbox/eu275070c/index.html": 32,
+    "catalogs/zbox/eu27507tc/index.html": 32,
+    "catalogs/zbox/eu275080c/index.html": 32,
+    "catalogs/zbox/mi656/index.html": 32,
+    "catalogs/zbox/mi676/index.html": 32,
+    "catalogs/zbox/qu27n5000/index.html": 32,
+    "catalogs/zbox/s35n150a/index.html": 32,
+    "catalogs/zbox/s35n150p/index.html": 32,
+    "index.html": 33,
+    "press/index.html": 32,
+    "trial-program/index.html": 33,
 }
 
 
@@ -131,26 +136,49 @@ def nav_toggle_violations(root, tracked):
     return out
 
 
+def _stylesheet_reader(root, rel):
+    """ページ rel が読み込むローカル CSS を読む関数を返す（外部URLは None）。"""
+    def read(href):
+        href = unquote(href.split("?")[0].split("#")[0])
+        p = (root / href.lstrip("/")) if href.startswith("/") else (root / rel).parent / href
+        try:
+            return p.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            return None
+    return read
+
+
 def header_css_violations(root):
     """共通ヘッダーの CSS がページ側にも書かれていないかを見る。
 
     追跡済みファイルではなく作業ツリーを見る。publish は「取り込み → 反映 →
     検査」の順なので、②' から入ってきたばかりの未追跡ページこそ検査したい。
+    対象の定義は注入器と共有する（hublib.injected_pages）。
     """
-    out, cleaned = [], []
-    for rel in hublib.rel_files(root):
-        if not rel.endswith(".html") or hublib.is_deploy_only(rel):
+    out, seen = [], set()
+    for rel in hublib.injected_pages(root):
+        hits = hublib.header_css_selectors(
+            (root / rel).read_text(encoding="utf-8", errors="replace"),
+            _stylesheet_reader(root, rel))
+        allowed = HEADER_CSS_LEGACY.get(rel)
+        if allowed is not None:
+            seen.add(rel)
+        if not hits:
+            if allowed is not None:
+                out.append(f"HEADER_CSS_LEGACY に載っているが既に清浄。"
+                           f"名簿から消すこと: {rel}")
             continue
-        hits = hublib.header_css_selectors((root / rel).read_text(
-            encoding="utf-8", errors="replace"))
-        if hits and rel not in HEADER_CSS_LEGACY:
+        if allowed is None:
             out.append(f"共通ヘッダーの CSS がページ側にもある（{len(hits)} 規則。"
+                       f"例: {hits[0]}）。_partials/header.html へ寄せること: {rel}")
+        elif len(hits) > allowed:
+            out.append(f"移行中のページで複製が増えている（{allowed} → {len(hits)} 規則。"
                        f"例: {hits[0]}）: {rel}")
-        elif not hits and rel in HEADER_CSS_LEGACY:
-            cleaned.append(rel)
-    if cleaned:
-        out.append("HEADER_CSS_LEGACY に載っているが既に清浄。名簿から消すこと: "
-                   + ", ".join(cleaned))
+        elif len(hits) < allowed:
+            out.append(f"複製が減っている。HEADER_CSS_LEGACY の値を {allowed} から "
+                       f"{len(hits)} へ更新すること: {rel}")
+    for rel in sorted(set(HEADER_CSS_LEGACY) - seen):
+        out.append(f"HEADER_CSS_LEGACY にあるページが存在しない。名簿から消すこと: {rel}")
     return out
 
 

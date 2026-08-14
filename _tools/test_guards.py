@@ -73,6 +73,45 @@ HEADER_CSS_CASES = [
      _PARTIAL + '<style>.x{color:red</style>', True),
     ("ヘッダーCSSを持たない素のページ",
      '<style>body{margin:0}.wrap{max-width:780px}</style>', False),
+
+    # 2026-08-14 の初版が取りこぼした形（Codex レビューと自前の red-team で判明）。
+    # 偽陽性＝正常なページで公開が止まる。偽陰性＝複製を見逃す。前者の方が実害が大きい。
+    ("偽陽性: content に { を含む",
+     _PARTIAL + '<style>.x::before{content:"{"}.y{color:red}</style>', False),
+    ("偽陽性: content に } を含む",
+     _PARTIAL + '<style>.x::before{content:"}"}.y{color:red}</style>', False),
+    ("偽陽性: 宣言値の文字列にフック名",
+     _PARTIAL + '<style>.x{content:"}";--label:".site-header{"}</style>', False),
+    ("偽陽性: 属性セレクタに {",
+     _PARTIAL + '<style>[data-x="{"]{color:red}</style>', False),
+    ("偽陽性: @font-face の文字列に {",
+     _PARTIAL + '<style>@font-face{font-family:"{";src:url(x.woff2)}</style>', False),
+    ("偽陽性: 引用符なし url(...) に {",
+     _PARTIAL + '<style>.x{background:url(data:image/svg+xml,{)}</style>', False),
+    ("偽陰性: 文字列内の /* で挟んで隠す",
+     _PARTIAL + '<style>.x{content:"/*"}.site-header{display:block}.y{content:"*/"}</style>', True),
+    ("偽陰性: セミコロン型 at-rule の後ろ",
+     _PARTIAL + '<style>@import url("base.css"); .site-header{display:block}</style>', True),
+    ("偽陰性: @supports を空白なしで書く",
+     _PARTIAL + '<style>@supports(display:grid){.site-nav{gap:1px}}</style>', True),
+    ("偽陰性: CSS ネスティングの中",
+     _PARTIAL + '<style>.card{color:red;& .site-nav{gap:1px}}</style>', True),
+    ("偽陰性: <STYLE> が大文字",
+     _PARTIAL + '<STYLE>.site-header{display:block}</STYLE>', True),
+    ("@keyframes の 0% はセレクタではない",
+     _PARTIAL + '<style>@keyframes k{0%{opacity:0}100%{opacity:1}}</style>', False),
+]
+
+# 外部 CSS へ複製を移されたら見逃す、という穴を塞げているか。
+HEADER_CSS_LINK_CASES = [
+    ("外部 CSS の中の複製",
+     _PARTIAL + '<link rel="stylesheet" href="style.css">',
+     {"style.css": ".site-header{position:fixed}"}, True),
+    ("外部 CSS が清浄",
+     _PARTIAL + '<link rel="stylesheet" href="style.css">',
+     {"style.css": ".wrap{max-width:780px}"}, False),
+    ("外部 URL は読みに行かない",
+     _PARTIAL + '<link rel="stylesheet" href="https://example.com/a.css">', {}, False),
 ]
 
 MARKUP_CASES = [
@@ -161,6 +200,11 @@ def main():
         if got != should_flag:
             fails.append(f"header_css_selectors: {label} → 検出={got} 期待={should_flag}")
 
+    for label, text, sheets, should_flag in HEADER_CSS_LINK_CASES:
+        got = bool(hublib.header_css_selectors(text, sheets.get))
+        if got != should_flag:
+            fails.append(f"header_css_selectors(外部CSS): {label} → 検出={got} 期待={should_flag}")
+
     # UTM は登録簿（utm-taxonomy.json / campaigns.json）を読んで判定するので、
     # 登録簿が消えていれば検査ごと成立しない。ここで一緒に落とす。
     try:
@@ -181,7 +225,8 @@ def main():
             fails.append(f"find_utm_urls: {label} → {got} 本 期待={expected} 本")
 
     total = (len(CASES) + len(ALLOWLIST_CASES) + len(MARKUP_CASES)
-             + len(HEADER_CSS_CASES) + len(UTM_CASES) + len(UTM_EXTRACT_CASES))
+             + len(HEADER_CSS_CASES) + len(HEADER_CSS_LINK_CASES)
+             + len(UTM_CASES) + len(UTM_EXTRACT_CASES))
     print(f"test_guards: {total - len(fails)}/{total} 合格")
     if fails:
         for f in fails:

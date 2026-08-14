@@ -51,7 +51,7 @@ if not ((ROOT / ".git").exists() and (ROOT / "_tools" / "hublib.py").is_file()):
 # hublib が無い配置（OneDrive 側の旧コピー等）では全ファイルを対象にする従来動作。
 sys.path.insert(0, str(ROOT / "_tools"))
 from hublib import is_deploy_only as _is_deploy_only   # 見つからなければ落ちてよい
-                                                          # （検査が黙って弱まるより止める）
+from hublib import injected_pages as _injected_pages      # （検査が黙って弱まるより止める）
 
 # ── 注入対象パーツ定義 ───────────────────────────────────────────────
 # anchor: マーカーが無い初回に挿入する位置。('</title>', 'after') = </title> の直後
@@ -111,25 +111,16 @@ INQ_SKU_OK = re.compile(r"^[A-Za-z0-9][A-Za-z0-9.\-]*$")   # 型番形式の検�
 
 
 def target_files():
-    """公開対象 HTML（_ 始まりフォルダは除外）。index/ 配下＋case-studies コピー元＋ONBOARD。"""
+    """公開対象 HTML（_ 始まりフォルダは除外）。index/ 配下＋case-studies コピー元＋ONBOARD。
+
+    対象の定義は hublib.injected_pages が正本（deploy 専用ファイルの除外と
+    case-studies のコピー元を含む）。検査側が別実装を持つと「注入はされるが
+    検査はされない」ページができるため、2026-08-14 に一本化した。
+    """
     files = []
-    roots = [SITE] + [pathlib.Path(p) for p in ONBOARD]
-    for base in roots:
-        if not base.exists():
-            continue
-        for p in sorted(base.rglob("*.html")):
-            rel = p.relative_to(base)
-            if any(part.startswith(("_", ".")) for part in rel.parts):
-                continue
-            # deploy 専用ファイル（GSC 検証用 HTML・旧URL リダイレクトスタブ等）は
-            # 共通ヘッダーを持たない素の HTML なので注入対象外。許容リストの正本は
-            # _tools/hublib.py（HUB.md §2 と同期）。
-            if _is_deploy_only(rel.as_posix()):
-                continue
-            files.append(p)
-    src = SITE / "_case_studies_poc" / "live.html"   # case-studies/index.html のコピー元も同期
-    if src.exists():
-        files.append(src)
+    for base in [SITE] + [pathlib.Path(p) for p in ONBOARD]:
+        if base.exists():
+            files += [base / rel for rel in _injected_pages(base)]
     return files
 
 
