@@ -88,12 +88,15 @@ section{padding:26px 0;border-top:1px solid var(--line);}
 .pills span{font-family:var(--mono);font-size:9px;color:var(--amberink);background:var(--amberbg);padding:3px 9px;}
 .tags{display:flex;flex-wrap:wrap;gap:7px;}
 .tags span{font-size:12px;border:1px solid var(--line-strong);padding:5px 12px;}
-.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;border-top:1px solid var(--line);}
+.spec-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 30px;border-top:1px solid var(--line);}
 .spec-grid .r{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
-.spec-grid .r .l{font-size:12px;color:var(--muted);white-space:nowrap;width:6.5em;flex:none;}
-.spec-grid .r .v{font-size:12px;font-weight:500;flex:1;line-height:1.6;}
+.spec-grid .r .l{font-size:12px;color:var(--muted);white-space:nowrap;flex:0 0 auto;min-width:6.5em;}
+.spec-grid .r .v{font-size:12px;font-weight:500;flex:1;min-width:0;line-height:1.6;overflow-wrap:anywhere;}
+.spec-grid .r .v .sub{display:block;font-size:11px;font-weight:400;color:var(--muted);line-height:1.55;}
+.spec-grid .r .v .ln{display:block;}
+.spec-grid .r .v .ln+.ln{margin-top:4px;}
 .cmp{display:grid;font-size:12px;border:1px solid var(--line);}
-.cmp>div{padding:9px 10px;border-left:1px solid var(--line);border-top:1px solid var(--line);}
+.cmp>div{padding:9px 10px;border-left:1px solid var(--line);border-top:1px solid var(--line);min-width:0;overflow-wrap:anywhere;}
 .cmp .hd{background:var(--bg-soft);font-weight:500;}
 .cmp .me{background:var(--bg-warm);}
 .cmp .rl{border-left:none;font-family:var(--mono);font-size:10px;color:var(--muted);}
@@ -108,7 +111,8 @@ section{padding:26px 0;border-top:1px solid var(--line);}
 .b2b .fine{font-family:var(--mono);font-size:10px;color:var(--amberink);margin-top:10px;}
 .cards2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-@media (max-width:640px){.cards2,.cards3{grid-template-columns:1fr;}}
+@media (max-width:640px){.cards2,.cards3{grid-template-columns:1fr;}
+  .spec-grid{grid-template-columns:1fr;}.spec-grid .r .l{min-width:5.5em;}}
 .lcard{border:1px solid var(--line);border-left:3px solid var(--yellow);padding:13px;text-decoration:none;color:var(--ink);display:block;}
 .lcard .t{font-size:13px;font-weight:700;}
 .lcard .d{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.6;}
@@ -253,7 +257,7 @@ section{padding:26px 0;border-top:1px solid var(--line);}
   </section>
   <section>
     <div class="sec-label">主要スペック <span class="note">（要約 — 全仕様はPDFカタログに掲載）</span></div>
-    <div class="spec-grid"><div class="r"><span class="l">グラフィックス</span><span class="v">NVIDIA RTX PRO 5000 Embedded<br>第5世代 Tensor コア／CUDA コア<br>最大 1824 AI TOPS</span></div><div class="r"><span class="l">プロセッサー</span><span class="v">Intel Core Ultra 7 255HX（20コア・2.4〜5.2GHz）</span></div><div class="r"><span class="l">メモリー上限</span><span class="v">2 × DDR5-6400 CSODIMM（/ DDR5-5600 SO-DIMM・最大 96GB）</span></div><div class="r"><span class="l">ストレージ</span><span class="v">1 × M.2 NVMe PCIe 4.0 ×4 / SATA<br>1 × M.2 NVMe PCIe 5.0 ×4</span></div><div class="r"><span class="l">映像出力</span><span class="v">3 × DisplayPort 2.1<br>1 × HDMI<br>最大 4 画面出力</span></div><div class="r"><span class="l">ネットワーク</span><span class="v">2 × 2.5 Gigabit Ethernet<br>Wi-Fi 7<br>Bluetooth 5.4</span></div><div class="r"><span class="l">電源</span><span class="v">DC 20V/330W ACアダプター<br>ケンジントンロック対応</span></div><div class="r"><span class="l">外形・容積</span><span class="v">210 × 203 × 71 mm（L × W × H ／ 約3.02L）</span></div><div class="r"><span class="l">対応OS</span><span class="v">Microsoft Windows 11 Ready</span></div></div>
+    <div class="spec-grid"><div class="r"><span class="l">グラフィックス</span><span class="v"><span class="ln">NVIDIA RTX PRO 5000 Embedded<span class="sub">24GB GDDR7 256-bit</span></span><span class="ln">第5世代 Tensor コア／CUDA コア</span><span class="ln">最大 1824 AI TOPS</span></span></div><div class="r"><span class="l">プロセッサー</span><span class="v"><span class="ln">Intel Core Ultra 7 255HX<span class="sub">20コア・2.4〜5.2GHz</span></span></span></div><div class="r"><span class="l">メモリー上限</span><span class="v"><span class="ln">2 × DDR5-6400 CSODIMM<span class="sub">/ DDR5-5600 SO-DIMM・最大 96GB</span></span></span></div><div class="r"><span class="l">ストレージ</span><span class="v"><span class="ln">1 × M.2 NVMe PCIe 4.0 ×4 / SATA<span class="sub">2280</span></span><span class="ln">1 × M.2 NVMe PCIe 5.0 ×4<span class="sub">2280</span></span></span></div><div class="r"><span class="l">映像出力</span><span class="v"><span class="ln">3 × DisplayPort 2.1</span><span class="ln">1 × HDMI<span class="sub">4K 120Hz / 8K 60Hz HDR・VRR</span></span><span class="ln">最大 4 画面出力</span></span></div><div class="r"><span class="l">ネットワーク</span><span class="v"><span class="ln">2 × 2.5 Gigabit Ethernet</span><span class="ln">Wi-Fi 7</span><span class="ln">Bluetooth 5.4</span></span></div><div class="r"><span class="l">I/O ポート</span><span class="v"><span class="ln">前面：1 × USB 3.2 Gen2 Type-A</span><span class="ln">前面：2 × Thunderbolt 4</span><span class="ln">背面：4 × USB 3.2 Gen2 Type-A</span></span></div><div class="r"><span class="l">電源</span><span class="v"><span class="ln">DC 20V/330W ACアダプター</span><span class="ln">ケンジントンロック対応</span></span></div><div class="r"><span class="l">外形・容積</span><span class="v">210 × 203 × 71 mm（L × W × H ／ 約3.02L）</span></div><div class="r"><span class="l">対応OS</span><span class="v">Microsoft Windows 11 Ready</span></div></div>
     <div class="spec-note">※ ベースモデル：メモリ・SSD・OS は用途に合わせて構成し、希望構成でお見積りできます。</div>
   </section>
   <section>
