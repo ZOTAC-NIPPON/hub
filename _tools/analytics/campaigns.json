@@ -1,6 +1,6 @@
 {
   "_readme": "utm_campaign の登録簿。ここに無い値は _tools/check-utm.py で落ちる。規約の正本は utm-policy.md。",
-  "_updated": "2026-08-15",
+  "_updated": "2026-09-04",
   "version": "2.0.0",
 
   "_naming_mode": {
@@ -41,6 +41,34 @@
       "fixable": "yes",
       "registered": "2026-08-15",
       "note": "改訂版が出たら新しい campaign を作る（版をまたいで束ねたいときは family=b2b_catalog で寄せる）。差し替え前に配布された PDF は旧タグを持ち続けるが、版の記録として正しいので retro-fit しない。"
+    },
+
+    "202609_tgs": {
+      "name": "東京ゲームショウ 2026（インディーゲームエリア 機材スポンサー）来場者LP",
+      "naming_mode": "dated",
+      "effective_month": "2026-09",
+      "status": "準備中",
+      "allowed_sources": ["offline_tgs_booth", "offline_tgs_handout", "twitter", "zotac_newsletter", "zotac_forms"],
+      "allowed_mediums": ["link", "social", "email"],
+      "landing": "/events/tgs2026/",
+      "placement": "各パートナーブースの A6 スタンド QR（全ブース共通 1 種・utm_content=qr_stand_a6）／配布物 QR（予備・qr_handout_a）／アンケート回答後のサンクスメール（utm_content=mail_thanks）／自社 X。掲出面の一覧は ②' Campaigns/2609_TGS_Promotion/README.md §2",
+      "fixable": "no",
+      "registered": "2026-09-02",
+      "note": "スタンド・配布物は印刷後に訂正不能（fixable=no）。印刷前に実機で QR を読み、check-utm を通すこと。landing は /events/tgs2026/ で確定（2026-09-02、イベント LP として events/ 配下）。"
+    },
+
+    "202609_gamer_survey": {
+      "name": "ゲーマー環境調査 2026（創立20周年・TGS2026開催記念のオンライン調査）",
+      "naming_mode": "dated",
+      "effective_month": "2026-09",
+      "status": "準備中",
+      "allowed_sources": ["twitter", "zotac_newsletter"],
+      "allowed_mediums": ["social", "email"],
+      "landing": "/campaigns/gamer-survey2026/",
+      "placement": "自社 X（post_launch / post_reminder）／メールマガジン（mail_header）。掲出面の一覧は ②' Campaigns/2609_Gamer_Survey_Campaign/README.md §2",
+      "fixable": "yes",
+      "registered": "2026-09-03",
+      "note": "会場版（202609_tgs）とは別施策。X のフォロワー限定でメールアドレスを取得しないため、サンクスメールは送らない（2026-09-04 に zotac_forms / mail_thanks を削除）。Forms 完了画面のリンクは層A（UTMなし・?ref=thanks）。"
     }
   }
 }

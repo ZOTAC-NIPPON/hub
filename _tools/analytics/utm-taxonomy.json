@@ -1,6 +1,6 @@
 {
   "_readme": "UTM の値の登録簿。規約の正本は utm-policy.md、検査は _tools/check-utm.py。この3点で1組。",
-  "_updated": "2026-08-15",
+  "_updated": "2026-09-02",
   "version": "2.0.0",
 
   "required_keys": ["utm_source", "utm_medium", "utm_campaign"],
@@ -45,7 +45,10 @@
     "twitter":          {"note": "自社 X。GA4 ソースカテゴリ一覧に掲載あり（SOCIAL）"},
     "zotac_newsletter": {"note": "メールマガジン（一斉配信）"},
     "pc_watch":         {"note": "PC Watch。先方が UTM を受け入れた場合のみ。通常は UTM なしの自然な Referral"},
-    "catalog":          {"note": "カタログPDF。QR コードと PDF 内リンク。版は utm_campaign 側で区別する"}
+    "catalog":          {"note": "カタログPDF。QR コードと PDF 内リンク。版は utm_campaign 側で区別する"},
+    "offline_tgs_booth":   {"note": "東京ゲームショウ 2026 会場のブース掲出物（A6 スタンド・パネル）の QR。medium=link。掲出面は utm_content=qr_stand_<ブース> で区別"},
+    "offline_tgs_handout": {"note": "東京ゲームショウ 2026 の配布物（チラシ等）の QR。medium=link"},
+    "zotac_forms":         {"note": "Microsoft Forms の回答完了メール（サンクスメール）内リンク。medium=email。アンケート→LP の戻り導線"}
   },
 
   "banned_sources": {
