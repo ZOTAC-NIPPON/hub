@@ -573,7 +573,6 @@
   .equip-visual img { width: 100%; height: 100%; object-fit: contain; object-position: center; padding: 7% 8%; display: block; transition: transform 0.35s ease; }
   .equip-card:hover .equip-visual img { transform: scale(1.03); }
   /* 白背景写真 → 下端をカードへ溶かす */
-  .equip-visual::after { content: ''; position: absolute; inset: auto 0 0 0; height: 28%; background: linear-gradient(180deg, transparent, rgba(27,30,35,0.55)); pointer-events: none; }
 
   .equip-tags { position: absolute; top: 14px; left: 14px; display: flex; gap: 6px; flex-wrap: wrap; z-index: 2; }
   .equip-tag {
@@ -597,6 +596,7 @@
   }
   .spec-chip { white-space: nowrap; }
   .spec-chip .chip-label { color: var(--text-3); }
+  .spec-chip.highlight .chip-label { color: #C9CCD2; }
   .spec-chip .chip-value { color: var(--text); font-weight: 600; }
   .spec-chip.highlight { border-color: var(--yellow-line); background: var(--yellow-soft); }
   .spec-chip.highlight .chip-value { color: var(--yellow); }
@@ -648,13 +648,6 @@
      03. CATALOG CARDS — フライヤーラック
      ══════════════════════════════════════════ */
   #catalogs { position: relative; }
-  #catalogs::before {
-    content: ''; position: absolute; inset: 0; opacity: 0.06; pointer-events: none;
-    background-image: linear-gradient(0deg, #FFFFFF 1px, transparent 1px), linear-gradient(90deg, #FFFFFF 1px, transparent 1px);
-    background-size: 24px 24px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent);
-  }
 
   .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; z-index: 1; }
 
@@ -663,8 +656,8 @@
     overflow: visible; display: flex; flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   }
-  .catalog-card::before { content: ''; position: absolute; inset: 6px -5px -6px 5px; background: var(--surface-2); border: 1px solid var(--line); z-index: -1; transform: rotate(1deg); }
-  .catalog-card::after { content: ''; position: absolute; inset: 11px -8px -11px 8px; background: var(--bg-2); border: 1px solid var(--line); z-index: -2; transform: rotate(1.8deg); }
+  .catalog-card::before { display: none; content: ''; position: absolute; inset: 6px -5px -6px 5px; background: var(--surface-2); border: 1px solid var(--line); z-index: -1; transform: rotate(1deg); }
+  .catalog-card::after { display: none; content: ''; position: absolute; inset: 11px -8px -11px 8px; background: var(--bg-2); border: 1px solid var(--line); z-index: -2; transform: rotate(1.8deg); }
   .catalog-card:hover { transform: translateY(-6px) rotate(-0.3deg); box-shadow: 0 20px 44px rgba(0,0,0,0.5); border-color: var(--yellow-line); }
   .catalog-card.ultra { border-top: 3px solid var(--yellow); }
   .catalog-card.one   { border-top: 3px solid var(--cyan); }
@@ -951,6 +944,10 @@
   .btn2:active { transform: translateY(1px); box-shadow: none; }
   .btn2-wide { width: 100%; max-width: 420px; margin-top: 22px; }
   .hero-v2-note { margin: 12px 0 0; font-size: 13px; color: #6A6B70; line-height: 1.7; }
+  .hero-v2-note a { color: #1A1B1C; font-weight: 700; }
+  .hero-v2-links { margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; font-weight: 700; }
+  .hero-v2-links a { color: #1A1B1C; text-decoration: underline; text-underline-offset: 3px; }
+  .hero-v2 a:focus-visible { outline: 3px solid #1A1B1C; outline-offset: 2px; }
   .hero-v2-visual { position: relative; height: 540px; }
   .hero-v2-visual .ztorm { position: absolute; left: 0; bottom: -10px; width: 340px; height: auto; z-index: 2; }
   .hero-v2-visual .trophy { position: absolute; left: 262px; bottom: 2px; width: 124px; height: auto; z-index: 3; image-rendering: pixelated; }
@@ -993,7 +990,13 @@
     .hero-v2-visual .trophy { left: 166px; width: 82px; bottom: 0; }
     .hero-v2-visual .chest { width: 84px; right: 6px; }
     .hero-v2-ground { height: 84px; background-size: auto 84px; }
-    .prizes2 { grid-template-columns: 1fr; }
+    .prizes2 { grid-template-columns: 1fr; gap: 12px; }
+    .prize2 { display: grid; grid-template-columns: 112px 1fr; align-items: center; }
+    .prize2 .photo { aspect-ratio: 1 / 1; padding: 10px; }
+    .prize2 figcaption { padding: 12px 14px; }
+    .prize2 figcaption b { font-size: 16px; }
+    .prize2 figcaption span { font-size: 13px; }
+    .spec-chip { white-space: normal; }
     .apply2 { padding: 28px 20px; }
   }
   @media (max-width: 640px) {
@@ -1125,10 +1128,11 @@
         <li><img src="./images/prize_umbrella.png" alt="" loading="lazy"><span>折りたたみ傘</span></li>
         <li><img src="./images/prize_mousepad_thumb.jpg" alt="" loading="lazy"><span>マウスパッドXL</span></li>
       </ul>
-      <p class="hero-v2-cond">賞品はいずれか1点。応募締切は<span class="nw">9月25日（金）23:59</span>です。当選された方には、ご記入のメールアドレスへ10月上旬までにご連絡します。</p>
+      <p class="hero-v2-cond">賞品はいずれか1点（ご希望はアンケートの中でお聞きしますが、添えない場合があります）。応募締切は<span class="nw">9月25日（金）23:59</span>。当選された方には、ご記入のメールアドレスへ10月上旬までにご連絡します。</p>
       <div class="hero-v2-cta">
         <a href="https://forms.cloud.microsoft/r/04QWeY3Yjh" class="btn2" target="_blank" rel="noopener" data-track="survey_open" data-position="hero">アンケートに回答する</a>
-        <p class="hero-v2-note">回答フォーム（Microsoft Forms）が別のタブで開きます。賞品は後日配送になります。</p>
+        <p class="hero-v2-note">日本国内にお住まいの方が対象で、お一人様1回まで。18歳未満の方は保護者の同意を得てご応募ください（<a href="#terms" data-track="terms_open" data-position="hero">応募規約</a>）。回答フォーム（Microsoft Forms）が別のタブで開きます。賞品は後日配送になります。</p>
+        <p class="hero-v2-links"><a href="#equipment" data-track="equipment_jump" data-position="hero">会場の機材を見る ›</a><a href="#catalogs" data-track="catalog_jump" data-position="hero">カタログ・フライヤー ›</a></p>
       </div>
     </div>
     <div class="hero-v2-visual" aria-hidden="true">
@@ -1162,7 +1166,7 @@
     <p class="note2">賞品は非売品です。デザインや仕様は写真と異なる場合があります。賞品の換金・譲渡・転売・交換はできません。</p>
 
     <div class="apply2">
-      <h3 class="apply2-title">ご来場ありがとうございます。<br class="sp">ぜひ感想を教えてください</h3>
+      <h3 class="apply2-title"><span class="nw">ご来場ありがとうございます。</span><br class="sp"><span class="nw">ぜひ感想を</span><span class="nw">教えてください</span></h3>
       <ul class="facts2">
         <li>所要時間：約2分</li>
         <li>抽選で合計20名様</li>
@@ -1187,7 +1191,7 @@
         <li>発送：当選連絡から7日以内に発送先をご返信ください。ご返信がない場合や住所不備などでお届けできない場合は当選を無効とします。発送は10月中旬を予定していますが、遅れる場合があります</li>
         <li>応募は1人1回です。同一メールアドレスからの複数回答は1回として扱います。虚偽の情報による応募は無効とします</li>
         <li>賞品の換金・譲渡・転売・交換はできません</li>
-        <li>個人情報の取り扱い：ご記入いただいたメールアドレスは、応募受付（受付メールの送信）、重複の確認、抽選、当選・発送のご連絡に使用します。ご案内メールを希望された方には、新製品・キャンペーンのご案内をお送りすることがあります（配信停止はいつでも可能です）。当選された方の氏名・住所は賞品の発送のためにのみ使用し、配送業者に提供する場合があります。パートナー企業への提供は行いません。取得した情報はキャンペーン終了後3か月以内に削除します。詳細は<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a>をご確認ください</li>
+        <li>個人情報の取り扱い：ご記入いただいたメールアドレスは、応募受付（受付メールの送信）、重複の確認、抽選、当選・発送のご連絡に使用します。ご案内メールを希望された方には、新製品・キャンペーンのご案内をお送りすることがあります（配信停止はいつでも可能です）。当選された方の氏名・住所は賞品の発送のためにのみ使用し、配送業者に提供する場合があります。パートナー企業への提供は行いません。応募のためにご記入いただいた情報（メールアドレス、当選された方の発送先）は、キャンペーン終了後3か月以内に削除します。ご案内メールを希望された方のメールアドレスは、配信停止のお申し出があるまで案内の送付のために保管します。個人を特定できない形にした回答内容は、製品の企画や情報発信の改善のために利用します。詳細は<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a>をご確認ください</li>
         <li>アンケートでいただいたメッセージは、趣旨を変えない範囲で編集のうえ、当社のWebサイト・SNS・展示物などで無償でご紹介する場合があります</li>
         <li>やむを得ない事情により、予告なく本キャンペーンの内容を変更または中止する場合があります</li>
         <li>本キャンペーンは株式会社ゾタック日本が実施するもので、東京ゲームショウ主催者および各パートナー企業・団体は関与していません</li>
@@ -1204,7 +1208,7 @@
     <p class="section-lead">
       インディーゲームエリアとパートナーブースのプレイ用PCに、デスクトップ版<span class="nw">GeForce RTX 50</span>シリーズを搭載した
       世界最小クラスのゲーミングミニPC<span class="nw">「ZBOX MAGNUS」</span>シリーズと、<span class="nw">ZOTAC GAMING</span>のグラフィックスカードを提供しています。
-      大きさの違う3シリーズ<span class="nw">（11.46L / 8.48L / 2.65L）</span>を提供しています。本体が台の中に収まっていて見えないブースもあります。
+      大きさの違う3シリーズ<span class="nw">（11.46L / 8.48L / 2.65L）</span>がそろっています。本体が台の中に収まっていて見えないブースもあります。
     </p>
   </div>
 
@@ -1243,7 +1247,7 @@
           </a>
           <a href="/pdfs/magnus_one_ultra_flyer.pdf" data-track="pdf_download" data-position="equipment" class="link-pill" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
-            フライヤー PDF
+            フライヤーPDF
           </a>
         </div>
       </div>
@@ -1274,7 +1278,7 @@
           </a>
           <a href="/pdfs/magnus_one_flyer.pdf" data-track="pdf_download" data-position="equipment" class="link-pill" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
-            フライヤー PDF
+            フライヤーPDF
           </a>
         </div>
       </div>
@@ -1308,7 +1312,7 @@
           </a>
           <a href="/pdfs/magnus_en_flyer.pdf" data-track="pdf_download" data-position="equipment" class="link-pill" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
-            フライヤー PDF
+            フライヤーPDF
           </a>
         </div>
       </div>
@@ -1355,10 +1359,10 @@
 <p class="booth-list-title booth-list-title--second">そのほかZOTACが協力しているブース・エリア（かな順）</p>
     <p class="booth-list-sub">協力内容はブースにより異なります（プレイ用ミニPC／グラフィックスカード搭載PC／グッズ提供）。<span class="nw">岩崎学園 情報科学専門学校</span>のブースでは、授業で採用されているZOTAC製品をご覧いただけます。ブース番号は東京ゲームショウ公式の出展者一覧（2026年9月10日時点）によります。</p>
     <div class="booth-chips">
-<span class="booth-chip"><span class="hall">ホール9</span>東京ゲームショウ運営エリア（インディーゲームコーナー 公式展示区画）</span>
 <span class="booth-chip"><span class="hall">ホール1 01-N25</span>岩崎学園 情報科学専門学校（ゲームアカデミーコーナー）</span>
 <span class="booth-chip"><span class="hall">ホール5 05-S01</span>株式会社コナミデジタルエンタテインメント</span>
 <span class="booth-chip"><span class="hall">ホール1 01-C13</span>シー・エフ・デー販売株式会社</span>
+<span class="booth-chip"><span class="hall">ホール9</span>東京ゲームショウ運営エリア（インディーゲームコーナー 公式展示区画）</span>
 </div>
   </div>
 </section>
@@ -1386,7 +1390,7 @@
         <div class="card-actions">
           <a href="/pdfs/magnus_one_ultra_flyer.pdf" data-track="pdf_download" data-position="catalogs" class="btn btn-primary" target="_blank" rel="noopener">
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
-            フライヤー PDF
+            フライヤーPDF
           </a>
           <a href="/catalogs/zbox/eu275080c/" data-track="catalog_page" data-position="catalogs" class="btn btn-secondary">Webカタログで全仕様を見る →</a>
         </div>
@@ -1405,7 +1409,7 @@
         <div class="card-actions">
           <a href="/pdfs/magnus_one_flyer.pdf" data-track="pdf_download" data-position="catalogs" class="btn btn-primary" target="_blank" rel="noopener">
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
-            フライヤー PDF
+            フライヤーPDF
           </a>
           <a href="/catalogs/zbox/eu27507tc/" data-track="catalog_page" data-position="catalogs" class="btn btn-secondary">Webカタログで全仕様を見る →</a>
         </div>
@@ -1424,7 +1428,7 @@
         <div class="card-actions">
           <a href="/pdfs/magnus_en_flyer.pdf" data-track="pdf_download" data-position="catalogs" class="btn btn-primary" target="_blank" rel="noopener">
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
-            フライヤー PDF
+            フライヤーPDF
           </a>
           <a href="/catalogs/zbox/en275060tc/" data-track="catalog_page" data-position="catalogs" class="btn btn-secondary">Webカタログで全仕様を見る →</a>
         </div>
@@ -1695,10 +1699,10 @@
 
   // アンケートセクションが見えている間はモバイル固定CTAを隠す
   (function(){
-    var s = document.getElementById('sticky-cta'), t = document.getElementById('survey');
+    var s = document.getElementById('sticky-cta'), t = document.querySelector('#survey .apply2');
     if (!s || !t || !('IntersectionObserver' in window)) return;
     new IntersectionObserver(function(es){
-      es.forEach(function(e){ s.style.opacity = e.isIntersecting ? '0' : '1'; s.style.pointerEvents = e.isIntersecting ? 'none' : 'auto'; });
+      es.forEach(function(e){ s.style.opacity = e.isIntersecting ? '0' : '1'; s.style.visibility = e.isIntersecting ? 'hidden' : 'visible'; s.style.pointerEvents = e.isIntersecting ? 'none' : 'auto'; });
     }, { threshold: 0.2 }).observe(t);
   })();
 </script>
