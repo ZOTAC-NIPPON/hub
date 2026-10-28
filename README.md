@@ -5,8 +5,9 @@ GitHub Pages で配信している。
 
 ## このリポジトリの位置づけ
 
-サイトの記事・カタログは **OneDrive(SharePoint) 上の制作ツリー（②'）** で作り、
-ここへ取り込んで公開する。**このリポジトリはその派生物**で、単純なコピーではない。
+記事・カタログは **制作リポジトリ `hub-zotac-production`（②）** で作り、**OneDrive(SharePoint) 上の
+編集ツリー（②' `index/`）** に置いてから、ここへ取り込んで公開する。**このリポジトリはその派生物**で、
+単純なコピーではない。
 取り込みの際に次の変換が入る。
 
 1. SharePoint がHTMLへ書き込む列メタデータの除去（後述）
@@ -90,8 +91,9 @@ publish → push → GitHub Actions
 返していた。`contamination()` もそれを「空ではない」と判定して通していた。現在は
 `hublib.page_title()`（`html.parser` で `<head>` 内のみ）に統一している。
 
-2026-08 時点では**レポートモード**（違反を報告するが公開は止めない）。公開停止への昇格と
-公開タイトルの移行は 9/11 以降（検索流入の立ち上がりと外部掲載の余波を避けるため）。
+検査は**レポートモード**（違反を報告するが公開は止めない）。公開停止への昇格と公開タイトルの
+移行は 9/11 以降の予定だったが、2026-09-25 時点で未着手（登録簿の `migration` の期限が切れている）。
+進めるかどうかは担当の判断で、状況は `title-policy.md` §7。
 
 ### UTM は閉じたリストからしか選べない（2026-08-14 追加）
 
@@ -136,8 +138,21 @@ publish → push → GitHub Actions
 `HEADER_CSS_LEGACY`（移行中だけ通す名簿）は空になっている。**ここに新しいページを
 足さないこと** — 足したくなったら、それは直すべき複製の方。
 
-カタログの製品ページは ②' の `_brochure_poc/build_pages.py` が生成する。
+カタログの製品ページは ② `hub-zotac-production` の `_brochure_poc/build_pages.py` が生成し、②' に書き出す。
 **生成器の `TEMPLATE` にもヘッダー CSS を書かない**（書くと全カタログページへ複製が配られる）。
+
+## 共通パーツ（`_partials/`）だけを直したとき
+
+`hub.py publish` は取り込みのたびにこのリポジトリ全体へ `inject.py` を実行するが、②' に変更が無い
+ときは次で反映する。`_partials/` 自体は公開されないので、注入せずに commit しても本番は変わらない。
+
+```bash
+cd ~/Developer/hub
+python3 _partials/inject.py          # 全ページのマーカー区間へ反映
+python3 _tools/hub.py check          # 6検査
+git status --short                   # 変わったのが _partials/ と注入先のページだけか確かめる
+git add -u && git commit -m "何を変えたか" && git push   # -u は追跡済みファイルの変更だけを足す
+```
 
 ## SharePoint による HTML の書き換えについて
 
@@ -146,13 +161,15 @@ publish → push → GitHub Actions
 `<!--[if gte mso 9]><xml>…` ブロック、そして **`<title>` の中身が空になる**。
 
 2026-08-02 に 185 件で確認し、対処済み。取り込み時に自動で除去・復元するため、
-公開物には影響しない。詳細と経緯は制作ツリー側の `HUB.md` §4。
+公開物には影響しない。詳細と経緯は制作ツリー側の `HUB_HISTORY.md`（2026-08-02 の項）。
 
 ## 守ること
 
 - **このリポジトリのサイト内容を直接編集しない。** 編集は ②' 側で行い `hub.py publish` で取り込む
   （`_partials/` と `_tools/` はここが正本なので直接編集してよい）
-- **`inject.py` や生成器を ②' に対して実行しない。** 実行するのはこのリポジトリの中だけ
+- **`inject.py` と `gen-sitemap.py` を ②' に対して実行しない。** 実行するのはこのリポジトリの中だけ。
+  ② のカタログ生成器が ②' に書き出すのは、`--deploy` と `--site-root` を明示したときだけ
+  （② `_brochure_poc/PUBLISHING.md` §3'。ヘッダーはこのリポジトリの `_partials/` を読み、汚染を検出したら止まる）
 - **共通ヘッダーの CSS をページ側に書かない**（→ 「検査の中身」節）
 - **`git commit --no-verify` を使わない。** フックが止めたら理由がある
 - **`git push --force` を使わない**（サーバ側でも禁止している）
@@ -176,5 +193,5 @@ Python 3.8 以上が必要。`doctor` が「問題ありません」になれば
 
 ## 制作側のドキュメント
 
-サイトの作り方・記事の制作手順・数値の正本などは、OneDrive 側の `HUB.md`
-（全体の索引）と各フォルダの `CLAUDE.md` を参照。
+全体の索引は OneDrive 側の `HUB.md`。記事・カタログの制作手順と数値の正本は ② `hub-zotac-production`
+（`Reviews/CLAUDE.md`・`_brochure_poc/README.md`）、ハブサイトの仕様は ②' `index/CLAUDE.md` を参照。

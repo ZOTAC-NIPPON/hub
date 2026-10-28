@@ -1,8 +1,8 @@
 # utm-policy.md — UTM パラメータ規約（正本）
 
-最終更新: 2026-08-15（v2）
+最終更新: 2026-09-25（§9 に v2 後の実測を追記。規約本文は v2 のまま）
 
-> **正本マップ = `②' 00_hub_zotac\HUB.md`**（OneDrive 側）。
+> **正本マップ = OneDrive 制作ツリー直下の `hub_zotac/HUB.md`**。
 > 本ファイルは hub.zotac.co.jp へ向かう**外部リンクに付ける UTM の唯一の正本**。
 > 値の登録簿は [`utm-taxonomy.json`](utm-taxonomy.json) と [`campaigns.json`](campaigns.json)、
 > 検査は [`_tools/check-utm.py`](../check-utm.py)。**規約・登録簿・検査の3点セットで1組**なので、
@@ -225,7 +225,13 @@ hub 側の生成器は `utm_*` を CTA に一切付与していない（2026-08-
 
 - **`(not set)` 13 セッション**（2026-08 実測）は `session_start` の欠落で、UTM 規約では直らない。
   同意モード・タグ発火順・ブロッカーの調査が要る。Unassigned 170 のうち 13 がこれ
-- `zotac.co.jp` から hub へのリンクは 2026-08-15 時点で**まだ無い**。張るときは層A（付けない）
+- **v2 後の実測（GA4 2026-08-28〜09-24）**: Unassigned は 74／1,067 セッション（6.9%。v1 期は GA4 スナップショット
+  7/15〜8/13 で 162／711・22.8%。上の「170」は内訳を取った探索の合計で、期間の取り方が違うとみられる。未確認）。
+  ゲーマー環境調査の X 告知は v2 の値（`twitter` / `social` / `202609_gamer_survey` / `post_launch`）で出ており、
+  Organic Social に入った。**残る 74 の内訳は未確認**（GA4 探索の「セッションの参照元 / メディア」で見る）。
+  減った原因のうち、UTM の修正と流入の構成の変化（X が増え Referral が減った）の寄与は分けていない
+- `zotac.co.jp` から hub へのリンクは 2026-08-15 時点で**まだ無い**。張るときは層A（付けない）。
+  2026-08-27〜09-25 の Clarity の参照元にも `zotac.com`・`zotac.co.jp` は出ていない
 
 ---
 
@@ -235,3 +241,4 @@ hub 側の生成器は `utm_*` を CTA に一切付与していない（2026-08-
 |---|---|
 | 2026-08-14 | 新規作成。`utm_source=x` / `utm_medium=article` による Unassigned 23% を受けて規約化 |
 | 2026-08-15 | v2。GA4 実測で想定漏れ2件（本家クロスリンク・カタログQR）が判明したのを受けて全面改訂。①層A/B/C の判定を導入し**既定を「付けない」に変更** ②`yyyymm` 強制をやめ `naming_mode` + `effective_month` へ ③medium とチャネルが1対1という誤った説明を修正（`referral` と `link` は両方 Referral、`cpc`・`paid_social` は source との AND） ④登録簿に `placement` / `fixable` を追加（一人運用で機能する2つに絞り、`owner`・`last_checked` 等は入れない） |
+| 2026-09-25 | §9 に v2 後の実測を追記（Unassigned 6.9%、X 告知は v2 の値で Organic Social に入った）。規約本文は変更なし |
