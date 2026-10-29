@@ -130,6 +130,7 @@ section{padding:26px 0;border-top:1px solid var(--line);}
 .b2b .fine{font-family:var(--mono);font-size:10px;color:var(--amberink);margin-top:10px;}
 .cards2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}   /* 関連カードが 4 枚のとき（related_cards あり＋PDF あり。2026-10-29） */
 .lcard{border:1px solid var(--line);border-left:3px solid var(--accent);padding:13px;text-decoration:none;color:var(--ink);display:block;}
 .lcard .t{font-size:13px;font-weight:700;}
 .lcard .d{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.6;}
@@ -153,7 +154,7 @@ section{padding:26px 0;border-top:1px solid var(--line);}
 .disc{font-family:var(--mono);font-size:10px;color:var(--faint);padding:10px 0 30px;}
 @media (max-width:760px){
   .wrap{padding:0 16px;}
-  .hero,.kpi,.spec-grid,.skus,.cards2,.cards3,.b2b .grid{grid-template-columns:1fr;}
+  .hero,.kpi,.spec-grid,.skus,.cards2,.cards3,.cards4,.b2b .grid{grid-template-columns:1fr;}
   .feat{columns:1;}
 }
 </style>
@@ -310,6 +311,7 @@ section{padding:26px 0;border-top:1px solid var(--line);}
     <h2 class="sec-label">関連製品・資料</h2>
     <div class="cards2">
       <a class="xcard" href="/catalogs/#zbox-pro"><span class="badge sib">同シリーズ</span><div class="t">ZBOX PRO 製品一覧</div><div class="s">法人・組み込み・AI・サイネージの製品を見る</div><div class="go">見る →</div></a>
+      
       
       <a class="xcard" href="https://www.pcpsol.com/en/product_detail.php?id=210&amp;cid=122&amp;page=1" target="_blank" rel="noopener"><span class="badge sib">メーカー</span><div class="t">PCP SOLUTIONS 公式製品ページ</div><div class="s">英語。SUPER モード以前の記載のため、最新仕様はこのページの主要スペック（Product Update 2026 Q2）を参照</div><div class="go">開く ↗</div></a>
     </div>
