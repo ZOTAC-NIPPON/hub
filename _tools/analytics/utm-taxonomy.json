@@ -1,6 +1,6 @@
 {
   "_readme": "UTM の値の登録簿。規約の正本は utm-policy.md、検査は _tools/check-utm.py。この3点で1組。",
-  "_updated": "2026-09-02",
+  "_updated": "2026-10-29",
   "version": "2.0.0",
 
   "required_keys": ["utm_source", "utm_medium", "utm_campaign"],

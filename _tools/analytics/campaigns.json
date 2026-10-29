@@ -1,6 +1,6 @@
 {
   "_readme": "utm_campaign の登録簿。ここに無い値は _tools/check-utm.py で落ちる。規約の正本は utm-policy.md。",
-  "_updated": "2026-09-04",
+  "_updated": "2026-10-29",
   "version": "2.0.0",
 
   "_naming_mode": {
@@ -69,6 +69,20 @@
       "fixable": "yes",
       "registered": "2026-09-03",
       "note": "会場版（202609_tgs）とは別施策。X のフォロワー限定でメールアドレスを取得しないため、サンクスメールは送らない（2026-09-04 に zotac_forms / mail_thanks を削除）。Forms 完了画面のリンクは層A（UTMなし・?ref=thanks）。"
+    },
+
+    "202611_edgetech": {
+      "name": "EdgeTech+ 2026（2026-11-18〜・パシフィコ横浜）関連",
+      "naming_mode": "dated",
+      "effective_month": "2026-11",
+      "status": "保留（送信媒体が決まるまで URL を発行しない）",
+      "allowed_sources": [],
+      "allowed_mediums": ["email"],
+      "landing": "/events/edgetech2026/",
+      "placement": "EdgeTech+ 2026 関連（会期後の自動返信メール内リンク等・未確定）。スペックカード 8 枚の QR は UTM なし（https://hub.zotac.co.jp/events/edgetech2026/#<slug> のみ。カード別は LP が GA4 イベント lp_entry（card=slug）で送る。2026-10-29 ユーザー決定）。壁面・島・配布物の QR に UTM を付けるかは未定",
+      "fixable": "yes",
+      "registered": "2026-10-29",
+      "note": "allowed_sources が空のあいだは check-utm が source を campaign 単位で絞らない（登録済み source なら通る）。使うときは、まず送信媒体の source を utm-taxonomy.json に登録し、ここの allowed_sources に足してから URL を発行する。2026-10-29 に一度登録した source offline_edgetech_booth（スペックカード QR 用）は、QR を UTM なしにしたため同日に削除。LP は未公開・会期 11/18 までに公開が必要。"
     }
   }
 }
