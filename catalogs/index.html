@@ -37,7 +37,7 @@
   "name": "ZBOX 製品カタログ インデックス",
   "description": "ZOTAC ZBOX 各モデルの製品カタログページ一覧。用途・型番・GPU から検索できます。",
   "url": "https://hub.zotac.co.jp/catalogs/",
-  "numberOfItems": 18,
+  "numberOfItems": 24,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -217,6 +217,66 @@
         "name": "ZOTAC ZBOX edge MI656",
         "url": "https://hub.zotac.co.jp/catalogs/zbox/mi656/",
         "description": "Intel Core Ultra 5 225H · Intel ARC 130T · NPU内蔵 · 0.64L"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
+      "item": {
+        "@type": "Thing",
+        "name": "ZOTAC ZBOX PRO ZP-S35W3 / ZP-S35W3DX（PCP SOLUTIONS EMB-S35W3 / EMB-S35W3DX）",
+        "url": "https://hub.zotac.co.jp/catalogs/embedded/s35w3/",
+        "description": "Core 3 304 · 15 TOPS（DX モデルは 40 TOPS の合算）· HDMI 2.0 ×3 · 0.82L ファンレス"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "item": {
+        "@type": "Thing",
+        "name": "ZOTAC ZBOX PRO ZP-CM5-PICO（PCP SOLUTIONS EMB-CM5-PICO）",
+        "url": "https://hub.zotac.co.jp/catalogs/embedded/cm5-pico/",
+        "description": "Raspberry Pi CM5 · LPDDR4x 2〜16GB · HDMI 2.1 ×2 · 0.27L ファンレス"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 21,
+      "item": {
+        "@type": "Thing",
+        "name": "ZOTAC ZBOX PRO ZP-JETSONE-OX16-L2（PCP SOLUTIONS JETSONE-OX16-L2）",
+        "url": "https://hub.zotac.co.jp/catalogs/embedded/orin-nx/",
+        "description": "Jetson Orin NX 16GB SUPER · 157 TOPS · PoE 給電 GbE · 1.33L ファンレス"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 22,
+      "item": {
+        "@type": "Thing",
+        "name": "ZOTAC ZBOX PRO ZP-JETSONE-ON8-L2（PCP SOLUTIONS JETSONE-ON8-L2）",
+        "url": "https://hub.zotac.co.jp/catalogs/embedded/orin-nano/",
+        "description": "Jetson Orin Nano 8GB SUPER · 67 TOPS · PoE 給電 GbE · 0.67L ファンレス"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 23,
+      "item": {
+        "@type": "Thing",
+        "name": "ZOTAC ZBOX PRO ZP-THOREDGE-DX1（PCP SOLUTIONS EMB-THOREDGE-DX1）",
+        "url": "https://hub.zotac.co.jp/catalogs/embedded/thoredge-dx1/",
+        "description": "Jetson T5000 / T4000 · 最大 2,070 FP4 TFLOPS · GMSL2 ×8 · 25GbE QSFP28 ×4（T4000 は ×3）· 2.67L"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 24,
+      "item": {
+        "@type": "Thing",
+        "name": "PCP SOLUTIONS Blackwell MXM (EMB-G798 / EMB-G800 / EMB-G797)",
+        "url": "https://hub.zotac.co.jp/catalogs/embedded/mxm-blackwell/",
+        "description": "RTX PRO 5000 / 4000 / 2000 / 500 · GDDR7 · MXM 3.1 · PCIe 4.0 · 供給はメーカー公表の目安 2030 年 Q3"
       }
     }
   ]
@@ -909,15 +969,26 @@ html { scroll-padding-top: 96px; }
 }
 .zindex-group[data-use="gaming"] .zindex-row::before { background: var(--text-dark); }
 .zindex-group[data-use="ai"] .zindex-row::before { background: #FF8C42; }
-.zindex-group[data-use="business"] .zindex-row::before { background: var(--brand-yellow); }
+.zindex-group[data-use="business"] .zindex-row::before { background: #B1B3B6; }
+.zindex-group[data-use="business"] .zindex-group-head .zindex-group-note::before { color: #515152; }
+.zindex-group[data-use="business"] .zindex-row:hover { background: rgba(81,81,82,0.06); }
+.zindex-group[data-use="business"] .zindex-row:hover::before { background: #515152; }
+.zindex-group[data-use="business"] .zindex-row:hover .zindex-go { color: #515152; }
 .zindex-group[data-use="workstation"] .zindex-row::before { background: #5B7C99; }
 .zindex-group[data-use="q"] .zindex-row::before { background: #3E5C76; }
 .zindex-group[data-use="compact"] .zindex-row::before { background: #00BEC7; }
 .zindex-group[data-use="m"] .zindex-row::before { background: #71C79C; }
 .zindex-group[data-use="graphics"] .zindex-row::before { background: var(--text-dark); }
+/* PCP SOLUTIONS 区画（MXM）。2026-10-27 */
+.zindex-group[data-use^="pcp-"] .zindex-row::before { background: #0E8C8C; }
+.zindex-group[data-use^="pcp-"] .zindex-group-head .zindex-group-note::before { color: #0E8C8C; }
+.zindex-group[data-use^="pcp-"] .zindex-row:hover { background: rgba(14,140,140,0.08); }
+.zindex-group[data-use^="pcp-"] .zindex-row:hover .zindex-go { color: #0B6E6E; }
+.zindex-cat-pcp { border-top-color: #0E8C8C; }
+.zindex-cat-logo { height: 24px; width: auto; margin-right: 10px; align-self: center; }
 /* カテゴリ区切り: 完成PC(ミニPC/WS)と単体グラフィックスカード(部品)の境目を明示 */
 .zindex-cat { margin-top: 54px; padding-top: 20px; border-top: 3px solid var(--text-dark); }
-.zindex-cat-title { font-size: 19px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-dark); display: flex; align-items: baseline; gap: 10px; }
+.zindex-cat-title { font-size: 19px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-dark); display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .zindex-cat-title .zindex-cat-en { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: #9A9DA0; }
 .zindex-cat-note { font-size: 13px; color: #6a6e72; margin-top: 5px; line-height: 1.6; }
 .zindex-cat + .zindex-group { margin-top: 24px; }
@@ -926,13 +997,13 @@ html { scroll-padding-top: 96px; }
 
 .zindex-sku {
   font-family: var(--font-mono);
-  font-size: 14px; font-weight: 700;
+  font-size: 15px; font-weight: 800;
   letter-spacing: 0.02em;
   color: var(--text-dark);
 }
 .zindex-main { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .zindex-name {
-  font-size: 14px; font-weight: 700; letter-spacing: -0.005em;
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.01em; color: var(--text-muted);
   display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
 }
 .zindex-name .zindex-tier {
@@ -971,9 +1042,11 @@ html { scroll-padding-top: 96px; }
     gap: 4px 16px;
     padding: 14px 16px 14px 20px;
   }
-  .zindex-sku { grid-column: 1 / -1; font-size: 13px; }
-  .zindex-main { grid-column: 1; }
-  .zindex-go { grid-column: 2; grid-row: 2; align-self: center; }
+  .zindex-main { display: contents; }   /* 名前・型番・スペックを 3 行に並べるため、包みを外して子を直接グリッドに置く */
+  .zindex-name { grid-column: 1; grid-row: 1; }
+  .zindex-sku { grid-column: 1; grid-row: 2; font-size: 15px; }
+  .zindex-spec { grid-column: 1; grid-row: 3; }
+  .zindex-go { grid-column: 2; grid-row: 1 / 4; align-self: center; }
 }
 
 /* ============================================================
@@ -1925,10 +1998,10 @@ html { scroll-padding-top: 96px; }
       </div>
 
       <!-- 法人・組み込み・サイネージ(ZBOX PRO) -->
-      <div class="zindex-group" data-use="business">
+      <div class="zindex-group" data-use="business" id="zbox-pro">
         <div class="zindex-group-head">
-          <h3>法人・組み込み・サイネージ — ZBOX PRO</h3>
-          <span class="zindex-group-note">産業・組み込み・デジタルサイネージ — 長期安定運用</span>
+          <h3>法人・組み込み・AI・サイネージ — ZBOX PRO</h3>
+          <span class="zindex-group-note">ファンレス・広温度・長期供給 — 産業・組み込み・エッジ AI、PCP SOLUTIONS 製を含む</span>
         </div>
         <div class="zindex-list">
 
@@ -1946,6 +2019,47 @@ html { scroll-padding-top: 96px; }
             <span class="zindex-main">
               <span class="zindex-name">ZBOX PRO<span class="zindex-tier">ファンレス</span></span>
               <span class="zindex-spec">Intel N150 · ファンレス(パッシブ冷却)</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+
+          <a href="/catalogs/embedded/s35w3/" class="zindex-row" data-use="business" data-search="s35w3 zp-s35w3 / zp-s35w3dx emb-s35w3, emb-s35w3dx pcp solutions pc partner embedded 組み込み intel core 3 processor 304 fanless embedded pc intel core 3 processor 304 fanless embedded pc x86 system zp-s35w3 / zp-s35w3dx">
+            <span class="zindex-sku">S35W3 / S35W3DX</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZBOX PRO<span class="zindex-tier">ファンレス組み込み PC</span></span>
+              <span class="zindex-spec">Core 3 304 · 15 TOPS（DX モデルは DX-M1 を加え 40 TOPS の合算）· HDMI 2.0 ×3 · 0.82L ファンレス</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+          <a href="/catalogs/embedded/cm5-pico/" class="zindex-row" data-use="business" data-search="cm5-pico zp-cm5-pico emb-cm5-pico pcp solutions pc partner embedded 組み込み raspberry pi cm5 palm-size computer raspberry pi cm5 palm-size computer arm system zp-cm5-pico">
+            <span class="zindex-sku">CM5-PICO</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZBOX PRO<span class="zindex-tier">組み込み ARM コンピュータ</span></span>
+              <span class="zindex-spec">Raspberry Pi CM5 · LPDDR4x 2〜16GB · HDMI 2.1 ×2 · 0.27L ファンレス</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+          <a href="/catalogs/embedded/orin-nx/" class="zindex-row" data-use="business" data-search="orin-nx zp-jetsone-ox16-l2 emb-c442n8-bf-a1 / emb-c442n8-bf-b1 pcp solutions pc partner embedded 組み込み jetson orin nx super 8gb/16gb – fanless edge ai computer c442n8 - jetson orin nx poe+wifi embedded ai system arm system zp-jetsone-ox16-l2">
+            <span class="zindex-sku">JETSONE-OX16-L2</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZBOX PRO<span class="zindex-tier">組み込み AI システム</span></span>
+              <span class="zindex-spec">Jetson Orin NX 16GB SUPER · 157 TOPS · PoE 給電 GbE · 1.33L ファンレス</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+          <a href="/catalogs/embedded/orin-nano/" class="zindex-row" data-use="business" data-search="orin-nano zp-jetsone-on8-l2 emb-c442n7-bf-a1 / emb-c442n7-bf-b1 pcp solutions pc partner embedded 組み込み jetson orin nano super 4gb/8gb – fanless edge ai computer c442n7 : jetson orin nano poe+wifi embedded ai system arm system zp-jetsone-on8-l2">
+            <span class="zindex-sku">JETSONE-ON8-L2</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZBOX PRO<span class="zindex-tier">組み込み AI システム</span></span>
+              <span class="zindex-spec">Jetson Orin Nano 8GB SUPER · 67 TOPS · PoE 給電 GbE · 0.67L ファンレス</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+          <a href="/catalogs/embedded/thoredge-dx1/" class="zindex-row" data-use="business" data-search="thoredge-dx1 zp-thoredge-dx1 emb-thoredge-dx1 pcp solutions pc partner embedded 組み込み jetson thor robot computer jetson thor robot computer arm system zp-thoredge-dx1">
+            <span class="zindex-sku">THOREDGE-DX1</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZBOX PRO<span class="zindex-tier">ロボティクス向け AI コンピュータ</span></span>
+              <span class="zindex-spec">Jetson T5000 / T4000 · 最大 2,070 FP4 TFLOPS · GMSL2 ×8 · 25GbE QSFP28 ×4（T4000 は ×3）· CAN FD ×4（T5000）· 2.67L</span>
             </span>
             <span class="zindex-go">カタログページ →</span>
           </a>
@@ -2166,6 +2280,31 @@ html { scroll-padding-top: 96px; }
             <span class="zindex-main">
               <span class="zindex-name">ZOTAC GAMING GeForce RTX 5060 Ti 8GB Twin Edge OC</span>
               <span class="zindex-spec">8GB GDDR7 · 2連ファン（90mm）</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ===== PCP SOLUTIONS（PC Partner Limited 組み込み事業部）— ZP 型番の無い製品（MXM）だけをここに置く。ZP 型番のある組み込み製品は上の ZBOX PRO 群（2026-10-27 ユーザー決定）。
+           行は ② _brochure_poc/build_embedded.py の index_snippet() が出す dist/index_snippets_embedded.html から。 -->
+      <div class="zindex-cat zindex-cat-pcp" data-use="pcp" id="pcp">
+        <div class="zindex-cat-title"><img class="zindex-cat-logo" src="/assets/pcp_solutions_logo.png" alt="PCP SOLUTIONS" width="140" height="24">組み込み GPU モジュール<span class="zindex-cat-en">PCP SOLUTIONS</span></div>
+        <div class="zindex-cat-note">PCP SOLUTIONS は PC Partner Limited（ZOTAC と同じ PC Partner グループ）の組み込み事業部のブランドです。ZBOX PRO の型番（ZP-）がある組み込み製品は上の「法人・組み込み・AI・サイネージ — ZBOX PRO」に掲載しています。製品情報の一次出典は PCP SOLUTIONS の製品ページ・資料。見積・受注の窓口は株式会社ゾタック日本の法人窓口です。</div>
+      </div>
+
+      <div class="zindex-group" data-use="pcp-mxm">
+        <div class="zindex-group-head">
+          <h3>MXM Graphics Card — NVIDIA RTX PRO Blackwell</h3>
+          <span class="zindex-group-note">MXM 3.1 Type A / B の組み込み GPU モジュール — PCIe 4.0・GDDR7・供給はメーカー公表の目安 2030 年 Q3</span>
+        </div>
+        <div class="zindex-list">
+
+          <a href="/catalogs/embedded/mxm-blackwell/" class="zindex-row" data-use="pcp-mxm" data-search="mxm-blackwell emb-g798 / emb-g800 / emb-g797 emb-g798 / emb-g800 / emb-g797 pcp solutions pc partner embedded 組み込み nvidia rtx pro blackwell generation embedded gpu (mxm 3.1) nvidia rtx pro blackwell generation embedded gpu (mxm 3.1) mxm graphics card ">
+            <span class="zindex-sku">EMB-G798 / EMB-G800 / EMB-G797</span>
+            <span class="zindex-main">
+              <span class="zindex-name">NVIDIA RTX PRO Blackwell MXM<span class="zindex-tier">組み込み GPU モジュール</span></span>
+              <span class="zindex-spec">RTX PRO 5000 / 4000 / 2000 / 500 · GDDR7 6〜24GB · MXM 3.1 Type A/B · PCIe 4.0 · 供給はメーカー公表の目安 2030 年 Q3</span>
             </span>
             <span class="zindex-go">カタログページ →</span>
           </a>
@@ -2582,7 +2721,10 @@ html { scroll-padding-top: 96px; }
     });
     // カテゴリ区切りは、その用途の可視行が1件以上あるときだけ表示（フィルタ/検索と整合）
     cats.forEach(function (cat) {
-      cat.style.display = (perUse[cat.getAttribute('data-use')] > 0) ? '' : 'none';
+      var cu = cat.getAttribute('data-use');
+      var n = perUse[cu] || 0;
+      if (cu === 'pcp') { Object.keys(perUse).forEach(function (k) { if (k.indexOf('pcp-') === 0) n += perUse[k]; }); }
+      cat.style.display = n > 0 ? '' : 'none';
     });
     if (empty) empty.style.display = total ? 'none' : 'block';
   }
