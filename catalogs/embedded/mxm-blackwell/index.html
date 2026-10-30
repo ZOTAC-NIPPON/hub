@@ -83,6 +83,9 @@ h1,h2{margin:0;font-size:inherit;font-weight:inherit;}  /* 見出し要素の既
 .sku .alt{display:block;font-size:11px;color:var(--faint);}
 .brand-note{margin:12px 0 0;padding:10px 12px;background:var(--accent-bg);border-left:3px solid var(--accent);font-size:11.5px;line-height:1.7;color:var(--mid);}
 .brand-note b{color:var(--accent-deep);}
+/* h1 横のラベル（.ref-tag）と注記先頭の 1 文（.ref-line）。生成器の REF_EXHIBIT が空なら使われない（2026-10-30） */
+.ref-tag{display:inline-block;vertical-align:middle;margin-left:10px;padding:2px 8px;border:1px solid var(--accent);color:var(--accent-deep);background:#fff;font-size:11px;font-weight:700;letter-spacing:.04em;line-height:1.5;position:relative;top:-2px;}
+.brand-note .ref-line{display:block;margin-bottom:4px;color:var(--ink);}
 .tagline{font-size:13px;color:var(--mid);line-height:1.75;margin:12px 0 0;}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;}
 .chip{font-family:var(--mono);font-size:10px;color:var(--ink);background:var(--bg-soft);border:1px solid var(--line);padding:3px 10px;}
@@ -310,9 +313,9 @@ section{padding:26px 0;border-top:1px solid var(--line);}
   </section>
   <section>
     <h2 class="sec-label">関連製品・資料</h2>
-    <div class="cards3">
+    <div class="cards4">
       <a class="xcard" href="/catalogs/#pcp"><span class="badge sib">同ブランド</span><div class="t">PCP SOLUTIONS 製品一覧</div><div class="s">PCP SOLUTIONS の掲載製品を見る</div><div class="go">見る →</div></a>
-      
+      <a class="xcard" href="/catalogs/embedded/g829/"><span class="badge up">関連モデル</span><div class="t">EMB-G829</div><div class="s">RTX PRO 500 の PCIe カード（mini-DP ×4・開発中）</div><div class="go">見る →</div></a>
       <a class="xcard" href="/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf" target="_blank" rel="noopener"><span class="badge up">資料</span><div class="t">製品カタログ（PDF・日本語）</div><div class="s">ZOTAC Embedded GPU Brochure 2026（日本語版・A4 2 ページ） を開く</div><div class="go">開く ↗</div></a>
       <a class="xcard" href="https://www.pcpsol.com/en/product_detail.php?id=240&amp;cid=107&amp;page=1" target="_blank" rel="noopener"><span class="badge sib">メーカー</span><div class="t">PCP SOLUTIONS 公式製品ページ</div><div class="s">英語・最新仕様はこちら</div><div class="go">開く ↗</div></a>
     </div>

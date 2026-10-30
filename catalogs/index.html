@@ -37,7 +37,7 @@
   "name": "ZBOX 製品カタログ インデックス",
   "description": "ZOTAC ZBOX 各モデルの製品カタログページ一覧。用途・型番・GPU から検索できます。",
   "url": "https://hub.zotac.co.jp/catalogs/",
-  "numberOfItems": 25,
+  "numberOfItems": 28,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -287,6 +287,36 @@
         "name": "PCP SOLUTIONS Blackwell MXM (EMB-G798 / EMB-G800 / EMB-G797)",
         "url": "https://hub.zotac.co.jp/catalogs/embedded/mxm-blackwell/",
         "description": "RTX PRO 5000 / 4000 / 2000 / 500 · GDDR7 · MXM 3.1 · PCIe 4.0 · 供給はメーカー公表の目安 2030 年 Q3"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 26,
+      "item": {
+        "@type": "Thing",
+        "name": "ZOTAC ZBOX PRO ZP-MI652DX（PCP SOLUTIONS EMB-MI652DX）",
+        "url": "https://hub.zotac.co.jp/catalogs/embedded/mi652dx/",
+        "description": "Core Ultra 5 225H · DeepX DX-M1 · 38 TOPS · DDR5 最大 96GB · 0.83L エッジ AI ボックス"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 27,
+      "item": {
+        "@type": "Thing",
+        "name": "ZOTAC ZBOX PRO ZP-RK88DX（PCP SOLUTIONS EMB-RK88DX）",
+        "url": "https://hub.zotac.co.jp/catalogs/embedded/rk88dx/",
+        "description": "Rockchip RK3588 · 31 TOPS（RK3588 6 ＋ DeepX DX-M1 25）· HDMI 2.1 ×2 · 0.82L ファンレス"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 28,
+      "item": {
+        "@type": "Thing",
+        "name": "PCP SOLUTIONS EMB-G829（RTX PRO 500 PCIe カード）",
+        "url": "https://hub.zotac.co.jp/catalogs/embedded/g829/",
+        "description": "RTX PRO 500 · GDDR7 6GB · mini-DP 2.1 ×4 · PCIe x16（x8 信号）· 開発中（サンプル 2026 年 11 月〜）"
       }
     }
   ]
@@ -2041,6 +2071,22 @@ html { scroll-padding-top: 96px; }
             </span>
             <span class="zindex-go">カタログページ →</span>
           </a>
+          <a href="/catalogs/embedded/mi652dx/" class="zindex-row" data-use="business" data-search="mi652dx zp-mi652dx emb-mi652dx pcp solutions pc partner embedded 組み込み intel core ultra 5 edge ai pc intel core ultra 5 edge ai pc x86 system zp-mi652dx">
+            <span class="zindex-sku">MI652DX</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZBOX PRO<span class="zindex-tier">エッジ AI ボックス</span></span>
+              <span class="zindex-spec">Core Ultra 5 225H · DeepX DX-M1 · 38 TOPS · DDR5 最大 96GB · 0.83L</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+          <a href="/catalogs/embedded/rk88dx/" class="zindex-row" data-use="business" data-search="rk88dx zp-rk88dx rk88, rk88dx pcp solutions pc partner embedded 組み込み rockchip rk3588 embedded ai computer rockchip rk3588 embedded ai computer arm system zp-rk88dx">
+            <span class="zindex-sku">RK88DX</span>
+            <span class="zindex-main">
+              <span class="zindex-name">ZBOX PRO<span class="zindex-tier">ファンレス・エッジ AI コンピューター</span></span>
+              <span class="zindex-spec">Rockchip RK3588 · 31 TOPS（RK3588 6 ＋ DeepX DX-M1 25）· HDMI 2.1 ×2 · 0.82L ファンレス</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
           <a href="/catalogs/embedded/cm5-pico/" class="zindex-row" data-use="business" data-search="cm5-pico zp-cm5-pico emb-cm5-pico pcp solutions pc partner embedded 組み込み raspberry pi cm5 palm-size computer raspberry pi cm5 palm-size computer arm system zp-cm5-pico">
             <span class="zindex-sku">CM5-PICO</span>
             <span class="zindex-main">
@@ -2307,14 +2353,14 @@ html { scroll-padding-top: 96px; }
       <!-- ===== PCP SOLUTIONS（PC Partner Limited 組み込み事業部）— ZP 型番の無い製品（MXM）だけをここに置く。ZP 型番のある組み込み製品は上の ZBOX PRO 群（2026-10-27 ユーザー決定）。
            行は ② _brochure_poc/build_embedded.py の index_snippet() が出す dist/index_snippets_embedded.html から。 -->
       <div class="zindex-cat zindex-cat-pcp" data-use="pcp" id="pcp">
-        <div class="zindex-cat-title"><img class="zindex-cat-logo" src="/assets/pcp_solutions_logo.png" alt="PCP SOLUTIONS" width="140" height="24">組み込み GPU モジュール<span class="zindex-cat-en">PCP SOLUTIONS</span></div>
+        <div class="zindex-cat-title"><img class="zindex-cat-logo" src="/assets/pcp_solutions_logo.png" alt="PCP SOLUTIONS" width="140" height="24">組み込み GPU<span class="zindex-cat-en">PCP SOLUTIONS</span></div>
         <div class="zindex-cat-note">PCP SOLUTIONS は PC Partner Limited（ZOTAC と同じ PC Partner グループ）の組み込み事業部のブランドです。ZBOX PRO の型番（ZP-）がある組み込み製品は上の「法人・組み込み・AI・サイネージ — ZBOX PRO」に掲載しています。製品情報の一次出典は PCP SOLUTIONS の製品ページ・資料。見積・受注の窓口は株式会社ゾタック日本の法人窓口です。</div>
       </div>
 
       <div class="zindex-group" data-use="pcp-mxm">
         <div class="zindex-group-head">
-          <h3>MXM Graphics Card — NVIDIA RTX PRO Blackwell</h3>
-          <span class="zindex-group-note">MXM 3.1 Type A / B の組み込み GPU モジュール — PCIe 4.0・GDDR7・供給はメーカー公表の目安 2030 年 Q3</span>
+          <h3>組み込み GPU — NVIDIA RTX PRO Blackwell（MXM・PCIe）</h3>
+          <span class="zindex-group-note">MXM 3.1 Type A / B のモジュールと PCIe カード — GDDR7・供給はメーカー公表の目安 2030 年 Q3</span>
         </div>
         <div class="zindex-list">
 
@@ -2323,6 +2369,14 @@ html { scroll-padding-top: 96px; }
             <span class="zindex-main">
               <span class="zindex-name">NVIDIA RTX PRO Blackwell MXM<span class="zindex-tier">組み込み GPU モジュール</span></span>
               <span class="zindex-spec">RTX PRO 5000 / 4000 / 2000 / 500 · GDDR7 6〜24GB · MXM 3.1 Type A/B · PCIe 4.0 · 供給はメーカー公表の目安 2030 年 Q3</span>
+            </span>
+            <span class="zindex-go">カタログページ →</span>
+          </a>
+          <a href="/catalogs/embedded/g829/" class="zindex-row" data-use="pcp-mxm" data-search="g829 emb-g829 emb-g829 pcp solutions pc partner embedded 組み込み rtx pro 500 quad mini-displayport pci express card rtx pro 500 quad mini-displayport pci express card pcie graphics card ">
+            <span class="zindex-sku">EMB-G829</span>
+            <span class="zindex-main">
+              <span class="zindex-name">NVIDIA RTX PRO 500 PCIe Card<span class="zindex-tier">組み込み GPU カード（PCIe）</span></span>
+              <span class="zindex-spec">RTX PRO 500 · GDDR7 6GB · mini-DP 2.1 ×4 · PCIe x16（x8 信号）· 開発中（サンプル 2026 年 11 月〜）</span>
             </span>
             <span class="zindex-go">カタログページ →</span>
           </a>
