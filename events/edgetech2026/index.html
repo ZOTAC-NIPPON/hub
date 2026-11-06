@@ -143,8 +143,9 @@ body:not([data-hero="e"]) #hero-e{display:none} body[data-hero="e"] #hero-abcd{d
 .cta-terms{margin:6px 0 0;padding-left:1.2em;font-size:12.5px;line-height:1.7;color:var(--ink);max-width:620px}
 .cta-terms li{padding-left:2px}
 .cta-e{display:flex;flex-direction:column;max-width:620px}
-.cta-e>.btn-primary{order:1} .cta-e>.cta-how{order:2} .cta-e>.cta-terms{order:3} .cta-e>.btn-view{order:4;margin-top:14px} .cta-e>.btn-text{order:5;align-self:flex-start;margin-top:4px} .cta-e>.cta-note{order:6}
-@media(min-width:600px){.cta-e{flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px 12px} .cta-e>.btn-view{order:1;margin-top:0} .cta-e>.cta-how{margin-top:2px} .cta-e>.cta-terms,.cta-e>.cta-note{margin-top:0} .cta-e>.cta-how,.cta-e>.cta-terms,.cta-e>.cta-note{flex-basis:100%}}
+.cta-e>.btn-primary{order:1} .cta-e>.cta-how{order:2} .cta-e>.cta-terms{order:3} .cta-e>.btn-view{order:4;margin-top:14px} .cta-e>.cta-alt{order:5} .cta-e>.btn-text{order:6;align-self:flex-start;margin-top:4px} .cta-e>.cta-note{order:7}
+.cta-alt{margin:6px 0 0;font-size:12.5px;line-height:1.7;color:var(--ink-mid);max-width:620px}
+@media(min-width:600px){.cta-e{flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px 12px} .cta-e>.btn-view{order:1;margin-top:0} .cta-e>.cta-how{margin-top:2px} .cta-e>.cta-terms,.cta-e>.cta-note,.cta-e>.cta-alt{margin-top:0} .cta-e>.cta-how,.cta-e>.cta-terms,.cta-e>.cta-alt,.cta-e>.cta-note{flex-basis:100%}}
 .btn-view{font-weight:700;font-size:14px;padding:11px 16px;border-color:var(--ink)}
 .btn-view::after{content:"↗";font-size:.95em;color:var(--ink-mid)}
 .btn-view.is-jump::after{content:"↓"}
@@ -242,8 +243,8 @@ body:not([data-hero="e"]) #hero-e{display:none} body[data-hero="e"] #hero-abcd{d
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:250;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;gap:8px;transform:translateY(110%);transition:transform .25s}
 .sticky.is-on{transform:none}
 .sticky .btn{flex:1;padding:12px 8px;font-size:14px}
-.sticky .btn-primary{flex:1.7}
-@media(max-width:400px){.sticky .btn{font-size:13px;gap:5px} .sticky .btn::before{display:none}}
+.sticky .btn-primary{flex:2.2}
+@media(max-width:400px){.sticky .btn{font-size:13px;gap:5px} .sticky .btn-share::before{display:none}}
 @media(min-width:900px){.sticky{display:none}}
 body.has-sticky{padding-bottom:76px}
 
@@ -372,15 +373,16 @@ footer a{color:var(--dark-ink)}
       <!-- 並び: PC 幅は［黄ボタン｜この製品の資料をいま見る］の横並び、スマホは黄ボタン → 注記 → 副ボタン（注記は黄ボタンの直下＝ユーザー決定）。
            入れ替える how・terms にはリンクが無いので、Tab の順と見た目の順はずれない -->
       <div class="cta-e">
-        <a class="btn btn-primary js-mail" href="#" id="cta-mail-e" data-track="pack_mail" data-position="hero">資料を<wbr>メールで<wbr>受け取る</a>
+        <a class="btn btn-primary js-mail" href="#" id="cta-mail-e" data-track="pack_mail" data-position="hero">資料を<wbr>まとめて<wbr>メールで<wbr>受け取る</a>
         <a class="btn btn-view is-jump" id="cta-view-e" href="#products" data-track="toc" data-position="hero_view">9 機種の<wbr>資料を<wbr>見る</a>
         <p class="cta-how">入力不要・<wbr>そのまま<wbr>送信 → 数分で<wbr>自動返信が<wbr>届きます</p>
         <ul class="cta-terms">
-          <li>資料の<wbr>ほか、<wbr>評価機・<wbr>新製品の<wbr>ご案内も<wbr>お送りします。<wbr>配信停止は、<wbr>届いた<wbr>メールへの<wbr>ご返信で<wbr>承ります。</li>
+          <li>後日、<wbr>営業担当から<wbr>ご連絡する<wbr>ことがあります。<wbr>評価機・<wbr>新製品の<wbr>ご案内も<wbr>お送りします。<wbr>配信停止は、<wbr>届いた<wbr>メールへの<wbr>ご返信で<wbr>承ります。</li>
           <li>会社の<wbr>アドレスからの<wbr>送信が<wbr>おすすめです<wbr><span class="paren">（個人の<wbr>アドレスでも<wbr>受け取れます）。</span></li>
         </ul>
-        <button type="button" class="btn-text js-share" data-track="share_self" data-position="hero"><span>URL だけ残す<wbr><span class="paren">（ZOTAC からの<wbr>連絡なし）</span><wbr> ›</span></button>
-        <p class="cta-note cta-note-e">「資料を<wbr>メールで<wbr>受け取る」⁠を<wbr>押すと<wbr>メールアプリが<wbr>開きます<wbr><span class="paren">（宛先・件名は<wbr>入力済み）。</span><wbr>送信元は<wbr> <span class="todo">【要確認】担当者名</span> です。<wbr>アドレスは<wbr>資料の<wbr>送付と<wbr>ご案内にのみ<wbr>使用し、<span class="todo">【要確認】保存期間</span>内に<wbr>削除します。<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a><br>
+        <p class="cta-alt">1 機種ずつなら、<wbr>メールを<wbr>送らずに<wbr>この<wbr>ページから<wbr> PDF を<wbr>開けます。<wbr>ZOTAC からの<wbr>ご連絡は<wbr>ありません。</p>
+        <button type="button" class="btn-text js-share" data-track="share_self" data-position="hero">URL を<wbr>共有・保存する<wbr> ›</button>
+        <p class="cta-note cta-note-e">「資料を<wbr>まとめて<wbr>メールで<wbr>受け取る」⁠を<wbr>押すと<wbr>メールアプリが<wbr>開きます<wbr><span class="paren">（宛先・件名は<wbr>入力済み）。</span><wbr>送信元は<wbr> <span class="todo">【要確認】担当者名</span> です。<wbr>アドレスは<wbr>資料の<wbr>送付、<wbr>ご案内、<wbr>営業担当からの<wbr>ご連絡にのみ<wbr>使用し、<span class="todo">【要確認】保存期間</span>内に<wbr>削除します。<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a><br>
         メールアプリが<wbr>開かない<wbr>場合は<wbr> <a href="mailto:edgetech@zotac.co.jp" class="nw todo">edgetech@zotac.co.jp</a> へ<wbr>空メールを。<wbr>メールを<wbr>使えない<wbr>場合は、<wbr>ブースの<wbr>係員に<wbr>名刺を<wbr>お渡しください。</p>
       </div>
     </div>
@@ -407,11 +409,11 @@ footer a{color:var(--dark-ink)}
       <p class="hero-lead">ブースで<wbr>ご覧いただいた<wbr>組込み・エッジ AI 向けの<wbr> PC と<wbr>モジュールの<wbr>製品資料<wbr>（PDF）⁠と<wbr>製品ページを、<wbr>1 通の<wbr>メールに<wbr>まとめて<wbr>お届けします。<wbr>入力は<wbr>ありません。</p>
       <div class="product-pick" id="product-pick" role="status">ご覧に<wbr>なった<wbr>製品: <b id="pick-model"></b> の<wbr>資料を<wbr>先頭に<wbr>お送りします。</div>
       <div class="cta-row">
-        <a class="btn btn-primary js-mail" href="#" id="cta-mail" data-track="pack_mail" data-position="hero">資料一式を<wbr>メールで<wbr>受け取る</a>
-        <button type="button" class="btn btn-share js-share" id="cta-share" data-track="share_self" data-position="hero">URL だけ残す<wbr>（連絡なし）</button>
+        <a class="btn btn-primary js-mail" href="#" id="cta-mail" data-track="pack_mail" data-position="hero">資料を<wbr>まとめて<wbr>メールで<wbr>受け取る</a>
+        <button type="button" class="btn btn-share js-share" id="cta-share" data-track="share_self" data-position="hero">URL を<wbr>共有・保存する</button>
       </div>
-      <p class="cta-note">「資料一式を<wbr>メールで<wbr>受け取る」⁠を<wbr>押すと<wbr>メールアプリが<wbr>開き、<wbr>宛先と<wbr>件名が<wbr>入った<wbr>状態に<wbr>なります。<wbr>そのまま<wbr>送信してください。<wbr>数分以内に<wbr>担当者から<wbr>資料の<wbr>メールが<wbr>届きます<wbr>（送信元 <span class="todo">【要確認】担当者名</span>）。<wbr>メールが<wbr>開かない<wbr>場合は<wbr> <a href="mailto:edgetech@zotac.co.jp" class="nw todo">edgetech@zotac.co.jp</a> へ<wbr>空メールを<wbr>お送りください。<br>
-      資料の<wbr>ほか、<wbr>評価機・<wbr>新製品の<wbr>ご案内も<wbr>お送りします。<wbr>配信停止は、<wbr>届いた<wbr>メールへの<wbr>ご返信で<wbr>承ります。<wbr>お送りいただいた<wbr>メールアドレスは<wbr>資料の<wbr>送付と<wbr>評価機・<wbr>新製品の<wbr>ご案内にのみ<wbr>使用し、<span class="todo">【要確認】保存期間</span>内に<wbr>削除します。<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a></p>
+      <p class="cta-note">「資料を<wbr>まとめて<wbr>メールで<wbr>受け取る」⁠を<wbr>押すと<wbr>メールアプリが<wbr>開き、<wbr>宛先と<wbr>件名が<wbr>入った<wbr>状態に<wbr>なります。<wbr>そのまま<wbr>送信してください。<wbr>数分以内に<wbr>担当者から<wbr>資料の<wbr>メールが<wbr>届きます<wbr>（送信元 <span class="todo">【要確認】担当者名</span>）。<wbr>メールが<wbr>開かない<wbr>場合は<wbr> <a href="mailto:edgetech@zotac.co.jp" class="nw todo">edgetech@zotac.co.jp</a> へ<wbr>空メールを<wbr>お送りください。<br>
+      後日、<wbr>営業担当から<wbr>ご連絡する<wbr>ことがあります。<wbr>評価機・<wbr>新製品の<wbr>ご案内も<wbr>お送りします。<wbr>配信停止は、<wbr>届いた<wbr>メールへの<wbr>ご返信で<wbr>承ります。<wbr>お送りいただいた<wbr>メールアドレスは<wbr>資料の<wbr>送付、<wbr>評価機・<wbr>新製品の<wbr>ご案内、<wbr>営業担当からの<wbr>ご連絡にのみ<wbr>使用し、<span class="todo">【要確認】保存期間</span>内に<wbr>削除します。<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a></p>
     </div>
     <div class="hero-visual" aria-hidden="true">
       <img src="images/qu27n5000.jpg" alt=""><img src="images/zrp7n5000.jpg" alt=""><img src="images/s35w3.jpg" alt=""><img src="images/mi652dx.jpg" alt=""><img src="images/rk88dx.jpg" alt=""><img src="images/mxm-blackwell.jpg" alt=""><img src="images/thoredge-dx1.jpg" alt=""><img src="images/eu275080c.jpg" alt=""><img src="images/cm5-pico.jpg" alt="">
@@ -426,7 +428,7 @@ footer a{color:var(--dark-ink)}
 <section class="sec sec-alt sec-cat" id="catalogs">
   <div class="wrap">
     <h2>ブースの<wbr>配布カタログ</h2>
-    <p class="sec-lead">会場で<wbr>お配りする<wbr>カタログの<wbr> PDF 版です。<wbr>機種ごとの<wbr>フライヤーは、<wbr>下の<wbr>展示機の<wbr>欄に<wbr>あります。</p>
+    <p class="sec-lead">ブースで<wbr>ご案内している<wbr>カタログの<wbr> PDF 版です。<wbr>機種ごとの<wbr>フライヤーは、<wbr>下の<wbr>展示機の<wbr>欄に<wbr>あります。</p>
     <div class="cats">
 <article class="cat" id="cat-b2b">
   <a class="cat-cover" href="/pdfs/ZOTAC_B2B_CATALOG_MAY_2026.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-track="pdf_download" data-position="catalog_cover_b2b"><img src="images/cover_b2b_catalog.jpg" alt="" loading="lazy" width="360" height="510"></a>
@@ -438,6 +440,16 @@ footer a{color:var(--dark-ink)}
     <a class="btn btn-ghost btn-pdf" href="/pdfs/ZOTAC_B2B_CATALOG_MAY_2026.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="catalog_b2b"><span>PDF を<wbr>開く<wbr><span class="paren">（4.9 MB）</span></span></a>
   </div>
 </article>
+<article class="cat" id="cat-zbp">
+  <a class="cat-cover" href="pdfs/ZOTAC_ZBOX_PRO_CATALOG_2026_JP.pdf" target="_blank" rel="noopener nofollow" tabindex="-1" aria-hidden="true" data-track="pdf_download" data-position="catalog_cover_zbp"><img src="images/cover_zboxpro_catalog.jpg" alt="" loading="lazy" width="360" height="510"></a>
+  <div class="cat-body">
+    <p class="cat-meta">A4・25 ページ ｜ 日本語</p>
+    <h3 class="cat-name">ZBOX PRO <wbr>カタログ 2026</h3>
+    <p class="cat-lead">組込み・エッジ AI 向け ZBOX PRO シリーズの<wbr>製品カタログです。</p>
+    <p class="cat-items">組込み x86 PC・組込み ARM PC・NVIDIA Jetson・<wbr>組み込み GPU<wbr>（MXM）<wbr>・<wbr>全機種の<wbr>選定表</p>
+    <a class="btn btn-ghost btn-pdf" href="pdfs/ZOTAC_ZBOX_PRO_CATALOG_2026_JP.pdf" target="_blank" rel="noopener nofollow" data-track="pdf_download" data-position="catalog_zbp"><span>PDF を<wbr>開く<wbr><span class="paren">（5.1 MB）</span></span></a>
+  </div>
+</article>
 <article class="cat" id="cat-mxm">
   <a class="cat-cover" href="/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-track="pdf_download" data-position="catalog_cover_mxm"><img src="images/cover_mxm_catalog.jpg" alt="" loading="lazy" width="360" height="510"></a>
   <div class="cat-body">
@@ -446,6 +458,16 @@ footer a{color:var(--dark-ink)}
     <p class="cat-lead">装置に<wbr>組み込む GPU モジュールの<wbr>カタログです。</p>
     <p class="cat-items">NVIDIA RTX PRO Blackwell の<wbr> MXM モジュール 5 モデル</p>
     <a class="btn btn-ghost btn-pdf" href="/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="catalog_mxm"><span>PDF を<wbr>開く<wbr><span class="paren">（0.9 MB）</span></span></a>
+  </div>
+</article>
+<article class="cat" id="cat-ent">
+  <a class="cat-cover" href="pdfs/ZOTAC_ENTERPRISE_CATALOG_2026_JP.pdf" target="_blank" rel="noopener nofollow" tabindex="-1" aria-hidden="true" data-track="pdf_download" data-position="catalog_cover_ent"><img src="images/cover_enterprise_catalog.jpg" alt="" loading="lazy" width="360" height="510"></a>
+  <div class="cat-body">
+    <p class="cat-meta">A4・4 ページ ｜ 日本語</p>
+    <h3 class="cat-name">エンタープライズ カタログ 2026</h3>
+    <p class="cat-lead">AI・HPC 向けの<wbr> GPU サーバーと<wbr>ワークステーションの<wbr>カタログです。</p>
+    <p class="cat-items">GPU サーバー 4U・6U<wbr>（GPU 最大 8 基）<wbr>・GPU ワークステーション</p>
+    <a class="btn btn-ghost btn-pdf" href="pdfs/ZOTAC_ENTERPRISE_CATALOG_2026_JP.pdf" target="_blank" rel="noopener nofollow" data-track="pdf_download" data-position="catalog_ent"><span>PDF を<wbr>開く<wbr><span class="paren">（5.7 MB）</span></span></a>
   </div>
 </article></div>
   </div>
@@ -467,7 +489,6 @@ footer a{color:var(--dark-ink)}
     <div class="product-actions">
       <a class="btn btn-ghost" href="/catalogs/zbox/qu27n5000/" data-track="catalog_page" data-position="card_qu27n5000"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
       <a class="btn btn-ghost" href="/pdfs/zbox_qu27n5000_flyer.pdf" data-track="pdf_download" data-position="card_qu27n5000" target="_blank" rel="noopener"><span>QU27N5000 フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
-      <a class="btn btn-mail js-mail" href="#" data-slug="qu27n5000" data-track="pack_mail" data-position="card_qu27n5000">この<wbr>製品の<wbr>資料を<wbr>メールで<wbr>受け取る</a>
     </div>
   </div>
 </article>
@@ -481,7 +502,6 @@ footer a{color:var(--dark-ink)}
     <div class="product-actions">
       <a class="btn btn-ghost" href="/catalogs/zbox/zrp7n5000/" data-track="catalog_page" data-position="card_zrp7n5000"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
       <a class="btn btn-ghost" href="/pdfs/zbox_zrp7n5000_flyer.pdf" data-track="pdf_download" data-position="card_zrp7n5000" target="_blank" rel="noopener"><span>ZRP7N5000 フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
-      <a class="btn btn-mail js-mail" href="#" data-slug="zrp7n5000" data-track="pack_mail" data-position="card_zrp7n5000">この<wbr>製品の<wbr>資料を<wbr>メールで<wbr>受け取る</a>
     </div>
   </div>
 </article>
@@ -495,7 +515,6 @@ footer a{color:var(--dark-ink)}
     <div class="product-actions">
       <a class="btn btn-ghost" href="/catalogs/embedded/s35w3/" data-track="catalog_page" data-position="card_s35w3"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
       <a class="btn btn-ghost" href="/pdfs/zbox_pro_s35w3_flyer.pdf" data-track="pdf_download" data-position="card_s35w3" target="_blank" rel="noopener"><span>S35W3DX フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
-      <a class="btn btn-mail js-mail" href="#" data-slug="s35w3" data-track="pack_mail" data-position="card_s35w3">この<wbr>製品の<wbr>資料を<wbr>メールで<wbr>受け取る</a>
     </div>
   </div>
 </article>
@@ -509,7 +528,6 @@ footer a{color:var(--dark-ink)}
     <div class="product-actions">
       <a class="btn btn-ghost" href="/catalogs/embedded/mi652dx/" data-track="catalog_page" data-position="card_mi652dx"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
       <a class="btn btn-ghost" href="/pdfs/zbox_pro_mi652dx_flyer.pdf" data-track="pdf_download" data-position="card_mi652dx" target="_blank" rel="noopener"><span>MI652DX フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
-      <a class="btn btn-mail js-mail" href="#" data-slug="mi652dx" data-track="pack_mail" data-position="card_mi652dx">この<wbr>製品の<wbr>資料を<wbr>メールで<wbr>受け取る</a>
     </div>
   </div>
 </article>
@@ -523,7 +541,6 @@ footer a{color:var(--dark-ink)}
     <div class="product-actions">
       <a class="btn btn-ghost" href="/catalogs/embedded/rk88dx/" data-track="catalog_page" data-position="card_rk88dx"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
       <a class="btn btn-ghost" href="/pdfs/zbox_pro_rk88dx_flyer.pdf" data-track="pdf_download" data-position="card_rk88dx" target="_blank" rel="noopener"><span>RK88DX フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
-      <a class="btn btn-mail js-mail" href="#" data-slug="rk88dx" data-track="pack_mail" data-position="card_rk88dx">この<wbr>製品の<wbr>資料を<wbr>メールで<wbr>受け取る</a>
     </div>
   </div>
 </article>
@@ -537,7 +554,6 @@ footer a{color:var(--dark-ink)}
     <div class="product-actions">
       <a class="btn btn-ghost" href="/catalogs/embedded/mxm-blackwell/" data-track="catalog_page" data-position="card_mxm-blackwell"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
       <a class="btn btn-ghost" href="/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf" data-track="pdf_download" data-position="card_mxm-blackwell" target="_blank" rel="noopener"><span>組み込み GPU MXM カタログ 2026<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
-      <a class="btn btn-mail js-mail" href="#" data-slug="mxm-blackwell" data-track="pack_mail" data-position="card_mxm-blackwell">この<wbr>製品の<wbr>資料を<wbr>メールで<wbr>受け取る</a>
     </div>
   </div>
 </article>
@@ -551,7 +567,6 @@ footer a{color:var(--dark-ink)}
     <div class="product-actions">
       <a class="btn btn-ghost" href="/catalogs/embedded/thoredge-dx1/" data-track="catalog_page" data-position="card_thoredge-dx1"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
       <a class="btn btn-ghost" href="/pdfs/zbox_pro_thoredge-dx1_flyer.pdf" data-track="pdf_download" data-position="card_thoredge-dx1" target="_blank" rel="noopener"><span>THOREDGE-DX1 フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
-      <a class="btn btn-mail js-mail" href="#" data-slug="thoredge-dx1" data-track="pack_mail" data-position="card_thoredge-dx1">この<wbr>製品の<wbr>資料を<wbr>メールで<wbr>受け取る</a>
     </div>
   </div>
 </article>
@@ -565,7 +580,6 @@ footer a{color:var(--dark-ink)}
     <div class="product-actions">
       <a class="btn btn-ghost" href="/catalogs/zbox/eu275080c/" data-track="catalog_page" data-position="card_eu275080c"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
       <a class="btn btn-ghost" href="/pdfs/zbox_eu275080c_flyer.pdf" data-track="pdf_download" data-position="card_eu275080c" target="_blank" rel="noopener"><span>MAGNUS ONE ULTRA フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
-      <a class="btn btn-mail js-mail" href="#" data-slug="eu275080c" data-track="pack_mail" data-position="card_eu275080c">この<wbr>製品の<wbr>資料を<wbr>メールで<wbr>受け取る</a>
     </div>
   </div>
 </article>
@@ -579,7 +593,6 @@ footer a{color:var(--dark-ink)}
     <div class="product-actions">
       <a class="btn btn-ghost" href="/catalogs/embedded/cm5-pico/" data-track="catalog_page" data-position="card_cm5-pico"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
       <a class="btn btn-ghost" href="/pdfs/zbox_pro_cm5-pico_flyer.pdf" data-track="pdf_download" data-position="card_cm5-pico" target="_blank" rel="noopener"><span>CM5-PICO フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
-      <a class="btn btn-mail js-mail" href="#" data-slug="cm5-pico" data-track="pack_mail" data-position="card_cm5-pico">この<wbr>製品の<wbr>資料を<wbr>メールで<wbr>受け取る</a>
     </div>
   </div>
 </article></div>
@@ -601,7 +614,6 @@ footer a{color:var(--dark-ink)}
     <div class="product-actions">
       <a class="btn btn-ghost" href="/catalogs/zbox/eu275070c/" data-track="catalog_page" data-position="sale_eu275070c"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
       <a class="btn btn-ghost" href="/pdfs/zbox_eu275070c_flyer.pdf" data-track="pdf_download" data-position="sale_eu275070c" target="_blank" rel="noopener"><span>EU275070C フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
-      <a class="btn btn-mail js-mail" href="#" data-slug="eu275070c" data-track="pack_mail" data-position="sale_eu275070c">この<wbr>製品の<wbr>資料を<wbr>メールで<wbr>受け取る</a>
     </div>
   </div>
 </article>
@@ -615,7 +627,6 @@ footer a{color:var(--dark-ink)}
     <div class="product-actions">
       <a class="btn btn-ghost" href="/catalogs/zbox/eu27507tc/" data-track="catalog_page" data-position="sale_eu27507tc"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
       <a class="btn btn-ghost" href="/pdfs/zbox_eu27507tc_flyer.pdf" data-track="pdf_download" data-position="sale_eu27507tc" target="_blank" rel="noopener"><span>EU27507TC フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
-      <a class="btn btn-mail js-mail" href="#" data-slug="eu27507tc" data-track="pack_mail" data-position="sale_eu27507tc">この<wbr>製品の<wbr>資料を<wbr>メールで<wbr>受け取る</a>
     </div>
   </div>
 </article>
@@ -629,7 +640,6 @@ footer a{color:var(--dark-ink)}
     <div class="product-actions">
       <a class="btn btn-ghost" href="/catalogs/zbox/en275060tc/" data-track="catalog_page" data-position="sale_en275060tc"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
       <a class="btn btn-ghost" href="/pdfs/zbox_en275060tc_flyer.pdf" data-track="pdf_download" data-position="sale_en275060tc" target="_blank" rel="noopener"><span>EN275060TC フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
-      <a class="btn btn-mail js-mail" href="#" data-slug="en275060tc" data-track="pack_mail" data-position="sale_en275060tc">この<wbr>製品の<wbr>資料を<wbr>メールで<wbr>受け取る</a>
     </div>
   </div>
 </article></div>
@@ -678,14 +688,14 @@ footer a{color:var(--dark-ink)}
 </footer>
 
 <div class="sticky" id="sticky">
-  <a class="btn btn-primary js-mail" href="#" data-track="pack_mail" data-position="sticky">資料を<wbr>メールで<wbr>受け取る</a>
-  <button type="button" class="btn btn-share js-share" data-track="share_self" data-position="sticky">URL を<wbr>残す</button>
+  <a class="btn btn-primary js-mail" href="#" data-track="pack_mail" data-position="sticky">資料を<wbr>まとめて<wbr>受け取る</a>
+  <button type="button" class="btn btn-share js-share" data-track="share_self" data-position="sticky">共有・保存</button>
 </div>
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
   <button type="button" class="sheet-close js-sheet-close" aria-label="閉じる">×</button>
-  <h4 id="sheet-title">この<wbr>ページの<wbr> URL だけ残す</h4>
-  <p>メールアドレスは<wbr> ZOTAC に<wbr>送られず、<wbr>担当者からの<wbr>連絡も<wbr>ありません。<wbr>資料と<wbr>担当者からの<wbr>ご案内が<wbr>必要な<wbr>場合は<wbr>「資料を<wbr>メールで<wbr>受け取る」⁠を<wbr>お使いください。</p>
+  <h4 id="sheet-title">この<wbr>ページの<wbr> URL を<wbr>共有・保存する</h4>
+  <p>社内での<wbr>共有や、<wbr>あとで<wbr>見返すための<wbr>保存に<wbr>お使いください。<wbr>メールアドレスは<wbr> ZOTAC に<wbr>届かず、<wbr>ご連絡もしません。</p>
   <div class="sheet-actions">
     <button type="button" class="btn" id="sheet-native" data-track="share_native" data-position="sheet" hidden><span>⇪ 共有<wbr><span class="paren">（LINE・Teams・メモなど）</span></span></button>
     <button type="button" class="btn" id="sheet-copy" data-track="share_copy" data-position="sheet">URL を<wbr>コピー</button>
@@ -757,8 +767,8 @@ footer a{color:var(--dark-ink)}
   function mailto(forSlug){
     var m = SLUGS[forSlug] || model;
     var subj = EXPO + (m ? (m + ' 資料希望') : '展示機 9 機種 資料希望');
-    // 送信の直前に読む本文にも、ご案内を送ること・配信停止の方法を入れる（固定バー・製品カードのボタンは注記から離れているため。ユーザー決定 1）
-    var body = '（このまま送信してください。数分以内に資料のメールをお送りします。資料のほか、評価機・新製品のご案内もお送りします。配信停止は、届いたメールへのご返信で承ります）\n\n' + (m ? ('ご覧の製品: ' + m + '\n') : '') + LP_URL + (forSlug ? ('#'+forSlug) : '')
+    // 送信の直前に読む本文にも、営業担当からの連絡・ご案内を送ること・配信停止の方法を入れる（固定バーのボタンは注記から離れているため。ユーザー決定 1）
+    var body = '（このまま送信してください。数分以内に資料のメールをお送りします。後日、営業担当からご連絡することがあります。評価機・新製品のご案内もお送りします。配信停止は、届いたメールへのご返信で承ります）\n\n' + (m ? ('ご覧の製品: ' + m + '\n') : '') + LP_URL + (forSlug ? ('#'+forSlug) : '')
              + '\n\n――― 任意（空欄のまま送信できます）―――\n会社名：\nお名前：\nご用途：\n';
     return 'mailto:' + MAIL_TO + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
   }
@@ -766,7 +776,7 @@ footer a{color:var(--dark-ink)}
     a.setAttribute('href', mailto(a.getAttribute('data-slug')||''));
   });
 
-  // 「URL だけ残す」シート（連絡なし）: 共有＝navigator.share／URL コピー／自分宛てメール。ZOTAC 宛ての「資料を受け取る」(.js-mail) と混ざらないよう文言で分ける
+  // 「URL を共有・保存する」シート（連絡なし）: 共有＝navigator.share／URL コピー／自分宛てメール。ZOTAC 宛ての「資料をまとめてメールで受け取る」(.js-mail) と混ざらないよう文言で分ける
   var sheet=document.getElementById('sheet'), toast=document.getElementById('toast');
   function say(t){ toast.textContent=t; toast.classList.add('is-on'); setTimeout(function(){toast.classList.remove('is-on');},1800); }
   function shareUrl(){ return LP_URL + (slug ? '#'+slug : ''); }
