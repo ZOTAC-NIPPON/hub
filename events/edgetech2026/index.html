@@ -196,8 +196,29 @@ body:not([data-hero="e"]) #hero-e{display:none} body[data-hero="e"] #hero-abcd{d
 @media(min-width:960px){.products-3{grid-template-columns:repeat(3,1fr)} .products-3 .product{grid-template-columns:1fr;align-content:start} .products-3 .product-media img{aspect-ratio:3/2} .products-3 .spec{grid-template-columns:1fr;gap:1px}}
 @media(max-width:479px){.product{grid-template-columns:1fr} .product-media img{aspect-ratio:16/9;max-height:160px} .spec{grid-template-columns:6.5em 1fr}}
 
+/* 配布カタログ（展示機の上。hub /catalogs/ のカタログ一覧に倣い、表紙＋判型・ページ数＋PDF） */
+.sec-cat{padding:36px 0} @media(min-width:768px){.sec-cat{padding:52px 0}}
+.cats{display:grid;gap:16px}
+@media(min-width:820px){.cats{grid-template-columns:1fr 1fr}}
+.cat{display:grid;grid-template-columns:92px 1fr;gap:16px;align-items:start;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+@media(min-width:480px){.cat{grid-template-columns:116px 1fr;gap:20px;padding:20px}}
+@media(max-width:359px){.cat{grid-template-columns:72px 1fr;gap:12px;padding:14px} .cat .cat-name{font-size:16px}}   /* 320px で本文が 140px になり「カタログ 2／026」「モデ／ル」と割れた */
+.cat-cover img{width:100%;height:auto;aspect-ratio:210/297;object-fit:cover;background:#fff;border:1px solid var(--line);border-radius:3px;box-shadow:0 8px 18px rgba(0,0,0,.10)}
+.cat-meta{margin:0;font:500 11.5px/1.6 var(--mono);color:var(--ink-mid);letter-spacing:.02em}
+.cat-name{margin:2px 0 6px;font-size:18px;line-height:1.4;font-weight:900}
+.cat-lead{margin:0;font-size:14px;line-height:1.65}
+.cat-items{margin:6px 0 12px;font-size:12.5px;line-height:1.65;color:var(--ink-mid)}
+.cat .btn-pdf{font-size:13px;padding:8px 12px}
+.btn-pdf::before{content:"↓";font-size:1em;color:var(--ink-mid)}
+
 /* three steps */
 .steps{display:grid;gap:16px} @media(min-width:800px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step a{color:var(--ink);text-underline-offset:3px}
+.steps-cta{margin-top:24px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.btn-contact{background:var(--ink);border-color:var(--ink);color:#fff;padding:14px 22px}
+.btn-contact:hover{background:#000;border-color:#000}
+.btn-contact::after{content:"↗";font-size:.95em;opacity:.8}
+.steps-cta .cta-note{margin:0}
 .step{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;display:flex;flex-direction:column;gap:10px}
 .step-no{font:700 12px/1 var(--mono);color:var(--ink-mid);letter-spacing:.08em}
 .step h3{margin:0;font-size:22px;font-weight:900}
@@ -368,7 +389,7 @@ footer a{color:var(--dark-ink)}
       <figcaption>
         <b id="he-model">ZBOX PRO QU27N5000</b>
         <span id="he-kicker">ミニワークステーション</span>
-        <span class="dims" id="he-dims">210 × 203 × 71 mm ｜ 3.02 L</span>
+        <span class="dims" id="he-dims">210 × 203 × 71&nbsp;mm ｜ 3.02&nbsp;L</span>
         <span class="fact" id="he-fact" hidden></span>
         <span class="todo" id="he-demo" hidden>デモ画面の<wbr>実写に<wbr>差し替え予定<wbr><span class="paren">（会期前に<wbr>デモ機で<wbr>撮影）</span></span>
         <a class="he-jump" id="he-jump" href="#products" hidden>この<wbr>製品の<wbr>仕様・<wbr>資料へ<wbr> ↓</a>
@@ -399,6 +420,34 @@ footer a{color:var(--dark-ink)}
       <img id="hero-stage-img" src="images/hero_qu27n5000.png" alt="ZBOX PRO QU27N5000" width="1600" height="1066">
       <figcaption id="hero-stage-cap"><b>ZBOX PRO QU27N5000</b><span>ミニワークステーション ── ブースで<wbr>実機デモ</span></figcaption>
     </figure>
+  </div>
+</section>
+
+<section class="sec sec-alt sec-cat" id="catalogs">
+  <div class="wrap">
+    <h2>ブースの<wbr>配布カタログ</h2>
+    <p class="sec-lead">会場で<wbr>お配りする<wbr>カタログの<wbr> PDF 版です。<wbr>機種ごとの<wbr>フライヤーは、<wbr>下の<wbr>展示機の<wbr>欄に<wbr>あります。</p>
+    <div class="cats">
+<article class="cat" id="cat-b2b">
+  <a class="cat-cover" href="/pdfs/ZOTAC_B2B_CATALOG_MAY_2026.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-track="pdf_download" data-position="catalog_cover_b2b"><img src="images/cover_b2b_catalog.jpg" alt="" loading="lazy" width="360" height="510"></a>
+  <div class="cat-body">
+    <p class="cat-meta">A4・8 ページ ｜ 日本語</p>
+    <h3 class="cat-name">B2B カタログ 2026</h3>
+    <p class="cat-lead">組込み・エッジ AI 向けの<wbr>主な<wbr>製品を<wbr> 1 冊に<wbr>まとめた<wbr>カタログです。</p>
+    <p class="cat-items">Raspberry Pi・エッジ AI PC・ファンレス小型 PC・NVIDIA Jetson・GPU 搭載の<wbr>小型 PC・AMD Ryzen AI MAX・<wbr>組み込み GPU</p>
+    <a class="btn btn-ghost btn-pdf" href="/pdfs/ZOTAC_B2B_CATALOG_MAY_2026.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="catalog_b2b"><span>PDF を<wbr>開く<wbr><span class="paren">（4.9 MB）</span></span></a>
+  </div>
+</article>
+<article class="cat" id="cat-mxm">
+  <a class="cat-cover" href="/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-track="pdf_download" data-position="catalog_cover_mxm"><img src="images/cover_mxm_catalog.jpg" alt="" loading="lazy" width="360" height="510"></a>
+  <div class="cat-body">
+    <p class="cat-meta">A4・2 ページ ｜ 日本語</p>
+    <h3 class="cat-name">組み込み GPU MXM カタログ 2026</h3>
+    <p class="cat-lead">装置に<wbr>組み込む GPU モジュールの<wbr>カタログです。</p>
+    <p class="cat-items">NVIDIA RTX PRO Blackwell の<wbr> MXM モジュール 5 モデル</p>
+    <a class="btn btn-ghost btn-pdf" href="/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="catalog_mxm"><span>PDF を<wbr>開く<wbr><span class="paren">（0.9 MB）</span></span></a>
+  </div>
+</article></div>
   </div>
 </section>
 
@@ -592,9 +641,14 @@ footer a{color:var(--dark-ink)}
     <h2>試す。<wbr>合わせる。<wbr>導入する。</h2>
     <p class="sec-lead">検証から<wbr>導入まで、<wbr>国内の<wbr> ZOTAC<wbr>（株式会社ゾタック日本）⁠が<wbr>ご相談を<wbr>受けます。</p>
     <div class="steps">
-      <div class="step"><span class="step-no">01 ── 試す</span><h3>評価機を<wbr>借りて、<wbr>現場で<wbr>検証</h3><p>法人・<wbr>教育機関向けに<wbr> ZBOX ミニPC と<wbr> GeForce RTX グラフィックスカードを<wbr>最大 2 週間無料で<wbr>貸出しています。<wbr>組込み機種<wbr><span class="paren">（ZBOX PRO・Jetson）⁠の</span><wbr>評価機は<wbr> <span class="todo">【要確認】在庫・対象機種</span>。</p><a class="btn" href="/trial-program/" data-track="trial_program" data-position="steps">評価機貸出プログラムを<wbr>見る</a></div>
-      <div class="step"><span class="step-no">02 ── 合わせる</span><h3>BIOS・I/O・筐体の<wbr>カスタム</h3><p>用途に<wbr>合わせた<wbr>構成<wbr><span class="paren">（メモリ・SSD・OS）⁠や、</span><wbr>BIOS 設定・I/O・筐体の<wbr>カスタマイズを<wbr>相談できます。<wbr>対象モデル・<wbr>最小ロットは<wbr>製品に<wbr>より<wbr>異なります。</p><a class="btn" href="https://zotac.co.jp/product-biz-inquiry/?from=/events/edgetech2026/&intent=config" data-track="quote" data-position="steps_config">構成を<wbr>相談する</a></div>
-      <div class="step"><span class="step-no">03 ── 導入する</span><h3>量産・長期供給</h3><p>長期供給の<wbr>対象モデルが<wbr>あります<wbr><span class="paren">（期間は<wbr>モデルに<wbr>よります）。</span><wbr>台数・<wbr>時期が<wbr>未定でも<wbr>お見積りの<wbr>前段から<wbr>ご相談ください。</p><a class="btn" href="https://zotac.co.jp/product-biz-inquiry/?from=/events/edgetech2026/&intent=quote" data-track="quote" data-position="steps_quote">見積り・導入を<wbr>相談する</a></div>
+      <div class="step"><span class="step-no">01 ── 試す</span><h3>評価機を<wbr>借りて、<wbr>現場で<wbr>検証</h3><p>法人・<wbr>教育機関向けに<wbr> ZBOX ミニPC と<wbr> GeForce RTX グラフィックスカードを<wbr>最大 2 週間無料で<wbr>貸出しています<wbr>（<a href="/trial-program/" data-track="trial_program" data-position="steps">評価機貸出プログラム</a>）。<wbr>組込み機種<wbr><span class="paren">（ZBOX PRO・Jetson）⁠の</span><wbr>評価機は、<wbr>機種と<wbr>時期を<wbr>ご相談ください。</p></div>
+      <div class="step"><span class="step-no">02 ── 合わせる</span><h3>BIOS・I/O・筐体の<wbr>カスタム</h3><p>用途に<wbr>合わせた<wbr>構成<wbr><span class="paren">（メモリ・SSD・OS）⁠や、</span><wbr>BIOS 設定・I/O・筐体の<wbr>カスタマイズを<wbr>相談できます。<wbr>対象モデル・<wbr>最小ロットは<wbr>製品に<wbr>より<wbr>異なります。</p></div>
+      <div class="step"><span class="step-no">03 ── 導入する</span><h3>量産・長期供給</h3><p>長期供給の<wbr>対象モデルが<wbr>あります<wbr><span class="paren">（期間は<wbr>モデルに<wbr>よります）。</span><wbr>台数・<wbr>時期が<wbr>未定でも<wbr>お見積りの<wbr>前段から<wbr>ご相談ください。</p></div>
+    </div>
+    <!-- 3 枚のどれも行き先は同じ問い合わせフォームなので、ボタンは 1 つにまとめた（2026-11-06 夜 ユーザー「リンク先を全て同じに」「担当者からの連絡を希望する」） -->
+    <div class="steps-cta">
+      <a class="btn btn-contact" href="https://zotac.co.jp/product-biz-inquiry/?pname=EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A&amp;from=/events/edgetech2026/" data-track="quote" data-position="steps">担当者からの<wbr>連絡を<wbr>希望する</a>
+      <p class="cta-note">法人向けの<wbr>お問い<wbr>合わせフォームが<wbr>開きます。<wbr>評価機の<wbr>貸出・構成・<wbr>お見積りの<wbr>どれも、<wbr>この<wbr>フォームで<wbr>承ります。</p>
     </div>
   </div>
 </section>
@@ -609,7 +663,7 @@ footer a{color:var(--dark-ink)}
       <dt>主催</dt><dd>一般社団法人 組込みシステム技術協会<wbr>（JASA）</dd>
       <dt>出展者</dt><dd>株式会社ゾタック日本<wbr><span class="paren">（ZOTAC NIPPON）</span></dd>
     </dl>
-    <p class="cta-note">会期中の<wbr>ご連絡は<wbr> <a href="https://zotac.co.jp/product-biz-inquiry/?from=/events/edgetech2026/" data-track="quote" data-position="event">法人窓口</a> へ。<wbr>本ページは<wbr> ZOTAC が<wbr>独自に<wbr>運営する<wbr>もので、<wbr>EdgeTech+ 主催者に<wbr>よる<wbr>公式ページでは<wbr>ありません。</p>
+    <p class="cta-note">会期中の<wbr>ご連絡は<wbr> <a href="https://zotac.co.jp/product-biz-inquiry/?pname=EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A&amp;from=/events/edgetech2026/" data-track="quote" data-position="event">法人窓口</a> へ。<wbr>本ページは<wbr> ZOTAC が<wbr>独自に<wbr>運営する<wbr>もので、<wbr>EdgeTech+ 主催者に<wbr>よる<wbr>公式ページでは<wbr>ありません。</p>
   </div>
 </section>
 </main>
@@ -617,7 +671,7 @@ footer a{color:var(--dark-ink)}
 <footer>
   <div class="wrap">
     <img class="foot-logo" src="/assets/ZOTAC_white.svg" alt="ZOTAC NIPPON">
-    <div>株式会社ゾタック日本 ｜ <a href="https://zotac.co.jp/product-biz-inquiry/?from=/events/edgetech2026/">お問い<wbr>合わせ</a> ｜ <a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a></div>
+    <div>株式会社ゾタック日本 ｜ <a href="https://zotac.co.jp/product-biz-inquiry/?pname=EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A&amp;from=/events/edgetech2026/">お問い<wbr>合わせ</a> ｜ <a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a></div>
     <div>© 2026 ZOTAC Nippon Co., Ltd. All rights reserved. 本ページに<wbr>掲載の<wbr>製品名・<wbr>社名は<wbr>各社の<wbr>商標または<wbr>登録商標です。</div>
     <div class="foot-notice">本サイトでは、<wbr>サービス向上の<wbr>ため Google Analytics および<wbr> Microsoft Clarity を<wbr>使用しています。<wbr>詳しくは<wbr> <a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a> を<wbr>ご覧ください。</div>
   </div>
@@ -673,7 +727,7 @@ footer a{color:var(--dark-ink)}
   if(SCENE[slug]){ document.documentElement.style.setProperty('--hero-bg','url('+SCENE[slug][0]+')'); document.getElementById('hero-scene').textContent=SCENE[slug][1]; }
 
   // ヒーロー E: 読んだ型番を主語にする
-  var HD = {"qu27n5000": {"model": "ZBOX PRO QU27N5000", "kicker": "ミニワークステーション", "en": "Mini Workstation with RTX PRO Blackwell", "dims": "210 × 203 × 71 mm ｜ 3.02 L", "img": "images/hero_qu27n5000.png", "fact": "ブースで生成AIデモ", "pdf": "/pdfs/zbox_qu27n5000_flyer.pdf", "page": "/catalogs/zbox/qu27n5000/", "ja": true}, "zrp7n5000": {"model": "ZBOX PRO ZRP7N5000", "kicker": "堅牢な産業用PC", "en": "Rugged IPC with RTX PRO 5000 MXM", "dims": "209.8 × 202.3 × 62.5 mm ｜ 2.65 L", "img": "images/hero_zrp7n5000.png", "fact": "開発中", "pdf": "/pdfs/zbox_zrp7n5000_flyer.pdf", "page": "/catalogs/zbox/zrp7n5000/", "ja": true}, "s35w3": {"model": "ZBOX PRO S35W3DX", "kicker": "NPU搭載エッジAI PC", "en": "Edge AI PC with Intel Core 3 & DeepX NPU", "dims": "164 × 110.8 × 45 mm ｜ 0.82 L", "img": "images/hero_s35w3dx.png", "fact": "長期供給製品", "pdf": "/pdfs/zbox_pro_s35w3_flyer.pdf", "page": "/catalogs/embedded/s35w3/", "ja": true}, "mi652dx": {"model": "ZBOX PRO MI652DX", "kicker": "Core Ultra搭載エッジAI PC", "en": "Edge AI PC with Intel Core Ultra 5 & DeepX NPU", "dims": "148.8 × 148.8 × 37.6 mm ｜ 0.83 L", "img": "images/hero_mi652dx.png", "fact": "会場の展示は外観サンプル", "pdf": "/pdfs/zbox_pro_mi652dx_flyer.pdf", "page": "/catalogs/embedded/mi652dx/", "ja": true}, "rk88dx": {"model": "ZBOX PRO RK88DX", "kicker": "NPU搭載ARMエッジAI PC", "en": "Fanless ARM Edge AI with DeepX NPU", "dims": "164 × 110.8 × 45 mm ｜ 0.82 L", "img": "images/hero_rk88dx.png", "fact": "", "pdf": "/pdfs/zbox_pro_rk88dx_flyer.pdf", "page": "/catalogs/embedded/rk88dx/", "ja": true}, "mxm-blackwell": {"model": "BLACKWELL MXM", "kicker": "組込みGPUモジュール", "en": "Embedded GPU Module", "dims": "MXM 3.1 Type B ｜ 82 × 110 mm（Type A: 82 × 70 mm）", "img": "images/hero_mxm.png", "fact": "2030年Q3まで供給", "pdf": "/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf", "page": "/catalogs/embedded/mxm-blackwell/", "ja": true}, "thoredge-dx1": {"model": "ZBOX PRO THOREDGE-DX1", "kicker": "ロボティクス向けAI", "en": "Jetson T5000 Compact Robotic Computer", "dims": "185 × 170 × 85 mm ｜ 2.67 L", "img": "images/hero_thor.png", "fact": "会場の展示は外観サンプル", "pdf": "/pdfs/zbox_pro_thoredge-dx1_flyer.pdf", "page": "/catalogs/embedded/thoredge-dx1/", "ja": true}, "eu275080c": {"model": "MAGNUS ONE ULTRA", "kicker": "小型ハイエンドPC", "en": "ZOTAC ZBOX EU275080C", "dims": "365.5 × 126 × 249 mm ｜ 11.46 L", "img": "images/hero_eu275080c.png", "fact": "", "pdf": "/pdfs/zbox_eu275080c_flyer.pdf", "page": "/catalogs/zbox/eu275080c/", "ja": true}, "cm5-pico": {"model": "ZBOX PRO CM5-PICO", "kicker": "ポケットサイズPC", "en": "Fanless ARM Mini-PC", "dims": "114.8 × 76.0 × 31.3 mm ｜ 0.27 L", "img": "images/hero_cm5pico.png", "fact": "", "pdf": "/pdfs/zbox_pro_cm5-pico_flyer.pdf", "page": "/catalogs/embedded/cm5-pico/", "ja": true}};
+  var HD = {"qu27n5000": {"model": "ZBOX PRO QU27N5000", "kicker": "ミニワークステーション", "en": "Mini Workstation with RTX PRO Blackwell", "dims": "210 × 203 × 71 mm ｜ 3.02 L", "img": "images/hero_qu27n5000.png", "fact": "ブースで生成AIデモ", "pdf": "/pdfs/zbox_qu27n5000_flyer.pdf", "page": "/catalogs/zbox/qu27n5000/", "ja": true}, "zrp7n5000": {"model": "ZBOX PRO ZRP7N5000", "kicker": "堅牢な産業用PC", "en": "Rugged IPC with RTX PRO 5000 MXM", "dims": "209.8 × 202.3 × 62.5 mm ｜ 2.65 L", "img": "images/hero_zrp7n5000.png", "fact": "開発中", "pdf": "/pdfs/zbox_zrp7n5000_flyer.pdf", "page": "/catalogs/zbox/zrp7n5000/", "ja": true}, "s35w3": {"model": "ZBOX PRO S35W3DX", "kicker": "NPU搭載エッジAI PC", "en": "Edge AI PC with Intel Core 3 & DeepX NPU", "dims": "164 × 110.8 × 45 mm ｜ 0.82 L", "img": "images/hero_s35w3dx.png", "fact": "長期供給製品", "pdf": "/pdfs/zbox_pro_s35w3_flyer.pdf", "page": "/catalogs/embedded/s35w3/", "ja": true}, "mi652dx": {"model": "ZBOX PRO MI652DX", "kicker": "Core Ultra搭載エッジAI PC", "en": "Edge AI PC with Intel Core Ultra 5 & DeepX NPU", "dims": "148.8 × 148.8 × 37.6 mm ｜ 0.83 L", "img": "images/hero_mi652dx.png", "fact": "会場の展示は外観サンプル", "pdf": "/pdfs/zbox_pro_mi652dx_flyer.pdf", "page": "/catalogs/embedded/mi652dx/", "ja": true}, "rk88dx": {"model": "ZBOX PRO RK88DX", "kicker": "NPU搭載ARMエッジAI PC", "en": "Fanless ARM Edge AI with DeepX NPU", "dims": "164 × 110.8 × 45 mm ｜ 0.82 L", "img": "images/hero_rk88dx.png", "fact": "", "pdf": "/pdfs/zbox_pro_rk88dx_flyer.pdf", "page": "/catalogs/embedded/rk88dx/", "ja": true}, "mxm-blackwell": {"model": "BLACKWELL MXM", "kicker": "組込みGPUモジュール", "en": "Embedded GPU Module", "dims": "MXM 3.1 Type B ｜ 82 × 110 mm（Type A: 82 × 70 mm）", "img": "images/hero_mxm.png", "fact": "2030年Q3まで供給", "pdf": "/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf", "page": "/catalogs/embedded/mxm-blackwell/", "ja": true}, "thoredge-dx1": {"model": "ZBOX PRO THOREDGE-DX1", "kicker": "ロボティクス向けAI", "en": "Jetson T5000 Compact Robotic Computer", "dims": "185 × 170 × 85 mm ｜ 2.67 L", "img": "images/hero_thor.png", "fact": "会場の展示は外観サンプル", "pdf": "/pdfs/zbox_pro_thoredge-dx1_flyer.pdf", "page": "/catalogs/embedded/thoredge-dx1/", "ja": true}, "eu275080c": {"model": "MAGNUS ONE ULTRA", "kicker": "小型ハイエンドPC", "en": "ZOTAC ZBOX EU275080C", "dims": "365.5 × 126 × 249 mm ｜ 11.46 L", "img": "images/hero_eu275080c.png", "fact": "", "pdf": "/pdfs/zbox_eu275080c_flyer.pdf", "page": "/catalogs/zbox/eu275080c/", "ja": true}, "cm5-pico": {"model": "ZBOX PRO CM5-PICO", "kicker": "ポケットサイズPC", "en": "Fanless ARM Mini-PC", "dims": "114.8 × 76.0 × 31.3 mm ｜ 0.27 L", "img": "images/hero_cm5pico.png", "fact": "", "pdf": "/pdfs/zbox_pro_cm5-pico_flyer.pdf", "page": "/catalogs/embedded/cm5-pico/", "ja": true}};
   (function(){
     var d = HD[slug];
     var pk1=document.getElementById('he-pack1'), pk2=document.getElementById('he-pack2');
