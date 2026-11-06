@@ -1,0 +1,52 @@
+/* ==========================================================================
+   zotac-tokens.css — ZOTAC デザイントークン（値の配布正本）
+   Version: 1.0.0 (2026-08-09)
+   正本の場所: ~/Developer/hub/_partials/zotac-tokens.css （このファイル）
+   使い方のルール: 同ディレクトリ design-tokens.md（黄色は1点集中・2面構成 等）
+   --------------------------------------------------------------------------
+   配布方法（vendoring）:
+     1. このファイルを対象プロジェクトに「そのまま」コピーする（編集禁止）
+     2. プロジェクト側CSSでは色・フォント・角丸の生値を書かず、必ず var() で参照
+     3. ズレ確認:  diff <コピー> ~/Developer/hub/_partials/zotac-tokens.css
+     4. 値を変えたくなったら: 正本を先に更新し Version を上げ、各コピーを上書き
+   出自: hub.zotac.co.jp 実物の :root ＋ EdgeTech2026 LLMデモ(style.css)の拡張分
+   ========================================================================== */
+:root{
+  /* アクセント（唯一の差し色。塗り面を広げず細く差す） */
+  --yellow:#FFD400;
+  --yellow-hover:#F2C800;
+  --yellow-soft:rgba(255,212,0,.14);
+
+  /* ライト面 */
+  --dark:#2A2D2F;
+  --ink:#2A2D2F;
+  --ink-mid:#6D6E71;
+  --ink-light:#9A9C9E;
+  --bg:#FFFFFF;
+  --bg-subtle:#FAFAFA;
+  --bg-soft:#F4F4F3;
+  --line:#E6E6E4;
+  --line-strong:#C9CACB;
+
+  /* ダーク面（ヒーロー・ヘッダー・フッター相当） */
+  --dark-bg:#1A1B1C;
+  --dark-panel:#2A2D2F;
+  --dark-line:#34373A;
+  --dark-ink:#E5E5E6;
+  --dark-ink-mid:#B1B3B6;
+  --dark-ink-weak:#7D8083;
+
+  /* 状態色（semantic・v1.0.0で追加・LLMデモ由来。LED/バッジ/メーター向け。
+     白地の本文テキストに使う場合はコントラスト確認のこと） */
+  --ok:#3FB57A;
+  --warn:#E7B53C;
+  --bad:#E05B49;
+
+  /* タイポグラフィ（両フォントOSS・オフライン同梱可・CDN参照禁止） */
+  --font:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+
+  /* 形（全要素同一の角丸・影は薄く1種のみ） */
+  --radius:8px;
+  --shadow:0 2px 8px rgba(0,0,0,.08);
+}
