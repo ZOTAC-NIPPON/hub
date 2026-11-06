@@ -44,6 +44,7 @@ a{color:inherit}
 @media(min-width:768px){.wrap{padding:0 40px}}
 .skip{position:absolute;left:-999px;top:0;background:var(--yellow);padding:8px 12px} .skip:focus{left:8px;top:8px;z-index:999}
 .nw{white-space:nowrap}
+.paren{display:inline-block}  /* かっこ書きをひとかたまりで次の行へ送る。1 行に収まらないときだけ中で折れる（phrase_wrap の _paren） */
 main,footer,.sticky,.sheet{word-break:keep-all;overflow-wrap:anywhere}  /* 日本語は文節の区切り・空白・句読点の後だけで折る（phrase_wrap）。anywhere は収まらないときの保険（break-word だと表の列が押し広げられ 320px で 24px はみ出した） */
 .todo{background:var(--yellow-soft);outline:2px dashed var(--yellow);outline-offset:1px}
 .muted{color:var(--ink-mid);font-size:13px}
@@ -321,15 +322,15 @@ footer a{color:var(--dark-ink)}
         <ol class="pack-list">
           <li id="he-pack1">展示した<wbr> 9 機種の<wbr>製品資料<wbr>（PDF）⁠と<wbr>製品ページ</li>
           <li id="he-pack2" hidden>ほかの<wbr> 8 機種の<wbr>資料一覧</li>
-          <li>評価機貸出<wbr>（法人・<wbr>教育機関<wbr>向け、<wbr>最大 2 週間無料）⁠の<wbr>ご案内</li>
+          <li>法人・<wbr>教育機関向け評価機貸出の<wbr>ご案内<wbr>（最大 2 週間無料）</li>
           <li>ご返信で<wbr>用途を<wbr>一行いただければ、<wbr>合う<wbr>構成を<wbr>担当から<wbr>ご案内</li>
         </ol>
       </div>
       <div class="cta-row cta-row-e">
         <a class="btn btn-primary js-mail" href="#" id="cta-mail-e" data-track="pack_mail" data-position="hero">担当者から<wbr>資料を<wbr>受け取る</a>
-        <button type="button" class="btn-text js-share" data-track="share_self" data-position="hero">URL だけ残す<wbr>（ZOTAC からの<wbr>連絡なし）<wbr> ›</button>
+        <button type="button" class="btn-text js-share" data-track="share_self" data-position="hero"><span>URL だけ残す<wbr><span class="paren">（ZOTAC からの<wbr>連絡なし）</span><wbr> ›</span></button>
       </div>
-      <p class="cta-note cta-note-e">押すと<wbr>メールアプリが<wbr>開きます<wbr>（宛先・件名は<wbr>入力済み）。<wbr>そのまま<wbr>送信すると、<wbr>数分以内に<wbr> <span class="todo">【要確認】担当者名</span> から<wbr>資料が<wbr>届きます。<wbr>アドレスは<wbr>資料の<wbr>送付と<wbr>ご案内に<wbr>のみ<wbr>使用し、<span class="todo">【要確認】保存期間</span>内に<wbr>削除します。<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a>　開かない<wbr>場合は<wbr> <a href="mailto:edgetech@zotac.co.jp" class="nw todo">edgetech@zotac.co.jp</a> へ<wbr>空<wbr>メールを。</p>
+      <p class="cta-note cta-note-e">押すと<wbr>メールアプリが<wbr>開きます<wbr><span class="paren">（宛先・件名は<wbr>入力済み）。</span><wbr>そのまま<wbr>送信すると、<wbr>数分以内に<wbr> <span class="todo">【要確認】担当者名</span> から<wbr>資料が<wbr>届きます。<wbr>アドレスは<wbr>資料の<wbr>送付と<wbr>ご案内に<wbr>のみ<wbr>使用し、<span class="todo">【要確認】保存期間</span>内に<wbr>削除します。<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a>　開かない<wbr>場合は<wbr> <a href="mailto:edgetech@zotac.co.jp" class="nw todo">edgetech@zotac.co.jp</a> へ<wbr>空<wbr>メールを。</p>
     </div>
     <figure class="hero-e-photo" id="he-photo">
       <img id="he-img" src="images/hero_qu27n5000.png" alt="" width="1600" height="1066">
@@ -338,7 +339,7 @@ footer a{color:var(--dark-ink)}
         <span id="he-kicker">ミニワークステーション</span>
         <span class="dims" id="he-dims">210 × 203 × 71 mm ｜ 3.02 L</span>
         <span class="fact" id="he-fact" hidden></span>
-        <span class="todo" id="he-demo" hidden>デモ画面の<wbr>実写に<wbr>差し替え予定<wbr>（会期前に<wbr>デモ機で<wbr>撮影）</span>
+        <span class="todo" id="he-demo" hidden>デモ画面の<wbr>実写に<wbr>差し替え予定<wbr><span class="paren">（会期前に<wbr>デモ機で<wbr>撮影）</span></span>
       </figcaption>
     </figure>
   </div>
@@ -357,7 +358,7 @@ footer a{color:var(--dark-ink)}
         <button type="button" class="btn btn-share js-share" id="cta-share" data-track="share_self" data-position="hero">URL だけ残す<wbr>（連絡なし）</button>
       </div>
       <p class="cta-note">「資料一式を<wbr>メールで<wbr>受け取る」⁠を<wbr>押すと<wbr>メールアプリが<wbr>開き、<wbr>宛先と<wbr>件名が<wbr>入った<wbr>状態に<wbr>なります。<wbr>そのまま<wbr>送信してください。<wbr>数分以内に<wbr>担当者から<wbr>資料の<wbr>メールが<wbr>届きます<wbr>（送信元 <span class="todo">【要確認】担当者名</span>）。<wbr>メールが<wbr>開かない<wbr>場合は<wbr> <a href="mailto:edgetech@zotac.co.jp" class="nw todo">edgetech@zotac.co.jp</a> へ<wbr>空<wbr>メールを<wbr>お送りください。<br>
-      お送りいただいた<wbr>メールアドレスは、<wbr>資料の<wbr>送付と、<wbr>評価機・<wbr>新製品の<wbr>ご案内<wbr>（配信停止は<wbr>ご返信で<wbr>承ります）⁠に<wbr>のみ<wbr>使用し、<span class="todo">【要確認】保存期間</span>内に<wbr>削除します。<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a></p>
+      お送りいただいた<wbr>メールアドレスは、<wbr>資料の<wbr>送付と、<wbr>評価機・<wbr>新製品の<wbr>ご案内<wbr><span class="paren">（配信停止は<wbr>ご返信で<wbr>承ります）⁠に</span><wbr>のみ<wbr>使用し、<span class="todo">【要確認】保存期間</span>内に<wbr>削除します。<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a></p>
     </div>
     <div class="hero-visual" aria-hidden="true">
       <img src="images/qu27n5000.jpg" alt=""><img src="images/zrp7n5000.jpg" alt=""><img src="images/s35w3.jpg" alt=""><img src="images/mi652dx.jpg" alt=""><img src="images/rk88dx.jpg" alt=""><img src="images/mxm-blackwell.jpg" alt=""><img src="images/thoredge-dx1.jpg" alt=""><img src="images/eu275080c.jpg" alt=""><img src="images/cm5-pico.jpg" alt="">
@@ -372,7 +373,7 @@ footer a{color:var(--dark-ink)}
 <section class="sec" id="products">
   <div class="wrap">
     <h2>ブースに<wbr>展示した<wbr> 9 機種</h2>
-    <p class="sec-lead">ポケットサイズの<wbr> ARM ボードから、<wbr>RTX PRO Blackwell を<wbr>積んだ<wbr>ミニワークステーションまで。<wbr>値は<wbr>ブースの<wbr>スペックカードと<wbr>同じです<wbr>（全仕様は<wbr>各製品ページ）。</p>
+    <p class="sec-lead">ポケットサイズの<wbr> ARM ボードから、<wbr>RTX PRO Blackwell を<wbr>積んだ<wbr>ミニワークステーションまで。<wbr>値は<wbr>ブースの<wbr>スペックカードと<wbr>同じです<wbr><span class="paren">（全仕様は<wbr>各製品ページ）。</span></p>
     <div class="products">
 <article class="product" id="p-qu27n5000" data-slug="qu27n5000" data-model="ZBOX PRO QU27N5000">
   <div class="product-media"><img src="images/qu27n5000.jpg" alt="ZBOX PRO QU27N5000" loading="lazy" width="640" height="420"></div>
@@ -382,8 +383,8 @@ footer a{color:var(--dark-ink)}
     <p class="product-en">Mini Workstation with RTX PRO Blackwell</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 255HX, 20-Core, up to 5.2 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>NVIDIA RTX PRO 5000 Blackwell Embedded, 24GB GDDR7, 256-bit<br>Up to 1824 AI TOPS</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4 SSD slot, 1x M.2 NVMe PCIe 4.0 x4 / SATA SSD slot</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  210mm x 203mm x 71mm, 3.02L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/zbox/qu27n5000/" data-track="catalog_page" data-position="card_qu27n5000">製品ページ<wbr>（全仕<wbr>様）</a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_qu27n5000_flyer.pdf" data-track="pdf_download" data-position="card_qu27n5000" target="_blank" rel="noopener">QU27N5000 フライヤー<wbr>（PDF・<wbr>日本語）</a>
+      <a class="btn btn-ghost" href="/catalogs/zbox/qu27n5000/" data-track="catalog_page" data-position="card_qu27n5000"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
+      <a class="btn btn-ghost" href="/pdfs/zbox_qu27n5000_flyer.pdf" data-track="pdf_download" data-position="card_qu27n5000" target="_blank" rel="noopener"><span>QU27N5000 フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
       <a class="btn btn-mail js-mail" href="#" data-slug="qu27n5000" data-track="pack_mail" data-position="card_qu27n5000">この<wbr>製品の<wbr>資料を<wbr>担当者から<wbr>受け取る</a>
     </div>
   </div>
@@ -396,8 +397,8 @@ footer a{color:var(--dark-ink)}
     <p class="product-en">Rugged IPC with RTX PRO 5000 MXM</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 265, 20-Core, up to 5.3 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>NVIDIA RTX PRO 5000 Blackwell MXM, 24GB GDDR7, 256-bit<br>Up to 1824 AI TOPS</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-5600 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4 SSD slot, 1x M.2 NVMe PCIe 4.0 x4 / SATA SSD slot<br>UHS-II SD card reader</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  209.8mm x 202.3mm x 62.5mm, 2.65L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/zbox/zrp7n5000/" data-track="catalog_page" data-position="card_zrp7n5000">製品ページ<wbr>（全仕<wbr>様）</a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_zrp7n5000_flyer.pdf" data-track="pdf_download" data-position="card_zrp7n5000" target="_blank" rel="noopener">ZRP7N5000 フライヤー<wbr>（PDF・<wbr>日本語）</a>
+      <a class="btn btn-ghost" href="/catalogs/zbox/zrp7n5000/" data-track="catalog_page" data-position="card_zrp7n5000"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
+      <a class="btn btn-ghost" href="/pdfs/zbox_zrp7n5000_flyer.pdf" data-track="pdf_download" data-position="card_zrp7n5000" target="_blank" rel="noopener"><span>ZRP7N5000 フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
       <a class="btn btn-mail js-mail" href="#" data-slug="zrp7n5000" data-track="pack_mail" data-position="card_zrp7n5000">この<wbr>製品の<wbr>資料を<wbr>担当者から<wbr>受け取る</a>
     </div>
   </div>
@@ -410,8 +411,8 @@ footer a{color:var(--dark-ink)}
     <p class="product-en">Edge AI PC with Intel Core 3 &amp; DeepX NPU</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core 3 304 (Embedded), 5-Core, up to 4.3 GHz</dd></div><div class="spec"><dt>GPU / NPU</dt><dd>Intel Graphics up to 2.3 GHz (9 TOPS), Intel integrated NPU (15 TOPS)<br>DeepX DX-M1 M.2 NPU module (25 TOPS), 40 TOPS total (15 + 25)</dd></div><div class="spec"><dt>映像出力・<wbr>入出力</dt><dd>3x HDMI 2.0<br>2x USB 3.2 Gen2 Type-A, 3x USB 2.0 Type-A<br>RS-232/422/485, 8x GPIO</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  164mm x 110.8mm x 45mm, 0.82L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/embedded/s35w3/" data-track="catalog_page" data-position="card_s35w3">製品ページ<wbr>（全仕<wbr>様）</a>
-      <a class="btn btn-ghost" href="https://www.pcpsol.com/attachment/upload/EMB-S35W3%20EMB-S35W3DX%20Product%20Brochure" data-track="pdf_download" data-position="card_s35w3" target="_blank" rel="noopener">製品紹介資料<wbr>（PDF・英語・PCP SOLUTIONS サイト）</a>
+      <a class="btn btn-ghost" href="/catalogs/embedded/s35w3/" data-track="catalog_page" data-position="card_s35w3"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
+      <a class="btn btn-ghost" href="https://www.pcpsol.com/attachment/upload/EMB-S35W3%20EMB-S35W3DX%20Product%20Brochure" data-track="pdf_download" data-position="card_s35w3" target="_blank" rel="noopener"><span>製品紹介資料<wbr><span class="paren">（PDF・英語・PCP SOLUTIONS サイト）</span></span></a>
       <a class="btn btn-mail js-mail" href="#" data-slug="s35w3" data-track="pack_mail" data-position="card_s35w3">この<wbr>製品の<wbr>資料を<wbr>担当者から<wbr>受け取る</a>
     </div>
   </div>
@@ -425,7 +426,7 @@ footer a{color:var(--dark-ink)}
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 5 225H, 14-Core, up to 4.9 GHz</dd></div><div class="spec"><dt>GPU / NPU</dt><dd>Intel Arc Graphics up to 2.2 GHz, Intel AI Boost NPU (13 TOPS)<br>DeepX DX-M1 M.2 NPU module (25 TOPS)</dd></div><div class="spec"><dt>映像出力・<wbr>入出力</dt><dd>1x HDMI 2.0, 1x DisplayPort 1.4<br>5x USB 3.2 Type-A, 1x USB 3.2 Type-C, 3.5mm audio jack</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  148.8mm x 148.8mm x 37.6mm, 0.83L</dd></div></dl>
     <div class="product-actions">
       
-      <span class="muted todo">製品ページ・<wbr>資料は<wbr>準備中です<wbr>（仕様は<wbr>資料メールで<wbr>お送りします）</span>
+      <span class="muted todo">製品ページ・<wbr>資料は<wbr>準備中です<wbr><span class="paren">（仕様は<wbr>資料メールで<wbr>お送りします）</span></span>
       <a class="btn btn-mail js-mail" href="#" data-slug="mi652dx" data-track="pack_mail" data-position="card_mi652dx">この<wbr>製品の<wbr>資料を<wbr>担当者から<wbr>受け取る</a>
     </div>
   </div>
@@ -439,7 +440,7 @@ footer a{color:var(--dark-ink)}
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Rockchip RK3588, 4x Cortex-A76 + 4x Cortex-A55<br>ARM Mali-G610 MC4, 8K@60fps decoding / 8K@30fps encoding</dd></div><div class="spec"><dt>NPU</dt><dd>RK3588 NPU 6 TOPS + DeepX DX-M1 M.2 module 25 TOPS, 31 TOPS total</dd></div><div class="spec"><dt>映像出力・<wbr>入出力</dt><dd>2x HDMI 2.1 (up to 8K@60Hz), 1x USB-C DisplayPort<br>2x USB 3.0 Type-A, 2x USB 2.0 Type-A<br>RS-232/422/485, 8-bit GPIO</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  164mm x 110.8mm x 45mm, 0.82L</dd></div></dl>
     <div class="product-actions">
       
-      <span class="muted todo">製品ページ・<wbr>資料は<wbr>準備中です<wbr>（仕様は<wbr>資料メールで<wbr>お送りします）</span>
+      <span class="muted todo">製品ページ・<wbr>資料は<wbr>準備中です<wbr><span class="paren">（仕様は<wbr>資料メールで<wbr>お送りします）</span></span>
       <a class="btn btn-mail js-mail" href="#" data-slug="rk88dx" data-track="pack_mail" data-position="card_rk88dx">この<wbr>製品の<wbr>資料を<wbr>担当者から<wbr>受け取る</a>
     </div>
   </div>
@@ -452,8 +453,8 @@ footer a{color:var(--dark-ink)}
     <p class="product-en">Embedded GPU Module</p>
     <dl class="specs"><div class="spec"><dt>GPU</dt><dd>NVIDIA RTX PRO Blackwell Generation Embedded GPU (MXM 3.1)</dd></div><div class="spec"><dt>ラインナップ</dt><dd>RTX PRO 5000  24GB GDDR7, 1824 AI TOPS<br>RTX PRO 4000  16GB GDDR7, 1334 AI TOPS<br>RTX PRO 2000   8GB GDDR7,  572 AI TOPS<br>RTX PRO 500    6GB GDDR7,  294 AI TOPS</dd></div><div class="spec"><dt>フォーム<wbr>ファクター</dt><dd>MXM 3.1 Type B: 82mm x 110mm, PCIe 4.0 x16 / x8 (RTX PRO 5000 / 4000)<br>MXM 3.1 Type B: 82mm x 110mm, PCIe 4.0 x8 / x4 (RTX PRO 2000 Type B)<br>MXM 3.1 Type A: 82mm x 70mm, PCIe 4.0 x8 / x4 (RTX PRO 2000 / 500)</dd></div><div class="spec"><dt>電源・動作温度</dt><dd>TGP: 150W, RTX PRO 5000 (95 ~ 150W) / RTX PRO 4000 (80 ~ 150W)<br>TGP: 100W, RTX PRO 2000 Type B<br>TGP: 60W, RTX PRO 2000 Type A (45 ~ 60W) / RTX PRO 500 (35 ~ 60W)<br>Operating temperature: -20°C ~ +55°C (MXM ambient)</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/embedded/mxm-blackwell/" data-track="catalog_page" data-position="card_mxm-blackwell">製品ページ<wbr>（全仕<wbr>様）</a>
-      <a class="btn btn-ghost" href="/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf" data-track="pdf_download" data-position="card_mxm-blackwell" target="_blank" rel="noopener">組み込み GPU MXM カタログ 2026<wbr>（PDF・<wbr>日本語）</a>
+      <a class="btn btn-ghost" href="/catalogs/embedded/mxm-blackwell/" data-track="catalog_page" data-position="card_mxm-blackwell"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
+      <a class="btn btn-ghost" href="/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf" data-track="pdf_download" data-position="card_mxm-blackwell" target="_blank" rel="noopener"><span>組み込み GPU MXM カタログ 2026<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
       <a class="btn btn-mail js-mail" href="#" data-slug="mxm-blackwell" data-track="pack_mail" data-position="card_mxm-blackwell">この<wbr>製品の<wbr>資料を<wbr>担当者から<wbr>受け取る</a>
     </div>
   </div>
@@ -466,8 +467,8 @@ footer a{color:var(--dark-ink)}
     <p class="product-en">Jetson T5000 Compact Robotic Computer</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>NVIDIA Jetson T5000 (Jetson AGX Thor) SoM, up to 2070 FP4 TFLOPS<br>Option: Jetson T4000, 64GB (1200 FP4 TFLOPS)</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>128GB / 64GB LPDDR5X on SoM<br>1TB NVMe PCIe 4.0 SSD (M.2 2280 PCIe 5.0 x4 + PCIe 5.0 x2 slots)</dd></div><div class="spec"><dt>入出力</dt><dd>4x USB 3.1 Type-A, 3x USB-C<br>4x CAN FD (opto-isolated), 2x RS-232/422/485, 4x GPIO</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  185mm x 170mm x 85mm, 2.67L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/embedded/thoredge-dx1/" data-track="catalog_page" data-position="card_thoredge-dx1">製品ページ<wbr>（全仕<wbr>様）</a>
-      <span class="muted todo">PDF 資料は<wbr>ありません<wbr>（全仕様は<wbr>製品ページに<wbr>掲載）</span>
+      <a class="btn btn-ghost" href="/catalogs/embedded/thoredge-dx1/" data-track="catalog_page" data-position="card_thoredge-dx1"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
+      <span class="muted todo">PDF 資料は<wbr>ありません<wbr><span class="paren">（全仕様は<wbr>製品ページに<wbr>掲載）</span></span>
       <a class="btn btn-mail js-mail" href="#" data-slug="thoredge-dx1" data-track="pack_mail" data-position="card_thoredge-dx1">この<wbr>製品の<wbr>資料を<wbr>担当者から<wbr>受け取る</a>
     </div>
   </div>
@@ -480,8 +481,8 @@ footer a{color:var(--dark-ink)}
     <p class="product-en">ZOTAC ZBOX EU275080C</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 265, 20-Core, up to 5.3 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>ZOTAC GAMING GeForce RTX 5080 16GB GDDR7</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4, 1x M.2 NVMe PCIe 4.0 x4 SSD slot (2242, 2280)</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  365.5mm x 126mm x 249mm, 11.46L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/zbox/eu275080c/" data-track="catalog_page" data-position="card_eu275080c">製品ページ<wbr>（全仕<wbr>様）</a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_eu275080c_flyer.pdf" data-track="pdf_download" data-position="card_eu275080c" target="_blank" rel="noopener">MAGNUS ONE ULTRA フライヤー<wbr>（PDF・<wbr>日本語）</a>
+      <a class="btn btn-ghost" href="/catalogs/zbox/eu275080c/" data-track="catalog_page" data-position="card_eu275080c"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
+      <a class="btn btn-ghost" href="/pdfs/zbox_eu275080c_flyer.pdf" data-track="pdf_download" data-position="card_eu275080c" target="_blank" rel="noopener"><span>MAGNUS ONE ULTRA フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
       <a class="btn btn-mail js-mail" href="#" data-slug="eu275080c" data-track="pack_mail" data-position="card_eu275080c">この<wbr>製品の<wbr>資料を<wbr>担当者から<wbr>受け取る</a>
     </div>
   </div>
@@ -494,8 +495,8 @@ footer a{color:var(--dark-ink)}
     <p class="product-en">Fanless ARM Mini-PC</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Raspberry Pi CM5 SoM w/Broadcom BCM2712 SoC<br>Memory: 2GB, 4GB, 8GB, 16GB LPDDR4x on SoM<br>Storage: 0GB (CM5 Lite), 16GB, 32GB, 64GB eMMC on SoM</dd></div><div class="spec"><dt>映像出力・<wbr>入出力</dt><dd>2x HDMI 2.1 (up to 4K@60Hz)<br>2x USB 3.2 Type-A host port, 1x USB-C device port</dd></div><div class="spec"><dt>電源・動作温度</dt><dd>Power Input: DC 5 ~ 20V (bundled DC 12V 2.5A adapter)<br>Operating temperature: -20°C ~ +55°C (main unit)</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  114.8mm x 76.0mm x 31.3mm, 0.27L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/embedded/cm5-pico/" data-track="catalog_page" data-position="card_cm5-pico">製品ページ<wbr>（全仕<wbr>様）</a>
-      <a class="btn btn-ghost" href="https://www.pcpsol.com/attachment/upload/EMB-CM5-PICO%20Brochure" data-track="pdf_download" data-position="card_cm5-pico" target="_blank" rel="noopener">製品紹介資料<wbr>（PDF・英語・PCP SOLUTIONS サイト）</a>
+      <a class="btn btn-ghost" href="/catalogs/embedded/cm5-pico/" data-track="catalog_page" data-position="card_cm5-pico"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
+      <a class="btn btn-ghost" href="https://www.pcpsol.com/attachment/upload/EMB-CM5-PICO%20Brochure" data-track="pdf_download" data-position="card_cm5-pico" target="_blank" rel="noopener"><span>製品紹介資料<wbr><span class="paren">（PDF・英語・PCP SOLUTIONS サイト）</span></span></a>
       <a class="btn btn-mail js-mail" href="#" data-slug="cm5-pico" data-track="pack_mail" data-position="card_cm5-pico">この<wbr>製品の<wbr>資料を<wbr>担当者から<wbr>受け取る</a>
     </div>
   </div>
@@ -505,19 +506,19 @@ footer a{color:var(--dark-ink)}
 
 <section class="sec sec-sale" id="lineup">
   <div class="wrap">
-    <h2>販売中の<wbr>小型 GPU デスクトップ</h2>
-    <p class="sec-lead">GeForce RTX 50 シリーズと<wbr> Intel Core Ultra 7 を<wbr>搭載した、<wbr>容積 <span class="nw">8.48L・2.65L</span> の<wbr>デスクトップです。<wbr>ローカルでの<wbr> AI 推論や<wbr>生成 AI の<wbr>検証に<wbr>使えます。<wbr>3 機種とも<wbr>評価機貸出プログラム<wbr>（法人・<wbr>教育機関向け・<wbr>最大 2 週間無料）⁠の<wbr>貸出機種です。</p>
+    <h2>販売中の<wbr>デスクトップ向け<wbr>グラフィックスカード<wbr>搭載ミニPC</h2>
+    <p class="sec-lead">GeForce RTX 50 シリーズと<wbr> Intel Core Ultra 7 を<wbr>搭載した、<wbr>容積 <span class="nw">8.48L・2.65L</span> の<wbr>ミニPCです。<wbr>ローカルでの<wbr> AI 推論や<wbr>生成 AI の<wbr>検証に<wbr>使えます。<wbr>3 機種とも<wbr>評価機貸出プログラムの<wbr>対象で、<wbr>法人・<wbr>教育機関の<wbr>お客様は<wbr>最大 2 週間無料で<wbr>お試しいただけます。</p>
     <div class="products products-3">
 <article class="product" id="p-eu275070c" data-slug="eu275070c" data-model="MAGNUS ONE EU275070C">
   <div class="product-media"><img src="images/eu275070c.jpg" alt="MAGNUS ONE EU275070C" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">小型デスクトップ<span class="tag">評価機の<wbr>貸出<wbr>あり</span></p>
+    <p class="product-kicker">小型ハイエンドPC<span class="tag">評価機の<wbr>貸出<wbr>あり</span></p>
     <h3 class="product-name">MAGNUS ONE EU275070C</h3>
     <p class="product-en">ZBOX-EU275070C</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 265, 20-Core, up to 5.3 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>ZOTAC GAMING GeForce RTX 5070 12GB GDDR7</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4, 1x M.2 NVMe PCIe 4.0 x4 SSD slot (2242, 2280)<br>1x 2.5&quot; SATA III bay</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  270.5mm x 126mm x 249mm, 8.48L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/zbox/eu275070c/" data-track="catalog_page" data-position="sale_eu275070c">製品ページ<wbr>（全仕<wbr>様）</a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_eu275070c_flyer.pdf" data-track="pdf_download" data-position="sale_eu275070c" target="_blank" rel="noopener">EU275070C フライヤー<wbr>（PDF・<wbr>日本語）</a>
+      <a class="btn btn-ghost" href="/catalogs/zbox/eu275070c/" data-track="catalog_page" data-position="sale_eu275070c"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
+      <a class="btn btn-ghost" href="/pdfs/zbox_eu275070c_flyer.pdf" data-track="pdf_download" data-position="sale_eu275070c" target="_blank" rel="noopener"><span>EU275070C フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
       <a class="btn btn-mail js-mail" href="#" data-slug="eu275070c" data-track="pack_mail" data-position="sale_eu275070c">この<wbr>製品の<wbr>資料を<wbr>担当者から<wbr>受け取る</a>
     </div>
   </div>
@@ -525,13 +526,13 @@ footer a{color:var(--dark-ink)}
 <article class="product" id="p-eu27507tc" data-slug="eu27507tc" data-model="MAGNUS ONE EU27507TC">
   <div class="product-media"><img src="images/eu27507tc.jpg" alt="MAGNUS ONE EU27507TC" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">小型デスクトップ<span class="tag">評価機の<wbr>貸出<wbr>あり</span></p>
+    <p class="product-kicker">小型ハイエンドPC<span class="tag">評価機の<wbr>貸出<wbr>あり</span></p>
     <h3 class="product-name">MAGNUS ONE EU27507TC</h3>
     <p class="product-en">ZBOX-EU27507TC</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 265, 20-Core, up to 5.3 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>ZOTAC GAMING GeForce RTX 5070 Ti 16GB GDDR7</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4, 1x M.2 NVMe PCIe 4.0 x4 SSD slot (2242, 2280)<br>1x 2.5&quot; SATA III bay</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  270.5mm x 126mm x 249mm, 8.48L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/zbox/eu27507tc/" data-track="catalog_page" data-position="sale_eu27507tc">製品ページ<wbr>（全仕<wbr>様）</a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_eu27507tc_flyer.pdf" data-track="pdf_download" data-position="sale_eu27507tc" target="_blank" rel="noopener">EU27507TC フライヤー<wbr>（PDF・<wbr>日本語）</a>
+      <a class="btn btn-ghost" href="/catalogs/zbox/eu27507tc/" data-track="catalog_page" data-position="sale_eu27507tc"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
+      <a class="btn btn-ghost" href="/pdfs/zbox_eu27507tc_flyer.pdf" data-track="pdf_download" data-position="sale_eu27507tc" target="_blank" rel="noopener"><span>EU27507TC フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
       <a class="btn btn-mail js-mail" href="#" data-slug="eu27507tc" data-track="pack_mail" data-position="sale_eu27507tc">この<wbr>製品の<wbr>資料を<wbr>担当者から<wbr>受け取る</a>
     </div>
   </div>
@@ -539,13 +540,13 @@ footer a{color:var(--dark-ink)}
 <article class="product" id="p-en275060tc" data-slug="en275060tc" data-model="MAGNUS EN275060TC">
   <div class="product-media"><img src="images/en275060tc.jpg" alt="MAGNUS EN275060TC" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">超<wbr>小型デスクトップ<span class="tag">評価機の<wbr>貸出<wbr>あり</span></p>
+    <p class="product-kicker">薄型ミニPC<span class="tag">評価機の<wbr>貸出<wbr>あり</span></p>
     <h3 class="product-name">MAGNUS EN275060TC</h3>
     <p class="product-en">ZBOX-EN275060TC</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 255HX, 20-Core, up to 5.2 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>ZOTAC GAMING GeForce RTX 5060 Ti 16GB GDDR7</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4, 1x M.2 NVMe PCIe 4.0 x4 / SATA SSD slot (2280)</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  210mm x 203mm x 62.2mm, 2.65L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/zbox/en275060tc/" data-track="catalog_page" data-position="sale_en275060tc">製品ページ<wbr>（全仕<wbr>様）</a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_en275060tc_flyer.pdf" data-track="pdf_download" data-position="sale_en275060tc" target="_blank" rel="noopener">EN275060TC フライヤー<wbr>（PDF・<wbr>日本語）</a>
+      <a class="btn btn-ghost" href="/catalogs/zbox/en275060tc/" data-track="catalog_page" data-position="sale_en275060tc"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
+      <a class="btn btn-ghost" href="/pdfs/zbox_en275060tc_flyer.pdf" data-track="pdf_download" data-position="sale_en275060tc" target="_blank" rel="noopener"><span>EN275060TC フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
       <a class="btn btn-mail js-mail" href="#" data-slug="en275060tc" data-track="pack_mail" data-position="sale_en275060tc">この<wbr>製品の<wbr>資料を<wbr>担当者から<wbr>受け取る</a>
     </div>
   </div>
@@ -558,9 +559,9 @@ footer a{color:var(--dark-ink)}
     <h2>試す。<wbr>合わせる。<wbr>導入する。</h2>
     <p class="sec-lead">検証から<wbr>導入まで、<wbr>国内の<wbr> ZOTAC<wbr>（株式会社ゾタック日本）⁠が<wbr>ご相談を<wbr>受けます。</p>
     <div class="steps">
-      <div class="step"><span class="step-no">01 ── 試す</span><h3>評価機を<wbr>借りて、<wbr>現場で<wbr>検証</h3><p>法人・<wbr>教育機関<wbr>向けに<wbr> ZBOX ミニ PC と<wbr> GeForce RTX グラフィックスカードを<wbr>最大 2 週間無料で<wbr>貸出しています。<wbr>組込み機種<wbr>（ZBOX PRO・Jetson）⁠の<wbr>評価機は<wbr> <span class="todo">【要確認】在庫・対象機種</span>。</p><a class="btn" href="/trial-program/" data-track="trial_program" data-position="steps">評価機貸出プログラムを<wbr>見る</a></div>
-      <div class="step"><span class="step-no">02 ── 合わせる</span><h3>BIOS・I/O・筐体の<wbr>カスタム</h3><p>用途に<wbr>合わせた<wbr>構成<wbr>（メモリ・SSD・OS）⁠や、<wbr>BIOS 設定・I/O・筐体の<wbr>カスタマイズを<wbr>相談できます。<wbr>対象モデル・<wbr>最小ロットは<wbr>製品に<wbr>より<wbr>異なります。</p><a class="btn" href="https://zotac.co.jp/product-biz-inquiry/?from=/events/edgetech2026/&intent=config" data-track="quote" data-position="steps_config">構成を<wbr>相談する</a></div>
-      <div class="step"><span class="step-no">03 ── 導入する</span><h3>量産・長期供給</h3><p>長期供給の<wbr>対象モデルが<wbr>あります<wbr>（期間は<wbr>モデルに<wbr>よります）。<wbr>台数・<wbr>時期が<wbr>未定でも<wbr>お見積りの<wbr>前段から<wbr>ご相談ください。</p><a class="btn" href="https://zotac.co.jp/product-biz-inquiry/?from=/events/edgetech2026/&intent=quote" data-track="quote" data-position="steps_quote">見積り・導入を<wbr>相談する</a></div>
+      <div class="step"><span class="step-no">01 ── 試す</span><h3>評価機を<wbr>借りて、<wbr>現場で<wbr>検証</h3><p>法人・<wbr>教育機関向けに<wbr> ZBOX ミニPC と<wbr> GeForce RTX グラフィックスカードを<wbr>最大 2 週間無料で<wbr>貸出しています。<wbr>組込み機種<wbr><span class="paren">（ZBOX PRO・Jetson）⁠の</span><wbr>評価機は<wbr> <span class="todo">【要確認】在庫・対象機種</span>。</p><a class="btn" href="/trial-program/" data-track="trial_program" data-position="steps">評価機貸出プログラムを<wbr>見る</a></div>
+      <div class="step"><span class="step-no">02 ── 合わせる</span><h3>BIOS・I/O・筐体の<wbr>カスタム</h3><p>用途に<wbr>合わせた<wbr>構成<wbr><span class="paren">（メモリ・SSD・OS）⁠や、</span><wbr>BIOS 設定・I/O・筐体の<wbr>カスタマイズを<wbr>相談できます。<wbr>対象モデル・<wbr>最小ロットは<wbr>製品に<wbr>より<wbr>異なります。</p><a class="btn" href="https://zotac.co.jp/product-biz-inquiry/?from=/events/edgetech2026/&intent=config" data-track="quote" data-position="steps_config">構成を<wbr>相談する</a></div>
+      <div class="step"><span class="step-no">03 ── 導入する</span><h3>量産・長期供給</h3><p>長期供給の<wbr>対象モデルが<wbr>あります<wbr><span class="paren">（期間は<wbr>モデルに<wbr>よります）。</span><wbr>台数・<wbr>時期が<wbr>未定でも<wbr>お見積りの<wbr>前段から<wbr>ご相談ください。</p><a class="btn" href="https://zotac.co.jp/product-biz-inquiry/?from=/events/edgetech2026/&intent=quote" data-track="quote" data-position="steps_quote">見積り・導入を<wbr>相談する</a></div>
     </div>
   </div>
 </section>
@@ -570,10 +571,10 @@ footer a{color:var(--dark-ink)}
     <h2>EdgeTech+ 2026 開催概要</h2>
     <dl class="event">
       <dt>会期</dt><dd>2026年11月18日<wbr>（水）<wbr>〜<wbr> 20日<wbr>（金）</dd>
-      <dt>会場</dt><dd>パシフィコ横浜 展示ホール<wbr>（神奈川県横浜市西区みなと<wbr>みらい）</dd>
+      <dt>会場</dt><dd>パシフィコ横浜 展示ホール<wbr><span class="paren">（神奈川県横浜市西区みなと<wbr>みらい）</span></dd>
       <dt>ブース</dt><dd><span class="todo">No. 【要確認】</span></dd>
       <dt>主催</dt><dd>一般社団法人 組込みシステム技術協会<wbr>（JASA）</dd>
-      <dt>出展者</dt><dd>株式会社ゾタック日本<wbr>（ZOTAC NIPPON）</dd>
+      <dt>出展者</dt><dd>株式会社ゾタック日本<wbr><span class="paren">（ZOTAC NIPPON）</span></dd>
     </dl>
     <p class="cta-note">会期中の<wbr>ご連絡は<wbr> <a href="https://zotac.co.jp/product-biz-inquiry/?from=/events/edgetech2026/" data-track="quote" data-position="event">法人窓口</a> へ。<wbr>本ページは<wbr> ZOTAC が<wbr>独自に<wbr>運営する<wbr>もので、<wbr>EdgeTech+ 主催者に<wbr>よる<wbr>公式ページでは<wbr>ありません。</p>
   </div>
@@ -599,9 +600,9 @@ footer a{color:var(--dark-ink)}
   <h4 id="sheet-title">この<wbr>ページの<wbr> URL だけ残す</h4>
   <p>ZOTAC には<wbr>何も<wbr>送られず、<wbr>担当者からの<wbr>連絡も<wbr>ありません。<wbr>資料と<wbr>担当者からの<wbr>ご案内が<wbr>必要な<wbr>場合は<wbr>「担当者から<wbr>資料を<wbr>受け取る」⁠を<wbr>お使いください。</p>
   <div class="sheet-actions">
-    <button type="button" class="btn" id="sheet-native" data-track="share_native" data-position="sheet" hidden>⇪ 共有<wbr>（LINE・Teams・メモなど）</button>
+    <button type="button" class="btn" id="sheet-native" data-track="share_native" data-position="sheet" hidden><span>⇪ 共有<wbr><span class="paren">（LINE・Teams・メモなど）</span></span></button>
     <button type="button" class="btn" id="sheet-copy" data-track="share_copy" data-position="sheet">URL を<wbr>コピー</button>
-    <a class="btn" id="sheet-mailself" href="#" data-track="share_mailself" data-position="sheet">自分<wbr>宛てに<wbr> URL を<wbr>メール<wbr>（宛先は<wbr>ご自身で<wbr>入力）</a>
+    <a class="btn" id="sheet-mailself" href="#" data-track="share_mailself" data-position="sheet"><span>自分<wbr>宛てに<wbr> URL を<wbr>メール<wbr><span class="paren">（宛先は<wbr>ご自身で<wbr>入力）</span></span></a>
   </div>
 </div>
 <div class="toast" id="toast" role="status"></div>
@@ -698,6 +699,18 @@ footer a{color:var(--dark-ink)}
   if('IntersectionObserver' in window && hero){
     new IntersectionObserver(function(es){ es.forEach(function(en){ var on=!en.isIntersecting && en.boundingClientRect.top<0; sticky.classList.toggle('is-on',on); document.body.classList.toggle('has-sticky',on); }); }).observe(hero);
   }
+
+  // かっこ書き（.paren）: 1 行に収まらず中で折れるものは、ひとかたまりをやめて普通の流れに戻す（無理に次の行へ送ると行が増え、短い行が残る）
+  function fitParen(){
+    var ps=document.querySelectorAll('.paren'), i;
+    for(i=0;i<ps.length;i++) ps[i].style.display='';
+    for(i=0;i<ps.length;i++){ var s=ps[i], cs=getComputedStyle(s), lh=parseFloat(cs.lineHeight)||parseFloat(cs.fontSize)*1.6;
+      if(s.getBoundingClientRect().height>lh*1.5) s.style.display='inline'; }
+  }
+  fitParen();
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitParen);
+  var fpW=window.innerWidth, fpT;
+  window.addEventListener('resize',function(){ if(window.innerWidth===fpW) return; fpW=window.innerWidth; clearTimeout(fpT); fpT=setTimeout(fitParen,120); });
 
 })();
 </script>
