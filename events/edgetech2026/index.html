@@ -156,11 +156,11 @@ body:not([data-hero="e"]) #hero-e{display:none} body[data-hero="e"] #hero-abcd{d
 
 /* products */
 .products{display:grid;gap:18px}
-@media(min-width:700px){.products{grid-template-columns:1fr 1fr}}
+@media(min-width:1040px){.products{grid-template-columns:1fr 1fr}}  /* 写真が横に付くカードなので、2 列は本文に幅が取れる 1040px 以上だけ（700px からだと仕様欄が 31px に潰れていた・2026-11-06） */
 .product{display:grid;grid-template-columns:112px 1fr;gap:14px;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:14px;scroll-margin-top:96px}
 @media(min-width:480px){.product{grid-template-columns:150px 1fr;padding:18px}}
 .product.is-target{border-color:var(--yellow);box-shadow:0 0 0 3px var(--yellow-soft)}
-.product-media img{aspect-ratio:1/1;object-fit:contain;width:100%;background:#fff;border-radius:6px}
+.product-media img{aspect-ratio:1/1;object-fit:contain;width:100%;height:auto;background:#fff;border-radius:6px}
 .product-kicker{margin:0;font-size:13px;font-weight:700;color:var(--ink-mid)}
 .product-name{margin:2px 0 0;font:700 20px/1.25 var(--mono);letter-spacing:-.01em;overflow-wrap:anywhere}
 .product-en{margin:2px 0 10px;font-size:12px;color:var(--ink-light)}
@@ -169,6 +169,9 @@ body:not([data-hero="e"]) #hero-e{display:none} body[data-hero="e"] #hero-abcd{d
 .spec dt{color:var(--ink-mid);font-weight:500} .spec dd{margin:0;font-family:var(--mono);font-size:11.5px;overflow-wrap:anywhere}
 .product-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .product .product-actions .btn{font-size:13px;padding:8px 12px}
+.sec-sale{border-top:1px solid var(--line)}
+.product-kicker .tag{margin-left:8px;font-weight:500}
+@media(min-width:960px){.products-3{grid-template-columns:repeat(3,1fr)} .products-3 .product{grid-template-columns:1fr;align-content:start} .products-3 .product-media img{aspect-ratio:3/2} .products-3 .spec{grid-template-columns:1fr;gap:1px}}
 @media(max-width:479px){.product{grid-template-columns:1fr} .product-media img{aspect-ratio:16/9;max-height:160px} .spec{grid-template-columns:6.5em 1fr}}
 
 /* three steps */
@@ -499,6 +502,56 @@ footer a{color:var(--dark-ink)}
   </div>
 </section>
 
+<section class="sec sec-sale" id="lineup">
+  <div class="wrap">
+    <h2>販売中の小型 GPU デスクトップ</h2>
+    <p class="sec-lead">GeForce RTX 50 シリーズと Intel Core Ultra 7 を搭載した、容積 8.48L・2.65L のデスクトップです。ローカルでの AI 推論や生成 AI の検証に使えます。3 機種とも評価機貸出プログラム（法人・教育機関向け・最大 2 週間無料）の貸出機種です。</p>
+    <div class="products products-3">
+<article class="product" id="p-eu275070c" data-slug="eu275070c" data-model="MAGNUS ONE EU275070C">
+  <div class="product-media"><img src="images/eu275070c.jpg" alt="MAGNUS ONE EU275070C" loading="lazy" width="640" height="420"></div>
+  <div class="product-body">
+    <p class="product-kicker">小型デスクトップ<span class="tag">評価機の貸出あり</span></p>
+    <h3 class="product-name">MAGNUS ONE EU275070C</h3>
+    <p class="product-en">ZBOX-EU275070C</p>
+    <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 265, 20-Core, up to 5.3 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>ZOTAC GAMING GeForce RTX 5070 12GB GDDR7</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4, 1x M.2 NVMe PCIe 4.0 x4 SSD slot (2242, 2280)<br>1x 2.5&quot; SATA III bay</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  270.5mm x 126mm x 249mm, 8.48L</dd></div></dl>
+    <div class="product-actions">
+      <a class="btn btn-ghost" href="/catalogs/zbox/eu275070c/" data-track="catalog_page" data-position="sale_eu275070c">製品ページ（全仕様）</a>
+      <a class="btn btn-ghost" href="/pdfs/zbox_eu275070c_flyer.pdf" data-track="pdf_download" data-position="sale_eu275070c" target="_blank" rel="noopener">EU275070C フライヤー（PDF・日本語）</a>
+      <a class="btn btn-mail js-mail" href="#" data-slug="eu275070c" data-track="pack_mail" data-position="sale_eu275070c">この製品の資料を担当者から受け取る</a>
+    </div>
+  </div>
+</article>
+<article class="product" id="p-eu27507tc" data-slug="eu27507tc" data-model="MAGNUS ONE EU27507TC">
+  <div class="product-media"><img src="images/eu27507tc.jpg" alt="MAGNUS ONE EU27507TC" loading="lazy" width="640" height="420"></div>
+  <div class="product-body">
+    <p class="product-kicker">小型デスクトップ<span class="tag">評価機の貸出あり</span></p>
+    <h3 class="product-name">MAGNUS ONE EU27507TC</h3>
+    <p class="product-en">ZBOX-EU27507TC</p>
+    <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 265, 20-Core, up to 5.3 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>ZOTAC GAMING GeForce RTX 5070 Ti 16GB GDDR7</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4, 1x M.2 NVMe PCIe 4.0 x4 SSD slot (2242, 2280)<br>1x 2.5&quot; SATA III bay</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  270.5mm x 126mm x 249mm, 8.48L</dd></div></dl>
+    <div class="product-actions">
+      <a class="btn btn-ghost" href="/catalogs/zbox/eu27507tc/" data-track="catalog_page" data-position="sale_eu27507tc">製品ページ（全仕様）</a>
+      <a class="btn btn-ghost" href="/pdfs/zbox_eu27507tc_flyer.pdf" data-track="pdf_download" data-position="sale_eu27507tc" target="_blank" rel="noopener">EU27507TC フライヤー（PDF・日本語）</a>
+      <a class="btn btn-mail js-mail" href="#" data-slug="eu27507tc" data-track="pack_mail" data-position="sale_eu27507tc">この製品の資料を担当者から受け取る</a>
+    </div>
+  </div>
+</article>
+<article class="product" id="p-en275060tc" data-slug="en275060tc" data-model="MAGNUS EN275060TC">
+  <div class="product-media"><img src="images/en275060tc.jpg" alt="MAGNUS EN275060TC" loading="lazy" width="640" height="420"></div>
+  <div class="product-body">
+    <p class="product-kicker">超小型デスクトップ<span class="tag">評価機の貸出あり</span></p>
+    <h3 class="product-name">MAGNUS EN275060TC</h3>
+    <p class="product-en">ZBOX-EN275060TC</p>
+    <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 255HX, 20-Core, up to 5.2 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>ZOTAC GAMING GeForce RTX 5060 Ti 16GB GDDR7</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4, 1x M.2 NVMe PCIe 4.0 x4 / SATA SSD slot (2280)</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  210mm x 203mm x 62.2mm, 2.65L</dd></div></dl>
+    <div class="product-actions">
+      <a class="btn btn-ghost" href="/catalogs/zbox/en275060tc/" data-track="catalog_page" data-position="sale_en275060tc">製品ページ（全仕様）</a>
+      <a class="btn btn-ghost" href="/pdfs/zbox_en275060tc_flyer.pdf" data-track="pdf_download" data-position="sale_en275060tc" target="_blank" rel="noopener">EN275060TC フライヤー（PDF・日本語）</a>
+      <a class="btn btn-mail js-mail" href="#" data-slug="en275060tc" data-track="pack_mail" data-position="sale_en275060tc">この製品の資料を担当者から受け取る</a>
+    </div>
+  </div>
+</article></div>
+  </div>
+</section>
+
 <section class="sec sec-alt" id="next">
   <div class="wrap">
     <h2>試す。合わせる。導入する。</h2>
@@ -556,7 +609,7 @@ footer a{color:var(--dark-ink)}
 (function(){
   var MAIL_TO = 'edgetech@zotac.co.jp';
   var LP_URL = 'https://hub.zotac.co.jp/events/edgetech2026/';
-  var SLUGS = {'qu27n5000': 'ZBOX PRO QU27N5000', 'zrp7n5000': 'ZBOX PRO ZRP7N5000', 's35w3': 'ZBOX PRO S35W3DX', 'mi652dx': 'ZBOX PRO MI652DX', 'rk88dx': 'ZBOX PRO RK88DX', 'mxm-blackwell': 'BLACKWELL MXM', 'thoredge-dx1': 'ZBOX PRO THOREDGE-DX1', 'eu275080c': 'MAGNUS ONE ULTRA', 'cm5-pico': 'ZBOX PRO CM5-PICO'};
+  var SLUGS = {'qu27n5000': 'ZBOX PRO QU27N5000', 'zrp7n5000': 'ZBOX PRO ZRP7N5000', 's35w3': 'ZBOX PRO S35W3DX', 'mi652dx': 'ZBOX PRO MI652DX', 'rk88dx': 'ZBOX PRO RK88DX', 'mxm-blackwell': 'BLACKWELL MXM', 'thoredge-dx1': 'ZBOX PRO THOREDGE-DX1', 'eu275080c': 'MAGNUS ONE ULTRA', 'cm5-pico': 'ZBOX PRO CM5-PICO', 'eu275070c': 'MAGNUS ONE EU275070C', 'eu27507tc': 'MAGNUS ONE EU27507TC', 'en275060tc': 'MAGNUS EN275060TC'};
   var EXPO = '【EdgeTech+2026】';
 
   function track(el){
