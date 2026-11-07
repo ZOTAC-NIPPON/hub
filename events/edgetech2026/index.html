@@ -25,14 +25,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ZOTAC NIPPON">
 <meta property="og:title" content="ZOTAC NIPPON at EdgeTech+ 2026 | 展示機の資料・評価機貸出・お問い合わせ">
-<meta property="og:description" content="EdgeTech+ 2026（パシフィコ横浜）の ZOTAC ブースの展示機 9 機種の資料を、まとめてメールでお送りします。評価機の貸出、構成・見積りのご相談も。">
+<meta property="og:description" content="EdgeTech+ 2026（パシフィコ横浜）の ZOTAC ブースの展示機 9 機種の資料（PDF・日本語）と、製品ごとのお問い合わせ。評価機の貸出、構成・お見積りのご相談も。">
 <meta property="og:url" content="https://hub.zotac.co.jp/events/edgetech2026/">
 <meta property="og:locale" content="ja_JP">
-<meta name="description" content="EdgeTech+ 2026（パシフィコ横浜）の ZOTAC ブースの展示機 9 機種の資料を、まとめてメールでお送りします。評価機の貸出、構成・見積りのご相談も。">
+<meta name="description" content="EdgeTech+ 2026（パシフィコ横浜）の ZOTAC ブースの展示機 9 機種の資料（PDF・日本語）と、製品ごとのお問い合わせ。評価機の貸出、構成・お見積りのご相談も。">
 <meta name="robots" content="noindex,follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="zotac-tokens.css">
 <style>
 *,*::before,*::after{box-sizing:border-box}
@@ -40,116 +40,109 @@ html,body{margin:0;overflow-x:clip}
 body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
+[hidden]{display:none!important}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 @media(min-width:768px){.wrap{padding:0 40px}}
 .skip{position:absolute;left:-999px;top:0;background:var(--yellow);padding:8px 12px} .skip:focus{left:8px;top:8px;z-index:999}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 .nw{white-space:nowrap}
 .paren{display:inline-block}  /* かっこ書きをひとかたまりで次の行へ送る。1 行に収まらないときだけ中で折れる（phrase_wrap の _paren） */
-main,footer,.sticky,.sheet{word-break:keep-all;overflow-wrap:anywhere}  /* 日本語は文節の区切り・空白・句読点の後だけで折る（phrase_wrap）。anywhere は収まらないときの保険（break-word だと表の列が押し広げられ 320px で 24px はみ出した） */
+main,footer,.sticky,.sheet{word-break:keep-all;overflow-wrap:anywhere}  /* 日本語は文節の区切り・空白・句読点の後だけで折る（phrase_wrap） */
 .todo{background:var(--yellow-soft);outline:2px dashed var(--yellow);outline-offset:1px}
 .muted{color:var(--ink-mid);font-size:13px}
 .tag{display:inline-block;font:500 11px/1 var(--mono);padding:4px 7px;border:1px solid var(--line-strong);border-radius:4px;margin-left:6px;vertical-align:middle;color:var(--ink-mid)}
 
-/* hero */
-.hero{background:var(--bg);border-bottom:1px solid var(--line);padding:40px 0 36px}
-@media(min-width:768px){.hero{padding:64px 0 56px}}
-.hero-eyebrow{font:500 12px/1.6 var(--mono);color:var(--ink-mid);letter-spacing:.04em;margin:0 0 14px}
-.hero-eyebrow .y{color:var(--ink);border-left:3px solid var(--yellow);padding-left:8px;margin-right:10px}
-.hero h1{font-size:clamp(26px,4.6vw,40px);line-height:1.3;margin:0 0 16px;font-weight:900;text-wrap:balance;letter-spacing:-.01em}
-.hero-lead{font-size:16px;color:var(--ink-mid);margin:0 0 24px;max-width:640px;text-wrap:pretty}
-.product-pick{display:none;margin:0 0 18px;padding:12px 14px;background:var(--bg-soft);border-left:3px solid var(--yellow);font-size:14px}
-.product-pick.is-on{display:block}
-.product-pick b{font-family:var(--mono);font-weight:700}
-.cta-row{display:flex;flex-direction:column;gap:10px;max-width:560px}
-@media(min-width:600px){.cta-row{flex-direction:row;flex-wrap:wrap}}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;padding:14px 20px;border-radius:var(--radius);border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);cursor:pointer;line-height:1.3;text-align:center}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;padding:12px 20px;min-height:48px;border-radius:var(--radius);border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);cursor:pointer;line-height:1.35;text-align:center}
 .btn:hover{border-color:var(--ink)}
 .btn-primary{background:var(--yellow);border-color:var(--yellow);color:#1A1B1C}
 .btn-primary:hover{background:var(--yellow-hover);border-color:var(--yellow-hover)}
+.btn-outline{border:1.5px solid var(--ink);background:var(--bg);color:var(--ink)}
+.btn-outline:hover{background:var(--bg-soft)}
+.btn-lg{font-size:16px;padding:14px 24px;min-height:56px}
 .btn-ghost{font-weight:500;font-size:14px;padding:10px 14px}
-.btn-mail{font-weight:500;font-size:14px;padding:10px 14px;border-color:var(--ink);}
-.btn-mail::before,.btn-primary::before{content:"✉";font-size:1.05em}
+.js-mail::before{content:"✉";font-size:1.05em}
+.btn-open::after{content:"↗";font-size:.95em;font-weight:500;opacity:.75}
+.btn-open.is-jump::after{content:"↓"}
 .btn-share::before{content:"⇪";font-size:1.05em}
+.btn-text{background:none;border:0;padding:8px 0;font:500 14px/1.4 var(--font);color:var(--ink-mid);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.btn-text:hover{color:var(--ink)}
+.text-link{color:var(--ink);font-weight:700;font-size:14px;text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:2px;text-underline-offset:5px}
+.text-link:hover{text-decoration-color:var(--ink)}
 .cta-note{font-size:12px;color:var(--ink-mid);margin:14px 0 0;max-width:640px;line-height:1.7}
 .cta-note a{color:var(--ink-mid)}
-.hero-grid{display:grid;gap:28px}
-@media(min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr;align-items:center}}
-.hero-visual{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.hero-visual img{aspect-ratio:4/3;object-fit:cover;background:var(--bg-soft);border:1px solid var(--line);border-radius:6px;width:100%}
-@media(max-width:899px){.hero-visual{display:none}}
 
-
-/* hero variants: a=white(default) b=dark+hall photo c=dark+abstract */
-.hero-stage{display:none;margin:0}
-body[data-hero="b"] .hero,body[data-hero="c"] .hero{position:relative;color:var(--dark-ink);background:var(--dark-bg) center/cover no-repeat;border-bottom:3px solid var(--yellow);overflow:hidden;isolation:isolate}
-body[data-hero="b"] .hero{background-image:url(images/hero_bg_hall_lowres.jpg)}
-body[data-hero="c"] .hero{background-image:url(images/hero_bg_abstract_lowres.jpg)}
-body[data-hero="b"] .hero::before,body[data-hero="c"] .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(26,27,28,.94) 0%,rgba(26,27,28,.82) 45%,rgba(26,27,28,.35) 100%)}
-@media(max-width:899px){body[data-hero="b"] .hero::before,body[data-hero="c"] .hero::before{background:linear-gradient(180deg,rgba(26,27,28,.95) 0%,rgba(26,27,28,.78) 60%,rgba(26,27,28,.55) 100%)}}
-body[data-hero="b"] .hero-visual,body[data-hero="c"] .hero-visual{display:none}
-body[data-hero="b"] .hero-stage,body[data-hero="c"] .hero-stage{display:block;position:relative}
-.hero-stage img{width:100%;height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
-.hero-stage figcaption{display:flex;flex-direction:column;gap:2px;margin-top:10px;font-size:12px;color:var(--dark-ink-mid);border-left:2px solid var(--yellow);padding-left:10px}
-.hero-stage figcaption b{font-family:var(--mono);font-size:14px;color:var(--dark-ink);font-weight:700}
-@media(min-width:900px){body[data-hero="b"] .hero-grid,body[data-hero="c"] .hero-grid{grid-template-columns:1fr 1fr;align-items:end} body[data-hero="b"] .hero,body[data-hero="c"] .hero{padding:72px 0 48px} .hero-stage{margin:0 0 0 20px}}
-@media(max-width:899px){.hero-stage{max-width:360px;margin:8px auto 0}}
-body[data-hero="b"] .hero-eyebrow,body[data-hero="c"] .hero-eyebrow{color:var(--dark-ink-mid)}
-body[data-hero="b"] .hero-eyebrow .y,body[data-hero="c"] .hero-eyebrow .y{color:var(--dark-ink)}
-body[data-hero="b"] .hero-lead,body[data-hero="c"] .hero-lead,body[data-hero="b"] .cta-note,body[data-hero="c"] .cta-note,body[data-hero="b"] .cta-note a,body[data-hero="c"] .cta-note a{color:var(--dark-ink-mid)}
-body[data-hero="b"] .product-pick,body[data-hero="c"] .product-pick{background:rgba(255,255,255,.08);color:var(--dark-ink)}
-body[data-hero="b"] .btn-share,body[data-hero="c"] .btn-share{background:transparent;color:var(--dark-ink);border-color:rgba(255,255,255,.45)}
-body[data-hero="b"] .btn-share:hover,body[data-hero="c"] .btn-share:hover{border-color:#fff}
-body[data-hero="b"] .todo,body[data-hero="c"] .todo{color:#1A1B1C;background:var(--yellow-soft);color:var(--dark-ink)}
-
-
-body[data-hero="d"] .hero{position:relative;color:var(--dark-ink);background:var(--dark-bg) center/cover no-repeat;border-bottom:3px solid var(--yellow);overflow:hidden;isolation:isolate}
-body[data-hero="d"] .hero{background-image:var(--hero-bg,url(images/hero_bg_lab_lowres.jpg))}
-body[data-hero="d"] .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(26,27,28,.90) 0%,rgba(26,27,28,.70) 45%,rgba(26,27,28,.12) 100%)}
-@media(max-width:899px){body[data-hero="d"] .hero::before{background:linear-gradient(180deg,rgba(26,27,28,.92) 0%,rgba(26,27,28,.72) 55%,rgba(26,27,28,.35) 100%)}}
-body[data-hero="d"] .hero-visual{display:none}
-body[data-hero="d"] .hero-stage{display:block;position:relative}
-@media(min-width:900px){body[data-hero="d"] .hero-grid{grid-template-columns:1fr 1fr;align-items:end} body[data-hero="d"] .hero{padding:72px 0 48px}}
-body[data-hero="d"] .hero-eyebrow{color:var(--dark-ink-mid)} body[data-hero="d"] .hero-eyebrow .y{color:var(--dark-ink)}
-body[data-hero="d"] .hero-lead,body[data-hero="d"] .cta-note,body[data-hero="d"] .cta-note a{color:var(--dark-ink-mid)}
-body[data-hero="d"] .product-pick{background:rgba(255,255,255,.08);color:var(--dark-ink)}
-body[data-hero="d"] .btn-share{background:transparent;color:var(--dark-ink);border-color:rgba(255,255,255,.45)} body[data-hero="d"] .btn-share:hover{border-color:#fff}
-body[data-hero="d"] .todo{background:var(--yellow-soft);color:var(--dark-ink)}
-.hero-scene{display:none;font:500 11px/1.6 var(--mono);letter-spacing:.06em;color:var(--dark-ink-weak);margin:0 0 10px}
-body[data-hero="d"] .hero-scene{display:block}
-
-
-/* hero E（既定）: 白地・型番＋届くメールの目次＋実機の実写 */
-body:not([data-hero="e"]) #hero-e{display:none} body[data-hero="e"] #hero-abcd{display:none}
-.hero-e{background:var(--bg);border-bottom:1px solid var(--line);padding:28px 0 32px}
-@media(min-width:900px){.hero-e{padding:56px 0 52px}}
-.hero-e-grid{display:grid;gap:24px}
-@media(min-width:900px){.hero-e-grid{grid-template-columns:1.15fr .85fr;align-items:center;gap:48px}}
-.hero-e-title{font-size:clamp(24px,4.4vw,38px);line-height:1.3;margin:0 0 6px;font-weight:900;letter-spacing:-.01em;text-wrap:balance;overflow-wrap:anywhere}
-.hero-e-title.is-catch{font-size:clamp(46px,14.6vw,84px);line-height:1.06;letter-spacing:-.035em;margin:0 0 16px}
-.hero-e-tagline{display:flex;align-items:center;gap:12px;margin:0 0 26px;font:700 clamp(12.5px,3.5vw,15px)/1.4 var(--mono);letter-spacing:.26em;color:var(--ink)}
-.hero-e-tagline[hidden]{display:none}
-.hero-e-tagline::before{content:"";flex:none;width:30px;height:3px;background:var(--yellow)}
-.hero-e-lead{margin:0 0 4px;font-size:clamp(17px,2.1vw,20px);font-weight:800;line-height:1.5;text-wrap:balance}
-@media(min-width:900px){.hero-e-tagline{margin-bottom:34px}}
-.hero-e-title.is-model{font-family:var(--mono);font-size:clamp(30px,7.4vw,52px);letter-spacing:-.02em;line-height:1.1;margin-bottom:8px}
-.hero-e-sub{margin:0 0 16px;font-size:15px;color:var(--ink-mid);text-wrap:pretty}
-.hero-e-sub .fact-tag{display:inline-block;margin-left:8px;padding:2px 8px;border:1px solid var(--line-strong);border-radius:4px;font:500 11px/1.6 var(--mono);color:var(--ink-mid);vertical-align:middle}
-.pack{border:1px solid var(--line);border-left:3px solid var(--yellow);background:var(--bg-subtle);padding:12px 14px 12px 16px;margin:0 0 16px;max-width:620px}
-.pack-head{margin:0 0 6px;font:700 12px/1.6 var(--mono);letter-spacing:.04em;color:var(--ink-mid)}
-.pack-list{margin:0;padding-left:1.4em;font-size:14px;line-height:1.7}
-.pack-list li{padding-left:2px}
-.cta-row-e{align-items:center;gap:6px 18px}
-.cta-how{margin:10px 0 0;font-size:13.5px;font-weight:700;color:var(--ink)}
-.cta-terms{margin:6px 0 0;padding-left:1.2em;font-size:12.5px;line-height:1.7;color:var(--ink);max-width:620px}
+/* hero（A案: 白地・左に型番・説明・主要 3 項目・導線、右に実機写真。スマホは 見出し → 写真 → 主要 3 項目 → 導線） */
+.hero{background:var(--bg);border-bottom:1px solid var(--line);padding:22px 0 30px;scroll-margin-top:80px}
+@media(min-width:900px){.hero{padding:44px 0 56px}}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "photo" "cta" "kpis" "links"}
+@media(min-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,.88fr);column-gap:48px;grid-template-areas:"head photo" "kpis photo" "cta photo" "links photo";grid-template-rows:auto auto auto 1fr}}
+.hero-head{grid-area:head;min-width:0}
+.hero-photo{grid-area:photo;margin:20px 0 0;min-width:0}
+@media(min-width:900px){.hero-photo{margin:0;align-self:center}}
+.kpis{grid-area:kpis}
+.hero-cta{grid-area:cta;min-width:0;margin-top:20px;max-width:600px}
+.cta-links{grid-area:links}
+@media(min-width:900px){.hero-cta{margin-top:22px}}
+@media(max-width:899px){.hero[data-mode="product"] .hero-photo figcaption{display:none} .hero[data-mode="top"] .hero-grid{grid-template-areas:"head" "cta" "photo" "links"}}  /* 共通トップのスマホは 9 機種の一覧より先に導線（型番の無い QR・タグなしで来た人にも最初の画面で資料ボタン） */  /* スマホの製品表示では型番が見出しと重なるので出さない（寸法はカードと主要 3 項目に） */
+.hero-eyebrow{font:500 12.5px/1.6 var(--mono);color:var(--ink-mid);letter-spacing:.02em;margin:0 0 18px}
+@media(max-width:899px){.hero-eyebrow{font-size:11.5px;margin-bottom:14px}}
+.hero-eyebrow .y{color:var(--ink);font-weight:700;border-left:3px solid var(--yellow);padding-left:8px;margin-right:10px}
+.hero-kick{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:0 0 10px}
+.hero-kicker{margin:0;font-size:15px;font-weight:700;line-height:1.4;padding-left:10px;border-left:3px solid var(--yellow)}
+.hero-title{margin:0;font-weight:900;text-wrap:balance;overflow-wrap:anywhere}
+.hero-title.is-catch{font-size:clamp(46px,14.6vw,84px);line-height:1.06;letter-spacing:-.035em;margin:0 0 16px}
+.hero-title.is-model{font-size:clamp(34px,8.8vw,58px);line-height:1.08;letter-spacing:-.025em}
+.hero-tagline{display:flex;align-items:center;gap:12px;margin:0 0 22px;font:700 clamp(12.5px,3.5vw,15px)/1.4 var(--mono);letter-spacing:.26em;color:var(--ink)}
+.hero-tagline::before{content:"";flex:none;width:30px;height:3px;background:var(--yellow)}
+@media(min-width:900px){.hero-tagline{margin-bottom:30px}}
+.hero-lead{margin:14px 0 0;font-size:16px;line-height:1.75;max-width:34em;text-wrap:pretty}
+.hero[data-mode="top"] .hero-lead{margin:0;font-size:clamp(17px,2.1vw,20px);font-weight:800;line-height:1.55;text-wrap:balance}
+.fact-tag{display:inline-block;padding:2px 10px;border:1px solid var(--line-strong);border-radius:4px;font-size:12px;font-weight:700;line-height:1.7;color:var(--ink-mid)}
+.kpis{margin:20px 0 0;display:grid;grid-template-columns:repeat(3,auto);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpi{padding:12px 14px 13px 0;min-width:0}
+.kpi+.kpi{padding-left:16px;border-left:1px solid var(--line)}
+.kpi dt{margin:0 0 3px;font-size:12px;font-weight:700;color:var(--ink-mid);line-height:1.5}
+.kpi dd{margin:0;font-size:16px;font-weight:800;line-height:1.4}
+@media(min-width:900px) and (max-width:1099px){.kpi dd{font-size:15px}}
+@media(max-width:599px){.kpis{grid-template-columns:1fr;margin-top:16px} .kpi,.kpi+.kpi{display:grid;grid-template-columns:6.2em minmax(0,1fr);gap:10px;align-items:baseline;padding:9px 0;border-left:0} .kpi+.kpi{border-top:1px solid var(--line)} .kpi dt{margin:0} .kpi dd{font-size:15.5px}}
+.cta-main .btn{width:100%}
+@media(min-width:600px){.cta-main .btn{width:auto;min-width:340px}}
+.cta-how{margin:10px 0 0;font-size:13.5px;font-weight:700;line-height:1.65}
+.cta-terms{margin:6px 0 0;padding-left:1.2em;font-size:12.5px;line-height:1.7}
 .cta-terms li{padding-left:2px}
-.cta-e{display:flex;flex-direction:column;max-width:620px}
-.cta-e>.btn-primary{order:1} .cta-e>.cta-how{order:2} .cta-e>.cta-terms{order:3} .cta-e>.btn-view{order:4;margin-top:14px} .cta-e>.cta-alt{order:5} .cta-e>.btn-text{order:6;align-self:flex-start;margin-top:4px} .cta-e>.cta-note{order:7}
-.cta-alt{margin:6px 0 0;font-size:12.5px;line-height:1.7;color:var(--ink-mid);max-width:620px}
-@media(min-width:600px){.cta-e{flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px 12px} .cta-e>.btn-view{order:1;margin-top:0} .cta-e>.cta-how{margin-top:2px} .cta-e>.cta-terms,.cta-e>.cta-note,.cta-e>.cta-alt{margin-top:0} .cta-e>.cta-how,.cta-e>.cta-terms,.cta-e>.cta-alt,.cta-e>.cta-note{flex-basis:100%}}
-.btn-view{font-weight:700;font-size:14px;padding:11px 16px;border-color:var(--ink)}
-.btn-view::after{content:"↗";font-size:.95em;color:var(--ink-mid)}
-.btn-view.is-jump::after{content:"↓"}
-.he-jump{font-size:13px;color:var(--ink);text-underline-offset:3px;margin-top:2px}
+.cta-pair{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.cta-main+.cta-pair{margin-top:20px}
+@media(min-width:520px){.cta-pair{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+.cta-cell .btn{width:100%;padding-left:14px;padding-right:14px}
+.cta-sub{margin:7px 0 0;font-size:12.5px;line-height:1.6;color:var(--ink-mid)}
+.cta-links{display:flex;flex-wrap:wrap;align-items:center;gap:2px 24px;margin-top:14px}
+/* 写真の背景（2026-11-07 ユーザー「背景が LP の背景と溶け込めていない」）: 角丸の箱をやめ、PC はヒーローの右側に上端から下端・画面の右端まで灰色を敷いて左は白へ溶かす。
+   スマホは写真の帯を画面の左右いっぱいに広げ、上下を白へ溶かす。写真の真後ろは白い光（radial・外側は透明）で、どこにも境目を作らない */
+.photo-frame{position:relative;display:grid;place-items:center;background:radial-gradient(closest-side,rgba(255,255,255,.95) 0%,rgba(255,255,255,.55) 55%,rgba(255,255,255,0) 100%)}
+.photo-frame img{position:absolute;left:2%;top:3%;width:96%;height:94%;object-fit:contain;filter:drop-shadow(0 22px 26px rgba(0,0,0,.17)) drop-shadow(0 4px 6px rgba(0,0,0,.08))}
+@media(min-width:900px){.hero{position:relative;isolation:isolate} .hero::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;right:0;left:calc(50% - 40px);background:linear-gradient(90deg,rgba(238,238,236,0) 0,#EEEEEC 160px,#E9E9E7 100%)}
+  .hero-photo{margin-right:-24px} .photo-frame{aspect-ratio:1/1;padding:3% 2%} .lineup{background:none;padding:0}}
+@media(max-width:899px){.photo-frame{margin:0 -20px;height:clamp(230px,69vw,380px)} .photo-frame img{left:12%;top:22px;width:76%;height:calc(100% - 48px)}
+  .photo-frame{
+  background:radial-gradient(ellipse 46% 50% at 50% 50%,rgba(255,255,255,.95),rgba(255,255,255,0) 100%),linear-gradient(180deg,rgba(238,238,236,0) 0%,#EEEEEC 20%,#EEEEEC 80%,rgba(238,238,236,0) 100%)}
+  .hero[data-mode="product"] .hero-photo{margin-top:6px} .hero[data-mode="product"] .hero-cta{margin-top:8px}}
+@media(min-width:768px) and (max-width:899px){.photo-frame{margin:0 -40px}}
+.hero-photo figcaption{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 12px;margin-top:10px;padding-left:10px;border-left:2px solid var(--yellow);font-size:12.5px;line-height:1.6;color:var(--ink-mid)}
+.hero-photo figcaption b{font-size:13.5px;font-weight:700;color:var(--ink)}
+.hero-photo .dims{font-family:var(--mono);font-size:12px;color:var(--ink)}
+.lineup{list-style:none;margin:0;padding:12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;background:var(--bg-soft);border-radius:var(--radius)}
+.lineup a{display:flex;flex-direction:column;gap:4px;height:100%;padding:8px 6px 6px;background:#fff;border:1px solid var(--line);border-radius:6px;text-decoration:none;color:var(--ink)}
+.lineup a:hover{border-color:var(--ink)}
+.lineup img{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain}
+.lineup span{font:700 10.5px/1.3 var(--mono);text-align:center;overflow-wrap:anywhere}
+@media(max-width:899px){.lineup{padding:8px;gap:6px} .lineup span{font-size:9.5px}}
+
+/* sections */
+.sec{padding:44px 0;scroll-margin-top:84px} @media(min-width:768px){.sec{padding:64px 0}}
+.sec-alt{background:var(--bg-subtle);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec h2{font-size:clamp(22px,3.6vw,30px);line-height:1.35;margin:0 0 10px;font-weight:900;text-wrap:balance}
+.sec-lead{color:var(--ink-mid);margin:0 0 28px;max-width:720px;text-wrap:pretty}
 .toc{margin:0 0 28px;padding:0;list-style:none;display:grid;gap:5px;grid-template-columns:1fr}
 @media(min-width:600px){.toc{grid-template-columns:1fr 1fr}}
 @media(min-width:1024px){.toc{grid-template-columns:repeat(3,1fr)}}
@@ -159,57 +152,44 @@ body:not([data-hero="e"]) #hero-e{display:none} body[data-hero="e"] #hero-abcd{d
 .toc b{font:700 13.5px/1.4 var(--mono)}
 .toc span{font-size:12px;color:var(--ink-mid)}
 .toc .toc-sale a{background:var(--bg-subtle)} .toc .toc-sale b{font-family:var(--font)}
-.btn-text{background:none;border:0;padding:8px 0;font:500 14px/1.4 var(--font);color:var(--ink-mid);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
-.btn-text:hover{color:var(--ink)}
-.cta-note-e{margin-top:8px}
-.hero-e-photo{margin:0;display:grid;grid-template-columns:1fr;gap:10px;align-items:center}
-.hero-e-photo img{width:100%;height:auto;max-width:520px;margin:0 auto;filter:drop-shadow(0 18px 24px rgba(0,0,0,.18))}
-.hero-e-photo figcaption{display:flex;flex-direction:column;gap:3px;font-size:13px;color:var(--ink-mid);border-left:2px solid var(--yellow);padding-left:12px;max-width:520px;margin:0 auto;width:100%}
-.hero-e-photo figcaption b{font-family:var(--mono);font-size:15px;color:var(--ink);font-weight:700}
-.hero-e-photo .dims{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
-.hero-e-photo .fact{font-family:var(--mono);font-size:11.5px}
-@media(max-width:899px){.hero-e-photo{grid-template-columns:120px 1fr;gap:14px;border-top:1px solid var(--line);padding-top:16px} .hero-e-photo img{max-width:120px;filter:none} .hero-e-photo figcaption{margin:0}}
-@media(max-width:359px){.hero-e-photo{grid-template-columns:96px 1fr} .hero-e-photo img{max-width:96px}}   /* 320px で「ミニワークステーショ／ン」と折れた */
-
-/* sections */
-.sec{padding:44px 0;scroll-margin-top:84px} @media(min-width:768px){.sec{padding:64px 0}}
-.sec-alt{background:var(--bg-subtle);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.sec h2{font-size:clamp(22px,3.6vw,30px);line-height:1.35;margin:0 0 10px;font-weight:900;text-wrap:balance}
-.sec-lead{color:var(--ink-mid);margin:0 0 28px;max-width:720px;text-wrap:pretty}
 
 /* products */
 .products{display:grid;gap:18px}
-@media(min-width:1040px){.products{grid-template-columns:1fr 1fr}}  /* 写真が横に付くカードなので、2 列は本文に幅が取れる 1040px 以上だけ（700px からだと仕様欄が 31px に潰れていた・2026-11-06） */
+@media(min-width:1040px){.products{grid-template-columns:1fr 1fr}}  /* 写真が横に付くカードなので、2 列は本文に幅が取れる 1040px 以上だけ */
 .product{display:grid;grid-template-columns:112px 1fr;gap:14px;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:14px;scroll-margin-top:96px}
 @media(min-width:480px){.product{grid-template-columns:150px 1fr;padding:18px}}
 .product.is-target{border-color:var(--yellow);box-shadow:0 0 0 3px var(--yellow-soft)}
 .product-media img{aspect-ratio:1/1;object-fit:contain;width:100%;height:auto;background:#fff;border-radius:6px}
 .product-kicker{margin:0;font-size:13px;font-weight:700;color:var(--ink-mid)}
+.product-kicker .tag{margin-left:8px;font-weight:500}
+.sel-tag{display:none;margin-left:8px;padding:1px 8px;border-radius:4px;background:var(--yellow);color:#1A1B1C;font-size:11px;font-weight:700;line-height:1.7;vertical-align:middle}
+.product.is-target .sel-tag{display:inline-block}
 .product-name{margin:2px 0 0;font:700 20px/1.25 var(--mono);letter-spacing:-.01em;overflow-wrap:anywhere}
 .product-en{margin:2px 0 10px;font-size:12px;color:var(--ink-light)}
-.specs{margin:0 0 12px;padding:0;display:grid;gap:6px}
+.specs{margin:0 0 14px;padding:0;display:grid;gap:6px}
 .spec{display:grid;grid-template-columns:7.5em 1fr;gap:8px;font-size:12.5px;line-height:1.55;border-top:1px solid var(--line);padding-top:6px}
 .spec dt{color:var(--ink-mid);font-weight:500} .spec dd{margin:0;font-family:var(--mono);font-size:11.5px;overflow-wrap:anywhere}
-.product-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.product .product-actions .btn{font-size:13px;padding:8px 12px}
+.product-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px}
+.product .product-actions .btn{font-size:13.5px;padding:9px 12px;min-height:44px}
+.product-meta{margin:10px 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px;font-size:12px;color:var(--ink-mid)}
+.product-meta .text-link{font-size:13px}
 .sec-sale{border-top:1px solid var(--line)}
-.product-kicker .tag{margin-left:8px;font-weight:500}
-@media(min-width:960px){.products-3{grid-template-columns:repeat(3,1fr)} .products-3 .product{grid-template-columns:1fr;align-content:start} .products-3 .product-media img{aspect-ratio:3/2} .products-3 .spec{grid-template-columns:1fr;gap:1px}}
+@media(min-width:960px){.products-3{grid-template-columns:repeat(3,1fr)} .products-3 .product{grid-template-columns:1fr;align-content:start} .products-3 .product-media img{aspect-ratio:3/2} .products-3 .spec{grid-template-columns:1fr;gap:1px} .products-3 .product-actions{grid-template-columns:1fr}}
 @media(max-width:479px){.product{grid-template-columns:1fr} .product-media img{aspect-ratio:16/9;max-height:160px} .spec{grid-template-columns:6.5em 1fr}}
 
-/* 配布カタログ（展示機の上。hub /catalogs/ のカタログ一覧に倣い、表紙＋判型・ページ数＋PDF） */
+/* 配布カタログ（展示機の上。表紙＋判型・ページ数＋PDF） */
 .sec-cat{padding:36px 0} @media(min-width:768px){.sec-cat{padding:52px 0}}
 .cats{display:grid;gap:16px}
 @media(min-width:820px){.cats{grid-template-columns:1fr 1fr}}
 .cat{display:grid;grid-template-columns:92px 1fr;gap:16px;align-items:start;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
 @media(min-width:480px){.cat{grid-template-columns:116px 1fr;gap:20px;padding:20px}}
-@media(max-width:359px){.cat{grid-template-columns:72px 1fr;gap:12px;padding:14px} .cat .cat-name{font-size:16px}}   /* 320px で本文が 140px になり「カタログ 2／026」「モデ／ル」と割れた */
+@media(max-width:359px){.cat{grid-template-columns:72px 1fr;gap:12px;padding:14px} .cat .cat-name{font-size:16px}}
 .cat-cover img{width:100%;height:auto;aspect-ratio:210/297;object-fit:cover;background:#fff;border:1px solid var(--line);border-radius:3px;box-shadow:0 8px 18px rgba(0,0,0,.10)}
 .cat-meta{margin:0;font:500 11.5px/1.6 var(--mono);color:var(--ink-mid);letter-spacing:.02em}
 .cat-name{margin:2px 0 6px;font-size:18px;line-height:1.4;font-weight:900}
 .cat-lead{margin:0;font-size:14px;line-height:1.65}
 .cat-items{margin:6px 0 12px;font-size:12.5px;line-height:1.65;color:var(--ink-mid)}
-.cat .btn-pdf{font-size:13px;padding:8px 12px}
+.cat .btn-pdf{font-size:13px;padding:8px 12px;min-height:44px}
 .btn-pdf::before{content:"↓";font-size:1em;color:var(--ink-mid)}
 
 /* three steps */
@@ -224,7 +204,6 @@ body:not([data-hero="e"]) #hero-e{display:none} body[data-hero="e"] #hero-abcd{d
 .step-no{font:700 12px/1 var(--mono);color:var(--ink-mid);letter-spacing:.08em}
 .step h3{margin:0;font-size:22px;font-weight:900}
 .step p{margin:0;color:var(--ink-mid);font-size:14px;flex:1}
-.step .btn{align-self:flex-start}
 
 /* event */
 .event{display:grid;gap:10px 24px;grid-template-columns:7em 1fr;font-size:15px;margin:0}
@@ -235,18 +214,22 @@ body:not([data-hero="e"]) #hero-e{display:none} body[data-hero="e"] #hero-abcd{d
 .sheet.is-open{transform:none}
 .sheet h4{margin:0 0 6px;font-size:16px} .sheet p{margin:0 0 12px;font-size:13px;color:var(--ink-mid)}
 .sheet-actions{display:grid;gap:8px} .sheet-actions .btn{font-size:14px;padding:12px 10px} #sheet-mailself{font-weight:500}
-.sheet-close{position:absolute;right:12px;top:10px;background:none;border:0;font-size:22px;cursor:pointer;color:var(--ink-mid)}
+.sheet-close{position:absolute;right:12px;top:10px;background:none;border:0;font-size:22px;cursor:pointer;color:var(--ink-mid);min-width:44px;min-height:44px}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--dark);color:#fff;padding:10px 16px;border-radius:var(--radius);font-size:14px;opacity:0;transition:opacity .2s;z-index:400;pointer-events:none}
 .toast.is-on{opacity:1}
 
-/* sticky cta (mobile) */
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:250;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;gap:8px;transform:translateY(110%);transition:transform .25s}
-.sticky.is-on{transform:none}
-.sticky .btn{flex:1;padding:12px 8px;font-size:14px}
-.sticky .btn-primary{flex:2.2}
-@media(max-width:400px){.sticky .btn{font-size:13px;gap:5px} .sticky .btn-share::before{display:none}}
+/* 追従バー（スマホ）: 本文の導線が上へ抜けたら出す。隠れている間は Tab でも止まらない（visibility） */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:250;background:rgba(255,255,255,.97);backdrop-filter:blur(6px);border-top:1px solid var(--line);box-shadow:0 -6px 18px rgba(0,0,0,.06);padding:8px 16px calc(10px + env(safe-area-inset-bottom));transform:translateY(110%);visibility:hidden;transition:transform .25s,visibility 0s linear .25s}
+.sticky.is-on{transform:none;visibility:visible;transition:transform .25s}
+.sticky-model{margin:0 0 6px;font-size:12.5px;font-weight:700;line-height:1.4}
+.sticky-btns{display:flex;gap:8px}
+.sticky .btn{flex:1;min-height:46px;padding:10px 8px;font-size:14px}
+.sticky .btn-primary{flex:1.75}
+@media(max-width:400px){.sticky .btn{font-size:13px;gap:5px}}
+@media(max-width:359px){.sticky .btn-open::after,.sticky .js-mail::before{display:none}}  /* 320px で「製品資料を開く（PDF）」が 2 行に折れた */
 @media(min-width:900px){.sticky{display:none}}
-body.has-sticky{padding-bottom:76px}
+body.has-sticky{padding-bottom:var(--sticky-h,108px)}
+@media(min-width:900px){body.has-sticky{padding-bottom:0}}
 
 /* footer */
 footer{background:var(--dark-bg);color:var(--dark-ink-mid);padding:36px 0 48px;font-size:13px}
@@ -353,82 +336,46 @@ footer a{color:var(--dark-ink)}
 
 <main id="main">
 
-<section class="hero hero-e" id="hero-e">
-  <div class="wrap hero-e-grid">
-    <div class="hero-e-main">
-      <p class="hero-eyebrow"><span class="y">EdgeTech+ 2026</span>パシフィコ横浜 ｜ 11月18日<wbr>（水）<wbr>〜<wbr>20日<wbr>（金）<wbr> ｜ ZOTAC ブース <span class="nw">DH-09</span></p>
-      <h1 class="hero-e-title is-catch" id="he-title"><span class="nw">AIを、</span><span class="nw">ローカルで。</span></h1>
-      <p class="hero-e-tagline" id="he-tagline" lang="en">ANY SCALE. ANY TASK.</p>
-      <p class="hero-e-lead" id="he-lead"><span class="nw">ブースの<wbr>展示機 <wbr>9 機種の<wbr>資料を、</span><span class="nw">メールで<wbr>お送りします。</span></p>
-      <p class="hero-e-sub" id="he-sub">組込み・エッジ AI 向けの<wbr> PC と<wbr>モジュール。<wbr>入力は<wbr>ありません。</p>
-      <div class="pack" aria-label="メールでお届けするもの">
-        <p class="pack-head">メール 1 通で<wbr>お届けする<wbr>もの</p>
-        <ol class="pack-list">
-          <li id="he-pack1">展示機 <wbr>9 機種の<wbr>製品資料<wbr><span class="paren">（PDF・<wbr>日本語）⁠と</span><wbr>製品ページ</li>
-          <li id="he-pack2" hidden>ほかの<wbr> 8 機種の<wbr>資料一覧</li>
-          <li>法人・<wbr>教育機関向け評価機貸出の<wbr>ご案内<wbr>（最大 2 週間無料）</li>
-          <li>ご返信で<wbr>用途を<wbr>一行いただければ、<wbr>合う<wbr>構成を<wbr>担当から<wbr>ご案内</li>
-        </ol>
-      </div>
-      <!-- 並び: PC 幅は［黄ボタン｜この製品の資料をいま見る］の横並び、スマホは黄ボタン → 注記 → 副ボタン（注記は黄ボタンの直下＝ユーザー決定）。
-           入れ替える how・terms にはリンクが無いので、Tab の順と見た目の順はずれない -->
-      <div class="cta-e">
-        <a class="btn btn-primary js-mail" href="#" id="cta-mail-e" data-track="pack_mail" data-position="hero">資料を<wbr>まとめて<wbr>メールで<wbr>受け取る</a>
-        <a class="btn btn-view is-jump" id="cta-view-e" href="#products" data-track="toc" data-position="hero_view">9 機種の<wbr>資料を<wbr>見る</a>
-        <p class="cta-how">入力不要・<wbr>そのまま<wbr>送信 → 数分で<wbr>自動返信が<wbr>届きます</p>
-        <ul class="cta-terms">
-          <li>後日、<wbr>営業担当から<wbr>ご連絡する<wbr>ことがあります。<wbr>評価機・<wbr>新製品の<wbr>ご案内も<wbr>お送りします。<wbr>配信停止は、<wbr>届いた<wbr>メールへの<wbr>ご返信で<wbr>承ります。</li>
-          <li>会社の<wbr>アドレスからの<wbr>送信が<wbr>おすすめです<wbr><span class="paren">（個人の<wbr>アドレスでも<wbr>受け取れます）。</span></li>
-        </ul>
-        <p class="cta-alt">1 機種ずつなら、<wbr>メールを<wbr>送らずに<wbr>この<wbr>ページから<wbr> PDF を<wbr>開けます。<wbr>ZOTAC からの<wbr>ご連絡は<wbr>ありません。</p>
-        <button type="button" class="btn-text js-share" data-track="share_self" data-position="hero">URL を<wbr>共有・保存する<wbr> ›</button>
-        <p class="cta-note cta-note-e">「資料を<wbr>まとめて<wbr>メールで<wbr>受け取る」⁠を<wbr>押すと<wbr>メールアプリが<wbr>開きます<wbr><span class="paren">（宛先・件名は<wbr>入力済み）。</span><wbr>送信元は<wbr> <span class="todo">【要確認】担当者名</span> です。<wbr>アドレスは<wbr>資料の<wbr>送付、<wbr>ご案内、<wbr>営業担当からの<wbr>ご連絡にのみ<wbr>使用し、<span class="todo">【要確認】保存期間</span>内に<wbr>削除します。<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a><br>
-        メールアプリが<wbr>開かない<wbr>場合は<wbr> <a href="mailto:edgetech@zotac.co.jp" class="nw todo">edgetech@zotac.co.jp</a> へ<wbr>空メールを。<wbr>メールを<wbr>使えない<wbr>場合は、<wbr>ブースの<wbr>係員に<wbr>名刺を<wbr>お渡しください。</p>
-      </div>
-    </div>
-    <figure class="hero-e-photo" id="he-photo">
-      <img id="he-img" src="images/hero_qu27n5000.png" alt="" width="1600" height="1066">
-      <figcaption>
-        <b id="he-model">ZBOX PRO QU27N5000</b>
-        <span id="he-kicker">ミニワークステーション</span>
-        <span class="dims" id="he-dims">210 × 203 × 71&nbsp;mm ｜ 3.02&nbsp;L</span>
-        <span class="fact" id="he-fact" hidden></span>
-        <span class="todo" id="he-demo" hidden>デモ画面の<wbr>実写に<wbr>差し替え予定<wbr><span class="paren">（会期前に<wbr>デモ機で<wbr>撮影）</span></span>
-        <a class="he-jump" id="he-jump" href="#products" hidden>この<wbr>製品の<wbr>仕様・<wbr>資料へ<wbr> ↓</a>
-      </figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="hero" id="hero-abcd">
+<!-- ヒーロー: 初期 HTML は共通トップ（タグなし・SNS 入口）。QR の #機種 は JS の render() が書き換える。MAIL_READY=False -->
+<section class="hero" id="hero" data-mode="top">
   <div class="wrap hero-grid">
-    <div>
-      <p class="hero-eyebrow"><span class="y">EdgeTech+ 2026</span>パシフィコ横浜 ｜ 11月18日<wbr>（水）<wbr>〜<wbr>20日<wbr>（金）<wbr> ｜ ZOTAC ブース <span class="nw">DH-09</span></p>
-      <p class="hero-scene" id="hero-scene">SCENE ── 開発室で、<wbr>モデルを<wbr>つくる</p>
-      <h1>展示機 <span class="nw">9 機種</span>の<wbr>資料を、<wbr>まとめて<wbr>お送りします。</h1>
-      <p class="hero-lead">ブースで<wbr>ご覧いただいた<wbr>組込み・エッジ AI 向けの<wbr> PC と<wbr>モジュールの<wbr>製品資料<wbr>（PDF）⁠と<wbr>製品ページを、<wbr>1 通の<wbr>メールに<wbr>まとめて<wbr>お届けします。<wbr>入力は<wbr>ありません。</p>
-      <div class="product-pick" id="product-pick" role="status">ご覧に<wbr>なった<wbr>製品: <b id="pick-model"></b> の<wbr>資料を<wbr>先頭に<wbr>お送りします。</div>
-      <div class="cta-row">
-        <a class="btn btn-primary js-mail" href="#" id="cta-mail" data-track="pack_mail" data-position="hero">資料を<wbr>まとめて<wbr>メールで<wbr>受け取る</a>
-        <button type="button" class="btn btn-share js-share" id="cta-share" data-track="share_self" data-position="hero">URL を<wbr>共有・保存する</button>
-      </div>
-      <p class="cta-note">「資料を<wbr>まとめて<wbr>メールで<wbr>受け取る」⁠を<wbr>押すと<wbr>メールアプリが<wbr>開き、<wbr>宛先と<wbr>件名が<wbr>入った<wbr>状態に<wbr>なります。<wbr>そのまま<wbr>送信してください。<wbr>数分以内に<wbr>担当者から<wbr>資料の<wbr>メールが<wbr>届きます<wbr>（送信元 <span class="todo">【要確認】担当者名</span>）。<wbr>メールが<wbr>開かない<wbr>場合は<wbr> <a href="mailto:edgetech@zotac.co.jp" class="nw todo">edgetech@zotac.co.jp</a> へ<wbr>空メールを<wbr>お送りください。<br>
-      後日、<wbr>営業担当から<wbr>ご連絡する<wbr>ことがあります。<wbr>評価機・<wbr>新製品の<wbr>ご案内も<wbr>お送りします。<wbr>配信停止は、<wbr>届いた<wbr>メールへの<wbr>ご返信で<wbr>承ります。<wbr>お送りいただいた<wbr>メールアドレスは<wbr>資料の<wbr>送付、<wbr>評価機・<wbr>新製品の<wbr>ご案内、<wbr>営業担当からの<wbr>ご連絡にのみ<wbr>使用し、<span class="todo">【要確認】保存期間</span>内に<wbr>削除します。<a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a></p>
+    <div class="hero-head">
+      <p class="hero-eyebrow"><span class="y">EdgeTech+ 2026</span><span class="nw">11.18–20</span> ｜ <span class="nw">パシフィコ横浜</span> <span class="nw">DH-09</span></p>
+      <div class="hero-kick" id="he-kick" hidden><p class="hero-kicker" id="he-kicker"></p><span class="fact-tag" id="he-fact" hidden></span></div>
+      <h1 class="hero-title is-catch" id="he-title"><span class="nw">AIを、</span><span class="nw">ローカルで。</span></h1>
+      <p class="hero-tagline" id="he-tagline" lang="en">ANY SCALE. ANY TASK.</p>
+      <p class="hero-lead" id="he-lead"><span class="nw">ブースの<wbr>展示機 <wbr>9 機種の<wbr>資料を、</span><span class="nw">この<wbr>ページから<wbr>ご覧いただけます。</span></p>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <img src="images/qu27n5000.jpg" alt=""><img src="images/zrp7n5000.jpg" alt=""><img src="images/s35w3.jpg" alt=""><img src="images/mi652dx.jpg" alt=""><img src="images/rk88dx.jpg" alt=""><img src="images/mxm-blackwell.jpg" alt=""><img src="images/thoredge-dx1.jpg" alt=""><img src="images/eu275080c.jpg" alt=""><img src="images/cm5-pico.jpg" alt="">
-    </div>
-    <figure class="hero-stage" id="hero-stage">
-      <img id="hero-stage-img" src="images/hero_qu27n5000.png" alt="ZBOX PRO QU27N5000" width="1600" height="1066">
-      <figcaption id="hero-stage-cap"><b>ZBOX PRO QU27N5000</b><span>ミニワークステーション ── ブースで<wbr>実機デモ</span></figcaption>
+    <figure class="hero-photo" id="he-photo">
+      <div class="photo-frame" id="he-frame" hidden><img id="he-img" alt="" width="1200" height="900"></div>
+      <ul class="lineup" id="he-lineup" aria-label="ブースの展示機 9 機種"><li><a href="#qu27n5000" class="js-pick" data-track="lineup_pick" data-position="lineup_qu27n5000" aria-label="ZBOX PRO QU27N5000 を表示"><img src="images/qu27n5000.jpg" alt="" loading="lazy" width="160" height="120"><span>QU27N5000</span></a></li><li><a href="#zrp7n5000" class="js-pick" data-track="lineup_pick" data-position="lineup_zrp7n5000" aria-label="ZBOX PRO ZRP7N5000 を表示"><img src="images/zrp7n5000.jpg" alt="" loading="lazy" width="160" height="120"><span>ZRP7N5000</span></a></li><li><a href="#s35w3" class="js-pick" data-track="lineup_pick" data-position="lineup_s35w3" aria-label="ZBOX PRO S35W3DX を表示"><img src="images/s35w3.jpg" alt="" loading="lazy" width="160" height="120"><span>S35W3DX</span></a></li><li><a href="#mi652dx" class="js-pick" data-track="lineup_pick" data-position="lineup_mi652dx" aria-label="ZBOX PRO MI652DX を表示"><img src="images/mi652dx.jpg" alt="" loading="lazy" width="160" height="120"><span>MI652DX</span></a></li><li><a href="#rk88dx" class="js-pick" data-track="lineup_pick" data-position="lineup_rk88dx" aria-label="ZBOX PRO RK88DX を表示"><img src="images/rk88dx.jpg" alt="" loading="lazy" width="160" height="120"><span>RK88DX</span></a></li><li><a href="#mxm-blackwell" class="js-pick" data-track="lineup_pick" data-position="lineup_mxm-blackwell" aria-label="BLACKWELL MXM を表示"><img src="images/mxm-blackwell.jpg" alt="" loading="lazy" width="160" height="120"><span>BLACKWELL MXM</span></a></li><li><a href="#thoredge-dx1" class="js-pick" data-track="lineup_pick" data-position="lineup_thoredge-dx1" aria-label="ZBOX PRO THOREDGE-DX1 を表示"><img src="images/thoredge-dx1.jpg" alt="" loading="lazy" width="160" height="120"><span>THOREDGE-DX1</span></a></li><li><a href="#eu275080c" class="js-pick" data-track="lineup_pick" data-position="lineup_eu275080c" aria-label="MAGNUS ONE ULTRA を表示"><img src="images/eu275080c.jpg" alt="" loading="lazy" width="160" height="120"><span>MAGNUS ONE ULTRA</span></a></li><li><a href="#cm5-pico" class="js-pick" data-track="lineup_pick" data-position="lineup_cm5-pico" aria-label="ZBOX PRO CM5-PICO を表示"><img src="images/cm5-pico.jpg" alt="" loading="lazy" width="160" height="120"><span>CM5-PICO</span></a></li></ul>
+      <figcaption><b id="he-model">ブースの<wbr>展示機 <wbr>9 機種</b><span id="he-cap-sub">組込み・エッジ AI 向けの<wbr> PC と<wbr>モジュール</span><span class="dims" id="he-dims" hidden></span></figcaption>
     </figure>
+    <dl class="kpis" id="he-kpis" hidden></dl>
+    <div class="hero-cta" id="hero-cta">
+      <div class="cta-pair">
+        <div class="cta-cell">
+          <a class="btn btn-primary btn-open is-jump" id="cta-pdf" href="#products" data-track="toc" data-position="hero_view">9 機種の<wbr>資料を<wbr>見る</a>
+          <p class="cta-sub" id="cta-pdf-note">PDF・<wbr>日本語・登録不要</p>
+        </div>
+        <div class="cta-cell">
+          <a class="btn btn-outline" id="cta-inq" href="https://zotac.co.jp/product-biz-inquiry/?pname=EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="hero">お問い合わせする</a>
+          <p class="cta-sub" id="cta-inq-note">構成・評価機・<wbr>お見積りも<wbr>ご相談ください。</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="cta-links">
+      <a class="text-link" id="he-jump" href="#products" hidden>この<wbr>製品の<wbr>仕様を<wbr>詳しく<wbr>見る<wbr> ↓</a>
+      <button type="button" class="btn-text js-share" data-track="share_self" data-position="hero">URL を<wbr>共有・保存する<wbr> ›</button>
+    </div>
   </div>
 </section>
 
 <section class="sec sec-alt sec-cat" id="catalogs">
   <div class="wrap">
     <h2>ブースの<wbr>配布カタログ</h2>
-    <p class="sec-lead">ブースで<wbr>ご案内している<wbr>カタログの<wbr> PDF 版です。<wbr>機種ごとの<wbr>フライヤーは、<wbr>下の<wbr>展示機の<wbr>欄に<wbr>あります。</p>
+    <p class="sec-lead">ブースで<wbr>ご案内している<wbr>カタログの<wbr> PDF 版です。<wbr>機種ごとの<wbr>資料は、<wbr>下の<wbr>展示機の<wbr>欄に<wbr>あります。</p>
     <div class="cats">
 <article class="cat" id="cat-b2b">
   <a class="cat-cover" href="/pdfs/ZOTAC_B2B_CATALOG_MAY_2026.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" data-track="pdf_download" data-position="catalog_cover_b2b"><img src="images/cover_b2b_catalog.jpg" alt="" loading="lazy" width="360" height="510"></a>
@@ -475,125 +422,134 @@ footer a{color:var(--dark-ink)}
 
 <section class="sec" id="products">
   <div class="wrap">
-    <h2>ブースの<wbr>展示機 <wbr>9 機種</h2>
+    <h2>展示機 <wbr>9 機種を<wbr>比較する</h2>
     <p class="sec-lead">ポケットサイズの<wbr> ARM ボードから、<wbr>RTX PRO Blackwell を<wbr>積んだ<wbr>ミニワークステーションまで。<wbr>値は<wbr>ブースの<wbr>スペックカードと<wbr>同じです<wbr><span class="paren">（全仕様は<wbr>各製品ページ）。</span></p>
     <nav aria-label="機種の一覧"><ol class="toc" id="toc"><li><a href="#p-qu27n5000" data-slug="qu27n5000" data-track="toc" data-position="toc_qu27n5000"><b>ZBOX PRO QU27N5000</b><span>ミニワークステーション</span></a></li><li><a href="#p-zrp7n5000" data-slug="zrp7n5000" data-track="toc" data-position="toc_zrp7n5000"><b>ZBOX PRO ZRP7N5000</b><span>堅牢な<wbr>産業用PC</span></a></li><li><a href="#p-s35w3" data-slug="s35w3" data-track="toc" data-position="toc_s35w3"><b>ZBOX PRO S35W3DX</b><span>NPU搭載エッジAI PC</span></a></li><li><a href="#p-mi652dx" data-slug="mi652dx" data-track="toc" data-position="toc_mi652dx"><b>ZBOX PRO MI652DX</b><span>Core Ultra搭載エッジAI PC</span></a></li><li><a href="#p-rk88dx" data-slug="rk88dx" data-track="toc" data-position="toc_rk88dx"><b>ZBOX PRO RK88DX</b><span>NPU搭載ARMエッジAI PC</span></a></li><li><a href="#p-mxm-blackwell" data-slug="mxm-blackwell" data-track="toc" data-position="toc_mxm-blackwell"><b>BLACKWELL MXM</b><span>組込みGPUモジュール</span></a></li><li><a href="#p-thoredge-dx1" data-slug="thoredge-dx1" data-track="toc" data-position="toc_thoredge-dx1"><b>ZBOX PRO THOREDGE-DX1</b><span>ロボティクス向けAI</span></a></li><li><a href="#p-eu275080c" data-slug="eu275080c" data-track="toc" data-position="toc_eu275080c"><b>MAGNUS ONE ULTRA</b><span>小型ハイエンドPC</span></a></li><li><a href="#p-cm5-pico" data-slug="cm5-pico" data-track="toc" data-position="toc_cm5-pico"><b>ZBOX PRO CM5-PICO</b><span>ポケットサイズPC</span></a></li><li class="toc-sale"><a href="#lineup" data-track="toc" data-position="toc_lineup"><b>販売中の<wbr>ミニPC<wbr>（3 機種）</b><span>評価機の<wbr>貸出<wbr>あり</span></a></li></ol></nav>
     <div class="products">
 <article class="product" id="p-qu27n5000" data-slug="qu27n5000" data-model="ZBOX PRO QU27N5000">
   <div class="product-media"><img src="images/qu27n5000.jpg" alt="ZBOX PRO QU27N5000" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">ミニワークステーション</p>
+    <p class="product-kicker">ミニワークステーション<span class="sel-tag">選択中</span></p>
     <h3 class="product-name">ZBOX PRO QU27N5000</h3>
     <p class="product-en">Mini Workstation with RTX PRO Blackwell</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 255HX, 20-Core, up to 5.2 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>NVIDIA RTX PRO 5000 Blackwell Embedded, 24GB GDDR7, 256-bit<br>Up to 1824 AI TOPS</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4 SSD slot, 1x M.2 NVMe PCIe 4.0 x4 / SATA SSD slot</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  210mm x 203mm x 71mm, 3.02L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/zbox/qu27n5000/" data-track="catalog_page" data-position="card_qu27n5000"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_qu27n5000_flyer.pdf" data-track="pdf_download" data-position="card_qu27n5000" target="_blank" rel="noopener"><span>QU27N5000 フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
+      <a class="btn btn-outline btn-open" href="/pdfs/zbox_qu27n5000_flyer.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="card_qu27n5000" aria-label="製品資料を開く（PDF） ZBOX PRO QU27N5000">製品資料を<wbr>開く<wbr>（PDF）</a>
+      <a class="btn btn-outline" href="https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20QU27N5000%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="card_qu27n5000" aria-label="この製品について問い合わせる ZBOX PRO QU27N5000">この<wbr>製品に<wbr>ついて<wbr>問い合わせる</a>
     </div>
+    <p class="product-meta"><span>PDF・<wbr>日本語・1 ページ・1.2 MB</span><a class="text-link" href="/catalogs/zbox/qu27n5000/" data-track="catalog_page" data-position="card_qu27n5000">詳しい<wbr>仕様を<wbr>見る<wbr>（製品ページ）</a></p>
   </div>
 </article>
 <article class="product" id="p-zrp7n5000" data-slug="zrp7n5000" data-model="ZBOX PRO ZRP7N5000">
   <div class="product-media"><img src="images/zrp7n5000.jpg" alt="ZBOX PRO ZRP7N5000" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">堅牢な<wbr>産業用PC</p>
+    <p class="product-kicker">堅牢な<wbr>産業用PC<span class="sel-tag">選択中</span></p>
     <h3 class="product-name">ZBOX PRO ZRP7N5000</h3>
     <p class="product-en">Rugged IPC with RTX PRO 5000 MXM</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 265, 20-Core, up to 5.3 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>NVIDIA RTX PRO 5000 Blackwell MXM, 24GB GDDR7, 256-bit<br>Up to 1824 AI TOPS</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-5600 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4 SSD slot, 1x M.2 NVMe PCIe 4.0 x4 / SATA SSD slot<br>UHS-II SD card reader</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  209.8mm x 202.3mm x 62.5mm, 2.65L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/zbox/zrp7n5000/" data-track="catalog_page" data-position="card_zrp7n5000"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_zrp7n5000_flyer.pdf" data-track="pdf_download" data-position="card_zrp7n5000" target="_blank" rel="noopener"><span>ZRP7N5000 フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
+      <a class="btn btn-outline btn-open" href="/pdfs/zbox_zrp7n5000_flyer.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="card_zrp7n5000" aria-label="製品資料を開く（PDF） ZBOX PRO ZRP7N5000">製品資料を<wbr>開く<wbr>（PDF）</a>
+      <a class="btn btn-outline" href="https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20ZRP7N5000%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="card_zrp7n5000" aria-label="この製品について問い合わせる ZBOX PRO ZRP7N5000">この<wbr>製品に<wbr>ついて<wbr>問い合わせる</a>
     </div>
+    <p class="product-meta"><span>PDF・<wbr>日本語・1 ページ・1.4 MB</span><a class="text-link" href="/catalogs/zbox/zrp7n5000/" data-track="catalog_page" data-position="card_zrp7n5000">詳しい<wbr>仕様を<wbr>見る<wbr>（製品ページ）</a></p>
   </div>
 </article>
 <article class="product" id="p-s35w3" data-slug="s35w3" data-model="ZBOX PRO S35W3DX">
   <div class="product-media"><img src="images/s35w3.jpg" alt="ZBOX PRO S35W3DX" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">NPU搭載エッジAI PC</p>
+    <p class="product-kicker">NPU搭載エッジAI PC<span class="sel-tag">選択中</span></p>
     <h3 class="product-name">ZBOX PRO S35W3DX</h3>
     <p class="product-en">Edge AI PC with Intel Core 3 &amp; DeepX NPU</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core 3 304 (Embedded), 5-Core, up to 4.3 GHz</dd></div><div class="spec"><dt>GPU / NPU</dt><dd>Intel Graphics up to 2.3 GHz (9 TOPS), Intel integrated NPU (15 TOPS)<br>DeepX DX-M1 M.2 NPU module (25 TOPS), 40 TOPS total (15 + 25)</dd></div><div class="spec"><dt>映像出力・<wbr>入出力</dt><dd>3x HDMI 2.0<br>2x USB 3.2 Gen2 Type-A, 3x USB 2.0 Type-A<br>RS-232/422/485, 8x GPIO</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  164mm x 110.8mm x 45mm, 0.82L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/embedded/s35w3/" data-track="catalog_page" data-position="card_s35w3"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_pro_s35w3_flyer.pdf" data-track="pdf_download" data-position="card_s35w3" target="_blank" rel="noopener"><span>S35W3DX フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
+      <a class="btn btn-outline btn-open" href="/pdfs/zbox_pro_s35w3_flyer.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="card_s35w3" aria-label="製品資料を開く（PDF） ZBOX PRO S35W3DX">製品資料を<wbr>開く<wbr>（PDF）</a>
+      <a class="btn btn-outline" href="https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20S35W3DX%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="card_s35w3" aria-label="この製品について問い合わせる ZBOX PRO S35W3DX">この<wbr>製品に<wbr>ついて<wbr>問い合わせる</a>
     </div>
+    <p class="product-meta"><span>PDF・<wbr>日本語・1 ページ・1.1 MB</span><a class="text-link" href="/catalogs/embedded/s35w3/" data-track="catalog_page" data-position="card_s35w3">詳しい<wbr>仕様を<wbr>見る<wbr>（製品ページ）</a></p>
   </div>
 </article>
 <article class="product" id="p-mi652dx" data-slug="mi652dx" data-model="ZBOX PRO MI652DX">
   <div class="product-media"><img src="images/mi652dx.jpg" alt="ZBOX PRO MI652DX" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">Core Ultra搭載エッジAI PC</p>
+    <p class="product-kicker">Core Ultra搭載エッジAI PC<span class="sel-tag">選択中</span></p>
     <h3 class="product-name">ZBOX PRO MI652DX</h3>
     <p class="product-en">Edge AI PC with Intel Core Ultra 5 &amp; DeepX NPU</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 5 225H, 14-Core, up to 4.9 GHz</dd></div><div class="spec"><dt>GPU / NPU</dt><dd>Intel Arc Graphics up to 2.2 GHz, Intel AI Boost NPU (13 TOPS)<br>DeepX DX-M1 M.2 NPU module (25 TOPS)</dd></div><div class="spec"><dt>映像出力・<wbr>入出力</dt><dd>1x HDMI 2.0, 1x DisplayPort 1.4<br>5x USB 3.2 Type-A, 1x USB 3.2 Type-C, 3.5mm audio jack</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  148.8mm x 148.8mm x 37.6mm, 0.83L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/embedded/mi652dx/" data-track="catalog_page" data-position="card_mi652dx"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_pro_mi652dx_flyer.pdf" data-track="pdf_download" data-position="card_mi652dx" target="_blank" rel="noopener"><span>MI652DX フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
+      <a class="btn btn-outline btn-open" href="/pdfs/zbox_pro_mi652dx_flyer.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="card_mi652dx" aria-label="製品資料を開く（PDF） ZBOX PRO MI652DX">製品資料を<wbr>開く<wbr>（PDF）</a>
+      <a class="btn btn-outline" href="https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20MI652DX%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="card_mi652dx" aria-label="この製品について問い合わせる ZBOX PRO MI652DX">この<wbr>製品に<wbr>ついて<wbr>問い合わせる</a>
     </div>
+    <p class="product-meta"><span>PDF・<wbr>日本語・1 ページ・1.4 MB</span><a class="text-link" href="/catalogs/embedded/mi652dx/" data-track="catalog_page" data-position="card_mi652dx">詳しい<wbr>仕様を<wbr>見る<wbr>（製品ページ）</a></p>
   </div>
 </article>
 <article class="product" id="p-rk88dx" data-slug="rk88dx" data-model="ZBOX PRO RK88DX">
   <div class="product-media"><img src="images/rk88dx.jpg" alt="ZBOX PRO RK88DX" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">NPU搭載ARMエッジAI PC</p>
+    <p class="product-kicker">NPU搭載ARMエッジAI PC<span class="sel-tag">選択中</span></p>
     <h3 class="product-name">ZBOX PRO RK88DX</h3>
     <p class="product-en">Fanless ARM Edge AI with DeepX NPU</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Rockchip RK3588, 4x Cortex-A76 + 4x Cortex-A55<br>ARM Mali-G610 MC4, 8K@60fps decoding / 8K@30fps encoding</dd></div><div class="spec"><dt>NPU</dt><dd>RK3588 NPU 6 TOPS + DeepX DX-M1 M.2 module 25 TOPS, 31 TOPS total</dd></div><div class="spec"><dt>映像出力・<wbr>入出力</dt><dd>2x HDMI 2.1 (up to 8K@60Hz), 1x USB-C DisplayPort<br>2x USB 3.0 Type-A, 2x USB 2.0 Type-A<br>RS-232/422/485, 8-bit GPIO</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  164mm x 110.8mm x 45mm, 0.82L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/embedded/rk88dx/" data-track="catalog_page" data-position="card_rk88dx"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_pro_rk88dx_flyer.pdf" data-track="pdf_download" data-position="card_rk88dx" target="_blank" rel="noopener"><span>RK88DX フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
+      <a class="btn btn-outline btn-open" href="/pdfs/zbox_pro_rk88dx_flyer.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="card_rk88dx" aria-label="製品資料を開く（PDF） ZBOX PRO RK88DX">製品資料を<wbr>開く<wbr>（PDF）</a>
+      <a class="btn btn-outline" href="https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20RK88DX%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="card_rk88dx" aria-label="この製品について問い合わせる ZBOX PRO RK88DX">この<wbr>製品に<wbr>ついて<wbr>問い合わせる</a>
     </div>
+    <p class="product-meta"><span>PDF・<wbr>日本語・1 ページ・1.3 MB</span><a class="text-link" href="/catalogs/embedded/rk88dx/" data-track="catalog_page" data-position="card_rk88dx">詳しい<wbr>仕様を<wbr>見る<wbr>（製品ページ）</a></p>
   </div>
 </article>
 <article class="product" id="p-mxm-blackwell" data-slug="mxm-blackwell" data-model="BLACKWELL MXM">
   <div class="product-media"><img src="images/mxm-blackwell.jpg" alt="BLACKWELL MXM" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">組込みGPUモジュール</p>
+    <p class="product-kicker">組込みGPUモジュール<span class="sel-tag">選択中</span></p>
     <h3 class="product-name">BLACKWELL MXM</h3>
     <p class="product-en">Embedded GPU Module</p>
     <dl class="specs"><div class="spec"><dt>GPU</dt><dd>NVIDIA RTX PRO Blackwell Generation Embedded GPU (MXM 3.1)</dd></div><div class="spec"><dt>ラインナップ</dt><dd>RTX PRO 5000  24GB GDDR7, 1824 AI TOPS<br>RTX PRO 4000  16GB GDDR7, 1334 AI TOPS<br>RTX PRO 2000   8GB GDDR7,  572 AI TOPS<br>RTX PRO 500    6GB GDDR7,  294 AI TOPS</dd></div><div class="spec"><dt>フォーム<wbr>ファクター</dt><dd>MXM 3.1 Type B: 82mm x 110mm, PCIe 4.0 x16 / x8 (RTX PRO 5000 / 4000)<br>MXM 3.1 Type B: 82mm x 110mm, PCIe 4.0 x8 / x4 (RTX PRO 2000 Type B)<br>MXM 3.1 Type A: 82mm x 70mm, PCIe 4.0 x8 / x4 (RTX PRO 2000 / 500)</dd></div><div class="spec"><dt>電源・動作温度</dt><dd>TGP: 150W, RTX PRO 5000 (95 ~ 150W) / RTX PRO 4000 (80 ~ 150W)<br>TGP: 100W, RTX PRO 2000 Type B<br>TGP: 60W, RTX PRO 2000 Type A (45 ~ 60W) / RTX PRO 500 (35 ~ 60W)<br>Operating temperature: -20°C ~ +55°C (MXM ambient)</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/embedded/mxm-blackwell/" data-track="catalog_page" data-position="card_mxm-blackwell"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
-      <a class="btn btn-ghost" href="/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf" data-track="pdf_download" data-position="card_mxm-blackwell" target="_blank" rel="noopener"><span>組み込み GPU MXM カタログ 2026<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
+      <a class="btn btn-outline btn-open" href="/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="card_mxm-blackwell" aria-label="製品資料を開く（PDF） BLACKWELL MXM">製品資料を<wbr>開く<wbr>（PDF）</a>
+      <a class="btn btn-outline" href="https://zotac.co.jp/product-biz-inquiry/?pname=NVIDIA%20RTX%20PRO%20Blackwell%20MXM%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="card_mxm-blackwell" aria-label="この製品について問い合わせる BLACKWELL MXM">この<wbr>製品に<wbr>ついて<wbr>問い合わせる</a>
     </div>
+    <p class="product-meta"><span>PDF・<wbr>日本語・2 ページ・0.9 MB</span><a class="text-link" href="/catalogs/embedded/mxm-blackwell/" data-track="catalog_page" data-position="card_mxm-blackwell">詳しい<wbr>仕様を<wbr>見る<wbr>（製品ページ）</a></p>
   </div>
 </article>
 <article class="product" id="p-thoredge-dx1" data-slug="thoredge-dx1" data-model="ZBOX PRO THOREDGE-DX1">
   <div class="product-media"><img src="images/thoredge-dx1.jpg" alt="ZBOX PRO THOREDGE-DX1" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">ロボティクス向けAI</p>
+    <p class="product-kicker">ロボティクス向けAI<span class="sel-tag">選択中</span></p>
     <h3 class="product-name">ZBOX PRO THOREDGE-DX1</h3>
     <p class="product-en">Jetson T5000 Compact Robotic Computer</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>NVIDIA Jetson T5000 (Jetson AGX Thor) SoM, up to 2070 FP4 TFLOPS<br>Option: Jetson T4000, 64GB (1200 FP4 TFLOPS)</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>128GB / 64GB LPDDR5X on SoM<br>1TB NVMe PCIe 4.0 SSD (M.2 2280 PCIe 5.0 x4 + PCIe 5.0 x2 slots)</dd></div><div class="spec"><dt>入出力</dt><dd>4x USB 3.1 Type-A, 3x USB-C<br>4x CAN FD (opto-isolated), 2x RS-232/422/485, 4x GPIO</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  185mm x 170mm x 85mm, 2.67L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/embedded/thoredge-dx1/" data-track="catalog_page" data-position="card_thoredge-dx1"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_pro_thoredge-dx1_flyer.pdf" data-track="pdf_download" data-position="card_thoredge-dx1" target="_blank" rel="noopener"><span>THOREDGE-DX1 フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
+      <a class="btn btn-outline btn-open" href="/pdfs/zbox_pro_thoredge-dx1_flyer.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="card_thoredge-dx1" aria-label="製品資料を開く（PDF） ZBOX PRO THOREDGE-DX1">製品資料を<wbr>開く<wbr>（PDF）</a>
+      <a class="btn btn-outline" href="https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20THOREDGE-DX1%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="card_thoredge-dx1" aria-label="この製品について問い合わせる ZBOX PRO THOREDGE-DX1">この<wbr>製品に<wbr>ついて<wbr>問い合わせる</a>
     </div>
+    <p class="product-meta"><span>PDF・<wbr>日本語・1 ページ・1.2 MB</span><a class="text-link" href="/catalogs/embedded/thoredge-dx1/" data-track="catalog_page" data-position="card_thoredge-dx1">詳しい<wbr>仕様を<wbr>見る<wbr>（製品ページ）</a></p>
   </div>
 </article>
 <article class="product" id="p-eu275080c" data-slug="eu275080c" data-model="MAGNUS ONE ULTRA">
   <div class="product-media"><img src="images/eu275080c.jpg" alt="MAGNUS ONE ULTRA" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">小型ハイエンドPC</p>
+    <p class="product-kicker">小型ハイエンドPC<span class="sel-tag">選択中</span></p>
     <h3 class="product-name">MAGNUS ONE ULTRA</h3>
     <p class="product-en">ZOTAC ZBOX EU275080C</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 265, 20-Core, up to 5.3 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>ZOTAC GAMING GeForce RTX 5080 16GB GDDR7</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4, 1x M.2 NVMe PCIe 4.0 x4 SSD slot (2242, 2280)</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  365.5mm x 126mm x 249mm, 11.46L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/zbox/eu275080c/" data-track="catalog_page" data-position="card_eu275080c"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_eu275080c_flyer.pdf" data-track="pdf_download" data-position="card_eu275080c" target="_blank" rel="noopener"><span>MAGNUS ONE ULTRA フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
+      <a class="btn btn-outline btn-open" href="/pdfs/zbox_eu275080c_flyer.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="card_eu275080c" aria-label="製品資料を開く（PDF） MAGNUS ONE ULTRA">製品資料を<wbr>開く<wbr>（PDF）</a>
+      <a class="btn btn-outline" href="https://zotac.co.jp/product-biz-inquiry/?pname=MAGNUS%20ONE%20ULTRA%20EU275080C%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="card_eu275080c" aria-label="この製品について問い合わせる MAGNUS ONE ULTRA">この<wbr>製品に<wbr>ついて<wbr>問い合わせる</a>
     </div>
+    <p class="product-meta"><span>PDF・<wbr>日本語・1 ページ・1.1 MB</span><a class="text-link" href="/catalogs/zbox/eu275080c/" data-track="catalog_page" data-position="card_eu275080c">詳しい<wbr>仕様を<wbr>見る<wbr>（製品ページ）</a></p>
   </div>
 </article>
 <article class="product" id="p-cm5-pico" data-slug="cm5-pico" data-model="ZBOX PRO CM5-PICO">
   <div class="product-media"><img src="images/cm5-pico.jpg" alt="ZBOX PRO CM5-PICO" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">ポケットサイズPC</p>
+    <p class="product-kicker">ポケットサイズPC<span class="sel-tag">選択中</span></p>
     <h3 class="product-name">ZBOX PRO CM5-PICO</h3>
     <p class="product-en">Fanless ARM Mini-PC</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Raspberry Pi CM5 SoM w/Broadcom BCM2712 SoC<br>Memory: 2GB, 4GB, 8GB, 16GB LPDDR4x on SoM<br>Storage: 0GB (CM5 Lite), 16GB, 32GB, 64GB eMMC on SoM</dd></div><div class="spec"><dt>映像出力・<wbr>入出力</dt><dd>2x HDMI 2.1 (up to 4K@60Hz)<br>2x USB 3.2 Type-A host port, 1x USB-C device port</dd></div><div class="spec"><dt>電源・動作温度</dt><dd>Power Input: DC 5 ~ 20V (bundled DC 12V 2.5A adapter)<br>Operating temperature: -20°C ~ +55°C (main unit)</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  114.8mm x 76.0mm x 31.3mm, 0.27L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/embedded/cm5-pico/" data-track="catalog_page" data-position="card_cm5-pico"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_pro_cm5-pico_flyer.pdf" data-track="pdf_download" data-position="card_cm5-pico" target="_blank" rel="noopener"><span>CM5-PICO フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
+      <a class="btn btn-outline btn-open" href="/pdfs/zbox_pro_cm5-pico_flyer.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="card_cm5-pico" aria-label="製品資料を開く（PDF） ZBOX PRO CM5-PICO">製品資料を<wbr>開く<wbr>（PDF）</a>
+      <a class="btn btn-outline" href="https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20CM5-PICO%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="card_cm5-pico" aria-label="この製品について問い合わせる ZBOX PRO CM5-PICO">この<wbr>製品に<wbr>ついて<wbr>問い合わせる</a>
     </div>
+    <p class="product-meta"><span>PDF・<wbr>日本語・1 ページ・1.6 MB</span><a class="text-link" href="/catalogs/embedded/cm5-pico/" data-track="catalog_page" data-position="card_cm5-pico">詳しい<wbr>仕様を<wbr>見る<wbr>（製品ページ）</a></p>
   </div>
 </article></div>
   </div>
@@ -607,40 +563,43 @@ footer a{color:var(--dark-ink)}
 <article class="product" id="p-eu275070c" data-slug="eu275070c" data-model="MAGNUS ONE EU275070C">
   <div class="product-media"><img src="images/eu275070c.jpg" alt="MAGNUS ONE EU275070C" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">小型ハイエンドPC<span class="tag">評価機の<wbr>貸出<wbr>あり</span></p>
+    <p class="product-kicker">小型ハイエンドPC<span class="tag">評価機の<wbr>貸出<wbr>あり</span><span class="sel-tag">選択中</span></p>
     <h3 class="product-name">MAGNUS ONE EU275070C</h3>
     <p class="product-en">ZBOX-EU275070C</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 265, 20-Core, up to 5.3 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>ZOTAC GAMING GeForce RTX 5070 12GB GDDR7</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4, 1x M.2 NVMe PCIe 4.0 x4 SSD slot (2242, 2280)<br>1x 2.5&quot; SATA III bay</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  270.5mm x 126mm x 249mm, 8.48L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/zbox/eu275070c/" data-track="catalog_page" data-position="sale_eu275070c"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_eu275070c_flyer.pdf" data-track="pdf_download" data-position="sale_eu275070c" target="_blank" rel="noopener"><span>EU275070C フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
+      <a class="btn btn-outline btn-open" href="/pdfs/zbox_eu275070c_flyer.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="sale_eu275070c" aria-label="製品資料を開く（PDF） MAGNUS ONE EU275070C">製品資料を<wbr>開く<wbr>（PDF）</a>
+      <a class="btn btn-outline" href="https://zotac.co.jp/product-biz-inquiry/?pname=MAGNUS%20ONE%20EU275070C%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="sale_eu275070c" aria-label="この製品について問い合わせる MAGNUS ONE EU275070C">この<wbr>製品に<wbr>ついて<wbr>問い合わせる</a>
     </div>
+    <p class="product-meta"><span>PDF・<wbr>日本語・1 ページ・1.1 MB</span><a class="text-link" href="/catalogs/zbox/eu275070c/" data-track="catalog_page" data-position="sale_eu275070c">詳しい<wbr>仕様を<wbr>見る<wbr>（製品ページ）</a></p>
   </div>
 </article>
 <article class="product" id="p-eu27507tc" data-slug="eu27507tc" data-model="MAGNUS ONE EU27507TC">
   <div class="product-media"><img src="images/eu27507tc.jpg" alt="MAGNUS ONE EU27507TC" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">小型ハイエンドPC<span class="tag">評価機の<wbr>貸出<wbr>あり</span></p>
+    <p class="product-kicker">小型ハイエンドPC<span class="tag">評価機の<wbr>貸出<wbr>あり</span><span class="sel-tag">選択中</span></p>
     <h3 class="product-name">MAGNUS ONE EU27507TC</h3>
     <p class="product-en">ZBOX-EU27507TC</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 265, 20-Core, up to 5.3 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>ZOTAC GAMING GeForce RTX 5070 Ti 16GB GDDR7</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4, 1x M.2 NVMe PCIe 4.0 x4 SSD slot (2242, 2280)<br>1x 2.5&quot; SATA III bay</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  270.5mm x 126mm x 249mm, 8.48L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/zbox/eu27507tc/" data-track="catalog_page" data-position="sale_eu27507tc"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_eu27507tc_flyer.pdf" data-track="pdf_download" data-position="sale_eu27507tc" target="_blank" rel="noopener"><span>EU27507TC フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
+      <a class="btn btn-outline btn-open" href="/pdfs/zbox_eu27507tc_flyer.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="sale_eu27507tc" aria-label="製品資料を開く（PDF） MAGNUS ONE EU27507TC">製品資料を<wbr>開く<wbr>（PDF）</a>
+      <a class="btn btn-outline" href="https://zotac.co.jp/product-biz-inquiry/?pname=MAGNUS%20ONE%20EU27507TC%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="sale_eu27507tc" aria-label="この製品について問い合わせる MAGNUS ONE EU27507TC">この<wbr>製品に<wbr>ついて<wbr>問い合わせる</a>
     </div>
+    <p class="product-meta"><span>PDF・<wbr>日本語・1 ページ・1.1 MB</span><a class="text-link" href="/catalogs/zbox/eu27507tc/" data-track="catalog_page" data-position="sale_eu27507tc">詳しい<wbr>仕様を<wbr>見る<wbr>（製品ページ）</a></p>
   </div>
 </article>
 <article class="product" id="p-en275060tc" data-slug="en275060tc" data-model="MAGNUS EN275060TC">
   <div class="product-media"><img src="images/en275060tc.jpg" alt="MAGNUS EN275060TC" loading="lazy" width="640" height="420"></div>
   <div class="product-body">
-    <p class="product-kicker">薄型ミニPC<span class="tag">評価機の<wbr>貸出<wbr>あり</span></p>
+    <p class="product-kicker">薄型ミニPC<span class="tag">評価機の<wbr>貸出<wbr>あり</span><span class="sel-tag">選択中</span></p>
     <h3 class="product-name">MAGNUS EN275060TC</h3>
     <p class="product-en">ZBOX-EN275060TC</p>
     <dl class="specs"><div class="spec"><dt>プロセッサ</dt><dd>Intel Core Ultra 7 255HX, 20-Core, up to 5.2 GHz</dd></div><div class="spec"><dt>GPU</dt><dd>ZOTAC GAMING GeForce RTX 5060 Ti 16GB GDDR7</dd></div><div class="spec"><dt>メモリ・ストレージ</dt><dd>2x DDR5-6400 SO-DIMM slot, max 96GB<br>1x M.2 NVMe PCIe 5.0 x4, 1x M.2 NVMe PCIe 4.0 x4 / SATA SSD slot (2280)</dd></div><div class="spec"><dt>寸法</dt><dd>L x W x H:  210mm x 203mm x 62.2mm, 2.65L</dd></div></dl>
     <div class="product-actions">
-      <a class="btn btn-ghost" href="/catalogs/zbox/en275060tc/" data-track="catalog_page" data-position="sale_en275060tc"><span>製品ページ<wbr><span class="paren">（全仕<wbr>様）</span></span></a>
-      <a class="btn btn-ghost" href="/pdfs/zbox_en275060tc_flyer.pdf" data-track="pdf_download" data-position="sale_en275060tc" target="_blank" rel="noopener"><span>EN275060TC フライヤー<wbr><span class="paren">（PDF・<wbr>日本語）</span></span></a>
+      <a class="btn btn-outline btn-open" href="/pdfs/zbox_en275060tc_flyer.pdf" target="_blank" rel="noopener" data-track="pdf_download" data-position="sale_en275060tc" aria-label="製品資料を開く（PDF） MAGNUS EN275060TC">製品資料を<wbr>開く<wbr>（PDF）</a>
+      <a class="btn btn-outline" href="https://zotac.co.jp/product-biz-inquiry/?pname=MAGNUS%20EN275060TC%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="sale_en275060tc" aria-label="この製品について問い合わせる MAGNUS EN275060TC">この<wbr>製品に<wbr>ついて<wbr>問い合わせる</a>
     </div>
+    <p class="product-meta"><span>PDF・<wbr>日本語・1 ページ・1.0 MB</span><a class="text-link" href="/catalogs/zbox/en275060tc/" data-track="catalog_page" data-position="sale_en275060tc">詳しい<wbr>仕様を<wbr>見る<wbr>（製品ページ）</a></p>
   </div>
 </article></div>
   </div>
@@ -655,10 +614,10 @@ footer a{color:var(--dark-ink)}
       <div class="step"><span class="step-no">02 ── 合わせる</span><h3>BIOS・I/O・筐体の<wbr>カスタム</h3><p>用途に<wbr>合わせた<wbr>構成<wbr><span class="paren">（メモリ・SSD・OS）⁠や、</span><wbr>BIOS 設定・I/O・筐体の<wbr>カスタマイズを<wbr>相談できます。<wbr>対象モデル・<wbr>最小ロットは<wbr>製品に<wbr>より<wbr>異なります。</p></div>
       <div class="step"><span class="step-no">03 ── 導入する</span><h3>量産・長期供給</h3><p>長期供給の<wbr>対象モデルが<wbr>あります<wbr><span class="paren">（期間は<wbr>モデルに<wbr>よります）。</span><wbr>台数・<wbr>時期が<wbr>未定でも<wbr>お見積りの<wbr>前段から<wbr>ご相談ください。</p></div>
     </div>
-    <!-- 3 枚のどれも行き先は同じ問い合わせフォームなので、ボタンは 1 つにまとめた（2026-11-06 夜 ユーザー「リンク先を全て同じに」。ボタン名は「担当者からの連絡を希望する」→ ユーザー「問い合わせをする とかかな？」で「お問い合わせする」） -->
+    <!-- 3 枚のどれも行き先は同じ問い合わせフォーム（展示会名で）。製品ごとの問い合わせはヒーロー・各カード・追従バー -->
     <div class="steps-cta">
-      <a class="btn btn-contact" href="https://zotac.co.jp/product-biz-inquiry/?pname=EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A&amp;from=/events/edgetech2026/" data-track="quote" data-position="steps">お問い<wbr>合わせする</a>
-      <p class="cta-note">法人向けの<wbr>お問い<wbr>合わせフォームが<wbr>開きます。<wbr>評価機の<wbr>貸出・構成・<wbr>お見積りの<wbr>どれも、<wbr>この<wbr>フォームで<wbr>承ります。</p>
+      <a class="btn btn-contact" href="https://zotac.co.jp/product-biz-inquiry/?pname=EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="steps">お問い合わせする</a>
+      <p class="cta-note">法人向けの<wbr>お問い合わせフォームが<wbr>開きます。<wbr>評価機の<wbr>貸出・構成・<wbr>お見積りの<wbr>どれも、<wbr>この<wbr>フォームで<wbr>承ります。</p>
     </div>
   </div>
 </section>
@@ -673,7 +632,7 @@ footer a{color:var(--dark-ink)}
       <dt>主催</dt><dd>一般社団法人 組込みシステム技術協会<wbr>（JASA）</dd>
       <dt>出展者</dt><dd>株式会社ゾタック日本<wbr><span class="paren">（ZOTAC NIPPON）</span></dd>
     </dl>
-    <p class="cta-note">会期中の<wbr>ご連絡は<wbr> <a href="https://zotac.co.jp/product-biz-inquiry/?pname=EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A&amp;from=/events/edgetech2026/" data-track="quote" data-position="event">法人窓口</a> へ。<wbr>本ページは<wbr> ZOTAC が<wbr>独自に<wbr>運営する<wbr>もので、<wbr>EdgeTech+ 主催者に<wbr>よる<wbr>公式ページでは<wbr>ありません。</p>
+    <p class="cta-note">会期中の<wbr>ご連絡は<wbr> <a href="https://zotac.co.jp/product-biz-inquiry/?pname=EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="event">法人窓口</a> へ。<wbr>本ページは<wbr> ZOTAC が<wbr>独自に<wbr>運営する<wbr>もので、<wbr>EdgeTech+ 主催者に<wbr>よる<wbr>公式ページでは<wbr>ありません。</p>
   </div>
 </section>
 </main>
@@ -681,15 +640,18 @@ footer a{color:var(--dark-ink)}
 <footer>
   <div class="wrap">
     <img class="foot-logo" src="/assets/ZOTAC_white.svg" alt="ZOTAC NIPPON">
-    <div>株式会社ゾタック日本 ｜ <a href="https://zotac.co.jp/product-biz-inquiry/?pname=EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A&amp;from=/events/edgetech2026/">お問い<wbr>合わせ</a> ｜ <a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a></div>
+    <div>株式会社ゾタック日本 ｜ <a href="https://zotac.co.jp/product-biz-inquiry/?pname=EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A&amp;from=/events/edgetech2026/">お問い合わせ</a> ｜ <a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a></div>
     <div>© 2026 ZOTAC Nippon Co., Ltd. All rights reserved. 本ページに<wbr>掲載の<wbr>製品名・<wbr>社名は<wbr>各社の<wbr>商標または<wbr>登録商標です。</div>
     <div class="foot-notice">本サイトでは、<wbr>サービス向上の<wbr>ため Google Analytics および<wbr> Microsoft Clarity を<wbr>使用しています。<wbr>詳しくは<wbr> <a href="https://zotac.co.jp/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a> を<wbr>ご覧ください。</div>
   </div>
 </footer>
 
-<div class="sticky" id="sticky">
-  <a class="btn btn-primary js-mail" href="#" data-track="pack_mail" data-position="sticky">資料を<wbr>まとめて<wbr>受け取る</a>
-  <button type="button" class="btn btn-share js-share" data-track="share_self" data-position="sticky">共有・保存</button>
+<div class="sticky" id="sticky" role="region" aria-label="資料とお問い合わせ">
+  <p class="sticky-model" id="sticky-model">ブースの<wbr>展示機 <wbr>9 機種</p>
+  <div class="sticky-btns">
+    <a class="btn btn-primary btn-open is-jump" id="sticky-pdf" href="#products" data-track="toc" data-position="sticky_view">9 機種の<wbr>資料を<wbr>見る</a>
+    <a class="btn btn-outline" id="sticky-inq" href="https://zotac.co.jp/product-biz-inquiry/?pname=EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A&amp;from=/events/edgetech2026/" data-track="inquiry" data-position="sticky" aria-label="問い合わせ">問い合わせ</a>
+  </div>
 </div>
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
@@ -706,121 +668,154 @@ footer a{color:var(--dark-ink)}
 
 <script>
 (function(){
-  var MAIL_TO = 'edgetech@zotac.co.jp';
-  var LP_URL = 'https://hub.zotac.co.jp/events/edgetech2026/';
-  var SLUGS = {'qu27n5000': 'ZBOX PRO QU27N5000', 'zrp7n5000': 'ZBOX PRO ZRP7N5000', 's35w3': 'ZBOX PRO S35W3DX', 'mi652dx': 'ZBOX PRO MI652DX', 'rk88dx': 'ZBOX PRO RK88DX', 'mxm-blackwell': 'BLACKWELL MXM', 'thoredge-dx1': 'ZBOX PRO THOREDGE-DX1', 'eu275080c': 'MAGNUS ONE ULTRA', 'cm5-pico': 'ZBOX PRO CM5-PICO', 'eu275070c': 'MAGNUS ONE EU275070C', 'eu27507tc': 'MAGNUS ONE EU27507TC', 'en275060tc': 'MAGNUS EN275060TC'};
+  var MAIL_READY = false;
+  var MAIL_TO = "edgetech@zotac.co.jp";
+  var LP_URL = "https://hub.zotac.co.jp/events/edgetech2026/";
+  var INQ_EVENT = "https://zotac.co.jp/product-biz-inquiry/?pname=EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A&from=/events/edgetech2026/";
+  var N = 9;
   var EXPO = '【EdgeTech+2026】';
+  var L = {"pdf": "製品資料を<wbr>開く<wbr>（PDF）", "inq": "この<wbr>製品に<wbr>ついて<wbr>問い合わせる", "inqNote": "製品名を<wbr>入れた<wbr>状態で<wbr>フォームが<wbr>開きます。<wbr>構成・評価機・<wbr>お見積りも<wbr>ご相談ください。"};
+  var P = {"qu27n5000": {"model": "ZBOX PRO QU27N5000", "h1": "<span class=\"nw\">ZBOX PRO</span> <span class=\"nw\">QU27N5000</span>", "kicker": "ミニワークステーション", "lead": "RTX PRO 5000 Blackwell Embedded を<wbr>搭載した、<wbr>容積 3.02 L の<wbr>ミニワークステーション。", "kpis": [["筐体容量", "3.02 L"], ["GPU メモリ", "24GB GDDR7"], ["メインメモリ", "最大 96GB"]], "fact": "ブースで<wbr>生成AIデモ", "img": "images/hero_qu27n5000.png", "dims": "210 × 203 × 71 mm ｜ 3.02 L", "pdf": "/pdfs/zbox_qu27n5000_flyer.pdf", "pdfNote": "登録不要・<wbr>日本語・1 ページ・1.2 MB", "inq": "https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20QU27N5000%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&from=/events/edgetech2026/"}, "zrp7n5000": {"model": "ZBOX PRO ZRP7N5000", "h1": "<span class=\"nw\">ZBOX PRO</span> <span class=\"nw\">ZRP7N5000</span>", "kicker": "堅牢な<wbr>産業用PC", "lead": "RTX PRO 5000 Blackwell MXM を<wbr>搭載した、<wbr>容積 2.65 L の<wbr>産業用 PC。", "kpis": [["GPU", "RTX PRO 5000 Blackwell MXM"], ["筐体容量", "2.65 L"], ["動作温度", "−20〜+40℃<wbr>（本体）"]], "fact": "開発中", "img": "images/hero_zrp7n5000.png", "dims": "209.8 × 202.3 × 62.5 mm ｜ 2.65 L", "pdf": "/pdfs/zbox_zrp7n5000_flyer.pdf", "pdfNote": "登録不要・<wbr>日本語・1 ページ・1.4 MB", "inq": "https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20ZRP7N5000%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&from=/events/edgetech2026/"}, "s35w3": {"model": "ZBOX PRO S35W3DX", "h1": "<span class=\"nw\">ZBOX PRO</span> <span class=\"nw\">S35W3DX</span>", "kicker": "NPU搭載エッジAI PC", "lead": "Intel Core 3 304 と<wbr> DeepX DX-M1 を<wbr>搭載した、<wbr>容積 0.82 L の<wbr>エッジ AI PC。", "kpis": [["筐体容量", "0.82 L"], ["追加 NPU", "DeepX DX-M1"], ["制御用 I/O", "RS-232/422/485・<wbr>8 GPIO"]], "fact": "長期供給製品", "img": "images/hero_s35w3dx.png", "dims": "164 × 110.8 × 45 mm ｜ 0.82 L", "pdf": "/pdfs/zbox_pro_s35w3_flyer.pdf", "pdfNote": "登録不要・<wbr>日本語・1 ページ・1.1 MB", "inq": "https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20S35W3DX%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&from=/events/edgetech2026/"}, "mi652dx": {"model": "ZBOX PRO MI652DX", "h1": "<span class=\"nw\">ZBOX PRO</span> <span class=\"nw\">MI652DX</span>", "kicker": "Core Ultra搭載エッジAI PC", "lead": "Core Ultra 5 225H と<wbr> DeepX DX-M1 を<wbr>搭載した、<wbr>容積 0.83 L の<wbr>エッジ AI PC。", "kpis": [["CPU", "Core Ultra 5 225H"], ["追加 NPU", "DeepX DX-M1"], ["筐体容量", "0.83 L"]], "fact": "会場の<wbr>展示は<wbr>外観サンプル", "img": "images/hero_mi652dx.png", "dims": "148.8 × 148.8 × 37.6 mm ｜ 0.83 L", "pdf": "/pdfs/zbox_pro_mi652dx_flyer.pdf", "pdfNote": "登録不要・<wbr>日本語・1 ページ・1.4 MB", "inq": "https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20MI652DX%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&from=/events/edgetech2026/"}, "rk88dx": {"model": "ZBOX PRO RK88DX", "h1": "<span class=\"nw\">ZBOX PRO</span> <span class=\"nw\">RK88DX</span>", "kicker": "NPU搭載ARMエッジAI PC", "lead": "Rockchip RK3588 と<wbr> DeepX DX-M1 を<wbr>搭載した、<wbr>ファンレスの<wbr> ARM エッジ AI PC。", "kpis": [["SoC", "Rockchip RK3588"], ["追加 NPU", "DeepX DX-M1"], ["筐体容量", "0.82 L"]], "fact": "", "img": "images/hero_rk88dx.png", "dims": "164 × 110.8 × 45 mm ｜ 0.82 L", "pdf": "/pdfs/zbox_pro_rk88dx_flyer.pdf", "pdfNote": "登録不要・<wbr>日本語・1 ページ・1.3 MB", "inq": "https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20RK88DX%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&from=/events/edgetech2026/"}, "mxm-blackwell": {"model": "BLACKWELL MXM", "h1": "BLACKWELL MXM", "kicker": "組込みGPUモジュール", "lead": "NVIDIA RTX PRO Blackwell を<wbr>採用した、<wbr>MXM 3.1 規格の<wbr>組込み GPU モジュール。", "kpis": [["GPU 系列", "RTX PRO 5000／<wbr>4000／<wbr>2000／<wbr>500"], ["規格", "MXM 3.1 Type A・<wbr>Type B<wbr>（モデル別）"], ["GPU メモリ", "6・⁠8・⁠16・<wbr>24GB GDDR7<wbr>（モデル別）"]], "fact": "2030年Q3まで<wbr>供給", "img": "images/hero_mxm.png", "dims": "MXM 3.1 Type A・Type B（モデル別）", "pdf": "/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf", "pdfNote": "登録不要・<wbr>日本語・2 ページ・0.9 MB", "inq": "https://zotac.co.jp/product-biz-inquiry/?pname=NVIDIA%20RTX%20PRO%20Blackwell%20MXM%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&from=/events/edgetech2026/"}, "thoredge-dx1": {"model": "ZBOX PRO THOREDGE-DX1", "h1": "<span class=\"nw\">ZBOX PRO</span> <span class=\"nw\">THOREDGE-DX1</span>", "kicker": "ロボティクス向けAI", "lead": "Jetson T5000 を<wbr>搭載し、<wbr>GMSL2 カメラ入力と<wbr> CAN FD を<wbr>備える<wbr>ロボティクス向け PC。", "kpis": [["SoM", "Jetson T5000<wbr>（T4000 は<wbr>オプション）"], ["カメラ入力", "GMSL2 ×8"], ["制御用 I/O", "絶縁 CAN FD ×4"]], "fact": "会場の<wbr>展示は<wbr>外観サンプル", "img": "images/hero_thor.png", "dims": "185 × 170 × 85 mm ｜ 2.67 L", "pdf": "/pdfs/zbox_pro_thoredge-dx1_flyer.pdf", "pdfNote": "登録不要・<wbr>日本語・1 ページ・1.2 MB", "inq": "https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20THOREDGE-DX1%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&from=/events/edgetech2026/"}, "eu275080c": {"model": "MAGNUS ONE ULTRA", "h1": "MAGNUS ONE ULTRA", "kicker": "小型ハイエンドPC", "lead": "Core Ultra 7 265 と<wbr> GeForce RTX 5080 を<wbr>搭載した、<wbr>容積 11.46 L の<wbr>小型 PC。", "kpis": [["CPU", "Core Ultra 7 265"], ["GPU", "GeForce RTX 5080・<wbr>16GB GDDR7"], ["筐体容量", "11.46 L"]], "fact": "", "img": "images/hero_eu275080c.png", "dims": "365.5 × 126 × 249 mm ｜ 11.46 L", "pdf": "/pdfs/zbox_eu275080c_flyer.pdf", "pdfNote": "登録不要・<wbr>日本語・1 ページ・1.1 MB", "inq": "https://zotac.co.jp/product-biz-inquiry/?pname=MAGNUS%20ONE%20ULTRA%20EU275080C%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&from=/events/edgetech2026/"}, "cm5-pico": {"model": "ZBOX PRO CM5-PICO", "h1": "<span class=\"nw\">ZBOX PRO</span> <span class=\"nw\">CM5-PICO</span>", "kicker": "ポケットサイズPC", "lead": "Raspberry Pi CM5 を<wbr>採用した、<wbr>容積 0.27 L の<wbr>ファンレス小型 PC。", "kpis": [["SoM", "Raspberry Pi CM5"], ["電源入力", "DC 5〜20V"], ["筐体容量", "0.27 L"]], "fact": "", "img": "images/hero_cm5pico.png", "dims": "114.8 × 76.0 × 31.3 mm ｜ 0.27 L", "pdf": "/pdfs/zbox_pro_cm5-pico_flyer.pdf", "pdfNote": "登録不要・<wbr>日本語・1 ページ・1.6 MB", "inq": "https://zotac.co.jp/product-biz-inquiry/?pname=ZBOX%20PRO%20CM5-PICO%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&from=/events/edgetech2026/"}};
+  var S = {"eu275070c": {"model": "MAGNUS ONE EU275070C", "pdf": "/pdfs/zbox_eu275070c_flyer.pdf", "inq": "https://zotac.co.jp/product-biz-inquiry/?pname=MAGNUS%20ONE%20EU275070C%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&from=/events/edgetech2026/"}, "eu27507tc": {"model": "MAGNUS ONE EU27507TC", "pdf": "/pdfs/zbox_eu27507tc_flyer.pdf", "inq": "https://zotac.co.jp/product-biz-inquiry/?pname=MAGNUS%20ONE%20EU27507TC%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&from=/events/edgetech2026/"}, "en275060tc": {"model": "MAGNUS EN275060TC", "pdf": "/pdfs/zbox_en275060tc_flyer.pdf", "inq": "https://zotac.co.jp/product-biz-inquiry/?pname=MAGNUS%20EN275060TC%EF%BC%88EdgeTech%2B%202026%20%E5%B1%95%E7%A4%BA%E4%BC%9A%EF%BC%89&from=/events/edgetech2026/"}};
+  var SLUGS = {"qu27n5000": "ZBOX PRO QU27N5000", "zrp7n5000": "ZBOX PRO ZRP7N5000", "s35w3": "ZBOX PRO S35W3DX", "mi652dx": "ZBOX PRO MI652DX", "rk88dx": "ZBOX PRO RK88DX", "mxm-blackwell": "BLACKWELL MXM", "thoredge-dx1": "ZBOX PRO THOREDGE-DX1", "eu275080c": "MAGNUS ONE ULTRA", "cm5-pico": "ZBOX PRO CM5-PICO", "eu275070c": "MAGNUS ONE EU275070C", "eu27507tc": "MAGNUS ONE EU27507TC", "en275060tc": "MAGNUS EN275060TC"};
+  function $(id){ return document.getElementById(id); }
+  function each(sel, f){ Array.prototype.forEach.call(document.querySelectorAll(sel), f); }
 
+  // クリックの計測（ページ全体で 1 回だけ登録。描画のたびに足さない）
   function track(el){
     try{ if(typeof gtag==='function') gtag('event','lp_link_click',{lp:'edgetech2026',link_label:el.getAttribute('data-track')||'',link_position:el.getAttribute('data-position')||'',link_url:el.getAttribute('href')||''}); }catch(e){}
   }
   document.addEventListener('click',function(e){ var a=e.target.closest('[data-track]'); if(a) track(a); },true);
 
-  // どの製品から来たか（#slug）
-  var slug = (location.hash||'').replace('#','');
-  var model = SLUGS[slug] || null;
-  // どのカードの QR から来たか。カードの QR は UTM を付けず #slug だけ（2026-10-29 決定）なので、ここで GA4 に送る
-  try{ if(typeof gtag==='function') gtag('event','lp_entry',{lp:'edgetech2026',card:(model?slug:'(none)')}); }catch(e){}
-  if(model){
-    var pick=document.getElementById('product-pick'); document.getElementById('pick-model').textContent=model; pick.classList.add('is-on');
-    var card=document.getElementById('p-'+slug); if(card){ card.classList.add('is-target'); }
-  }
+  // 共通トップ（初期 HTML）の文言を控える。製品から共通トップへ戻るときに前の機種の情報を残さない
+  var G = {title:$('he-title').innerHTML, lead:$('he-lead').innerHTML, model:$('he-model').innerHTML, capSub:$('he-cap-sub').innerHTML,
+           pdfLabel:$('cta-pdf').innerHTML, pdfNote:$('cta-pdf-note').innerHTML, inqLabel:$('cta-inq').innerHTML, inqNote:$('cta-inq-note').innerHTML,
+           stickyModel:$('sticky-model').innerHTML, stickyPdf:$('sticky-pdf') ? $('sticky-pdf').innerHTML : ''};
 
-
-  // ヒーロー案の切替（?hero=a|b|c。比較用。確定したら既定値を固定する）
-  var HERO_DEFAULT='e';
-  var hv=(new URLSearchParams(location.search).get('hero')||HERO_DEFAULT); document.body.setAttribute('data-hero',hv);
-  var STAGE={'s35w3':['images/hero_s35w3dx.png','ZBOX PRO S35W3DX','NPU搭載エッジAI PC ── 人検知デモ機'],'thoredge-dx1':['images/hero_thor.png','ZBOX PRO THOREDGE-DX1','ロボティクス向けAI'],'cm5-pico':['images/hero_cm5pico.png','ZBOX PRO CM5-PICO','ポケットサイズPC']};
-  if(STAGE[slug]){ var st=STAGE[slug]; var im=document.getElementById('hero-stage-img'); im.src=st[0]; im.alt=st[1]; document.querySelector('#hero-stage-cap b').textContent=st[1]; document.querySelector('#hero-stage-cap span').textContent=st[2]; }
-
-  var SCENE={'s35w3':['images/hero_bg_factory_lowres.jpg','SCENE ── 検査ラインで、カメラの映像をその場で判定する'],'thoredge-dx1':['images/hero_bg_robot_lowres.jpg','SCENE ── ロボットの中で、センサーを束ねて判断する'],'cm5-pico':['images/hero_bg_signage_lowres.jpg','SCENE ── サイネージの裏で、止まらずに動かす'],'qu27n5000':['images/hero_bg_lab_lowres.jpg','SCENE ── 開発室で、モデルをつくる'],'eu275080c':['images/hero_bg_lab_lowres.jpg','SCENE ── 開発室で、モデルをつくる'],'mxm-blackwell':['images/hero_bg_robot_lowres.jpg','SCENE ── 産業機器に、GPU を組み込む']};
-  if(SCENE[slug]){ document.documentElement.style.setProperty('--hero-bg','url('+SCENE[slug][0]+')'); document.getElementById('hero-scene').textContent=SCENE[slug][1]; }
-
-  // ヒーロー E: 読んだ型番を主語にする
-  var HD = {"qu27n5000": {"model": "ZBOX PRO QU27N5000", "kicker": "ミニワークステーション", "en": "Mini Workstation with RTX PRO Blackwell", "dims": "210 × 203 × 71 mm ｜ 3.02 L", "img": "images/hero_qu27n5000.png", "fact": "ブースで生成AIデモ", "pdf": "/pdfs/zbox_qu27n5000_flyer.pdf", "page": "/catalogs/zbox/qu27n5000/", "ja": true}, "zrp7n5000": {"model": "ZBOX PRO ZRP7N5000", "kicker": "堅牢な産業用PC", "en": "Rugged IPC with RTX PRO 5000 MXM", "dims": "209.8 × 202.3 × 62.5 mm ｜ 2.65 L", "img": "images/hero_zrp7n5000.png", "fact": "開発中", "pdf": "/pdfs/zbox_zrp7n5000_flyer.pdf", "page": "/catalogs/zbox/zrp7n5000/", "ja": true}, "s35w3": {"model": "ZBOX PRO S35W3DX", "kicker": "NPU搭載エッジAI PC", "en": "Edge AI PC with Intel Core 3 & DeepX NPU", "dims": "164 × 110.8 × 45 mm ｜ 0.82 L", "img": "images/hero_s35w3dx.png", "fact": "長期供給製品", "pdf": "/pdfs/zbox_pro_s35w3_flyer.pdf", "page": "/catalogs/embedded/s35w3/", "ja": true}, "mi652dx": {"model": "ZBOX PRO MI652DX", "kicker": "Core Ultra搭載エッジAI PC", "en": "Edge AI PC with Intel Core Ultra 5 & DeepX NPU", "dims": "148.8 × 148.8 × 37.6 mm ｜ 0.83 L", "img": "images/hero_mi652dx.png", "fact": "会場の展示は外観サンプル", "pdf": "/pdfs/zbox_pro_mi652dx_flyer.pdf", "page": "/catalogs/embedded/mi652dx/", "ja": true}, "rk88dx": {"model": "ZBOX PRO RK88DX", "kicker": "NPU搭載ARMエッジAI PC", "en": "Fanless ARM Edge AI with DeepX NPU", "dims": "164 × 110.8 × 45 mm ｜ 0.82 L", "img": "images/hero_rk88dx.png", "fact": "", "pdf": "/pdfs/zbox_pro_rk88dx_flyer.pdf", "page": "/catalogs/embedded/rk88dx/", "ja": true}, "mxm-blackwell": {"model": "BLACKWELL MXM", "kicker": "組込みGPUモジュール", "en": "Embedded GPU Module", "dims": "MXM 3.1 Type B ｜ 82 × 110 mm（Type A: 82 × 70 mm）", "img": "images/hero_mxm.png", "fact": "2030年Q3まで供給", "pdf": "/pdfs/ZOTAC_EMBEDDED_GPU_BROCHURE_2026_JP.pdf", "page": "/catalogs/embedded/mxm-blackwell/", "ja": true}, "thoredge-dx1": {"model": "ZBOX PRO THOREDGE-DX1", "kicker": "ロボティクス向けAI", "en": "Jetson T5000 Compact Robotic Computer", "dims": "185 × 170 × 85 mm ｜ 2.67 L", "img": "images/hero_thor.png", "fact": "会場の展示は外観サンプル", "pdf": "/pdfs/zbox_pro_thoredge-dx1_flyer.pdf", "page": "/catalogs/embedded/thoredge-dx1/", "ja": true}, "eu275080c": {"model": "MAGNUS ONE ULTRA", "kicker": "小型ハイエンドPC", "en": "ZOTAC ZBOX EU275080C", "dims": "365.5 × 126 × 249 mm ｜ 11.46 L", "img": "images/hero_eu275080c.png", "fact": "", "pdf": "/pdfs/zbox_eu275080c_flyer.pdf", "page": "/catalogs/zbox/eu275080c/", "ja": true}, "cm5-pico": {"model": "ZBOX PRO CM5-PICO", "kicker": "ポケットサイズPC", "en": "Fanless ARM Mini-PC", "dims": "114.8 × 76.0 × 31.3 mm ｜ 0.27 L", "img": "images/hero_cm5pico.png", "fact": "", "pdf": "/pdfs/zbox_pro_cm5-pico_flyer.pdf", "page": "/catalogs/embedded/cm5-pico/", "ja": true}};
-  (function(){
-    var d = HD[slug];
-    var pk1=document.getElementById('he-pack1'), pk2=document.getElementById('he-pack2');
-    if(d){
-      var t=document.getElementById('he-title'); t.textContent=d.model; t.classList.remove('is-catch'); t.classList.add('is-model');
-      document.getElementById('he-tagline').hidden=true; document.getElementById('he-lead').hidden=true;
-      var sub=document.getElementById('he-sub'); sub.textContent=d.kicker+' ── '+d.en;
-      if(d.fact){ var tg=document.createElement('span'); tg.className='fact-tag'; tg.textContent=d.fact; sub.appendChild(tg); }
-      // かっこ書きはひとかたまり（.paren）にして「（PDF・／日本語）」と中で折れないようにする（静的な文は phrase_wrap が包むが、ここは JS で書き換えるので自前で包む）
-      if(d.page){ pk1.textContent=d.model+' の製品資料';
-        if(d.pdf){ var pp=document.createElement('span'); pp.className='paren'; pp.textContent=(d.ja?'（PDF・日本語）':'（PDF）')+'\u2060と製品ページ'; pk1.appendChild(pp); }
-        else pk1.appendChild(document.createTextNode('と製品ページ'));
-      } else pk1.textContent=d.model+' の仕様';
-      pk2.hidden=false;
-      // メールを使わずに、この製品の資料をいま開く（レビュー A）。PDF が無ければ製品ページ
-      var v=document.getElementById('cta-view-e');
-      if(d.pdf||d.page){ v.href=d.pdf||d.page; v.textContent=d.pdf?('資料をいま見る'+(d.ja?'（PDF・日本語）':'（PDF）')):'製品ページをいま見る'; v.classList.remove('is-jump'); v.target='_blank'; v.rel='noopener'; v.setAttribute('data-track',d.pdf?'pdf_download':'catalog_page'); v.setAttribute('data-position','hero_'+slug); }
-      var j=document.getElementById('he-jump'); j.href='#p-'+slug; j.hidden=false;   // カードへのページ内リンク（自動スクロールはしない・レビュー E）
-      var tl=document.querySelector('#toc a[data-slug="'+slug+'"]'); if(tl) tl.setAttribute('aria-current','true');
-      document.getElementById('he-img').src=d.img; document.getElementById('he-img').alt=d.model;
-      document.getElementById('he-model').textContent=d.model; document.getElementById('he-kicker').textContent=d.kicker;
-      document.getElementById('he-dims').textContent=d.dims;
-      if(slug==='s35w3'||slug==='qu27n5000'){ document.getElementById('he-demo').hidden=false; }
-    }
-  })();
-  // 空メール（宛先・件名・本文を入れて開く）
-  function mailto(forSlug){
-    var m = SLUGS[forSlug] || model;
-    var subj = EXPO + (m ? (m + ' 資料希望') : '展示機 9 機種 資料希望');
-    // 送信の直前に読む本文にも、営業担当からの連絡・ご案内を送ること・配信停止の方法を入れる（固定バーのボタンは注記から離れているため。ユーザー決定 1）
-    var body = '（このまま送信してください。数分以内に資料のメールをお送りします。後日、営業担当からご連絡することがあります。評価機・新製品のご案内もお送りします。配信停止は、届いたメールへのご返信で承ります）\n\n' + (m ? ('ご覧の製品: ' + m + '\n') : '') + LP_URL + (forSlug ? ('#'+forSlug) : '')
+  // 空メール（宛先・件名・本文を入れて開く）。件名は SLUGS（展示 9＋販売中 3）の型番
+  function mailto(sel){
+    var m = sel ? SLUGS[sel] : null;
+    var subj = EXPO + (m ? (m + ' 資料希望') : ('展示機 ' + N + ' 機種 資料希望'));
+    var body = '（このまま送信してください。資料のリンクを自動でお送りします。後日、営業担当からご連絡することがあります。評価機・新製品のご案内もお送りします。配信停止は、届いたメールへのご返信で承ります）\n\n' + (m ? ('ご覧の製品: ' + m + '\n') : '') + LP_URL + (sel ? ('#'+sel) : '')
              + '\n\n――― 任意（空欄のまま送信できます）―――\n会社名：\nお名前：\nご用途：\n';
     return 'mailto:' + MAIL_TO + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
   }
-  Array.prototype.forEach.call(document.querySelectorAll('.js-mail'),function(a){
-    a.setAttribute('href', mailto(a.getAttribute('data-slug')||''));
-  });
+  function setPdf(a, sel, d, pos, labelEl){
+    if(!a) return;
+    if(d){ a.href=d.pdf; a.target='_blank'; a.rel='noopener'; a.classList.remove('is-jump'); a.setAttribute('data-track','pdf_download'); a.setAttribute('data-position',pos+'_'+sel); a.setAttribute('aria-label','製品資料を開く（PDF） '+d.model); a.innerHTML=L.pdf; }
+    else { a.href='#products'; a.removeAttribute('target'); a.removeAttribute('rel'); a.classList.add('is-jump'); a.setAttribute('data-track','toc'); a.setAttribute('data-position',pos+'_view'); a.removeAttribute('aria-label'); a.innerHTML=labelEl; }
+  }
 
-  // 「URL を共有・保存する」シート（連絡なし）: 共有＝navigator.share／URL コピー／自分宛てメール。ZOTAC 宛ての「資料をまとめてメールで受け取る」(.js-mail) と混ざらないよう文言で分ける
-  var sheet=document.getElementById('sheet'), toast=document.getElementById('toast');
+  // 描画: 選択（展示機 slug／販売中 slug／null）に合わせて、ヒーロー・導線・追従バー・目次・カードを一度に書き換える（改修案 v0.2 §2）
+  var cur;   // undefined＝まだ描いていない
+  function render(sel){
+    var d = (sel && P[sel]) || null;          // ヒーローに出すのは展示 9 機種だけ
+    var s = sel ? (P[sel] || S[sel]) : null;  // メール件名・追従バー・カードの枠は販売中 3 機種にも効く
+    $('hero').setAttribute('data-mode', d ? 'product' : 'top');
+    var t=$('he-title'); t.innerHTML = d ? d.h1 : G.title; t.className = 'hero-title ' + (d ? 'is-model' : 'is-catch');
+    $('he-kick').hidden=!d; $('he-kicker').innerHTML = d ? d.kicker : '';
+    $('he-tagline').hidden = !!d;
+    $('he-lead').innerHTML = d ? d.lead : G.lead;
+    var f=$('he-fact'); f.hidden = !(d && d.fact); f.innerHTML = (d && d.fact) || '';
+    var kp=$('he-kpis'); kp.hidden=!d;
+    kp.innerHTML = d ? d.kpis.map(function(x){ return '<div class="kpi"><dt>'+x[0]+'</dt><dd>'+x[1]+'</dd></div>'; }).join('') : '';
+    $('he-frame').hidden=!d; $('he-lineup').hidden=!!d;
+    var im=$('he-img'); if(d){ im.src=d.img; im.alt=d.model; } else { im.removeAttribute('src'); im.alt=''; }
+    $('he-model').innerHTML = d ? d.model : G.model;
+    $('he-cap-sub').innerHTML = d ? d.kicker : G.capSub;
+    var dm=$('he-dims'); dm.hidden=!d; dm.textContent = d ? d.dims : '';
+    setPdf($('cta-pdf'), sel, d, 'hero', G.pdfLabel);
+    $('cta-pdf-note').innerHTML = d ? d.pdfNote : G.pdfNote;
+    var q=$('cta-inq'); q.href = d ? d.inq : INQ_EVENT; q.innerHTML = d ? L.inq : G.inqLabel;
+    q.setAttribute('data-position', d ? 'hero_'+sel : 'hero');
+    if(d) q.setAttribute('aria-label','この製品について問い合わせる '+d.model); else q.removeAttribute('aria-label');
+    $('cta-inq-note').innerHTML = d ? L.inqNote : G.inqNote;
+    var j=$('he-jump'); j.hidden=!d; if(d) j.href='#p-'+sel;
+    each('#toc a[aria-current]', function(a){ a.removeAttribute('aria-current'); });
+    if(d){ var tl=document.querySelector('#toc a[data-slug="'+sel+'"]'); if(tl) tl.setAttribute('aria-current','true'); }
+    each('.product.is-target', function(c){ c.classList.remove('is-target'); });
+    if(s){ var c=$('p-'+sel); if(c) c.classList.add('is-target'); }
+    each('.js-mail', function(a){ a.setAttribute('href', mailto(s ? sel : null)); });
+    $('sticky-model').innerHTML = s ? s.model : G.stickyModel;
+    setPdf($('sticky-pdf'), sel, s, 'sticky', G.stickyPdf);
+    var sq=$('sticky-inq'); sq.href = s ? s.inq : INQ_EVENT; sq.setAttribute('data-position', s ? 'sticky_'+sel : 'sticky');
+    sq.setAttribute('aria-label', '問い合わせ' + (s ? ' '+s.model : ''));
+    fitParen();
+  }
+
+  // ハッシュの 5 分類（展示機 slug／販売中 slug／ページ内の要素 id／空／それ以外）。ページ内の要素では選択を保ち、戻る/進むは履歴に記録した選択を戻す
+  function hashName(){ var h=(location.hash||'').slice(1); try{ return decodeURIComponent(h); }catch(e){ return h; } }
+  function classify(h){
+    if(!h) return 'none';
+    if(P[h]) return 'product';
+    if(S[h]) return 'sale';
+    if(document.getElementById(h)) return 'anchor';
+    return 'unknown';
+  }
+  function apply(){
+    var h=hashName(), kind=classify(h), sel=null;
+    if(kind==='product'||kind==='sale') sel=h;
+    else if(kind==='anchor'){ var st=history.state; sel = (st && Object.prototype.hasOwnProperty.call(st,'sel')) ? st.sel : (cur===undefined ? null : cur); }
+    try{ history.replaceState({sel:sel}, ''); }catch(e){}
+    if(sel!==cur){ render(sel); cur=sel; syncSticky(); }
+    return kind;
+  }
+
+  // 共有・保存シート（連絡なし）
+  var sheet=$('sheet'), toast=$('toast'), sheetOpen=false;
   function say(t){ toast.textContent=t; toast.classList.add('is-on'); setTimeout(function(){toast.classList.remove('is-on');},1800); }
-  function shareUrl(){ return LP_URL + (slug ? '#'+slug : ''); }
-  function shareTitle(){ return 'ZOTAC EdgeTech+ 2026 ' + (model ? (model + ' の資料') : '展示機の資料'); }   // 後で探せるよう型番を入れる（レビュー）
+  function shareUrl(){ return LP_URL + (cur ? '#'+cur : ''); }
+  function shareTitle(){ return 'ZOTAC EdgeTech+ 2026 ' + (cur ? (SLUGS[cur] + ' の資料') : '展示機の資料'); }
   function openSheet(){
-    var u=shareUrl();
-    document.getElementById('sheet-mailself').href='mailto:?subject='+encodeURIComponent('[保存] '+shareTitle())+'&body='+encodeURIComponent(u);
+    $('sheet-mailself').href='mailto:?subject='+encodeURIComponent('[保存] '+shareTitle())+'&body='+encodeURIComponent(shareUrl());
+    sheetOpen=true; setSticky();
     sheet.hidden=false; requestAnimationFrame(function(){ sheet.classList.add('is-open'); });
   }
-  function closeSheet(){ sheet.classList.remove('is-open'); setTimeout(function(){sheet.hidden=true;},250); }
-  Array.prototype.forEach.call(document.querySelectorAll('.js-share'),function(b){
-    b.addEventListener('click',function(){
-      openSheet();
-    });
-  });
-  function shareData(){ return {title:shareTitle(),text:'ZOTAC ブースの展示機 9 機種の資料・評価機貸出・お問い合わせ',url:shareUrl()}; }
-  var nat=document.getElementById('sheet-native');
+  function closeSheet(){ sheet.classList.remove('is-open'); setTimeout(function(){ sheet.hidden=true; sheetOpen=false; syncSticky(); },250); }
+  each('.js-share', function(b){ b.addEventListener('click', openSheet); });
+  function shareData(){ return {title:shareTitle(),text:'ZOTAC ブースの展示機 '+N+' 機種の資料・評価機貸出・お問い合わせ',url:shareUrl()}; }
+  var nat=$('sheet-native');
   if(navigator.share && (!navigator.canShare || navigator.canShare(shareData()))) nat.hidden=false;
   nat.addEventListener('click',function(){ navigator.share(shareData()).catch(function(){}); });
-  Array.prototype.forEach.call(document.querySelectorAll('.js-sheet-close'),function(b){ b.addEventListener('click',closeSheet); });
+  each('.js-sheet-close', function(b){ b.addEventListener('click', closeSheet); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape' && !sheet.hidden) closeSheet(); });
-  document.getElementById('sheet-copy').addEventListener('click',function(){
+  $('sheet-copy').addEventListener('click',function(){
     var u=shareUrl();
-    (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function(){ say('URL をコピーしました'); },function(){ var q=sheet.querySelector('p'); q.innerHTML='コピーできない場合は、この URL を長押しして選択してください: <b style="user-select:all;font-family:var(--mono);font-weight:500">'+u+'</b>'; });
+    (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(function(){ say('URL をコピーしました'); },function(){ var p=sheet.querySelector('p'); p.innerHTML='コピーできない場合は、この URL を長押しして選択してください: <b style="user-select:all;font-family:var(--mono);font-weight:500">'+u+'</b>'; });
   });
 
-  // モバイル固定 CTA（ヒーローの CTA が画面外に出たら）
-  var sticky=document.getElementById('sticky'), hero=(hv==='e')?document.getElementById('cta-mail-e'):document.getElementById('cta-mail');
-  if('IntersectionObserver' in window && hero){
-    new IntersectionObserver(function(es){ es.forEach(function(en){ var on=!en.isIntersecting && en.boundingClientRect.top<0; sticky.classList.toggle('is-on',on); document.body.classList.toggle('has-sticky',on); }); }).observe(hero);
+  // 追従バー（スマホ）: 本文の導線の枠（#hero-cta）が画面の上へ抜けたら出し、戻ったら隠す。初期表示では出さない。共有シートの間は隠す（改修案 v0.2 §4）
+  var sticky=$('sticky'), ctaBox=$('hero-cta'), below=false;
+  function setSticky(){ sticky.classList.toggle('is-on', below && !sheetOpen); document.body.classList.toggle('has-sticky', below); }
+  function syncSticky(){ var r=ctaBox.getBoundingClientRect(); below = r.bottom < 0; setSticky(); }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ es.forEach(function(en){ below = !en.isIntersecting && en.boundingClientRect.top < 0; setSticky(); }); }).observe(ctaBox);
+  }
+  // 画面の外から外へ一気に飛ぶ（ページ内リンク・速いスクロール）と IntersectionObserver は呼ばれないので、スクロールでも測る
+  var stT=false; window.addEventListener('scroll', function(){ if(stT) return; stT=true; requestAnimationFrame(function(){ stT=false; syncSticky(); }); }, {passive:true});
+  window.addEventListener('pageshow', syncSticky);   // PDF やフォームから戻ったとき（キャッシュから復帰）にも測り直す
+  if('ResizeObserver' in window){   // 本文末尾の余白をバーの実際の高さに合わせる（型番の折り返し・文字の拡大）
+    new ResizeObserver(function(){ var h=Math.ceil(sticky.getBoundingClientRect().height); if(h>0) document.body.style.setProperty('--sticky-h', h+'px'); }).observe(sticky);
   }
 
-  // かっこ書き（.paren）: 1 行に収まらず中で折れるものは、ひとかたまりをやめて普通の流れに戻す（無理に次の行へ送ると行が増え、短い行が残る）
+  // かっこ書き（.paren）: 1 行に収まらず中で折れるものは、ひとかたまりをやめて普通の流れに戻す
   function fitParen(){
     var ps=document.querySelectorAll('.paren'), i;
     for(i=0;i<ps.length;i++) ps[i].style.display='';
     for(i=0;i<ps.length;i++){ var s=ps[i], cs=getComputedStyle(s), lh=parseFloat(cs.lineHeight)||parseFloat(cs.fontSize)*1.6;
       if(s.getBoundingClientRect().height>lh*1.5) s.style.display='inline'; }
   }
-  fitParen();
+
+  // 初回の描画と計測（lp_entry は初回だけ）。以降はハッシュの変化と戻る/進むで描き直す（同じ選択なら何もしない）
+  var kind0 = apply();
+  try{ if(typeof gtag==='function') gtag('event','lp_entry',{lp:'edgetech2026',card:(cur||'(none)'),entry_kind:kind0}); }catch(e){}
+  window.addEventListener('hashchange', apply);
+  window.addEventListener('popstate', apply);
+  // 共通トップの一覧から機種を選んだら、ヒーローの頭へ戻す（写真の位置で切り替わるので、見出しが画面の外に残らないように）
+  each('.js-pick', function(a){ a.addEventListener('click', function(){ setTimeout(function(){ $('hero').scrollIntoView({block:'start'}); }, 0); }); });
   if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitParen);
   var fpW=window.innerWidth, fpT;
-  window.addEventListener('resize',function(){ if(window.innerWidth===fpW) return; fpW=window.innerWidth; clearTimeout(fpT); fpT=setTimeout(fitParen,120); });
-
+  window.addEventListener('resize',function(){ if(window.innerWidth===fpW) return; fpW=window.innerWidth; clearTimeout(fpT); fpT=setTimeout(function(){ fitParen(); syncSticky(); },120); });
 })();
 </script>
 </body>
