@@ -25,7 +25,6 @@
 <link rel="canonical" href="https://hub.zotac.co.jp/reviews/power-limit-rtx-50-series/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 
-<!-- OGP -->
 <meta property="og:title" content="0円でできる夏の暑さ対策 — RTX 5090 / 5080 / 5070 で Power Limit 省電力化を実測検証">
 <meta property="og:description" content="消費電力・GPU温度はどこまで下がり、性能はどこまで残るのか。3カード×4条件×7ベンチマークで実測。">
 <meta property="og:image" content="https://hub.zotac.co.jp/reviews/power-limit-rtx-50-series/ogp.jpg">
@@ -34,12 +33,10 @@
 <meta property="og:site_name" content="ZOTAC NIPPON">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-<!-- Structured Data (JSON-LD) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -150,7 +147,6 @@
   .data tr.me-row td:first-child{border-left:3px solid var(--yellow)}
   .na{color:var(--ink-light)}
 
-  /* results appendix table */
   .tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:8px;-webkit-overflow-scrolling:touch}
   .results{width:100%;min-width:660px;border-collapse:collapse;font-size:13px;margin:0}
   .results th,.results td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
@@ -184,7 +180,6 @@
   .note b{color:var(--ink)}
   .note .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);display:block;margin-bottom:6px}
 
-  /* primer / 用語解説 columns (GPU/CPU とは) */
   .primer-lead{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin:26px 0 10px;display:flex;align-items:center;gap:9px}
   .primer-lead::before{content:"";width:22px;height:3px;background:var(--yellow);display:inline-block}
   .primer{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 6px}
@@ -197,7 +192,6 @@
   .primer .card .tl{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--dark);background:var(--bg-soft);border:1px solid var(--line-strong);padding:1px 6px;border-radius:3px;margin-right:7px}
   @media(max-width:560px){.primer{grid-template-columns:1fr}}
 
-  /* lineup positioning */
   .lineup{display:flex;flex-direction:column;gap:10px;margin:14px 0 6px}
   .lu{border:1px solid var(--line);border-left:4px solid var(--line-strong);border-radius:6px;padding:12px 16px;font-size:14px;line-height:1.7}
   .lu b{font-weight:700;color:var(--ink)}
@@ -205,10 +199,8 @@
   .lu span.d{color:#3c3f41}
   .lu.me{border-left-color:var(--yellow);background:var(--yellow-soft)}
 
-  /* CTA */
   .cta{display:inline-block;background:var(--yellow);color:var(--dark);font-weight:700;font-size:14.5px;text-decoration:none;padding:12px 22px;border-radius:6px;letter-spacing:.02em;border:1px solid #E6BE00}
   .cta:hover{filter:brightness(.95)}
-  /* product action row: sales button (.cta) + catalog/secondary text link (.txtlink) */
   .buyrow{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin:18px 0 4px}
   .buyrow.center{justify-content:center;text-align:center}
   .txtlink{display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong)}
@@ -221,7 +213,6 @@
   .grid2 .cell.shot img{border:1px solid var(--line);border-radius:3px;width:auto;max-width:100%}
   @media(max-width:560px){.grid2{grid-template-columns:1fr}.row{grid-template-columns:120px 1fr}}
 
-  /* exploded view (cooling) */
   .exploded{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 10px}
   .ex-card{margin:0;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px}
   .ex-card img{height:140px;width:100%;object-fit:contain;display:block;margin:0 0 12px}
@@ -253,7 +244,6 @@
   footer .meta{font-family:var(--mono);font-size:11.5px;line-height:1.9;color:#9a9c9e}
   footer b{color:#fff}
   footer .disc{margin-top:16px;padding-top:16px;border-top:1px solid #44484a}
-  /* image lightbox (click to enlarge in overlay) */
   main img{cursor:zoom-in}
   .lightbox{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(22,23,25,.93);padding:28px;cursor:zoom-out;opacity:0;transition:opacity .18s ease}
   .lightbox.open{display:flex;opacity:1}
@@ -262,19 +252,7 @@
   .lb-close{position:fixed;top:16px;right:20px;width:42px;height:42px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-size:24px;line-height:1;border-radius:6px;cursor:pointer}
   .lb-close:hover{border-color:var(--yellow);color:var(--yellow)}
 
-  /* Safari(WebKit) で H1 が折り返さない問題の修正。
-     テンプレ継承の h1 は word-break:keep-all を持つが、WebKit は keep-all を厳密に解釈し
-     CJK の約物（、」等）でも改行機会を作らない。既存レビューの H1 は半角スペースを含むため
-     顕在化しなかったが、本記事の主見出し「0円でできる夏の暑さ対策」、本当に効く？ は
-     21文字すべて空白なし＝改行機会ゼロになり、Safari でのみ1行のまま溢れる。
-     Blink(Chrome/Edge) は約物で改行するため再現しない。
-     対処は2段構え: (1) 見出しの語句境界に <wbr>（keep-all でも有効な「明示的な改行機会」）を置き、
-     どちらのブラウザでも同じ位置で折り返す。(2) それでも入らない幅のために overflow-wrap:anywhere を
-     保険として持たせ、溢れる代わりに強制改行させる。keep-all 自体はテンプレのまま残す。 */
   h1{overflow-wrap:anywhere}
-  /* .datawrap は ②' 側テンプレには存在するが、②側ステージングのテンプレ
-     （このスクリプトが読む magnus-en-rtx-5060-ti）にはまだ無いため自前で持つ。
-     定義は ②' と同一（乖離させない）。 */
   .datawrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
   .datawrap table{margin:0}
   @media(max-width:620px){
@@ -283,7 +261,6 @@
   }
   .pcta{margin-top:10px}
 
-  /* ---- 本記事の追加スタイル（テンプレ準拠の範囲で最小限） ---- */
   .note-important{background:var(--yellow-soft);border:1px solid var(--line-strong);border-left:5px solid var(--yellow);border-radius:6px;padding:18px 22px;margin:10px 0 6px;font-size:14.5px}
   ol.steps{margin:10px 0 14px 1.4em}
   ol.steps li{margin:4px 0}
@@ -315,13 +292,6 @@
   .chart .takeaway{font-size:13.5px;font-weight:700;color:#3c3f41;margin:4px 0 0;padding-left:10px;border-left:3px solid var(--yellow)}
 </style>
 </head>
-<!-- 本記事は3製品を横断する特集で単一製品ページではないため data-inquiry-* は付けない。
-     付けるとヘッダーCTAが実在しない型番 POWERLIMIT-RTX50 を問い合わせ対象として送ってしまう
-     （inject.py の型番検証パターンを通過してしまい弾かれない）。属性なし＝from のみ渡る。
-     テーマ記事の先例＝ index/reviews/meganex8kmk2。
-     ※このコメントに body の開始タグを文字列で書かないこと。inject.py が
-       正規表現でそれを本物と誤認し、コメント内へヘッダーを注入して
-       コメントを破壊する（2026-08-03 に実際に発生・本番へ流出）。 -->
 <body>
 <!-- @partial:header START — 編集は _partials/header.html、反映は python _partials/inject.py -->
 <style>
@@ -418,7 +388,6 @@
 
 <main class="wrap">
 
-  <!-- ============ HERO ============ -->
   <section class="hero">
     <span class="eyebrow">Summer Lab — Power Limit</span>
     <h1>「<span class="hl">0円でできる<wbr>夏の<wbr>暑さ対策</span>」、<wbr>本当に効く？<span class="h1-sub">GeForce RTX 5090 / 5080 / 5070 — Power Limit 設定で<wbr>消費電力・温度はどこまで下がり、<wbr>性能はどこまで残るのか</span></h1>
@@ -436,7 +405,6 @@
     <figcaption>ZOTAC GAMING GeForce RTX 5090 AMP Extreme INFINITY / RTX 5080 SOLID OC / RTX 5070 SOLID の3枚で、Power Limit を 100% → 85% → 最小設定まで絞りながら実測した</figcaption>
   </section>
 
-  <!-- ============ TL;DR ============ -->
   <section class="tldr" id="tldr">
     <h2>実測サマリー（3行）</h2>
     <ul>
@@ -451,7 +419,6 @@
   </section>
 
 
-  <!-- ============ Power Limit 85% — 性能はほぼ残して、電力と熱だけ削れた ============ -->
   <section id="s01">
     <span class="sec-no">01 / まず結論</span>
     <h2 class="sec">Power Limit 85% — 性能はほぼ残して、電力と熱だけ削れた</h2>
@@ -470,7 +437,6 @@
 
   </section>
 
-  <!-- ============ Power Limit とは — スライダー1本で「電力の天井」を決める ============ -->
   <section id="s02">
     <span class="sec-no">02 / 設定は3分</span>
     <h2 class="sec">Power Limit とは — スライダー1本で「電力の天井」を決める</h2>
@@ -501,7 +467,6 @@
 
   </section>
 
-  <!-- ============ 検証に使った3枚のグラフィックスカード ============ -->
   <section id="s02b">
     <span class="sec-no">02b / 検証機材</span>
     <h2 class="sec">検証に使った3枚のグラフィックスカード</h2>
@@ -544,7 +509,6 @@
 
   </section>
 
-  <!-- ============ 3DMark — 最悪条件でも、85%なら93〜98%残る ============ -->
   <section id="s03">
     <span class="sec-no">03 / グラフィックス</span>
     <h2 class="sec">3DMark — 最悪条件でも、85%なら93〜98%残る</h2>
@@ -680,7 +644,6 @@
 
   </section>
 
-  <!-- ============ ここが本題 — 部屋に出る熱は、どれだけ減るのか ============ -->
   <section id="s04">
     <span class="sec-no">04 / 電力と熱</span>
     <h2 class="sec">ここが本題 — 部屋に出る熱は、どれだけ減るのか</h2>
@@ -848,7 +811,6 @@
 
   </section>
 
-  <!-- ============ Blender・Cinebench — 電力上限に「届かない」処理はほぼ無傷 ============ -->
   <section id="s05">
     <span class="sec-no">05 / クリエイティブ</span>
     <h2 class="sec">Blender・Cinebench — 電力上限に「届かない」処理はほぼ無傷</h2>
@@ -909,7 +871,6 @@
 
   </section>
 
-  <!-- ============ Stable Diffusion（SDXL）— 唯一の要注意ゾーン。RTX 5090 は85%でも遅くなる ============ -->
   <section id="s06">
     <span class="sec-no">06 / 画像生成AI</span>
     <h2 class="sec">Stable Diffusion（SDXL）— 唯一の要注意ゾーン。RTX 5090 は85%でも遅くなる</h2>
@@ -983,7 +944,6 @@
 
   </section>
 
-  <!-- ============ ワットパフォーマンスは全カードで向上する ============ -->
   <section id="s07">
     <span class="sec-no">07 / 電力効率</span>
     <h2 class="sec">ワットパフォーマンスは全カードで向上する</h2>
@@ -1002,7 +962,6 @@
 
   </section>
 
-  <!-- ============ 85%＋自動チューニング — 「削った電力はそのまま、性能を少し取り返す」 ============ -->
   <section id="s08">
     <span class="sec-no">08 / 応用</span>
     <h2 class="sec">85%＋自動チューニング — 「削った電力はそのまま、性能を少し取り返す」</h2>
@@ -1021,7 +980,6 @@
 
   </section>
 
-  <!-- ============ 結論 — まず85%から。「性能の落ち幅」より「熱の下げ幅」が大きい ============ -->
   <section id="s09">
     <span class="sec-no">09 / まとめ</span>
     <h2 class="sec">結論 — まず85%から。「性能の落ち幅」より「熱の下げ幅」が大きい</h2>
@@ -1068,7 +1026,6 @@
 
   </section>
 
-  <!-- ============ テスト環境・計測条件と全ベンチマーク結果 ============ -->
   <section id="s10">
     <span class="sec-no">10 / 付録</span>
     <h2 class="sec">テスト環境・計測条件と全ベンチマーク結果</h2>
@@ -1173,7 +1130,6 @@
     </table></div>
   </section>
 
-  <!-- ============ FAQ ============ -->
   <section id="faq">
     <span class="sec-no">FAQ</span>
     <h2 class="sec">よくある質問</h2>
@@ -1238,7 +1194,6 @@
 })();
 </script>
 
-<!-- Image lightbox (click to enlarge in overlay; no new window) -->
 <script>
 (function(){
   var imgs = document.querySelectorAll('main img');

@@ -14,6 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import hublib  # noqa: E402
+import sanitize  # noqa: E402
 
 # 2026-08-02 に実際に踏んだ汚染の形（SharePoint が挿入したもの）
 MSO_BLOCK = (
@@ -275,6 +276,30 @@ UTM_EXTRACT_CASES = [
     ("複数行に複数本", f"{_BASE}{_OK}\n{_BASE}{_OK}&utm_content=thread_day1", 2),
 ]
 
+# 2026-11-12: 取り込み時に制作メモのコメントを消す（sanitize.strip_comments）。
+# 消しすぎると共通パーツの差し替え（@partial）やスクリプトが壊れ、消し足りないと
+# 社内の経緯が公開される。どちらも黙って起きるので、形を固定して確かめる。
+# (説明, 入力, 期待する出力。None は「変えない」)
+COMMENT_STRIP_CASES = [
+    ("単独行の HTML コメントは行ごと消す", "<p>a</p>\n  <!-- メモ -->\n<p>b</p>", "<p>a</p>\n<p>b</p>"),
+    ("行内のコメント", "<p>a <!-- x --> b</p>", "<p>a  b</p>"),
+    ("最終行のコメント", "<p>a</p>\n<!-- end -->", "<p>a</p>"),
+    ("@partial の区間は中身ごと残す",
+     "<!-- @partial:header START — x -->\n<!-- 中 -->\n<style>/* c */</style>\n<!-- @partial:header END -->", None),
+    ("条件付きコメントは残す", "<!--[if IE]><p>x</p><![endif]-->", None),
+    ("<script> の中は文字列", "<script>var s='<!-- x -->'; /* c */</script>", None),
+    ("<textarea> の中は文字列", "<textarea><!-- x --></textarea>", None),
+    ("属性値の中は文字列", '<img alt="<!-- x -->">', None),
+    ("閉じていないコメントは触らない", "<p>a</p><!-- x", None),
+    ("CDATA の中", "<svg><![CDATA[ <!-- x --> ]]></svg>", None),
+    ("CSS の単独行コメント", "<style>\n  a{}\n  /* メモ */\n  b{}\n</style>", "<style>\n  a{}\n  b{}\n</style>"),
+    ("CSS の宣言の後ろ", "<style>a{color:red;/* x */}</style>", "<style>a{color:red;}</style>"),
+    ("行末のコメントは前の空白ごと", "<style>\na{color:red}  /* x */\nb{}\n</style>", "<style>\na{color:red}\nb{}\n</style>"),
+    ("HTML の行末のコメント", "<p>a</p>  <!-- x -->\n<p>b</p>", "<p>a</p>\n<p>b</p>"),
+    ("CSS の文字列の中は残す", '<style>a{content:"/* x */"}</style>', None),
+    ("CSS の字句の間は残す（消すと 1pxsolid になる）", "<style>a{border:1px/**/solid}</style>", None),
+]
+
 
 def main():
     hublib.use_utf8_stdout()
@@ -361,11 +386,21 @@ def main():
     except (OSError, ValueError) as e:
         fails.append(f"load_title_registry: 登録簿を読めない → {e}")
 
+    for label, src, want in COMMENT_STRIP_CASES:
+        want = src if want is None else want
+        got, _ = sanitize.strip_comments(src)
+        again, _ = sanitize.strip_comments(got)
+        if got != want:
+            fails.append(f"strip_comments: {label} → {got!r} 期待={want!r}")
+        elif again != got:
+            fails.append(f"strip_comments: {label} → 2 回目で結果が変わる（冪等でない）")
+
     total = (len(CASES) + len(ALLOWLIST_CASES) + len(MARKUP_CASES)
              + len(HEADER_CSS_CASES) + len(HEADER_CSS_LINK_CASES)
              + len(UTM_CASES) + len(UTM_EXTRACT_CASES)
              + len(TITLE_EXTRACT_CASES) + len(TITLE_COMMENT_CASES)
-             + len(TITLE_CASES) + len(TITLE_KIND_CASES))
+             + len(TITLE_CASES) + len(TITLE_KIND_CASES)
+             + len(COMMENT_STRIP_CASES))
     print(f"test_guards: {total - len(fails)}/{total} 合格")
     if fails:
         for f in fails:

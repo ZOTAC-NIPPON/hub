@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- 一覧はハブ独自コンテンツとして index。記事本文は #/post… のハッシュルートで別URLにならず、正本=ブログ記事のみがインデックス対象（重複は出ない） -->
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://hub.zotac.co.jp/case-studies/" />
 <title>導入・活用事例 | ZOTAC NIPPON</title>
@@ -54,7 +53,6 @@ a { color: inherit; }
 .yellow-bar-lg { width: 56px; height: 5px; background: var(--brand-yellow); margin-bottom: 18px; }
 
 
-/* ===== Page Hero (list) ===== */
 .page-hero { background: var(--bg-dark); color: #fff; padding: 38px 0 34px; min-height: 320px; }
 .breadcrumb { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--text-faint); margin-bottom: 16px; text-transform: uppercase; }
 .breadcrumb a { color: var(--text-faint); text-decoration: none; }
@@ -65,7 +63,6 @@ a { color: inherit; }
 .page-hero .sub-title { font-size: clamp(18px, 2.2vw, 24px); font-weight: 600; color: var(--brand-yellow); margin-bottom: 16px; }
 .page-hero .lede { font-size: 14px; color: #E5E5E6; line-height: 1.7; max-width: 720px; }
 
-/* ===== Grid / cards ===== */
 .grid { max-width:1200px; margin:0 auto; padding:42px 48px 64px; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 @media(max-width:900px){ .grid{ grid-template-columns:repeat(2,1fr); padding:32px 24px 56px; } }
 @media(max-width:600px){ .grid{ grid-template-columns:1fr; } }
@@ -77,7 +74,6 @@ a { color: inherit; }
 .card h3 { font-size:15px; line-height:1.5; margin:0; font-weight:700; }
 .card .ex { font-size:12.5px; color:var(--text-muted); margin:0; line-height:1.6; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 
-/* ===== Load More ===== */
 .lm-wrap { text-align:center; padding:0 48px 64px; }
 @media(max-width:900px){ .lm-wrap{ padding:0 24px 56px; } }
 .load-more { font-family:var(--font-mono); font-size:13px; font-weight:700; color:var(--text-dark); background:#fff; border:1.5px solid var(--text-dark); border-radius:8px; padding:13px 30px; cursor:pointer; transition:all .15s; }
@@ -85,12 +81,10 @@ a { color: inherit; }
 .load-more:disabled { opacity:.5; cursor:default; }
 .lm-err { color:var(--text-muted); font-size:13px; }
 
-/* ===== states ===== */
 .state { max-width:1200px; margin:0 auto; padding:80px 48px; text-align:center; color:var(--text-muted); font-family:var(--font-mono); font-size:13px; }
 .spin { width:26px; height:26px; border:3px solid var(--border); border-top-color:var(--brand-yellow); border-radius:50%; animation:sp .8s linear infinite; margin:0 auto 14px; }
 @keyframes sp { to{ transform:rotate(360deg); } }
 
-/* ===== article (detail) ===== */
 .article-bcrumb { background:var(--bg-soft); border-bottom:1px solid var(--border); }
 .article-bcrumb .container { padding-top:14px; padding-bottom:14px; }
 .article-bcrumb .bc { font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:var(--text-muted); }
@@ -117,7 +111,6 @@ a { color: inherit; }
 .cs-exit .src { margin-top:18px; font-size:12px; color:var(--text-muted); }
 .cs-exit .src a { color:var(--text-muted); }
 
-/* ===== Footer (hub 共通) ===== */
 .site-footer { background: #1a1b1c; color: var(--text-faint); padding: 56px 0 28px; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
 @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
@@ -230,11 +223,9 @@ a { color: inherit; }
 </script>
 <!-- @partial:header END -->
 
-<!-- ============================== HEADER (hub 共通) ============================== -->
 
 <main id="app"><div class="state"><div class="spin"></div>読み込み中…</div></main>
 
-<!-- ============================== FOOTER (hub 共通) ============================== -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -283,7 +274,6 @@ a { color: inherit; }
 </footer>
 
 
-<!-- ============================== LIVE READ-OUT ============================== -->
 <script>
 /* ============== 設定 ============== */
 const SITE = "https://zotac.co.jp";                 // 本番サイト

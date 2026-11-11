@@ -68,13 +68,11 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ZOTAC NIPPON 公式情報ハブ｜ZBOX・GeForce実機検証">
 <meta name="twitter:description" content="ZOTAC NIPPON（日本法人）が運営する公式技術情報ハブ。ZBOXミニPC・GeForce RTXの実機検証データ、製品カタログ、導入事例、評価機材貸出をご案内します。">
 <meta name="twitter:image" content="https://hub.zotac.co.jp/assets/ogp.jpg">
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -134,7 +132,6 @@ a { color: inherit; }
   text-transform: uppercase;
 }
 
-/* ===== Hero ===== */
 .hero {
   background: var(--bg-dark);
   color: #fff;
@@ -194,7 +191,6 @@ a { color: inherit; }
 }
 .btn-secondary:hover { border-color: var(--brand-yellow); color: var(--brand-yellow); }
 
-/* ===== Section ===== */
 section {
   padding: 72px 0 64px;
   border-bottom: 1px solid var(--border);
@@ -230,7 +226,6 @@ h2 {
   line-height: 1.6;
 }
 
-/* ===== Stats / Metrics ===== */
 .metrics-row {
   display: flex; flex-wrap: wrap; gap: 16px;
   margin: 32px 0;
@@ -311,8 +306,6 @@ h2 {
   letter-spacing: 0.05em;
 }
 
-/* ===== Quick Paths ===== */
-/* 二層構造 (案2): B2B Services + Editorial Content */
 .qp-group { margin-top: 32px; }
 .qp-group + .qp-group { margin-top: 48px; }
 .qp-group-header {
@@ -347,9 +340,6 @@ h2 {
   display: flex; flex-wrap: wrap; gap: 16px;
 }
 .qp-grid-b2b .qp-item { flex: 1 1 240px; min-width: 240px; }
-/* B2B カードは2枚構成(03/04 削除後)— 1枚あたり半幅(約540px)に広がるため、
-   デスクトップでは横長カードとして内部を左右2カラム化(左: 番号・タイトル・矢印 / 右: 説明文)。
-   縦積みのまま引き伸ばすと説明文の行長が長くなりすぎ、空白が目立つ */
 @media (min-width: 960px) {
   .qp-grid-b2b .qp-item {
     display: grid;
@@ -435,10 +425,7 @@ h2 {
   font-weight: 700;
 }
 
-/* Editorial カード固有装飾 — B2B との視覚差別化 */
 .qp-grid-editorial .qp-item::before { background: var(--brand-yellow); }
-/* カードを縦 flex 化し、矢印(READ REVIEWS / DOWNLOAD CATALOGS)を
-   カード下端に固定 — 2カードの中身の量が違っても矢印の高さが揃う */
 .qp-grid-editorial .qp-item {
   display: flex;
   flex-direction: column;
@@ -483,11 +470,9 @@ h2 {
 }
 .qp-grid-editorial .qp-item:hover .qp-featured-item { color: var(--text-faint); border-color: rgba(255,255,255,0.15); }
 
-/* Secondary editorial card (Catalogs) — Reviews と並ぶ価値、サイズだけわずかに小さく */
 .qp-grid-editorial .qp-item-secondary .qp-en { font-size: 11px; }
 .qp-grid-editorial .qp-item-secondary .qp-jp { font-size: 18px; }
 
-/* サブフィーチャー(直近イベント情報など、メイン feature の下に小さく置く) */
 .qp-sub-item {
   margin-top: 8px;
   padding-top: 8px;
@@ -518,7 +503,6 @@ h2 {
   color: var(--text-faint);
 }
 
-/* ===== Matrix ===== */
 .matrix-wrap { overflow-x: auto; margin-top: 24px; }
 .matrix {
   width: 100%; min-width: 820px;
@@ -602,9 +586,6 @@ h2 {
   font-family: var(--font-mono);
 }
 
-/* ============================================================
-   LATEST UPDATES (WordPress API 由来)
-   ============================================================ */
 .updates-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -715,9 +696,6 @@ h2 {
   letter-spacing: 0.03em;
 }
 
-/* ============================================================
-   ABOUT ZOTAC NIPPON
-   ============================================================ */
 .about-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -774,9 +752,6 @@ h2 {
   color: var(--brand-yellow-deep, #e6b800);
 }
 
-/* ============================================================
-   CTA Block (大きめ、metafes callout 流の強調版)
-   ============================================================ */
 .cta-section {
   background: var(--bg-dark);
   color: #fff;
@@ -816,9 +791,6 @@ h2 {
   margin-top: 4px;
 }
 
-/* ============================================================
-   Footer
-   ============================================================ */
 .site-footer {
   background: #1a1b1c;
   color: var(--text-faint);
@@ -930,7 +902,6 @@ h2 {
 }
 .placeholder-note strong { color: var(--brand-yellow); display: block; margin-bottom: 8px; }
 
-/* ===== Blueprint Hero (bph-) — 既存 section{} を打ち消すため padding/border をリセット ===== */
 .bph{position:relative;overflow:hidden;padding:0;border-bottom:none;background-color:var(--bg-dark);
   background-image:
     repeating-linear-gradient(0deg,transparent 0 63px,rgba(255,255,255,.028) 63px 64px),
@@ -954,13 +925,6 @@ h2 {
 .bph-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;}
 .bph-art{position:relative;z-index:1;min-width:0;container-type:inline-size;display:flex;flex-direction:column;align-items:flex-end;}
 .bph-block{width:fit-content;max-width:100%;}
-/* ULTRA は EN より図面が縦に大きいため、上下マージンを詰めて総高を EN に合わせる。
-   これで両ブロックがグリッド中央に同一に収まり、ヘッダー(上)と SPEC(下)の位置が EN と一致、
-   図面はブロック中央に来る(translateY の下方ずらしは廃止)。
-   下側は .bph-dw(寸法線ボックス)の余白+ elev の padding-bottom で約10px の構造的余白が
-   "D 365.5mm" 文字の下に発生する。そのため eh の margin-bottom と spec の margin-top を
-   10/10 にすると見た目の余白は上10px・下20px と非対称になる。見た目を 15px/15px に揃えるため
-   margin を 15/5 に振り分ける(合計20px は不変 → 総高=EN を維持) */
 .bph-ultra{align-self:flex-start;}
 .bph-ultra .bph-elev{padding-left:26px;}
 .bph-ultra .bph-eh{margin-bottom:15px;}
@@ -1086,15 +1050,12 @@ h2 {
 <!-- @partial:header END -->
 
 
-<!-- ============================== HEADER ============================== -->
 
-<!-- ============================== HERO ============================== -->
 <section class="bph">
   <span class="bph-tick tl"></span><span class="bph-tick tr"></span><span class="bph-tick bl"></span><span class="bph-tick br"></span>
   <div class="container">
     <div class="bph-grid">
 
-      <!-- LEFT: shared text -->
       <div class="bph-text">
         <div class="bph-meta">// B2B INFORMATION HUB&nbsp;&nbsp;──&nbsp;&nbsp;ZOTAC NIPPON</div>
         <div class="bph-ybar"></div>
@@ -1109,7 +1070,6 @@ h2 {
         </div>
       </div>
 
-      <!-- RIGHT: per-product elevation (JSでランダム表示) -->
       <div class="bph-art">
 
         <div class="bph-block bph-ultra">
@@ -1142,7 +1102,6 @@ h2 {
   </div>
 </section>
 
-<!-- ============================== STATS ============================== -->
 <section>
   <div class="container">
     <div class="section-label">CHOOSE ZOTAC</div>
@@ -1187,7 +1146,6 @@ h2 {
   </div>
 </section>
 
-<!-- ============================== QUICK PATHS ============================== -->
 <section class="soft">
   <div class="container">
     <div class="section-label">SECTIONS</div>
@@ -1195,7 +1153,6 @@ h2 {
     <h2>Resource Directory</h2>
     <p class="section-lead">目的に応じて、必要な情報へ直接アクセスいただけます。</p>
 
-    <!-- B2B SERVICES GROUP -->
     <div class="qp-group">
       <div class="qp-group-header">
         <span class="qp-group-label">B2B SERVICES</span>
@@ -1219,7 +1176,6 @@ h2 {
       </div>
     </div>
 
-    <!-- EDITORIAL CONTENT GROUP -->
     <div class="qp-group">
       <div class="qp-group-header">
         <span class="qp-group-label">EDITORIAL CONTENT</span>
@@ -1227,7 +1183,6 @@ h2 {
       </div>
       <div class="qp-grid qp-grid-editorial">
 
-        <!-- Reviews: メイン編集ハブ -->
         <a href="/reviews/" class="qp-item qp-item-primary">
           <div class="qp-meta">
             <span class="meta-dot"></span>
@@ -1238,13 +1193,11 @@ h2 {
           <div class="qp-jp">プロダクトレビュー</div>
           <p class="qp-desc">製品の特徴・性能を、実測データと現場での検証にもとづいてレポートする技術レビューです。スペック表だけでは見えない実際の使い勝手を、中立的な視点で紹介しています。法人導入の技術判断にも、購入検討の参考にもご活用ください。</p>
           <div class="qp-featured-item">
-            <!-- LATEST は _data/reviews.json から自動生成 -->
             <span class="featured-label">LATEST</span>MeganeX 8K Mark II × GeForce RTX 50シリーズ VRChat 検証(3世代6モデル、fpsVR 実測)
           </div>
           <span class="qp-arrow">→ READ REVIEWS</span>
         </a>
 
-        <!-- Catalogs: 製品カタログ配布ハブ(/catalogs/ — リード向け資料案内の一次窓口) -->
         <a href="/catalogs/" class="qp-item qp-item-secondary">
           <div class="qp-meta">
             <span class="meta-dot"></span>
@@ -1255,7 +1208,6 @@ h2 {
           <div class="qp-jp">製品カタログ</div>
           <p class="qp-desc">グラフィックスカード・ZBOX の製品カタログ・資料を高解像度 PDF のままダウンロード可能。イベント出展・機材協賛の実績もあわせて掲載。</p>
           <div class="qp-featured-item">
-            <!-- PICKUP は /catalogs/ の PICKUP フィーチャーと同期 -->
             <span class="featured-label">PICKUP</span>ZBOX MAGNUS ONE — GeForce RTX 5070 Ti / 5070 搭載 世界最小クラス ミニPC
           </div>
           <span class="qp-arrow">→ DOWNLOAD CATALOGS</span>
@@ -1266,7 +1218,6 @@ h2 {
   </div>
 </section>
 
-<!-- ============================== MATRIX ============================== -->
 <section>
   <div class="container">
     <div class="section-label">REFERENCE MATRIX</div>
@@ -1346,7 +1297,6 @@ h2 {
   </div>
 </section>
 
-<!-- ============================== ABOUT ZOTAC NIPPON ============================== -->
 <section class="soft">
   <div class="container">
     <div class="section-label">COMPANY</div>
@@ -1378,7 +1328,6 @@ h2 {
   </div>
 </section>
 
-<!-- ============================== CTA BLOCK ============================== -->
 <section class="cta-section">
   <div class="container">
     <div class="section-label">CONTACT</div>
@@ -1399,7 +1348,6 @@ h2 {
   </div>
 </section>
 
-<!-- ============================== FOOTER ============================== -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -1454,7 +1402,6 @@ h2 {
 </footer>
 
 
-<!-- Hero: 製品をランダム表示（ULTRA / EN） -->
 <script>
 (function () {
   var fn = {

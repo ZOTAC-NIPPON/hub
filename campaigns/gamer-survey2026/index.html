@@ -21,7 +21,6 @@
 </script>
 <!-- @partial:analytics END -->
 
-<!-- OGP -->
 <link rel="canonical" href="https://hub.zotac.co.jp/campaigns/gamer-survey2026/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="ZOTAC NIPPON">
@@ -35,7 +34,6 @@
 <meta name="twitter:description" content="ゲーミングPCブランドZOTACの創立20周年記念。Xで@ZOTAC_JAPANをフォローのうえ、対象ポストをリポストするとリポスト賞20名様、約3分の調査に回答するとアンケート賞20名様の抽選に。両方にも、どちらか一方だけにも応募でき、合計40名様にZOTAC GAMINGオリジナルグッズをプレゼント。">
 <meta name="twitter:image"       content="https://hub.zotac.co.jp/campaigns/gamer-survey2026/ogp-20260915.jpg">
 
-<!-- Meta -->
 <meta name="description" content="ゲーミングPCブランドZOTACの創立20周年記念。Xで@ZOTAC_JAPANをフォローのうえ、対象ポストをリポストするとリポスト賞20名様、約3分の調査に回答するとアンケート賞20名様の抽選に。両方にも、どちらか一方だけにも応募でき、合計40名様にZOTAC GAMINGオリジナルグッズをプレゼント。">
 <meta name="robots" content="index,follow,max-image-preview:large">
 
@@ -43,13 +41,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  /* =========================================================
-     ゲーマー環境調査 2026 LP（v2 2026-09-10）
-     方針: 日本のキャンペーンLPの型に寄せる。日本語見出しのみ、装飾は最小、景品写真を主役に。
-     基調: ニアブラック / アクセント: ZOTAC YELLOW #FFD400
-     可読性: 本文 16px、本文色 #EDEEF0 on #0F1013
-     書体: Noto Sans JP のみ
-     ========================================================= */
   :root {
     --bg: #0F1013;
     --bg-alt: #151619;
@@ -90,7 +81,6 @@
   .skip-link:focus { left: 8px; }
   a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
 
-  /* 見出し */
   .sec { padding: 72px 0; scroll-margin-top: 80px; }
   .sec-alt { background: var(--bg-alt); }
   .sec-title {
@@ -104,7 +94,6 @@
   }
   .sec-lead { margin: -8px 0 28px; color: var(--muted); max-width: 720px; }
 
-  /* ボタン */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     min-height: 60px; padding: 14px 40px;
@@ -119,7 +108,6 @@
   .btn-wide { width: 100%; max-width: 420px; }
   .btn::after { content: '›'; font-size: 24px; font-weight: 700; margin-left: 2px; }
 
-  /* ═══ ヒーロー ═══ */
   .hero {
     position: relative; overflow: hidden;
     background:
@@ -128,7 +116,6 @@
     padding: 56px 0 64px;
     border-bottom: 1px solid var(--line);
   }
-  /* 20周年ロゴは見える位置に静止・単色で置く（ロゴ自体には効果をかけない） */
   .hero-anniv { color: #fff; }
   .hero-anniv svg { width: 100%; height: auto; display: block; }
   .hero-anniv--side { width: 168px; margin: 0 0 22px auto; }
@@ -166,7 +153,6 @@
   .cond li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 9px; height: 9px; background: var(--yellow); border-radius: 50%; }
   .cond-center { margin: 18px auto 0; max-width: 640px; text-align: left; }
 
-  /* 応募の2枠（リポスト賞20名様＋アンケート賞20名様） */
   .hero-camp { margin: 10px 0 0; font-size: clamp(18px, 2.4vw, 22px); font-weight: 900; line-height: 1.4; color: var(--text); }
   .entry-head { margin: 20px 0 0; font-size: 15px; font-weight: 900; line-height: 1.5; }
   .entry-head span { font-weight: 500; color: var(--muted); font-size: 13px; }
@@ -185,7 +171,6 @@
   .apply .entry { margin: 8px auto 0; text-align: left; }
   .apply .entry-sum { text-align: center; }
 
-  /* 副次リンク（リポスト導線）。主ボタンと同格にしない */
   .sub-link { display: inline-block; margin-top: 14px; font-size: 15px; font-weight: 700; color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
   .sub-link::after { content: ' ›'; color: var(--yellow); text-decoration: none; }
   .sub-link:hover { color: var(--yellow); }
@@ -193,7 +178,6 @@
   .hero-prizes {
     background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 20px;
   }
-  /* ZTORM は賞品カードの上から顔だけのぞかせる（下半身はカードの縁で見切れ）。20周年ロゴとは重ねない */
   .hero-prizes { position: relative; }
   .ztorm-peek { position: absolute; left: 18px; bottom: calc(100% - 2px); width: 168px; height: 138px; overflow: hidden; pointer-events: none; }
   .ztorm-peek img { width: 168px; max-width: none; height: auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.45)); }
@@ -209,7 +193,6 @@
   .prize-name small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
   .hero-prizes-note { margin: 12px 0 0; font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-  /* ═══ 応募の流れ ═══ */
   .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; counter-reset: step; }
   .steps li[data-step="共通の条件"], .steps li[data-step="当選のご連絡"] { grid-column: 1 / -1; }
   .steps .step-tag { display: inline-block; margin-left: 8px; font-size: 13px; font-weight: 900; color: var(--yellow); border: 1px solid var(--yellow); border-radius: 4px; padding: 1px 8px; vertical-align: 2px; }
@@ -228,7 +211,6 @@
   .steps p a { font-weight: 700; }
   .steps-note { margin: 18px 0 0; font-size: 14px; color: var(--muted); }
 
-  /* ═══ 賞品 ═══ */
   .prizes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .prize-card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
   .prize-card { margin: 0; }
@@ -242,7 +224,6 @@
   .prizes-note { margin: 18px 0 0; font-size: 14px; color: var(--muted); }
   .prizes-count { display: inline-block; background: var(--yellow); color: var(--ink); font-weight: 900; padding: 2px 10px; border-radius: 4px; margin-right: 8px; }
 
-  /* ═══ 調査で聞くこと ═══ */
   .ask { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 24px; max-width: 860px; }
   .ask li { display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--line); }
   .ask .n { font-size: 26px; font-weight: 900; color: var(--yellow); line-height: 1.1; }
@@ -250,7 +231,6 @@
   .ask span { display: block; font-size: 14px; color: var(--muted); margin-top: 2px; }
   .ask-note { margin: 20px 0 0; font-size: 14px; color: var(--muted); max-width: 860px; }
 
-  /* ═══ 応募（本体） ═══ */
   .apply {
     background: var(--panel); border: 2px solid var(--yellow); border-radius: 12px;
     padding: 36px 32px; text-align: center;
@@ -274,7 +254,6 @@
   .terms li + li { margin-top: 6px; }
   .terms a { color: var(--text); }
 
-  /* ═══ レビュー ═══ */
   .reviews { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
   .reviews a {
     display: grid; grid-template-columns: 112px 1fr; gap: 16px; align-items: center;
@@ -287,7 +266,6 @@
   .reviews span { display: block; font-size: 13px; color: var(--muted); margin-top: 2px; }
   .reviews-more { margin: 18px 0 0; font-size: 15px; }
 
-  /* ═══ 関連リンク ═══ */
   .links { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .links a {
     display: block; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px;
@@ -298,7 +276,6 @@
   .links b::after { content: ' ›'; color: var(--yellow); }
   .links span { display: block; font-size: 14px; color: var(--muted); margin-top: 4px; }
 
-  /* ═══ フッター ═══ */
   .site-footer { background: #0A0B0D; border-top: 1px solid var(--line); padding: 44px 0 100px; font-size: 13px; color: var(--muted); }
   .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 24px 40px; align-items: start; }
   .footer-logo { height: 20px; width: auto; margin-bottom: 10px; }
@@ -312,14 +289,12 @@
   .analytics-notice { margin: 16px 0 0; font-size: 12px; line-height: 1.7; }
   .analytics-notice a { color: var(--muted); }
 
-  /* ═══ サンクス帯（?ref=thanks でだけ表示） ═══ */
   .thanks-banner {
     display: none; background: var(--yellow); color: var(--ink); padding: 12px 24px; text-align: center; font-size: 15px; line-height: 1.6;
   }
   .thanks-banner.is-visible { display: block; }
   .thanks-banner a { color: var(--ink); font-weight: 700; margin-left: 10px; }
 
-  /* ═══ モバイル固定CTA ═══ */
   .sticky-cta {
     display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
     padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
@@ -332,7 +307,6 @@
   body.is-thanks .hero-cta::before, body.is-thanks .apply .apply-note::before { content: 'ご回答ありがとうございました。対象ポストをリポストすると、リポスト賞にも応募できます。'; display: block; font-weight: 700; color: var(--yellow); margin-bottom: 8px; }
   body.is-thanks .hero-cta .sub-link { margin-top: 4px; }
 
-  /* ═══ レスポンシブ ═══ */
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; grid-template-areas: "head" "prizes" "cta"; row-gap: 24px; }
     .hero-anniv--side { display: none; }
@@ -459,7 +433,6 @@
 <!-- @partial:header END -->
 <a class="skip-link" href="#main">本文へ移動</a>
 
-<!-- 回答完了画面からの再訪 (?ref=thanks) でだけ表示される帯 -->
 <div class="thanks-banner" id="thanks-banner" role="status">
   <b>ご回答ありがとうございました。</b>対象ポストをリポストすると、リポスト賞にも応募できます。当選された方にのみ、10月上旬までにXのDMでご連絡します。
   <a href="https://x.com/ZOTAC_JAPAN" target="_blank" rel="noopener" data-track="repost_open" data-position="thanks">対象ポストを開く</a>
@@ -468,7 +441,6 @@
 
 <main id="main">
 
-<!-- ═══════════════════ ヒーロー ═══════════════════ -->
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-head">
@@ -513,7 +485,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ 応募の流れ ═══════════════════ -->
 <section class="sec sec-alt" id="howto">
   <div class="wrap">
     <h2 class="sec-title">応募の流れ</h2>
@@ -540,7 +511,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ 賞品 ═══════════════════ -->
 <section class="sec" id="prizes">
   <div class="wrap">
     <h2 class="sec-title">賞品</h2>
@@ -563,7 +533,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ 調査で聞くこと ═══════════════════ -->
 <section class="sec sec-alt" id="about">
   <div class="wrap">
     <h2 class="sec-title">調査で聞くこと</h2>
@@ -578,7 +547,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ 応募 ═══════════════════ -->
 <section class="sec" id="survey">
   <div class="wrap">
     <div class="apply">
@@ -624,7 +592,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ レビュー ═══════════════════ -->
 <section class="sec sec-alt" id="reviews">
   <div class="wrap">
     <h2 class="sec-title">ZOTAC製品の性能レビュー</h2>
@@ -640,7 +607,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ 関連リンク ═══════════════════ -->
 <section class="sec" id="more">
   <div class="wrap">
     <h2 class="sec-title">ZOTACの製品・最新情報</h2>
@@ -678,7 +644,6 @@
   </div>
 </footer>
 
-<!-- モバイル固定CTA -->
 <div class="sticky-cta" id="sticky-cta">
   <p class="sticky-note">リポスト賞20名様・アンケート賞20名様（両方に応募できます）</p>
   <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Do-JTJGJvkC43dJehgRNIC8qBlVIFkdPkJU51ltkWBVUOTdFNjVRUFUwU0JPMUpGMlIzT0Y3STQzOS4u" class="btn" target="_blank" rel="noopener" data-track="survey_open" data-position="sticky">調査に回答する</a>

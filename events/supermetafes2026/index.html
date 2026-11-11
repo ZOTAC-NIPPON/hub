@@ -21,7 +21,6 @@
 </script>
 <!-- @partial:analytics END -->
 
-<!-- OGP -->
 <link rel="canonical" href="https://hub.zotac.co.jp/events/supermetafes2026/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="ZOTAC NIPPON">
@@ -74,9 +73,6 @@
     overflow-x: hidden;
   }
 
-  /* ══════════════════════════════════════════
-     1. HERO — VR抽象空間
-     ══════════════════════════════════════════ */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -96,7 +92,6 @@
     z-index: 0;
   }
 
-  /* 遠近パースグリッド */
   .hero-grid-overlay {
     position: absolute;
     inset: 0;
@@ -110,7 +105,6 @@
     -webkit-mask-image: radial-gradient(ellipse 70% 60% at 65% 45%, black 0%, transparent 70%);
   }
 
-  /* HUD風ワイヤーフレームリング */
   .hero::after {
     content: '';
     position: absolute;
@@ -133,7 +127,6 @@
     to { transform: rotate(360deg); }
   }
 
-  /* HUD十字マーカー */
   .hero-hud-markers {
     position: absolute;
     inset: 0;
@@ -156,7 +149,6 @@
   .hero-hud-markers::before { top: 18%; left: 12%; }
   .hero-hud-markers::after { top: 65%; right: 18%; font-size: 18px; color: rgba(177,179,182,0.20); }
 
-  /* HUD細線 */
   .hero-hud-line {
     position: absolute;
     z-index: 1;
@@ -179,7 +171,6 @@
     background: linear-gradient(180deg, transparent, rgba(177,179,182,0.15), transparent);
   }
 
-  /* 追加HUD要素 — 下半分の密度補填 */
   .hero-hud-line--bottom-left {
     bottom: 18%;
     left: 8%;
@@ -219,7 +210,6 @@
     border-radius: 50%;
   }
 
-  /* コーナーブラケット — 展示パネルのフレーム感 */
   .hero-corner {
     position: absolute;
     z-index: 1;
@@ -242,7 +232,6 @@
     border-bottom: 1.5px solid rgba(177,179,182,0.12);
   }
 
-  /* 微細パーティクル（CSS dots） */
   .hero-particles {
     position: absolute;
     inset: 0;
@@ -295,7 +284,6 @@
     margin-bottom: 20px;
     opacity: 0;
     animation: fadeUp 0.6s ease 0.1s forwards;
-    /* ステッカー風 */
     display: inline-block;
     background: rgba(255,140,66,0.10);
     padding: 4px 14px;
@@ -380,7 +368,6 @@
 
   .hero-meta-value.highlight { color: var(--accent-orange); }
 
-  /* ─── HERO NAV ─── */
   .hero-nav {
     display: flex;
     flex-direction: column;
@@ -495,9 +482,6 @@
 
   .scroll-line { width: 40px; height: 1px; background: var(--zotac-light-gray); }
 
-  /* ══════════════════════════════════════════
-     SECTION COMMON
-     ══════════════════════════════════════════ */
   section {
     padding: 100px 60px;
     max-width: 1200px;
@@ -506,7 +490,6 @@
 
   .section-header { margin-bottom: 56px; }
 
-  /* 5. 見出しステッカー化 */
   .section-eyebrow {
     font-size: 10px;
     font-weight: 700;
@@ -523,7 +506,6 @@
     box-shadow: 1px 2px 0 rgba(0,0,0,0.04);
   }
 
-  /* テープ留め風 */
   .section-eyebrow::before {
     content: '';
     position: absolute;
@@ -554,7 +536,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* 6. セクション区切り装飾 */
   .section-divider {
     width: 100%;
     max-width: calc(1200px - 120px);
@@ -576,7 +557,6 @@
     background: linear-gradient(90deg, transparent, var(--border-strong) 15%, var(--border-strong) 85%, transparent);
   }
 
-  /* 星 + ドット装飾 */
   .section-divider::after {
     content: '· ✦ ·';
     position: relative;
@@ -589,7 +569,6 @@
     opacity: 0.6;
   }
 
-  /* 4. セクション枠 — 帯バンド */
   .band-yellow {
     background: linear-gradient(135deg, rgba(255,212,0,0.07) 0%, rgba(255,243,184,0.2) 100%);
     border-top: 4px solid var(--zotac-yellow);
@@ -614,9 +593,6 @@
     position: relative;
   }
 
-  /* ══════════════════════════════════════════
-     2. SURVEY — イベント参加カード
-     ══════════════════════════════════════════ */
   .survey-block {
     display: flex;
     align-items: center;
@@ -631,7 +607,6 @@
     box-shadow: 0 2px 16px rgba(255,212,0,0.06);
   }
 
-  /* パンチ穴（左） */
   .survey-block::before {
     content: '';
     position: absolute;
@@ -648,7 +623,6 @@
     transform: translateY(-50%) rotate(-45deg);
   }
 
-  /* パンチ穴（右） */
   .survey-block::after {
     content: '';
     position: absolute;
@@ -664,7 +638,6 @@
     transform: translateY(-50%) rotate(-45deg);
   }
 
-  /* ENTRY PASSラベル */
   .survey-pass-label {
     position: absolute;
     top: -10px;
@@ -679,7 +652,6 @@
     box-shadow: 0 2px 6px rgba(255,212,0,0.3);
   }
 
-  /* 整理番号風 */
   .survey-serial {
     position: absolute;
     bottom: 12px;
@@ -747,9 +719,6 @@
     box-shadow: 0 4px 16px rgba(255,212,0,0.4);
   }
 
-  /* ══════════════════════════════════════════
-     FEATURED VIDEO
-     ══════════════════════════════════════════ */
   .featured-video-wrapper {
     position: relative;
     aspect-ratio: 16/9;
@@ -843,9 +812,6 @@
   .spec-chip.highlight { border-color: rgba(255,212,0,0.5); background: var(--zotac-yellow-bg); }
   .spec-chip.highlight .chip-value { color: var(--accent-orange); }
 
-  /* ══════════════════════════════════════════
-     REVIEW CARD CTA
-     ══════════════════════════════════════════ */
   .review-cta { margin-top: 32px; }
 
   .review-card {
@@ -931,9 +897,6 @@
     transform: translateX(4px);
   }
 
-  /* ══════════════════════════════════════════
-     2b. PAST EDITION — 過去動画（控えめ・主従明示）
-     ══════════════════════════════════════════ */
   .past-edition-separator {
     margin-top: 48px;
     padding-top: 28px;
@@ -1004,11 +967,7 @@
     border-top: 1px solid var(--border);
   }
 
-  /* ══════════════════════════════════════════
-     3. CATALOG CARDS — GPUパッケージ + 配布ラック
-     ══════════════════════════════════════════ */
 
-  /* 背景にごく薄い基板風ライン */
   #catalogs {
     position: relative;
   }
@@ -1046,7 +1005,6 @@
     flex-direction: column;
   }
 
-  /* 二重台紙シャドウ — パッケージ箱の重なり感強化 */
   .catalog-card::before {
     content: '';
     position: absolute;
@@ -1074,7 +1032,6 @@
     box-shadow: 0 12px 32px rgba(0,0,0,0.08);
   }
 
-  /* カードごとのアクセント色 — コレクション感 */
   .catalog-card.zg { border-top: 4px solid var(--zotac-dark); }
   .catalog-card.zbox { border-top: 4px solid var(--zotac-yellow); }
   .catalog-card:nth-child(3) { border-top-color: var(--accent-orange); }
@@ -1115,7 +1072,6 @@
 
   .card-image-placeholder .placeholder-icon { font-size: 32px; opacity: 0.4; }
 
-  /* ステッカータグ — GPUパッケージ風 */
   .card-tag {
     position: absolute;
     top: 12px;
@@ -1132,7 +1088,6 @@
     transform: rotate(2deg);
   }
 
-  /* 小ラベル — BOOTH PICKUP / PDF */
   .card-label-extra {
     position: absolute;
     top: 12px;
@@ -1149,7 +1104,6 @@
     box-shadow: 1px 1px 0 rgba(0,0,0,0.10);
   }
 
-  /* 展示物フレーム — card-imageの内側 */
   .card-image::after {
     content: '';
     position: absolute;
@@ -1209,11 +1163,7 @@
   .btn-primary.zg { background: var(--zotac-dark); }
   .btn-icon { width: 16px; height: 16px; flex-shrink: 0; }
 
-  /* ══════════════════════════════════════════
-     PRODUCT LINKS
-     ══════════════════════════════════════════ */
 
-  /* 紙・プレート感の追加 */
   #products {
     position: relative;
     background: linear-gradient(180deg, transparent 0%, rgba(255,212,0,0.02) 50%, transparent 100%);
@@ -1281,9 +1231,6 @@
   .product-link-arrow { margin-left: auto; color: var(--zotac-light-gray); font-size: 18px; transition: all 0.2s ease; flex-shrink: 0; }
   .product-link-card:hover .product-link-arrow { transform: translateX(4px); color: var(--accent-orange); }
 
-  /* ══════════════════════════════════════════
-     LENDING BLOCKS
-     ══════════════════════════════════════════ */
   .lending-block {
     background: var(--white);
     border: 1px solid var(--border);
@@ -1325,9 +1272,6 @@
 
   .btn-lending:hover { background: #3a4045; transform: translateY(-1px); }
 
-  /* ══════════════════════════════════════════
-     BOOTH INFO — 会場案内札
-     ══════════════════════════════════════════ */
   .booth-info-block {
     background: var(--white);
     border: 2px solid var(--border-strong);
@@ -1340,7 +1284,6 @@
     position: relative;
   }
 
-  /* 案内札ピン */
   .booth-info-block::before {
     content: '📍';
     position: absolute;
@@ -1378,9 +1321,6 @@
   }
   .booth-info-sub { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: 400; color: var(--text-muted); margin-top: 4px; }
 
-  /* ══════════════════════════════════════════
-     FOOTER
-     ══════════════════════════════════════════ */
   footer {
     background: var(--zotac-dark);
     color: var(--white);
@@ -1403,9 +1343,6 @@
   .footer-event-name { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 0.1em; color: var(--white); margin-bottom: 4px; }
   .footer-legal { font-size: 11px; color: var(--zotac-light-gray); line-height: 1.8; }
 
-  /* ══════════════════════════════════════════
-     ANIMATIONS
-     ══════════════════════════════════════════ */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -1416,9 +1353,6 @@
     to { opacity: 1; }
   }
 
-  /* ══════════════════════════════════════════
-     RESPONSIVE
-     ══════════════════════════════════════════ */
   @media (max-width: 1024px) and (min-width: 769px) {
     .catalog-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -1457,11 +1391,9 @@
 </style>
 
 
-<!-- Meta -->
 <meta name="description" content="超メタフェス2026 ZOTACブース。MeganeX 8K × RTX 50シリーズ GPU比較検証、カタログ・製品情報をまとめてチェック。">
 <meta name="robots" content="index,follow,max-image-preview:large">
 
-<!-- Structured Data (JSON-LD) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1531,6 +1463,7 @@
   ]
 }
 </script>
+
 </head>
 <body>
 <!-- @partial:header START — 編集は _partials/header.html、反映は python _partials/inject.py -->
@@ -1625,7 +1558,6 @@
 </script>
 <!-- @partial:header END -->
 
-<!-- ═══════════════════ HERO ═══════════════════ -->
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-overlay"></div>
@@ -1708,7 +1640,6 @@
   </div>
 </div>
 
-<!-- ═══════════════════ 01: SURVEY ═══════════════════ -->
 <div class="band-yellow">
   <section id="survey">
     <div class="section-header">
@@ -1742,7 +1673,6 @@
 
 <div class="section-divider"></div>
 
-<!-- ═══════════════════ 02: FEATURED VIDEO ═══════════════════ -->
 <section id="featured">
   <div class="section-header">
     <p class="section-eyebrow">Booth Feature</p>
@@ -1791,7 +1721,6 @@
     </div>
   </div>
 
-  <!-- ─── Past Edition / 2025 ─── -->
   <div class="past-edition-separator">
     <p class="past-edition-eyebrow">PAST EDITION / 2025<span class="jp">過去の検証</span></p>
   </div>
@@ -1816,7 +1745,6 @@
 
 <div class="section-divider"></div>
 
-<!-- ═══════════════════ 03: CATALOGS ═══════════════════ -->
 <section id="catalogs">
   <div class="section-header">
     <p class="section-eyebrow">Documents</p>
@@ -1884,7 +1812,6 @@
 
 <div class="section-divider"></div>
 
-<!-- ═══════════════════ 04: PRODUCT LINKS ═══════════════════ -->
 <section id="products">
   <div class="section-header">
     <p class="section-eyebrow">Official Pages</p>
@@ -1915,7 +1842,6 @@
 
 <div class="section-divider"></div>
 
-<!-- ═══════════════════ 05: TRIAL + SHOP ═══════════════════ -->
 <section id="business">
   <div class="section-header">
     <p class="section-eyebrow">For Business &amp; Creators</p>
@@ -1955,7 +1881,6 @@
 
 <div class="section-divider"></div>
 
-<!-- ═══════════════════ 06: EVENT INFO ═══════════════════ -->
 <div class="band-orange">
   <section id="booth">
     <div class="section-header">
@@ -1988,7 +1913,6 @@
 
 <div class="section-divider"></div>
 
-<!-- ═══════════════════ CONNECT ═══════════════════ -->
 <section id="connect">
   <div class="section-header">
     <p class="section-eyebrow">Stay Connected</p>
@@ -2007,7 +1931,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
 <footer>
   <div class="footer-logo-area">
     <img src="./images/ZOTAC_white.png" alt="ZOTAC" class="footer-logo" onerror="this.outerHTML='<span class=\'footer-logo-placeholder\'>ZOTAC NIPPON</span>'">

@@ -28,8 +28,6 @@
 <meta property="og:description" content="ミニPC「ZBOX」からエンタープライズ GPU ワークステーションまで、用途・型番・GPU から探して、カタログページ（スペック要約・写真・PDF カタログ）へ。MAGNUS ONE・Ryzen AI MAX・GPU ワークステーションを一覧。">
 <meta property="og:url" content="https://hub.zotac.co.jp/catalogs/">
 
-<!-- 構造化データ: 製品カタログ インデックス(ItemList) — 各カタログページへの機械可読な一覧(SEO/AIO)。
-     item.url は本番配置後(/catalogs/zbox/<slug>/)に有効。 -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -359,7 +357,6 @@ a { color: inherit; }
   padding: 1px 6px; letter-spacing: 0.08em; text-transform: uppercase;
 }
 
-/* ===== Page Hero ===== */
 .page-hero {
   background: var(--bg-dark);
   color: #fff;
@@ -405,7 +402,6 @@ a { color: inherit; }
   color: var(--text-faint);
 }
 
-/* ===== Section ===== */
 section {
   padding: 64px 0 56px;
   border-bottom: 1px solid var(--border);
@@ -431,11 +427,6 @@ h2 {
   max-width: none; line-height: 1.6;
 }
 
-/* ============================================================
-   PICKUP FEATURE (イチオシ製品 — カタログ一覧の前の特等席)
-   リード顧客が最初に目にする推し製品バナー。
-   複数スライドのカルーセル(矢印 / ドット / 5秒自動送り、ホバーで停止)
-   ============================================================ */
 .pickup-carousel {
   position: relative;
   margin-top: 32px;
@@ -451,7 +442,6 @@ h2 {
   min-width: 100%;
   margin: 0;
 }
-/* 左右ナビ矢印 */
 .pickup-nav {
   position: absolute;
   top: 50%;
@@ -480,7 +470,6 @@ h2 {
   .pickup-nav.prev { left: 8px; }
   .pickup-nav.next { right: 8px; }
 }
-/* ドットインジケーター(バナー下) */
 .pickup-dots {
   display: flex;
   justify-content: center;
@@ -516,7 +505,6 @@ h2 {
 }
 @media (max-width: 800px) {
   .pickup-feature { grid-template-columns: 1fr; padding: 28px 26px; gap: 28px; }
-  /* 全幅 3:4 表紙は縦に伸びすぎるため、モバイルでは表紙のみ幅を抑える */
   .pickup-side .pickup-cover { max-width: 200px; }
 }
 .pickup-feature .pickup-label {
@@ -563,7 +551,6 @@ h2 {
   border: 1px solid rgba(255,212,0,0.3);
   padding: 3px 10px;
 }
-/* 右カラム:ミニ表紙 + ダウンロード CTA */
 .pickup-side { display: flex; flex-direction: column; gap: 14px; }
 .pickup-cover {
   background: var(--bg-light);
@@ -593,10 +580,6 @@ h2 {
 }
 .pickup-side .catalog-pdf-btn:hover { background: #ffe040; color: var(--text-dark); }
 
-/* ============================================================
-   CATALOG LIBRARY (サムネイルグリッド — メイン)
-   /events/supermetafes2026/ のカタログカードデザインを採用
-   ============================================================ */
 .catalog-thumb-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -606,18 +589,15 @@ h2 {
 @media (max-width: 900px) { .catalog-thumb-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .catalog-thumb-grid { grid-template-columns: 1fr; } }
 
-/* 総合・特集カタログ帯は 4 カラム(少数固定。3カラムだと 4枚目が孤立するため) */
 .catalog-thumb-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
 @media (max-width: 900px) { .catalog-thumb-grid.cols-4 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .catalog-thumb-grid.cols-4 { grid-template-columns: 1fr; } }
 
-/* 総合・特集カタログ帯は 5 カラム(総合×2 / 特集×2 / Enterprise の5枚を1行に固定) */
 .catalog-thumb-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
 @media (max-width: 1100px) { .catalog-thumb-grid.cols-5 { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 900px) { .catalog-thumb-grid.cols-5 { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .catalog-thumb-grid.cols-5 { grid-template-columns: 1fr; } }
 
-/* サブセクション見出し(① 総合・特集 / ② 主力モデル。// ラベル＋黄バー＋見出し＝セクション見出しと同系統) */
 .catalog-subhead {
   margin-top: 8px; padding-bottom: 12px;
   border-bottom: 2px solid var(--text-dark);
@@ -645,8 +625,6 @@ h2 {
   flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-/* 重ね台紙シャドウ — カタログスタック感(控えめ版)
-   注:モバイル(1カラム)時はノイズになるため後段の媒体クエリで無効化 */
 .catalog-thumb::before {
   content: '';
   position: absolute;
@@ -669,7 +647,6 @@ h2 {
   pointer-events: none;
   transition: opacity 0.2s ease;
 }
-/* タブレット(2カラム)時はスタックを少し控える — はみ出しの視覚負担を軽く */
 @media (max-width: 900px) {
   .catalog-thumb::before {
     inset: 3px -2px -3px 2px;
@@ -682,9 +659,6 @@ h2 {
     opacity: 0.5;
   }
 }
-/* モバイル(1カラム)時はスタックを完全に消す
-   - 画面端からのはみ出しが目立つ
-   - 縦並びでカードが完結するため、スタックの編集的意味も薄い */
 @media (max-width: 600px) {
   .catalog-thumb::before,
   .catalog-thumb::after {
@@ -700,8 +674,6 @@ h2 {
 .catalog-thumb.type-flyer { border-top: 4px solid #FF8C42; }
 .catalog-thumb.type-enterprise { border-top: 4px solid #4A4B4C; }
 
-/* Archived 状態 — event-row.is-archived と一貫した視覚弱化
-   過去配布カタログ(現在のイベントで配布されていない資料) */
 .catalog-thumb.is-archived {
   opacity: 0.72;
   transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -709,7 +681,6 @@ h2 {
 .catalog-thumb.is-archived:hover {
   opacity: 1;
 }
-/* Archived 時はトップボーダーカラーを抑えて統一トーンに */
 .catalog-thumb.is-archived.type-gpu,
 .catalog-thumb.is-archived.type-minipc,
 .catalog-thumb.is-archived.type-flyer {
@@ -718,7 +689,6 @@ h2 {
 .catalog-thumb.is-archived:hover.type-gpu { border-top-color: var(--text-dark); }
 .catalog-thumb.is-archived:hover.type-minipc { border-top-color: var(--brand-yellow); }
 .catalog-thumb.is-archived:hover.type-flyer { border-top-color: #FF8C42; }
-/* Archived 時の左上ラベルを薄めに */
 .catalog-thumb.is-archived .catalog-label {
   background: rgba(42,47,50,0.55);
   color: var(--text-faint);
@@ -727,7 +697,6 @@ h2 {
   background: rgba(42,47,50,0.90);
   color: var(--brand-yellow);
 }
-/* Archived 時の重ね台紙シャドウもおとなしく */
 .catalog-thumb.is-archived::before,
 .catalog-thumb.is-archived::after {
   opacity: 0.5;
@@ -752,8 +721,6 @@ h2 {
   transition: transform 0.3s ease;
 }
 .catalog-thumb:hover .catalog-cover img { transform: scale(1.03); }
-/* カバー画像フォールバック — タイポグラフィ主体の編集トーン
-   Phase 1 で実画像が不在の場合に意図的に「見えるデザイン」を保つ */
 .catalog-cover-placeholder {
   display: flex; flex-direction: column;
   justify-content: space-between;
@@ -790,7 +757,6 @@ h2 {
   color: var(--text-dark);
   margin-top: auto;
   margin-bottom: 14px;
-  /* タイトルが長い場合は 2-3 行で収まるよう調整 */
   word-break: keep-all;
   overflow-wrap: break-word;
 }
@@ -806,7 +772,6 @@ h2 {
   min-width: 60px;
   text-transform: uppercase;
 }
-/* type 別の brand ボーダー色 — カードの上部 type-color と呼応 */
 .catalog-thumb.type-gpu .cover-brand { border-top-color: var(--text-dark); }
 .catalog-thumb.type-minipc .cover-brand { border-top-color: var(--brand-yellow); }
 .catalog-thumb.type-flyer .cover-brand { border-top-color: #FF8C42; }
@@ -819,7 +784,6 @@ h2 {
   mix-blend-mode: overlay;
 }
 
-/* 黄色ステッカータグ(右上) */
 .catalog-tag {
   position: absolute;
   top: 12px; right: 12px;
@@ -834,7 +798,6 @@ h2 {
   box-shadow: 1px 2px 0 rgba(0,0,0,0.10);
   transform: rotate(2deg);
 }
-/* 小ラベル(左上) */
 .catalog-label {
   position: absolute;
   top: 12px; left: 12px;
@@ -849,7 +812,6 @@ h2 {
   box-shadow: 1px 1px 0 rgba(0,0,0,0.10);
 }
 
-/* 左上ラベルが乗る表紙では、placeholder のタイプタグを下げて重なりを回避 */
 .catalog-cover:has(.catalog-label) .catalog-cover-placeholder .cover-type-tag {
   margin-top: 26px;
 }
@@ -860,7 +822,6 @@ h2 {
   gap: 10px;
   flex: 1;
 }
-/* 更新日 + ファイル容量 — メール添付の代替であることを踏まえた実用メタ情報 */
 .catalog-body .catalog-meta {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -912,11 +873,6 @@ h2 {
 .catalog-pdf-btn:hover { background: var(--brand-yellow); color: var(--text-dark); }
 .catalog-pdf-btn .icon { font-size: 14px; }
 
-/* ============================================================
-   PRODUCT INDEX (探すインデックス — 型番から探す密リスト)
-   各行 → /catalogs/zbox/<slug>/ の製品専用ページへ。
-   用途3区分のグループ + 型番/製品名の絞り込み検索。
-   ============================================================ */
 .zindex-tools {
   display: flex; flex-wrap: wrap; gap: 14px 20px;
   align-items: center; justify-content: space-between;
@@ -952,13 +908,6 @@ h2 {
   background: var(--brand-yellow); border-color: var(--brand-yellow); color: var(--text-dark);
 }
 
-/* ページ内アンカー（/catalogs/#gpu-rtx-5080 等）が sticky ヘッダーに隠れないようにする。
-   .site-header は position:sticky。実測の高さは PC(1440px)=73px / モバイル(<=1100px)=79px。
-   指定が無いとアンカー先が top:0 に着地し、グループ見出しが完全にヘッダーの下へ潜る。
-   96px は最大値79pxに余白17pxを足した値（PCでは余白23pxになるが実害なし）。
-   モバイルナビは position:absolute; top:100% なので、展開してもヘッダー自身の高さは増えない。
-   html 側に scroll-padding-top を置くことで、このページの全アンカーに一括で効く。
-   ※ヘッダーの高さを変えたらこの値も見直すこと（共通パーツの正本は ③ _partials/header.html）。 */
 html { scroll-padding-top: 96px; }
 
 .zindex-group { margin-top: 40px; }
@@ -1009,14 +958,12 @@ html { scroll-padding-top: 96px; }
 .zindex-group[data-use="compact"] .zindex-row::before { background: #00BEC7; }
 .zindex-group[data-use="m"] .zindex-row::before { background: #71C79C; }
 .zindex-group[data-use="graphics"] .zindex-row::before { background: var(--text-dark); }
-/* PCP SOLUTIONS 区画（MXM）。2026-10-27 */
 .zindex-group[data-use^="pcp-"] .zindex-row::before { background: #0E8C8C; }
 .zindex-group[data-use^="pcp-"] .zindex-group-head .zindex-group-note::before { color: #0E8C8C; }
 .zindex-group[data-use^="pcp-"] .zindex-row:hover { background: rgba(14,140,140,0.08); }
 .zindex-group[data-use^="pcp-"] .zindex-row:hover .zindex-go { color: #0B6E6E; }
 .zindex-cat-pcp { border-top-color: #0E8C8C; }
 .zindex-cat-logo { height: 24px; width: auto; margin-right: 10px; align-self: center; }
-/* カテゴリ区切り: 完成PC(ミニPC/WS)と単体グラフィックスカード(部品)の境目を明示 */
 .zindex-cat { margin-top: 54px; padding-top: 20px; border-top: 3px solid var(--text-dark); }
 .zindex-cat-title { font-size: 19px; font-weight: 800; letter-spacing: -0.01em; color: var(--text-dark); display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .zindex-cat-title .zindex-cat-en { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: #9A9DA0; }
@@ -1072,17 +1019,13 @@ html { scroll-padding-top: 96px; }
     gap: 4px 16px;
     padding: 14px 16px 14px 20px;
   }
-  .zindex-main { display: contents; }   /* 名前・型番・スペックを 3 行に並べるため、包みを外して子を直接グリッドに置く */
+  .zindex-main { display: contents; }
   .zindex-name { grid-column: 1; grid-row: 1; }
   .zindex-sku { grid-column: 1; grid-row: 2; font-size: 15px; }
   .zindex-spec { grid-column: 1; grid-row: 3; }
   .zindex-go { grid-column: 2; grid-row: 1 / 4; align-self: center; }
 }
 
-/* ============================================================
-   EVENT LIST (イベント一覧 — 簡潔版 / カタログは LIBRARY 側で管理)
-   ============================================================ */
-/* event-list は section.soft の灰色背景の中で「白いペーパー」として浮き上がる */
 .event-list {
   margin-top: 28px;
   background: var(--bg-light);
@@ -1091,7 +1034,6 @@ html { scroll-padding-top: 96px; }
 }
 .event-row {
   display: grid;
-  /* date-block を固定幅にして、すべての行で h3 の「頭」を揃える */
   grid-template-columns: 170px 1fr auto auto;
   gap: 0 24px;
   align-items: center;
@@ -1103,8 +1045,6 @@ html { scroll-padding-top: 96px; }
   transition: background 0.15s;
 }
 .event-row:last-child { border-bottom: none; }
-/* 左端の縦アクセントバー — 各行の「ここから始まる」マーカー
-   Booth = ダーク(主役感)、Sponsor = 黄色(明示性)、Booth+Sponsor = ダーク */
 .event-row::before {
   content: '';
   position: absolute;
@@ -1129,7 +1069,6 @@ html { scroll-padding-top: 96px; }
   color: var(--text-muted);
   letter-spacing: 0.04em;
   line-height: 1.4;
-  /* 列幅は grid で 170px 固定。min-width は不要 */
 }
 .event-row .event-date-block .year {
   display: block;
@@ -1169,28 +1108,23 @@ html { scroll-padding-top: 96px; }
   color: var(--text-dark);
   border-color: var(--brand-yellow);
 }
-/* BOOTH = ZOTAC ブース出展(LP あり) */
 .event-row .event-status-block.is-booth {
   background: var(--text-dark);
   color: var(--brand-yellow);
   border-color: var(--text-dark);
 }
-/* BOOTH + SPONSOR = ブース出展 + 機材協賛が同時 */
 .event-row .event-status-block.is-booth-sponsor {
   background: var(--text-dark);
   color: var(--brand-yellow);
   border-color: var(--text-dark);
-  /* バッジ文字が長くなるので letter-spacing を少し詰める */
   letter-spacing: 0.1em;
 }
-/* SPONSOR = 機材協賛(LP なし、テキストのみ) */
 .event-row .event-status-block.is-sponsor {
   background: var(--bg-light);
   color: var(--text-mid);
   border-color: var(--border);
 }
 
-/* リンクなしの行(LP 不在 = 機材協賛など) */
 .event-row.is-no-link {
   cursor: default;
 }
@@ -1198,10 +1132,6 @@ html { scroll-padding-top: 96px; }
 .event-row.is-no-link:hover .event-arrow-block { transform: none; }
 .event-row.is-no-link .event-arrow-block { visibility: hidden; }
 
-/* 副情報ブロック(機材協賛先・提供機材)
-   event-row の grid 内、全幅展開して2行目以降に表示
-   背景に淡い soft 色を入れて主行と段差をつける
-   sub-label 幅を main の date-block と同じ 170px にして、sub-values の頭と h3 の頭を揃える */
 .event-row-sub {
   grid-column: 1 / -1;
   margin: 18px -28px -24px -24px;
@@ -1294,7 +1224,6 @@ html { scroll-padding-top: 96px; }
   }
 }
 
-/* RECENT EVENTS フッターノート("過去の活動はブログへ") */
 .events-footer-note {
   margin-top: 24px;
   padding-top: 18px;
@@ -1323,9 +1252,6 @@ html { scroll-padding-top: 96px; }
 }
 .events-footer-note a:hover { color: var(--text-mid); }
 
-/* ============================================================
-   UPCOMING EVENT (小さめのコールアウト — 下に配置)
-   ============================================================ */
 .upcoming-mini {
   background: var(--bg-dark);
   color: #fff;
@@ -1371,7 +1297,6 @@ html { scroll-padding-top: 96px; }
 }
 .upcoming-mini .event-cta:hover { background: #ffe040; }
 
-/* ===== Related ===== */
 .related-ctas {
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   margin-top: 32px;
@@ -1396,7 +1321,6 @@ html { scroll-padding-top: 96px; }
 .related-cta p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 .related-cta:hover p { color: var(--text-faint); }
 
-/* ===== Footer ===== */
 .site-footer { background: #1a1b1c; color: var(--text-faint); padding: 56px 0 28px; }
 .footer-grid {
   display: grid;
@@ -1547,9 +1471,7 @@ html { scroll-padding-top: 96px; }
 <!-- @partial:header END -->
 
 
-<!-- ============================== HEADER ============================== -->
 
-<!-- ============================== PAGE HERO ============================== -->
 <section class="page-hero" style="border-bottom: none;">
   <div class="container">
     <div class="breadcrumb">
@@ -1565,7 +1487,6 @@ html { scroll-padding-top: 96px; }
   </div>
 </section>
 
-<!-- ============================== CATALOG LIBRARY (PRIMARY) ============================== -->
 <section>
   <div class="container">
     <div class="section-label">CATALOG LIBRARY</div>
@@ -1573,13 +1494,10 @@ html { scroll-padding-top: 96px; }
     <h2>製品カタログ一覧</h2>
     <p class="section-lead">ZOTAC 製品の最新カタログを PDF で配布しています。各カタログの「PDF ダウンロード」ボタンから、会員登録などの手続きなしで、そのまま保存いただけます。内容は新版の発行にあわせて随時更新しています。</p>
 
-    <!-- PICKUP — イチオシ製品カルーセル(_data/catalogs.json で pickup: true のエントリを順に表示)
-         矢印 / ドットで手動切替、5秒ごとに自動スライド(ホバー中は停止) -->
     <div class="pickup-carousel" id="pickupCarousel">
       <div class="pickup-viewport">
         <div class="pickup-track">
 
-          <!-- SLIDE 1: ZBOX MAGNUS ONE ULTRA -->
           <div class="pickup-feature">
             <div>
               <div class="pickup-label">// PICKUP — イチオシ製品</div>
@@ -1607,7 +1525,6 @@ html { scroll-padding-top: 96px; }
             </div>
           </div>
 
-          <!-- SLIDE 2: ZBOX MAGNUS EN -->
           <div class="pickup-feature">
             <div>
               <div class="pickup-label">// PICKUP — イチオシ製品</div>
@@ -1634,7 +1551,6 @@ html { scroll-padding-top: 96px; }
             </div>
           </div>
 
-          <!-- SLIDE 3: ZBOX Pro(B2B カタログ) -->
           <div class="pickup-feature">
             <div>
               <div class="pickup-label">// PICKUP — イチオシ製品</div>
@@ -1668,19 +1584,13 @@ html { scroll-padding-top: 96px; }
       <div class="pickup-dots" role="tablist" aria-label="イチオシ製品の切り替え"></div>
     </div>
 
-    <!-- ↓ _data/catalogs.json から自動生成
-         カタログは「資料単位」で1つ。メタ情報は updated(更新年月)と filesize(MB)。
-         pickup: true のエントリは上の PICKUP フィーチャーに表示し、グリッドからは除外
-         ① 総合・特集カタログ(全体像・少数固定) / ② 主力モデルカタログ(主力ライン MAGNUS ONE ULTRA / ONE / EN のフライヤー) -->
 
-    <!-- ① 総合・特集カタログ — まず全体像をつかむ少数固定の帯 -->
     <div class="catalog-subhead">
       <div class="catalog-subhead-label">OVERVIEW</div>
       <h3>総合・特集カタログ</h3>
     </div>
     <div class="catalog-thumb-grid cols-5">
 
-      <!-- 1. RTX 50 シリーズ総合カタログ(総合 / GPU) -->
       <article class="catalog-thumb type-gpu">
         <div class="catalog-cover">
           <img src="../pdfs/covers/rtx50_catalog_cover.jpg" alt="GeForce RTX 50 シリーズ総合カタログ表紙" loading="lazy">
@@ -1697,7 +1607,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </article>
 
-      <!-- 2. ZBOX 総合カタログ -->
       <article class="catalog-thumb type-minipc">
         <div class="catalog-cover">
           <img src="../pdfs/covers/zbox_catalog_cover.jpg" alt="ZBOX 総合カタログ表紙" loading="lazy">
@@ -1714,7 +1623,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </article>
 
-      <!-- 3. ZBOX 注目モデルカタログ(feature 版・日本語) -->
       <article class="catalog-thumb type-minipc">
         <div class="catalog-cover">
           <img src="../pdfs/covers/zbox_feature_cover.jpg" alt="ZBOX 注目モデルカタログ表紙" loading="lazy">
@@ -1730,7 +1638,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </article>
 
-      <!-- 4. ZBOX Pro 注目モデルカタログ(特集 / B2B・日本語 — PICKUP カルーセルにも掲載) -->
       <article class="catalog-thumb type-minipc">
         <div class="catalog-cover">
           <img src="../pdfs/covers/zbox_b2b_catalog_cover.jpg" alt="ZBOX Pro 注目モデルカタログ表紙" loading="lazy">
@@ -1746,7 +1653,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </article>
 
-      <!-- 5. ZOTAC Enterprise 総合カタログ(ワークステーション・ラックサーバー / 日本語) 2026-11-12 差し替え -->
       <article class="catalog-thumb type-enterprise">
         <div class="catalog-cover">
           <img src="../pdfs/covers/enterprise_catalog_cover.jpg" alt="ZOTAC Enterprise ワークステーション・サーバー総合カタログ表紙" loading="lazy">
@@ -1764,8 +1670,6 @@ html { scroll-padding-top: 96px; }
 
     </div>
 
-    <!-- ② 主力モデルカタログ — 主力ライン MAGNUS ONE ULTRA / MAGNUS ONE / MAGNUS EN のフライヤー。
-         並び順は性能順(ULTRA → ONE → EN)。SKU 単位の導線は下の「製品インデックス」に集約 -->
     <div class="catalog-subhead gap-lg">
       <div class="catalog-subhead-label">FOCUS</div>
       <h3>主力モデルカタログ</h3>
@@ -1773,7 +1677,6 @@ html { scroll-padding-top: 96px; }
 
     <div class="catalog-thumb-grid">
 
-      <!-- MAGNUS ONE ULTRA フライヤー(主力ラインの特別仕様 — RTX 5080 搭載の最上位) -->
       <article class="catalog-thumb type-flyer">
         <div class="catalog-cover">
           <img src="../pdfs/covers/magnus_one_ultra_flyer_cover.jpg" alt="ZBOX MAGNUS ONE ULTRA フライヤー表紙" loading="lazy">
@@ -1788,7 +1691,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </article>
 
-      <!-- MAGNUS ONE フライヤー(2026-07-28 に PICKUP カルーセルからは撤去。掲載はこの帯のみ) -->
       <article class="catalog-thumb type-flyer">
         <div class="catalog-cover">
           <img src="../pdfs/covers/magnus_one_flyer_cover.jpg" alt="ZBOX MAGNUS ONE フライヤー表紙" loading="lazy">
@@ -1803,7 +1705,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </article>
 
-      <!-- MAGNUS EN フライヤー -->
       <article class="catalog-thumb type-flyer">
         <div class="catalog-cover">
           <img src="../pdfs/covers/magnus_en_flyer_cover.jpg" alt="ZBOX MAGNUS EN フライヤー表紙" loading="lazy">
@@ -1818,14 +1719,11 @@ html { scroll-padding-top: 96px; }
         </div>
       </article>
 
-      <!-- 旧版カタログが発生したら is-archived クラス + .catalog-label「Archived」で
-           視覚弱化して掲載(スタイルは実装済み) -->
 
     </div>
   </div>
 </section>
 
-<!-- ============================== PRODUCT INDEX (探すインデックス) ============================== -->
 <section>
   <div class="container">
     <div class="section-label">PRODUCT INDEX</div>
@@ -1833,8 +1731,6 @@ html { scroll-padding-top: 96px; }
     <h2>製品カタログを型番から探す</h2>
     <p class="section-lead">ZBOX 各モデル／GeForce RTX 50 グラフィックスカードのカタログページへの索引です。用途で絞り込むか、型番・製品名・GPU で検索して、目的のモデルへお進みください。各カタログページでは、主要スペックの要約・製品写真に加え、日本語版 PDF カタログのダウンロードや評価機のご相談までご案内しています。</p>
 
-    <!-- 絞り込みツール:型番/製品名のテキスト検索 + 用途3区分チップ
-         ↓ 下の #zindexResults 内の .zindex-row を data-use(用途) と data-search(検索語) で絞り込む -->
     <div class="zindex-tools">
       <div class="zindex-search">
         <span class="search-icon" aria-hidden="true">⌕</span>
@@ -1855,7 +1751,6 @@ html { scroll-padding-top: 96px; }
 
     <div id="zindexResults">
 
-      <!-- 用途① ゲーミング・グラフィックス・AI(GeForce RTX 搭載 — 高 GPU 演算で AI にも強い) -->
       <div class="zindex-group" data-use="gaming">
         <div class="zindex-group-head">
           <h3>ゲーミング・グラフィックス・AI — MAGNUS</h3>
@@ -1920,7 +1815,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- 用途② Ryzen AI MAX シリーズ(EAMAX・オンデバイス AI／ローカル LLM 向け) -->
       <div class="zindex-group" data-use="ai">
         <div class="zindex-group-head">
           <h3>Ryzen AI MAX シリーズ — MAGNUS EAMAX</h3>
@@ -1949,7 +1843,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- ZBOX Q シリーズ(RTX PRO 搭載 小型ワークステーション) -->
       <div class="zindex-group" data-use="q" id="zbox-q">
         <div class="zindex-group-head">
           <h3>ZBOX Q シリーズ — 小型ワークステーション</h3>
@@ -1969,7 +1862,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- ZBOX C シリーズ(コンパクト・NPU mini PC) -->
       <div class="zindex-group" data-use="compact">
         <div class="zindex-group-head">
           <h3>ZBOX C シリーズ — コンパクト・NPU</h3>
@@ -1998,7 +1890,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- ミニPC・オンデバイスAI(ZBOX edge / M シリーズ) -->
       <div class="zindex-group" data-use="m">
         <div class="zindex-group-head">
           <h3>ZBOX edge — ミニPC・オンデバイス AI</h3>
@@ -2027,7 +1918,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- 法人・組み込み・サイネージ(ZBOX PRO) -->
       <div class="zindex-group" data-use="business" id="zbox-pro">
         <div class="zindex-group-head">
           <h3>法人・組み込み・AI・サイネージ — ZBOX PRO</h3>
@@ -2156,12 +2046,10 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- グラフィックスカード(GeForce RTX 50 — GPUチップ別に枠分割。上位→下位／掲載製品のあるGPUのみ表示。ZBOX・WSの後) -->
       <div class="zindex-cat" data-use="graphics" id="gpu">
         <div class="zindex-cat-title">グラフィックスカード<span class="zindex-cat-en">GRAPHICS CARDS</span></div>
       </div>
 
-      <!-- GeForce RTX 5090 -->
       <div class="zindex-group" data-use="graphics" id="gpu-rtx-5090">
         <div class="zindex-group-head">
           <h3>GeForce RTX 5090</h3>
@@ -2198,7 +2086,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- GeForce RTX 5080 -->
       <div class="zindex-group" data-use="graphics" id="gpu-rtx-5080">
         <div class="zindex-group-head">
           <h3>GeForce RTX 5080</h3>
@@ -2258,7 +2145,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- GeForce RTX 5070 -->
       <div class="zindex-group" data-use="graphics" id="gpu-rtx-5070">
         <div class="zindex-group-head">
           <h3>GeForce RTX 5070</h3>
@@ -2313,7 +2199,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- GeForce RTX 5060 Ti -->
       <div class="zindex-group" data-use="graphics" id="gpu-rtx-5060-ti">
         <div class="zindex-group-head">
           <h3>GeForce RTX 5060 Ti</h3>
@@ -2341,8 +2226,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- ===== PCP SOLUTIONS（PC Partner Limited 組み込み事業部）— ZP 型番の無い製品（MXM）だけをここに置く。ZP 型番のある組み込み製品は上の ZBOX PRO 群（2026-10-27 ユーザー決定）。
-           行は ② _brochure_poc/build_embedded.py の index_snippet() が出す dist/index_snippets_embedded.html から。 -->
       <div class="zindex-cat zindex-cat-pcp" data-use="pcp" id="pcp">
         <div class="zindex-cat-title"><img class="zindex-cat-logo" src="/assets/pcp_solutions_logo.png" alt="PCP SOLUTIONS" width="140" height="24">組み込み GPU<span class="zindex-cat-en">PCP SOLUTIONS</span></div>
         <div class="zindex-cat-note">PCP SOLUTIONS は PC Partner Limited（ZOTAC と同じ PC Partner グループ）の組み込み事業部のブランドです。ZBOX PRO の型番（ZP-）がある組み込み製品は上の「法人・組み込み・AI・サイネージ — ZBOX PRO」に掲載しています。製品情報の一次出典は PCP SOLUTIONS の製品ページ・資料。見積・受注の窓口は株式会社ゾタック日本の法人窓口です。</div>
@@ -2373,7 +2256,6 @@ html { scroll-padding-top: 96px; }
   </div>
 </section>
 
-<!-- ============================== RECENT EVENTS (SECONDARY) ============================== -->
 <section class="soft">
   <div class="container">
     <div class="section-label">ACTIVITIES</div>
@@ -2381,36 +2263,9 @@ html { scroll-padding-top: 96px; }
     <h2>出展・協賛アクティビティ</h2>
     <p class="section-lead">ZOTAC NIPPON は、各種イベントへのブース出展や機材協賛を行っています。展示・ステージ運営など、製品が実際に稼働している現場の例として、導入をご検討の際の参考にご覧ください。掲載は直近の活動を抜粋したものです。</p>
 
-    <!-- UPCOMING EVENT コールアウト
-         _data/events.json に status: "upcoming" のエントリがある場合に表示。
-         該当なしの場合はブロックごと非表示(現状=2026-05-26 時点では該当なしのためコメントアウト)。
-    <div class="upcoming-mini" style="margin-top: 0;">
-      <div>
-        <div class="label">// UPCOMING EVENT</div>
-        <h3>(イベント名)</h3>
-        <div class="event-info">
-          <strong>(日付)</strong> · (会場) · (ブース番号)
-        </div>
-      </div>
-      <a href="(LP URL)" class="event-cta">→ EVENT PAGE</a>
-    </div>
-    -->
 
-    <!-- 最近の出展・協賛(直近 4-6 件)
-         ↓ _data/events.json から開催開始日降順で直近のみ抽出。
-            同日開始は「会期進行中 > 終了済み」の順。
-            kind: "booth"          → Booth バッジ + LP リンク
-            kind: "sponsor"        → Sponsor バッジ + リンクなし(LP 不在)
-            kind: ["booth","sponsor"] → Booth + Sponsor バッジ + LP リンク
-
-         表記ルール:
-         - 日付 .year: `YYYY.MM.DD`(単日)/ `YYYY.MM.DD–DD`(同月)/ `YYYY.MM.DD – MM.DD`(月またぎ)
-         - 日付副行: 曜日(単日)/ `N DAYS`(2-7日)/ `LONG-TERM`(8日以上)
-         - h3: イベント正式名のみ(関与表現はバッジで表現、タイトルから削除)
-         - 副情報: `// 機材協賛先` と `// 提供機材` で統一 -->
     <div class="event-list">
 
-      <!-- 1. 令和八年（第十三回）博麗神社秋季例大祭 — 博麗電脳試遊会ブースへ機材貸出。会場は公式サイト reitaisai.com の記載(2026-10-20 確認) -->
       <div class="event-row is-no-link">
         <div class="event-date-block">
           <span class="year">2026.10.04</span>
@@ -2435,7 +2290,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- 2. OSAKA INDIE GAMES SUMMIT 2026 — Phoenixxブースへ機材貸出。会場は主催 Phoenixx のリリース(gamebiz 掲載)の記載(2026-10-20 確認) -->
       <div class="event-row is-no-link">
         <div class="event-date-block">
           <span class="year">2026.10.03–04</span>
@@ -2460,7 +2314,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- 3. 東京ゲームショウ2026 — インディーゲームエリア 機器スポンサー(2年連続) + パートナーブース機材協賛。LP は会場向け導線のため未掲載(担当指示 2026-09-11) -->
       <div class="event-row is-no-link">
         <div class="event-date-block">
           <span class="year">2026.09.17–21</span>
@@ -2493,7 +2346,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- 4. 超メタフェス 2026 — ZOTAC ブース出展 + 複数機材協賛 -->
       <a href="/events/supermetafes2026/" class="event-row">
         <div class="event-date-block">
           <span class="year">2026.05.23</span>
@@ -2521,7 +2373,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </a>
 
-      <!-- 5. BitSummit PUNCH — 機材協賛 -->
       <div class="event-row is-no-link">
         <div class="event-date-block">
           <span class="year">2026.05.22–24</span>
@@ -2543,7 +2394,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- 6. Art bit #6 — 機材協賛(長期会期:2026.05.16 – 07.12) -->
       <div class="event-row is-no-link">
         <div class="event-date-block">
           <span class="year">2026.05.16 – 07.12</span>
@@ -2564,7 +2414,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- 7. マチアソビ vol.30 — 機材協賛(株式会社カバー) -->
       <div class="event-row is-no-link">
         <div class="event-date-block">
           <span class="year">2026.05.16–17</span>
@@ -2589,7 +2438,6 @@ html { scroll-padding-top: 96px; }
         </div>
       </div>
 
-      <!-- 8. ASK FES 2026 — ZOTAC ブース出展 -->
       <a href="/events/askfes2026/" class="event-row">
         <div class="event-date-block">
           <span class="year">2026.04.04–05</span>
@@ -2605,7 +2453,6 @@ html { scroll-padding-top: 96px; }
 
     </div>
 
-    <!-- 過去活動・事例への動線(網羅性をブログ/事例タグ側に逃がす) -->
     <p class="events-footer-note">
       <span class="footnote-label">// MORE</span>
       過去のイベント活動・取材記事は <a href="https://zotac.co.jp/blog/">ZOTAC NIPPON ブログ</a>、法人での活用事例は <a href="/case-studies/">導入事例</a> をご覧ください。
@@ -2614,7 +2461,6 @@ html { scroll-padding-top: 96px; }
   </div>
 </section>
 
-<!-- ============================== RELATED ============================== -->
 <section class="soft">
   <div class="container">
     <div class="section-label">RELATED</div>
@@ -2646,7 +2492,6 @@ html { scroll-padding-top: 96px; }
   </div>
 </section>
 
-<!-- ============================== FOOTER ============================== -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">

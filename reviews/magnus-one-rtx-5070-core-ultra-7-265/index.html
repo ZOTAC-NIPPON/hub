@@ -25,7 +25,6 @@
 <link rel="canonical" href="https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 
-<!-- OGP -->
 <meta property="og:title" content="ZOTAC ZBOX MAGNUS ONE EU275070C ベンチマークレビュー（RTX 5070 / Core Ultra 7 265）">
 <meta property="og:description" content="実測ベンチで見る、RTX 5070 12GB×デスクトップ Core Ultra 7 265 のミニPC。MAGNUS ONE の AMD版 5070／5060 Ti との差と、CPUの安定性を検証。">
 <meta property="og:image" content="https://hub.zotac.co.jp/reviews/magnus-one-rtx-5070-core-ultra-7-265/ogp.jpg">
@@ -34,12 +33,10 @@
 <meta property="og:site_name" content="ZOTAC NIPPON">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-<!-- Structured Data (JSON-LD) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -246,8 +243,6 @@
   .data tr.me-row td:first-child{border-left:3px solid var(--yellow)}
   .na{color:var(--ink-light)}
 
-  /* narrow-screen scroll container for the multi-column .data tables
-     (stability / thermal). Keeps the page body from scrolling horizontally. */
   .datawrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
   .datawrap table{margin:0}
   @media(max-width:620px){
@@ -255,7 +250,6 @@
     .datawrap table.data.wide{min-width:520px}
   }
 
-  /* results appendix table */
   .tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:8px;-webkit-overflow-scrolling:touch}
   .results{width:100%;min-width:720px;border-collapse:collapse;font-size:13px;margin:0}
   .results th,.results td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
@@ -289,11 +283,9 @@
   .note b{color:var(--ink)}
   .note .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);display:block;margin-bottom:6px}
 
-  /* placeholder (pending official assets) */
   .ph{border:2px dashed var(--line-strong);border-radius:8px;background:repeating-linear-gradient(45deg,#fafafa,#fafafa 10px,#f4f4f3 10px,#f4f4f3 20px);color:var(--ink-mid);display:flex;align-items:center;justify-content:center;text-align:center;padding:28px 18px;min-height:120px;font-size:13px;line-height:1.6}
   .ph .pin{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-light);display:block;margin-bottom:6px}
 
-  /* primer / 用語解説 columns (GPU/CPU とは) */
   .primer-lead{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin:26px 0 10px;display:flex;align-items:center;gap:9px}
   .primer-lead::before{content:"";width:22px;height:3px;background:var(--yellow);display:inline-block}
   .primer{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 6px}
@@ -306,7 +298,6 @@
   .primer .card .tl{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--dark);background:var(--bg-soft);border:1px solid var(--line-strong);padding:1px 6px;border-radius:3px;margin-right:7px}
   @media(max-width:560px){.primer{grid-template-columns:1fr}}
 
-  /* lineup positioning */
   .lineup{display:flex;flex-direction:column;gap:10px;margin:14px 0 6px}
   .lu{border:1px solid var(--line);border-left:4px solid var(--line-strong);border-radius:6px;padding:12px 16px;font-size:14px;line-height:1.7}
   .lu b{font-weight:700;color:var(--ink)}
@@ -314,10 +305,8 @@
   .lu span.d{color:#3c3f41}
   .lu.me{border-left-color:var(--yellow);background:var(--yellow-soft)}
 
-  /* CTA */
   .cta{display:inline-block;background:var(--yellow);color:var(--dark);font-weight:700;font-size:14.5px;text-decoration:none;padding:12px 22px;border-radius:6px;letter-spacing:.02em;border:1px solid #E6BE00}
   .cta:hover{filter:brightness(.95)}
-  /* product action row: sales button (.cta) + catalog/secondary text link (.txtlink) */
   .buyrow{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin:18px 0 4px}
   .buyrow.center{justify-content:center;text-align:center}
   .txtlink{display:inline-flex;align-items:center;gap:5px;color:var(--ink);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong)}
@@ -354,7 +343,6 @@
   footer b{color:#fff}
   footer .disc{margin-top:16px;padding-top:16px;border-top:1px solid #44484a}
 
-  /* image lightbox (click to enlarge in overlay) */
   main img{cursor:zoom-in}
   .lightbox{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(22,23,25,.93);padding:28px;cursor:zoom-out;opacity:0;transition:opacity .18s ease}
   .lightbox.open{display:flex;opacity:1}
@@ -461,7 +449,6 @@
 
 <main class="wrap">
 
-  <!-- ============ HERO ============ -->
   <section class="hero">
     <span class="eyebrow">Benchmark Review — ZBOX MAGNUS ONE</span>
     <h1>ZBOX MAGNUS ONE <span class="hl">EU275070C</span><span class="h1-sub">デスクトップ Core Ultra 7 × RTX 5070、フルデスクトップ構成</span></h1>
@@ -485,7 +472,6 @@
     <figcaption>ZOTAC ZBOX MAGNUS ONE EU275070C — デスクトップ版 GeForce RTX 5070 とデスクトップ版 Core Ultra 7 265 を収めた 8.48L のミニPC。（ZOTAC 公式キービジュアル）</figcaption>
   </section>
 
-  <!-- ============ TL;DR ============ -->
   <section>
     <div class="tldr">
       <h2>実測サマリー（3行）</h2>
@@ -501,7 +487,6 @@
     </div>
   </section>
 
-  <!-- ============ 製品概要 ============ -->
   <section id="s01">
     <span class="sec-no">01 / 概要</span>
     <h2 class="sec">小型筐体に「デスクトップGPU＋デスクトップCPU」を収めた MAGNUS ONE</h2>
@@ -543,7 +528,6 @@
     <figcaption>左: GPU-Z（GeForce RTX 5070 / 12GB GDDR7 / 192-bit）。右: CPU-Z（Core Ultra 7 265 / デスクトップ Arrow Lake / 20スレッド）。詳細は各スクリーンショットを参照。</figcaption>
   </section>
 
-  <!-- ============ テスト環境 ============ -->
   <section id="s02">
     <span class="sec-no">02 / テスト環境</span>
     <h2 class="sec">テスト環境・比較機材・計測方法</h2>
@@ -609,7 +593,6 @@
     </div>
   </section>
 
-  <!-- ============ 合成3D ============ -->
   <section>
     <span class="sec-no">03 / 3DMark</span>
     <h2 class="sec">3DMark（グラフィックス性能）— 5060 Ti を約4割上回り、RTX 5070 として上位</h2>
@@ -661,7 +644,6 @@
     </div>
   </section>
 
-  <!-- ============ レンダリング ============ -->
   <section>
     <span class="sec-no">04 / GPUレンダリング</span>
     <h2 class="sec">GPUレンダリング — Blender は RTX 5070 同士でトップ</h2>
@@ -699,7 +681,6 @@
       3DMark（グラフィックス性能）・GPUレンダリングで RTX 5060 Ti（モバイルCPU構成の MAGNUS EN）を大きく上回る背景には、GPUクラスの差に加えてこのプラットフォーム差があります。</p>
   </section>
 
-  <!-- ============ AI ============ -->
   <section>
     <span class="sec-no">05 / 画像生成AI</span>
     <h2 class="sec">ローカル画像生成AI（Stable Diffusion）— 速度は上位級、VRAMは12GB</h2>
@@ -734,7 +715,6 @@
     <div class="note"><span class="tag">VRAM</span>本機の GPU-Z 読みで <b>12,288MB（12GB）GDDR7・192bit</b>。同じ RTX 5070 でも AMD版とは生成速度がほぼ同じで、生成速度はGPU性能で決まることが分かります。ComfyUI（SDXL）は CUDA（NVIDIA）環境のみが対象です。</div>
   </section>
 
-  <!-- ============ CPU ============ -->
   <section>
     <span class="sec-no">06 / CPU性能</span>
     <h2 class="sec">CPU性能と安定性 — Core Ultra 7 265 は高く、そして非常に安定</h2>
@@ -770,7 +750,6 @@
     <p class="muted" style="font-size:13.5px">※ Blender CPU の複数回計測でのばらつき（cv）: 本機 Core Ultra 7 265 = 0.3% ／ Core Ultra 7 265（5070 Ti）= 0.6% ／ Core Ultra 7 255HX = 0.6% ／ Core i7-13700 = 4.1%。値はいずれも3回計測の中央値。AMD版 5070（Ryzen 9 9850HX）・4070 Laptop（i7-13700HX）は Blender CPU を追加計測中で、整い次第この比較に追記します。</p>
   </section>
 
-  <!-- ============ 写真/オフィス ============ -->
   <section>
     <span class="sec-no">07 / クリエイティブ</span>
     <h2 class="sec">写真編集・オフィス（Procyon）</h2>
@@ -803,7 +782,6 @@
     </div>
   </section>
 
-  <!-- ============ 安定性まとめ表 ============ -->
   <section>
     <span class="sec-no">08 / 安定性</span>
     <h2 class="sec">複数回計測でのばらつき（再現性・安定性）</h2>
@@ -923,7 +901,6 @@
     </div>
   </section>
 
-  <!-- ============ 接続性 ============ -->
   <section>
     <span class="sec-no">09 / プラットフォーム</span>
     <h2 class="sec">プラットフォームと拡張性 — デスクトップ部品の強み</h2>
@@ -950,7 +927,6 @@
     </figure>
   </section>
 
-  <!-- ============ 活用シーン ============ -->
   <section>
     <span class="sec-no">10 / 用途</span>
     <h2 class="sec">想定される用途</h2>
@@ -969,7 +945,6 @@
       省スペースでローカルGPUレンダリングや映像・写真編集をこなしつつ、設置スペースの限られた制作現場や可視化端末にも導入しやすい構成です。</p>
   </section>
 
-  <!-- ============ まとめ ============ -->
   <section>
     <span class="sec-no">11 / まとめ</span>
     <h2 class="sec">まとめ — どんな現場に向くか</h2>
@@ -1003,7 +978,6 @@
     <div class="buyrow center" style="margin:24px 0 4px"><a class="cta" href="https://zotac.co.jp/product/magnus-one-eu275070c/" target="_blank" rel="noopener">ZOTAC 直販ストアで購入 →</a><a class="txtlink" href="https://hub.zotac.co.jp/catalogs/zbox/eu275070c/">ZBOX MAGNUS ONE EU275070C の製品ページ・全仕様を見る →</a></div>
   </section>
 
-  <!-- ============ データ付録 ============ -->
   <section>
     <span class="sec-no">12 / データ</span>
     <h2 class="sec">付録: 全ベンチマーク結果</h2>
@@ -1040,7 +1014,6 @@
     <p class="muted" style="font-size:12.5px">凡例: 値は3回計測（ComfyUI / Procyon Photo は1回）の中央値。FAIL=実行したが無効。ComfyUI のみ「秒/枚（短いほど良い）」。</p>
   </section>
 
-  <!-- ============ FAQ ============ -->
   <section>
     <span class="sec-no">13 / FAQ</span>
     <h2 class="sec">よくある質問</h2>
@@ -1080,7 +1053,6 @@
 </footer>
 
 
-<!-- Image lightbox (click to enlarge in overlay; no new window) -->
 <script>
 (function(){
   var imgs = document.querySelectorAll('main img');

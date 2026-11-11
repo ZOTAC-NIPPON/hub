@@ -21,7 +21,6 @@
 </script>
 <!-- @partial:analytics END -->
 
-<!-- OGP -->
 <link rel="canonical" href="https://hub.zotac.co.jp/events/tgs2026/">
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="ZOTAC NIPPON">
@@ -35,20 +34,13 @@
 <meta name="twitter:description" content="東京ゲームショウ2026 インディーゲームエリア 機器スポンサー ZOTAC。会場でプレイできるZBOX MAGNUSシリーズの機材一覧、カタログ、実測レビュー、来場者アンケートをまとめてチェック。">
 <meta name="twitter:image"       content="https://hub.zotac.co.jp/events/tgs2026/ogp.jpg">
 
-<!-- Meta -->
 <meta name="description" content="東京ゲームショウ2026 インディーゲームエリア 機器スポンサー ZOTAC。会場でプレイできるZBOX MAGNUSシリーズの機材一覧、カタログ、実測レビュー、来場者アンケートをまとめてチェック。">
-<meta name="robots" content="noindex,follow"><!-- 会場限定の応募導線のため恒久的に noindex（担当決定 2026-09-16）。本公開でも切り替えない -->
+<meta name="robots" content="noindex,follow">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  /* =========================================================
-     TGS2026 LP — GAMER DARK THEME
-     基調: ニアブラック / アクセント: ZOTAC YELLOW #FFD400（主）+ CYAN（従・ラベルのみ）
-     可読性: 本文 15–16px、本文色 #EDEEF0 on #16181C（コントラスト比 約14:1）
-     フォント: 見出し Chakra Petch / 本文 Noto Sans JP / 型番・数値 JetBrains Mono
-     ========================================================= */
   :root {
     --yellow: #FFD400;
     --yellow-hover: #FFE14A;
@@ -67,7 +59,7 @@
     --text: #EDEEF0;
     --text-2: #B9BDC4;
     --text-3: #8A9098;
-    --ink: #1A1B1C;               /* 黄色ボタン上の文字 */
+    --ink: #1A1B1C;
     --display: 'Noto Sans JP', sans-serif;
     --body: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif;
     --mono: 'Noto Sans JP', sans-serif;
@@ -96,15 +88,11 @@
   .skip-link { position: absolute; left: 12px; top: -60px; z-index: 300; background: var(--yellow); color: var(--ink); padding: 10px 14px; font-weight: 700; }
   .skip-link:focus { top: 12px; }
 
-  /* 折り返し: 段落は末尾の孤立行を避け、見出しは行長を均す。型番・数値・時間帯は分割しない */
   p, li, dd { text-wrap: pretty; }
   h1, h2, h3, .section-title .jp, .survey-title, .lending-title, .booth-list-title { text-wrap: balance; }
   .nw { white-space: nowrap; }
   body { overflow-wrap: break-word; line-break: strict; }
 
-  /* ══════════════════════════════════════════
-     0b. THANKS BANNER (?ref=thanks)
-     ══════════════════════════════════════════ */
   .thanks-banner {
     display: none;
     background: linear-gradient(90deg, #1E2126, #15171B);
@@ -120,12 +108,8 @@
   .thanks-banner b { color: var(--yellow); font-weight: 700; }
   .thanks-banner a { color: var(--cyan); text-decoration: underline; text-underline-offset: 3px; margin-left: 10px; }
 
-  /* ══════════════════════════════════════════
-     1. HERO — アリーナ / HUD
-     ══════════════════════════════════════════ */
   .hero {
     position: relative;
-    /* 画面高に追従しつつ上限を設ける（フルページ撮影や縦長ビューポートでヒーローが伸び切らないように） */
     min-height: 640px;
     min-height: clamp(640px, 100svh, 940px);
     display: flex;
@@ -145,7 +129,6 @@
       linear-gradient(180deg, #121417 0%, var(--bg) 70%);
   }
 
-  /* 遠近グリッド */
   .hero-grid-overlay {
     position: absolute;
     inset: 0;
@@ -159,7 +142,6 @@
     -webkit-mask-image: radial-gradient(ellipse 70% 65% at 60% 45%, black 0%, transparent 72%);
   }
 
-  /* スキャンライン */
   .hero-particles {
     position: absolute;
     inset: 0;
@@ -219,7 +201,6 @@
     z-index: 2;
   }
 
-  /* ヒーロー下端のSPECTRAライン */
   .hero-rgb-bar {
     position: absolute; left: 0; right: 0; bottom: 0; height: 2px; z-index: 3;
     background: var(--rgb); background-size: 300% 100%;
@@ -314,7 +295,6 @@
   .hero-meta-value { font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: 0.02em; color: #FFFFFF; text-transform: uppercase; }
   .hero-meta-value.highlight { color: var(--yellow); }
 
-  /* 20周年 コールアウト（ヒーロー本文の下） */
   .hero-anniv {
     display: flex; align-items: center; gap: 18px;
     margin-top: 26px; padding: 14px 18px;
@@ -330,8 +310,6 @@
   .hero-anniv p a { color: var(--yellow); text-decoration: underline; text-underline-offset: 3px; }
 
 
-  /* 20周年ロゴ 背景ウォーターマーク（旧 HUD リングの位置）
-     ロゴ本体は単色・無加工。エフェクトはロゴの外側だけ: 背後の柔らかい光（ハロー）、ゆっくりした明滅、微小な浮遊 */
   .hero-anniv-mark {
     position: absolute; right: -1%; top: 9%; width: min(30vw, 400px); z-index: 1;
     color: var(--yellow); pointer-events: none;
@@ -351,7 +329,6 @@
 
   .hero-cta { margin-top: 24px; opacity: 0; animation: fadeUp 0.7s ease 0.75s forwards; }
 
-  /* ─── HERO NAV ─── */
   .hero-nav { display: flex; flex-direction: column; opacity: 0; animation: fadeIn 1s ease 0.9s forwards; padding-top: 30px; }
   .hero-nav-label { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-3); margin-bottom: 16px; padding-left: 16px; }
 
@@ -387,9 +364,6 @@
   }
   .scroll-line { width: 40px; height: 1px; background: var(--yellow); }
 
-  /* ══════════════════════════════════════════
-     SECTION COMMON
-     ══════════════════════════════════════════ */
   section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
   .section-header { margin-bottom: 52px; }
 
@@ -457,9 +431,6 @@
     position: relative;
   }
 
-  /* ══════════════════════════════════════════
-     01. SURVEY — ENTRY PASS チケット
-     ══════════════════════════════════════════ */
   .survey-block {
     display: flex;
     align-items: center;
@@ -494,7 +465,6 @@
   .survey-serial { position: absolute; bottom: 12px; right: 24px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; color: var(--text-3); }
 
   .survey-text { flex: 1; position: relative; }
-  /* チケット上の 20周年スタンプ */
   .survey-stamp { position: absolute; left: 50%; top: 50%; width: 220px; transform: translate(-70%, -50%) rotate(-8deg); color: var(--yellow); opacity: 0.06; pointer-events: none; }
   .survey-stamp svg { width: 100%; height: auto; display: block; }
 
@@ -526,7 +496,6 @@
   }
   .btn-survey:hover { background: var(--yellow-hover); transform: translateY(-2px); box-shadow: 0 0 36px rgba(255,212,0,0.45); }
 
-  /* RGB フレーム（アンケートカード） */
   .survey-wrap { position: relative; padding: 2px; background: var(--rgb); background-size: 300% 100%; animation: rgbFlowX 14s linear infinite; }
   .survey-wrap .survey-block { border-color: transparent; box-shadow: none; }
 
@@ -539,9 +508,6 @@
   .terms a { color: var(--yellow); text-decoration: underline; text-underline-offset: 2px; }
 
 
-  /* ══════════════════════════════════════════
-     02. EQUIPMENT — 試遊機材
-     ══════════════════════════════════════════ */
   #equipment { position: relative; }
 
   .equip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -572,7 +538,6 @@
   .equip-card.flagship .equip-visual img { padding: 8% 9%; }
   .equip-visual img { width: 100%; height: 100%; object-fit: contain; object-position: center; padding: 7% 8%; display: block; transition: transform 0.35s ease; }
   .equip-card:hover .equip-visual img { transform: scale(1.03); }
-  /* 白背景写真 → 下端をカードへ溶かす */
 
   .equip-tags { position: absolute; top: 14px; left: 14px; display: flex; gap: 6px; flex-wrap: wrap; z-index: 2; }
   .equip-tag {
@@ -644,9 +609,6 @@
   }
   .booth-chip .hall { font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--yellow); white-space: nowrap; }
 
-  /* ══════════════════════════════════════════
-     03. CATALOG CARDS — フライヤーラック
-     ══════════════════════════════════════════ */
   #catalogs { position: relative; }
 
   .catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; z-index: 1; }
@@ -701,9 +663,6 @@
 
   .catalog-more { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-family: var(--body); font-size: 13px; color: var(--text-3); position: relative; z-index: 1; }
 
-  /* ══════════════════════════════════════════
-     04. REVIEWS
-     ══════════════════════════════════════════ */
   .review-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
   .review-grid .review-card { grid-column: span 2; }
   .review-grid .review-card.feature { grid-column: span 3; }
@@ -736,9 +695,6 @@
   .review-card__arrow { margin-top: auto; padding-top: 6px; display: inline-flex; align-items: center; font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--text); letter-spacing: 0.05em; transition: color 0.2s ease, transform 0.2s ease; }
   .review-card:hover .review-card__arrow { color: var(--yellow); transform: translateX(4px); }
 
-  /* ══════════════════════════════════════════
-     05. TRIAL
-     ══════════════════════════════════════════ */
   .lending-block {
     background: var(--surface); border: 1px solid var(--line-strong); border-left: 4px solid var(--yellow);
     padding: 44px 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px;
@@ -761,9 +717,6 @@
   }
   .btn-lending:hover { background: var(--yellow-hover); transform: translateY(-1px); }
 
-  /* ══════════════════════════════════════════
-     06. EVENT INFO
-     ══════════════════════════════════════════ */
   .booth-info-block {
     background: var(--surface); border: 1px solid var(--line-strong); border-left: 4px solid var(--cyan);
     padding: 40px 0; display: grid; grid-template-columns: repeat(3, 1fr); position: relative;
@@ -783,9 +736,6 @@
   .sched .time { font-family: var(--mono); color: var(--text); }
   .event-note { margin-top: 18px; font-family: var(--body); font-size: 12px; color: var(--text-3); line-height: 1.7; }
 
-  /* ══════════════════════════════════════════
-     CONNECT
-     ══════════════════════════════════════════ */
   .product-links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
   .product-link-card {
     display: flex; align-items: center; gap: 16px; padding: 20px 24px;
@@ -800,9 +750,6 @@
   .product-link-arrow { margin-left: auto; color: var(--text-3); font-size: 18px; transition: all 0.2s ease; flex-shrink: 0; }
   .product-link-card:hover .product-link-arrow { transform: translateX(4px); color: var(--yellow); }
 
-  /* ══════════════════════════════════════════
-     FOOTER
-     ══════════════════════════════════════════ */
   footer {
     background: #0A0B0D; color: var(--text); padding: 48px 60px;
     display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px;
@@ -827,7 +774,6 @@
   .analytics-notice a { color: var(--text-2); text-decoration: underline; text-underline-offset: 2px; }
   .analytics-notice a:hover { color: var(--yellow); }
 
-  /* 固定CTA（モバイル） */
   .sticky-cta { display: none; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 90; }
   .sticky-cta a {
     display: flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 18px;
@@ -838,9 +784,6 @@
   }
   .sticky-cta::before { content: ''; position: absolute; inset: -2px; background: var(--yellow); z-index: -1; opacity: 0.9; }
 
-  /* ══════════════════════════════════════════
-     ANIMATIONS
-     ══════════════════════════════════════════ */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -849,9 +792,6 @@
     .hero-eyebrow, .hero-title, .hero-sponsor-badge, .hero-subtitle, .hero-meta, .hero-anniv, .hero-cta, .hero-nav, .hero-scroll-hint { opacity: 1; }
   }
 
-  /* ══════════════════════════════════════════
-     RESPONSIVE
-     ══════════════════════════════════════════ */
   @media (max-width: 1199px) {
     .hero-hud-line--bottom-left, .hero-hud-line--bottom-right, .hero-corner, .hero-hud-markers::after { display: none; }
   }
@@ -913,12 +853,10 @@
     .hero-anniv p { font-size: 13px; }
     .footer-anniv { margin-left: 0; }
     .sticky-cta { display: block; }
-    /* 狭い幅では長い括弧書きの nowrap を解除（カードからのはみ出し防止） */
     .review-card__body h3 .nw, .equip-desc .nw, .review-card__body p .nw, .lending-desc .nw, .section-lead .nw, .survey-desc .nw, .survey-terms .nw { white-space: normal; }
     .sticky-cta a { font-size: 14px; padding: 14px 12px; white-space: nowrap; }
   }
 
-  /* ═══ v2 (2026-09-11): スタンドの世界観に合わせたヒーロー、日本語見出し、装飾の整理 ═══ */
   .wrap2 { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
   .sp { display: none; }
   .hero-v2 { position: relative; background: #FFFFFF url(./images/pixel_sparkles.png) center top / 1600px auto no-repeat; color: #1A1B1C; padding: 44px 0 0; overflow: hidden; }
@@ -1103,7 +1041,6 @@
 <!-- @partial:header END -->
 
 <a class="skip-link" href="#main">本文へ移動</a>
-<!-- サンクスメールからの再訪 (?ref=thanks) でだけ表示される帯 -->
 <div class="thanks-banner" id="thanks-banner" role="status">
   <b>ご回答ありがとうございました。</b>抽選結果は当選者の方にのみメールでご連絡します。
   <a href="#equipment">会場の機材を見る</a>
@@ -1111,7 +1048,6 @@
 </div>
 
 <main id="main">
-<!-- ═══════════════════ HERO ═══════════════════ -->
 <div class="hero-v2">
   <div class="wrap2 hero-v2-inner">
     <div class="hero-v2-anniv"><svg xmlns="http://www.w3.org/2000/svg" viewBox="212 225 656 631" fill="currentColor" role="img" aria-label="ZOTAC 20th Anniversary"><path transform="matrix(1,0,0,-1,339.7358,300.3181)" d="M0 0C27.044 0 50.486-20.649 51.866-47.658 52.459-59.256 49.135-70.412 42.359-79.8L47.917-85.361 90.799-128.243 94.527-131.509C96.939-128.755 99.279-125.832 101.399-122.907 116.96-101.504 125.154-76.193 125.034-49.717 124.721 18.667 67.244 73.103-1.141 73.103H-1.157C-69.417 73.103-124.752 17.767-124.752-50.492V-79.801H-51.651V-50.492C-51.651-22.606-29.045 0-1.159 0Z"/><path transform="matrix(1,0,0,-1,349.3912,420.37013)" d="M0 0-134.519-168.746 115.079-168.723V-115.173Z"/><path transform="matrix(1,0,0,-1,645.729,227.21582)" d="M0 0C-99.775 0-180.95-81.176-180.95-180.951-180.95-280.726-99.775-361.901 0-361.901 99.775-361.901 180.95-280.726 180.95-180.951 180.95-81.176 99.775 0 0 0M0-72.879C59.591-72.879 108.071-121.36 108.071-180.951 108.071-240.541 59.591-289.022 0-289.022-59.591-289.022-108.071-240.541-108.071-180.951-108.071-121.36-59.591-72.879 0-72.879"/><path transform="matrix(1,0,0,-1,597.7945,418.03364)" d="M0 0-25.542 43.729H-.193L11.416 21.477 23.124 43.729H48.181L22.639 .288V-23.995H0Z"/><path transform="matrix(1,0,0,-1,685.5364,406.52088)" d="M0 0C5.417 0 8.708 2.416 8.708 6.578V6.771C8.708 11.126 5.321 13.255 .097 13.255H-9.771V0ZM-32.41 32.217H.678C12.674 32.217 20.318 29.217 25.057 24.476 29.121 20.413 31.249 15.383 31.249 8.415V8.222C31.249-1.647 26.121-8.513 17.898-12.482L33.669-35.508H7.837L-4.935-16.159H-9.771V-35.508H-32.41Z"/><path transform="matrix(1,0,0,-1,236.5527,661.33377)" d="M0 0-5.193-12.676H5.193ZM11.838-29.035 8.264-20.269H-8.264L-11.838-29.035H-20.603L-3.853 10.329H4.076L20.826-29.035Z"/><path transform="matrix(1,0,0,-1,309.226,690.3683)" d="M0 0-18.929 24.848V0H-27.415V39.084H-19.486L-1.172 15.02V39.084H7.316V0Z"/><path transform="matrix(1,0,0,-1,371.7375,690.3683)" d="M0 0-18.929 24.848V0H-27.415V39.084H-19.486L-1.172 15.02V39.084H7.316V0Z"/><path transform="matrix(1,0,0,-1,0,1080)" d="M407.224 428.716H415.822V389.63203H407.224Z"/><path transform="matrix(1,0,0,-1,464.05,690.6476)" d="M0 0H-7.593L-23.395 39.363H-13.902L-3.684 11.838 6.532 39.363H15.802Z"/><path transform="matrix(1,0,0,-1,504.2856,690.3683)" d="M0 0V39.084H29.481V31.436H8.542V23.506H26.968V15.858H8.542V7.651H29.76V0Z"/><path transform="matrix(1,0,0,-1,583.997,664.6279)" d="M0 0C0 3.686-2.569 5.583-6.757 5.583H-15.299V-5.638H-6.588C-2.402-5.638 0-3.407 0-.112ZM-.167-25.74-8.544-13.235H-15.299V-25.74H-23.897V13.344H-6.03C3.183 13.344 8.711 8.486 8.711 .446V.334C8.711-5.975 5.304-9.937 .336-11.78L9.883-25.74Z"/><path transform="matrix(1,0,0,-1,632.7729,690.927)" d="M0 0C-5.919 0-11.893 2.068-16.583 6.255L-11.502 12.339C-7.985 9.436-4.299 7.593 .169 7.593 3.686 7.593 5.807 8.99 5.807 11.279V11.392C5.807 13.569 4.468 14.686-2.066 16.362-9.939 18.372-15.02 20.549-15.02 28.309V28.421C-15.02 35.514-9.324 40.202-1.341 40.202 4.355 40.202 9.213 38.416 13.178 35.235L8.711 28.755C5.25 31.157 1.843 32.608-1.451 32.608-4.745 32.608-6.476 31.102-6.476 29.202V29.093C-6.476 26.524-4.802 25.686 1.954 23.955 9.883 21.888 14.35 19.04 14.35 12.23V12.117C14.35 4.357 8.431 0 0 0"/><path transform="matrix(1,0,0,-1,689.4267,661.33377)" d="M0 0-5.193-12.676H5.193ZM11.838-29.035 8.264-20.269H-8.264L-11.838-29.035H-20.603L-3.853 10.329H4.076L20.826-29.035Z"/><path transform="matrix(1,0,0,-1,758.581,664.6279)" d="M0 0C0 3.686-2.569 5.583-6.757 5.583H-15.299V-5.638H-6.588C-2.402-5.638 0-3.407 0-.112ZM-.167-25.74-8.544-13.235H-15.299V-25.74H-23.897V13.344H-6.03C3.184 13.344 8.711 8.486 8.711 .446V.334C8.711-5.975 5.304-9.937 .336-11.78L9.883-25.74Z"/><path transform="matrix(1,0,0,-1,811.6595,674.7898)" d="M0 0V-15.578H-8.598V-.167L-23.62 23.506H-13.569L-4.245 7.818 5.248 23.506H15.02Z"/><path transform="matrix(1,0,0,-1,594.3388,744.37026)" d="M0 0-109.015 .003-125.096-27.799-80.269-27.796V-105.288H-48.662V-27.796H-16.008Z" fill-rule="evenodd"/><path transform="matrix(1,0,0,-1,642.3273,739.2418)" d="M0 0-63.6-110.417H-32.068L.122-54.53 17.416-84.321H-7.728L-22.752-110.417H64.098Z"/><path transform="matrix(1,0,0,-1,231.6059,744.37026)" d="M0 0H86.442L34.901-80.034 91.775-80.221 77.221-105.285-16.733-105.363 35.23-25.718H-14.802Z" fill-rule="evenodd"/><path transform="matrix(1,0,0,-1,396.9552,742.7021)" d="M0 0C-31.419 0-56.584-24.246-56.584-54.89-56.584-85.538-31.267-110.083 .15-110.083 31.567-110.083 56.887-85.538 56.887-54.89 56.887-24.246 31.419 0 0 0M.141-83.55C-13.892-83.55-24.96-70.716-24.96-54.886-24.96-39.055-13.892-26.675 .141-26.675 14.17-26.675 25.541-39.055 25.541-54.886 25.541-70.716 14.17-83.55 .141-83.55" fill-rule="evenodd"/><path transform="matrix(1,0,0,-1,770.2206,824.2563)" d="M0 0C-14.055 0-23.166 12.011-23.166 26.786-23.166 41.56-12.794 53.572 0 53.572H40.219L56.363 81.582H-3.529C-22.729 81.582-39.452 70.284-48.229 53.573-52.39 45.651-54.773 36.519-54.773 26.786-54.773 13.903-50.605 2.067-43.646-7.288-34.258-19.91-19.783-28.011-3.529-28.011H42.32L58.465 0Z"/><path transform="matrix(1,0,0,-1,850.8368,753.9488)" d="M0 0V4.257H3.243C4.891 4.257 5.87 3.514 5.87 2.156V2.119C5.87 .833 4.855 0 3.262 0ZM8.134 2.246V2.283C8.134 3.388 7.754 4.329 7.084 5.018 6.268 5.815 5.018 6.286 3.424 6.286H-2.229V-6.395H0V-1.974H2.79L5.907-6.395H8.533L5.109-1.594C6.885-1.087 8.134 .163 8.134 2.246"/><path transform="matrix(1,0,0,-1,853.51,764.0097)" d="M0 0C-5.358 0-9.718 4.36-9.718 9.718-9.718 15.077-5.358 19.436 0 19.436 5.359 19.436 9.718 15.077 9.718 9.718 9.718 4.36 5.359 0 0 0M0 21.335C-6.416 21.335-11.617 16.134-11.617 9.718-11.617 3.302-6.416-1.899 0-1.899 6.416-1.899 11.617 3.302 11.617 9.718 11.617 16.134 6.416 21.335 0 21.335"/></svg></div>
@@ -1144,7 +1080,6 @@
   <div class="hero-v2-ground" aria-hidden="true"></div>
 </div>
 
-<!-- ═══════════════════ 01: SURVEY ═══════════════════ -->
 <section id="survey" class="sec2">
   <div class="wrap2">
     <h2 class="section-title"><span class="nw">来場者アンケート・</span><span class="nw">オリジナルグッズ抽選</span></h2>
@@ -1201,7 +1136,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ 02: EQUIPMENT ═══════════════════ -->
 <section id="equipment">
   <div class="section-header">
     <h2 class="section-title">会場でプレイできる機材一覧</h2>
@@ -1213,7 +1147,6 @@
   </div>
 
   <div class="equip-grid">
-    <!-- FLAGSHIP: MAGNUS ONE ULTRA -->
     <article class="equip-card flagship">
       <div class="equip-visual">
         <img src="./images/ultra_eu275080c.jpg" width="1200" height="828" alt="ZBOX MAGNUS ONE ULTRA EU275080C">
@@ -1253,7 +1186,6 @@
       </div>
     </article>
 
-    <!-- MAGNUS ONE -->
     <article class="equip-card">
       <div class="equip-visual">
         <img src="./images/one_eu27507tc.jpg" loading="lazy" decoding="async" width="1600" height="1105" alt="ZBOX MAGNUS ONE">
@@ -1284,7 +1216,6 @@
       </div>
     </article>
 
-    <!-- MAGNUS EN -->
     <article class="equip-card">
       <div class="equip-visual">
         <img src="./images/en_en275060tc.jpg" loading="lazy" decoding="async" width="1600" height="1034" alt="ZBOX MAGNUS EN275060TC">
@@ -1318,7 +1249,6 @@
       </div>
     </article>
 
-    <!-- GPU -->
     <article class="equip-card">
       <div class="equip-visual">
         <img src="./images/gpu_rtx5090_solid.jpg" loading="lazy" decoding="async" width="1600" height="1105" alt="ZOTAC GAMING GeForce RTX 5090 SOLID OC">
@@ -1348,7 +1278,6 @@
     </article>
   </div>
 
-  <!-- 設置ブース -->
   <div class="booth-list">
     <p class="booth-list-title">このアンケートスタンドが置いてあるパートナーブース</p>
 <p class="booth-list-sub">ブースの状況により、スタンドを一時的に片づけている場合があります。見当たらないときは、このページから直接ご回答ください。</p>
@@ -1368,7 +1297,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ 03: CATALOGS ═══════════════════ -->
 <section id="catalogs">
   <div class="section-header">
     <h2 class="section-title">フライヤー・カタログ</h2>
@@ -1445,7 +1373,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ 04: REVIEWS ═══════════════════ -->
 <section id="reviews">
   <div class="section-header">
     <h2 class="section-title">会場のPCの性能レビュー</h2>
@@ -1518,7 +1445,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ 05: TRIAL PROGRAM ═══════════════════ -->
 <section id="trial">
   <div class="section-header">
     <h2 class="section-title">出展企業・教育機関向け 機材トライアル</h2>
@@ -1559,7 +1485,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ 06: EVENT INFO ═══════════════════ -->
 <div class="band-orange">
   <section id="event">
     <div class="section-header">
@@ -1592,7 +1517,6 @@
   </section>
 </div>
 
-<!-- ═══════════════════ CONNECT ═══════════════════ -->
 <section id="connect">
   <div class="section-header">
     <h2 class="section-title">フォロー・製品情報</h2>
@@ -1619,7 +1543,6 @@
 
 </main>
 
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
 <footer>
   <div class="footer-logo-area">
     <img src="./images/ZOTAC_white.png" alt="ZOTAC" class="footer-logo" onerror="this.outerHTML='<span class=\'footer-logo-placeholder\'>ZOTAC NIPPON</span>'">
@@ -1667,7 +1590,6 @@
   </p>
 </footer>
 
-<!-- モバイル固定CTA -->
 <div class="sticky-cta" id="sticky-cta">
   <a href="https://forms.cloud.microsoft/r/04QWeY3Yjh" target="_blank" rel="noopener" data-track="survey_open" data-position="sticky">アンケートに回答する</a>
 </div>

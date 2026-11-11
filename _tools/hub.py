@@ -504,7 +504,9 @@ def cmd_import(args):
         if s.suffix.lower() in hublib.MARKUP_SUFFIXES:
             text = s.read_text(encoding="utf-8", errors="replace")
             previous = d.read_text(encoding="utf-8", errors="replace") if d.is_file() else None
-            out, fixes, unresolved = to_hub(text, previous)
+            # 制作メモのコメントは公開しない（2026-11-12）。XML/SVG は対象外
+            out, fixes, unresolved = to_hub(
+                text, previous, strip_comment=s.suffix.lower() in (".html", ".htm"))
             if unresolved:
                 blocked.append((rel, unresolved))
                 continue

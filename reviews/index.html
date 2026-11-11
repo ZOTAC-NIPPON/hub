@@ -160,7 +160,6 @@ a { color: inherit; }
 .yellow-bar { width: 48px; height: 4px; background: var(--brand-yellow); margin-bottom: 18px; }
 .yellow-bar-lg { width: 56px; height: 5px; margin-bottom: 18px; }
 
-/* ===== Page Hero(INDEX より控えめ) ===== */
 .page-hero {
   background: var(--bg-dark);
   color: #fff;
@@ -199,7 +198,6 @@ a { color: inherit; }
   max-width: 720px;
 }
 
-/* ===== Section ===== */
 section {
   padding: 64px 0 56px;
   border-bottom: 1px solid var(--border);
@@ -225,7 +223,6 @@ h2 {
   max-width: none; line-height: 1.6;
 }
 
-/* ===== Featured Latest Review ===== */
 .featured-review {
   background: var(--bg-light);
   border: 1px solid var(--border);
@@ -237,8 +234,6 @@ h2 {
 @media (max-width: 800px) { .featured-review { grid-template-columns: 1fr; } }
 .featured-review .featured-thumb {
   background: var(--bg-dark);
-  /* 800x580 の公式スライドショーバナーをクロップ無しで収める（グリッドの .review-card .thumb と同比率）。
-     旧 16/11 では 800x580 が cover で上下にクロップされていた。 */
   aspect-ratio: 800 / 580;
   position: relative;
   display: flex; align-items: center; justify-content: center;
@@ -308,7 +303,6 @@ h2 {
 }
 .featured-review .featured-cta:hover { background: var(--brand-yellow); color: var(--text-dark); }
 
-/* ===== Review List ===== */
 .review-filters {
   display: flex; flex-wrap: wrap; gap: 8px;
   margin: 28px 0 24px;
@@ -394,7 +388,6 @@ h2 {
   margin-top: auto;
 }
 
-/* ===== Related CTA ===== */
 .related-ctas {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -428,7 +421,6 @@ h2 {
 }
 .related-cta:hover p { color: var(--text-faint); }
 
-/* ===== Footer (INDEX と共通、簡略版) ===== */
 .site-footer {
   background: #1a1b1c;
   color: var(--text-faint);
@@ -585,9 +577,7 @@ h2 {
 <!-- @partial:header END -->
 
 
-<!-- ============================== HEADER ============================== -->
 
-<!-- ============================== PAGE HERO ============================== -->
 <section class="page-hero" style="border-bottom: none;">
   <div class="container">
     <div class="breadcrumb">
@@ -602,7 +592,6 @@ h2 {
   </div>
 </section>
 
-<!-- ============================== FEATURED LATEST ============================== -->
 <section>
   <div class="container">
     <div class="section-label">LATEST REVIEW</div>
@@ -610,7 +599,6 @@ h2 {
     <h2>最新のレビュー</h2>
     <p class="section-lead">最新の検証・取材レポートをピックアップ。</p>
 
-    <!-- ↓ _data/reviews.json の priority:1 (or 最新の published) から自動生成 -->
     <a href="power-limit-rtx-50-series/" class="featured-review" style="text-decoration: none; color: inherit;">
       <div class="featured-thumb">
         <img src="power-limit-rtx-50-series/images/card-banner-800x580.jpg" alt="RTX 5090 / 5080 / 5070 Power Limit 省電力化 実測検証 アイキャッチ" loading="lazy">
@@ -636,7 +624,6 @@ h2 {
   </div>
 </section>
 
-<!-- ============================== ALL REVIEWS ============================== -->
 <section class="soft">
   <div class="container">
     <div class="section-label">ALL REVIEWS</div>
@@ -644,18 +631,7 @@ h2 {
     <h2>全レビュー一覧</h2>
     <p class="section-lead">公開済みのレビュー記事を一覧表示します。</p>
 
-    <!-- カテゴリフィルタ — レビュー本数が増えるまで非表示(機能しない UI を公開しない)
-    <div class="review-filters">
-      <span class="filter-label">FILTER:</span>
-      <a href="#" class="filter-chip is-active">All</a>
-      <a href="#" class="filter-chip">GPU / Graphics</a>
-      <a href="#" class="filter-chip">Mini PC / ZBOX</a>
-      <a href="#" class="filter-chip">HMD / VR</a>
-      <a href="#" class="filter-chip">Peripheral</a>
-    </div>
-    -->
 
-    <!-- ↓ _data/reviews.json から自動生成 -->
     <div class="review-grid">
       <a href="edge-mi676-mi656/" class="review-card">
         <div class="thumb"><img src="edge-mi676-mi656/images/card-banner-800x580.jpg" alt="ZBOX edge MI676 / MI656 レビュー" loading="lazy"></div>
@@ -773,12 +749,10 @@ h2 {
         </div>
       </a>
 
-      <!-- 新規レビュー公開時は、上のカードをコピーして追加 -->
     </div>
   </div>
 </section>
 
-<!-- ============================== RELATED ============================== -->
 <section class="soft">
   <div class="container">
     <div class="section-label">RELATED</div>
@@ -810,7 +784,6 @@ h2 {
   </div>
 </section>
 
-<!-- ============================== FOOTER ============================== -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">

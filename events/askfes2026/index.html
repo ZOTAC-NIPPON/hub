@@ -21,7 +21,6 @@
 </script>
 <!-- @partial:analytics END -->
 
-<!-- OGP — deployed 2026-03-17 -->
 <link rel="canonical" href="https://hub.zotac.co.jp/events/askfes2026/">
 
 <meta property="og:type"        content="website">
@@ -70,7 +69,6 @@
     overflow-x: hidden;
   }
 
-  /* ─── HERO ─── */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -111,7 +109,6 @@
     z-index: 2;
   }
 
-  /* 2カラムラッパー */
   .hero-inner {
     position: relative;
     z-index: 3;
@@ -123,7 +120,6 @@
     gap: 60px;
   }
 
-  /* 左カラム */
   .hero-content {
     display: flex;
     flex-direction: column;
@@ -163,7 +159,6 @@
     color: var(--zotac-yellow);
   }
 
-  /* PLATINUM SPONSOR → 小バッジに降格 */
   .hero-sponsor-badge {
     display: inline-flex;
     align-items: center;
@@ -235,7 +230,6 @@
     color: var(--zotac-yellow);
   }
 
-  /* 右カラム：静かなショートナビ */
   .hero-nav {
     display: flex;
     flex-direction: column;
@@ -369,7 +363,6 @@
     background: var(--zotac-mid-gray);
   }
 
-  /* ─── SECTION COMMON ─── */
   section {
     padding: 100px 60px;
     max-width: 1200px;
@@ -407,7 +400,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* ─── DIVIDER ─── */
   .section-divider {
     width: 100%;
     height: 1px;
@@ -417,7 +409,6 @@
     margin-inline: auto;
   }
 
-  /* ─── CATALOG CARDS ─── */
   .catalog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -600,7 +591,6 @@
     font-style: italic;
   }
 
-  /* ─── PRODUCT LINKS ─── */
   .product-links-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -685,7 +675,6 @@
     color: var(--zotac-yellow);
   }
 
-  /* ─── TRIAL PROGRAM ─── */
   .lending-block {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -745,7 +734,6 @@
     transform: translateX(2px);
   }
 
-  /* ─── VIDEO SECTION ─── */
   .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -798,7 +786,6 @@
     color: var(--zotac-light-gray);
   }
 
-  /* ─── ABOUT / BOOTH INFO ─── */
   .booth-info-block {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -850,7 +837,6 @@
     margin-top: 4px;
   }
 
-  /* ─── FOOTER ─── */
   footer {
     background: var(--surface);
     border-top: 1px solid var(--border);
@@ -925,7 +911,6 @@
     line-height: 1.8;
   }
 
-  /* ─── ANIMATIONS ─── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -936,7 +921,6 @@
     to { opacity: 1; }
   }
 
-  /* ─── RESPONSIVE ─── */
   @media (max-width: 1024px) and (min-width: 769px) {
     .catalog-grid { grid-template-columns: repeat(2, 1fr); }
   }
@@ -960,11 +944,9 @@
 </style>
 
 
-<!-- Meta -->
 <meta name="description" content="ASK FES 2026 ブース#6。ZOTACのGPU・ZBOX資料、製品情報をまとめてチェックできます。">
 <meta name="robots" content="index,follow,max-image-preview:large">
 
-<!-- Structured Data (JSON-LD) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1016,6 +998,7 @@
   ]
 }
 </script>
+
 </head>
 <body>
 <!-- @partial:header START — 編集は _partials/header.html、反映は python _partials/inject.py -->
@@ -1110,7 +1093,6 @@
 </script>
 <!-- @partial:header END -->
 
-<!-- ═══════════════════ HERO ═══════════════════ -->
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-overlay"></div>
@@ -1118,7 +1100,6 @@
 
   <div class="hero-inner">
 
-    <!-- 左カラム：タイトル・情報 -->
     <div class="hero-content">
       <p class="hero-eyebrow">ZOTAC at ASK FES 2026</p>
       <h1 class="hero-title">ZOTAC</h1>
@@ -1145,7 +1126,6 @@
       </div>
     </div>
 
-    <!-- 右カラム：静かなショートナビ -->
     <div class="hero-nav">
       <p class="hero-nav-label">Contents</p>
 
@@ -1212,7 +1192,6 @@
   </div>
 </div>
 
-<!-- ═══════════════════ CATALOGS ═══════════════════ -->
 <section id="catalogs">
   <div class="section-header">
     <p class="section-eyebrow">Documents</p>
@@ -1224,7 +1203,6 @@
 
   <div class="catalog-grid">
 
-    <!-- 1: RTX 50シリーズ 総合カタログ -->
     <div class="catalog-card zg">
       <div class="card-image">
         <img src="/pdfs/covers/rtx50_catalog_cover.jpg" alt="RTX 50シリーズ 総合カタログ" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🎮</span><span>RTX 50 SERIES</span></div>'">
@@ -1242,7 +1220,6 @@
       </div>
     </div>
 
-    <!-- 2: ZBOX 総合カタログ -->
     <div class="catalog-card zbox">
       <div class="card-image">
         <img src="/pdfs/covers/zbox_catalog_cover.jpg" alt="ZBOX 総合カタログ" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🖥️</span><span>ZBOX CATALOG</span></div>'">
@@ -1260,7 +1237,6 @@
       </div>
     </div>
 
-    <!-- 3: ZBOX 注目モデル -->
     <div class="catalog-card zbox">
       <div class="card-image">
         <img src="/pdfs/covers/zbox_feature_cover.jpg" alt="ZBOX 注目モデル" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>⭐</span><span>ZBOX FEATURE</span></div>'">
@@ -1277,7 +1253,6 @@
       </div>
     </div>
 
-    <!-- 4: ZBOX MAGNUS ONE 単体チラシ -->
     <div class="catalog-card zbox">
       <div class="card-image">
         <img src="/pdfs/covers/magnus_one_flyer_cover.jpg" alt="ZBOX MAGNUS ONE チラシ" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>🖥️</span><span>MAGNUS ONE</span></div>'">
@@ -1294,7 +1269,6 @@
       </div>
     </div>
 
-    <!-- 5: ZBOX MAGNUS EN 単体チラシ -->
     <div class="catalog-card zbox">
       <div class="card-image">
         <img src="/pdfs/covers/magnus_en_flyer_cover.jpg" alt="ZBOX MAGNUS EN チラシ" onerror="this.parentElement.innerHTML='<div class=\'card-image-placeholder\'><span class=\'placeholder-icon\'>💼</span><span>MAGNUS EN</span></div>'">
@@ -1316,7 +1290,6 @@
 
 <div class="section-divider"></div>
 
-<!-- ═══════════════════ PRODUCT LINKS ═══════════════════ -->
 <section id="products">
   <div class="section-header">
     <p class="section-eyebrow">Official Pages</p>
@@ -1367,7 +1340,6 @@
 
 <div class="section-divider"></div>
 
-<!-- ═══════════════════ TRIAL PROGRAM ═══════════════════ -->
 <section id="trial">
   <div class="section-header">
     <p class="section-eyebrow">For Business &amp; Education</p>
@@ -1392,7 +1364,6 @@
 </section>
 <div class="section-divider"></div>
 
-<!-- ═══════════════════ DIRECT SHOP ═══════════════════ -->
 <section id="shop">
   <div class="section-header">
     <p class="section-eyebrow">Online Store</p>
@@ -1418,7 +1389,6 @@
 
 <div class="section-divider"></div>
 
-<!-- ═══════════════════ VIDEOS ═══════════════════ -->
 <section id="videos">
   <div class="section-header">
     <p class="section-eyebrow">Product PV</p>
@@ -1430,7 +1400,6 @@
 
   <div class="video-grid">
 
-    <!-- PV 1: RTX 50 Series -->
     <div>
       <div class="video-embed-wrapper">
         <iframe src="https://www.youtube.com/embed/BM-mE1zx8uY" title="ZOTAC GAMING RTX 50 Series" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -1438,7 +1407,6 @@
       <p class="video-title">ZOTAC GAMING GeForce RTX 50 Series — Official PV</p>
     </div>
 
-    <!-- PV 2: ZBOX E Series (MAGNUS ONE / EN) -->
     <div>
       <div class="video-embed-wrapper">
         <iframe src="https://www.youtube.com/embed/fRqgAXG32VA" title="ZBOX E Series — MAGNUS ONE / EN" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -1451,7 +1419,6 @@
 
 <div class="section-divider"></div>
 
-<!-- ═══════════════════ BOOTH INFO ═══════════════════ -->
 <section id="booth">
   <div class="section-header">
     <p class="section-eyebrow">Event Info</p>
@@ -1482,7 +1449,6 @@
 
 <div class="section-divider"></div>
 
-<!-- ═══════════════════ CONNECT ═══════════════════ -->
 <section id="connect">
   <div class="section-header">
     <p class="section-eyebrow">Stay Connected</p>
@@ -1513,7 +1479,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
 <footer>
   <div class="footer-logo-area">
     <img src="./images/ZOTAC_white.png" alt="ZOTAC" class="footer-logo" onerror="this.outerHTML='<span class=\'footer-logo-placeholder\'>ZOTAC NIPPON</span>'">

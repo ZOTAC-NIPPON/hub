@@ -26,7 +26,6 @@
 <link rel="canonical" href="https://hub.zotac.co.jp/reviews/edge-mi676-mi656/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 
-<!-- OGP -->
 <meta property="og:title" content="ZOTAC ZBOX edge MI676 / MI656 ベンチマークレビュー（Core Ultra 7 255H / Core Ultra 5 225H）">
 <meta property="og:description" content="兄弟機2台を同一条件で実測。軽量3D・動画再生は同等、差はCPUスループットの+11.4%だけ——実測で答えを出す選び分けレビュー。">
 <meta property="og:image" content="https://hub.zotac.co.jp/reviews/edge-mi676-mi656/ogp.jpg">
@@ -37,12 +36,10 @@
 <meta property="og:site_name" content="ZOTAC NIPPON">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-<!-- Structured Data (JSON-LD) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -253,7 +250,6 @@
   .cmp td.mono{font-family:var(--mono);font-size:13px}
   .cmp tr.me-row td{background:var(--yellow-soft)}
   .cmp tr.me-row td:first-child{border-left:3px solid var(--yellow);font-weight:700}
-  /* 2機比較テーブル(.c2): 項目列は左・機種列は中央で縦のラインを揃える */
   .cmp.c2 thead th:first-child,.cmp.c2 td:first-child{width:26%;text-align:left}
   .cmp.c2 thead th:nth-child(2),.cmp.c2 thead th:nth-child(3){text-align:center;width:37%}
   .cmp.c2 td:nth-child(2),.cmp.c2 td:nth-child(3){text-align:center}
@@ -289,7 +285,6 @@
   .note b{color:var(--ink)}
   .note .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);display:block;margin-bottom:6px}
 
-  /* primer / 用語解説 columns */
   .primer-lead{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mid);margin:26px 0 10px;display:flex;align-items:center;gap:9px}
   .primer-lead::before{content:"";width:22px;height:3px;background:var(--yellow);display:inline-block}
   .primer{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 6px}
@@ -311,10 +306,8 @@
   .grid3 .cell{background:var(--bg-soft);border:1px solid var(--line);border-radius:6px;overflow:hidden}
   @media(max-width:560px){.grid3{grid-template-columns:1fr}}
 
-  /* 図版ボックス（EU275080C と共通の見せ方）: 透過素材が乗るので背景は白 */
   figure.figbox{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;padding:16px}
   figure.figbox figcaption{padding-top:10px;margin-top:0}
-  /* 縦長図版: 高さを抑えてクリックで原寸（lightbox）へ */
   figure.tall{text-align:center}
   figure.tall img{max-height:62vh;width:auto;margin:0 auto}
   figure.tall figcaption{text-align:left}
@@ -345,7 +338,6 @@
   footer b{color:#fff}
   footer .disc{margin-top:16px;padding-top:16px;border-top:1px solid #44484a}
 
-  /* image lightbox */
   main img{cursor:zoom-in}
   .lightbox{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(22,23,25,.93);padding:28px;cursor:zoom-out;opacity:0;transition:opacity .18s ease}
   .lightbox.open{display:flex;opacity:1}
@@ -453,7 +445,6 @@
 
 <main class="wrap">
 
-  <!-- ============ HERO ============ -->
   <section class="hero">
     <span class="eyebrow">Benchmark Review — ZBOX edge Series（2機種併載）</span>
     <h1>ZBOX edge <span class="hl">MI676 / MI656</span><span class="h1-sub">差が出たのはCPUスループットだけ — 兄弟機2台の同一条件実測で答えを出す選び分けレビュー</span></h1>
@@ -482,7 +473,6 @@
     </figure>
   </section>
 
-  <!-- ============ TL;DR ============ -->
   <section>
     <div class="tldr">
       <h2>実測サマリー（3行）</h2>
@@ -498,7 +488,6 @@
     </div>
   </section>
 
-  <!-- ============ 01 概要 ============ -->
   <section>
     <span class="sec-no">01 / 概要</span>
     <h2 class="sec">共通の筐体・共通の設計 — 違いは SoC だけの兄弟機</h2>
@@ -536,7 +525,6 @@
     </div>
   </section>
 
-  <!-- ============ 02 実機のハードウェア確認 ============ -->
   <section id="s02">
     <span class="sec-no">02 / 実機</span>
     <h2 class="sec">実機のハードウェア確認（CPU-Z / GPU-Z）</h2>
@@ -566,7 +554,6 @@
     </div>
   </section>
 
-  <!-- ============ 03 テスト環境 ============ -->
   <section id="s03">
     <span class="sec-no">03 / テスト環境</span>
     <h2 class="sec">テスト環境・計測方法 — 2機を同一条件で揃える</h2>
@@ -621,7 +608,6 @@
     </div>
   </section>
 
-  <!-- ============ 04 外観と設置性 ============ -->
   <section id="s04">
     <span class="sec-no">04 / 外観と設置性</span>
     <h2 class="sec">外観と設置性 — 置けるか・つなげるか・組み込めるか</h2>
@@ -716,7 +702,6 @@
     <p>ここまでが「モノとして」の2機——共通筐体ゆえ、置き方・つなぎ方・組み込み方に差はありません。以降の性能実測で、唯一の違いである SoC の差がどこに現れるかを確かめます。</p>
   </section>
 
-  <!-- ============ 05 CPUスループット ============ -->
   <section id="s05">
     <span class="sec-no">05 / CPUの地力</span>
     <h2 class="sec">CPUスループット — 2機の差はここだけ、そして確実に出る</h2>
@@ -754,7 +739,6 @@
       実行のたびに結果がばらつくことはありません。負荷中の挙動は <a class="xref" href="#s09">§09</a> で確認します。</p>
   </section>
 
-  <!-- ============ 06 軽量3D ============ -->
   <section id="s06">
     <span class="sec-no">06 / 軽量3D</span>
     <h2 class="sec">Arc 140T と 130T — カタログの差は、この負荷帯では出ない</h2>
@@ -782,7 +766,6 @@
     </div>
   </section>
 
-  <!-- ============ 07 連続動画再生 ============ -->
   <section id="s07">
     <span class="sec-no">07 / 連続動画再生</span>
     <h2 class="sec">1080p を2時間流し続ける — 両機とも完走、負荷は1%未満</h2>
@@ -808,7 +791,6 @@
     </div>
   </section>
 
-  <!-- ============ 08 ストレージ ============ -->
   <section id="s08">
     <span class="sec-no">08 / ストレージ</span>
     <h2 class="sec">ストレージ — テスト個体構成の参考値</h2>
@@ -844,7 +826,6 @@
     </div>
   </section>
 
-  <!-- ============ 09 温度・電力 ============ -->
   <section id="s09">
     <span class="sec-no">09 / 温度・電力</span>
     <h2 class="sec">温度・電力の挙動 — 同じ筐体、同じ絞り方、同じ安定</h2>
@@ -900,7 +881,6 @@
     </div>
   </section>
 
-  <!-- ============ 10 用途・選び分け ============ -->
   <section>
     <span class="sec-no">10 / 選び分け</span>
     <h2 class="sec">想定される用途と選び分けマップ</h2>
@@ -951,7 +931,6 @@
     </div>
   </section>
 
-  <!-- ============ 11 まとめ ============ -->
   <section>
     <span class="sec-no">11 / まとめ</span>
     <h2 class="sec">まとめ — 「差が出るのはCPUスループットだけ」と分かって選べる2台</h2>
@@ -967,7 +946,6 @@
     </div>
   </section>
 
-  <!-- ============ 12 データ付録 ============ -->
   <section>
     <span class="sec-no">12 / データ</span>
     <h2 class="sec">付録: 全ベンチマーク結果</h2>
@@ -998,7 +976,6 @@
       同一機・同一SSDでもストレージ計測は指標によって大きく振れます（総合値でセッション間最大9%程度、シーケンシャル読み書きでは run 間で3〜4割振れる例も確認）。ストレージ値は参考値に留めています。</p>
   </section>
 
-  <!-- ============ 13 FAQ ============ -->
   <section>
     <span class="sec-no">13 / FAQ</span>
     <h2 class="sec">よくある質問</h2>
@@ -1040,7 +1017,6 @@
 </footer>
 
 
-<!-- Image lightbox (click to enlarge in overlay; no new window) -->
 <script>
 (function(){
   var imgs = document.querySelectorAll('main img');

@@ -1,15 +1,3 @@
-<!--
-  v15.1 (2026-04-27): v15 + アクセス解析タグ追加
-    - Google Analytics 4 トラッキングコード追加
-    - Microsoft Clarity トラッキングコード追加
-    - 設置前にプレースホルダーID（G-N5X4CC48YH / wk7j63hn3o）を実IDに差し替え
-
-  v15 (2026-04-27): v14 + AEO/AIO SEO最適化
-    - タイトル（title 要素）を確定版に更新
-    - meta description / canonical / OG / Twitter Card 一式追加
-    - JSON-LD (@graph): Organization + WebSite + WebPage + Service + FAQPage
-    - hero-lead 先頭にプログラム定義文を追加（AIスニペット起点）
--->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -36,10 +24,8 @@
     <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="canonical" href="https://hub.zotac.co.jp/trial-program/">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ja_JP">
     <meta property="og:site_name" content="ZOTAC NIPPON">
@@ -48,13 +34,11 @@
     <meta property="og:url" content="https://hub.zotac.co.jp/trial-program/">
     <meta property="og:image" content="https://hub.zotac.co.jp/trial-program/assets/magnus_en_hero.png">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ZOTAC 機材トライアルプログラム | ミニPC・グラフィックスカードの無料貸出">
     <meta name="twitter:description" content="法人・教育機関向け。世界最小クラスのデスクトップ版RTX 50搭載ミニPCを最大2週間無料で実機検証。">
     <meta name="twitter:image" content="https://hub.zotac.co.jp/trial-program/assets/magnus_en_hero.png">
 
-    <!-- JSON-LD: Organization + WebSite + WebPage + Service + FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -196,7 +180,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Barlow:wght@600;700;800;900&display=swap" rel="stylesheet">
-    <!-- hub 共通ヘッダー/フッター用 mono フォント -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -233,7 +216,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ===== UTILITY ===== */
         .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
         .section-padding { padding: 5rem 0; }
         .highlight { background: linear-gradient(transparent 60%, rgba(245, 197, 24, 0.35) 60%); display: inline; }
@@ -246,7 +228,6 @@
         .badge-yellow { background: var(--zotac-yellow); color: var(--text-main); }
         .badge-outline { border: 1px solid var(--border); color: var(--text-sub); background: var(--bg-white); }
 
-        /* ===== BUTTONS ===== */
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
             padding: 0.9rem 2.2rem; border-radius: 6px; text-decoration: none;
@@ -274,7 +255,6 @@
         .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
 
-        /* ===== HERO ===== */
         .hero {
             background: var(--bg-light); padding: 4rem 0 5rem; position: relative; overflow: hidden;
         }
@@ -308,7 +288,6 @@
             display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 0.85rem;
         }
 
-        /* ===== TRUST BANNER ===== */
         .trust-banner { background: var(--bg-white); border-bottom: 1px solid var(--border); padding: 1.8rem 0; }
         .trust-inner { display: flex; justify-content: center; align-items: center; gap: 2.5rem; flex-wrap: wrap; }
         .trust-stat { text-align: center; }
@@ -318,19 +297,16 @@
         .trust-label { display: block; font-size: 0.78rem; color: var(--text-sub); margin-top: 0.2rem; }
         .trust-divider { width: 1px; height: 36px; background: var(--border); }
 
-        /* ===== SECTION HEADER ===== */
         .section-header { text-align: center; margin-bottom: 3.5rem; }
         .section-header .kicker { font-family: 'Barlow', sans-serif; font-weight: 700; color: var(--zotac-yellow); font-size: 0.82rem; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem; }
         .section-header h2 { font-size: 2rem; font-weight: 800; margin-bottom: 0.8rem; color: var(--text-main); line-height: 1.35; }
         .section-header p { font-size: 1rem; color: var(--text-body); max-width: 680px; margin: 0 auto; }
-        /* Left-aligned variant */
         .section-title-line {
             font-size: 1.3rem; font-weight: 700; color: var(--text-main); margin-bottom: 2rem;
             display: flex; align-items: center; gap: 1rem;
         }
         .section-title-line::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-        /* ===== WHY ZBOX ===== */
         .why { background: var(--bg-white); }
         .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .why-card { background: var(--bg-light); padding: 2rem 1.5rem; border-radius: 12px; border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
@@ -343,7 +319,6 @@
         .why-vs .old { color: var(--text-sub); display: block; margin-bottom: 0.2rem; text-decoration: line-through; }
         .why-vs .new { color: var(--text-main); font-weight: 700; }
 
-        /* ===== PRODUCTS ===== */
         .products { background: var(--bg-light); }
         .product-showcase { display: flex; flex-direction: column; gap: 2.5rem; }
         .product-card {
@@ -355,8 +330,8 @@
             padding: 2.5rem; position: relative; min-height: 360px;
         }
         .product-image img { max-width: 100%; max-height: 320px; object-fit: contain; }
-        .product-image.tall img { max-height: 380px; } /* MAGNUS ONE: vertical form factor */
-        .product-image.wide img { max-height: 280px; } /* MAGNUS EN: horizontal form factor */
+        .product-image.tall img { max-height: 380px; }
+        .product-image.wide img { max-height: 280px; }
         .product-image .badge { position: absolute; top: 1.2rem; left: 1.2rem; }
         .product-content { padding: 3rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
         .p-series { font-family: 'Barlow', sans-serif; font-weight: 800; font-size: 1.1rem; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.8rem; }
@@ -371,7 +346,6 @@
         .p-features li { position: relative; padding-left: 1.3rem; margin-bottom: 0.4rem; font-size: 0.85rem; font-weight: 600; color: var(--text-body); }
         .p-features li::before { content: '✓'; position: absolute; left: 0; color: var(--zotac-yellow); font-weight: 900; }
 
-        /* GPU addon */
         .gpu-addon { margin-top: 2rem; padding: 1.5rem; background: var(--bg-light); border: 1px solid var(--border); border-radius: 10px; }
         .gpu-addon-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
         .gpu-addon-icon { width: 22px; height: 22px; background: var(--text-main); color: #fff; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800; }
@@ -381,14 +355,12 @@
         .gpu-tag-link { text-decoration: none; border-color: var(--text-main); color: var(--text-main); transition: all 0.2s; }
         .gpu-tag-link:hover { background: var(--text-main); color: #fff; }
 
-        /* OS Banner */
         .os-banner { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 3rem; }
         .os-info h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; color: var(--text-main); }
         .os-info p { font-size: 0.85rem; color: var(--text-body); }
         .os-info strong { font-weight: 700; }
         .os-logo { font-family: 'Barlow', sans-serif; font-size: 1.3rem; font-weight: 800; color: #0078D4; white-space: nowrap; }
 
-        /* ===== SIER VALUE ===== */
         .sier-value { background: var(--bg-dark); color: var(--text-light); padding: 5rem 0; }
         .sier-value .section-header h2 { color: #fff; }
         .sier-value .section-header p { color: #999; }
@@ -399,7 +371,6 @@
         .v-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--zotac-yellow); }
         .v-card p { font-size: 0.88rem; color: #ccc; line-height: 1.7; }
 
-        /* ===== PROCESS ===== */
         .process { background: var(--bg-white); }
         .process-steps { display: flex; justify-content: space-between; align-items: flex-start; position: relative; }
         .process-step { flex: 1; text-align: center; position: relative; padding: 0 0.5rem; }
@@ -416,7 +387,6 @@
         .step-title { font-size: 0.92rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem; }
         .step-desc { font-size: 0.78rem; color: var(--text-sub); }
 
-        /* ===== CASES ===== */
         .cases { background: var(--bg-light); }
         .cases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
         .case-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-white); display: flex; flex-direction: column; transition: box-shadow 0.3s; }
@@ -430,7 +400,6 @@
         .case-list li { font-size: 0.88rem; color: var(--text-body); margin-bottom: 0.4rem; padding-left: 1rem; position: relative; }
         .case-list li::before { content: '・'; position: absolute; left: 0; color: var(--text-sub); }
 
-        /* Article carousel */
         .article-section-title { font-size: 1.4rem; font-weight: 800; text-align: center; margin-bottom: 1.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border); color: var(--text-main); }
         .carousel-wrapper { position: relative; display: flex; align-items: center; gap: 0.8rem; }
         .carousel-btn { width: 40px; height: 40px; border-radius: 50%; background: #fff; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; flex-shrink: 0; box-shadow: var(--shadow-sm); }
@@ -453,7 +422,6 @@
         .article-link:hover { color: var(--zotac-yellow-hover); }
         .article-pending { font-size: 0.78rem; font-weight: 600; color: var(--text-dim); }
 
-        /* ===== FAQ ===== */
         .faq { background: var(--bg-white); }
         .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.6rem; }
         .faq-item { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
@@ -472,7 +440,6 @@
         .faq-a { padding: 1rem 1.25rem; font-size: 0.88rem; color: var(--text-body); line-height: 1.8; background: var(--bg-light); }
         .faq-cta { display: flex; gap: 0.8rem; justify-content: center; margin-top: 2rem; }
 
-        /* ===== REQUIREMENTS ===== */
         .requirements { background: var(--bg-light); }
         .req-box { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; max-width: 960px; margin: 0 auto; }
         .req-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
@@ -486,7 +453,6 @@
         .req-list li { position: relative; padding-left: 1.2rem; margin-bottom: 0.4rem; font-size: 0.85rem; color: var(--text-body); }
         .req-list li::before { content: ''; position: absolute; left: 0; top: 0.6rem; width: 5px; height: 5px; background: var(--text-main); border-radius: 50%; }
 
-        /* ===== CTA FINAL ===== */
         .cta-final { background: var(--bg-soft); text-align: center; border-top: 1px solid var(--border); }
         .cta-box { max-width: 720px; margin: 0 auto; background: var(--bg-white); padding: 3.5rem 3rem; border-radius: 16px; box-shadow: var(--shadow-lg); }
         .cta-box h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.8rem; color: var(--text-main); }
@@ -494,7 +460,6 @@
         .cta-actions { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
         .cta-note { font-size: 0.78rem; color: var(--text-dim); }
 
-        /* ===== STICKY CTA (Mobile) ===== */
         .sticky-cta {
             display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
             gap: 8px; padding: 10px 12px; background: rgba(255,255,255,0.96);
@@ -506,7 +471,6 @@
             font-weight: 700; font-size: 0.85rem; text-decoration: none;
         }
 
-        /* ===== SITE FOOTER (hub.zotac.co.jp 共通デザイン) ===== */
         .site-footer { background: #1a1b1c; color: #B1B3B6; padding: 56px 0 28px; text-align: left; line-height: 1.55; font-size: 15px; }
         .site-footer-container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
         @media (max-width: 700px) { .site-footer-container { padding: 0 24px; } }
@@ -543,7 +507,6 @@
         .analytics-notice a { color: #B1B3B6; text-decoration: underline; text-underline-offset: 2px; }
         .analytics-notice a:hover { color: #FFD400; }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 960px) {
             .sticky-cta { display: flex; }
             body { padding-bottom: 68px; }
@@ -676,9 +639,7 @@
 </script>
 <!-- @partial:header END -->
 
-    <!-- ===== SITE HEADER (hub.zotac.co.jp 共通) ===== -->
 
-    <!-- ===== HERO ===== -->
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
@@ -721,7 +682,6 @@
         </div>
     </section>
 
-    <!-- ===== TRUST BANNER ===== -->
     <section class="trust-banner">
         <div class="container trust-inner">
             <div class="trust-stat">
@@ -746,7 +706,6 @@
         </div>
     </section>
 
-    <!-- ===== WHY ZBOX ===== -->
     <section id="why" class="why section-padding">
         <div class="container">
             <div class="section-header">
@@ -793,7 +752,6 @@
         </div>
     </section>
 
-    <!-- ===== PRODUCTS ===== -->
     <section id="products" class="products section-padding">
         <div class="container">
             <div class="section-header">
@@ -803,7 +761,6 @@
             </div>
 
             <div class="product-showcase">
-                <!-- MAGNUS ONE: Text LEFT → Image RIGHT (product faces left toward text) -->
                 <div class="product-card">
                     <div class="product-content">
                         <div class="p-series">MAGNUS ONE <span class="badge badge-outline">約8.48L</span></div>
@@ -832,7 +789,6 @@
                     </div>
                 </div>
 
-                <!-- MAGNUS EN: Image LEFT → Text RIGHT (product faces right toward text) -->
                 <div class="product-card">
                     <div class="product-image wide">
                         <span class="badge badge-yellow">WALL MOUNT READY</span>
@@ -862,7 +818,6 @@
                 </div>
             </div>
 
-            <!-- GPU Addon -->
             <div class="gpu-addon" style="max-width:800px;margin:2.5rem auto 0;">
                 <div class="gpu-addon-header">
                     <div class="gpu-addon-icon">+</div>
@@ -878,7 +833,6 @@
                 <p style="font-size:0.78rem;color:var(--text-dim);margin-top:0.6rem;">※在庫状況により、対応可能なモデルが異なる場合があります。</p>
             </div>
 
-            <!-- OS LTSC Banner -->
             <div class="os-banner">
                 <div class="os-info">
                     <h4>産業グレードの運用を実現するOSを選択</h4>
@@ -889,7 +843,6 @@
         </div>
     </section>
 
-    <!-- ===== BUSINESS VALUE ===== -->
     <section id="sier-value" class="sier-value">
         <div class="container">
             <div class="section-header">
@@ -914,7 +867,6 @@
         </div>
     </section>
 
-    <!-- ===== PROCESS ===== -->
     <section class="process section-padding">
         <div class="container">
             <div class="section-header">
@@ -931,7 +883,6 @@
         </div>
     </section>
 
-    <!-- ===== CASES ===== -->
     <section id="cases" class="cases section-padding">
         <div class="container">
             <div class="section-header">
@@ -940,7 +891,6 @@
                 <p>GPU搭載×小型筐体という特長が評価され、大型PCでは設置できなかった現場への導入が進んでいます。</p>
             </div>
 
-            <!-- Use Cases -->
             <div class="cases-grid">
                 <div class="case-card">
                     <div class="case-header">
@@ -996,7 +946,6 @@
                 </div>
             </div>
 
-            <!-- Article Carousel -->
             <h3 class="article-section-title">導入企業インタビュー・事例レポート</h3>
             <div class="carousel-wrapper">
                 <button class="carousel-btn carousel-prev" aria-label="前へ">
@@ -1085,7 +1034,6 @@
         </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
     <section id="faq" class="faq section-padding">
         <div class="container">
             <div class="section-header">
@@ -1110,7 +1058,6 @@
         </div>
     </section>
 
-    <!-- ===== REQUIREMENTS ===== -->
     <section id="requirements" class="requirements section-padding">
         <div class="container">
             <div class="section-header">
@@ -1152,7 +1099,6 @@
         </div>
     </section>
 
-    <!-- ===== CTA FINAL ===== -->
     <section class="cta-final section-padding">
         <div class="container">
             <div class="cta-box">
@@ -1173,13 +1119,11 @@
         </div>
     </section>
 
-    <!-- ===== STICKY CTA (Mobile) ===== -->
     <div class="sticky-cta" aria-label="主要アクション">
         <a href="https://forms.office.com/r/qRUvxGpZnk" target="_blank" class="btn btn-primary">相談する</a>
         <a href="#requirements" class="btn btn-secondary">条件を見る</a>
     </div>
 
-    <!-- ===== SITE FOOTER (hub.zotac.co.jp 共通) ===== -->
     <footer class="site-footer">
         <div class="site-footer-container">
             <div class="footer-grid">
